@@ -179,17 +179,21 @@ def test_smallcnn_end_to_end(tmp_path):
     import compile
     import assembler
     import dram
-    
+    import onnx
+    from onnx import numpy_helper
+    from helper_functions import quantize_int32_to_int8_rtl_exact
+    from top_sort import topological_sort
+
     # 1. Export
     onnx_file = str(tmp_path / "cnn_model.onnx")
     asm_file = str(tmp_path / "assembly.asm")
-    
+
     cnn = model.create_cnn_model()
     # model.create_cnn_model() already saves to 'cnn_model.onnx' in the cwd.
-    
+
     # 2. Compile ONNX -> ASM
     compile.generate_assembly("cnn_model.onnx", asm_file)
-    
+
     # Verify the assembly has CNN instructions
     with open(asm_file, 'r') as f:
         asm_code = f.read()
@@ -200,6 +204,18 @@ def test_smallcnn_end_to_end(tmp_path):
     assert "CONV2D_RUN" in asm_code
     assert "MAXPOOL" in asm_code
     assert "GEMV" in asm_code
+
+    # ── Check (5a): one LOAD_V per bias + one for the input prolog ─────────
+    # Catches the duplicate-Conv-bias regression cheaply, before any DRAM walk.
+    onnx_graph = onnx.load("cnn_model.onnx").graph
+    n_conv = sum(1 for n in onnx_graph.node if n.op_type == "Conv")
+    n_fc   = sum(1 for n in onnx_graph.node if n.op_type in ("Gemm", "MatMul"))
+    expected_load_v = 1 + n_conv + n_fc   # 1 input + per-Conv bias + per-FC bias
+    actual_load_v   = asm_code.count("LOAD_V")
+    assert actual_load_v == expected_load_v, (
+        f"Expected {expected_load_v} LOAD_V (1 input + {n_conv} conv biases + "
+        f"{n_fc} fc biases); got {actual_load_v} — duplicate-bias regression?"
+    )
     
     # 3. Assemble -> writes instructions to dram starting at 0x0
     hex_file = asm_file.replace('.asm', '.hex')
@@ -212,12 +228,46 @@ def test_smallcnn_end_to_end(tmp_path):
         "biases": AcceleratorConfig.DRAM_ADDR_BIASES
     }
     
-    # We must write both the FC weights (tile padded) and Conv weights (flat).
-    # The build_initializer_map logic determines layout based on ndim in dram.py
-    # Actually, let's call the specific functions:
-    fc_weights, _ = dram.save_initializers_to_dram("cnn_model.onnx", dram_offsets)
-    conv_w, conv_b = dram.save_conv_weights_to_dram("cnn_model.onnx", dram_offsets)
-    
+    # Use the unified DRAM walker (post-Patch B). The legacy save_*_to_dram
+    # functions are now thin wrappers, so calling them in any order produces
+    # the same DRAM image — but we use save_all_initializers_to_dram directly
+    # to make the contract explicit.
+    fc_weight_map, bias_map_all, conv_weight_map = \
+        dram.save_all_initializers_to_dram("cnn_model.onnx", dram_offsets)
+
+    # ── Check (5b): FC bias bytes in DRAM equal the quantised fc.bias ──────
+    # Catches Bug 2 (bias-region overlap) directly. Walks topological order
+    # to compute the deterministic FC bias offset (= conv biases written
+    # before it + DRAM_ADDR_BIASES).
+    inits = {i.name: i for i in onnx_graph.initializer}
+    bias_offset = AcceleratorConfig.DRAM_ADDR_BIASES
+    fc_bias_name = None
+    for node in topological_sort(onnx_graph):
+        if node.op_type == "Conv":
+            for name in node.input:
+                if name in inits and numpy_helper.to_array(inits[name]).ndim == 1:
+                    bias_offset += numpy_helper.to_array(inits[name]).size
+        elif node.op_type in ("Gemm", "MatMul"):
+            for name in node.input:
+                if name in inits and numpy_helper.to_array(inits[name]).ndim == 1:
+                    fc_bias_name = name
+                    break
+            if fc_bias_name:
+                break
+    assert fc_bias_name is not None, "no FC bias initializer found in graph"
+
+    fc_bias_f32 = numpy_helper.to_array(inits[fc_bias_name])
+    fc_scale = (np.max(np.abs(fc_bias_f32)) / 127
+                if np.max(np.abs(fc_bias_f32)) > 0 else 1.0)
+    expected_fc_bias_q = np.clip(np.round(fc_bias_f32 / fc_scale),
+                                 -128, 127).astype(np.int8)
+    actual_fc_bias = dram.get_dram()[bias_offset : bias_offset + len(expected_fc_bias_q)]
+    np.testing.assert_array_equal(
+        actual_fc_bias, expected_fc_bias_q,
+        err_msg=f"FC bias DRAM content at 0x{bias_offset:X} differs from "
+                f"quantised fc.bias — bias-region overlap regression?"
+    )
+
     # Sync memory back to golden model
     golden_model.memory = dram.get_dram()
     
@@ -260,12 +310,87 @@ def test_smallcnn_end_to_end(tmp_path):
         golden_model.i_decoder(word)
         
     final_output = _get_buffer(golden_model.output_buffer, AcceleratorConfig.OUT_N)
-    
-    # 7. Compare
-    # Because of aggressive 8-bit intermediate quantization + scaling logic vs f32 PyTorch,
-    # we expect shape/scale correlation, but absolute match requires PyTorch Quantization Aware Training.
-    # We verify that the pipeline completes cleanly and produces a vector of exactly OUT_N ints.
+
     assert len(final_output) == AcceleratorConfig.OUT_N
-    
+
+    # ── Check (5c): NumPy shadow chain bit-exact match ─────────────────────
+    # Mirrors what the assembly *says* to do (not what the original ONNX
+    # graph says — those can differ if compile.py drops ops, which is
+    # tracked separately). Catches Bugs 1, 2, 3 plus any quantizer drift.
+    def _q_init(name):
+        """Quantize an initializer the same way save_all_initializers_to_dram does."""
+        arr = numpy_helper.to_array(inits[name])
+        s = np.max(np.abs(arr)) / 127 if np.max(np.abs(arr)) > 0 else 1.0
+        return np.clip(np.round(arr / s), -128, 127).astype(np.int8)
+
+    def _conv_step(x_int8, W_q, B_q, apply_relu):
+        out_c, in_c, kh, kw = W_q.shape
+        H, Wd = x_int8.shape[1], x_int8.shape[2]
+        oh, ow = H - kh + 1, Wd - kw + 1
+        acc = np.zeros((out_c, oh, ow), dtype=np.int32)
+        for o in range(out_c):
+            for ic in range(in_c):
+                for r in range(oh):
+                    for c in range(ow):
+                        acc[o, r, c] += int(
+                            (W_q[o, ic].astype(np.int32) *
+                             x_int8[ic, r:r+kh, c:c+kw].astype(np.int32)).sum())
+            acc[o] += B_q[o]
+        max_abs = int(np.max(np.abs(acc)))
+        q = quantize_int32_to_int8_rtl_exact(
+            acc.flatten().astype(np.int32), max_abs, 0
+        ).reshape(out_c, oh, ow)
+        if apply_relu:
+            q = np.maximum(q, np.int8(0))
+        return q
+
+    def _maxpool_step(x_int8, k=2, s=2):
+        c, h, w = x_int8.shape
+        oh, ow = (h - k) // s + 1, (w - k) // s + 1
+        out = np.zeros((c, oh, ow), dtype=np.int8)
+        for cc in range(c):
+            for r in range(oh):
+                for kk in range(ow):
+                    out[cc, r, kk] = x_int8[cc, r*s:r*s+k, kk*s:kk*s+k].max()
+        return out
+
+    def _gemv_step(x_int8, W_q, B_q):
+        acc = (W_q.astype(np.int32) @ x_int8.astype(np.int32)) + B_q.astype(np.int32)
+        max_abs = int(np.max(np.abs(acc)))
+        return quantize_int32_to_int8_rtl_exact(
+            acc.astype(np.int32), max_abs, 0
+        )
+
+    # Parse the assembly's CONV2D_RUN relu_flag values to mirror compile.py's
+    # actual decisions (rather than re-deriving from the ONNX graph, which
+    # can differ if compile.py drops ops — see comment above).
+    conv_relu_flags = []
+    for line in asm_code.splitlines():
+        parts = line.strip().split()
+        if parts and parts[0] == "CONV2D_RUN":
+            conv_relu_flags.append(int(parts[-1]))   # last arg = relu_flag
+
+    W1_q  = _q_init("conv1.weight")
+    B1_q  = _q_init("conv1.bias")
+    W2_q  = _q_init("conv2.weight")
+    B2_q  = _q_init("conv2.bias")
+    WFC_q = _q_init("fc.weight")
+    BFC_q = _q_init("fc.bias")
+
+    shadow = input_img.reshape(1, 28, 28).astype(np.int8)
+    shadow = _conv_step(shadow, W1_q, B1_q, apply_relu=bool(conv_relu_flags[0]))
+    shadow = _maxpool_step(shadow)
+    shadow = _conv_step(shadow, W2_q, B2_q, apply_relu=bool(conv_relu_flags[1]))
+    shadow = _maxpool_step(shadow)
+    shadow_flat = shadow.flatten()
+    expected_output = _gemv_step(shadow_flat, WFC_q, BFC_q)
+
+    np.testing.assert_array_equal(
+        final_output, expected_output,
+        err_msg="Golden model diverges from int8 NumPy shadow chain — "
+                "bias data-flow / TILE_ELEMS / quantizer regression?"
+    )
+
     print("\nPyTorch native float32 output:", pt_out)
     print("Golden Model 8-bit output:", final_output)
+    print("Shadow chain    8-bit output:", expected_output)

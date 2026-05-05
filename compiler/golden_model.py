@@ -172,22 +172,37 @@ def load_v(dest, addr, length):
 
 
 def load_m(dest, addr, rows, cols):
-    """Load matrix (rows×cols elements) from memory to buffer.
-    
-    The RTL's DMA controller and buffer file assume matrices are tile-aligned 
-    (multiples of 32 columns). We must extract the unpadded elements from the 
-    padded DRAM region.
+    """Load matrix from DRAM into buffer `dest`.
+
+    DRAM contract: weight regions are stored row-major with cols padded to
+    a multiple of AcceleratorConfig.TILE_ELEMS. The instruction's `cols`
+    field is the LOGICAL (unpadded) column count for the matrix; this
+    function reads rows * pad(cols) bytes from DRAM, reshapes, and drops
+    padding to keep only [:, :cols] in `buffers[dest]`.
+
+    compile.py asymmetry (load-bearing for both paths):
+      • FC weights — compile.py emits LOAD_M with cols ALREADY padded.
+        load_m drops nothing; buffers[w] holds the padded matrix flat,
+        and gemv() strides over it using stride=pad(cols).
+      • Conv weights — compile.py emits LOAD_M with the UNPADDED cols
+        (in_C * kH * kW). load_m drops the padding here; buffers[w]
+        holds the unpadded matrix flat, which conv2d() reshapes as
+        [out_C, in_C, kH, kW].
+
+    Do not "fix" this asymmetry without simultaneously updating gemv()'s
+    stride logic and conv2d()'s reshape.
     """
     global buffers
-    padded_cols = ((cols + 31) // 32) * 32
+    TILE_WIDTH = AcceleratorConfig.TILE_ELEMS
+    padded_cols = ((cols + TILE_WIDTH - 1) // TILE_WIDTH) * TILE_WIDTH
     # Memory region is padded, so read rows * padded_cols
     transfer_length = rows * padded_cols
     raw_data = memory[addr:addr + transfer_length]
-    
+
     # Reshape and drop padding
     matrix = np.array(raw_data).reshape(rows, padded_cols)
     matrix = matrix[:, :cols]
-    
+
     # Flatten it back into the buffer
     buffers[dest] = matrix.flatten().tolist()
 

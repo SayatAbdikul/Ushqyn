@@ -37,139 +37,132 @@ def read_from_dram(start_addr, length):
 def get_dram():
     return dram.copy()  # Return a copy to avoid external modifications
 
-def save_initializers_to_dram(model_path, dram_offsets):
-    """Saves the initializers (weights and biases) from an ONNX model to DRAM.
-    Quantizes the tensors to int8 format and writes them to specified DRAM addresses.
-    Ensures that writing follows the topological order of graph execution."""
+def save_all_initializers_to_dram(model_path, dram_offsets):
+    """Single-pass DRAM walker — the source of truth for initializer layout.
+
+    Walks ONNX nodes in topological order and writes initializers per node
+    type into a SHARED bias region so FC and Conv biases never overlap.
+    Mirrors compile.py's emission order so bias_counter (compile.py) and
+    bias_ptr (here) stay in lockstep.
+
+    DRAM layout produced (offsets from dram_offsets):
+        weights      → FC / Gemm / MatMul weights, padded to TILE_ELEMS cols
+        conv_weights → Conv weights [out_C, in_C*kH*kW], padded to TILE_ELEMS cols
+        biases       → ALL biases in topological order:
+                       [conv1.bias | conv2.bias | … | fc.bias | …]
+
+    Skips Reshape, Flatten, BatchNormalization (no DRAM footprint).
+
+    Returns:
+        (weight_map, bias_map, conv_weight_map) — each dict maps
+        initialiser name → DRAM start address.
+    """
     global dram
     dram = np.zeros(MEM_SIZE, dtype=np.int8)
     model = onnx.load(model_path)
     graph = model.graph
 
-    weight_ptr = dram_offsets["weights"]
-    bias_ptr = dram_offsets["biases"]
+    weight_ptr      = dram_offsets["weights"]
+    conv_weight_ptr = dram_offsets.get("conv_weights",
+                                       AcceleratorConfig.DRAM_ADDR_CONV_WEIGHTS)
+    bias_ptr        = dram_offsets["biases"]
 
-    weight_map = {}
-    bias_map = {}
-    
-    # Pre-process initializers into a map for easy lookup
-    initializer_data = {}
-    for init in graph.initializer:
-        initializer_data[init.name] = init
-
-    # Use existing helper or topological sort to traverse in execution order
-    ordered_nodes = topological_sort(graph)
-    visited_initializers = set()
-
-    # Traverse nodes in topological order
-    for node in ordered_nodes:
-        # mirror compile.py logic: skip Reshape nodes
-        # ALSO skip Conv nodes (handled by save_conv_weights_to_dram)
-        if node.op_type in ["Reshape", "Conv"]:
-            continue
-
-        for input_name in node.input:
-            if input_name in initializer_data and input_name not in visited_initializers:
-                visited_initializers.add(input_name)
-                init = initializer_data[input_name]
-                array = numpy_helper.to_array(init)
-
-                # Choose scale/zero_point per tensor or globally
-                scale = np.max(np.abs(array)) / 127 if np.max(np.abs(array)) > 0 else 1.0
-
-                if len(array.shape) > 1:  # weight
-                    rows, cols = array.shape
-                    TILE_WIDTH = AcceleratorConfig.TILE_ELEMS
-                    padded_cols = ((cols + TILE_WIDTH - 1) // TILE_WIDTH) * TILE_WIDTH
-                    
-                    # Pad rows to TILE_WIDTH
-                    padded_array = np.zeros((rows, padded_cols), dtype=np.int8)
-                    q_array = quantize_tensor_f32_int8(array, scale)
-                    padded_array[:, :cols] = q_array
-                    
-                    # Verify padding
-                    padding_elements = padded_array[:, cols:].flatten()
-                    non_zero_padding = np.count_nonzero(padding_elements)
-                    if non_zero_padding > 0:
-                        print(f"ERROR: Padding contains {non_zero_padding} non-zero elements for {input_name}")
-                    else:
-                        # print(f"DEBUG_DRAM: Padding verified zero for {input_name}. Cols={cols}, Padded={padded_cols}")
-                        # print(f"DEBUG_DRAM: Last 10 elements of row 0: {padded_array[0, cols-10:cols]}")
-                        # print(f"DEBUG_DRAM: First 10 elements of padding row 0: {padded_array[0, cols:cols+10]}")
-                        pass
-
-                    quant_array = padded_array.flatten()
-                    
-                    weight_map[input_name] = weight_ptr
-                    weight_ptr = write_to_dram(quant_array, weight_ptr)
-                else:  # bias
-                    quant_array = quantize_tensor_f32_int8(array, scale).flatten()
-                    bias_map[input_name] = bias_ptr
-                    bias_ptr = write_to_dram(quant_array, bias_ptr)
-
-    # Some initializers might not be inputs to any node in the graph (e.g. unused)
-    # We ignore them as compile.py would also ignore them.
-
-    return weight_map, bias_map
-
-
-def save_conv_weights_to_dram(model_path, dram_offsets):
-    """Save Conv2D weights and biases to the DRAM conv_weights region.
-
-    Unlike the FC path in save_initializers_to_dram(), conv weights are conceptually
-    [out_C * in_C * kH * kW], but RTL `conv2d_execution` fetching `w_tile_reg` uses 32-element 
-    `buffer_file.sv` tile-reads. Thus, `cols` (in_C*kH*kW) MUST be padded to multiples of 32!
-
-    Returns:
-        (conv_weight_map, conv_bias_map) – dicts mapping initiailizer name → DRAM address.
-    """
-    global dram
-    model = onnx.load(model_path)
-    graph = model.graph
-
-    conv_weight_ptr = dram_offsets.get("conv_weights", AcceleratorConfig.DRAM_ADDR_CONV_WEIGHTS)
-    bias_ptr        = dram_offsets.get("biases",       AcceleratorConfig.DRAM_ADDR_BIASES)
-
+    weight_map      = {}
+    bias_map        = {}
     conv_weight_map = {}
-    conv_bias_map   = {}
 
     initializer_data = {init.name: init for init in graph.initializer}
-    ordered_nodes    = topological_sort(graph)
     visited          = set()
+    TILE_WIDTH       = AcceleratorConfig.TILE_ELEMS
 
-    for node in ordered_nodes:
-        if node.op_type != "Conv":
+    for node in topological_sort(graph):
+        if node.op_type in ("Reshape", "Flatten", "BatchNormalization"):
             continue
-        for idx, input_name in enumerate(node.input):
+
+        if node.op_type == "Conv":
+            # Conv inputs are ordered [activation, weight, bias]; iterate so
+            # weight is written before bias (matches compile.py emission).
+            for input_name in node.input:
+                if input_name not in initializer_data or input_name in visited:
+                    continue
+                visited.add(input_name)
+                array = numpy_helper.to_array(initializer_data[input_name])
+                scale = (np.max(np.abs(array)) / 127
+                         if np.max(np.abs(array)) > 0 else 1.0)
+                q_arr = np.clip(np.round(array / scale), -128, 127).astype(np.int8)
+
+                if array.ndim > 1:        # conv weight [out_C, in_C, kH, kW]
+                    out_c = q_arr.shape[0]
+                    cols  = int(np.prod(q_arr.shape[1:]))
+                    q_2d  = q_arr.reshape(out_c, cols)
+                    pad_cols = (TILE_WIDTH - (cols % TILE_WIDTH)) % TILE_WIDTH
+                    q_padded = (np.pad(q_2d, ((0, 0), (0, pad_cols)), mode='constant')
+                                if pad_cols else q_2d)
+                    conv_weight_map[input_name] = conv_weight_ptr
+                    conv_weight_ptr = write_to_dram(q_padded.flatten(), conv_weight_ptr)
+                else:                     # conv bias [out_C]
+                    bias_map[input_name] = bias_ptr
+                    bias_ptr = write_to_dram(q_arr.flatten(), bias_ptr)
+            continue
+
+        # FC / Gemm / MatMul / etc. — generic path
+        for input_name in node.input:
             if input_name not in initializer_data or input_name in visited:
                 continue
             visited.add(input_name)
-            init  = initializer_data[input_name]
-            array = numpy_helper.to_array(init)
-            scale = np.max(np.abs(array)) / 127 if np.max(np.abs(array)) > 0 else 1.0
-            q_arr = np.clip(np.round(array / scale), -128, 127).astype(np.int8)
+            array = numpy_helper.to_array(initializer_data[input_name])
+            scale = (np.max(np.abs(array)) / 127
+                     if np.max(np.abs(array)) > 0 else 1.0)
 
-            if array.ndim > 1:   # weight tensor [out_C, in_C, kH, kW]
-                out_c = q_arr.shape[0]
-                cols = np.prod(q_arr.shape[1:])
-                q_arr_2d = q_arr.reshape((out_c, cols))
-                
-                # Pad the columns to a multiple of TILE_SIZE=32
-                pad_cols = (32 - (cols % 32)) % 32
-                if pad_cols > 0:
-                    q_arr_padded = np.pad(q_arr_2d, ((0, 0), (0, pad_cols)), mode='constant')
-                else:
-                    q_arr_padded = q_arr_2d
-                    
-                flat = q_arr_padded.flatten()
-                print(f"[DRAM] Writing conv weight {input_name}: shape={q_arr.shape}, padded_to={pad_cols}, bytes={len(flat)}, start_addr={conv_weight_ptr}")
-                conv_weight_map[input_name] = conv_weight_ptr
-                conv_weight_ptr = write_to_dram(flat, conv_weight_ptr)
-            else:                # bias tensor [out_C]
-                flat = q_arr.flatten()
-                conv_bias_map[input_name] = bias_ptr
-                bias_ptr = write_to_dram(flat, bias_ptr)
+            if array.ndim > 1:   # weight matrix [rows, cols]
+                rows, cols = array.shape
+                padded_cols = ((cols + TILE_WIDTH - 1) // TILE_WIDTH) * TILE_WIDTH
+                padded = np.zeros((rows, padded_cols), dtype=np.int8)
+                padded[:, :cols] = quantize_tensor_f32_int8(array, scale)
+                if np.count_nonzero(padded[:, cols:]) > 0:
+                    print(f"ERROR: padding non-zero for {input_name}")
+                weight_map[input_name] = weight_ptr
+                weight_ptr = write_to_dram(padded.flatten(), weight_ptr)
+            else:                # bias vector
+                q = quantize_tensor_f32_int8(array, scale).flatten()
+                bias_map[input_name] = bias_ptr
+                bias_ptr = write_to_dram(q, bias_ptr)
 
+    return weight_map, bias_map, conv_weight_map
+
+
+def save_initializers_to_dram(model_path, dram_offsets):
+    """Backwards-compat wrapper around save_all_initializers_to_dram.
+
+    Returns (weight_map, bias_map). For pure-MLP graphs the produced DRAM
+    image is byte-identical to the previous implementation. For graphs
+    containing Conv nodes, conv weights are now ALSO written (to the
+    conv_weights region) — previously this function silently skipped them,
+    which forced callers to also call save_conv_weights_to_dram and led
+    to bias-region overlap. New code should call
+    save_all_initializers_to_dram directly.
+    """
+    w, b, _ = save_all_initializers_to_dram(model_path, dram_offsets)
+    return w, b
+
+
+def save_conv_weights_to_dram(model_path, dram_offsets):
+    """Backwards-compat wrapper. Returns (conv_weight_map, conv_bias_map).
+
+    Idempotent if save_all_initializers_to_dram (or save_initializers_to_dram)
+    already ran on the same model — the unified walker writes everything in
+    one pass, so a second call here produces the same DRAM image.
+
+    NOTE: this used to reset bias_ptr to dram_offsets["biases"] and overwrite
+    whatever save_initializers_to_dram had previously written there. The
+    unified walker now owns bias-region layout, so calling this function
+    after save_initializers_to_dram is safe (no overlap).
+    """
+    model = onnx.load(model_path)
+    conv_inputs = {n for node in model.graph.node
+                   if node.op_type == "Conv" for n in node.input}
+    _, bias_map, conv_weight_map = save_all_initializers_to_dram(model_path, dram_offsets)
+    conv_bias_map = {k: v for k, v in bias_map.items() if k in conv_inputs}
     return conv_weight_map, conv_bias_map
 
 def save_input_to_dram(input_tensor, addr):

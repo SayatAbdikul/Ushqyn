@@ -121,8 +121,13 @@ def generate_assembly(model_path, output_file):
 
         # ── Process initialisers (weights / biases) for this node ─────────────
         for idx, input_name in enumerate(node.input):
-            # Skip Conv weights; they are handled specifically in the Conv block below
-            if node.op_type == "Conv" and idx == 1:
+            # Skip Conv weights AND bias; both are handled in the Conv block below.
+            # idx==1: weight (LOAD_M emitted in Conv block)
+            # idx==2: bias   (LOAD_V emitted in Conv block)
+            # Letting either fall through here would emit a *duplicate* load and
+            # double-bump bias_counter, desynchronising compile-side bias offsets
+            # from what dram.py actually wrote.
+            if node.op_type == "Conv" and idx in (1, 2):
                 continue
                 
             if input_name in initializer_map and input_name not in tensor_buffer_map:
@@ -227,13 +232,16 @@ def generate_assembly(model_path, output_file):
             fmap_h      = int(in_shape[2]) if len(in_shape) >= 4 else 1
             fmap_w      = int(in_shape[3]) if len(in_shape) >= 4 else 1
 
+            # Conv weight rows are stored padded to TILE_ELEMS columns in DRAM
+            # (matches dram.save_all_initializers_to_dram's pad logic).
+            TILE_WIDTH = AcceleratorConfig.TILE_ELEMS
             if w_init_name and w_init_name in cnn_init_map:
                 w_info  = cnn_init_map[w_init_name]
                 out_c   = w_info["shape"][0]
                 # Flat weight stored as [out_c, in_c*kh*kw] in DRAM
                 w_rows  = out_c
                 w_cols  = in_c * kh * kw
-                padded_cols = ((w_cols + 31) // 32) * 32
+                padded_cols = ((w_cols + TILE_WIDTH - 1) // TILE_WIDTH) * TILE_WIDTH
                 w_bytes = w_rows * padded_cols
                 w_addr  = dram_addresses["conv_weights"] + conv_weight_counter
                 conv_weight_counter += w_bytes
@@ -244,7 +252,7 @@ def generate_assembly(model_path, output_file):
                 w_addr  = dram_addresses["conv_weights"] + conv_weight_counter
                 w_rows  = out_c
                 w_cols  = in_c * kh * kw
-                padded_cols = ((w_cols + 31) // 32) * 32
+                padded_cols = ((w_cols + TILE_WIDTH - 1) // TILE_WIDTH) * TILE_WIDTH
                 conv_weight_counter += w_rows * padded_cols
 
             # ---- Emit weight load (LOAD_M with rows=out_c, cols=in_c*kh*kw) ----
