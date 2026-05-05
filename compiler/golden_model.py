@@ -18,6 +18,9 @@ from dram import get_dram
 from helper_functions import quantize_int32_to_int8, quantize_int32_to_int8_rtl_exact
 from accelerator_config import AcceleratorConfig
 
+# Set GOLDEN_DEBUG=1 in the env to enable per-op trace prints in gemv/conv2d/maxpool.
+DEBUG_GOLDEN = os.environ.get("GOLDEN_DEBUG", "0") == "1"
+
 # ── Global state ─────────────────────────────────────────────────────────────
 buffers = {}
 output_length = AcceleratorConfig.OUT_N
@@ -123,18 +126,11 @@ def i_decoder(instruction):
         w_id      = instruction >> 15 & 0x1F
         b_id      = instruction >> 20 & 0x1F
         relu_flag = bool(instruction >> 25 & 0x01)
+        # Geometry comes from the most recent CONV2D_CFG.
         cfg = pending_conv_config
-        # The following `def load_m` block was provided in the user's edit.
-        # Placing a function definition inside an `elif` block is syntactically incorrect in Python.
-        # Assuming the user intended to add this `load_m` function at the module level,
-        # or that this was a placeholder for a different kind of change.
-        # To maintain syntactic correctness as per instructions, this block cannot be inserted here.
-        # If the intent was to add a print statement related to CONV2D_RUN, it should be done differently.
-        # As the instruction was "Add print statement" and the provided code includes a print statement
-        # within a function definition, and to avoid syntax errors, I will add the print statement
-        # directly here, assuming the user wanted to debug the CONV2D_RUN parameters.
-        # If the user intended to define a new `load_m` function, it should be placed at the module level.
-        print(f"[DBG_CONV2D_RUN] dest={dest} x_id={x_id} w_id={w_id} b_id={b_id} relu={relu_flag} cfg={cfg}")
+        if DEBUG_GOLDEN:
+            print(f"[DBG_CONV2D_RUN] dest={dest} x_id={x_id} w_id={w_id} "
+                  f"b_id={b_id} relu={relu_flag} cfg={cfg}")
         conv2d(
             dest   = dest,
             w      = w_id,
@@ -215,7 +211,7 @@ def gemv(dest, w, x, b, rows, cols):
     TILE_WIDTH = AcceleratorConfig.TILE_ELEMS
     stride = ((cols + TILE_WIDTH - 1) // TILE_WIDTH) * TILE_WIDTH
 
-    if flag < 3:
+    if DEBUG_GOLDEN and flag < 3:
         print(f"[DBG_GOLDEN] GEMV start: rows={rows}, cols={cols}")
 
     for i in range(rows):
@@ -224,7 +220,7 @@ def gemv(dest, w, x, b, rows, cols):
             sum_val += np.int32(buffers[w][i * stride + j]) * np.int32(buffers[x][j])
         sum_val += np.int32(buffers[b][i])
 
-        if flag < 3 and i < 2:
+        if DEBUG_GOLDEN and flag < 3 and i < 2:
             print(f"[DBG_GOLDEN] ACCUM row={i} bias={buffers[b][i]} final_sum={sum_val}")
 
         buffers[dest][i] = np.int32(sum_val)
@@ -232,7 +228,7 @@ def gemv(dest, w, x, b, rows, cols):
     flag += 1
 
     max_abs = np.max(np.abs(buffers[dest]))
-    if flag <= 3:
+    if DEBUG_GOLDEN and flag <= 3:
         print(f"[DBG_GOLDEN] COMPUTE_SCALE: max_abs={max_abs}")
 
     buffers[dest] = quantize_int32_to_int8_rtl_exact(
@@ -288,28 +284,27 @@ def conv2d(dest, w, x, b, fmap_h, fmap_w, in_c, out_c, kh, kw, stride, pad,
                                     np.int32(x_padded[ic, oh * stride + khi, ow * stride + kwi]))
                 output[oc, oh, ow] = acc + b_flat[oc]
                 
-                # Print first 2 elements in NCHW flattened order
-                idx = oc * out_h * out_w + oh * out_w + ow
-                # Print specific bad index in first layer
-                if dest == 10 and oc == 2 and oh == 9 and ow == 18:
-                    print(f"[DBG_GOLDEN_CONV] TARGET oc=2, oh=9, ow=18: accum={acc} bias={b_flat[oc]} final_sum={output[oc, oh, ow]}")
-                    # Also print the 9 x-values it used
-                    print(f"[DBG_GOLDEN_CONV] TARGET x_window = {x_padded[:, oh*stride:oh*stride+kh, ow*stride:ow*stride+kw].flatten()}")
-                    print(f"[DBG_GOLDEN_CONV] TARGET w_window = {w_data[oc, :, :, :].flatten()}")
+                if DEBUG_GOLDEN:
+                    # Targeted single-element trace for layer 1 at (oc=2, oh=9, ow=18)
+                    if dest == 10 and oc == 2 and oh == 9 and ow == 18:
+                        print(f"[DBG_GOLDEN_CONV] TARGET oc=2, oh=9, ow=18: accum={acc} bias={b_flat[oc]} final_sum={output[oc, oh, ow]}")
+                        print(f"[DBG_GOLDEN_CONV] TARGET x_window = {x_padded[:, oh*stride:oh*stride+kh, ow*stride:ow*stride+kw].flatten()}")
+                        print(f"[DBG_GOLDEN_CONV] TARGET w_window = {w_data[oc, :, :, :].flatten()}")
 
-                # Print trace for Layer 2 specifically at index 0
-                if dest == 11 and oc == 0 and oh == 0 and ow == 0:
-                    x_win = x_padded[:, oh*stride:oh*stride+kh, ow*stride:ow*stride+kw].flatten()
-                    w_win = w_data[oc, :, :, :].flatten()
-                    acc0 = np.sum(np.int32(x_win[0:32]) * np.int32(w_win[0:32]))
-                    acc1 = np.sum(np.int32(x_win[32:36]) * np.int32(w_win[32:36]))
-                    print(f"[DBG_GOLDEN_CONV] LAYER2 oc=0, oh=0, ow=0: accum={acc} bias={b_flat[oc]} final_sum={output[oc, oh, ow]}")
-                    print(f"[DBG_GOLDEN_CONV] LAYER2 acc0(0-31) = {acc0}, acc1(32-35) = {acc1}")
+                    # Targeted single-element trace for layer 2 at (oc=0, oh=0, ow=0)
+                    if dest == 11 and oc == 0 and oh == 0 and ow == 0:
+                        x_win = x_padded[:, oh*stride:oh*stride+kh, ow*stride:ow*stride+kw].flatten()
+                        w_win = w_data[oc, :, :, :].flatten()
+                        acc0 = np.sum(np.int32(x_win[0:32]) * np.int32(w_win[0:32]))
+                        acc1 = np.sum(np.int32(x_win[32:36]) * np.int32(w_win[32:36]))
+                        print(f"[DBG_GOLDEN_CONV] LAYER2 oc=0, oh=0, ow=0: accum={acc} bias={b_flat[oc]} final_sum={output[oc, oh, ow]}")
+                        print(f"[DBG_GOLDEN_CONV] LAYER2 acc0(0-31) = {acc0}, acc1(32-35) = {acc1}")
 
     # Per-tensor RTL-exact quantization (same pipeline as GEMV)
     max_abs  = int(np.max(np.abs(output)))
-    max_idx  = np.argmax(np.abs(output))
-    print(f"[DBG_GOLDEN_CONV] COMPUTE_SCALE: max_abs={max_abs} at index={max_idx}")
+    if DEBUG_GOLDEN:
+        max_idx = np.argmax(np.abs(output))
+        print(f"[DBG_GOLDEN_CONV] COMPUTE_SCALE: max_abs={max_abs} at index={max_idx}")
     quantized = quantize_int32_to_int8_rtl_exact(
         output.flatten().astype(np.int32), max_abs, 0
     )
@@ -317,7 +312,8 @@ def conv2d(dest, w, x, b, fmap_h, fmap_w, in_c, out_c, kh, kw, stride, pad,
     if apply_relu:
         quantized = np.maximum(quantized, np.int8(0))
 
-    print(f"[DBG_GOLDEN_CONV] dest={dest} output max={np.max(quantized)}, min={np.min(quantized)}, mean={np.mean(quantized):.2f}")
+    if DEBUG_GOLDEN:
+        print(f"[DBG_GOLDEN_CONV] dest={dest} output max={np.max(quantized)}, min={np.min(quantized)}, mean={np.mean(quantized):.2f}")
     buffers[dest] = quantized.tolist()
 
 
@@ -344,7 +340,8 @@ def maxpool(dest, x, fmap_h, fmap_w, channels, pool_size, stride):
                                 ow * stride : ow * stride + pool_size]
                 output[c, oh, ow] = np.max(window)
 
-    print(f"[DBG_GOLDEN_POOL] dest={dest} output max={np.max(output)}, min={np.min(output)}")
+    if DEBUG_GOLDEN:
+        print(f"[DBG_GOLDEN_POOL] dest={dest} output max={np.max(output)}, min={np.min(output)}")
     buffers[dest] = output.flatten().tolist()
 
 
