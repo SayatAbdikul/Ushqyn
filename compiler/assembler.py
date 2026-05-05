@@ -1,4 +1,11 @@
-""" Assembler for a custom architecture based on a simplified instruction set. """
+"""Assembler for the tinyML accelerator's 64-bit ISA.
+
+Instructions are little-endian 64-bit words; opcode is in bits [4:0].
+Per-opcode bit layouts are documented inline next to each `assemble_line`
+branch below, and decoders for the same layouts live in
+golden_model.py::i_decoder and disassembler.py::decode_instruction
+— keep all three in sync when the ISA changes.
+"""
 import re
 import numpy as np
 from dram import write_to_dram

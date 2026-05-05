@@ -219,7 +219,15 @@ def store(buf_id, addr, length):
 flag = 0
 
 def gemv(dest, w, x, b, rows, cols):
-    """Perform GEMV operation (matrix-vector multiply) with int8 output quantization."""
+    """Matrix-vector multiply with int8 output quantization.
+
+    `cols` is the LOGICAL (unpadded) column count of the weight matrix
+    — same convention as conv2d. The weight buffer `buffers[w]`, however,
+    holds the matrix flat with cols PADDED to TILE_ELEMS columns: see
+    load_m()'s docstring for the FC-vs-Conv asymmetry. We compute
+    stride = pad(cols) and skip the trailing zero-padded columns by
+    iterating j in [0, cols).
+    """
     global flag
     buffers[dest] = [0] * rows
 
@@ -262,8 +270,9 @@ def conv2d(dest, w, x, b, fmap_h, fmap_w, in_c, out_c, kh, kw, stride, pad,
            apply_relu=False):
     """Direct 2-D convolution reference (NCHW layout).
 
-    Weight buffer layout : [out_c, in_c, kh, kw]  (row-major, flat in DRAM)
-    Input  buffer layout : [in_c,  fmap_h, fmap_w] (row-major, flat in DRAM)
+    Weight buffer layout : [out_c, in_c, kh, kw]  (row-major, flat in buffer —
+                          UNPADDED, see load_m()'s docstring for why)
+    Input  buffer layout : [in_c,  fmap_h, fmap_w] (row-major, flat in buffer)
     Output buffer layout : [out_c, out_h,  out_w]  (row-major, flat in buffer)
 
     Quantization: same RTL-exact path as GEMV (per-tensor max-abs scaling).

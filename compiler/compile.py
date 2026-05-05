@@ -1,4 +1,21 @@
-""" Creates an assembly code from ONNX file """
+"""Lower an ONNX graph to the accelerator's assembly language.
+
+Walks the graph in topological order and emits one of the opcodes
+defined in assembler.py (LOAD_V/LOAD_M/STORE/GEMV/RELU/CONV2D_CFG/
+CONV2D_RUN/MAXPOOL) per supported op. Constant-folded ops (Reshape,
+Flatten, BatchNormalization) carry buffer mappings forward without
+emitting instructions.
+
+DRAM layout assumption (must match dram.save_all_initializers_to_dram):
+    weights      → FC weights, padded to TILE_ELEMS columns
+    conv_weights → Conv weights [out_C, in_C*kH*kW], padded to TILE_ELEMS
+    biases       → ALL biases in topological order
+                   (conv biases first, then FC biases)
+
+`bias_counter` and `conv_weight_counter` here advance in lockstep with
+`bias_ptr` and `conv_weight_ptr` in dram.py — keep both walkers in sync
+when changing the emission order.
+"""
 import onnx
 from onnx import shape_inference
 import numpy as np
