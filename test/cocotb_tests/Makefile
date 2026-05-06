@@ -32,6 +32,9 @@ else ifeq ($(TEST_TARGET),buffer_controller)
 else ifeq ($(TEST_TARGET),conv2d_execution)
     TOPLEVEL = conv2d_execution_tb_wrapper
     MODULE = test_conv2d_execution
+else ifeq ($(TEST_TARGET),maxpool_execution)
+    TOPLEVEL = maxpool_execution_tb_wrapper
+    MODULE = test_maxpool_execution
 else
     # Default: full_accelerator
     TOPLEVEL = tinyml_accelerator_top
@@ -96,6 +99,13 @@ else ifeq ($(TEST_TARGET),conv2d_execution)
     VERILOG_SOURCES += $(shell pwd)/../../rtl/scale_calculator.sv
     VERILOG_SOURCES += $(shell pwd)/../../rtl/quantizer_pipeline.sv
     VERILOG_SOURCES += $(shell pwd)/../../test/conv2d_execution_tb_wrapper.sv
+else ifeq ($(TEST_TARGET),maxpool_execution)
+    # Per-patch unit test for maxpool_execution: wrapper + buffer plumbing.
+    VERILOG_SOURCES += $(shell pwd)/../../rtl/accelerator_config_pkg.sv
+    VERILOG_SOURCES += $(shell pwd)/../../rtl/execution_unit/maxpool_execution.sv
+    VERILOG_SOURCES += $(shell pwd)/../../rtl/execution_unit/buffer_controller.sv
+    VERILOG_SOURCES += $(shell pwd)/../../rtl/buffer_file.sv
+    VERILOG_SOURCES += $(shell pwd)/../../test/maxpool_execution_tb_wrapper.sv
 else ifeq ($(TEST_TARGET),execution_unit)
     # For execution unit testbench
     VERILOG_SOURCES += $(shell pwd)/../../rtl/accelerator_config_pkg.sv
