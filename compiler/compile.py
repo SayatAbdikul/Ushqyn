@@ -308,14 +308,25 @@ def generate_assembly(model_path, output_file):
             )
 
             # ---- Emit CONV2D_RUN (with relu_flag=1 if next op is Relu) ----
-            # Peek ahead: if the very next node (after skipping BN) is Relu,
-            # fuse the activation into this instruction.
+            # Peek ahead: if the next node that *consumes this conv's output*
+            # is a Relu, fuse the activation into this instruction.
+            #
+            # Why the consumer filter: topological_sort can interleave nodes
+            # that don't depend on this conv (e.g. a Constant operand for a
+            # later Reshape, or parallel branches) between this conv and its
+            # actual Relu. A naive "first non-skip node" lookahead misses the
+            # fusion in those cases — and because compile.py later treats a
+            # standalone Relu with length > 1023 as a fused-passthrough, the
+            # activation is then silently dropped. Skipping non-consumers
+            # closes both halves of that bug.
             relu_fused = False
             for j in range(i + 1, len(ordered_nodes)):
                 nxt = ordered_nodes[j]
                 if nxt.output[0] in skip_nodes:
                     continue
-                if nxt.op_type == "Relu" and nxt.input[0] == node.output[0]:
+                if node.output[0] not in nxt.input:
+                    continue                       # not a consumer of this conv
+                if nxt.op_type == "Relu":
                     relu_fused = True
                     skip_nodes.add(nxt.output[0])
                     tensor_buffer_map[nxt.output[0]] = conv_out_buf
