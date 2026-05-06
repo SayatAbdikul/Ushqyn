@@ -29,6 +29,9 @@ else ifeq ($(TEST_TARGET),gemv_execution)
 else ifeq ($(TEST_TARGET),buffer_controller)
     TOPLEVEL = buffer_controller
     MODULE = test_buffer_controller
+else ifeq ($(TEST_TARGET),conv2d_execution)
+    TOPLEVEL = conv2d_execution_tb_wrapper
+    MODULE = test_conv2d_execution
 else
     # Default: full_accelerator
     TOPLEVEL = tinyml_accelerator_top
@@ -82,6 +85,17 @@ else ifeq ($(TEST_TARGET),buffer_controller)
     VERILOG_SOURCES += $(shell pwd)/../../rtl/accelerator_config_pkg.sv
     VERILOG_SOURCES += $(shell pwd)/../../rtl/execution_unit/buffer_controller.sv
     VERILOG_SOURCES += $(shell pwd)/../../rtl/buffer_file.sv
+else ifeq ($(TEST_TARGET),conv2d_execution)
+    # Per-patch unit test for conv2d_execution: wrapper + buffer plumbing only,
+    # no full execution unit / top.
+    VERILOG_SOURCES += $(shell pwd)/../../rtl/accelerator_config_pkg.sv
+    VERILOG_SOURCES += $(shell pwd)/../../rtl/execution_unit/conv2d_execution.sv
+    VERILOG_SOURCES += $(shell pwd)/../../rtl/execution_unit/buffer_controller.sv
+    VERILOG_SOURCES += $(shell pwd)/../../rtl/buffer_file.sv
+    VERILOG_SOURCES += $(shell pwd)/../../rtl/pe.sv
+    VERILOG_SOURCES += $(shell pwd)/../../rtl/scale_calculator.sv
+    VERILOG_SOURCES += $(shell pwd)/../../rtl/quantizer_pipeline.sv
+    VERILOG_SOURCES += $(shell pwd)/../../test/conv2d_execution_tb_wrapper.sv
 else ifeq ($(TEST_TARGET),execution_unit)
     # For execution unit testbench
     VERILOG_SOURCES += $(shell pwd)/../../rtl/accelerator_config_pkg.sv
@@ -139,9 +153,12 @@ endif
 # Verilator specific flags
 ifeq ($(SIM),verilator)
     EXTRA_ARGS += --trace --trace-structs
+    EXTRA_ARGS += --timing               # cocotb 1.9 verilator wrapper expects nextTimeSlot/eventsPending
     EXTRA_ARGS += -Wno-WIDTHTRUNC -Wno-WIDTHEXPAND
     EXTRA_ARGS += -Wno-UNUSEDSIGNAL -Wno-UNUSEDPARAM
     EXTRA_ARGS += -Wno-PINCONNECTEMPTY
+    EXTRA_ARGS += -Wno-PINMISSING        # buffer_controller leaves matrix random-read ports unconnected (intentional)
+    EXTRA_ARGS += -Wno-CASEINCOMPLETE    # conv2d_execution FSM does not need to enumerate every state
     COMPILE_ARGS += -Wno-WIDTHTRUNC -Wno-WIDTHEXPAND
     COMPILE_ARGS += -Wno-UNUSEDSIGNAL -Wno-UNUSEDPARAM
 endif

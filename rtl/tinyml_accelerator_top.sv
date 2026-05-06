@@ -106,6 +106,11 @@ module tinyml_accelerator_top #(
     /* verilator lint_on UNUSEDSIGNAL */
     logic [4:0]  d_b, d_x, d_w;
 
+    logic [5:0]  d_fmap_h, d_fmap_w, d_in_channels, d_out_channels;
+    logic [3:0]  d_kernel_h, d_kernel_w;
+    logic [2:0]  d_stride_val, d_pad_val, d_pool_size;
+    logic        d_relu_flag;
+
     i_decoder decoder_u (
         .instr (instr),
         .opcode(d_opcode),
@@ -115,7 +120,17 @@ module tinyml_accelerator_top #(
         .addr  (d_addr),
         .b     (d_b),
         .x     (d_x),
-        .w     (d_w)
+        .w     (d_w),
+        .fmap_h(d_fmap_h),
+        .fmap_w(d_fmap_w),
+        .in_channels(d_in_channels),
+        .out_channels(d_out_channels),
+        .kernel_h(d_kernel_h),
+        .kernel_w(d_kernel_w),
+        .stride_val(d_stride_val),
+        .pad_val(d_pad_val),
+        .pool_size(d_pool_size),
+        .relu_flag(d_relu_flag)
     );
 
     // Latched copies for stable drive during execution
@@ -125,6 +140,12 @@ module tinyml_accelerator_top #(
     logic [9:0]  ex_rows;
     logic [ADDR_WIDTH-1:0] ex_addr;
     logic [4:0]  ex_b, ex_x, ex_w;
+    
+    // CNN configuration latches
+    logic [5:0]  ex_fmap_h, ex_fmap_w, ex_in_channels, ex_out_channels;
+    logic [3:0]  ex_kernel_h, ex_kernel_w;
+    logic [2:0]  ex_stride_val, ex_pad_val, ex_pool_size;
+    logic        ex_relu_flag;
 
     // ------------------------------------------------------------
     // Execution Unit
@@ -156,6 +177,16 @@ module tinyml_accelerator_top #(
         .b_id         (ex_b),
         .x_id         (ex_x),
         .w_id         (ex_w),
+        .fmap_h       (ex_fmap_h),
+        .fmap_w       (ex_fmap_w),
+        .in_channels  (ex_in_channels),
+        .out_channels (ex_out_channels),
+        .kernel_h     (ex_kernel_h),
+        .kernel_w     (ex_kernel_w),
+        .stride_val   (ex_stride_val),
+        .pad_val      (ex_pad_val),
+        .pool_size    (ex_pool_size),
+        .relu_flag    (ex_relu_flag),
         .result       (exec_result),
         .done         (exec_done),
         // Memory Interface
@@ -226,7 +257,11 @@ module tinyml_accelerator_top #(
             end
             T_DECODE: begin
                 // Latch decoded fields next cycle
-                t_state_n = T_EXECUTE_START;
+                if (d_opcode == 5'h06) begin
+                    t_state_n = T_DONE; // Configuration instruction: setup complete
+                end else begin
+                    t_state_n = T_EXECUTE_START;
+                end
             end
             T_EXECUTE_START: begin
                 exec_start = 1'b1;          // One-cycle start pulse
@@ -253,6 +288,9 @@ module tinyml_accelerator_top #(
         if (rst) begin
             t_state <= T_IDLE;
             ex_opcode <= '0; ex_dest <= '0; ex_length_or_cols <= '0; ex_rows <= '0; ex_addr <= '0; ex_b <= '0; ex_x <= '0; ex_w <= '0;
+            ex_fmap_h <= 0; ex_fmap_w <= 0; ex_in_channels <= 0; ex_out_channels <= 0;
+            ex_kernel_h <= 0; ex_kernel_w <= 0; ex_stride_val <= 0; ex_pad_val <= 0; ex_pool_size <= 0;
+            ex_relu_flag <= 0;
             store_instr <= 0;
         end else begin
             t_state <= t_state_n;
@@ -265,6 +303,28 @@ module tinyml_accelerator_top #(
                 ex_b             <= d_b;
                 ex_x             <= d_x;
                 ex_w             <= d_w;
+                // Latch relu_flag only on CONV2D_RUN; default to 0 otherwise so a
+                // stale flag from a prior CONV2D_RUN doesn't bleed into anything.
+                ex_relu_flag     <= (d_opcode == 5'h07) ? d_relu_flag : 1'b0;
+                // Configuration latches (updated exclusively when provided)
+                if (d_opcode == 5'h06) begin
+                    ex_fmap_h <= d_fmap_h;
+                    ex_fmap_w <= d_fmap_w;
+                    ex_in_channels <= d_in_channels;
+                    ex_out_channels <= d_out_channels;
+                    ex_kernel_h <= d_kernel_h;
+                    ex_kernel_w <= d_kernel_w;
+                    ex_stride_val <= d_stride_val;
+                    ex_pad_val <= d_pad_val;
+                end else if (d_opcode == 5'h08) begin
+                    // MaxPool configures its own pool size and stride over 0x08 payload
+                    ex_pool_size <= d_pool_size;
+                    ex_stride_val <= d_stride_val;
+                    ex_fmap_h <= d_fmap_h;
+                    ex_fmap_w <= d_fmap_w;
+                    ex_in_channels <= d_in_channels;
+                end
+
                 // Track if this is a store instruction for potential future use
                 store_instr <= (d_opcode == 5'b00011);
             end

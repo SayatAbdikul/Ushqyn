@@ -33,6 +33,12 @@ module modular_execution_unit #(
     input logic [ADDR_WIDTH-1:0] addr,
     input logic [4:0] b_id, x_id, w_id,
     
+    // CNN configuration parameters
+    input logic [5:0] fmap_h, fmap_w, in_channels, out_channels,
+    input logic [3:0] kernel_h, kernel_w,
+    input logic [2:0] stride_val, pad_val, pool_size,
+    input logic       relu_flag,        // CONV2D_RUN fused-ReLU bit (latched in top)
+
     // Results (same as original execution_unit)
     output logic signed [DATA_WIDTH-1:0] result [0:MAX_ROWS-1],
     output logic done,
@@ -49,13 +55,15 @@ module modular_execution_unit #(
     localparam TILE_ELEMS = TILE_WIDTH / DATA_WIDTH;
     
     // Main FSM states
-    typedef enum logic [2:0] {
+    typedef enum logic [3:0] {
         IDLE,
         DISPATCH,
         WAIT_LOAD,
         WAIT_GEMV,
         WAIT_RELU,
         WAIT_STORE,
+        WAIT_CONV2D,
+        WAIT_MAXPOOL,
         COMPLETE
     } main_state_t;
     
@@ -130,6 +138,30 @@ module modular_execution_unit #(
     logic signed [DATA_WIDTH-1:0] relu_result [0:1023];
     
     // ========================================================================
+    // Conv2D Execution Signals
+    // ========================================================================
+    
+    logic conv2d_start, conv2d_done;
+    logic [4:0] conv2d_vec_random_read_buffer_id;
+    logic [$clog2(8192/DATA_WIDTH)-1:0] conv2d_vec_random_read_addr;
+    logic conv2d_mat_read_enable;
+    logic [4:0] conv2d_mat_read_buffer_id;
+    logic conv2d_vec_write_enable;
+    logic [4:0] conv2d_vec_write_buffer_id;
+    logic signed [DATA_WIDTH-1:0] conv2d_vec_write_tile [0:TILE_ELEMS-1];
+    
+    // ========================================================================
+    // MaxPool Execution Signals
+    // ========================================================================
+    
+    logic maxpool_start, maxpool_done;
+    logic [4:0] maxpool_vec_random_read_buffer_id;
+    logic [$clog2(8192/DATA_WIDTH)-1:0] maxpool_vec_random_read_addr;
+    logic maxpool_vec_write_enable;
+    logic [4:0] maxpool_vec_write_buffer_id;
+    logic signed [DATA_WIDTH-1:0] maxpool_vec_write_tile [0:TILE_ELEMS-1];
+    
+    // ========================================================================
     // Store Execution Signals
     // ========================================================================
     
@@ -162,6 +194,9 @@ module modular_execution_unit #(
         .vec_read_buffer_id(buf_vec_read_buffer_id),
         .vec_read_tile(buf_vec_read_tile),
         .vec_read_valid(buf_vec_read_valid),
+        .vec_random_read_buffer_id(buf_vec_random_read_buffer_id),
+        .vec_random_read_addr(buf_vec_random_read_addr),
+        .vec_random_read_data(buf_vec_random_read_data),
         .mat_write_enable(buf_mat_write_enable),
         .mat_write_buffer_id(buf_mat_write_buffer_id),
         .mat_write_tile(buf_mat_write_tile),
@@ -176,6 +211,18 @@ module modular_execution_unit #(
         .mat_read_done()
         /* verilator lint_on PINCONNECTEMPTY */
     );
+    
+    // Assign generic Combinational Vector Read port based on state 
+    // Wait, Buffer Controller already exposes `vec_random_read_*` ports! We forgot to declare them here.
+    // We added them to buffer_controller in standard interface.
+    logic [4:0] buf_vec_random_read_buffer_id;
+    logic [$clog2(8192/DATA_WIDTH)-1:0] buf_vec_random_read_addr;
+    logic signed [DATA_WIDTH-1:0] buf_vec_random_read_data;
+    
+    assign buf_vec_random_read_buffer_id = (state == WAIT_CONV2D) ? conv2d_vec_random_read_buffer_id : 
+                                           (state == WAIT_MAXPOOL) ? maxpool_vec_random_read_buffer_id : 5'd0;
+    assign buf_vec_random_read_addr      = (state == WAIT_CONV2D) ? conv2d_vec_random_read_addr : 
+                                           (state == WAIT_MAXPOOL) ? maxpool_vec_random_read_addr : 0;
     
     // Load Execution Module
     load_execution #(
@@ -258,7 +305,69 @@ module modular_execution_unit #(
         .vec_write_enable(relu_vec_write_enable),
         .vec_write_buffer_id(relu_vec_write_buffer_id),
         .vec_write_tile(relu_vec_write_tile),
+        // Result Output
         .result(relu_result)
+    );
+    
+    // Conv2D Execution Module
+    conv2d_execution #(
+        .DATA_WIDTH(DATA_WIDTH),
+        .TILE_ELEMS(TILE_ELEMS),
+        .MAX_ROWS(MAX_ROWS),
+        .MAX_COLS(MAX_COLS),
+        .ADDR_WIDTH(ADDR_WIDTH)
+    ) conv2d_exec (
+        .clk(clk),
+        .rst(rst),
+        .start(conv2d_start),
+        .dest_buffer_id(dest),
+        .w_buffer_id(w_id),
+        .x_buffer_id(x_id),
+        .b_buffer_id(b_id),
+        .fmap_h(fmap_h),
+        .fmap_w(fmap_w),
+        .in_channels(in_channels),
+        .out_channels(out_channels),
+        .kernel_h(kernel_h),
+        .kernel_w(kernel_w),
+        .stride_val(stride_val),
+        .pad_val(pad_val),
+        .relu_flag(relu_flag),
+        .done(conv2d_done),
+        .vec_random_read_buffer_id(conv2d_vec_random_read_buffer_id),
+        .vec_random_read_addr(conv2d_vec_random_read_addr),
+        .vec_random_read_data(buf_vec_random_read_data),
+        .mat_read_enable(conv2d_mat_read_enable),
+        .mat_read_buffer_id(conv2d_mat_read_buffer_id),
+        .mat_read_tile(buf_mat_read_tile),
+        .mat_read_valid(buf_mat_read_valid),
+        .vec_write_enable(conv2d_vec_write_enable),
+        .vec_write_buffer_id(conv2d_vec_write_buffer_id),
+        .vec_write_tile(conv2d_vec_write_tile)
+    );
+    
+    // MaxPool Execution Module
+    maxpool_execution #(
+        .DATA_WIDTH(DATA_WIDTH),
+        .TILE_ELEMS(TILE_ELEMS)
+    ) maxpool_exec (
+        .clk(clk),
+        .rst(rst),
+        .start(maxpool_start),
+        .dest_buffer_id(dest),
+        .x_buffer_id(x_id),
+        .fmap_h(fmap_h),
+        .fmap_w(fmap_w),
+        .in_channels(in_channels),
+        .pool_size(pool_size),
+        .stride_val(stride_val),
+        .done(maxpool_done),
+        .vec_random_read_buffer_id(maxpool_vec_random_read_buffer_id),
+        .vec_random_read_addr(maxpool_vec_random_read_addr),
+        .vec_random_read_data(buf_vec_random_read_data),
+        .vec_write_enable(maxpool_vec_write_enable),
+        .vec_write_buffer_id(maxpool_vec_write_buffer_id),
+        .vec_write_tile(maxpool_vec_write_tile)
     );
     
     // Store Execution Module (placeholder)
@@ -344,6 +453,18 @@ module modular_execution_unit #(
                         buf_vec_write_buffer_id = relu_vec_write_buffer_id;
                         buf_vec_write_tile = relu_vec_write_tile;
                     end
+                    5'h07: begin // CONV2D about to start
+                        buf_mat_read_enable = conv2d_mat_read_enable;
+                        buf_mat_read_buffer_id = conv2d_mat_read_buffer_id;
+                        buf_vec_write_enable = conv2d_vec_write_enable;
+                        buf_vec_write_buffer_id = conv2d_vec_write_buffer_id;
+                        buf_vec_write_tile = conv2d_vec_write_tile;
+                    end
+                    5'h08: begin // MAXPOOL about to start
+                        buf_vec_write_enable = maxpool_vec_write_enable;
+                        buf_vec_write_buffer_id = maxpool_vec_write_buffer_id;
+                        buf_vec_write_tile = maxpool_vec_write_tile;
+                    end
                     5'h03: begin // STORE about to start
                         buf_vec_read_enable = store_vec_read_enable;
                         buf_vec_read_buffer_id = store_vec_read_buffer_id;
@@ -392,6 +513,22 @@ module modular_execution_unit #(
                 buf_vec_write_buffer_id = relu_vec_write_buffer_id;
                 buf_vec_write_tile = relu_vec_write_tile;
             end
+
+            WAIT_CONV2D: begin
+                // Conv2D reads from buffers and writes results
+                buf_mat_read_enable = conv2d_mat_read_enable;
+                buf_mat_read_buffer_id = conv2d_mat_read_buffer_id;
+                buf_vec_write_enable = conv2d_vec_write_enable;
+                buf_vec_write_buffer_id = conv2d_vec_write_buffer_id;
+                buf_vec_write_tile = conv2d_vec_write_tile;
+            end
+            
+            WAIT_MAXPOOL: begin
+                // MaxPool reads sequentially and randomly, writes serially mapped to block
+                buf_vec_write_enable = maxpool_vec_write_enable;
+                buf_vec_write_buffer_id = maxpool_vec_write_buffer_id;
+                buf_vec_write_tile = maxpool_vec_write_tile;
+            end
             
             WAIT_STORE: begin
                 // Store reads from vector buffer
@@ -421,6 +558,7 @@ module modular_execution_unit #(
             load_start <= 0;
             gemv_start <= 0;
             relu_start <= 0;
+            conv2d_start <= 0;
             store_start <= 0;
             
             for (int i = 0; i < MAX_ROWS; i++) begin
@@ -432,6 +570,8 @@ module modular_execution_unit #(
             load_start <= 0;
             gemv_start <= 0;
             relu_start <= 0;
+            conv2d_start <= 0;
+            maxpool_start <= 0;
             store_start <= 0;
             
             case (state)
@@ -469,6 +609,16 @@ module modular_execution_unit #(
                             relu_start <= 1;
                             state <= WAIT_RELU;
                         end
+
+                        5'h07: begin // CONV2D
+                            conv2d_start <= 1;
+                            state <= WAIT_CONV2D;
+                        end
+                        
+                        5'h08: begin // MAXPOOL
+                            maxpool_start <= 1;
+                            state <= WAIT_MAXPOOL;
+                        end
                         
                         default: begin
                             //$display("[MODULAR_EXEC] Unknown opcode: 0x%h", opcode);
@@ -502,6 +652,19 @@ module modular_execution_unit #(
                         for (int i = 0; i < MAX_ROWS; i++) begin
                             result[i] <= relu_result[i];
                         end
+                        state <= COMPLETE;
+                    end
+                end
+
+                WAIT_CONV2D: begin
+                    if (conv2d_done) begin
+                        //$display("[MODULAR_EXEC] Conv2D operation complete");
+                        state <= COMPLETE;
+                    end
+                end
+                
+                WAIT_MAXPOOL: begin
+                    if (maxpool_done) begin
                         state <= COMPLETE;
                     end
                 end
