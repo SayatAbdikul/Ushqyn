@@ -11,20 +11,26 @@
 8. [Module Descriptions](#module-descriptions)
 9. [Signal Flow Diagrams](#signal-flow-diagrams)
 10. [Optimizations](#optimizations)
+11. [Conv2D Pipeline (`conv2d_execution.sv`)](#conv2d-pipeline-conv2d_executionsv)
+12. [MaxPool Pipeline (`maxpool_execution.sv`)](#maxpool-pipeline-maxpool_executionsv)
+13. [CNN Compiler-Fix Series (Patches A–J)](#cnn-compiler-fix-series-patches-aj)
+14. [Two RTL Trees](#two-rtl-trees)
+15. [FPGA Synthesis Results](#fpga-synthesis-results-gowin-gw2ar-18-mlp-only-path)
 
 ---
 
 ## System Overview
 
-The TinyML Accelerator is a hardware accelerator for neural network inference targeting the Gowin GW2AR-18 FPGA (Tang Nano 20K):
+The TinyML Accelerator is a hardware accelerator for neural-network inference covering both **MLP** and **small-CNN** workloads:
 
-- **ISA**: 5 instructions (LOAD_V, LOAD_M, GEMV, RELU, STORE)
-- **Data Path**: 8-bit signed integer (int8) arithmetic
-- **Memory**: Unified 32 KB DRAM (single Gowin_SP BRAM instance)
-- **Computation**: Tiled GEMV with 8 PEs, BSRAM-backed accumulator and x-vector
-- **Tiles**: 8 elements (64 bits) per tile
-- **Control**: Hierarchical FSM-based execution
-- **Performance**: 89 MHz Fmax, 25,470 cycles/inference (0.286 ms, ~3,500 inferences/sec) on 10KB classification model.
+- **ISA**: 8 instructions — `LOAD_V`, `LOAD_M`, `STORE`, `GEMV`, `RELU`, `CONV2D_CFG`, `CONV2D_RUN`, `MAXPOOL`
+- **Data Path**: 8-bit signed integer (int8) arithmetic; int32 internal accumulator
+- **Memory**: Unified 32 KB DRAM (single instance: Gowin_SP BRAM on FPGA, register array in simulation)
+- **Computation**: Tiled GEMV + 2D conv MAC array, BSRAM-backed accumulator and x-vector
+- **Tiles**: 8 elements per tile on FPGA (TILE_ELEMS=8); 32 elements per tile in simulation (TILE_ELEMS=32)
+- **Control**: Hierarchical FSM-based execution with one execution-unit module per opcode
+- **MLP performance**: 89 MHz Fmax on Gowin GW2AR-18, 25,470 cycles/img (0.286 ms, ~3,500 img/s) on the 784→12→32→10 MNIST classifier
+- **CNN status**: simulation RTL bit-exact against `compiler/golden_model.py` on a trained SmallCNN; FPGA bring-up of conv2d/maxpool is open work
 
 ---
 
@@ -35,24 +41,27 @@ fpga_top.sv (FPGA) / tinyml_accelerator_top.sv (Sim)
 ├── fetch_unit.sv                  — Instruction fetch from unified DRAM
 │   └── (fetch_unit_fpga.sv on FPGA — adds FETCH_PRIME for BRAM latency)
 │
-├── i_decoder.sv                   — Decode 5-instruction ISA
+├── i_decoder.sv                   — Decode 8-instruction ISA + relu_flag
 │
 ├── simple_memory.sv               — Unified 32 KB DRAM
-│   └── (FPGA: Gowin_SP BRAM + UART loader)
+│   ├── (FPGA: Gowin_SP BRAM + UART loader)
 │   └── (Sim: register array + $readmemh)
 │
 └── modular_execution_unit.sv
     ├── buffer_controller.sv       — Vector/matrix buffer management
-    │   ├── buffer_file.sv         — Vector buffers (tile-indexed)
-    │   └── buffer_file.sv         — Matrix buffers (tile-indexed)
+    │   ├── buffer_file.sv         — Vector buffers (tile-indexed, 16 × 4 KB in sim)
+    │   └── buffer_file.sv         — Matrix buffers (tile-indexed, 2 × 16 KB in sim)
     │
-    ├── load_execution.sv          — LOAD_V / LOAD_M orchestration
+    ├── load_execution.sv          — LOAD_V / LOAD_M (length 18-bit per ISA)
     │   ├── load_v.sv              — Vector loading (DRAM → buffer)
     │   └── load_m.sv              — Matrix loading (DRAM → buffer, row-aware)
     │
+    ├── store_execution.sv         — STORE: buffer → DRAM (length 18-bit)
+    │   └── store.sv               — Tile-based memory write
+    │
     ├── gemv_execution.sv          — GEMV tile bridging
-    │   └── gemv_unit_core.sv      — Core GEMV FSM
-    │       ├── pe.sv (×8)         — 8-bit signed multiply (1-cycle latency)
+    │   └── (sim) top_gemv  /  (FPGA) gemv_unit_core
+    │       ├── pe.sv (×TILE_ELEMS)         — 8-bit signed multiply (1-cycle latency)
     │       ├── Gowin_SDPB_32      — x-vector BSRAM (packed 4:1, B1)
     │       ├── Gowin_SDPB_32      — Accumulator BSRAM (32-bit)
     │       ├── scale_calculator.sv
@@ -60,11 +69,18 @@ fpga_top.sv (FPGA) / tinyml_accelerator_top.sv (Sim)
     │       │       └── compressor_3to2.sv
     │       └── quantizer_pipeline.sv
     │
-    ├── relu_execution.sv          — ReLU activation (tile-streamed)
+    ├── relu_execution.sv          — Standalone RELU (tile-streamed, FC outputs)
     │   └── relu.sv                — Element-wise max(0, x)
     │
-    └── store_execution.sv         — Buffer → DRAM write-back
-        └── store.sv               — Tile-based memory write
+    ├── conv2d_execution.sv        — CONV2D_CFG/RUN: 2D conv + bias + quant + fused ReLU
+    │   │                            [simulation RTL only — see "Two RTL trees" in docs/README.md]
+    │   ├── pe.sv (×TILE_ELEMS)
+    │   ├── accum_ram[0..ACCUM_DEPTH-1] (int32, parameterized depth)
+    │   ├── scale_calculator.sv
+    │   └── quantizer_pipeline.sv
+    │
+    └── maxpool_execution.sv       — MAXPOOL: NCHW sliding-window max-pool
+                                     [simulation RTL only]
 ```
 
 ---
@@ -135,17 +151,81 @@ The top module fetches instructions sequentially from DRAM, decodes them, and di
 
 ### Instruction Format (64-bit)
 
+Opcode in bits **[4:0]**; per-opcode fields packed above. Stored in DRAM **MSB-first across 8 bytes** (the fetch unit re-assembles bit `instr[63:56]` from byte 0, `instr[55:48]` from byte 1, etc.).
+
+The encoder lives in `compiler/assembler.py`; the decoder in `rtl/i_decoder.sv` and `compiler/golden_model.py::i_decoder`; the disassembler in `compiler/disassembler.py`. **All four must stay in sync** when the ISA changes.
+
+#### Per-opcode bit layouts
+
 ```
-[63:59]  opcode     — 5-bit operation code
-[58:54]  dest       — destination buffer ID
-[53:44]  rows       — row count (GEMV, LOAD_M)
-[43:34]  length/cols — vector length or column count
-[33:29]  b_id       — bias buffer ID (GEMV)
-[28:24]  x_id       — x-vector buffer ID (GEMV)
-[23:19]  w_id       — weight buffer ID (GEMV)
-[18:3]   addr       — DRAM address (LOAD/STORE)
-[2:0]    reserved
+LOAD_V (0x01) / STORE (0x03):
+  [ 4: 0] opcode       (5)
+  [ 9: 5] dest          (5)  buffer ID
+  [27:10] length        (18) — bumped from 10b in Patch H to support inputs > 1023
+  [63:40] addr          (24) DRAM address
+
+LOAD_M (0x02):
+  [ 4: 0] opcode       (5)
+  [ 9: 5] dest          (5)
+  [19:10] cols          (10)
+  [29:20] rows          (10)
+  [63:40] addr          (24)
+
+GEMV (0x04):
+  [ 4: 0] opcode       (5)
+  [ 9: 5] dest          (5)
+  [19:10] cols          (10)
+  [29:20] rows          (10)
+  [34:30] b             (5)  bias buffer ID
+  [39:35] x             (5)  x-vector buffer ID
+  [44:40] w             (5)  weight buffer ID
+
+RELU (0x05):
+  [ 4: 0] opcode       (5)
+  [ 9: 5] dest          (5)
+  [14:10] x             (5)
+  [29:20] length        (10) — RELU only operates on FC-sized outputs
+
+CONV2D_CFG (0x06):
+  [ 4: 0] opcode       (5)
+  [ 9: 5] dest          (5)
+  [15:10] fmap_h        (6)
+  [21:16] fmap_w        (6)
+  [27:22] in_c          (6)
+  [33:28] out_c         (6)
+  [37:34] kh            (4)
+  [41:38] kw            (4)
+  [44:42] stride        (3)
+  [47:45] pad           (3)
+
+CONV2D_RUN (0x07):
+  [ 4: 0] opcode       (5)
+  [ 9: 5] dest          (5)
+  [14:10] x             (5)
+  [19:15] w             (5)
+  [24:20] b             (5)
+  [25]    relu_flag     (1) — fused ReLU, added/decoded in Patch F
+
+MAXPOOL (0x08):
+  [ 4: 0] opcode       (5)
+  [ 9: 5] dest          (5)
+  [14:10] x             (5)
+  [17:15] pool_size     (3)
+  [20:18] stride        (3)
+  [26:21] fmap_h        (6)
+  [32:27] fmap_w        (6)
+  [37:33] channels      (5)  — muxed onto the in_channels port in i_decoder
 ```
+
+ISA capability ceilings (from these field widths):
+- `fmap_h`/`fmap_w`: 6 bits → max 63
+- `in_c`/`out_c` (CONV2D_CFG): 6 bits → max 63
+- MAXPOOL `channels`: 5 bits → max 31
+- `kh`/`kw`: 4 bits → max 15
+- `stride`/`pad`/`pool_size`: 3 bits → max 7
+- LOAD_V / STORE length: 18 bits → max 262 143
+- LOAD_M / GEMV cols: 10 bits → max 1023
+- ADDR_WIDTH = 16 → 64 KB DRAM
 
 ---
 
@@ -450,20 +530,24 @@ The Wallace tree multiplier (`wallace_32x32.sv`) uses `compressor_3to2` full add
 
 ### Execution Modules
 
-| Module | File | Purpose |
-|--------|------|---------|
-| **modular_execution_unit** | `rtl/fpga_modules/modular_execution.sv` | Execution coordinator, memory arbitration |
-| **buffer_controller** | `rtl/fpga_modules/buffer_controller.sv` | Dual buffer file management |
-| **buffer_file** | `rtl/fpga_modules/buffer_file.sv` | Tile-indexed register file storage |
-| **load_execution** | `rtl/fpga_modules/load_execution.sv` | LOAD_V / LOAD_M coordination |
-| **load_v** | `rtl/load_v.sv` | Vector load FSM (DRAM → buffer) |
-| **load_m** | `rtl/load_m.sv` | Matrix load FSM (DRAM → buffer, row-aware) |
-| **gemv_execution** | `rtl/fpga_modules/gemv_execution.sv` | GEMV tile bridging (buffer ↔ core) |
-| **gemv_unit_core** | `rtl/fpga_modules/gemv_unit_core.sv` | Core GEMV FSM (PE array + quantization) |
-| **relu_execution** | `rtl/fpga_modules/relu_execution.sv` | ReLU tile-streaming orchestration |
-| **relu** | `rtl/relu.sv` | Element-wise max(0, x) |
-| **store_execution** | `rtl/fpga_modules/store_execution.sv` | Buffer → DRAM write-back |
-| **store** | `rtl/store.sv` | Tile-based memory write FSM |
+The simulation RTL (`rtl/execution_unit/`) and the FPGA-targeted simulation mocks (`rtl/fpga_modules/`) parallel each other. Today they share the load/gemv/relu/store path; the conv2d/maxpool path lives only in `rtl/execution_unit/`.
+
+| Module | Sim path | FPGA-mock path | Purpose |
+|---|---|---|---|
+| **modular_execution_unit** | `rtl/execution_unit/modular_execution_unit.sv` | `rtl/fpga_modules/modular_execution.sv` | Execution coordinator, memory arbitration, opcode dispatch |
+| **buffer_controller** | `rtl/execution_unit/buffer_controller.sv` | `rtl/fpga_modules/buffer_controller.sv` | Dual buffer-file management, random-read port |
+| **buffer_file** | `rtl/buffer_file.sv` | `rtl/fpga_modules/buffer_file.sv` | Tile-indexed BSRAM storage |
+| **load_execution** | `rtl/execution_unit/load_execution.sv` | `rtl/fpga_modules/load_execution.sv` | LOAD_V / LOAD_M coordination (18-bit length per Patch H) |
+| **load_v** | `rtl/load_v.sv` | (shared) | Vector load FSM (DRAM → buffer) |
+| **load_m** | `rtl/load_m.sv` | (shared) | Matrix load FSM (DRAM → buffer, row-aware) |
+| **gemv_execution** | `rtl/execution_unit/gemv_execution.sv` | `rtl/fpga_modules/gemv_execution.sv` | GEMV tile bridging (buffer ↔ core) |
+| **gemv core** | `rtl/top_gemv.sv` | `rtl/fpga_modules/gemv_unit_core.sv` | Core GEMV FSM (PE array + quantization) |
+| **relu_execution** | `rtl/execution_unit/relu_execution.sv` | `rtl/fpga_modules/relu_execution.sv` | Standalone RELU (10-bit length, FC outputs only) |
+| **relu** | `rtl/relu.sv` | (shared) | Element-wise `max(0, x)` |
+| **store_execution** | `rtl/execution_unit/store_execution.sv` | `rtl/fpga_modules/store_execution.sv` | Buffer → DRAM write-back (18-bit length) |
+| **store** | `rtl/store.sv` | (shared) | Tile-based memory write FSM |
+| **conv2d_execution** | `rtl/execution_unit/conv2d_execution.sv` | _(not yet ported)_ | CONV2D_CFG/RUN: 2D conv + bias + quant + fused ReLU |
+| **maxpool_execution** | `rtl/execution_unit/maxpool_execution.sv` | _(not yet ported)_ | MAXPOOL: NCHW sliding-window max-pool |
 
 ### Computational Modules
 
@@ -528,6 +612,89 @@ The critical path is in `buffer_controller → vector_buffer_inst` (opcode decod
 
 ---
 
+## Conv2D Pipeline (`conv2d_execution.sv`)
+
+Simulation RTL only (`rtl/execution_unit/conv2d_execution.sv`). Produces full-tensor INT8 quantized output through a BSRAM-backed int32 accumulator.
+
+### FSM phases
+
+```
+Phase 1 — setup (per CONV2D_RUN):
+  IDLE → INIT_CONV (compute out_h, out_w, total_patch_size)
+
+Phase 2 — accumulate (per output channel × per spatial position × per weight tile):
+  LOOP_OC_INIT → TILE_LOOP_INIT → FETCH_W_TILE → WAIT_W_TILE
+   → LOOP_OH_OW_INIT → FETCH_X_PIXEL (×patch elems) → WAIT_PE
+   → ACCUMULATE → STORE_ACCUM → LOOP_OH_OW_NEXT → …
+   → TILE_LOOP_NEXT → … → LOOP_OC_NEXT → … → INIT_QUANT
+
+Phase 3 — quantize (per output element):
+  MAX_PASS (find max_abs)
+   → START_SCALE → WAIT_SCALE
+   → STREAM_QUANT (with optional fused ReLU clamp)
+   → DONE
+```
+
+### Invariants enforced after Patches F+G+H+I+J
+
+- **NCHW layout end-to-end**: `linear_idx = oc·out_h·out_w + oh·out_w + ow`. Conv writes NCHW; MaxPool reads NCHW with `addr = c·fmap_h·fmap_w + ih·fmap_w + iw` and emits `(c, oh, ow)` order.
+- **Fused ReLU on int8** (Patch F): `(relu_flag && q < 0) ? 0 : q` in STREAM_QUANT, matching `golden_model.conv2d(apply_relu=True)`.
+- **Bias**: read as int8 from buffer, sign-extended to int32, added to accumulator. Address advanced via `quant_oc` (one bias per `out_h × out_w` output elements).
+- **Per-tensor max-abs quant**: `max_abs_reg = max(|biased_val|)` in MAX_PASS; same `scale_calculator + quantizer_pipeline` as GEMV.
+- **`accum_ram` parameterized** (Patch I): `[0:ACCUM_DEPTH-1]` (default 4096). `$error` fires in INIT_CONV if `out_h × out_w × out_channels > ACCUM_DEPTH`.
+- **Vector buffer width** (Patch J): bumped to 32768 bits (4 KB) to fit SmallCNN's 4×26×26 = 2704-byte conv1 output without silent wrap in `buffer_file.sv`.
+
+### MAC array
+
+The conv2d unit instantiates the same `pe[0..TILE_ELEMS-1]` array as GEMV. `mac_sum` is computed combinationally as the sign-extended sum of the PE outputs, gated by `patch_tile_idx` so trailing PE slots (when `total_patch_size % TILE_ELEMS != 0`) don't contribute.
+
+---
+
+## MaxPool Pipeline (`maxpool_execution.sv`)
+
+Simulation RTL only (`rtl/execution_unit/maxpool_execution.sv`). Sliding-window NCHW max-pool, operates directly on int8 (no rescaling).
+
+### FSM
+
+```
+IDLE → INIT (compute out_h, out_w)
+   → LOOP_INIT (next pixel) → WINDOW_FETCH → WINDOW_EVAL (×pool_size²)
+   → EMIT_PIXEL (write result, advance ow → oh → c)
+   → … → DONE
+```
+
+### NCHW order (Patch G)
+
+- Read addr: `c × fmap_h × fmap_w + ih × fmap_w + iw`
+- Loop nest: `c` outermost (incremented after every full `oh × ow` plane); `oh` middle; `ow` innermost
+- Output written as `[c, oh, ow]` — matches `compiler/golden_model.py::maxpool` layout
+
+This was a critical correctness fix: pre-Patch-G, MaxPool used NHWC addressing on conv2d's NCHW output, reducing over completely wrong neighborhoods.
+
+---
+
+## CNN Compiler-Fix Series (Patches A–J)
+
+The CNN-capable path was brought up over a sequence of focused patches. Each shipped with its own cocotb regression test (where applicable):
+
+| Patch | Files | Bug closed | Verification |
+|---|---|---|---|
+| **A** | `compiler/golden_model.py`, `compiler/disassembler.py` | Debug residue, missing CNN op decoders | Lint clean, opcode round-trip |
+| **B** | `compiler/compile.py`, `compiler/dram.py`, `compiler/test_cnn_golden.py` | Duplicate Conv bias `LOAD_V`; DRAM bias-region overlap; TILE_ELEMS hardcoded as 32 | Strengthened end-to-end pytest goes red→green |
+| **C** | `compiler/golden_model.py`, `compiler/compile.py`, `compiler/assembler.py` | Documentation gap on `LOAD_M` cols asymmetry | Docstrings render |
+| **D** | `compiler/compile.py` | Conv→Relu lookahead breaks on Constant nodes | Both `CONV2D_RUN` instructions emit `relu_flag=1` |
+| **F** | `rtl/i_decoder.sv`, `rtl/tinyml_accelerator_top.sv`, `rtl/execution_unit/modular_execution_unit.sv`, `rtl/execution_unit/conv2d_execution.sv` | `relu_flag` bit dropped at every RTL layer | `test_conv2d_execution.py` 2/2 PASS |
+| **G** | `rtl/execution_unit/maxpool_execution.sv` | NHWC addressing on NCHW input | `test_maxpool_execution.py` 2/2 PASS |
+| **H** | `rtl/i_decoder.sv`, `rtl/tinyml_accelerator_top.sv`, `rtl/execution_unit/{modular_execution_unit,load_execution,store_execution}.sv`, `rtl/{load_v,store}.sv` | LOAD_V/STORE length truncated at 10 bits | Lint clean; F+G regressions hold |
+| **I** | `rtl/execution_unit/conv2d_execution.sv` | `accum_ram [0:4095]` hardcoded; silent overflow on larger geometries | Lint clean; F regression holds; new `$error` overflow check |
+| **J** | `generate_config.py`, `rtl/execution_unit/{modular_execution_unit,conv2d_execution,maxpool_execution}.sv` | `VECTOR_BUFFER_WIDTH=8192` (1 KB) too small for SmallCNN's 2704-byte conv1 output; address-port width hardcoded | **Heavy_test integration: bit-exact RTL ↔ Golden** on every MNIST image |
+
+### Golden-model contract
+
+The Python golden model in `compiler/golden_model.py` is the canonical specification of what the RTL must produce. Every bit-level decision (rounding, saturation, layout, quantization scale) lives in both places and must stay in sync. Per-unit cocotb tests preload buffers via the testbench wrapper and assert byte-equal output against the golden model — there is no tolerance for divergence.
+
+---
+
 ## Two RTL Trees
 
 | Tree | Purpose | Top Module | Memory | IP Blocks |
@@ -548,19 +715,32 @@ After modifying `rtl/fpga_modules/gemv_unit_core.sv`, sync to `src/top_gemv.sv`.
 
 ---
 
-## FPGA Synthesis Results (Gowin GW2AR-18)
+## FPGA Synthesis Results (Gowin GW2AR-18, MLP-only path)
+
+The numbers below are for the **MLP path** (`src/`), which is the only synthesizable target today. CNN ops live only in `rtl/execution_unit/` and are open work for the FPGA path.
 
 - **Fmax**: 89.201 MHz (11 logic levels)
 - **Cycles/image**: 25,470
 - **Latency**: 0.286 ms/image (~3,500 images/sec)
-- **Logic**: 42% (8,640 / 20,736)
-- **BSRAM**: 94% (43 / 46)
+- **Logic**: 42% (8,640 / 20,736 LUT4)
+- **BSRAM**: 94% (43 / 46 × 18-Kb blocks)
 - **DSP**: 5 blocks (1× MULT36X36 + 4× MULTADDALU18X18)
-- **MNIST Accuracy**: 95% (10,000 images), 100% exact match vs golden model
+- **MNIST accuracy**: 95% (10,000 images), 100% exact match vs golden model
+
+### Tang Nano 20K resource ceiling
+
+| Resource | Available | MLP path uses | CNN path (`rtl/execution_unit/`) would need |
+|---|---:|---:|---|
+| LUT4 | 20,736 | 42 % | TBD; expected higher (more execution units) |
+| BSRAM | 46 × 18 Kb | 94 % | Doesn't fit on-chip without external PSRAM |
+| DSP | 48 | 5 (MLP) | 32 if TILE_ELEMS=32 (sim variant), 8 if TILE_ELEMS=8 |
+
+The simulation RTL with `TILE_ELEMS=32` and 64 KB of vector + 32 KB of matrix + 16 KB accum_ram **does not fit** as on-chip BSRAM (~110 KB requested vs 103 KB available). The path forward for CNN-on-FPGA is to port the conv2d/maxpool units to `rtl/fpga_modules/` at `TILE_ELEMS=8` and either move `simple_memory` to the 8 MB external PSRAM or shrink internal buffers. With TILE_ELEMS=8 SmallCNN's conv1 output (2704 bytes) would require `VECTOR_BUFFER_WIDTH ≥ 21632` bits in the FPGA path too, mirroring Patch J.
 
 ---
 
 | Version | Date | Changes |
-|---------|------|---------|
-| 2.0 | Mar 2026 | Complete rewrite for FPGA architecture: unified memory, 8 PEs, BSRAM, B1/B2 optimizations |
+|---|---|---|
+| 3.0 | May 2026 | CNN bring-up: 8-opcode ISA (CONV2D_CFG/RUN, MAXPOOL); `conv2d_execution.sv` and `maxpool_execution.sv` execution units; `relu_flag` plumbing; bit-exact RTL ↔ Golden on SmallCNN MNIST. Per-opcode bit layouts. Patches A–J. |
+| 2.0 | Mar 2026 | Complete rewrite for FPGA architecture: unified memory, 8 PEs, BSRAM, B1/B2 GEMV optimizations |
 | 1.0 | Dec 2025 | Initial documentation |

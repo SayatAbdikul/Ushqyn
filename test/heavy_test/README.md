@@ -13,8 +13,8 @@ The heavy test suite performs exhaustive validation against the golden model usi
 1. **Full Dataset Coverage**: Tests all 10,000 MNIST test images (configurable)
 2. **Strict Validation**: Requires exact output matches - no tolerance for errors
 3. **Memory Contamination Prevention**: Clears output region before each test
-4. **Comprehensive Verification**: 
-   - Verifies DRAM sync across all 4 memory instances
+4. **Comprehensive Verification**:
+   - Verifies DRAM contents (single unified `main_memory`; the legacy 4-memory check in `accelerator_tester.verify_all_memories_synced()` gracefully handles `AttributeError` for the old paths)
    - Validates done pulse behavior
    - Checks that STORE actually wrote data
 5. **Detailed Statistics**:
@@ -28,10 +28,10 @@ The heavy test suite performs exhaustive validation against the golden model usi
 
 ### Test Coverage
 
-- **Functional Correctness**: RTL outputs match golden model exactly
-- **Accuracy Validation**: Neural network achieves expected classification accuracy
-- **Memory Integrity**: All 4 memory instances remain synchronized
-- **Timing Behavior**: Done signal pulses correctly
+- **Functional Correctness**: RTL outputs match golden model exactly (bit-exact, no tolerance)
+- **Accuracy Validation**: Neural network achieves expected classification accuracy on MNIST
+- **Memory Integrity**: Unified `main_memory` matches the in-Python DRAM image after every load
+- **Timing Behavior**: Done signal pulses correctly only on program-end (zero instruction)
 - **Output Verification**: STORE writes complete results
 
 ## Usage

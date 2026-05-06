@@ -1,18 +1,18 @@
 # Modular Execution Unit
 
-This directory contains a refactored, modular version of the execution unit with improved maintainability, testability, and correctness.
+Modular execution-unit path supporting both the MLP and the SmallCNN ISA paths. The simulation RTL here is the canonical CNN-capable execution path; the FPGA-targeted variant in `rtl/fpga_modules/` mirrors a subset of these modules (no `conv2d_execution` or `maxpool_execution` yet).
 
 ## Architecture Overview
 
-The modular execution unit separates concerns into specialized modules:
-
 ```
 modular_execution_unit.sv (Top Coordinator)
-├── buffer_controller.sv (Buffer Management)
-├── load_execution.sv (LOAD_V, LOAD_M)
-├── gemv_execution.sv (Matrix-Vector Multiplication)
-├── relu_execution.sv (ReLU Activation)
-└── store_execution.sv (STORE - Placeholder)
+├── buffer_controller.sv      Vector + matrix buffer management
+├── load_execution.sv         LOAD_V (0x01), LOAD_M (0x02)
+├── store_execution.sv        STORE (0x03)
+├── gemv_execution.sv         GEMV (0x04) — FC / Gemm path
+├── relu_execution.sv         RELU (0x05) — standalone (FC outputs only)
+├── conv2d_execution.sv       CONV2D_CFG (0x06) + CONV2D_RUN (0x07) — 2D conv + bias + quant + fused ReLU
+└── maxpool_execution.sv      MAXPOOL (0x08) — NCHW sliding-window max pool
 ```
 
 ## Module Descriptions
@@ -74,20 +74,49 @@ modular_execution_unit.sv (Top Coordinator)
 - `RELU (0x05)`: `dest = ReLU(source)`
 
 ### 5. `store_execution.sv`
-**Purpose:** Placeholder for STORE operations
-
-**Status:** Currently a placeholder that reads from buffer but doesn't write to memory
-
-**Future Work:** Needs `store_v` module implementation for DRAM writes
-
-### 6. `modular_execution_unit.sv`
-**Purpose:** Top-level coordinator
+**Purpose:** STORE operation — write a vector buffer back to DRAM.
 
 **Features:**
-- Simple FSM: IDLE → DISPATCH → WAIT → COMPLETE
-- Routes operations to appropriate modules
-- Multiplexes buffer controller access
-- Maintains same interface as original `execution_unit.sv`
+- Tile-by-tile read from source buffer, byte-by-byte write to DRAM
+- 18-bit length field per ISA (Patch H) — handles `LOAD_V` / `STORE` lengths up to 262 143
+
+**Operation:**
+- `STORE (0x03)`: `dram[addr +: length] = buffer[src_id][:length]`
+
+### 6. `conv2d_execution.sv`
+**Purpose:** Performs 2D convolution + bias + per-tensor quantization, with optional fused ReLU.
+
+**Features:**
+- Reads `x_id` (input feature map, NCHW), `w_id` (weights `[out_C, in_C·kH·kW]`), `b_id` (bias) from buffers
+- Geometry latched in `tinyml_accelerator_top.sv` from a prior `CONV2D_CFG` (0x06)
+- BSRAM-backed `accum_ram` (parameterized depth via `ACCUM_DEPTH`, default 4096); `$error` if out_h × out_w × out_channels > ACCUM_DEPTH
+- MAC array: same `pe[0..TILE_ELEMS-1]` as GEMV; per-tile MAC sum with trailing-element gate
+- Three-phase FSM: accumulate (per output channel × spatial × weight tile) → MAX_PASS → STREAM_QUANT
+- **Fused ReLU** (`relu_flag` bit 25 of `CONV2D_RUN`): clamps int8 outputs to ≥ 0 in STREAM_QUANT, matching `golden_model.conv2d(apply_relu=True)`
+
+**Operation:**
+- `CONV2D_CFG (0x06)`: latch `(fmap_h, fmap_w, in_c, out_c, kh, kw, stride, pad)` — does NOT execute
+- `CONV2D_RUN (0x07)`: `dest = quant(conv(x, w) + b)`, optionally with ReLU clamp
+
+### 7. `maxpool_execution.sv`
+**Purpose:** Sliding-window NCHW max-pool on int8 (no rescaling).
+
+**Features:**
+- Read addr: `c × fmap_h × fmap_w + ih × fmap_w + iw` (NCHW)
+- Loop nest: `c` outermost, `oh` middle, `ow` innermost — matches conv2d's NCHW output layout (Patch G)
+- Operates directly on int8; no quantization step
+
+**Operation:**
+- `MAXPOOL (0x08)`: `dest[c, oh, ow] = max(x[c, oh·s : oh·s+k, ow·s : ow·s+k])`
+
+### 8. `modular_execution_unit.sv`
+**Purpose:** Top-level coordinator.
+
+**Features:**
+- FSM: IDLE → DISPATCH → WAIT_* → COMPLETE
+- One WAIT_* state per opcode (`WAIT_LOAD`, `WAIT_GEMV`, `WAIT_RELU`, `WAIT_CONV2D`, `WAIT_MAXPOOL`, `WAIT_STORE`)
+- Routes buffer-controller and memory-bus signals based on the active opcode
+- Threads `relu_flag` (Patch F) and `length_or_cols[17:0]` (Patch H) from the top through to the per-opcode units
 
 ## Key Improvements Over Original
 
@@ -121,58 +150,66 @@ modular_execution_unit.sv (Top Coordinator)
 ## File Sizes
 
 | Module | Lines | Purpose |
-|--------|-------|---------|
-| `modular_execution_unit.sv` | ~440 | Top coordinator & multiplexing |
-| `buffer_controller.sv` | ~130 | Buffer file wrapper |
-| `load_execution.sv` | ~180 | Load operations |
-| `gemv_execution.sv` | ~320 | Matrix-vector multiply |
-| `relu_execution.sv` | ~160 | Activation function |
-| `store_execution.sv` | ~120 | Store (placeholder) |
-| **Total** | **~1,350** | **(vs 524 monolithic)** |
-
-Note: Total lines increased due to clean interfaces and separation, but each individual module is much more manageable.
+|---|---:|---|
+| `modular_execution_unit.sv` | ~700 | Top coordinator & multiplexing (incl. CNN routing) |
+| `buffer_controller.sv` | ~200 | Buffer file wrapper + random-read port |
+| `load_execution.sv` | ~250 | LOAD_V / LOAD_M |
+| `gemv_execution.sv` | ~330 | Matrix-vector multiply |
+| `relu_execution.sv` | ~190 | Standalone ReLU |
+| `store_execution.sv` | ~130 | STORE |
+| `conv2d_execution.sv` | ~440 | 2D conv + bias + quant + fused ReLU |
+| `maxpool_execution.sv` | ~170 | Sliding-window NCHW max-pool |
+| **Total** | **~2,400** | |
 
 ## Testing
 
-Comprehensive testbenches are provided in `test/execution_tests/`:
+### Per-unit cocotb tests (Verilator backend)
 
-### Unit Tests
-- `buffer_controller_tb.cpp` - Tests buffer read/write operations
-- `load_execution_tb.cpp` - Tests LOAD_V and LOAD_M
-- `relu_execution_tb.cpp` - Tests ReLU with proper buffer handling
-
-### Integration Test
-- `modular_execution_unit_tb.cpp` - Tests complete operation sequences
-  - NOP operation
-  - Load operations
-  - Neural network layer (FC + ReLU)
-  - Buffer isolation
-  - Edge cases
-
-### Running Tests
+These are the canonical regression tests — each preloads buffers via the testbench wrapper and asserts byte-equal output against `compiler/golden_model.py`:
 
 ```bash
-# Compile and run buffer controller test
-verilator --cc --exe --build -Wall \
-  rtl/execution_unit/buffer_controller.sv \
-  rtl/buffer_file.sv \
-  test/execution_tests/buffer_controller_tb.cpp
-./obj_dir/Vbuffer_controller
+cd test/cocotb_tests
 
-# Compile and run load execution test
-verilator --cc --exe --build -Wall \
-  rtl/execution_unit/load_execution.sv \
-  rtl/load_v.sv rtl/load_m.sv rtl/simple_memory.sv \
-  test/execution_tests/load_execution_tb.cpp
-./obj_dir/Vload_execution
+# Conv2D — bit-exact match vs golden_model.conv2d, both relu_flag=0 and =1
+./make_venv.sh TEST_TARGET=conv2d_execution
 
-# Compile and run integration test
-verilator --cc --exe --build -Wall \
-  rtl/execution_unit/modular_execution_unit.sv \
-  rtl/execution_unit/*.sv \
-  rtl/*.sv \
-  test/execution_tests/modular_execution_unit_tb.cpp
-./obj_dir/Vmodular_execution_unit
+# MaxPool — bit-exact match vs golden_model.maxpool, NCHW geometry
+./make_venv.sh TEST_TARGET=maxpool_execution
+
+# Top-level execution unit (MLP integration)
+./make_venv.sh TEST_TARGET=execution_unit
+
+# GEMV unit
+./make_venv.sh TEST_TARGET=gemv_execution
+```
+
+### Verilator C++ smoke tests (faster build, no Python)
+
+```bash
+cd test
+verilator --cc --exe --build \
+  -I../rtl -I../rtl/execution_unit \
+  --top-module conv2d_execution_tb_wrapper \
+  ../rtl/accelerator_config_pkg.sv \
+  ../rtl/execution_unit/conv2d_execution.sv \
+  ../rtl/execution_unit/buffer_controller.sv \
+  ../rtl/buffer_file.sv ../rtl/pe.sv \
+  ../rtl/scale_calculator.sv ../rtl/quantizer_pipeline.sv \
+  conv2d_execution_tb_wrapper.sv conv2d_execution_tb.cpp
+./obj_dir/Vconv2d_execution_tb_wrapper
+```
+
+### End-to-end integration
+
+```bash
+# CNN end-to-end through compiler+golden (pytest)
+cd compiler && pytest test_cnn_golden.py -v
+
+# MLP full-MNIST integration on FPGA-tier RTL (cocotb + Verilator)
+cd test/heavy_test_fpga && make run_test NUM_IMAGES=20
+
+# Sim RTL full-MNIST (10K images, larger TILE_ELEMS=32 path)
+cd test/heavy_test && make run_test
 ```
 
 ## Usage Example
