@@ -46,6 +46,8 @@ from golden_model import execute_program
 from dram import save_dram_to_file, save_input_to_dram, read_from_dram, get_dram, dram as dram_array
 from compile import generate_assembly
 from model import create_mlp_model
+from train_and_eval_cnn import SmallCNN
+import torch.nn as nn
 from assembler import assemble_file
 from accelerator_tester import TinyMLAcceleratorTester
 
@@ -307,15 +309,29 @@ async def test_full_mnist_dataset(dut):
     cocotb.log.info("=" * 80)
     
     # Create model and generate assembly
-    create_mlp_model()
-    model_path = "mlp_model.onnx"
+    dummy_input = torch.randn(1, 1, 28, 28)
+    cnn_model = SmallCNN()
+    try:
+        cnn_model.load_state_dict(torch.load("small_cnn_weights.pth"))
+        cocotb.log.info("Loaded pre-trained CNN weights.")
+    except:
+        cocotb.log.info("Training a quick CNN model since weights are missing...")
+        from train_and_eval_cnn import train_model
+        train_model(cnn_model, epochs=1)
+        torch.save(cnn_model.state_dict(), "small_cnn_weights.pth")
+    
+    torch.onnx.export(cnn_model, dummy_input, "small_cnn_model.onnx", 
+                      export_params=True, opset_version=14, do_constant_folding=True,
+                      input_names=['input'], output_names=['output'])
+    
+    model_path = "small_cnn_model.onnx"
     
     from dram import save_initializers_to_dram
     weight_map, bias_map = save_initializers_to_dram(model_path, tester.dram_offsets)
     cocotb.log.info("✓ Weights and biases loaded")
     
-    generate_assembly(model_path, "model_assembly.asm")
-    assemble_file("model_assembly.asm")
+    generate_assembly(model_path, "small_cnn_model.asm")
+    assemble_file("small_cnn_model.asm")
     cocotb.log.info("✓ Assembly generated and assembled")
     
     save_dram_to_file(dram_hex_path)

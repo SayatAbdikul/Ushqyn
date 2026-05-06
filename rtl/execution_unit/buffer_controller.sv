@@ -31,6 +31,11 @@ module buffer_controller #(
     output logic signed [DATA_WIDTH-1:0] vec_read_tile [0:TILE_ELEMS-1],
     output logic vec_read_valid,
     
+    // Vector buffer random-access read interface (combinational)
+    input logic [4:0] vec_random_read_buffer_id,
+    input logic [$clog2(VECTOR_BUFFER_WIDTH/DATA_WIDTH)-1:0] vec_random_read_addr,
+    output logic signed [DATA_WIDTH-1:0] vec_random_read_data,
+    
     // Matrix buffer write interface
     input logic mat_write_enable,
     input logic [4:0] mat_write_buffer_id,
@@ -148,7 +153,10 @@ module buffer_controller #(
         .writing_done(vec_write_done),
         .reading_done(vec_read_done),
         .reset_indices_enable(vec_reset_indices),
-        .reset_indices_buffer(vec_reset_buffer_id)
+        .reset_indices_buffer(vec_reset_buffer_id),
+        .random_read_buffer(vec_random_read_buffer_id),
+        .random_read_addr(vec_random_read_addr),
+        .random_read_data(vec_random_read_data)
     );
     /* verilator lint_on WIDTHTRUNC */
     

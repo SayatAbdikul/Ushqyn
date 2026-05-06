@@ -17,12 +17,13 @@ MODULE = test_full_mnist
 # Verilator flags
 EXTRA_ARGS += --trace --trace-structs
 EXTRA_ARGS += -Wno-WIDTH -Wno-CASEINCOMPLETE -Wno-CASEX -Wno-TIMESCALEMOD
-EXTRA_ARGS += -Wno-UNOPTFLAT -Wno-PINMISSING -Wno-UNUSED -Wno-BLKANDNBLK
+EXTRA_ARGS += -Wno-UNOPTFLAT -Wno-PINMISSING -Wno-UNUSED -Wno-BLKANDNBLK -Wno-UNSIGNED
 EXTRA_ARGS += --timing  # Enable timing support
 EXTRA_ARGS += -CFLAGS "-std=c++14"
 
 # Source files - include all RTL modules
-VERILOG_SOURCES = $(RTL_DIR)/tinyml_accelerator_top.sv
+VERILOG_SOURCES = $(RTL_DIR)/accelerator_config_pkg.sv
+VERILOG_SOURCES += $(RTL_DIR)/tinyml_accelerator_top.sv
 VERILOG_SOURCES += $(RTL_DIR)/fetch_unit.sv
 VERILOG_SOURCES += $(RTL_DIR)/i_decoder.sv
 VERILOG_SOURCES += $(RTL_DIR)/simple_memory.sv
@@ -44,6 +45,8 @@ VERILOG_SOURCES += $(RTL_DIR)/execution_unit/modular_execution_unit.sv
 VERILOG_SOURCES += $(RTL_DIR)/execution_unit/buffer_controller.sv
 VERILOG_SOURCES += $(RTL_DIR)/execution_unit/load_execution.sv
 VERILOG_SOURCES += $(RTL_DIR)/execution_unit/gemv_execution.sv
+VERILOG_SOURCES += $(RTL_DIR)/execution_unit/conv2d_execution.sv
+VERILOG_SOURCES += $(RTL_DIR)/execution_unit/maxpool_execution.sv
 VERILOG_SOURCES += $(RTL_DIR)/execution_unit/relu_execution.sv
 VERILOG_SOURCES += $(RTL_DIR)/execution_unit/store_execution.sv
 

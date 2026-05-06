@@ -25,10 +25,11 @@ class TinyMLAcceleratorTester:
         self.output_length = 10  # Default output length for MNIST (10 classes)
         self.input_addr = 0xC0  # Updated input address
         self.dram_offsets = {
-            "inputs":  0xC0,
-            "biases":  0x4C0,
-            "outputs": 0x8C0,
-            "weights": 0x940,
+            "inputs":       0xC0,
+            "biases":       0x4C0,
+            "outputs":      0x8C0,
+            "weights":      0x940,
+            "conv_weights": 0x3000,
         }
 
     async def reset(self):

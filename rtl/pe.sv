@@ -8,6 +8,7 @@ module pe #(
     output logic signed [2*DATA_WIDTH-1:0] y    // Output (w * x)
 );
 
+    (* use_dsp = "yes" *)
     logic signed [2*DATA_WIDTH-1:0] mult_result;
 
     always_ff @(posedge clk or posedge rst) begin

@@ -17,7 +17,12 @@ module buffer_file #(
     output reg reading_done,
     // New: reset tile indices for a specific buffer
     input reset_indices_enable,
-    input [$clog2(BUFFER_COUNT)-1:0] reset_indices_buffer
+    input [$clog2(BUFFER_COUNT)-1:0] reset_indices_buffer,
+    
+    // New: Random access combinational read port
+    input [$clog2(BUFFER_COUNT)-1:0] random_read_buffer,
+    input [$clog2(BUFFER_WIDTH/DATA_WIDTH)-1:0] random_read_addr,
+    output logic [DATA_WIDTH-1:0] random_read_data
 );
 
 // Calculate buffer parameters
@@ -31,6 +36,9 @@ logic [BUFFER_WIDTH-1:0] buffers [0:BUFFER_COUNT-1];
 // Tile indices - separate for each buffer
 logic [TILE_INDEX_WIDTH-1:0] w_tile_index [0:BUFFER_COUNT-1];
 logic [TILE_INDEX_WIDTH-1:0] r_tile_index [0:BUFFER_COUNT-1];
+
+// Random access combinational logic
+assign random_read_data = buffers[random_read_buffer][random_read_addr * DATA_WIDTH +: DATA_WIDTH];
 
 
 // Edge detection for read_enable (only read on rising edge)
