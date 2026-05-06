@@ -11,7 +11,7 @@ class AcceleratorConfig:
     
     MEM_SIZE = 61440
     
-    VECTOR_BUFFER_WIDTH = 8192
+    VECTOR_BUFFER_WIDTH = 32768
     MATRIX_BUFFER_WIDTH = 131072
     
     MAX_ROWS = 1024

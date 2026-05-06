@@ -10,11 +10,11 @@ DEFAULT_CONFIG = {
     # Memory Size
     "MEM_SIZE": 0xF000,
     
-    # Buffer Sizes (in bits, matching RTL parameters potentially, or bytes?)
-    # RTL buffer_controller.sv uses BUFFER_WIDTH parameters.
-    # VECTOR_BUFFER_WIDTH = 8192
-    # MATRIX_BUFFER_WIDTH = 131072
-    "VECTOR_BUFFER_WIDTH": 8192,
+    # Buffer Sizes (in bits)
+    # VECTOR_BUFFER_WIDTH was 8192 (1024 B per buffer); bumped to 32768
+    # (4096 B) so SmallCNN's conv1 output (4×26×26 = 2704 B) fits without
+    # silently wrapping in buffer_file.sv. MATRIX_BUFFER_WIDTH unchanged.
+    "VECTOR_BUFFER_WIDTH": 32768,
     "MATRIX_BUFFER_WIDTH": 131072,
     
     # Architecture Limits
@@ -26,7 +26,8 @@ DEFAULT_CONFIG = {
     "DRAM_ADDR_INPUTS": 0x00C0,
     "DRAM_ADDR_BIASES": 0x04C0,
     "DRAM_ADDR_OUTPUTS": 0x08C0,
-    "DRAM_ADDR_WEIGHTS": 0x0940
+    "DRAM_ADDR_WEIGHTS": 0x0940,
+    "DRAM_ADDR_CONV_WEIGHTS": 0x3000   # Conv weights, well after FC weights
 }
 
 def generate_rtl_package(config, output_path="rtl/accelerator_config_pkg.sv"):
@@ -84,10 +85,11 @@ class AcceleratorConfig:
     OUT_N = {config["OUT_N"]}
     
     # Memory Map
-    DRAM_ADDR_INPUTS = {config["DRAM_ADDR_INPUTS"]}
-    DRAM_ADDR_BIASES = {config["DRAM_ADDR_BIASES"]}
-    DRAM_ADDR_OUTPUTS = {config["DRAM_ADDR_OUTPUTS"]}
-    DRAM_ADDR_WEIGHTS = {config["DRAM_ADDR_WEIGHTS"]}
+    DRAM_ADDR_INPUTS      = {config["DRAM_ADDR_INPUTS"]}
+    DRAM_ADDR_BIASES      = {config["DRAM_ADDR_BIASES"]}
+    DRAM_ADDR_OUTPUTS     = {config["DRAM_ADDR_OUTPUTS"]}
+    DRAM_ADDR_WEIGHTS     = {config["DRAM_ADDR_WEIGHTS"]}    # FC weights
+    DRAM_ADDR_CONV_WEIGHTS= {config["DRAM_ADDR_CONV_WEIGHTS"]}   # Conv weights  (0x3000, well after FC weights)
 """
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, "w") as f:

@@ -2,6 +2,8 @@
 // Performs full matrix convolutions with BSRAM-buffered accumulation
 // for mathematically correct full-tensor INT8 quantization.
 
+import accelerator_config_pkg::VECTOR_BUFFER_WIDTH;
+
 module conv2d_execution #(
     parameter DATA_WIDTH = 8,
     parameter TILE_ELEMS = 32,
@@ -39,7 +41,7 @@ module conv2d_execution #(
     
     // Random buffer access for input feature map
     output logic [4:0] vec_random_read_buffer_id,
-    output logic [$clog2(8192/DATA_WIDTH)-1:0] vec_random_read_addr,
+    output logic [$clog2(VECTOR_BUFFER_WIDTH/DATA_WIDTH)-1:0] vec_random_read_addr,
     input logic signed [DATA_WIDTH-1:0] vec_random_read_data,
     
     // Sequential matrix access for weights
@@ -118,7 +120,7 @@ module conv2d_execution #(
     assign vec_random_read_buffer_id = (state == STREAM_QUANT || state == WAIT_QUANT || state == MAX_PASS) ? b_buffer_id : x_buffer_id;
     
     // Address routing
-    logic [$clog2(8192/DATA_WIDTH)-1:0] x_addr_calc, b_addr_calc;
+    logic [$clog2(VECTOR_BUFFER_WIDTH/DATA_WIDTH)-1:0] x_addr_calc, b_addr_calc;
     assign x_addr_calc = cur_ic * fmap_h * fmap_w + ih * fmap_w + iw;
     
     // Bias address tracker. Iteration order is per-channel (NCHW), so the bias

@@ -1,7 +1,9 @@
 // MaxPool Execution Module
 // Slides a downsampling spatial window over a dynamic feature map geometry,
-// accumulating explicit 8-bit maximums entirely utilizing the random access memory bus 
+// accumulating explicit 8-bit maximums entirely utilizing the random access memory bus
 // to bypass complex systolic routing blockades without needing explicit tile packing FSMs.
+
+import accelerator_config_pkg::VECTOR_BUFFER_WIDTH;
 
 module maxpool_execution #(
     parameter DATA_WIDTH = 8,
@@ -22,7 +24,7 @@ module maxpool_execution #(
     
     // Random access for sequential unrolling of 2D geometry matrices
     output logic [4:0] vec_random_read_buffer_id,
-    output logic [$clog2(8192/DATA_WIDTH)-1:0] vec_random_read_addr,
+    output logic [$clog2(VECTOR_BUFFER_WIDTH/DATA_WIDTH)-1:0] vec_random_read_addr,
     input logic signed [DATA_WIDTH-1:0] vec_random_read_data,
     
     // Standard stream emitter bus

@@ -14,6 +14,8 @@
 // 2. GEMV writes results back to buffer for subsequent operations
 // 3. Proper length handling for ReLU operations
 
+import accelerator_config_pkg::VECTOR_BUFFER_WIDTH;
+
 module modular_execution_unit #(
     parameter DATA_WIDTH = 8,
     parameter TILE_WIDTH = 256,
@@ -143,7 +145,7 @@ module modular_execution_unit #(
     
     logic conv2d_start, conv2d_done;
     logic [4:0] conv2d_vec_random_read_buffer_id;
-    logic [$clog2(8192/DATA_WIDTH)-1:0] conv2d_vec_random_read_addr;
+    logic [$clog2(VECTOR_BUFFER_WIDTH/DATA_WIDTH)-1:0] conv2d_vec_random_read_addr;
     logic conv2d_mat_read_enable;
     logic [4:0] conv2d_mat_read_buffer_id;
     logic conv2d_vec_write_enable;
@@ -156,7 +158,7 @@ module modular_execution_unit #(
     
     logic maxpool_start, maxpool_done;
     logic [4:0] maxpool_vec_random_read_buffer_id;
-    logic [$clog2(8192/DATA_WIDTH)-1:0] maxpool_vec_random_read_addr;
+    logic [$clog2(VECTOR_BUFFER_WIDTH/DATA_WIDTH)-1:0] maxpool_vec_random_read_addr;
     logic maxpool_vec_write_enable;
     logic [4:0] maxpool_vec_write_buffer_id;
     logic signed [DATA_WIDTH-1:0] maxpool_vec_write_tile [0:TILE_ELEMS-1];
@@ -183,7 +185,8 @@ module modular_execution_unit #(
     buffer_controller #(
         .DATA_WIDTH(DATA_WIDTH),
         .TILE_WIDTH(TILE_WIDTH),
-        .TILE_ELEMS(TILE_ELEMS)
+        .TILE_ELEMS(TILE_ELEMS),
+        .VECTOR_BUFFER_WIDTH(VECTOR_BUFFER_WIDTH)
     ) buffer_ctrl (
         .clk(clk),
         .rst(rst),
@@ -216,7 +219,7 @@ module modular_execution_unit #(
     // Wait, Buffer Controller already exposes `vec_random_read_*` ports! We forgot to declare them here.
     // We added them to buffer_controller in standard interface.
     logic [4:0] buf_vec_random_read_buffer_id;
-    logic [$clog2(8192/DATA_WIDTH)-1:0] buf_vec_random_read_addr;
+    logic [$clog2(VECTOR_BUFFER_WIDTH/DATA_WIDTH)-1:0] buf_vec_random_read_addr;
     logic signed [DATA_WIDTH-1:0] buf_vec_random_read_data;
     
     assign buf_vec_random_read_buffer_id = (state == WAIT_CONV2D) ? conv2d_vec_random_read_buffer_id : 
