@@ -2,7 +2,11 @@ module i_decoder (
     input  logic [63:0] instr,
     output logic [4:0]  opcode,
     output logic [4:0]  dest,
-    output logic [9:0]  length_or_cols,
+    // length_or_cols is 18 bits to match the assembler/golden_model contract
+    // (LOAD_V/STORE length is encoded across [27:10]). LOAD_M / GEMV use only
+    // the lower 10 bits — assembler still encodes those at 10 bits. RELU
+    // uses bits [29:20] and is loaded into the lower 10 bits.
+    output logic [17:0] length_or_cols,
     output logic [9:0]  rows,
     output logic [23:0] addr,
     output logic [4:0]  b,
@@ -46,20 +50,20 @@ module i_decoder (
 
             5'h01, 5'h03: begin // LOAD_V or STORE
                 dest           = instr[9:5];
-                length_or_cols = instr[19:10];
+                length_or_cols = instr[27:10];   // 18-bit length
                 addr           = instr[63:40];
             end
 
             5'h02: begin // LOAD_M
                 dest           = instr[9:5];
-                length_or_cols = instr[19:10];  // cols
+                length_or_cols = {8'b0, instr[19:10]};  // 10-bit cols, zero-extended
                 rows           = instr[29:20];
                 addr           = instr[63:40];
             end
 
             5'h04: begin // GEMV
                 dest = instr[9:5];
-                length_or_cols = instr[19:10]; // cols
+                length_or_cols = {8'b0, instr[19:10]}; // 10-bit cols
                 rows = instr[29:20];
                 b    = instr[34:30];
                 x    = instr[39:35];
@@ -69,7 +73,7 @@ module i_decoder (
             5'h05: begin // RELU
                 dest           = instr[9:5];
                 x              = instr[14:10];
-                length_or_cols = instr[29:20];  // RELU length field
+                length_or_cols = {8'b0, instr[29:20]};  // 10-bit RELU length
             end
             
             5'h06: begin // CONV2D_CFG

@@ -18,9 +18,9 @@ module store_execution #(
     
     // Control interface
     input logic start,
-    input logic [4:0] src_buffer_id,    // Source buffer to read from
-    input logic [9:0] length,           // Vector length to store
-    input logic [ADDR_WIDTH-1:0] addr,  // DRAM address to write to
+    input logic [4:0]  src_buffer_id,    // Source buffer to read from
+    input logic [17:0] length,           // 18-bit per ISA (STORE shares LOAD_V's length encoding)
+    input logic [ADDR_WIDTH-1:0] addr,   // DRAM address to write to
     output logic done,
     
     // Buffer controller interface - vector reads

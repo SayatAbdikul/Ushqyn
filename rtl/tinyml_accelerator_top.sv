@@ -99,7 +99,7 @@ module tinyml_accelerator_top #(
     // ------------------------------------------------------------
     logic [4:0]  d_opcode;
     logic [4:0]  d_dest;
-    logic [9:0]  d_length_or_cols;
+    logic [17:0] d_length_or_cols;
     logic [9:0]  d_rows;
     /* verilator lint_off UNUSEDSIGNAL */
     logic [23:0] d_addr;
@@ -136,7 +136,7 @@ module tinyml_accelerator_top #(
     // Latched copies for stable drive during execution
     logic [4:0]  ex_opcode;
     logic [4:0]  ex_dest;
-    logic [9:0]  ex_length_or_cols;
+    logic [17:0] ex_length_or_cols;
     logic [9:0]  ex_rows;
     logic [ADDR_WIDTH-1:0] ex_addr;
     logic [4:0]  ex_b, ex_x, ex_w;

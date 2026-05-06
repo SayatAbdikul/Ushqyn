@@ -8,7 +8,7 @@ module store #(
     input  logic                        rst,
     input  logic                        start,
     input  logic [ADDR_WIDTH-1:0]       dram_addr,
-    input  logic [9:0]                  length,      // number of elements to store
+    input  logic [17:0]                 length,      // 18-bit per ISA (STORE shares LOAD_V's length encoding)
     input  logic [4:0]                  buf_id,      // which vector buffer to read from
 
     // Connect to the shared vector buffer file for reads
@@ -41,7 +41,8 @@ module store #(
     s_state_t state;
 
     logic [ADDR_WIDTH-1:0] base_addr;
-    logic [15:0]           written_bits;
+    // 18-bit length × 8 bits/elem = up to 21 bits; 24 bits gives headroom.
+    logic [23:0]           written_bits;
     // Use exact index width for TILE_ELEMS entries
     logic [$clog2(TILE_ELEMS)-1:0] elem_idx;
     logic read_requested;
@@ -76,7 +77,7 @@ module store #(
                 S_IDLE: begin
                     if (start) begin
                         base_addr    <= dram_addr;
-                        written_bits <= 16'd0;
+                        written_bits <= 24'd0;
                         elem_idx     <= '0;
                         read_requested <= 1'b0; // Reset read_requested when starting a new operation
                         state        <= S_REQ_TILE;

@@ -8,7 +8,7 @@ module load_v #(
     input logic rst,
     input logic valid_in,
     input logic [ADDR_WIDTH-1:0] dram_addr,
-    input logic [9:0] length,  // in elements - increased width to ensure no truncation
+    input logic [17:0] length,  // 18-bit per ISA (LOAD_V instr[27:10])
     output logic [DATA_WIDTH-1:0] data_out [0:TILE_WIDTH/DATA_WIDTH-1],
     output logic tile_out,
     output logic valid_out,
@@ -23,7 +23,9 @@ module load_v #(
     // Unify counts
     localparam ELEM_COUNT = TILE_WIDTH / DATA_WIDTH;
 
-    logic [15:0] length_cnt;
+    // length_cnt accumulates bits captured. 18-bit elements × 8 bits ≤ 21 bits;
+    // 24 bits gives headroom and matches the rest of the address-space scale.
+    logic [23:0] length_cnt;
     // logic [DATA_WIDTH-1:0] mem_data_out; -> mem_rdata
     // logic [23:0] mem_addr; -> output
 

@@ -20,10 +20,12 @@ module load_execution #(
     
     // Control interface
     input logic start,
-    input logic [4:0] opcode,           // 0x01=LOAD_V, 0x02=LOAD_M
-    input logic [4:0] dest_buffer_id,   // Target buffer to write to
-    input logic [9:0] length_or_cols,   // Vector length or matrix columns
-    input logic [9:0] rows,             // Matrix rows (unused for LOAD_V)
+    input logic [4:0]  opcode,           // 0x01=LOAD_V, 0x02=LOAD_M
+    input logic [4:0]  dest_buffer_id,   // Target buffer to write to
+    // 18-bit length for LOAD_V (matches assembler/golden_model contract);
+    // LOAD_M only uses the lower 10 bits (cols field).
+    input logic [17:0] length_or_cols,
+    input logic [9:0]  rows,             // Matrix rows (unused for LOAD_V)
     input logic [ADDR_WIDTH-1:0] addr,  // DRAM address to load from
     output logic done,
     
@@ -115,7 +117,7 @@ module load_execution #(
         .valid_in(load_m_start),
         .dram_addr(addr),
         .rows(rows),
-        .cols(length_or_cols),
+        .cols(length_or_cols[9:0]),    // LOAD_M cols stays 10-bit per ISA
         .data_out(load_m_tile),
         .tile_out(load_m_tile_ready),
         .valid_out(load_m_done),

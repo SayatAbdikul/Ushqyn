@@ -28,8 +28,8 @@ module modular_execution_unit #(
     input logic start,
     input logic [4:0] opcode,
     input logic [4:0] dest,
-    input logic [9:0] length_or_cols,
-    input logic [9:0] rows,
+    input logic [17:0] length_or_cols,
+    input logic [9:0]  rows,
     input logic [ADDR_WIDTH-1:0] addr,
     input logic [4:0] b_id, x_id, w_id,
     
@@ -268,7 +268,7 @@ module modular_execution_unit #(
         .w_buffer_id(w_id),
         .x_buffer_id(x_id),
         .b_buffer_id(b_id),
-        .cols(length_or_cols),
+        .cols(length_or_cols[9:0]),    // GEMV cols stays 10-bit per ISA
         .rows(rows),
         .done(gemv_done),
         .vec_read_enable(gemv_vec_read_enable),
@@ -296,7 +296,7 @@ module modular_execution_unit #(
         .start(relu_start),
         .dest_buffer_id(dest),
         .x_buffer_id(x_id),  // CRITICAL FIX: ReLU reads from x_id, not dest
-        .length(length_or_cols),
+        .length(length_or_cols[9:0]),   // RELU length stays 10-bit per ISA
         .done(relu_done),
         .vec_read_enable(relu_vec_read_enable),
         .vec_read_buffer_id(relu_vec_read_buffer_id),
