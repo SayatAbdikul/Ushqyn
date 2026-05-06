@@ -8,6 +8,11 @@ module conv2d_execution #(
     parameter MAX_ROWS = 1024,
     parameter MAX_COLS = 1024,
     parameter ADDR_WIDTH = 24,
+    // Per-output-element int32 accumulator depth. The conv unit needs
+    // total_out_pixels × out_channels entries; oversized geometries
+    // would silently overflow if this is too small. A SystemVerilog
+    // assert in the FSM's IDLE state catches that loudly.
+    parameter ACCUM_DEPTH = 4096,
     // Set DEBUG_CONV=1 at instantiation to enable per-element trace prints.
     parameter DEBUG_CONV = 0
 )(
@@ -50,7 +55,7 @@ module conv2d_execution #(
 );
 
     // Internal logic and memory
-    logic signed [31:0] accum_ram [0:4095];
+    logic signed [31:0] accum_ram [0:ACCUM_DEPTH-1];
 
 
     // Geometry bounds
@@ -205,6 +210,14 @@ module conv2d_execution #(
                 
                 INIT_CONV: begin
                     total_out_pixels <= out_h * out_w;
+                    // Loud failure if the geometry would overflow accum_ram.
+                    // Silent truncation would otherwise corrupt downstream
+                    // results in subtle ways.
+                    if (out_h * out_w * out_channels > ACCUM_DEPTH) begin
+                        $error("conv2d_execution: out_h(%0d)*out_w(%0d)*out_channels(%0d)=%0d exceeds ACCUM_DEPTH=%0d",
+                               out_h, out_w, out_channels,
+                               out_h * out_w * out_channels, ACCUM_DEPTH);
+                    end
                     max_abs_reg <= 0;
                     oc <= 0;
                     mat_read_buffer_id <= w_buffer_id; // assert weight buffer ID to start sequential reads
