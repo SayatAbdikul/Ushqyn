@@ -35,12 +35,15 @@ from collections import defaultdict
 import time
 import csv
 
-# Add paths — local dir must come first so accelerator_config.py here (TILE_ELEMS=8)
-# overrides compiler/accelerator_config.py (TILE_ELEMS=32) before any compiler
-# modules are imported and cache their AcceleratorConfig reference.
+# P3 (2026-05-08): compiler/accelerator_config.py carries both `sim` and `fpga`
+# profiles, selected via the TINYML_PROFILE env var. The Makefile exports it;
+# we also set it here as a safety net for direct pytest invocation. Must run
+# BEFORE any compiler module is imported, since accelerator_config.py captures
+# the active profile at import time and dram.py freezes MEM_SIZE.
+os.environ.setdefault("TINYML_PROFILE", "fpga")
+
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../cocotb_tests/utils'))
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../../compiler'))
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))  # local dir overrides compiler
 
 from golden_model import execute_program
 from dram import save_dram_to_file, save_input_to_dram, read_from_dram, get_dram, dram as dram_array

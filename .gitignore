@@ -5,7 +5,8 @@ compiler/dram.hex
 compiler/dram_*.hex
 compiler/program.hex
 compiler/disassembled.asm
-compiler/accelerator_config.py
+# compiler/accelerator_config.py — was auto-generated pre-P3 (2026-05-08);
+# now hand-edited with two named profiles (sim, fpga). Tracked in git.
 
 # Compiler data/model files
 compiler/data/

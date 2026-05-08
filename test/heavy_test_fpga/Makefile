@@ -65,8 +65,15 @@ VERILOG_SOURCES += $(RTL_DIR)/fpga_modules/gemv_unit_core.sv
 VERILOG_SOURCES += $(RTL_DIR)/fpga_modules/Gowin_RAM16SDP_Mock.sv
 VERILOG_SOURCES += $(RTL_DIR)/fpga_modules/Gowin_SDPB_32.sv
 
-# Python path setup
+# Python path setup. After P3 we no longer ship a local `accelerator_config.py`
+# overriding compiler/accelerator_config.py; the FPGA-tier config is selected
+# via the TINYML_PROFILE env var below.
 export PYTHONPATH := $(TEST_DIR):$(COCOTB_DIR)/utils:$(PYTHONPATH)
+
+# Profile selection (P3): compiler/accelerator_config.py reads this at import
+# time and exposes the matching profile under the historical AcceleratorConfig
+# name. Must be exported so the cocotb subprocess inherits it.
+export TINYML_PROFILE := fpga
 
 # Test configuration via environment variables
 # Usage examples:
