@@ -295,15 +295,13 @@ def test_smallcnn_end_to_end(tmp_path):
     golden_model.memory = dram.get_dram()
     golden_model.memory[AcceleratorConfig.DRAM_ADDR_INPUTS : AcceleratorConfig.DRAM_ADDR_INPUTS + len(flat_input)] = flat_input
     
-    # Manually load the input feature map into buffer 9 (LOAD_V)
-    # assembler.py encoding for LOAD_V:
-    # word = (addr << 40) | (length << 10)  | (dest << 5) | opcode
-    load_v_opcode = 0x01
-    load_v_dest = 9
-    load_v_length = len(flat_input)
-    load_v_addr = AcceleratorConfig.DRAM_ADDR_INPUTS
-    
-    load_v_word = (load_v_addr << 40) | (load_v_length << 10) | (load_v_dest << 5) | load_v_opcode
+    # Manually load the input feature map into buffer 9 via the ISA spec
+    # (single source of truth for opcode bit layouts — see compiler/isa_spec.py).
+    from isa_spec import encode
+    load_v_word = encode("LOAD_V",
+                         dest=9,
+                         addr=AcceleratorConfig.DRAM_ADDR_INPUTS,
+                         length=len(flat_input))
     golden_model.i_decoder(load_v_word)
     
     for word in instr_words:

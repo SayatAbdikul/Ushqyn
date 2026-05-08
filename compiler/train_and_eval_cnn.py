@@ -128,12 +128,13 @@ def evaluate_models(model, num_test_images=50):
         flat_input = image.numpy().flatten().astype(np.int8)
         golden_model.memory[AcceleratorConfig.DRAM_ADDR_INPUTS : AcceleratorConfig.DRAM_ADDR_INPUTS + len(flat_input)] = flat_input
         
-        # Manual LOAD_V for input
-        load_v_opcode = 0x01
-        load_v_dest = 9
-        load_v_length = len(flat_input)
-        load_v_addr = AcceleratorConfig.DRAM_ADDR_INPUTS
-        load_v_word = (load_v_addr << 40) | (load_v_length << 10) | (load_v_dest << 5) | load_v_opcode
+        # Manual LOAD_V for input — encode via the ISA spec rather than open-coding
+        # the bit layout (see compiler/isa_spec.py for the canonical opcode table).
+        from isa_spec import encode
+        load_v_word = encode("LOAD_V",
+                             dest=9,
+                             addr=AcceleratorConfig.DRAM_ADDR_INPUTS,
+                             length=len(flat_input))
         golden_model.i_decoder(load_v_word)
         
         # Execute Instructions

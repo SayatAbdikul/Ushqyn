@@ -17,6 +17,7 @@ import numpy as np
 from dram import get_dram
 from helper_functions import quantize_int32_to_int8, quantize_int32_to_int8_rtl_exact
 from accelerator_config import AcceleratorConfig
+from isa_spec import OPCODE_BY_VALUE, decode_fields
 
 # Set GOLDEN_DEBUG=1 in the env to enable per-op trace prints in gemv/conv2d/maxpool.
 DEBUG_GOLDEN = os.environ.get("GOLDEN_DEBUG", "0") == "1"
@@ -59,83 +60,63 @@ def load_memory(dram_file, use_file=True):
 
 # ── Instruction decoder ────────────────────────────────────────────────────────
 def i_decoder(instruction):
-    opcode = instruction & 0x1F  # bits [4:0]
+    """Decode a 64-bit instruction word and dispatch to the matching op.
 
-    if opcode == 1:  # LOAD_V
-        dest = instruction >> 5  & 0x1F
-        length = instruction >> 10 & 0x3FFFF  # 18 bits
-        addr   = instruction >> 40 & 0xFFFFFF
-        load_v(dest, addr, length)
+    All bit-field extraction lives in `isa_spec.decode_fields(...)`; this
+    function just demuxes by opcode name and forwards the named fields to
+    the compute functions below. Adding an opcode = adding to isa_spec.OPCODES
+    and adding a branch here.
+    """
+    opcode = instruction & 0x1F
+    op = OPCODE_BY_VALUE.get(opcode)
+    if op is None:
+        return f"UNKNOWN_OPCODE: {opcode}"
+    if op.name == "NOP":
+        return
 
-    elif opcode == 2:  # LOAD_M
-        dest = instruction >> 5  & 0x1F
-        cols = instruction >> 10 & 0x3FF
-        rows = instruction >> 20 & 0x3FF
-        addr = instruction >> 40 & 0xFFFFFF
-        load_m(dest, addr, rows, cols)
+    f = decode_fields(instruction)
 
-    elif opcode == 3:  # STORE
-        buf_id = instruction >> 5  & 0x1F
-        length = instruction >> 10 & 0x3FFFF
-        addr   = instruction >> 40 & 0xFFFFFF
-        store(buf_id, addr, length)
+    if op.name == "LOAD_V":
+        load_v(f["dest"], f["addr"], f["length"])
 
-    elif opcode == 4:  # GEMV
-        dest = instruction >> 5  & 0x1F
-        cols = instruction >> 10 & 0x3FF
-        rows = instruction >> 20 & 0x3FF
-        b    = instruction >> 30 & 0x1F
-        x    = instruction >> 35 & 0x1F
-        w    = instruction >> 40 & 0x1F
-        gemv(dest, w, x, b, rows, cols)
+    elif op.name == "LOAD_M":
+        load_m(f["dest"], f["addr"], f["rows"], f["cols"])
 
-    elif opcode == 5:  # RELU
-        dest   = instruction >> 5  & 0x1F
-        x      = instruction >> 10 & 0x1F
-        length = instruction >> 20 & 0x3FF  # 10-bit (≤1023 elements; FC outputs only)
-        relu(dest, x, length)
+    elif op.name == "STORE":
+        store(f["dest"], f["addr"], f["length"])
 
-    elif opcode == 6:  # CONV2D_CFG
-        # Decodes geometry; does NOT modify buffers.  Next CONV2D_RUN will use this config.
-        # Bit layout (matches assembler.py):
-        #   [ 4: 0] opcode   [ 9: 5] dest
-        #   [15:10] fmap_h   [21:16] fmap_w
-        #   [27:22] in_c     [33:28] out_c
-        #   [37:34] kh       [41:38] kw
-        #   [44:42] stride   [47:45] pad
+    elif op.name == "GEMV":
+        gemv(f["dest"], f["w"], f["x"], f["b"], f["rows"], f["cols"])
+
+    elif op.name == "RELU":
+        relu(f["dest"], f["x"], f["length"])
+
+    elif op.name == "CONV2D_CFG":
+        # Geometry latch — does NOT modify buffers; next CONV2D_RUN consumes this.
         global pending_conv_config
         pending_conv_config = {
-            'dest'  : instruction >>  5 & 0x1F,
-            'fmap_h': instruction >> 10 & 0x3F,
-            'fmap_w': instruction >> 16 & 0x3F,
-            'in_c'  : instruction >> 22 & 0x3F,
-            'out_c' : instruction >> 28 & 0x3F,
-            'kh'    : instruction >> 34 & 0x0F,
-            'kw'    : instruction >> 38 & 0x0F,
-            'stride': instruction >> 42 & 0x07,
-            'pad'   : instruction >> 45 & 0x07,
+            'dest':   f["dest"],
+            'fmap_h': f["fmap_h"],
+            'fmap_w': f["fmap_w"],
+            'in_c':   f["in_c"],
+            'out_c':  f["out_c"],
+            'kh':     f["kh"],
+            'kw':     f["kw"],
+            'stride': f["stride"],
+            'pad':    f["pad"],
         }
 
-    elif opcode == 7:  # CONV2D_RUN
-        # Bit layout:
-        #   [ 4: 0] opcode  [ 9: 5] dest
-        #   [14:10] x_id    [19:15] w_id
-        #   [24:20] b_id    [25]    relu_flag
-        dest      = instruction >>  5 & 0x1F
-        x_id      = instruction >> 10 & 0x1F
-        w_id      = instruction >> 15 & 0x1F
-        b_id      = instruction >> 20 & 0x1F
-        relu_flag = bool(instruction >> 25 & 0x01)
-        # Geometry comes from the most recent CONV2D_CFG.
+    elif op.name == "CONV2D_RUN":
         cfg = pending_conv_config
+        relu_flag = bool(f["relu_flag"])
         if DEBUG_GOLDEN:
-            print(f"[DBG_CONV2D_RUN] dest={dest} x_id={x_id} w_id={w_id} "
-                  f"b_id={b_id} relu={relu_flag} cfg={cfg}")
+            print(f"[DBG_CONV2D_RUN] dest={f['dest']} x_id={f['x_id']} "
+                  f"w_id={f['w_id']} b_id={f['b_id']} relu={relu_flag} cfg={cfg}")
         conv2d(
-            dest   = dest,
-            w      = w_id,
-            x      = x_id,
-            b      = b_id,
+            dest   = f["dest"],
+            w      = f["w_id"],
+            x      = f["x_id"],
+            b      = f["b_id"],
             fmap_h = cfg['fmap_h'],
             fmap_w = cfg['fmap_w'],
             in_c   = cfg['in_c'],
@@ -147,19 +128,9 @@ def i_decoder(instruction):
             apply_relu = relu_flag,
         )
 
-    elif opcode == 8:  # MAXPOOL
-        # Bit layout:
-        #   [ 4: 0] opcode  [ 9: 5] dest   [14:10] x_id
-        #   [17:15] pool_size  [20:18] stride
-        #   [26:21] fmap_h  [32:27] fmap_w  [37:33] channels
-        dest      = instruction >>  5 & 0x1F
-        x_id      = instruction >> 10 & 0x1F
-        pool_size = instruction >> 15 & 0x07
-        stride    = instruction >> 18 & 0x07
-        fmap_h    = instruction >> 21 & 0x3F
-        fmap_w    = instruction >> 27 & 0x3F
-        channels  = instruction >> 33 & 0x1F
-        maxpool(dest, x_id, fmap_h, fmap_w, channels, pool_size, stride)
+    elif op.name == "MAXPOOL":
+        maxpool(f["dest"], f["x_id"], f["fmap_h"], f["fmap_w"],
+                f["channels"], f["pool_size"], f["stride"])
 
     else:
         return f"UNKNOWN_OPCODE: {opcode}"
