@@ -132,7 +132,7 @@ class GoldenGEMV:
 ## File Locations
 
 ```
-tinyML_accelerator/
+ushqyn/
 └── test/cocotb_tests/
     ├── test_top_gemv.py                    ← Main testbench
     ├── make_venv.sh                        ← Wrapper script

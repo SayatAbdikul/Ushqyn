@@ -1,6 +1,6 @@
 # Heavy MNIST Test Suite
 
-This directory contains comprehensive validation tests for the TinyML Accelerator RTL implementation.
+This directory contains comprehensive validation tests for the Ushqyn RTL implementation.
 
 ## Overview
 

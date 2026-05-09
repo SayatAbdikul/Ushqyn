@@ -1,4 +1,4 @@
-"""Disassembler for the tinyML accelerator's 64-bit ISA.
+"""Disassembler for Ushqyn's 64-bit ISA.
 
 Bit layouts come from `compiler/isa_spec.py` — the same source the
 assembler and golden model read. Field values render as decimal except

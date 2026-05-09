@@ -1,4 +1,4 @@
-# UART Tools for TinyML Accelerator
+# UART Tools for Ushqyn
 
 C++ utilities for communicating with the FPGA via UART.
 

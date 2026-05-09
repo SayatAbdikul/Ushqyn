@@ -2,11 +2,11 @@ gtkwave dump.vcd
 golden_buffer = golden_model.buffers[5]
 def execute_program(hex_file):
 differences = rtl_output - golden_output
-# TinyML Accelerator - Cocotb Golden Model Verification
+# Ushqyn — Cocotb Golden Model Verification
 
 ## Summary
 
-Single cocotb testbench that runs the TinyML accelerator RTL end-to-end and compares results against the Python golden model. The RTL is started once, runs through all instructions until the zero instruction is fetched, and its outputs are compared to the golden model using the same `dram.hex` contents.
+Single cocotb testbench that runs the Ushqyn RTL end-to-end and compares results against the Python golden model. The RTL is started once, runs through all instructions until the zero instruction is fetched, and its outputs are compared to the golden model using the same `dram.hex` contents.
 
 ## What This Test Does
 
@@ -94,6 +94,6 @@ This verification framework demonstrates best practices for:
 ---
 
 **Created**: December 2025  
-**Project**: TinyML Accelerator  
+**Project**: Ushqyn  
 **Purpose**: RTL Verification against Golden Model  
 **Status**: Complete and tested

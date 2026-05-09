@@ -1,6 +1,6 @@
 """
-Comprehensive MNIST Test Suite for TinyML Accelerator
-======================================================
+Comprehensive MNIST Test Suite for Ushqyn
+=========================================
 
 This test suite performs exhaustive validation of the RTL implementation against
 the golden model using the complete MNIST test dataset (10,000 images).

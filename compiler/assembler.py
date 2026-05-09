@@ -1,4 +1,4 @@
-"""Assembler for the tinyML accelerator's 64-bit ISA.
+"""Assembler for Ushqyn's 64-bit ISA.
 
 Instructions are little-endian 64-bit words; opcode is in bits [4:0].
 All bit layouts come from `compiler/isa_spec.py` — that file is the

@@ -1,6 +1,6 @@
-# TinyML Accelerator Test Suites
+# Ushqyn Test Suites
 
-This directory contains two complementary test suites for validating the TinyML Accelerator RTL implementation.
+This directory contains two complementary test suites for validating the Ushqyn RTL implementation.
 
 ## Test Suites Overview
 

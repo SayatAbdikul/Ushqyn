@@ -1,4 +1,4 @@
-"""Single source of truth for the tinyML accelerator's 64-bit ISA.
+"""Single source of truth for Ushqyn's 64-bit ISA.
 
 Every consumer of opcode/field/bit-layout information reads from this file:
 

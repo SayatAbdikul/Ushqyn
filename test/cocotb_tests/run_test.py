@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Quick runner script for TinyML Accelerator Cocotb tests
+Quick runner script for Ushqyn Cocotb tests
 Provides a simple interface to prepare and run verification tests
 """
 
@@ -111,7 +111,7 @@ def run_tests(test_dir, clean=False, verbose=False):
 
 def main():
     parser = argparse.ArgumentParser(
-        description='TinyML Accelerator Cocotb Test Runner',
+        description='Ushqyn Cocotb Test Runner',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
@@ -139,7 +139,7 @@ Examples:
     compiler_dir = compiler_dir.resolve()
     
     print("=" * 70)
-    print("  TinyML Accelerator - Cocotb Test Runner")
+    print("  Ushqyn — Cocotb Test Runner")
     print("=" * 70)
     print(f"\nTest directory: {script_dir}")
     print(f"Compiler directory: {compiler_dir}")

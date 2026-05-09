@@ -1,10 +1,10 @@
-# TinyML Accelerator Documentation
+# Ushqyn Documentation
 
-Comprehensive documentation for the TinyML Accelerator hardware design.
+Comprehensive documentation for the Ushqyn hardware accelerator.
 
 ## Overview
 
-The TinyML Accelerator is a specialized hardware accelerator for neural-network inference with quantized 8-bit integer arithmetic. It implements a custom **8-instruction ISA** covering both MLP and small-CNN workloads. The simulation RTL has been validated bit-exactly against a Python golden model on a trained SmallCNN; the FPGA build runs a 3-layer MLP on MNIST on the Gowin GW2AR-18 (Tang Nano 20K) at 89 MHz.
+Ushqyn (Ұшқын — Kazakh for *spark*) is a specialized hardware accelerator for neural-network inference with quantized 8-bit integer arithmetic. It implements a custom **8-instruction ISA** covering both MLP and small-CNN workloads. The simulation RTL has been validated bit-exactly against a Python golden model on a trained SmallCNN; the FPGA build runs a 3-layer MLP on MNIST on the Gowin GW2AR-18 (Tang Nano 20K) at 89 MHz.
 
 ## What's where
 

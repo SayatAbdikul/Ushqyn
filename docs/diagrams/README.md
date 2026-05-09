@@ -1,6 +1,6 @@
 # RTL Architecture Diagrams
 
-This directory contains comprehensive architecture diagrams for the TinyML Accelerator RTL design.
+This directory contains comprehensive architecture diagrams for the Ushqyn RTL design.
 
 ## Diagram Files
 

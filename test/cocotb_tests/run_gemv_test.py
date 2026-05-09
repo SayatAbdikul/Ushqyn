@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Run cocotb testbenches for TinyML accelerator with easy test selection.
+Run cocotb testbenches for Ushqyn with easy test selection.
 
 Usage:
     python3 run_test.py                    # Run full accelerator tests

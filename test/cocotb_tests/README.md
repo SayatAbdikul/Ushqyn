@@ -1,7 +1,7 @@
 gtkwave dump.vcd
-# TinyML Accelerator - Cocotb Golden Model Verification
+# Ushqyn — Cocotb Golden Model Verification
 
-Single cocotb testbench that runs the TinyML accelerator RTL end-to-end and compares against the Python golden model. The RTL is started once, runs through all instructions until the zero instruction is fetched, and the outputs are checked element-by-element with a small quantization tolerance.
+Single cocotb testbench that runs the Ushqyn RTL end-to-end and compares against the Python golden model. The RTL is started once, runs through all instructions until the zero instruction is fetched, and the outputs are checked element-by-element with a small quantization tolerance.
 
 ## Overview
 

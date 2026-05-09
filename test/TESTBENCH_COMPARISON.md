@@ -2,7 +2,7 @@
 
 ## Executive Summary
 
-This document compares three testing approaches in the tinyML accelerator project:
+This document compares three testing approaches in the Ushqyn project:
 1. **Golden Model** (`compiler/golden_model.py`) - Python reference implementation
 2. **Cocotb Tests** (`test/cocotb_tests/`) - RTL validation suite with basic coverage
 3. **Heavy Test** (`test/heavy_test/`) - Comprehensive production-grade validation

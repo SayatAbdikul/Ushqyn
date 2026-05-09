@@ -1,6 +1,6 @@
 """
-Cocotb Testbench for TinyML Accelerator - Golden Model Verification
-===================================================================
+Cocotb Testbench for Ushqyn — Golden Model Verification
+=======================================================
 
 This testbench verifies the RTL implementation against the Python golden model
 by comparing the results written to DRAM after execution using actual MNIST test data.

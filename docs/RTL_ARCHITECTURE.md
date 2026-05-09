@@ -1,4 +1,4 @@
-# TinyML Accelerator RTL Architecture Documentation
+# Ushqyn RTL Architecture Documentation
 
 ## Table of Contents
 1. [System Overview](#system-overview)
@@ -21,7 +21,7 @@
 
 ## System Overview
 
-The TinyML Accelerator is a hardware accelerator for neural-network inference covering both **MLP** and **small-CNN** workloads:
+Ushqyn (Ұшқын — Kazakh for *spark*) is a hardware accelerator for neural-network inference covering both **MLP** and **small-CNN** workloads:
 
 - **ISA**: 8 instructions — `LOAD_V`, `LOAD_M`, `STORE`, `GEMV`, `RELU`, `CONV2D_CFG`, `CONV2D_RUN`, `MAXPOOL`
 - **Data Path**: 8-bit signed integer (int8) arithmetic; int32 internal accumulator

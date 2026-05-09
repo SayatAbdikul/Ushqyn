@@ -1,4 +1,4 @@
-# TinyML Accelerator - Testing Documentation
+# Ushqyn — Testing Documentation
 
 ## Quick Start
 

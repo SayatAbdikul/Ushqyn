@@ -1,4 +1,6 @@
-# TinyML Accelerator
+# Ushqyn (Ұшқын)
+
+> *Ushqyn* — Kazakh for **spark**: tiny, energetic, the genesis of fire.
 
 A hardware accelerator for neural-network inference with quantized 8-bit integer arithmetic. Implements a custom 8-instruction ISA covering both **MLP** and **small-CNN** workloads. The simulation RTL has been validated bit-exactly against a Python golden model on a trained CNN; the FPGA build runs a 3-layer MLP on MNIST on the Gowin GW2AR-18 (Tang Nano 20K) at 89 MHz.
 
@@ -66,7 +68,7 @@ python3 -c "from assembler import assemble_file; assemble_file('assembly_code.as
 ## Project Structure
 
 ```
-tinyML_accelerator/
+ushqyn/
 ├── src/                            # FPGA synthesis source (Gowin EDA)
 │   ├── fpga_top.sv                # FPGA top-level (UART + accelerator)
 │   ├── tinyml_accelerator_top_fpga.sv

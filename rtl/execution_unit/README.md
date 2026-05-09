@@ -315,9 +315,9 @@ When adding new operations:
 
 ## License
 
-Same as parent tinyML_accelerator project.
+Same as parent Ushqyn project.
 
 ## Authors
 
 - Refactored modular design: GitHub Copilot (2025)
-- Original execution_unit: tinyML_accelerator contributors
+- Original execution_unit: Ushqyn contributors
