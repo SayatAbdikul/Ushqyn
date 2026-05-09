@@ -34,6 +34,15 @@ from assembler import assemble_file
 
 COMPILER_DIR = os.path.dirname(os.path.abspath(__file__))
 
+# digit_model_weights.pth is gitignored (local-only artifact). MLP-specific
+# tests skip when it's absent so CI without the weights still passes; the
+# CNN tests below exercise both Conv and FC code paths under random weights.
+MLP_WEIGHTS = os.path.join(COMPILER_DIR, "digit_model_weights.pth")
+require_mlp_weights = pytest.mark.skipif(
+    not os.path.exists(MLP_WEIGHTS),
+    reason=f"MLP weights not found at {MLP_WEIGHTS} (gitignored)",
+)
+
 
 @pytest.fixture(autouse=True)
 def reset_state(tmp_path):
@@ -92,6 +101,7 @@ def _parse_load_addrs(asm_file):
 
 # ── tests ────────────────────────────────────────────────────────────────────
 
+@require_mlp_weights
 def test_generate_assembly_requires_maps():
     """The pre-P2 silent-walk fallback is gone — calling generate_assembly
     without maps must raise rather than re-walk the graph independently
@@ -101,6 +111,7 @@ def test_generate_assembly_requires_maps():
         compile_module.generate_assembly(onnx_path, "out.asm")
 
 
+@require_mlp_weights
 def test_assembly_addresses_match_walker_maps_mlp():
     """Every LOAD_M/LOAD_V address in the emitted assembly must equal the
     address the DRAM walker chose for that initializer. Catches any
@@ -153,6 +164,7 @@ def test_assembly_addresses_match_walker_maps_cnn():
         assert addr in load_v_addrs, f"Bias 0x{addr:X} not in any LOAD_V"
 
 
+@require_mlp_weights
 def test_unknown_initializer_raises():
     """If a map is missing an initializer the compiler needs, we must fail
     loudly (KeyError) rather than silently emit a bogus address."""
@@ -171,6 +183,7 @@ def test_unknown_initializer_raises():
                                          conv_weight_map)
 
 
+@require_mlp_weights
 def test_address_mutation_propagates():
     """If the user manually moves an initializer to a new address (e.g. a
     custom DRAM layout), the assembly must follow — proving compile.py is

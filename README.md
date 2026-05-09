@@ -22,6 +22,18 @@ The simulation RTL produces byte-for-byte the same output as `compiler/golden_mo
 
 ## Quick Start
 
+### Run the CI tier (no simulator required)
+```bash
+make ci         # 44 compiler-side tests + ISA spec drift check (~5 sec)
+make help       # full target list
+```
+
+This is what `.github/workflows/ci.yml` runs on every push. It locks in:
+- the single-source ISA spec (`compiler/isa_spec.py` ↔ `rtl/i_decoder.sv` drift detection),
+- the unified ONNX walker (`compile.py` consumes maps from `dram.py`),
+- the profile-based `AcceleratorConfig` (sim ↔ fpga),
+- and the SmallCNN end-to-end golden contract.
+
 ### Run a per-unit cocotb test
 ```bash
 # Conv2D execution: bit-exact match vs golden on relu_flag=0/1
