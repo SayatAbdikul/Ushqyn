@@ -32,6 +32,7 @@ jobs:
 
       - name: Install Python dependencies
         run: |
+          python -m pip install --upgrade pip
           # CPU-only torch keeps the install <300 MB and skips CUDA.
           pip install --index-url https://download.pytorch.org/whl/cpu \
               torch torchvision

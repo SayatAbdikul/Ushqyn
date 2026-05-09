@@ -39,6 +39,7 @@ test-compiler:
 	    test_cnn_golden.py \
 	    test_accelerator_config.py \
 	    test_unified_walker.py \
+	    test_buffer_allocator.py \
 	    -q --tb=short
 
 check-isa:
