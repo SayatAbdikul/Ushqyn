@@ -1,20 +1,21 @@
 """Lower an ONNX graph to the accelerator's assembly language.
 
 Walks the graph in topological order and emits one of the opcodes
-defined in assembler.py (LOAD_V/LOAD_M/STORE/GEMV/RELU/CONV2D_CFG/
+defined in isa_spec.OPCODES (LOAD_V/LOAD_M/STORE/GEMV/RELU/CONV2D_CFG/
 CONV2D_RUN/MAXPOOL) per supported op. Constant-folded ops (Reshape,
 Flatten, BatchNormalization) carry buffer mappings forward without
 emitting instructions.
 
-DRAM layout assumption (must match dram.save_all_initializers_to_dram):
-    weights      → FC weights, padded to TILE_ELEMS columns
-    conv_weights → Conv weights [out_C, in_C*kH*kW], padded to TILE_ELEMS
-    biases       → ALL biases in topological order
-                   (conv biases first, then FC biases)
+DRAM addressing: post-P2 (2026-05-09) `generate_assembly` looks up every
+initializer's DRAM address by name in the `(weight_map, bias_map,
+conv_weight_map)` returned by `dram.save_all_initializers_to_dram`. The
+old shadow counters (`bias_counter`, `weight_counter`, `conv_weight_counter`)
+that had to advance in lockstep with the DRAM walker are gone — there is
+now one walker, in `dram.py`, and the compiler is its consumer.
 
-`bias_counter` and `conv_weight_counter` here advance in lockstep with
-`bias_ptr` and `conv_weight_ptr` in dram.py — keep both walkers in sync
-when changing the emission order.
+Caller contract:
+    weight_map, bias_map, conv_weight_map = save_all_initializers_to_dram(model_path, dram_offsets)
+    generate_assembly(model_path, asm_file, weight_map, bias_map, conv_weight_map)
 """
 import onnx
 from onnx import shape_inference
@@ -37,7 +38,34 @@ def get_node_attr(node, name, default=None):
     return default
 
 
-def generate_assembly(model_path, output_file):
+def generate_assembly(model_path, output_file,
+                      weight_map=None, bias_map=None, conv_weight_map=None):
+    """Lower an ONNX graph to assembly.
+
+    Args:
+        model_path:         path to ONNX model
+        output_file:        path to write assembly to
+        weight_map:         {initializer_name: DRAM address} for FC/Gemm/MatMul weights
+        bias_map:           {initializer_name: DRAM address} for ALL biases (conv + FC)
+        conv_weight_map:    {initializer_name: DRAM address} for Conv weights
+
+    The three maps are produced by `dram.save_all_initializers_to_dram` and
+    are the single source of truth for initializer DRAM layout. Callers MUST
+    run the DRAM walker first; convenience wrappers like the
+    `if __name__ == "__main__"` block below do this internally.
+
+    Raises ValueError if any required map is None — the previous behaviour of
+    silently re-walking the graph with shadow counters is gone (it was the
+    structural cause of Patches B and D).
+    """
+    if weight_map is None or bias_map is None or conv_weight_map is None:
+        raise ValueError(
+            "generate_assembly requires (weight_map, bias_map, conv_weight_map). "
+            "Run `weight_map, bias_map, conv_weight_map = "
+            "save_all_initializers_to_dram(model_path, dram_offsets)` first "
+            "and pass the returned maps."
+        )
+
     model = shape_inference.infer_shapes(onnx.load(model_path))
     graph = model.graph
 
@@ -65,19 +93,13 @@ def generate_assembly(model_path, output_file):
     tensor_buffer_map = {}
     tensor_size_map   = {}   # Track output element counts for RELU length
     asm_instructions  = []
-    weight_counter    = 0
-    bias_counter      = 0
     skip_nodes        = set()
-    # Conv-weight counter is separate so conv and FC weights live at different DRAM addresses.
-    conv_weight_counter = 0
-    
-    # Memory address simulation (must fit within 0xF000 / ~60 KB)
-    dram_addresses = {   # 0x0000–0x00BF reserved for instructions
-        "inputs":       AcceleratorConfig.DRAM_ADDR_INPUTS,
-        "biases":       AcceleratorConfig.DRAM_ADDR_BIASES,
-        "outputs":      AcceleratorConfig.DRAM_ADDR_OUTPUTS,
-        "weights":      AcceleratorConfig.DRAM_ADDR_WEIGHTS,
-        "conv_weights": AcceleratorConfig.DRAM_ADDR_CONV_WEIGHTS,
+
+    # Only inputs / outputs need address constants here — every initializer
+    # address is looked up by name in the maps from save_all_initializers_to_dram.
+    dram_addresses = {
+        "inputs":  AcceleratorConfig.DRAM_ADDR_INPUTS,
+        "outputs": AcceleratorConfig.DRAM_ADDR_OUTPUTS,
     }
     
     # ── Emit LOAD_V for the model's primary input tensor ──────────────────────
@@ -141,9 +163,8 @@ def generate_assembly(model_path, output_file):
             # Skip Conv weights AND bias; both are handled in the Conv block below.
             # idx==1: weight (LOAD_M emitted in Conv block)
             # idx==2: bias   (LOAD_V emitted in Conv block)
-            # Letting either fall through here would emit a *duplicate* load and
-            # double-bump bias_counter, desynchronising compile-side bias offsets
-            # from what dram.py actually wrote.
+            # Letting either fall through here would emit a *duplicate* LOAD_V/M
+            # for the same initializer (the historical pre-Patch-B regression).
             if node.op_type == "Conv" and idx in (1, 2):
                 continue
                 
@@ -160,22 +181,28 @@ def generate_assembly(model_path, output_file):
 
                     TILE_WIDTH  = AcceleratorConfig.TILE_ELEMS
                     padded_cols = ((cols + TILE_WIDTH - 1) // TILE_WIDTH) * TILE_WIDTH
-                    size        = rows * padded_cols
+
+                    if input_name not in weight_map:
+                        raise KeyError(
+                            f"FC weight {input_name!r} not in weight_map; "
+                            "did save_all_initializers_to_dram run on this model?")
 
                     tensor_buffer_map[input_name] = mat_buf
                     asm_instructions.append(
-                        f"LOAD_M {mat_buf}, {hex(dram_addresses['weights'] + weight_counter)}, {rows}, {padded_cols}"
+                        f"LOAD_M {mat_buf}, {hex(weight_map[input_name])}, {rows}, {padded_cols}"
                     )
-                    weight_counter += size
                     mat_buf = 2 if mat_buf == 1 else 1
 
                 elif tensor_type == "bias":
                     size = tensor_size(tensor_data["shape"])
+                    if input_name not in bias_map:
+                        raise KeyError(
+                            f"Bias {input_name!r} not in bias_map; "
+                            "did save_all_initializers_to_dram run on this model?")
                     tensor_buffer_map[input_name] = bias_vector_buf
                     asm_instructions.append(
-                        f"LOAD_V {bias_vector_buf}, {hex(dram_addresses['biases'] + bias_counter)}, {size}"
+                        f"LOAD_V {bias_vector_buf}, {hex(bias_map[input_name])}, {size}"
                     )
-                    bias_counter += size
                     bias_vector_buf = 4 if bias_vector_buf == 3 else 3
 
         # ── Gemm / MatMul → GEMV ──────────────────────────────────────────────
@@ -249,32 +276,28 @@ def generate_assembly(model_path, output_file):
             fmap_h      = int(in_shape[2]) if len(in_shape) >= 4 else 1
             fmap_w      = int(in_shape[3]) if len(in_shape) >= 4 else 1
 
-            # Conv weight rows are stored padded to TILE_ELEMS columns in DRAM
-            # (matches dram.save_all_initializers_to_dram's pad logic).
-            TILE_WIDTH = AcceleratorConfig.TILE_ELEMS
+            # Resolve conv weight shape (rows=out_c, cols=in_c*kh*kw); cols are
+            # logical/unpadded — load_m emits with unpadded cols and load_m.sv
+            # drops the padding (see golden_model.load_m docstring for the
+            # FC-vs-Conv asymmetry). DRAM storage is padded; the address comes
+            # from conv_weight_map which is computed by the same walker that
+            # wrote the padded layout, so the asymmetry stays internal to load_m.
             if w_init_name and w_init_name in cnn_init_map:
-                w_info  = cnn_init_map[w_init_name]
-                out_c   = w_info["shape"][0]
-                # Flat weight stored as [out_c, in_c*kh*kw] in DRAM
-                w_rows  = out_c
-                w_cols  = in_c * kh * kw
-                padded_cols = ((w_cols + TILE_WIDTH - 1) // TILE_WIDTH) * TILE_WIDTH
-                w_bytes = w_rows * padded_cols
-                w_addr  = dram_addresses["conv_weights"] + conv_weight_counter
-                conv_weight_counter += w_bytes
+                w_info = cnn_init_map[w_init_name]
+                out_c  = w_info["shape"][0]
             else:
-                # Fallback: try to infer from shape_map
                 w_shape = shape_map.get(w_init_name, [1, 1, 1, 1])
                 out_c   = int(w_shape[0])
-                w_addr  = dram_addresses["conv_weights"] + conv_weight_counter
-                w_rows  = out_c
-                w_cols  = in_c * kh * kw
-                padded_cols = ((w_cols + TILE_WIDTH - 1) // TILE_WIDTH) * TILE_WIDTH
-                conv_weight_counter += w_rows * padded_cols
+            w_rows = out_c
+            w_cols = in_c * kh * kw
+
+            if w_init_name not in conv_weight_map:
+                raise KeyError(
+                    f"Conv weight {w_init_name!r} not in conv_weight_map; "
+                    "did save_all_initializers_to_dram run on this model?")
+            w_addr = conv_weight_map[w_init_name]
 
             # ---- Emit weight load (LOAD_M with rows=out_c, cols=in_c*kh*kw) ----
-            # Note: conv weight cols are NOT tile-padded here because the direct
-            # conv implementation accesses full rows, not dot-products vs tile grid.
             tensor_buffer_map[w_init_name] = mat_buf
             asm_instructions.append(
                 f"LOAD_M {mat_buf}, {hex(w_addr)}, {w_rows}, {w_cols}"
@@ -287,8 +310,11 @@ def generate_assembly(model_path, output_file):
             if b_init_name and b_init_name in cnn_init_map:
                 b_info = cnn_init_map[b_init_name]
                 b_size = b_info["shape"][0]
-                b_addr = dram_addresses["biases"] + bias_counter
-                bias_counter += b_size
+                if b_init_name not in bias_map:
+                    raise KeyError(
+                        f"Conv bias {b_init_name!r} not in bias_map; "
+                        "did save_all_initializers_to_dram run on this model?")
+                b_addr = bias_map[b_init_name]
                 tensor_buffer_map[b_init_name] = bias_vector_buf
                 asm_instructions.append(
                     f"LOAD_V {bias_vector_buf}, {hex(b_addr)}, {b_size}"
@@ -388,7 +414,18 @@ def generate_assembly(model_path, output_file):
 
 if __name__ == "__main__":
     import sys
+    from dram import save_all_initializers_to_dram
     model_path  = sys.argv[1] if len(sys.argv) > 1 else "mlp_model.onnx"
     output_file = sys.argv[2] if len(sys.argv) > 2 else "assembly_code.asm"
-    generate_assembly(model_path, output_file)
+    # Run the DRAM walker first — it owns initializer layout and returns the
+    # name → address maps that generate_assembly looks up.
+    dram_offsets = {
+        "weights":      AcceleratorConfig.DRAM_ADDR_WEIGHTS,
+        "biases":       AcceleratorConfig.DRAM_ADDR_BIASES,
+        "conv_weights": AcceleratorConfig.DRAM_ADDR_CONV_WEIGHTS,
+    }
+    weight_map, bias_map, conv_weight_map = save_all_initializers_to_dram(
+        model_path, dram_offsets)
+    generate_assembly(model_path, output_file,
+                      weight_map, bias_map, conv_weight_map)
     print(f"Assembly code generated and saved to {output_file}")

@@ -80,13 +80,16 @@ async def test_accelerator_mnist_dataset(dut):
     create_mlp_model()
     model_path = "mlp_model.onnx"
     
-    # Save weights/biases to DRAM
-    from dram import save_initializers_to_dram, save_dram_to_file
-    weight_map, bias_map = save_initializers_to_dram(model_path, tester.dram_offsets)
+    # Save weights/biases to DRAM (post-P2: walker is single source of truth
+    # for initializer layout; its returned maps drive generate_assembly).
+    from dram import save_all_initializers_to_dram, save_dram_to_file
+    weight_map, bias_map, conv_weight_map = save_all_initializers_to_dram(
+        model_path, tester.dram_offsets)
     cocotb.log.info("Weights and biases saved to DRAM")
-    
+
     # Generate and assemble instructions
-    generate_assembly(model_path, "model_assembly.asm")
+    generate_assembly(model_path, "model_assembly.asm",
+                      weight_map, bias_map, conv_weight_map)
     assemble_file("model_assembly.asm")
     cocotb.log.info("Assembly code generated and assembled")
     

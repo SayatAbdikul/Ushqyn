@@ -21,7 +21,7 @@ from torchvision import datasets, transforms
 from model import create_mlp_model
 from compile import generate_assembly
 from assembler import assemble_file
-from dram import save_initializers_to_dram, save_input_to_dram, save_dram_to_file, read_from_dram
+from dram import save_all_initializers_to_dram, save_input_to_dram, save_dram_to_file, read_from_dram
 from helper_functions import quantize_tensor_f32_int8
 from accelerator_config import AcceleratorConfig
 
@@ -55,19 +55,23 @@ def generate_dram_for_input(
     
     # Step 2: DRAM configuration
     dram_offsets = {
-        "inputs":  AcceleratorConfig.DRAM_ADDR_INPUTS,
-        "biases":  AcceleratorConfig.DRAM_ADDR_BIASES,
-        "outputs": AcceleratorConfig.DRAM_ADDR_OUTPUTS,
-        "weights": AcceleratorConfig.DRAM_ADDR_WEIGHTS,
+        "inputs":       AcceleratorConfig.DRAM_ADDR_INPUTS,
+        "biases":       AcceleratorConfig.DRAM_ADDR_BIASES,
+        "outputs":      AcceleratorConfig.DRAM_ADDR_OUTPUTS,
+        "weights":      AcceleratorConfig.DRAM_ADDR_WEIGHTS,
+        "conv_weights": AcceleratorConfig.DRAM_ADDR_CONV_WEIGHTS,
     }
-    
-    # Step 3: Save weights/biases to DRAM
+
+    # Step 3: Save weights/biases to DRAM (the walker owns layout; its returned
+    # maps drive the assembler in step 4).
     print("[2/5] Writing weights and biases to DRAM...")
-    save_initializers_to_dram(model_path, dram_offsets)
-    
+    weight_map, bias_map, conv_weight_map = save_all_initializers_to_dram(
+        model_path, dram_offsets)
+
     # Step 4: Generate and assemble instructions
     print("[3/5] Generating and assembling instructions...")
-    generate_assembly(model_path, "model_assembly.asm")
+    generate_assembly(model_path, "model_assembly.asm",
+                      weight_map, bias_map, conv_weight_map)
     assemble_file("model_assembly.asm")
     
     # Step 5: Load the N-th MNIST test image

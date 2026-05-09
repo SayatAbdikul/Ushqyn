@@ -323,13 +323,13 @@ async def test_full_mnist_dataset(dut):
     
     model_path = "small_cnn_model.onnx"
     
-    from dram import save_initializers_to_dram, save_conv_weights_to_dram
-    weight_map, bias_map = save_initializers_to_dram(model_path, tester.dram_offsets)
-    # Conv weights are stored in a separate DRAM region via save_conv_weights_to_dram
-    save_conv_weights_to_dram(model_path, tester.dram_offsets)
+    from dram import save_all_initializers_to_dram
+    weight_map, bias_map, conv_weight_map = save_all_initializers_to_dram(
+        model_path, tester.dram_offsets)
     cocotb.log.info("✓ Weights and biases loaded")
-    
-    generate_assembly(model_path, "small_cnn_model.asm")
+
+    generate_assembly(model_path, "small_cnn_model.asm",
+                      weight_map, bias_map, conv_weight_map)
     assemble_file("small_cnn_model.asm")
     cocotb.log.info("✓ Assembly generated and assembled")
     

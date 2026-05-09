@@ -10,7 +10,7 @@ from torchvision import datasets, transforms
 from compile import generate_assembly
 from model import create_mlp_model
 from golden_model import execute_program
-from dram import save_initializers_to_dram, save_input_to_dram, save_dram_to_file, read_from_dram
+from dram import save_all_initializers_to_dram, save_input_to_dram, save_dram_to_file, read_from_dram
 from helper_functions import quantize_tensor_f32_int8
 from accelerator_config import AcceleratorConfig
 
@@ -57,17 +57,21 @@ if __name__ == "__main__":
     # 2. DRAM configuration
 
     dram_offsets = {
-        "inputs":  AcceleratorConfig.DRAM_ADDR_INPUTS,
-        "biases":  AcceleratorConfig.DRAM_ADDR_BIASES,
-        "outputs": AcceleratorConfig.DRAM_ADDR_OUTPUTS,
-        "weights": AcceleratorConfig.DRAM_ADDR_WEIGHTS,
+        "inputs":       AcceleratorConfig.DRAM_ADDR_INPUTS,
+        "biases":       AcceleratorConfig.DRAM_ADDR_BIASES,
+        "outputs":      AcceleratorConfig.DRAM_ADDR_OUTPUTS,
+        "weights":      AcceleratorConfig.DRAM_ADDR_WEIGHTS,
+        "conv_weights": AcceleratorConfig.DRAM_ADDR_CONV_WEIGHTS,
     }
 
-    # 3. Save weights/biases to DRAM
-    weight_map, bias_map = save_initializers_to_dram(model_path, dram_offsets)
-    
-    # 4. Generate assembly using same model
-    generate_assembly(model_path, "model_assembly.asm")
+    # 3. Save weights/biases to DRAM (the walker is the single source of truth
+    #    for initializer DRAM layout — its returned maps drive step 4).
+    weight_map, bias_map, conv_weight_map = save_all_initializers_to_dram(
+        model_path, dram_offsets)
+
+    # 4. Generate assembly, looking up initializer addresses in the maps.
+    generate_assembly(model_path, "model_assembly.asm",
+                      weight_map, bias_map, conv_weight_map)
     from assembler import assemble_file
     assemble_file("model_assembly.asm")
 

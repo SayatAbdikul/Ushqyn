@@ -79,19 +79,23 @@ def evaluate_models(model, num_test_images=50):
     ])
     test_dataset = datasets.MNIST(root='./data', train=False, download=True, transform=transform)
     
-    # 1. Compile ONNX model
+    # 1. Compile ONNX model — DRAM walker first (owns initializer layout),
+    #    then assembler consumes its returned maps. Post-P2 the two walks are
+    #    unified; the legacy save_conv_weights_to_dram call is no longer needed.
     asm_file = "small_cnn_model.asm"
     hex_file = "small_cnn_model.hex"
-    compile.generate_assembly("small_cnn_model.onnx", asm_file)
-    assembler.assemble_file(asm_file, output_file=hex_file)
-    
+
     dram_offsets = {
-        "weights": AcceleratorConfig.DRAM_ADDR_WEIGHTS,
+        "weights":      AcceleratorConfig.DRAM_ADDR_WEIGHTS,
         "conv_weights": AcceleratorConfig.DRAM_ADDR_CONV_WEIGHTS,
-        "biases": AcceleratorConfig.DRAM_ADDR_BIASES
+        "biases":       AcceleratorConfig.DRAM_ADDR_BIASES,
     }
-    dram.save_initializers_to_dram("small_cnn_model.onnx", dram_offsets)
-    dram.save_conv_weights_to_dram("small_cnn_model.onnx", dram_offsets)
+    weight_map, bias_map, conv_weight_map = dram.save_all_initializers_to_dram(
+        "small_cnn_model.onnx", dram_offsets)
+
+    compile.generate_assembly("small_cnn_model.onnx", asm_file,
+                              weight_map, bias_map, conv_weight_map)
+    assembler.assemble_file(asm_file, output_file=hex_file)
     
     # Read the instructions from hex
     instr_words = []

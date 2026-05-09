@@ -191,8 +191,19 @@ def test_smallcnn_end_to_end(tmp_path):
     cnn = model.create_cnn_model()
     # model.create_cnn_model() already saves to 'cnn_model.onnx' in the cwd.
 
-    # 2. Compile ONNX -> ASM
-    compile.generate_assembly("cnn_model.onnx", asm_file)
+    # 2. Run the DRAM walker first — post-P2 it is the single source of truth
+    #    for initializer layout and its returned maps drive the compiler.
+    dram_offsets = {
+        "weights":      AcceleratorConfig.DRAM_ADDR_WEIGHTS,
+        "conv_weights": AcceleratorConfig.DRAM_ADDR_CONV_WEIGHTS,
+        "biases":       AcceleratorConfig.DRAM_ADDR_BIASES,
+    }
+    fc_weight_map, bias_map_all, conv_weight_map = \
+        dram.save_all_initializers_to_dram("cnn_model.onnx", dram_offsets)
+
+    # 3. Compile ONNX -> ASM, looking up addresses in the maps.
+    compile.generate_assembly("cnn_model.onnx", asm_file,
+                              fc_weight_map, bias_map_all, conv_weight_map)
 
     # Verify the assembly has CNN instructions
     with open(asm_file, 'r') as f:
@@ -216,24 +227,11 @@ def test_smallcnn_end_to_end(tmp_path):
         f"Expected {expected_load_v} LOAD_V (1 input + {n_conv} conv biases + "
         f"{n_fc} fc biases); got {actual_load_v} — duplicate-bias regression?"
     )
-    
-    # 3. Assemble -> writes instructions to dram starting at 0x0
+
+    # 4. Assemble — writes instructions to dram[0..N]. The walker already wrote
+    #    weights/biases above; assembling overwrites only the instruction region.
     hex_file = asm_file.replace('.asm', '.hex')
     assembler.assemble_file(asm_file, output_file=hex_file)
-    
-    # 4. Save weights
-    dram_offsets = {
-        "weights": AcceleratorConfig.DRAM_ADDR_WEIGHTS,
-        "conv_weights": AcceleratorConfig.DRAM_ADDR_CONV_WEIGHTS,
-        "biases": AcceleratorConfig.DRAM_ADDR_BIASES
-    }
-    
-    # Use the unified DRAM walker (post-Patch B). The legacy save_*_to_dram
-    # functions are now thin wrappers, so calling them in any order produces
-    # the same DRAM image — but we use save_all_initializers_to_dram directly
-    # to make the contract explicit.
-    fc_weight_map, bias_map_all, conv_weight_map = \
-        dram.save_all_initializers_to_dram("cnn_model.onnx", dram_offsets)
 
     # ── Check (5b): FC bias bytes in DRAM equal the quantised fc.bias ──────
     # Catches Bug 2 (bias-region overlap) directly. Walks topological order
