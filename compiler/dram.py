@@ -75,10 +75,17 @@ def save_all_initializers_to_dram(model_path, dram_offsets):
     visited          = set()
     TILE_WIDTH       = AcceleratorConfig.TILE_ELEMS
 
+    # Only Conv / Gemm / MatMul produce weights and biases the accelerator's
+    # ISA loads into DRAM. Every other op type (Relu, MaxPool, Reshape,
+    # Flatten, BatchNormalization, Shape, Cast, Squeeze, Unsqueeze, Concat,
+    # Constant, …) either has no initializers or has them as scalar OP
+    # PARAMETERS (axes, indices, target shapes) that compile.py never
+    # references — so we must not allocate DRAM space for them.
+    # Pre-2026-05-09 the catch-all "FC / Gemm / MatMul / etc." branch
+    # accepted ANY 1-D initializer as a bias, which broke under newer torch
+    # ONNX exporters that emit op-parameter initializers (regression
+    # observed on torch >= 2.4 with opset >= 18).
     for node in topological_sort(graph):
-        if node.op_type in ("Reshape", "Flatten", "BatchNormalization"):
-            continue
-
         if node.op_type == "Conv":
             # Conv inputs are ordered [activation, weight, bias]; iterate so
             # weight is written before bias (matches compile.py emission).
@@ -105,28 +112,32 @@ def save_all_initializers_to_dram(model_path, dram_offsets):
                     bias_ptr = write_to_dram(q_arr.flatten(), bias_ptr)
             continue
 
-        # FC / Gemm / MatMul / etc. — generic path
-        for input_name in node.input:
-            if input_name not in initializer_data or input_name in visited:
-                continue
-            visited.add(input_name)
-            array = numpy_helper.to_array(initializer_data[input_name])
-            scale = (np.max(np.abs(array)) / 127
-                     if np.max(np.abs(array)) > 0 else 1.0)
+        if node.op_type in ("Gemm", "MatMul"):
+            for input_name in node.input:
+                if input_name not in initializer_data or input_name in visited:
+                    continue
+                visited.add(input_name)
+                array = numpy_helper.to_array(initializer_data[input_name])
+                scale = (np.max(np.abs(array)) / 127
+                         if np.max(np.abs(array)) > 0 else 1.0)
 
-            if array.ndim > 1:   # weight matrix [rows, cols]
-                rows, cols = array.shape
-                padded_cols = ((cols + TILE_WIDTH - 1) // TILE_WIDTH) * TILE_WIDTH
-                padded = np.zeros((rows, padded_cols), dtype=np.int8)
-                padded[:, :cols] = quantize_tensor_f32_int8(array, scale)
-                if np.count_nonzero(padded[:, cols:]) > 0:
-                    print(f"ERROR: padding non-zero for {input_name}")
-                weight_map[input_name] = weight_ptr
-                weight_ptr = write_to_dram(padded.flatten(), weight_ptr)
-            else:                # bias vector
-                q = quantize_tensor_f32_int8(array, scale).flatten()
-                bias_map[input_name] = bias_ptr
-                bias_ptr = write_to_dram(q, bias_ptr)
+                if array.ndim > 1:   # weight matrix [rows, cols]
+                    rows, cols = array.shape
+                    padded_cols = ((cols + TILE_WIDTH - 1) // TILE_WIDTH) * TILE_WIDTH
+                    padded = np.zeros((rows, padded_cols), dtype=np.int8)
+                    padded[:, :cols] = quantize_tensor_f32_int8(array, scale)
+                    if np.count_nonzero(padded[:, cols:]) > 0:
+                        print(f"ERROR: padding non-zero for {input_name}")
+                    weight_map[input_name] = weight_ptr
+                    weight_ptr = write_to_dram(padded.flatten(), weight_ptr)
+                else:                # bias vector
+                    q = quantize_tensor_f32_int8(array, scale).flatten()
+                    bias_map[input_name] = bias_ptr
+                    bias_ptr = write_to_dram(q, bias_ptr)
+            continue
+
+        # All other op types: their initializers (if any) are op parameters,
+        # not data the accelerator loads to DRAM. Skip silently.
 
     return weight_map, bias_map, conv_weight_map
 

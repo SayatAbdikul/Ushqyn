@@ -183,6 +183,69 @@ def test_unknown_initializer_raises():
                                          conv_weight_map)
 
 
+def test_walker_ignores_op_parameter_initializers(tmp_path):
+    """Regression for the torch >= 2.4 / opset >= 18 ONNX export drift.
+
+    Newer torch ONNX exporters emit op-parameter initializers (e.g. a
+    `Squeeze` node's `axes` input as a 1-D int64 tensor) that older
+    exporters folded into Constant ops. Pre-2026-05-09 the DRAM walker's
+    catch-all "FC / Gemm / MatMul / etc." branch accepted ANY 1-D
+    initializer as a bias, allocating DRAM space and a buffer slot for
+    these op parameters and emitting a spurious LOAD_V.
+
+    This test builds a synthetic graph with one Conv + one Squeeze (with a
+    1-D `axes` initializer) and asserts the walker:
+      - allocates Conv weight + bias to their respective regions;
+      - does NOT allocate anything for the Squeeze axes initializer.
+    Torch-version-independent — the graph is built directly via onnx.helper.
+    """
+    import onnx
+    from onnx import helper, TensorProto, numpy_helper as np_helper
+    import dram
+
+    # Tiny graph: input → Squeeze(axes) → Conv(W, B) → output.
+    # The Squeeze's `axes` is a 1-D int64 op parameter — must NOT land in
+    # any of the walker's three returned maps.
+    axes_init = np_helper.from_array(
+        np.array([0], dtype=np.int64), name="axes_init")
+    conv_w = np_helper.from_array(
+        np.random.randn(2, 1, 3, 3).astype(np.float32), name="conv_W")
+    conv_b = np_helper.from_array(
+        np.random.randn(2).astype(np.float32), name="conv_B")
+
+    nodes = [
+        helper.make_node("Squeeze", ["x", "axes_init"], ["x_sq"]),
+        helper.make_node("Conv", ["x_sq", "conv_W", "conv_B"], ["y"],
+                         kernel_shape=[3, 3], pads=[0, 0, 0, 0], strides=[1, 1]),
+    ]
+    graph = helper.make_graph(
+        nodes, "regression_synthetic",
+        inputs=[helper.make_tensor_value_info("x", TensorProto.FLOAT, [1, 1, 1, 8, 8])],
+        outputs=[helper.make_tensor_value_info("y", TensorProto.FLOAT, [1, 2, 6, 6])],
+        initializer=[axes_init, conv_w, conv_b],
+    )
+    model = helper.make_model(
+        graph,
+        opset_imports=[helper.make_operatorsetid("", 13)],
+    )
+    onnx_path = str(tmp_path / "synthetic.onnx")
+    onnx.save(model, onnx_path)
+
+    w_map, b_map, cw_map = dram.save_all_initializers_to_dram(
+        onnx_path, _dram_offsets())
+
+    # The Conv weight + bias make it into the right maps.
+    assert "conv_W" in cw_map
+    assert "conv_B" in b_map
+
+    # The Squeeze axes initializer must NOT be in any map. Pre-fix this
+    # would have been mis-allocated to b_map (1-D initializer caught by the
+    # catch-all branch).
+    assert "axes_init" not in w_map
+    assert "axes_init" not in b_map
+    assert "axes_init" not in cw_map
+
+
 @require_mlp_weights
 def test_address_mutation_propagates():
     """If the user manually moves an initializer to a new address (e.g. a

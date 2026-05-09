@@ -181,42 +181,47 @@ def generate_assembly(model_path, output_file,
             continue
 
         # ── Initialiser loads (weights / biases) for this node ───────────────
-        for arg_idx, input_name in enumerate(node.input):
-            # Skip Conv weights AND bias here; both are emitted in the Conv
-            # block below to keep CONV2D_CFG / CONV2D_RUN ordering tight.
-            if node.op_type == "Conv" and arg_idx in (1, 2):
-                continue
-            if input_name not in initializer_map:
-                continue
-            tensor_data = initializer_map[input_name]
-            tensor_type = tensor_data["type"]
-            buf = assignments[input_name]
+        # Only Gemm / MatMul flow through this loop: their initializer inputs
+        # are FC weights and biases the accelerator's ISA needs in DRAM.
+        # Conv handles its own LOAD_M / LOAD_V emission in the Conv block
+        # below (kept tight against CONV2D_CFG / CONV2D_RUN). Every other op
+        # type may have initializer inputs that are op PARAMETERS (axes,
+        # target shapes, indices) — newer torch ONNX exporters surface these
+        # as 1-D tensors, and treating them as biases here would emit a
+        # spurious LOAD_V into a buffer the model never reads.
+        if node.op_type in ("Gemm", "MatMul"):
+            for arg_idx, input_name in enumerate(node.input):
+                if input_name not in initializer_map:
+                    continue
+                tensor_data = initializer_map[input_name]
+                tensor_type = tensor_data["type"]
+                buf = assignments[input_name]
 
-            if tensor_type == "weight":
-                if len(tensor_data["shape"]) == 2:
-                    rows, cols = tensor_data["shape"]
-                else:
-                    rows = int(np.prod(tensor_data["shape"][:-1]))
-                    cols = tensor_data["shape"][-1]
-                TILE_WIDTH  = AcceleratorConfig.TILE_ELEMS
-                padded_cols = ((cols + TILE_WIDTH - 1) // TILE_WIDTH) * TILE_WIDTH
-                if input_name not in weight_map:
-                    raise KeyError(
-                        f"FC weight {input_name!r} not in weight_map; "
-                        "did save_all_initializers_to_dram run on this model?")
-                asm_instructions.append(
-                    f"LOAD_M {buf}, {hex(weight_map[input_name])}, "
-                    f"{rows}, {padded_cols}"
-                )
-            elif tensor_type == "bias":
-                size = tensor_size(tensor_data["shape"])
-                if input_name not in bias_map:
-                    raise KeyError(
-                        f"Bias {input_name!r} not in bias_map; "
-                        "did save_all_initializers_to_dram run on this model?")
-                asm_instructions.append(
-                    f"LOAD_V {buf}, {hex(bias_map[input_name])}, {size}"
-                )
+                if tensor_type == "weight":
+                    if len(tensor_data["shape"]) == 2:
+                        rows, cols = tensor_data["shape"]
+                    else:
+                        rows = int(np.prod(tensor_data["shape"][:-1]))
+                        cols = tensor_data["shape"][-1]
+                    TILE_WIDTH  = AcceleratorConfig.TILE_ELEMS
+                    padded_cols = ((cols + TILE_WIDTH - 1) // TILE_WIDTH) * TILE_WIDTH
+                    if input_name not in weight_map:
+                        raise KeyError(
+                            f"FC weight {input_name!r} not in weight_map; "
+                            "did save_all_initializers_to_dram run on this model?")
+                    asm_instructions.append(
+                        f"LOAD_M {buf}, {hex(weight_map[input_name])}, "
+                        f"{rows}, {padded_cols}"
+                    )
+                elif tensor_type == "bias":
+                    size = tensor_size(tensor_data["shape"])
+                    if input_name not in bias_map:
+                        raise KeyError(
+                            f"Bias {input_name!r} not in bias_map; "
+                            "did save_all_initializers_to_dram run on this model?")
+                    asm_instructions.append(
+                        f"LOAD_V {buf}, {hex(bias_map[input_name])}, {size}"
+                    )
 
         # ── Gemm / MatMul → GEMV ──────────────────────────────────────────────
         if node.op_type in ("Gemm", "MatMul"):

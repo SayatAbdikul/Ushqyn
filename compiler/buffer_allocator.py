@@ -73,6 +73,14 @@ MATRIX_ID_OFFSET = 16
 # Passthrough ops emit no instruction; their output aliases their input.
 PASSTHROUGH_OPS = frozenset({"Reshape", "Flatten", "BatchNormalization"})
 
+# Op types whose initializer inputs are weights / biases the accelerator
+# needs to LOAD_M / LOAD_V into a buffer. Other ops (Squeeze, Cast, Shape,
+# Constant, …) may also have initializer inputs, but those are op parameters
+# (axes, target shapes, indices) the compiler doesn't reference — allocating
+# a buffer for them just burns a slot. Stays in lockstep with the
+# initializer-allocation branches in `dram.save_all_initializers_to_dram`.
+INITIALIZER_OPS = frozenset({"Conv", "Gemm", "MatMul"})
+
 
 class BufferAllocator:
     """Linear-scan allocator over the accelerator's vector and matrix buffer pools.
@@ -281,12 +289,15 @@ def allocate_buffers(graph, ordered_nodes, *,
 
         # 2. Allocate buffers for this node's initializer inputs (weights /
         #    biases). An initializer is consumed only by this node, so its
-        #    last_use is exactly idx — it'll be freed at idx+1.
-        for inp_name in node.input:
-            if (inp_name in initializer_data
-                    and inp_name not in alloc.assignments):
-                klass = initializer_class[inp_name]
-                alloc.allocate(inp_name, klass, idx)
+        #    last_use is exactly idx — it'll be freed at idx+1. Only
+        #    INITIALIZER_OPS contribute (Conv / Gemm / MatMul); other ops'
+        #    initializer inputs are op parameters not loaded into buffers.
+        if node.op_type in INITIALIZER_OPS:
+            for inp_name in node.input:
+                if (inp_name in initializer_data
+                        and inp_name not in alloc.assignments):
+                    klass = initializer_class[inp_name]
+                    alloc.allocate(inp_name, klass, idx)
 
         # 3. Op-type passthroughs (Reshape / Flatten / BatchNorm): alias
         #    output to input; emit nothing.
