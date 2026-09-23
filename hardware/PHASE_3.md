@@ -1,6 +1,9 @@
-# Phase 3 SmallCNN candidate
+# Phase 3 SmallCNN candidate (historical release)
 
-This branch extends the numerical-v2 target with ordinary Conv and MaxPool
+This build is frozen at commit `06d1751`. The current development hierarchy
+is documented in [Phase 4](PHASE_4.md) under target ID 8196.
+
+The Phase 3 release extends the numerical-v2 target with ordinary Conv and MaxPool
 opcodes under target ID 8195. The previous phase-2 `.fs` remains archived at
 `hardware/releases/phase2/` and advertises target ID 8194. Do not mix images
 or bitstreams across those IDs.

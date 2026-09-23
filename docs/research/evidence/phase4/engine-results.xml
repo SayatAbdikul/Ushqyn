@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1790160184" />
+    <testcase name="randomized_memory_latency_and_abort" classname="test_engine" file="/Users/sayat/Documents/GitHub/tinyML_accelerator/test/phase2/test_engine.py" lineno="7" time="0.7626621723175049" sim_time_ns="177350.001" ratio_time="232540.70732403806" />
+  </testsuite>
+</testsuites>

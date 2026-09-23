@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1790162260" />
+    <testcase name="tile_transfer_backpressure_bounds_and_abort" classname="test_tile_dma" file="/Users/sayat/Documents/GitHub/tinyML_accelerator/test/phase4/test_tile_dma.py" lineno="8" time="0.2279801368713379" sim_time_ns="55830.001" ratio_time="244889.75998601154" />
+  </testsuite>
+</testsuites>

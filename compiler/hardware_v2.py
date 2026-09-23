@@ -23,7 +23,7 @@ def validate_target(target):
     size=target['memory_bytes']
     if not 1024<=size<=32768 or size&(size-1):raise ValueError('unsupported physical SRAM geometry')
     if target['max_transfer']!=64 or not 10<=target['timeout_cycles']<2**32:raise ValueError('protocol geometry')
-    if target['opcodes']!={'HALT':0,'GEMM':1,'RELU':2,'COPY':3,'CONV':4,'MAXPOOL':5}:raise ValueError('unsupported opcode ABI')
+    if target['opcodes']!={'HALT':0,'GEMM':1,'RELU':2,'COPY':3,'CONV':4,'MAXPOOL':5,'DWCONV':6,'AVGPOOL':7,'CLIP':8}:raise ValueError('unsupported opcode ABI')
     if len(target['sources'])!=len(set(target['sources'])):raise ValueError('duplicate active RTL sources')
 
 
@@ -84,23 +84,31 @@ class Descriptor:
         if self.opcode==0: return
         region(self.next_pc,64,64)
         if min(self.count,self.outputs)==0: raise ValueError('empty geometry')
-        spatial=self.opcode in (4,5)
+        spatial=self.opcode in (4,5,6,7)
         if spatial:
             if (min(self.kernel_h,self.kernel_w,self.input_h,self.input_w,self.input_c,self.output_c)<=0
-                    or self.stride_h not in (1,2) or self.stride_w not in (1,2)
+                    or (self.opcode!=7 and (self.stride_h not in (1,2) or self.stride_w not in (1,2)))
+                    or (self.opcode==7 and (self.stride_h not in (1,2,self.kernel_h) or self.stride_w not in (1,2,self.kernel_w)))
                     or self.pad_top>=self.kernel_h or self.pad_bottom>=self.kernel_h
                     or self.pad_left>=self.kernel_w or self.pad_right>=self.kernel_w
-                    or self.kernel_h>7 or self.kernel_w>7
-                    or max(self.input_h,self.input_w,self.input_c,self.output_c)>255):
+                    or self.kernel_h>31 or self.kernel_w>31
+                    or max(self.input_h,self.input_w)>255
+                    or max(self.input_c,self.output_c)>1024):
                 raise ValueError('unsupported convolution/pooling geometry')
             numer_h=self.input_h+self.pad_top+self.pad_bottom-self.kernel_h
             numer_w=self.input_w+self.pad_left+self.pad_right-self.kernel_w
             if numer_h<0 or numer_w<0:raise ValueError('empty spatial output')
+            if self.opcode==7 and ((self.stride_h>2 and numer_h>=self.stride_h) or
+                                   (self.stride_w>2 and numer_w>=self.stride_w) or
+                                   any((self.pad_top,self.pad_bottom,self.pad_left,self.pad_right))):
+                raise ValueError('average pool supports unpadded full-window large strides only')
             oh=numer_h//self.stride_h+1;ow=numer_w//self.stride_w+1
             if self.outputs!=self.output_c*oh*ow:raise ValueError('spatial output count mismatch')
             if self.opcode==4 and self.count!=self.input_c*self.kernel_h*self.kernel_w:
                 raise ValueError('convolution reduction mismatch')
-            if self.opcode==5 and (self.count!=self.input_c*self.input_h*self.input_w or self.output_c!=self.input_c):
+            if self.opcode==6 and (self.count!=self.kernel_h*self.kernel_w or self.output_c!=self.input_c):
+                raise ValueError('depthwise reduction/channel mismatch')
+            if self.opcode in (5,7) and (self.count!=self.input_c*self.input_h*self.input_w or self.output_c!=self.input_c):
                 raise ValueError('pool input/channel mismatch')
             region(self.input,self.input_c*self.input_h*self.input_w,8)
         else:
@@ -108,20 +116,20 @@ class Descriptor:
                 raise ValueError('unexpected spatial geometry')
             region(self.input,(self.count+7)//8*8,8)
         region(self.output,self.outputs)
-        if self.opcode in (1,4):
+        if self.opcode in (1,4,6):
             if self.row_stride%8 or self.row_stride<self.count: raise ValueError('invalid FC row stride')
             weight_rows=self.output_c if spatial else self.outputs
             region(self.weight,weight_rows*self.row_stride,8)
             region(self.params,weight_rows*16,8)
         else:
             if not spatial and self.outputs!=self.count: raise ValueError('elementwise count mismatch')
-            if self.opcode in (2,5): region(self.params,16,8)
+            if self.opcode in (2,5,7,8): region(self.params,16,8)
 
 
 def lower(program):
-    """Pack a verified FC/ordinary-Conv/MaxPool program with live SRAM reuse."""
+    """Pack the supported on-chip audio/vision kernels with live SRAM reuse."""
     validate_program(program)
-    supported={'Gemm','Conv','MaxPool','Relu','Flatten','Reshape','Identity'}
+    supported={'Gemm','Conv','MaxPool','AveragePool','GlobalAveragePool','Relu','Clip','Flatten','Reshape','Identity'}
     if any(l.op not in supported for l in program.layers): raise ValueError('unsupported hardware graph')
     if program.constants: raise ValueError('runtime constants unsupported in board hardware')
     n=len(program.layers)
@@ -135,10 +143,16 @@ def lower(program):
             packed['weights']=rows.tobytes()
             iq=program.tensors[l.inputs[0]].quantization;oq=program.tensors[l.output].quantization
             packed['params']=b''.join(struct.pack('<iiBbbbbb',int(l.parameters['corrected_bias'][c]),int(l.parameters['multiplier'][c]),int(l.parameters['shift'][c]),oq.zero_point,iq.zero_point,-128,127,0)+b'\0\0' for c in range(w.shape[0]))
-        elif l.op in ('Relu','MaxPool'):
+        elif l.op in ('Relu','MaxPool','AveragePool','GlobalAveragePool','Clip'):
             iq=program.tensors[l.inputs[0]].quantization;oq=program.tensors[l.output].quantization
-            m,s=multiplier_shift(iq.scale/oq.scale)
-            packed['params']=struct.pack('<iiBbbbbb',0,m,s,oq.zero_point,iq.zero_point,iq.zero_point,127,0)+b'\0\0'
+            ratio=iq.scale/oq.scale
+            if l.op in ('AveragePool','GlobalAveragePool'):
+                kh,kw=l.attributes.get('kernel_shape',program.tensors[l.inputs[0]].shape[2:])
+                ratio/=kh*kw
+            m,s=multiplier_shift(ratio)
+            lo,hi=(l.parameters['clip_bounds'].tolist() if l.op=='Clip' else
+                   (iq.zero_point,127) if l.op=='Relu' else (-128,127))
+            packed['params']=struct.pack('<iiBbbbbb',0,m,s,oq.zero_point,iq.zero_point,lo,hi,0)+b'\0\0'
         else:
             if program.tensors[l.inputs[0]].quantization!=program.tensors[l.output].quantization:
                 raise ValueError('copy quantization changed')
@@ -152,19 +166,28 @@ def lower(program):
     descriptors=[]
     for i,l in enumerate(program.layers):
         count=math.prod(program.tensors[l.inputs[0]].shape); outputs=math.prod(program.tensors[l.output].shape)
-        opname={'Gemm':'GEMM','Conv':'CONV','MaxPool':'MAXPOOL','Relu':'RELU'}.get(l.op,'COPY')
+        group=l.attributes.get('group',1)
+        depthwise=(l.op=='Conv' and group!=1)
+        opname={'Gemm':'GEMM','Conv':'DWCONV' if depthwise else 'CONV',
+                'MaxPool':'MAXPOOL','AveragePool':'AVGPOOL','GlobalAveragePool':'AVGPOOL',
+                'Relu':'RELU','Clip':'CLIP'}.get(l.op,'COPY')
         d=Descriptor(TARGET['opcodes'][opname],addresses[l.inputs[0]],addresses[l.output],count=count,outputs=outputs,next_pc=(i+1)*64)
         iq=program.tensors[l.inputs[0]].quantization;oq=program.tensors[l.output].quantization
-        if l.op in ('Conv','MaxPool'):
+        if l.op in ('Conv','MaxPool','AveragePool','GlobalAveragePool'):
             xshape=program.tensors[l.inputs[0]].shape;yshape=program.tensors[l.output].shape
             if (len(xshape)!=4 or len(yshape)!=4 or xshape[0]!=1 or yshape[0]!=1
                     or program.tensors[l.inputs[0]].layout!='NCHW'
                     or program.tensors[l.output].layout!='NCHW'):
                 raise ValueError('board spatial tensors require batch-one NCHW')
-            a=l.attributes;kh,kw=(l.parameters['weight'].shape[2:] if l.op=='Conv' else a['kernel_shape'])
+            a=l.attributes;kh,kw=(l.parameters['weight'].shape[2:] if l.op=='Conv' else
+                                  a.get('kernel_shape',xshape[2:]))
             pt,pl,pb,pr=a.get('pads',[0,0,0,0]);sh,sw=a.get('strides',[1,1])
-            if a.get('group',1)!=1 or a.get('dilations',[1,1])!=[1,1] or a.get('ceil_mode',0):
+            if (l.op=='Conv' and group not in (1,xshape[1])) or a.get('dilations',[1,1])!=[1,1] or a.get('ceil_mode',0):
                 raise ValueError('unsupported convolution/pooling grouping or dilation')
+            if depthwise and (yshape[1]!=xshape[1] or l.parameters['weight'].shape[1]!=1):
+                raise ValueError('depthwise channel multiplier must be one')
+            if l.op in ('AveragePool','GlobalAveragePool') and a.get('count_include_pad',0):
+                raise ValueError('average pool with padding included unsupported')
             d.kernel_h=kh;d.kernel_w=kw;d.stride_h=sh;d.stride_w=sw
             d.pad_top=pt;d.pad_bottom=pb;d.pad_left=pl;d.pad_right=pr
             d.input_h=xshape[2];d.input_w=xshape[3];d.input_c=xshape[1];d.output_c=yshape[1]
@@ -172,10 +195,10 @@ def lower(program):
         if l.op in ('Gemm','Conv'):
             w=l.parameters['weight'];reduction=math.prod(w.shape[1:]);stride=(reduction+7)&~7
             if l.op=='Gemm' and w.shape!=(outputs,count): raise ValueError('FC shape')
-            if l.op=='Conv' and (w.shape[0]!=d.output_c or w.shape[1]!=d.input_c):
+            if l.op=='Conv' and (w.shape[0]!=d.output_c or w.shape[1]!=(1 if depthwise else d.input_c)):
                 raise ValueError('Conv channels')
             d.weight=addresses[f'{i}/weights'];d.row_stride=stride;d.params=addresses[f'{i}/params']
-        elif l.op in ('Relu','MaxPool'):d.params=addresses[f'{i}/params']
+        elif l.op in ('Relu','MaxPool','AveragePool','GlobalAveragePool','Clip'):d.params=addresses[f'{i}/params']
         d.validate();descriptors.append(d)
         memory[i*64:(i+1)*64]=d.encode()
     memory[n*64:(n+1)*64]=Descriptor(0).encode()

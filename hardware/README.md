@@ -1,7 +1,8 @@
-**Current candidate:** [phase-3 Tang Nano 20K implementation](PHASE_3.md) runs
-SmallCNN in board-system simulation and has a routed bitstream. Physical board
-execution is still pending. The [phase-2 FC release](PHASE_2.md) remains
-archived. The phase-0 report below describes the old source hierarchy.
+**Current candidate:** [Phase 4 kernel implementation](PHASE_4.md) adds
+KWS/VWW-shaped compute nodes and has a routed 27-MHz bitstream. SDRAM and DMA
+are not integrated into that image. The [Phase 3 SmallCNN candidate](PHASE_3.md)
+and [Phase 2 FC release](PHASE_2.md) remain archived. Physical board execution
+is still pending. The phase-0 report below describes the old source hierarchy.
 
 # Phase-0 Gowin and board checks
 

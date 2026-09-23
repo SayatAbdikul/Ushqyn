@@ -3,6 +3,7 @@ import os
 from pathlib import Path
 import numpy as np
 import cocotb
+from hardware_v2 import TARGET
 from test_system import initialize,tick
 from host import CAPS,RUN
 
@@ -12,7 +13,7 @@ async def change_mlp_cnn_mlp_without_bitstream_reload(d):
     root=Path(os.environ['REPO_ROOT'])
     link=await initialize(d)
     caps=await link.call(CAPS)
-    assert int.from_bytes(caps[8:10],'little')==8195
+    assert int.from_bytes(caps[8:10],'little')==TARGET['target_id']
     for label,fixture,cycles in (
         ('mlp',root/'work/phase2/mlp',15000),
         ('smallcnn',root/'work/phase3/smallcnn',185000),

@@ -1,0 +1,13 @@
+{
+  "compiler/hardware_v2.py": "c97d197fbc03efbfa5c827197e04623fad7c6591ec7bd0a8298ef0374fcb0295",
+  "compiler/memory_planner.py": "a02132a322ac7d8567804e45a5d33168da3b6bc63b955797db7b411e47a5121b",
+  "compiler/test_phase4_kernels.py": "ae7f907b22b7734a6ebeb3667090c1ea5ed5f39da2b473930e5df6d11f7d807f",
+  "rtl/v2/tile_dma.sv": "94e94a4a8c474fd2f0824dff3cc64bca921262cd9e0bf53064713376c1a09ab9",
+  "test/phase4/test_kernels.py": "db2326629874776ae85e0983fb776c691fbd14c093b4be57f8e5a569c0c7ed77",
+  "test/phase4/test_tile_dma.py": "326c00aff1777b6f964bbe0f0e8dd26c51dc429042baa4a4970fbb724db9241b",
+  "test/phase4/run.py": "fdc0ac7000ecb981ad1f7f4b82552731b454044c8d638f07ab9eb73688c8fc0f",
+  "test/phase4/run_dma.py": "f30a00a8f48e8762761f26e51a9de3dd69f9c8cdae540d0e97543467893d0e19",
+  "test/phase3/test_switch.py": "b9c4b5bd8e2d1c0bf71f9cbbc4e186de2564a6513d86bedca7a5dd724882cb76",
+  "tools/phase4/audit_inventories.py": "6d6feb1ef7cd2520f166ed193fd294492aa8e2eda9605dc521ecaeed4c92d98d",
+  "tools/phase4/collect_evidence.py": "6d5034d2d33b521cf4945a77c1cdbc5dd694cb205faae09798d71feae01f7d4e"
+}

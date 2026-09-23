@@ -3,10 +3,13 @@
 > *Ushqyn* — Kazakh for **spark**: tiny, energetic, the genesis of fire.
 
 An INT8 TinyML accelerator targeting the Tang Nano 20K. The current
-numerical-v2 board hierarchy supports a trained MLP and SmallCNN, passes exact
-RTL simulation, and has a routed **27-MHz candidate bitstream**. No physical
-board execution or energy measurement has been completed. See the
-[Phase 3 status](docs/research/PHASE_3_STATUS.md) and
+numerical-v2 board hierarchy supports a trained MLP and SmallCNN plus
+audio/vision-shaped depthwise, pointwise and average-pool kernels. It passes
+exact RTL simulation and has a routed **27-MHz kernel candidate bitstream**.
+SDRAM integration and complete KWS/VWW inference remain Phase 4 work; no
+physical-board execution or energy measurement has been completed. See the
+[Phase 4 status](docs/research/PHASE_4_STATUS.md),
+[Phase 3 SmallCNN record](docs/research/PHASE_3_STATUS.md) and
 [research roadmap](docs/RESEARCH_ROADMAP.md).
 
 ## Status
@@ -15,7 +18,7 @@ board execution or energy measurement has been completed. See the
 |---|---|---|---|
 | **MLP** (784→12→32→10 MNIST) | 94.84% static INT8 on 10K | 1,000 exact jobs in Phase 2; retained in current RTL | Routed candidate; physical runs pending |
 | **SmallCNN** (Conv→Pool→Conv→Pool→FC) | 96.40% static INT8 on 10K | 1,000 exact jobs, eight layer boundaries checked | 27.473-MHz routed candidate; physical runs pending |
-| **KWS / VWW** | Software models only | Unsupported hardware nodes reject | Future phases |
+| **KWS / VWW** | Full-set software INT8 quality recorded | Directed exact kernel RTL tests; no complete-model RTL run | Kernel-only 27-MHz routed candidate; SDRAM/tiling pending |
 
 The current SmallCNN result uses an independent centered-integer oracle,
 source-hashed RTL and a separately calibrated 10,000-image quality evaluation.
@@ -25,7 +28,7 @@ place-and-route and open physical checks.
 ## Historical v1 architecture
 
 The feature list and workflow below describe the older instruction-set design,
-not the current board ABI. Use [Phase 3 reproduction](hardware/PHASE_3.md) for
+not the current board ABI. Use [Phase 4 reproduction](hardware/PHASE_4.md) for
 the active accelerator.
 
 ## Key Features (legacy)

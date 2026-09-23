@@ -1,0 +1,67 @@
+{
+  "date": "2026-09-23",
+  "scope": "kernel-only routed board candidate; tile DMA is standalone abstract-port RTL",
+  "tool": "Gowin Education V1.9.11.03",
+  "part": "GW2AR-LV18QN88C8/I7",
+  "revision": "C",
+  "constraint_mhz": 27,
+  "routed_fmax_mhz": 27.611,
+  "worst_setup_slack_ns": 0.82,
+  "resources": {
+    "Logic": [
+      7954.0,
+      20736.0
+    ],
+    "Register": [
+      2421.0,
+      15750.0
+    ],
+    "BSRAM": [
+      16.0,
+      46.0
+    ],
+    "DSP": [
+      19.75,
+      24.0
+    ]
+  },
+  "bitstream_sha256": "a214798c00b86a71940dd67f1a943403f15b3a642b9ddbb8cb9f715b172d0b33",
+  "raw_route_sha256": "ad4f0ca7e7915b6302a7a62e139a0502da72899f89a220c57853e18d5cc1d6b4",
+  "source_manifest_sha256": "265d4c40c179e900660680041665398a144e27810e3806c7d2072e4aa8a989b5",
+  "software_manifest_sha256": "a1129979f94ea563758e9c2b7c077d8b692c3bc1e9f0ef371ad81573d7f3db80",
+  "pinned_inventory_sha256": {
+    "kws": "c66cff83065c39d176f2c289e3b707f258e3a30f6a8fad912e0e46d38675f0d1",
+    "vww": "43e05faf97353b47488b5b452697376e89a978f8c57b71d28874ad27d232a18d"
+  },
+  "simulated_kernel_profiles_sha256": "2d17cc8b6dd3e9e5456608bbfb244987c3c6a1f401ee47b7b56c4598be1218ae",
+  "native_smallcnn_jobs": 1000,
+  "integer_mismatches": 0,
+  "native_smallcnn_results_sha256": "8aed5f4a0ea4a2c4167dea4738a7bf98af9d0f087d8c8e2359e63b67f03f894a",
+  "rtl_cases": {
+    "kernels": [
+      "pinned_audio_vision_kernels_with_stalls"
+    ],
+    "tile_dma": [
+      "tile_transfer_backpressure_bounds_and_abort"
+    ],
+    "engine": [
+      "randomized_memory_latency_and_abort"
+    ],
+    "system": [
+      "protocol_and_inference",
+      "complete_mlp_jobs"
+    ],
+    "board": [
+      "serial_board_top"
+    ],
+    "switch": [
+      "change_mlp_cnn_mlp_without_bitstream_reload"
+    ]
+  },
+  "generic_clock_routing_warning": true,
+  "sdram_controller_integrated": false,
+  "dma_integrated": false,
+  "complete_kws_vww_rtl": false,
+  "physical_board_programmed": false,
+  "measured_power": false
+}

@@ -1,0 +1,7 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1790161664" />
+    <testcase name="protocol_and_inference" classname="test_system" file="/Users/sayat/Documents/GitHub/tinyML_accelerator/test/phase2/test_system.py" lineno="47" time="0.4297950267791748" sim_time_ns="101070.001" ratio_time="235158.6098085052" />
+    <testcase name="complete_mlp_jobs" classname="test_system" file="/Users/sayat/Documents/GitHub/tinyML_accelerator/test/phase2/test_system.py" lineno="100" time="2.1429789066314697" sim_time_ns="667510.0009999999" ratio_time="311486.9674798868" />
+  </testsuite>
+</testsuites>

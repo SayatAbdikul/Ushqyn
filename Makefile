@@ -31,6 +31,10 @@ help:
 	@echo "  p3-native      Run 1,000 SmallCNN jobs through board-system RTL"
 	@echo "  p3-quality     Evaluate all 10,000 MNIST images in float and INT8"
 	@echo "  p3-switch      Test MLP↔SmallCNN model switching in one RTL system"
+	@echo "  p4-kernels     Exact KWS/VWW-shaped kernel RTL tests"
+	@echo "  p4-dma         Standalone abstract-port tile-transfer RTL tests"
+	@echo "  p4-audit       Audit frozen KWS/VWW operator and storage inventories"
+	@echo "  p4-test        Run the reproducible Phase 4 simulation tier"
 	@echo "  heavy-test     Full MLP MNIST cocotb test (requires Verilator)"
 	@echo "                 Pass NUM_IMAGES=N to test N images (default: 2 here)."
 	@echo "  clean          Remove generated artifacts and caches"
@@ -50,6 +54,7 @@ test-compiler:
 	    test_buffer_allocator.py \
 	    test_static_pipeline.py \
 	    test_hardware_v2.py \
+	    test_phase4_kernels.py \
 	    test_memory_planner.py \
 	    -q --tb=short
 
@@ -112,3 +117,15 @@ p3-quality:
 
 p3-switch: check-v2-target v2-lint p3-fixture v2-fixture
 	$(PYTHON) test/phase3/run.py
+
+.PHONY: p4-kernels p4-dma p4-audit p4-test
+p4-kernels: check-v2-target v2-lint
+	$(PYTHON) test/phase4/run.py
+
+p4-dma:
+	$(PYTHON) test/phase4/run_dma.py
+
+p4-audit:
+	$(PYTHON) tools/phase4/audit_inventories.py
+
+p4-test: ci p4-kernels p4-dma p4-audit

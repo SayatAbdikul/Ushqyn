@@ -31,12 +31,13 @@ module v2_engine (
     wire [15:0] kh=d[5][15:0],kw=d[5][31:16],sh=d[5][47:32],sw=d[5][63:48];
     wire [15:0] pt=d[6][15:0],pbm=d[6][31:16],pl=d[6][47:32],pr=d[6][63:48];
     wire [15:0] ih=d[7][15:0],iw=d[7][31:16],ic=d[7][47:32],oc_total=d[7][63:48];
-    wire spatial=(op==OP_CONV||op==OP_MAXPOOL);
+    wire spatial=(op==OP_CONV||op==OP_DWCONV||op==OP_MAXPOOL||op==OP_AVGPOOL);
     wire [31:0] plane_calc=32'(ih)*32'(iw);
     wire [31:0] numerator_h=32'(ih)+32'(pt)+32'(pbm)-32'(kh);
     wire [31:0] numerator_w=32'(iw)+32'(pl)+32'(pr)-32'(kw);
-    wire [31:0] oh_calc=(sh==2)?((numerator_h>>1)+1):(numerator_h+1);
-    wire [31:0] ow_calc=(sw==2)?((numerator_w>>1)+1):(numerator_w+1);
+    // Large-stride average pools are restricted to a single full window.
+    wire [31:0] oh_calc=(sh==2)?((numerator_h>>1)+1):((sh==1)?(numerator_h+1):1);
+    wire [31:0] ow_calc=(sw==2)?((numerator_w>>1)+1):((sw==1)?(numerator_w+1):1);
     logic [15:0] oh,ow,ox,oy,oc,win_kx,win_ky,win_ic;
     logic [2:0] win_lane;
     logic [31:0] plane,row_step,pad_offset,kernel_area,output_area;
@@ -48,11 +49,13 @@ module v2_engine (
     wire window_inside=(window_x>=0 && window_y>=0 && window_x<$signed({3'b0,iw}) && window_y<$signed({3'b0,ih}));
     logic signed [7:0] pool_max;
     logic pool_any;
+    logic signed [31:0] pool_sum;
+    logic signed [7:0] clip_min,clip_max;
     // One filter tile (up to 64 weights) is reused over its spatial outputs.
     // Larger reductions use the same MAC array and stream weights from SRAM.
     logic [63:0] weight_cache[0:7];
     logic weight_cache_valid;
-    wire cached_weight=(op==OP_CONV&&count<=64&&weight_cache_valid);
+    wire cached_weight=((op==OP_CONV||op==OP_DWCONV)&&count<=64&&weight_cache_valid);
     // The physical SRAM returns eight bytes even for one window pixel. Keep
     // eight tagged words across neighboring windows to avoid duplicate reads.
     logic [63:0] activation_cache_data[0:7];
@@ -83,11 +86,14 @@ module v2_engine (
         end
         acc_next={{4{acc[31]}},acc}+sum;
         scalar_x=$signed(xword[row[2:0]*8+:8]);
-        scalar_acc=(scalar_x<zx) ? 0 : ({{24{scalar_x[7]}},scalar_x}-{{24{zx[7]}},zx});
+        scalar_acc=(op==OP_CLIP ?
+            (($signed(scalar_x)<$signed(clip_min)) ? {{24{clip_min[7]}},clip_min} :
+             (($signed(scalar_x)>$signed(clip_max)) ? {{24{clip_max[7]}},clip_max} : {{24{scalar_x[7]}},scalar_x})) :
+            (($signed(scalar_x)<$signed(zx)) ? {{24{zx[7]}},zx} : {{24{scalar_x[7]}},scalar_x})) - {{24{zx[7]}},zx};
         mem_req=0;mem_wr=0;address_full=0;mem_wdata=0;mem_wstrb=0;
         case(state)
             D_REQ:begin mem_req=1;address_full={40'b0,pc}+{58'b0,di,3'b0};end
-            P_REQ:begin mem_req=1;address_full={32'b0,pb}+((op==OP_GEMM)?({32'b0,row}<<4):((op==OP_CONV)?({48'b0,oc}<<4):0))+(pi?8:0);end
+            P_REQ:begin mem_req=1;address_full={32'b0,pb}+((op==OP_GEMM)?({32'b0,row}<<4):((op==OP_CONV||op==OP_DWCONV)?({48'b0,oc}<<4):0))+(pi?8:0);end
             X_REQ:begin mem_req=1;address_full={32'b0,xb}+((op==OP_GEMM)?{32'b0,col}:({32'b0,row}&64'hfffffffffffffff8));end
             WIN_REQ,POOL_REQ:begin mem_req=1;address_full={40'b0,win_addr[23:3],3'b0};end
             W_REQ:begin mem_req=!cached_weight;address_full={40'b0,weight_row}+{32'b0,col};end
@@ -125,7 +131,7 @@ module v2_engine (
             plane<=0;row_step<=0;pad_offset<=0;kernel_area<=0;output_area<=0;
             input_bytes_reg<=0;reduction_reg<=0;outputs_reg<=0;
             channel_origin<=0;row_origin<=0;pixel_origin<=0;
-            window_channel_origin<=0;window_line_origin<=0;win_addr<=0;origin_x<=0;origin_y<=0;pool_max<=0;pool_any<=0;
+            window_channel_origin<=0;window_line_origin<=0;win_addr<=0;origin_x<=0;origin_y<=0;pool_max<=0;pool_any<=0;pool_sum<=0;clip_min<=-8'sd128;clip_max<=8'sd127;
             acc<=0;mult<=0;shift<=0;zy<=0;zx<=0;xword<=0;whex<=0;p0<=0;p1<=0;result_byte<=0;
             elapsed<=0;compute_cycles<=0;wait_cycles<=0;control_cycles<=0;useful_macs<=0;read_bytes<=0;write_bytes<=0;layer_count<=0;layer_marker<=0;
             for(j=0;j<8;j=j+1)d[j]<=0;
@@ -155,7 +161,7 @@ module v2_engine (
                 D_CHECK:begin
                     if(d[0][31:0]!=32'h32445355||d[0][39:32]!=8'(DESC_VERSION)||d[0][63:48]!=0)fail(8'd2);
                     else if(op==OP_HALT)begin busy<=0;done<=1;state<=IDLE;end
-                    else if(op!=OP_GEMM&&op!=OP_RELU&&op!=OP_COPY&&op!=OP_CONV&&op!=OP_MAXPOOL)fail(8'd3);
+                    else if(op!=OP_GEMM&&op!=OP_RELU&&op!=OP_COPY&&op!=OP_CONV&&op!=OP_MAXPOOL&&op!=OP_DWCONV&&op!=OP_AVGPOOL&&op!=OP_CLIP)fail(8'd3);
                     else if(count==0||outputs==0||count>MEM_BYTES||outputs>MEM_BYTES||xb[2:0]!=0||{32'b0,yb}+{32'b0,outputs}>64'(MEM_BYTES)||next_pc[5:0]!=0||next_pc>MEM_BYTES-64)fail(8'd1);
                     else state<=spatial?GEOM0:OTHER_CHECK;
                 end
@@ -166,7 +172,7 @@ module v2_engine (
                         {32'b0,wb}+{32'b0,outputs}*{32'b0,stride}>64'(MEM_BYTES)||
                         {32'b0,pb}+({32'b0,outputs}<<4)>64'(MEM_BYTES)))fail(8'd1);
                     else if(op!=OP_GEMM&&count!=outputs)fail(8'd1);
-                    else if(op==OP_RELU&&(pb[2:0]!=0||{32'b0,pb}+16>64'(MEM_BYTES)))fail(8'd1);
+                    else if((op==OP_RELU||op==OP_CLIP)&&(pb[2:0]!=0||{32'b0,pb}+16>64'(MEM_BYTES)))fail(8'd1);
                     else if(layer_count>=MAX_DESCRIPTORS)fail(8'd7);
                     else begin
                         row<=0;col<=0;weight_row<=wb[23:0];pi<=0;
@@ -182,25 +188,30 @@ module v2_engine (
                 end
                 GEOM_COUNT:begin
                     input_bytes_reg<=plane*32'(ic);
-                    reduction_reg<=kernel_area*32'(ic);
+                    reduction_reg<=(op==OP_DWCONV)?kernel_area:kernel_area*32'(ic);
                     outputs_reg<=output_area*32'(oc_total);
                     state<=GEOM_CHECK;
                 end
                 GEOM_CHECK:begin
                     if(
-                        kh==0||kw==0||kh>7||kw>7||ih==0||iw==0||ic==0||oc_total==0||
-                        ih>255||iw>255||ic>255||oc_total>255||
-                        (sh!=1&&sh!=2)||(sw!=1&&sw!=2)||pt>=kh||pbm>=kh||pl>=kw||pr>=kw||
+                        kh==0||kw==0||kh>31||kw>31||ih==0||iw==0||ic==0||oc_total==0||
+                        ih>255||iw>255||ic>1024||oc_total>1024||
+                        (((sh!=1&&sh!=2)||(sw!=1&&sw!=2))&&op!=OP_AVGPOOL)||
+                        (op==OP_AVGPOOL&&((sh!=1&&sh!=2&&sh!=kh)||(sw!=1&&sw!=2&&sw!=kw)||
+                            (sh>2&&numerator_h>=32'(sh))||(sw>2&&numerator_w>=32'(sw))||
+                            pt!=0||pbm!=0||pl!=0||pr!=0))||
+                        pt>=kh||pbm>=kh||pl>=kw||pr>=kw||
                         32'(ih)+32'(pt)+32'(pbm)<32'(kh)||32'(iw)+32'(pl)+32'(pr)<32'(kw)||
                         {32'b0,xb}+{32'b0,input_bytes_reg}>64'(MEM_BYTES)||
                         outputs!=outputs_reg||
-                        (op==OP_CONV&&count!=reduction_reg)||
-                        (op==OP_MAXPOOL&&(count!=input_bytes_reg||oc_total!=ic))
+                        ((op==OP_CONV||op==OP_DWCONV)&&count!=reduction_reg)||
+                        (op==OP_DWCONV&&oc_total!=ic)||
+                        ((op==OP_MAXPOOL||op==OP_AVGPOOL)&&(count!=input_bytes_reg||oc_total!=ic))
                     )fail(8'd1);
-                    else if(op==OP_CONV&&(wb[2:0]!=0||pb[2:0]!=0||stride[2:0]!=0||stride<count||stride>MEM_BYTES||
+                    else if((op==OP_CONV||op==OP_DWCONV)&&(wb[2:0]!=0||pb[2:0]!=0||stride[2:0]!=0||stride<count||stride>MEM_BYTES||
                         {32'b0,wb}+{48'b0,oc_total}*{32'b0,stride}>64'(MEM_BYTES)||
                         {32'b0,pb}+({48'b0,oc_total}<<4)>64'(MEM_BYTES)))fail(8'd1);
-                    else if(op==OP_MAXPOOL&&(pb[2:0]!=0||{32'b0,pb}+16>64'(MEM_BYTES)))fail(8'd1);
+                    else if((op==OP_MAXPOOL||op==OP_AVGPOOL)&&(pb[2:0]!=0||{32'b0,pb}+16>64'(MEM_BYTES)))fail(8'd1);
                     else if(layer_count>=MAX_DESCRIPTORS)fail(8'd7);
                     else begin
                         row<=0;col<=0;weight_row<=wb[23:0];pi<=0;weight_cache_valid<=0;activation_cache_valid<=0;
@@ -221,16 +232,21 @@ module v2_engine (
                     else begin p1<=mem_rdata;state<=P_CHECK;end
                 end
                 P_CHECK:begin
-                    if(p0[63]||p0[63:32]==0||p1[7:0]>62||p1[63:40]!=0||p1[39:32]!=8'd127||
-                        ((op==OP_GEMM||op==OP_CONV)&&p1[31:24]!=8'h80)||
-                        ((op==OP_RELU||op==OP_MAXPOOL)&&(p1[31:24]!=p1[23:16]||p0[31:0]!=0)))fail(8'd4);
+                    if(p0[63]||p0[63:32]==0||p1[7:0]>62||p1[63:40]!=0||
+                        ((op==OP_GEMM||op==OP_CONV||op==OP_DWCONV)&&
+                            (p1[31:24]!=8'h80||p1[39:32]!=8'd127))||
+                        ((op==OP_RELU||op==OP_MAXPOOL)&&
+                            (p1[31:24]!=p1[23:16]||p1[39:32]!=8'd127||p0[31:0]!=0))||
+                        ((op==OP_CLIP||op==OP_AVGPOOL)&&
+                            (p0[31:0]!=0||$signed(p1[31:24])>$signed(p1[39:32]))))fail(8'd4);
                     else begin
                         acc<=$signed(p0[31:0]);mult<=$signed(p0[63:32]);shift<=p1[5:0];
                         zy<=$signed(p1[15:8]);zx<=$signed(p1[23:16]);col<=0;
+                        clip_min<=$signed(p1[31:24]);clip_max<=$signed(p1[39:32]);
                         win_kx<=0;win_ky<=0;win_ic<=0;win_lane<=0;
                         window_channel_origin<=pixel_origin;window_line_origin<=pixel_origin;win_addr<=pixel_origin;
-                        pool_max<=-8'sd128;pool_any<=0;
-                        state<=(op==OP_CONV)?WIN_PREP:((op==OP_MAXPOOL)?POOL_PREP:X_REQ);
+                        pool_max<=-8'sd128;pool_any<=0;pool_sum<=0;
+                        state<=(op==OP_CONV||op==OP_DWCONV)?WIN_PREP:((op==OP_MAXPOOL||op==OP_AVGPOOL)?POOL_PREP:X_REQ);
                     end
                 end
                 X_REQ:if(mem_ready)state<=X_WAIT;
@@ -266,7 +282,8 @@ module v2_engine (
                         if(win_ky+1==kh&&win_kx+1==kw)state<=POOL_DONE;
                         else begin advance_window();state<=POOL_PREP;end
                     end else if(activation_cache_hit)begin
-                        if(!pool_any||activation_cache_byte>pool_max)pool_max<=activation_cache_byte;
+                        if(op==OP_AVGPOOL)pool_sum<=pool_sum+{{24{activation_cache_byte[7]}},activation_cache_byte}-{{24{zx[7]}},zx};
+                        else if(!pool_any||activation_cache_byte>pool_max)pool_max<=activation_cache_byte;
                         pool_any<=1;
                         if(win_ky+1==kh&&win_kx+1==kw)state<=POOL_DONE;
                         else begin advance_window();state<=POOL_PREP;end
@@ -274,7 +291,8 @@ module v2_engine (
                 end
                 POOL_REQ:if(mem_ready)state<=POOL_WAIT;
                 POOL_WAIT:if(mem_rvalid)begin
-                    if(!pool_any||$signed(mem_rdata[win_addr[2:0]*8+:8])>pool_max)
+                    if(op==OP_AVGPOOL)pool_sum<=pool_sum+$signed({{24{mem_rdata[win_addr[2:0]*8+7]}},mem_rdata[win_addr[2:0]*8+:8]})-{{24{zx[7]}},zx};
+                    else if(!pool_any||$signed(mem_rdata[win_addr[2:0]*8+:8])>pool_max)
                         pool_max<=$signed(mem_rdata[win_addr[2:0]*8+:8]);
                     pool_any<=1;
                     activation_cache_data[activation_cache_index]<=mem_rdata;
@@ -286,7 +304,7 @@ module v2_engine (
                 POOL_DONE:begin
                     if(!pool_any)fail(8'd1);
                     else begin
-                        acc<={{24{pool_max[7]}},pool_max}-{{24{zx[7]}},zx};
+                        acc<=(op==OP_AVGPOOL)?pool_sum:({{24{pool_max[7]}},pool_max}-{{24{zx[7]}},zx});
                         state<=Q_SEND;
                     end
                 end
@@ -296,21 +314,21 @@ module v2_engine (
                 end
                 W_WAIT:if(mem_rvalid)begin
                     whex<=mem_rdata;
-                    if(op==OP_CONV&&count<=64)weight_cache[col[5:3]]<=mem_rdata;
+                    if((op==OP_CONV||op==OP_DWCONV)&&count<=64)weight_cache[col[5:3]]<=mem_rdata;
                     state<=MAC;
                 end
                 MAC:begin
-                    if(op==OP_GEMM||op==OP_CONV)begin
+                    if(op==OP_GEMM||op==OP_CONV||op==OP_DWCONV)begin
                         if(acc_next>36'sd2147483647||acc_next< -36'sd2147483648)fail(8'd5);
                         else begin
                             acc<=acc_next[31:0];useful_macs<=useful_macs+{28'b0,valid_lanes};
                             if(col+8>=count)begin
-                                if(op==OP_CONV&&count<=64)weight_cache_valid<=1;
+                                if((op==OP_CONV||op==OP_DWCONV)&&count<=64)weight_cache_valid<=1;
                                 state<=Q_SEND;
                             end
-                            else begin col<=col+8;win_lane<=0;state<=(op==OP_CONV)?WIN_PREP:X_REQ;end
+                            else begin col<=col+8;win_lane<=0;state<=(op==OP_CONV||op==OP_DWCONV)?WIN_PREP:X_REQ;end
                         end
-                    end else if(op==OP_RELU)begin acc<=scalar_acc;state<=Q_SEND;end
+                    end else if(op==OP_RELU||op==OP_CLIP)begin acc<=scalar_acc;state<=Q_SEND;end
                     else begin result_byte<=scalar_x;state<=WRITE_OUT;end
                 end
                 Q_SEND:if(qready)state<=Q_WAIT;
@@ -330,9 +348,14 @@ module v2_engine (
                                 pixel_origin<=row_origin+$signed(row_step);
                             end else begin
                                 ox<=0;oy<=0;oc<=oc+16'd1;origin_x<=-$signed({2'b0,pl});origin_y<=-$signed({2'b0,pt});
-                                if(op==OP_CONV)begin
+                                if(op==OP_CONV||op==OP_DWCONV)begin
                                     row_origin<=channel_origin;pixel_origin<=channel_origin;
                                     weight_row<=weight_row+stride[23:0];weight_cache_valid<=0;
+                                    if(op==OP_DWCONV)begin
+                                        channel_origin<=channel_origin+$signed(plane);
+                                        row_origin<=channel_origin+$signed(plane);
+                                        pixel_origin<=channel_origin+$signed(plane);
+                                    end
                                 end else begin
                                     channel_origin<=channel_origin+$signed(plane);
                                     row_origin<=channel_origin+$signed(plane);

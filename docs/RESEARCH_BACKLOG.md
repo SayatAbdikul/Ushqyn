@@ -62,6 +62,13 @@ Complete tasks in dependency order. Split an implementation task into smaller re
 
 **G4:** C04, D01–D03 and P01 pass. The pinned model inventories, not assumptions about “typical CNNs,” define kernel completeness.
 
+**Current G4: open.** C04 now has compiler/RTL kernel support and directed
+exact tests for pinned KWS/VWW geometries, but real model node execution and
+complete graphs are pending. A standalone abstract-port tile DMA passes
+randomized simulation; SDRAM controller integration, bursts, overlap, tiled
+inference, the measured cost database and board validation remain pending.
+See [Phase 4 status](research/PHASE_4_STATUS.md).
+
 ## P5 — weeks 18–20: credible complete-model baselines
 
 - [ ] **B01 — Deploy KWS and VWW on the same release bitstream.** Add complete pipelines for both pinned models and declared host preprocessing/postprocessing. Integrate with the pinned evaluator/runner. **Done:** complete accuracy sets meet targets; integer outputs match; 10,000 automated balanced audio/vision jobs pass; model switching needs no RTL changes or reflashing. **Depends:** G4, Q05.

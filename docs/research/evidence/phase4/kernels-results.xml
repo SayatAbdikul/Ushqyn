@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1790162259" />
+    <testcase name="pinned_audio_vision_kernels_with_stalls" classname="test_kernels" file="/Users/sayat/Documents/GitHub/tinyML_accelerator/test/phase4/test_kernels.py" lineno="23" time="0.5898630619049072" sim_time_ns="178720.001" ratio_time="302985.5784202533" />
+  </testsuite>
+</testsuites>

@@ -1,0 +1,93 @@
+{
+  "kws": {
+    "inventory_sha256": "c66cff83065c39d176f2c289e3b707f258e3a30f6a8fad912e0e46d38675f0d1",
+    "operators": 22,
+    "classes": {
+      "reshape": 2,
+      "ordinary_conv": 1,
+      "relu": 9,
+      "depthwise": 4,
+      "pointwise": 4,
+      "average_pool": 1,
+      "gemm": 1
+    },
+    "unsupported_geometry": [],
+    "layers_exceeding_sram_for_input_output_pair": [],
+    "layers_exceeding_sram_for_weights": [],
+    "all_persistent_weight_parameter_bytes": 33216
+  },
+  "vww": {
+    "inventory_sha256": "43e05faf97353b47488b5b452697376e89a978f8c57b71d28874ad27d232a18d",
+    "operators": 58,
+    "classes": {
+      "declared_host_layout": 1,
+      "ordinary_conv": 1,
+      "relu": 27,
+      "depthwise": 13,
+      "pointwise": 13,
+      "average_pool": 1,
+      "reshape": 1,
+      "gemm": 1
+    },
+    "unsupported_geometry": [],
+    "layers_exceeding_sram_for_input_output_pair": [
+      {
+        "index": 1,
+        "kind": "ordinary_conv",
+        "input_bytes": 27648,
+        "output_bytes": 18432,
+        "live_pair_bytes": 46080
+      },
+      {
+        "index": 3,
+        "kind": "depthwise",
+        "input_bytes": 18432,
+        "output_bytes": 18432,
+        "live_pair_bytes": 36864
+      },
+      {
+        "index": 5,
+        "kind": "pointwise",
+        "input_bytes": 18432,
+        "output_bytes": 36864,
+        "live_pair_bytes": 55296
+      },
+      {
+        "index": 7,
+        "kind": "depthwise",
+        "input_bytes": 36864,
+        "output_bytes": 9216,
+        "live_pair_bytes": 46080
+      },
+      {
+        "index": 11,
+        "kind": "depthwise",
+        "input_bytes": 18432,
+        "output_bytes": 18432,
+        "live_pair_bytes": 36864
+      },
+      {
+        "index": 13,
+        "kind": "pointwise",
+        "input_bytes": 18432,
+        "output_bytes": 18432,
+        "live_pair_bytes": 36864
+      }
+    ],
+    "layers_exceeding_sram_for_weights": [
+      {
+        "index": 49,
+        "kind": "pointwise",
+        "packed_weight_bytes": 32768,
+        "parameter_bytes": 4096
+      },
+      {
+        "index": 53,
+        "kind": "pointwise",
+        "packed_weight_bytes": 65536,
+        "parameter_bytes": 4096
+      }
+    ],
+    "all_persistent_weight_parameter_bytes": 260640
+  }
+}

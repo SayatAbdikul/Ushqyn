@@ -51,7 +51,7 @@ def regions_for_program(program, parameter_bytes):
     n = len(program.layers)
     # Preserve the phase-2 FC fixture's post-run intermediate readback contract.
     # Spatial graphs use true liveness and stop after each layer for debugging.
-    retain_all = not any(layer.op in ('Conv','MaxPool') for layer in program.layers)
+    retain_all = not any(layer.op in ('Conv','MaxPool','AveragePool','GlobalAveragePool') for layer in program.layers)
     producer = {name: -1 for name in program.inputs}
     producer.update({layer.output: i for i, layer in enumerate(program.layers)})
     last = {name: n if name in program.outputs else producer.get(name, -1)
