@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "scope": "readiness inventory; not a G5 certification",
+  "phase4_release_sha256": "a214798c00b86a71940dd67f1a943403f15b3a642b9ddbb8cb9f715b172d0b33",
+  "schedule_sha256": "6ad5398fd6983947fe8ef5e85e2a261bdd54195876a6e243e063446d86a64dbe",
+  "schedule_jobs": 10000,
+  "software_quality_only": {
+    "kws": {
+      "count": 4890,
+      "correct": 4514,
+      "accuracy": 0.9231083844580777,
+      "target": "software-v2"
+    },
+    "vww": {
+      "count": 10961,
+      "correct": 9239,
+      "accuracy": 0.8428975458443573,
+      "target": "software-v2"
+    }
+  },
+  "storage_lower_bounds_bytes": {
+    "kws": 33216,
+    "vww": 260640
+  },
+  "scratchpad_bytes": 32768,
+  "checks": {
+    "integrated_sdram_controller": false,
+    "integrated_dma": false,
+    "complete_primary_model_rtl": false,
+    "physical_board_programmed": false,
+    "kws_image_available": false,
+    "vww_image_available": false,
+    "kws_accuracy_payload_available": false,
+    "vww_accuracy_payload_available": false,
+    "primary_board_run_report_available": false,
+    "ad_full_set_report_available": false,
+    "matched_baseline_report_available": false
+  },
+  "missing": [
+    "integrated_sdram_controller",
+    "integrated_dma",
+    "complete_primary_model_rtl",
+    "physical_board_programmed",
+    "kws_image_available",
+    "vww_image_available",
+    "kws_accuracy_payload_available",
+    "vww_accuracy_payload_available",
+    "primary_board_run_report_available",
+    "ad_full_set_report_available",
+    "matched_baseline_report_available"
+  ],
+  "g5_certified": false
+}

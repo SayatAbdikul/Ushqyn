@@ -9,6 +9,7 @@ exact RTL simulation and has a routed **27-MHz kernel candidate bitstream**.
 SDRAM integration and complete KWS/VWW inference remain Phase 4 work; no
 physical-board execution or energy measurement has been completed. See the
 [Phase 4 status](docs/research/PHASE_4_STATUS.md),
+[Phase 5 status](docs/research/PHASE_5_STATUS.md),
 [Phase 3 SmallCNN record](docs/research/PHASE_3_STATUS.md) and
 [research roadmap](docs/RESEARCH_ROADMAP.md).
 

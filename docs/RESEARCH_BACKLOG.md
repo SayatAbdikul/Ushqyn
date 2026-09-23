@@ -77,6 +77,11 @@ See [Phase 4 status](research/PHASE_4_STATUS.md).
 
 **G5:** B01 and B03 required; B02 completes the planned suite. If late, finish both primary workloads before allocating further effort to AD variants or optional features.
 
+**Current G5: open.** The [Phase 5 status](research/PHASE_5_STATUS.md)
+pins a deterministic 10,000-job audio/vision switch plan and a fail-closed
+readiness audit. No complete KWS/VWW board run or matched B1/B2/B3 measurement
+exists. Phase 4's SDRAM and complete-model gates remain prerequisites.
+
 ## P6 — weeks 21–25: prove the proposed mechanism matters
 
 - [ ] **S01 — Build legal schedule candidates and certificates.** Add `compiler/scheduler/` with fixed-quantized-IR candidates, halos, tensor live ranges, partial sums, quantization barriers, banks/ports and transfer edges. Start with layer-wise and a bounded fused-segment catalog. **Done:** independent checker accepts every emitted schedule; hand-derived and enumerated cases validate legality; no arithmetic transform silently changes rounding/scales. **Depends:** R05, M01, B03.

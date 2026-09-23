@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "scope": "job plan only; no accelerator execution",
+  "seed": 2097157,
+  "jobs": 10000,
+  "jobs_per_workload": 5000,
+  "ordering": "strictly alternating kws,vww",
+  "accuracy_split_counts": {
+    "kws": 4890,
+    "vww": 10961
+  },
+  "unique_stress_samples": {
+    "kws": 4890,
+    "vww": 5000
+  },
+  "data_manifest_sha256": {
+    "kws": "074cc6a727403f026803e67c49e050f3e3dce0df46343f61b24c138846e12e9e",
+    "vww": "3771b2689492a3e7b6b3a1a55619ef3d283005e89c5253280e82ee069e44372c"
+  },
+  "accuracy_split_npz_sha256": {
+    "kws": "66f6b5cd75410e7b7b5d483dab8e48c363256822a066689fe895041c7941b8ac",
+    "vww": "fc57a65876dae96143e22296c334e4a82cd3dba2b99b8299b28fc337d41fb2b0"
+  },
+  "jsonl_sha256": "6ad5398fd6983947fe8ef5e85e2a261bdd54195876a6e243e063446d86a64dbe"
+}

@@ -35,6 +35,8 @@ help:
 	@echo "  p4-dma         Standalone abstract-port tile-transfer RTL tests"
 	@echo "  p4-audit       Audit frozen KWS/VWW operator and storage inventories"
 	@echo "  p4-test        Run the reproducible Phase 4 simulation tier"
+	@echo "  p5-plan        Pin the balanced 10,000-job audio/vision switch plan"
+	@echo "  p5-audit       Inventory Phase 5 evidence and run its regressions"
 	@echo "  heavy-test     Full MLP MNIST cocotb test (requires Verilator)"
 	@echo "                 Pass NUM_IMAGES=N to test N images (default: 2 here)."
 	@echo "  clean          Remove generated artifacts and caches"
@@ -129,3 +131,11 @@ p4-audit:
 	$(PYTHON) tools/phase4/audit_inventories.py
 
 p4-test: ci p4-kernels p4-dma p4-audit
+
+.PHONY: p5-plan p5-audit
+p5-plan:
+	$(PYTHON) tools/phase5/schedule.py --summary docs/research/evidence/phase5/switch-plan.json
+
+p5-audit: p5-plan
+	$(PYTHON) -m unittest discover -s tools/phase5 -p 'test_*.py' -v
+	$(PYTHON) tools/phase5/audit.py --summary docs/research/evidence/phase5/readiness.json
