@@ -1,10 +1,12 @@
 # Static INT8 numerical contract, version 2
 
 Status: implemented by `compiler/static_pipeline.py` and the software descriptor
-VM. The existing FPGA RTL and historical golden model implement incompatible
-version 1. No v2 image is accepted as a Tang Nano executable. H03 is the migration
-gate. This is a specified arithmetic contract, not a claim of bit identity with
-TFLite's implementation-specific requantization.
+VM. Phase 2 implements this arithmetic in the shared eight-lane FC/ReLU board RTL
+through the separate 64-byte hardware descriptor ABI; software `.uq2` VM images
+are lowered and checked before board loading, never flashed as-is. Historical
+v1 RTL/golden files remain for regression reproduction. CNN/depthwise/pooling
+hardware migration remains phase 3–4. This contract does not claim bit identity
+with TFLite's implementation-specific requantization.
 
 ## Representation and calibration
 

@@ -1,4 +1,8 @@
-"""Accelerator configuration — single source of truth for both Python and RTL.
+"""Legacy v1 accelerator configuration (historical tests only).
+
+The active numerical-v2 board target is hardware/targets/tang_nano_20k_v2.json,
+validated by hardware_v2.py and emitted by tools/phase2/generate_target.py.
+The legacy profiles below do not select the current board build.
 
 Two named profiles live here, selected at import time by the
 `TINYML_PROFILE` environment variable:

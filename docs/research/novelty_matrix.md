@@ -72,3 +72,11 @@ do not describe the cost-model port as a new scheduling algorithm.
 
 R01 is partially complete: decision, hypothesis, eligibility and closest baseline
 are frozen; exhaustive full-text and implementation reproduction are still open.
+
+## Phase-2 R05 decision — 2026-09-23
+
+The [one-port service bound](R05_PIVOT.md) and synchronous SRAM test confirm an
+implementation constraint, but not a missing capability in DeFiNES. R05 chooses
+the explicit **pivot/continue-with-engineering** branch of its done criterion. A
+new scheduler claim remains provisional and must beat an adapted port-aware
+DeFiNES and tile-expanded COSMA; no SOTA outcome is inferred from phase-2 fit.

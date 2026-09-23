@@ -22,16 +22,20 @@ help:
 	@echo "                 This is what GitHub Actions runs."
 	@echo "  test-compiler  Historical compiler and static INT8 v2 regressions"
 	@echo "  check-isa      Verify rtl/i_decoder.sv matches compiler/isa_spec.py"
-	@echo "  config         Regenerate rtl/accelerator_config_pkg.sv from SimProfile"
+	@echo "  config         Regenerate historical v1 simulation package"
+	@echo "  v2-config      Regenerate active Tang Nano target package"
+	@echo "  v2-lint        Strict Verilator lint of active board hierarchy"
+	@echo "  v2-fixture     Build trained MLP image and 1,000 exact oracle cases"
+	@echo "  v2-test        Full phase-2 RTL simulation suites (includes 1,000 jobs)"
 	@echo "  heavy-test     Full MLP MNIST cocotb test (requires Verilator)"
 	@echo "                 Pass NUM_IMAGES=N to test N images (default: 2 here)."
 	@echo "  clean          Remove generated artifacts and caches"
 
 # ── CI tier (no simulator) ───────────────────────────────────────────────────
 
-ci: test-compiler check-isa
+ci: test-compiler check-isa check-v2-target
 	@echo ""
-	@echo "✓ CI tier passed (compiler pytest + ISA --check)"
+	@echo "✓ CI tier passed (compiler pytest + ISA/target --check)"
 
 test-compiler:
 	cd compiler && $(PYTHON) -m pytest \
@@ -41,6 +45,7 @@ test-compiler:
 	    test_unified_walker.py \
 	    test_buffer_allocator.py \
 	    test_static_pipeline.py \
+	    test_hardware_v2.py \
 	    -q --tb=short
 
 check-isa:
@@ -69,3 +74,23 @@ clean:
 	@find . -type f -name "test_output.log" -not -path "./.git/*" -delete 2>/dev/null || true
 	@rm -f compiler/dram.hex compiler/disassembled.asm
 	@echo "✓ Cleaned"
+
+# Active phase-2 target. Legacy targets above preserve historical regression paths.
+.PHONY: check-v2-target v2-config v2-lint v2-fixture v2-test
+check-v2-target:
+	$(PYTHON) tools/phase2/generate_target.py --check
+
+v2-config:
+	$(PYTHON) generate_config.py --target v2
+
+v2-lint:
+	$(PYTHON) tools/phase2/lint.py
+
+v2-fixture:
+	$(PYTHON) tools/phase2/prepare_mlp.py
+
+v2-test: check-v2-target v2-lint v2-fixture
+	$(PYTHON) test/phase2/run.py requantizer
+	$(PYTHON) test/phase2/run.py engine
+	$(PYTHON) test/phase2/run.py board
+	$(PYTHON) test/phase2/run.py system

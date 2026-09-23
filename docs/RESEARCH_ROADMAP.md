@@ -6,7 +6,7 @@ Plan for **32 working weeks plus up to 8 weeks of contingency**. These are effor
 
 The intended outcome is a programmable accelerator that runs keyword spotting and visual wake words on the same Tang Nano 20K bitstream, with an anomaly-detection model as a third evaluation workload. The intended paper contribution is a demonstrably better method for scheduling and allocating quantized inference under physical FPGA memory constraints.
 
-**Implementation record:** see [phase 0–1 status](research/PHASE_0_1_STATUS.md).
+**Implementation record:** see [phase 0–1 status](research/PHASE_0_1_STATUS.md). Phase 2 [candidate and remaining physical gate](research/PHASE_2_STATUS.md) is now recorded.
 The [prior-work decision](research/novelty_matrix.md) selects DeFiNES as B3 and
 requires a COSMA placement comparison. Broad joint-scheduling/port-awareness
 claims are already covered by prior work; novelty remains provisional.

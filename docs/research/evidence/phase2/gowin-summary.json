@@ -1,0 +1,36 @@
+{
+  "date": "2026-09-23",
+  "tool": "Gowin Education V1.9.11.03",
+  "part": "GW2AR-LV18QN88C8/I7",
+  "revision": "C",
+  "constraint_mhz": 27.0,
+  "routed_fmax_mhz": 27.555,
+  "worst_setup_slack_ns": 0.747,
+  "setup_tns_ns": 0.0,
+  "resources": {
+    "Logic": [
+      5050.0,
+      20736.0
+    ],
+    "Register": [
+      2017.0,
+      15750.0
+    ],
+    "BSRAM": [
+      16.0,
+      46.0
+    ],
+    "DSP": [
+      11.25,
+      24.0
+    ]
+  },
+  "bitstream_sha256": "518abb506eade4fe4ff8c9b433d1d20d13a624ddd00439bf7d5cb8e4fe708e90",
+  "bitstream_bytes": 7262008,
+  "bitstream_path": "hardware/releases/phase2/tinyml_v2.fs",
+  "source_manifest_sha256": "b49dbfc6d07e43100dac7752d72ff52c3efe8f16dd9fe9640cebf6a4566e205c",
+  "generic_clock_routing_warning": true,
+  "width_truncation_warnings": false,
+  "physical_board_programmed": false,
+  "measured_power": false
+}

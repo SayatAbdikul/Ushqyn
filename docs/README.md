@@ -10,6 +10,7 @@ Ushqyn (Ұшқын — Kazakh for *spark*) is a specialized hardware accelerator
 
 ### Research planning
 
+- **[Phase 2 status](research/PHASE_2_STATUS.md)** — routed v2 MLP candidate, strict RTL results and pending physical-board checks.
 - **[Phase 0–1 status](research/PHASE_0_1_STATUS.md)** — completed software work, actual Gowin results, quality measurements, and open gates.
 - **[Numerical contract](specs/quantization.md)** — version-2 software arithmetic and image format; FPGA migration remains phase 2.
 - **[Benchmark reproduction](../benchmarks/README.md)** — pinned models/data and exact evaluation commands.

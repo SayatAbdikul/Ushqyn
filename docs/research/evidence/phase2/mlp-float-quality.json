@@ -1,0 +1,19 @@
+{
+  "source": "PyTorch trained weights and MLP forward",
+  "source_weights_sha256": "3e4319307a8ccb9831361cb5183d4848d1b619ca9de628ea6ecd44afd224fe79",
+  "count": 10000,
+  "correct": 9490,
+  "accuracy": 0.949,
+  "source_to_onnx_selected_real_input_max_errors": [
+    1.049041748046875e-05,
+    8.58306884765625e-06,
+    3.814697265625e-06,
+    5.7220458984375e-06,
+    2.09808349609375e-05,
+    5.9604644775390625e-06,
+    8.821487426757812e-06
+  ],
+  "atol": 1e-05,
+  "rtol": 0.0001,
+  "calibration_train_vs_complete_test_raw_content_disjoint": true
+}

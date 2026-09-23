@@ -1,4 +1,4 @@
-"""Generate rtl/accelerator_config_pkg.sv from the SimProfile in compiler/accelerator_config.py.
+"""Generate the legacy v1 simulation package; use --target v2 for the active board.
 
 Pre-P3 this file generated BOTH the RTL package and `compiler/accelerator_config.py`.
 Post-P3 the Python config is hand-edited (it carries two named profiles — `sim`
@@ -55,4 +55,10 @@ def main():
 
 
 if __name__ == "__main__":
+    if len(sys.argv)>1:
+        if sys.argv[1:]!=['--target','v2']:
+            raise SystemExit('Usage: generate_config.py [--target v2]')
+        import subprocess
+        subprocess.run([sys.executable,os.path.join(os.path.dirname(__file__),'tools/phase2/generate_target.py')],check=True)
+        raise SystemExit(0)
     main()

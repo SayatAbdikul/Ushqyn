@@ -1,3 +1,7 @@
+**Current candidate:** [phase-2 Tang Nano 20K implementation](PHASE_2.md) has a
+routed v2 bitstream and 1,000 exact simulated MLP jobs. Physical board execution
+is still pending. The phase-0 report below describes the old source hierarchy.
+
 # Phase-0 Gowin and board checks
 
 Gowin V1.9.11.03 Education is installed at
