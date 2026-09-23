@@ -74,7 +74,15 @@ layer stops. The raw RTL traces and test XML are linked from the
 [summary](evidence/phase3-closure/summary.json).
 
 The nominal core-time calculation divides cycles by the declared 27-MHz
-clock; no separate clock measurement was available. Power and energy are
-unmeasured because no voltage/current instrument was available. This gate
+clock; no separate clock measurement was available. The routed Gowin
+[power report](evidence/phase3-closure/gowin-power.html.gz) estimates
+**161.506 mW total FPGA power**: 122.800 mW quiescent and 38.706 mW
+dynamic, for a typical process at 25 °C. Its default I/O and remaining-net
+toggle settings are both `0.125`; no VCD or SAIF workload activity was
+provided. Gowin's [Power Analyzer guide](https://www.gowinsemi.com/upload/database_doc/36/document/5bfcfe278fe50.pdf)
+explains how toggle assumptions enter the calculation. The estimate is not
+a physical board measurement and should not be used as measured energy per
+inference. Actual power and energy are unmeasured because no voltage/current
+instrument was available. This gate
 covers an on-chip SmallCNN and MLP, not complete KWS/VWW models, SDRAM/DMA,
 or a SOTA energy/latency claim. Those remain later roadmap work.

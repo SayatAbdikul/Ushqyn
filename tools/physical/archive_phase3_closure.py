@@ -126,6 +126,7 @@ def main():
         raise ValueError('incomplete or source-mismatched board-system RTL evidence')
     route = (PNR / 'tinyml_v2.rpt.txt').read_text()
     timing = (PNR / 'tinyml_v2_tr_content.html').read_text()
+    power = (PNR / 'tinyml_v2.power.html').read_text()
     def number(pattern, data):
         match = re.search(pattern, data, re.M | re.S)
         if not match:
@@ -138,6 +139,16 @@ def main():
                  for name in ('Logic', 'Register', 'BSRAM', 'DSP')}
     ssram_ram16 = int(number(r'^\s*--SSRAM\(RAM16\)\s*\|\s*([\d.]+)', route))
     setup_tns = number(r'<td>clk27m</td>\s*<td>Setup</td>\s*<td>([-\d.]+)</td>', timing)
+    power_total = number(r'Total Power \(mW\)</td>\s*<td>([\d.]+)', power)
+    power_quiescent = number(r'Quiescent Power \(mW\)</td>\s*<td>([\d.]+)', power)
+    power_dynamic = number(r'Dynamic Power \(mW\)</td>\s*<td>([\d.]+)', power)
+    toggle_io = number(r'Default IO Toggle Rate</td>\s*<td>([\d.]+)', power)
+    toggle_remain = number(r'Default Remain Toggle Rate</td>\s*<td>([\d.]+)', power)
+    ambient_c = number(r'Ambient Temperature</td>\s*<td>([\d.]+)', power)
+    if (abs(power_total - power_quiescent - power_dynamic) > 0.001 or
+            not re.search(r'Related Vcd File</td>\s*<td></td>', power) or
+            not re.search(r'Related Saif File</td>\s*<td></td>', power)):
+        raise ValueError('Gowin power-estimate assumptions differ')
     if (fmax < 27 or slack < 0 or setup_tns < 0 or
             any(used > limit for used, limit in resources.values())):
         raise ValueError('Gowin resource or timing gate failed')
@@ -238,6 +249,7 @@ def main():
         (FULL_RTL, 'smallcnn-10000-rtl.json', True),
         (PNR / 'tinyml_v2.rpt.txt', 'gowin-route.txt', True),
         (PNR / 'tinyml_v2_tr_content.html', 'gowin-timing.html', True),
+        (PNR / 'tinyml_v2.power.html', 'gowin-power.html', True),
         (BUILD / 'build.log', 'gowin-build.log', True),
         (ROOT / 'work/phase3/closure/ci.log', 'ci.log', True),
         (ROOT / 'work/phase3/closure/lint.log', 'lint.log', True),
@@ -277,6 +289,15 @@ def main():
         bitstream_hash_readback_supported=False, declared_clock_hz=27000000,
         clock_instrument_measurement=False, measured_power=False,
         tool='Gowin Education V1.9.11.03', programmer='openFPGALoader 1.1.1',
+        gowin_power_estimate=dict(total_mw=power_total,
+                                  quiescent_mw=power_quiescent,
+                                  dynamic_mw=power_dynamic,
+                                  ambient_c=ambient_c,
+                                  process='typical',
+                                  default_io_toggle_setting=toggle_io,
+                                  default_remain_toggle_setting=toggle_remain,
+                                  workload_activity_file=None,
+                                  scope='FPGA tool estimate, not measured board power'),
         routed_fmax_mhz=fmax, worst_setup_slack_ns=slack,
         setup_total_negative_slack_ns=setup_tns, resources=resources,
         ssram_ram16=ssram_ram16,

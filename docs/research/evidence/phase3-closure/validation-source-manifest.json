@@ -1,5 +1,5 @@
 {
-  "tools/physical/archive_phase3_closure.py": "329b20b9407d2f972e374aeae23acea80fda670b7143e4184d802623a7487184",
+  "tools/physical/archive_phase3_closure.py": "9c42cace057024057ed6245263c924a39ab355f994d5be78ff1656d829246a29",
   "tools/physical/collect_evidence.py": "024587429a2117ffb8147f46e0ca3c4e657105bb2bf9482565972a8834598e28",
   "tools/physical/run_models.py": "ca995fc728e35aa1694662d6bb573cc536c11ae0b047d123999954103a7c9db5",
   "tools/physical/run_checks.py": "3fef375937b9fcc2f79f75673adcddbd66adaa66b5de8a9fdcf0dac2a644c3ad",

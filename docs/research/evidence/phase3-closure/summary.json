@@ -20,6 +20,17 @@
   "measured_power": false,
   "tool": "Gowin Education V1.9.11.03",
   "programmer": "openFPGALoader 1.1.1",
+  "gowin_power_estimate": {
+    "total_mw": 161.506,
+    "quiescent_mw": 122.8,
+    "dynamic_mw": 38.706,
+    "ambient_c": 25.0,
+    "process": "typical",
+    "default_io_toggle_setting": 0.125,
+    "default_remain_toggle_setting": 0.125,
+    "workload_activity_file": null,
+    "scope": "FPGA tool estimate, not measured board power"
+  },
   "routed_fmax_mhz": 27.023,
   "worst_setup_slack_ns": 0.032,
   "setup_total_negative_slack_ns": 0.0,
@@ -252,6 +263,10 @@
       "sha256": "00e72027d5afa78e152398a90875fc11aca7ac38b9b724e031493c5e4191e4a6",
       "uncompressed_sha256": "04ab3f03867643a76c849689281a98879d14b30ab5ffc5dc4d2717abe7eae65d"
     },
+    "gowin-power.html.gz": {
+      "sha256": "94940cd5940eb919e2df2a504d8acde1986d2b0ca77dc78207fe865d020a47cf",
+      "uncompressed_sha256": "3e9d07a1f67d5150aaad965cdab4cc6ce0a683114743b7c9694143177d16a0c2"
+    },
     "gowin-build.log.gz": {
       "sha256": "9845bcbd746732a1c420e4b3ec444b0f7d29c1dca5bc2e0bfcd6e7683c6ccb4e",
       "uncompressed_sha256": "9500a73c658649aefd3782cfa42e7b730fadc08b12252599d621c01dd5fad67e"
@@ -289,7 +304,7 @@
       "uncompressed_sha256": "17f033c9e974e635df01a767dfb23111e2cfe37fb5da5c1e2b11b30a01be6559"
     },
     "validation-source-manifest.json": {
-      "sha256": "3bacfcf8331f771b369c90f5fdcd8fb21e2ca82fd1bc81b1b33380350977d77c"
+      "sha256": "a48de3cc77e4598bf856aef262703fb23617be3e982729d7854e80c0a5ba4736"
     }
   }
 }
