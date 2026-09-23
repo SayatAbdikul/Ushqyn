@@ -1,0 +1,3 @@
+# Preserve raw tool output, including vendor alignment spaces.
+gowin-route.txt -whitespace
+v2-test.txt -whitespace

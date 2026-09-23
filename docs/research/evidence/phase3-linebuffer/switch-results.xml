@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1790180200" />
+    <testcase name="change_mlp_cnn_mlp_without_bitstream_reload" classname="test_switch" file="/Users/sayat/Documents/GitHub/tinyML_accelerator/test/phase3/test_switch.py" lineno="11" time="23.680500984191895" sim_time_ns="5348820.001" ratio_time="225874.4443190052" />
+  </testsuite>
+</testsuites>

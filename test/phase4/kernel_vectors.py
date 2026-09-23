@@ -63,6 +63,52 @@ def vectors():
     params=[param(biases[c]-zx*int(w[c].astype(np.int64).sum()),m,s,zy,zx) for c in range(oc)]
     yield (desc,x.ravel(),w,params,expected,len(expected)*ic,'pointwise_4_to_5')
 
+    # A 70-byte row wraps the four-row line buffer's eight-word set. The
+    # 81-term filters also cross the old 64-weight cache limit and leave a
+    # one-lane tail in the shared MAC reduction.
+    ih,iw,ic,oc,kh,kw=3,70,9,2,3,3
+    x=np.array([rng.randrange(-128,128) for _ in range(ic*ih*iw)],np.int8).reshape(ic,ih,iw)
+    w=np.array([rng.randrange(-128,128) for _ in range(oc*ic*kh*kw)],np.int8).reshape(oc,ic*kh*kw)
+    x.flat[0]=-128;x.flat[-1]=127;w.flat[0]=127;w.flat[-1]=-128
+    zx,zy,m,s=-73,-4,1<<30,41
+    biases=[rng.randrange(-100,101) for _ in range(oc)]
+    expected=[]
+    for c in range(oc):
+        for z in range(iw-kw+1):
+            acc=biases[c]
+            for k in range(ic):
+                for yy in range(kh):
+                    for xx in range(kw):
+                        acc+=(int(x[k,yy,z+xx])-zx)*int(w[c,k*kh*kw+yy*kw+xx])
+            expected.append(rounded(acc,m,s,zy))
+    desc=Descriptor(4,input=512,output=4096,weight=8192,params=16384,
+                    count=ic*kh*kw,outputs=len(expected),row_stride=88,next_pc=64,
+                    kernel_h=kh,kernel_w=kw,input_h=ih,input_w=iw,input_c=ic,output_c=oc)
+    params=[param(biases[c]-zx*int(w[c].astype(np.int64).sum()),m,s,zy,zx) for c in range(oc)]
+    yield (desc,x.ravel(),w,params,expected,len(expected)*ic*kh*kw,'wide_row_conv_81_terms')
+
+    # A 261-term reduction exercises the uncached weight-stream fallback and
+    # accumulation across 33 eight-lane tiles.
+    ih,iw,ic,oc,kh,kw=3,9,29,2,3,3
+    x=np.array([rng.randrange(-128,128) for _ in range(ic*ih*iw)],np.int8).reshape(ic,ih,iw)
+    w=np.array([rng.randrange(-128,128) for _ in range(oc*ic*kh*kw)],np.int8).reshape(oc,ic*kh*kw)
+    zx,zy,m,s=127,2,1<<30,43
+    biases=[rng.randrange(-100,101) for _ in range(oc)]
+    expected=[]
+    for c in range(oc):
+        for z in range(iw-kw+1):
+            acc=biases[c]
+            for k in range(ic):
+                for yy in range(kh):
+                    for xx in range(kw):
+                        acc+=(int(x[k,yy,z+xx])-zx)*int(w[c,k*kh*kw+yy*kw+xx])
+            expected.append(rounded(acc,m,s,zy))
+    desc=Descriptor(4,input=512,output=4096,weight=8192,params=16384,
+                    count=ic*kh*kw,outputs=len(expected),row_stride=264,next_pc=64,
+                    kernel_h=kh,kernel_w=kw,input_h=ih,input_w=iw,input_c=ic,output_c=oc)
+    params=[param(biases[c]-zx*int(w[c].astype(np.int64).sum()),m,s,zy,zx) for c in range(oc)]
+    yield (desc,x.ravel(),w,params,expected,len(expected)*ic*kh*kw,'conv_261_term_streamed_fallback')
+
     # VWW depthwise stride-2 boundary: one input channel per filter.
     ih, iw, ic = 5, 7, 8
     x = np.array([rng.randrange(-128, 128) for _ in range(ic*ih*iw)], np.int8).reshape(ic,ih,iw)

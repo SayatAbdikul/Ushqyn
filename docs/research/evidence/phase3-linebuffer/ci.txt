@@ -1,0 +1,43 @@
+cd compiler && /Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/bin/python3 -m pytest \
+	    test_isa_spec.py \
+	    test_cnn_golden.py \
+	    test_accelerator_config.py \
+	    test_unified_walker.py \
+	    test_buffer_allocator.py \
+	    test_static_pipeline.py \
+	    test_hardware_v2.py \
+	    test_phase4_kernels.py \
+	    test_memory_planner.py \
+	    -q --tb=short
+........................................................................ [ 58%]
+...................................................                      [100%]
+=============================== warnings summary ===============================
+test_cnn_golden.py::test_smallcnn_end_to_end
+test_unified_walker.py::test_assembly_addresses_match_walker_maps_cnn
+  /Users/sayat/Documents/GitHub/tinyML_accelerator/compiler/model.py:85: UserWarning: # 'dynamic_axes' is not recommended when dynamo=True, and may lead to 'torch._dynamo.exc.UserError: Constraints violated.' Supply the 'dynamic_shapes' argument instead if export is unsuccessful.
+    torch.onnx.export(
+
+test_cnn_golden.py: 2698 warnings
+test_unified_walker.py: 11570 warnings
+  /Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/lib/python3.13/site-packages/onnxscript/converter.py:464: DeprecationWarning: Expression.__init__ got an unexpected keyword argument 'lineno'. Support for arbitrary keyword arguments is deprecated and will be removed in Python 3.15.
+    expr = ast.Expression(expr, lineno=expr.lineno, col_offset=expr.col_offset)
+
+test_cnn_golden.py: 2698 warnings
+test_unified_walker.py: 11570 warnings
+  /Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/lib/python3.13/site-packages/onnxscript/converter.py:464: DeprecationWarning: Expression.__init__ got an unexpected keyword argument 'col_offset'. Support for arbitrary keyword arguments is deprecated and will be removed in Python 3.15.
+    expr = ast.Expression(expr, lineno=expr.lineno, col_offset=expr.col_offset)
+
+test_unified_walker.py::test_generate_assembly_requires_maps
+test_unified_walker.py::test_assembly_addresses_match_walker_maps_mlp
+test_unified_walker.py::test_unknown_initializer_raises
+test_unified_walker.py::test_address_mutation_propagates
+  /Users/sayat/Documents/GitHub/tinyML_accelerator/compiler/model.py:35: UserWarning: # 'dynamic_axes' is not recommended when dynamo=True, and may lead to 'torch._dynamo.exc.UserError: Constraints violated.' Supply the 'dynamic_shapes' argument instead if export is unsuccessful.
+    torch.onnx.export(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+123 passed, 28542 warnings in 12.29s
+/Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/bin/python3 tools/generate_i_decoder.py --check
+/Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/i_decoder.sv is up to date with isa_spec.
+/Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/bin/python3 tools/phase2/generate_target.py --check
+
+✓ CI tier passed (compiler pytest + ISA/target --check)

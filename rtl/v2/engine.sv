@@ -51,20 +51,31 @@ module v2_engine (
     logic pool_any;
     logic signed [31:0] pool_sum;
     logic signed [7:0] clip_min,clip_max;
-    // One filter tile (up to 64 weights) is reused over its spatial outputs.
-    // Larger reductions use the same MAC array and stream weights from SRAM.
-    logic [63:0] weight_cache[0:7];
-    logic weight_cache_valid;
-    wire cached_weight=((op==OP_CONV||op==OP_DWCONV)&&count<=64&&weight_cache_valid);
-    // The physical SRAM returns eight bytes even for one window pixel. Keep
-    // eight tagged words across neighboring windows to avoid duplicate reads.
-    logic [63:0] activation_cache_data[0:7];
-    logic [17:0] activation_cache_tag[0:7];
-    logic [7:0] activation_cache_valid;
-    wire [2:0] activation_cache_index=win_addr[5:3];
-    wire activation_cache_hit=activation_cache_valid[activation_cache_index]&&
-        activation_cache_tag[activation_cache_index]==win_addr[23:6];
-    wire signed [7:0] activation_cache_byte=$signed(activation_cache_data[activation_cache_index][win_addr[2:0]*8+:8]);
+    // One output-channel filter tile is reused over all spatial outputs.
+    // Reductions above 128 terms still stream through the same MAC array.
+    (* syn_ramstyle = "distributed_ram" *) logic [63:0] weight_cache[0:15];
+    logic [15:0] weight_cache_valid;
+    wire cached_weight=((op==OP_CONV||op==OP_DWCONV)&&count<=128&&weight_cache_valid[col[6:3]]);
+    // Four independently tagged input rows, eight SRAM words per row. The
+    // data array has one synchronous access per cycle; a miss fills the word
+    // returned by the sole physical scratchpad port. Address tags preserve
+    // correctness for unaligned rows, wide rows and channel transitions.
+    (* syn_ramstyle = "block_ram" *) logic [63:0] line_data[0:31];
+    logic [17:0] line_tag[0:31];
+    logic [31:0] line_valid;
+    logic [63:0] line_read_data;
+    wire [4:0] line_index={window_y[1:0],win_addr[5:3]};
+    wire line_hit=line_valid[line_index]&&line_tag[line_index]==win_addr[23:6];
+    wire signed [7:0] line_byte=$signed(line_read_data[win_addr[2:0]*8+:8]);
+    wire signed [31:0] next_win_addr=(win_kx+16'd1<kw)?win_addr+1:
+        ((win_ky+16'd1<kh)?window_line_origin+$signed({16'b0,iw}):window_channel_origin+$signed(plane));
+    wire signed [18:0] next_window_y=(win_kx+16'd1<kw)?window_y:
+        ((win_ky+16'd1<kh)?window_y+19'sd1:$signed({origin_y[17],origin_y}));
+    wire [4:0] next_line_index={next_window_y[1:0],next_win_addr[5:3]};
+    wire line_advance=(state==WIN_PREP||state==POOL_PREP)&&
+        (!window_inside||line_hit);
+    wire [4:0] prefetch_index=(state==P_CHECK)?{origin_y[1:0],pixel_origin[5:3]}:
+        ((line_advance||((state==WIN_WAIT||state==POOL_WAIT)&&mem_rvalid))?next_line_index:line_index);
     logic signed [31:0] acc, mult;
     logic [5:0] shift;
     logic signed [7:0] zy,zx;
@@ -78,6 +89,13 @@ module v2_engine (
     logic signed [31:0] scalar_acc;
     logic [63:0] address_full;
     integer j;
+    always_ff @(posedge clk) begin
+        if ((state==WIN_WAIT||state==POOL_WAIT)&&mem_rvalid)
+            line_data[line_index]<=mem_rdata;
+        if ((state==WIN_WAIT||state==POOL_WAIT)&&mem_rvalid&&next_line_index==line_index)
+            line_read_data<=mem_rdata;
+        else line_read_data<=line_data[prefetch_index];
+    end
     always_comb begin
         sum=0;valid_lanes=0;
         for (integer k=0;k<8;k=k+1) begin
@@ -127,7 +145,7 @@ module v2_engine (
     always_ff @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
             state<=IDLE;busy<=0;done<=0;error_code<=0;pc<=0;di<=0;pi<=0;row<=0;col<=0;weight_row<=0;
-            oh<=0;ow<=0;ox<=0;oy<=0;oc<=0;win_kx<=0;win_ky<=0;win_ic<=0;win_lane<=0;weight_cache_valid<=0;activation_cache_valid<=0;
+            oh<=0;ow<=0;ox<=0;oy<=0;oc<=0;win_kx<=0;win_ky<=0;win_ic<=0;win_lane<=0;weight_cache_valid<=0;line_valid<=0;
             plane<=0;row_step<=0;pad_offset<=0;kernel_area<=0;output_area<=0;
             input_bytes_reg<=0;reduction_reg<=0;outputs_reg<=0;
             channel_origin<=0;row_origin<=0;pixel_origin<=0;
@@ -176,7 +194,7 @@ module v2_engine (
                     else if(layer_count>=MAX_DESCRIPTORS)fail(8'd7);
                     else begin
                         row<=0;col<=0;weight_row<=wb[23:0];pi<=0;
-                        weight_cache_valid<=0;activation_cache_valid<=0;
+                        weight_cache_valid<=0;line_valid<=0;
                         state<=(op==OP_COPY)?X_REQ:P_REQ;
                     end
                 end
@@ -214,7 +232,7 @@ module v2_engine (
                     else if((op==OP_MAXPOOL||op==OP_AVGPOOL)&&(pb[2:0]!=0||{32'b0,pb}+16>64'(MEM_BYTES)))fail(8'd1);
                     else if(layer_count>=MAX_DESCRIPTORS)fail(8'd7);
                     else begin
-                        row<=0;col<=0;weight_row<=wb[23:0];pi<=0;weight_cache_valid<=0;activation_cache_valid<=0;
+                        row<=0;col<=0;weight_row<=wb[23:0];pi<=0;weight_cache_valid<=0;line_valid<=0;
                         state<=GEOM1;
                     end
                 end
@@ -260,19 +278,19 @@ module v2_engine (
                         advance_window();
                         if(win_lane==7||col+{29'b0,win_lane}+1>=count)state<=W_REQ;
                         else win_lane<=win_lane+3'd1;
-                    end else if(activation_cache_hit)begin
-                        xword[win_lane*8+:8]<=activation_cache_byte;
+                    end else if(line_hit)begin
+                        xword[win_lane*8+:8]<=line_byte;
                         advance_window();
                         if(win_lane==7||col+{29'b0,win_lane}+1>=count)state<=W_REQ;
                         else win_lane<=win_lane+3'd1;
-                    end else state<=WIN_REQ;
+                    end
+                    else state<=WIN_REQ;
                 end
                 WIN_REQ:if(mem_ready)state<=WIN_WAIT;
                 WIN_WAIT:if(mem_rvalid)begin
                     xword[win_lane*8+:8]<=mem_rdata[win_addr[2:0]*8+:8];
-                    activation_cache_data[activation_cache_index]<=mem_rdata;
-                    activation_cache_tag[activation_cache_index]<=win_addr[23:6];
-                    activation_cache_valid[activation_cache_index]<=1;
+                    line_tag[line_index]<=win_addr[23:6];
+                    line_valid[line_index]<=1;
                     advance_window();
                     if(win_lane==7||col+{29'b0,win_lane}+1>=count)state<=W_REQ;
                     else begin win_lane<=win_lane+3'd1;state<=WIN_PREP;end
@@ -281,13 +299,14 @@ module v2_engine (
                     if(!window_inside)begin
                         if(win_ky+1==kh&&win_kx+1==kw)state<=POOL_DONE;
                         else begin advance_window();state<=POOL_PREP;end
-                    end else if(activation_cache_hit)begin
-                        if(op==OP_AVGPOOL)pool_sum<=pool_sum+{{24{activation_cache_byte[7]}},activation_cache_byte}-{{24{zx[7]}},zx};
-                        else if(!pool_any||activation_cache_byte>pool_max)pool_max<=activation_cache_byte;
+                    end else if(line_hit)begin
+                        if(op==OP_AVGPOOL)pool_sum<=pool_sum+{{24{line_byte[7]}},line_byte}-{{24{zx[7]}},zx};
+                        else if(!pool_any||line_byte>pool_max)pool_max<=line_byte;
                         pool_any<=1;
                         if(win_ky+1==kh&&win_kx+1==kw)state<=POOL_DONE;
                         else begin advance_window();state<=POOL_PREP;end
-                    end else state<=POOL_REQ;
+                    end
+                    else state<=POOL_REQ;
                 end
                 POOL_REQ:if(mem_ready)state<=POOL_WAIT;
                 POOL_WAIT:if(mem_rvalid)begin
@@ -295,9 +314,8 @@ module v2_engine (
                     else if(!pool_any||$signed(mem_rdata[win_addr[2:0]*8+:8])>pool_max)
                         pool_max<=$signed(mem_rdata[win_addr[2:0]*8+:8]);
                     pool_any<=1;
-                    activation_cache_data[activation_cache_index]<=mem_rdata;
-                    activation_cache_tag[activation_cache_index]<=win_addr[23:6];
-                    activation_cache_valid[activation_cache_index]<=1;
+                    line_tag[line_index]<=win_addr[23:6];
+                    line_valid[line_index]<=1;
                     if(win_ky+1==kh&&win_kx+1==kw)state<=POOL_DONE;
                     else begin advance_window();state<=POOL_PREP;end
                 end
@@ -309,12 +327,15 @@ module v2_engine (
                     end
                 end
                 W_REQ:begin
-                    if(cached_weight)begin whex<=weight_cache[col[5:3]];state<=MAC;end
+                    if(cached_weight)begin whex<=weight_cache[col[6:3]];state<=MAC;end
                     else if(mem_ready)state<=W_WAIT;
                 end
                 W_WAIT:if(mem_rvalid)begin
                     whex<=mem_rdata;
-                    if((op==OP_CONV||op==OP_DWCONV)&&count<=64)weight_cache[col[5:3]]<=mem_rdata;
+                    if((op==OP_CONV||op==OP_DWCONV)&&count<=128)begin
+                        weight_cache[col[6:3]]<=mem_rdata;
+                        weight_cache_valid[col[6:3]]<=1;
+                    end
                     state<=MAC;
                 end
                 MAC:begin
@@ -323,7 +344,6 @@ module v2_engine (
                         else begin
                             acc<=acc_next[31:0];useful_macs<=useful_macs+{28'b0,valid_lanes};
                             if(col+8>=count)begin
-                                if((op==OP_CONV||op==OP_DWCONV)&&count<=64)weight_cache_valid<=1;
                                 state<=Q_SEND;
                             end
                             else begin col<=col+8;win_lane<=0;state<=(op==OP_CONV||op==OP_DWCONV)?WIN_PREP:X_REQ;end

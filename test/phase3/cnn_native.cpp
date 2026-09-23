@@ -37,7 +37,8 @@ int main(int argc,char** argv){try{
     config>>input_addr>>output_addr>>used>>jobs>>macs>>input_size>>output_size>>target_id;require(bool(config),"fixture config");
     auto image=file(dir+"/board.bin"),inputs=file(dir+"/native-inputs.bin"),expected=file(dir+"/native-outputs.bin");
     require(inputs.size()==jobs*input_size&&expected.size()==jobs*output_size,"fixture sizes");
-    struct Check{unsigned addr,size;Bytes data;};std::vector<Check> checks;unsigned addr,size;std::string name;
+    struct Check{unsigned addr,size;Bytes data;};std::vector<Check> checks;
+    std::vector<std::vector<uint32_t>> stage_counters;unsigned addr,size;std::string name;
     while(config>>addr>>size>>name)checks.push_back({addr,size,file(dir+"/"+name)});
     dut.rst_n=0;dut.rx_valid=0;dut.tx_ready=0;for(int i=0;i<4;i++)step();dut.rst_n=1;for(int i=0;i<4;i++)step();
     auto caps=command(1);require(caps.size()==10&&caps[0]==2&&caps[1]==2&&caps[2]==8&&
@@ -51,6 +52,8 @@ int main(int argc,char** argv){try{
         command(4);Bytes status;
         for(unsigned tries=0;tries<10000;tries++){status=command(5);if(!status[0])break;}
         require(!status[0]&&status[1]==0,"stage engine error "+std::to_string(status[1])+" at layer "+std::to_string(layer));
+        std::vector<uint32_t> stage;for(unsigned k=0;k<9;k++)stage.push_back(u32(status,2+4*k));
+        stage_counters.push_back(stage);
         auto actual=read(checks[layer].addr,checks[layer].size);
         if(actual!=checks[layer].data){
             for(unsigned j=0;j<actual.size();j++)if(actual[j]!=checks[layer].data[j]){
@@ -62,14 +65,22 @@ int main(int argc,char** argv){try{
         std::cout<<"exact layer "<<layer<<std::endl;
     }
     write(0,image);
-    std::ofstream report(dir+"/native-rtl-results.json");report<<"{\"scope\":\"RTL simulation of the board system, not physical board\",\"jobs\":"<<jobs<<",\"integer_mismatches\":0,\"all_layer_jobs\":1,\"stage_checks\":"<<checks.size()<<",\"counters\":[";
+    std::ofstream report(dir+"/native-rtl-results.json");report<<"{\"scope\":\"RTL simulation of the board system, not physical board\",\"jobs\":"<<jobs<<",\"integer_mismatches\":0,\"all_layer_jobs\":1,\"stage_checks\":"<<checks.size()<<",\"stage_counters\":[";
+    for(unsigned layer=0;layer<stage_counters.size();layer++){
+        if(layer)report<<',';report<<'[';
+        for(unsigned k=0;k<9;k++){if(k)report<<',';report<<stage_counters[layer][k];}
+        report<<']';
+    }
+    report<<"],\"counters\":[";
     for(unsigned i=0;i<jobs;i++){
         write(input_addr,Bytes(inputs.begin()+i*input_size,inputs.begin()+(i+1)*input_size));command(4);Bytes status;
         for(unsigned tries=0;tries<10000;tries++){status=command(5);require(status.size()==38,"status size");if(!status[0])break;}
         require(!status[0]&&status[1]==0,"engine error "+std::to_string(status[1])+" at job "+std::to_string(i));
         auto out=read(output_addr,output_size);require(out==Bytes(expected.begin()+i*output_size,expected.begin()+(i+1)*output_size),"integer output mismatch at job "+std::to_string(i));
         require(u32(status,18)==macs,"MAC counter");require(u32(status,2)==u32(status,6)+u32(status,10)+u32(status,14),"cycle reconciliation");
-        require(u32(status,22)<300000&&u32(status,2)<200000,"window-cache traffic/cycle regression");
+        // The physical reset-corrected baseline took 182,535 cycles and
+        // 225,936 SRAM read bytes; both should improve with row reuse.
+        require(u32(status,22)<225936&&u32(status,2)<182535,"line-buffer traffic/cycle regression");
         if(i)report<<',';report<<'[';for(unsigned k=0;k<9;k++){if(k)report<<',';report<<u32(status,2+4*k);}report<<']';
         if((i+1)%100==0)std::cout<<i+1<<" / "<<jobs<<" exact SmallCNN RTL jobs"<<std::endl;
     }

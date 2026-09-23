@@ -38,6 +38,15 @@ assume that frozen artifact was programmed. If you program a new build,
 pass that exact new `.fs` to every `--bitstream` argument so the result records
 its actual supplied hash. `-m` configures temporary
 FPGA SRAM; the flash image is unchanged and returns after a power cycle.
+
+The improved Phase 3 line-buffer image is separately archived at
+`hardware/releases/phase3-linebuffer/tinyml_v5_candidate.fs` (SHA256
+`fc6c90d3fb162eadfa042ecbfc1d89277c3a7a0af09fbc44a377c1fe90c81164`).
+It has passed RTL simulation and Gowin routing, but has not been programmed
+on a board. To validate it, substitute this path in the programming and
+`--bitstream` commands below and write results to a new report directory.
+Keep the physical release as the measured baseline until that rerun passes.
+
 Close UART sessions before programming. Keep the successful programmer log
 with the bitstream SHA256. The UART protocol reports the ABI, but cannot
 read back a configuration hash.

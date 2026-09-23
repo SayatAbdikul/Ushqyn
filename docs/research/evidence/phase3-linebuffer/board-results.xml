@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1790180354" />
+    <testcase name="serial_board_top" classname="test_board" file="/Users/sayat/Documents/GitHub/tinyML_accelerator/test/phase2/test_board.py" lineno="7" time="1.8794212341308594" sim_time_ns="342110.001" ratio_time="182029.44331328105" />
+  </testsuite>
+</testsuites>

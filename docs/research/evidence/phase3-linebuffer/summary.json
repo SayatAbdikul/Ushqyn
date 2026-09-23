@@ -1,0 +1,328 @@
+{
+  "scope": "unprogrammed Phase 3 Tang Nano 20K candidate; RTL simulation and Gowin post-route only",
+  "target_id": 8196,
+  "tool": "Gowin Education V1.9.11.03",
+  "device": "GW2AR-LV18QN88C8/I7",
+  "device_revision": "C",
+  "constraint_mhz": 27.0,
+  "routed_fmax_mhz": 27.376,
+  "worst_setup_slack_ns": 0.509,
+  "resources": {
+    "Logic": [
+      8192.0,
+      20736.0
+    ],
+    "Register": [
+      2525.0,
+      15750.0
+    ],
+    "BSRAM": [
+      18.0,
+      46.0
+    ],
+    "DSP": [
+      19.75,
+      24.0
+    ]
+  },
+  "ssram_ram16_used": 26,
+  "scratchpad_bsram_blocks": 16,
+  "line_buffer_bsram_blocks": 2,
+  "jobs": 1000,
+  "integer_mismatches": 0,
+  "stage_checks": 8,
+  "full_mnist_rtl_jobs": 10000,
+  "full_mnist_integer_mismatches": 0,
+  "full_mnist_integer_correct": 9640,
+  "full_mnist_integer_accuracy": 0.964,
+  "full_mnist_fixture_sha256": "d7f32aef822e0c1a3e9ce6a33e5a13ff72df6e1c03d8a301d3a2807284960bc0",
+  "board_image_sha256": "04674e9016efe980f43db5cc5c27d371b2e6ffac5a31e9d1880088719f70ca79",
+  "fixture_sha256": "15bb9a4299eb470ab7644e763bff121fbd8010485611bce307a3ef5431cad960",
+  "counter_columns": [
+    "elapsed",
+    "compute_cycles",
+    "wait_cycles",
+    "control_cycles",
+    "useful_macs",
+    "read_bytes",
+    "write_bytes",
+    "layer_count",
+    "protocol_errors"
+  ],
+  "counter_per_job": [
+    164165,
+    14370,
+    46544,
+    103251,
+    61184,
+    152456,
+    8430,
+    8,
+    0
+  ],
+  "minimum_single_port_service_cycles": 27487,
+  "single_port_service_fraction_percent": 16.744,
+  "previous_board_tested_rtl_counter": [
+    182535,
+    14370,
+    64914,
+    103251,
+    61184,
+    225936,
+    8430,
+    8,
+    0
+  ],
+  "cycle_reduction_percent": 10.064,
+  "sram_read_reduction_percent": 32.522,
+  "simulated_core_ms_at_27mhz": 6.080185,
+  "per_layer_profile": [
+    {
+      "layer": "/conv1/Conv_output_0",
+      "cumulative": [
+        60431,
+        5408,
+        14464,
+        40559,
+        24336,
+        47040,
+        2704,
+        1,
+        0
+      ],
+      "increment": [
+        60431,
+        5408,
+        14464,
+        40559,
+        24336,
+        47040,
+        2704,
+        1,
+        0
+      ]
+    },
+    {
+      "layer": "/relu/Relu_output_0",
+      "cumulative": [
+        79383,
+        8112,
+        22596,
+        48675,
+        24336,
+        68752,
+        5408,
+        2,
+        0
+      ],
+      "increment": [
+        18952,
+        2704,
+        8132,
+        8116,
+        0,
+        21712,
+        2704,
+        1,
+        0
+      ]
+    },
+    {
+      "layer": "/pool/MaxPool_output_0",
+      "cumulative": [
+        89701,
+        8112,
+        26824,
+        54765,
+        24336,
+        82960,
+        6084,
+        3,
+        0
+      ],
+      "increment": [
+        10318,
+        0,
+        4228,
+        6090,
+        0,
+        14208,
+        676,
+        1,
+        0
+      ]
+    },
+    {
+      "layer": "/conv2/Conv_output_0",
+      "cumulative": [
+        151825,
+        12952,
+        40582,
+        98291,
+        59184,
+        134120,
+        7052,
+        4,
+        0
+      ],
+      "increment": [
+        62124,
+        4840,
+        13758,
+        43526,
+        34848,
+        51160,
+        968,
+        1,
+        0
+      ]
+    },
+    {
+      "layer": "/relu_1/Relu_output_0",
+      "cumulative": [
+        158625,
+        13920,
+        43506,
+        101199,
+        59184,
+        141944,
+        8020,
+        5,
+        0
+      ],
+      "increment": [
+        6800,
+        968,
+        2924,
+        2908,
+        0,
+        7824,
+        968,
+        1,
+        0
+      ]
+    },
+    {
+      "layer": "/pool_1/MaxPool_output_0",
+      "cumulative": [
+        161787,
+        13920,
+        44862,
+        103005,
+        59184,
+        146568,
+        8220,
+        6,
+        0
+      ],
+      "increment": [
+        3162,
+        0,
+        1356,
+        1806,
+        0,
+        4624,
+        200,
+        1,
+        0
+      ]
+    },
+    {
+      "layer": "/Reshape_output_0",
+      "cumulative": [
+        162806,
+        14120,
+        45478,
+        103208,
+        59184,
+        148232,
+        8420,
+        7,
+        0
+      ],
+      "increment": [
+        1019,
+        200,
+        616,
+        203,
+        0,
+        1664,
+        200,
+        1,
+        0
+      ]
+    },
+    {
+      "layer": "output",
+      "cumulative": [
+        164165,
+        14370,
+        46544,
+        103251,
+        61184,
+        152456,
+        8430,
+        8,
+        0
+      ],
+      "increment": [
+        1359,
+        250,
+        1066,
+        43,
+        2000,
+        4224,
+        10,
+        1,
+        0
+      ]
+    }
+  ],
+  "directed_tests": {
+    "requantizer": [
+      "rounding_stalls_flush"
+    ],
+    "engine": [
+      "randomized_memory_latency_and_abort"
+    ],
+    "board_top": [
+      "serial_board_top"
+    ],
+    "system": [
+      "protocol_and_inference",
+      "complete_mlp_jobs"
+    ],
+    "kernels": [
+      "pinned_audio_vision_kernels_with_stalls"
+    ],
+    "switch": [
+      "change_mlp_cnn_mlp_without_bitstream_reload"
+    ]
+  },
+  "compiler_tests_passed": 123,
+  "generic_clock_routing_warning": true,
+  "physical_board_programmed": false,
+  "measured_power": false,
+  "bitstream_path": "hardware/releases/phase3-linebuffer/tinyml_v5_candidate.fs",
+  "bitstream_sha256": "fc6c90d3fb162eadfa042ecbfc1d89277c3a7a0af09fbc44a377c1fe90c81164",
+  "bitstream_bytes": 7262008,
+  "artifact_sha256": {
+    "source-manifest.json": "91c8c9e6f3c051c2e60c1c13e1d7609489efbe79bfa5ccd3bb83a083795b5ba2",
+    "smallcnn-board.json": "094c0c1eab24045a83044b51c1cf01838e77bb8415c09d06fe133f256a5a6b0b",
+    "smallcnn-full-board.json": "5bcae0abbb15f0318e61068e7e149368dbd2672afb0966dcfa119a5689eca6bc",
+    "smallcnn-1000-rtl.json": "a4013a9c92163d6c85de04c00d41901ed3657b3d4088a79f0decd5ec87dafe00",
+    "smallcnn-10000-rtl.json.gz": "b758da543ed96022ed3e2e4ce72179e5d0faedf0a51fd7cc70416cf5a302037a",
+    "kernel-profiles.json": "bcd2c876e31aa104de928918743e28ad3563a9a0c534bad47c43267cd0a79d10",
+    "kernel-results.xml": "5b9c86f38d95638b9af3ce46b8caba948f9193dca4b11e096922d684da2307ea",
+    "requantizer-results.xml": "b50e2821ec1357102ba0b49e3c15ccf68a3910aa64cc5eaa17d3bc9d9bcefdbd",
+    "engine-results.xml": "ab8f699d71e24b18f798c1f197f8a9411c50f1093f812db6167a671a8e8bf00f",
+    "board-results.xml": "24dc4b31231c10c7112db3fdcd24e7b4640f8c495ad367787eebe47d7c114414",
+    "system-results.xml": "f6eabf9d4109f73dd9fac96c3228b0a010ad63e382457224e90ed65aef516222",
+    "switch-results.xml": "baf2d913f38373bc732d38d02cc7f58d709f068d5d09aa155b4f0e45a33c7826",
+    "gowin-route.txt": "b2253df5b70ecea997eaf1d70db5646e4200d9c2f299451d63601276b3e3b939",
+    "gowin-build.log": "d87bde7d6bd87bc62184232e7e2f7f0ca4675c9de81a04ce2357aed194202806",
+    "gowin-timing.html.gz": "06ee3ad4fdf55b6bda2aa04d27cdb0f4153d552174e9f60745d75116f0834d60",
+    "ci.txt": "13d3d914f47e413e1df2c23cf55e44a76595eb7241b1a8b47438256be54a1eaa",
+    "v2-test.txt": "755058c56de628992528cd77743e14b21af450665a38a890f567db2741f8c1d0"
+  }
+}

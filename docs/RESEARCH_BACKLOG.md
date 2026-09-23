@@ -50,7 +50,14 @@ Complete tasks in dependency order. Split an implementation task into smaller re
 
 **G3:** C03 passes. This is the first major accelerator milestone. SDRAM is deliberately not a prerequisite for this small model.
 
-**Current G3: open.** C01 and C02 have exact functional SmallCNN coverage and a small tagged activation cache, but still need broader activation broadcast and a real line-buffer streaming path; C03 now has 1,000 exact physical jobs, all-layer checks and host/core profiles; the complete 10,000-image board comparison also passes with zero integer mismatches and 96.40% accuracy. See [Phase 3 status](research/PHASE_3_STATUS.md).
+**Current G3: open.** C01/C02 now have a routed, synchronous four-row BSRAM
+line buffer and a 128-byte filter cache: 10,000 exact board-system RTL jobs
+take 10.064% fewer cycles and read 32.522% fewer SRAM bytes than the
+board-tested image. Wider activation broadcast and less serialized gathering
+remain. C03's earlier physical release has 1,000 exact jobs, all-layer checks,
+and a 10,000-image comparison with zero integer mismatches and 96.40% accuracy;
+the improved bitstream needs a fresh board rerun. See
+[Phase 3 status](research/PHASE_3_STATUS.md).
 
 ## P4 — weeks 13–17: complete audio/vision kernels and external memory
 
