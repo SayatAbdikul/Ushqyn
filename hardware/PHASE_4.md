@@ -1,5 +1,12 @@
 # Phase 4 kernel candidate (target ID 8196)
 
+**Current board workflow:** use [PHYSICAL.md](PHYSICAL.md) for the corrected
+KEY1 reset, physical release, build/program commands and measured results.
+The build/archive commands below reproduce the original `667b948` snapshot,
+whose bitstream has incorrect reset polarity. Preserve that frozen artifact;
+do not overwrite it with a current build or rerun its collector as if the
+historical source hashes described today's board image.
+
 The current board image contains C04 kernel extensions, **not** SDRAM or DMA.
 The Phase 3 bitstream and target ID 8195 remain archived. Use only an image
 whose metadata reports target ID 8196 with this candidate.

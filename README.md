@@ -5,9 +5,11 @@
 An INT8 TinyML accelerator targeting the Tang Nano 20K. The current
 numerical-v2 board hierarchy supports a trained MLP and SmallCNN plus
 audio/vision-shaped depthwise, pointwise and average-pool kernels. It passes
-exact RTL simulation and has a routed **27-MHz kernel candidate bitstream**.
-SDRAM integration and complete KWS/VWW inference remain Phase 4 work; no
-physical-board execution or energy measurement has been completed. See the
+exact RTL simulation and **physical MLP/SmallCNN execution** on the board,
+using a reset-corrected release routed for 27 MHz. The MLP → SmallCNN → MLP
+test passed 1,000 exact jobs per stage without reprogramming. SDRAM integration
+and complete KWS/VWW inference remain Phase 4 work; energy is unmeasured. See the
+[physical board record](docs/research/PHYSICAL_BOARD_STATUS.md),
 [Phase 4 status](docs/research/PHASE_4_STATUS.md),
 [Phase 5 status](docs/research/PHASE_5_STATUS.md),
 [Phase 3 SmallCNN record](docs/research/PHASE_3_STATUS.md) and
@@ -17,19 +19,19 @@ physical-board execution or energy measurement has been completed. See the
 
 | Workload | Software quality | Board-system RTL | Tang Nano 20K |
 |---|---|---|---|
-| **MLP** (784→12→32→10 MNIST) | 94.84% static INT8 on 10K | 1,000 exact jobs in Phase 2; retained in current RTL | Routed candidate; physical runs pending |
-| **SmallCNN** (Conv→Pool→Conv→Pool→FC) | 96.40% static INT8 on 10K | 1,000 exact jobs, eight layer boundaries checked | 27.473-MHz routed candidate; physical runs pending |
-| **KWS / VWW** | Full-set software INT8 quality recorded | Directed exact kernel RTL tests; no complete-model RTL run | Kernel-only 27-MHz routed candidate; SDRAM/tiling pending |
+| **MLP** (784→12→32→10 MNIST) | 94.84% static INT8 on 10K | 1,000 exact jobs in Phase 2; retained in current RTL | Two 1,000-job stages exact; 7,316 core cycles |
+| **SmallCNN** (Conv→Pool→Conv→Pool→FC) | 96.40% static INT8 on 10K | 1,000 exact jobs, eight layer boundaries checked | Full 10K set + 1K repeated jobs exact; 96.40% accuracy; 182,535 core cycles |
+| **KWS / VWW** | Full-set software INT8 quality recorded | Directed exact kernel RTL tests; no complete-model RTL run | Seven directed kernel cases exact, three repetitions; full models need SDRAM/tiling |
 
 The current SmallCNN result uses an independent centered-integer oracle,
 source-hashed RTL and a separately calibrated 10,000-image quality evaluation.
-The [evidence record](docs/research/evidence/phase3/) distinguishes simulation,
-place-and-route and open physical checks.
+The [physical workflow](hardware/PHYSICAL.md) separates device counters,
+host latency and remaining measurement/architecture work.
 
 ## Historical v1 architecture
 
 The feature list and workflow below describe the older instruction-set design,
-not the current board ABI. Use [Phase 4 reproduction](hardware/PHASE_4.md) for
+not the current board ABI. Use [physical reproduction](hardware/PHYSICAL.md) for
 the active accelerator.
 
 ## Key Features (legacy)

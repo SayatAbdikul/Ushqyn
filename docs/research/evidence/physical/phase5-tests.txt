@@ -1,0 +1,9 @@
+test_audit_rejects_changed_release (test_phase5.Phase5Test.test_audit_rejects_changed_release) ... ok
+test_frozen_balanced_switch_plan (test_phase5.Phase5Test.test_frozen_balanced_switch_plan) ... ok
+test_small_split_repeats_only_after_full_pass (test_phase5.Phase5Test.test_small_split_repeats_only_after_full_pass) ... ok
+test_split_rejects_same_feature_in_calibration (test_phase5.Phase5Test.test_split_rejects_same_feature_in_calibration) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.512s
+
+OK

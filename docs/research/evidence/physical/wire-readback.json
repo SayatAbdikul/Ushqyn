@@ -1,0 +1,8 @@
+{
+  "status": "measured-pass",
+  "port": "/dev/cu.usbserial-20250303171",
+  "baud": 115200,
+  "bytes": 1280,
+  "payload_sha256": "280b384ba7d8642c51a0b8894c58299603984bcb2ddce75b64697109a6a9bb0c",
+  "seconds": 7.703339416068047
+}

@@ -1,11 +1,14 @@
 # Tang Nano 20K phase-2 candidate (historical release)
 
+For current board execution, use the [physical release workflow](PHYSICAL.md).
+The archived bitstream below has the original incorrect KEY1 polarity.
+
 These reproduction steps describe commit `f39e67e` and target ID 8194.
 Current development sources implement the [Phase 4 kernel target](PHASE_4.md)
 with target ID 8196. Check out `f39e67e` to reproduce the archived Phase 2 `.fs`.
 
 The [status record](../docs/research/PHASE_2_STATUS.md) distinguishes routed
-results from pending physical checks. Active sources are exactly those in
+results from the subsequently completed physical checks. Active sources are exactly those in
 `targets/tang_nano_20k_v2.json`; `rtl/v2/` owns compute, memory, commands and
 UART. `tang_nano_v2.sv` is the board clock/reset/pin wrapper. Legacy `src/` and
 `rtl/` v1 execution modules are not part of this build.

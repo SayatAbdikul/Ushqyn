@@ -1,12 +1,17 @@
-**Current candidate:** [Phase 4 kernel implementation](PHASE_4.md) adds
-KWS/VWW-shaped compute nodes and has a routed 27-MHz bitstream. SDRAM and DMA
-are not integrated into that image. The [Phase 3 SmallCNN candidate](PHASE_3.md)
-and [Phase 2 FC release](PHASE_2.md) remain archived. Physical board execution
-is still pending. The [physical bring-up record](../docs/research/PHYSICAL_BOARD_STATUS.md)
-records the September 23 device detection and subsequent USB disconnect before
-programming. The phase-0 report below describes the old source hierarchy.
+**Current physical implementation:** the reset-corrected
+[Phase 4 kernel hierarchy](PHASE_4.md) runs on Tang Nano 20K at the declared
+27-MHz clock. MLP → SmallCNN → MLP passed 1,000 exact jobs per stage, and
+all seven directed kernel cases pass on the board. SDRAM and DMA are not
+integrated. Use the [physical build/program/run workflow](PHYSICAL.md) and
+[results record](../docs/research/PHYSICAL_BOARD_STATUS.md).
+The original Phase 2–4 bitstreams remain historical artifacts with incorrect
+KEY1 polarity; use the new physical release for board execution.
 
-# Phase-0 Gowin and board checks
+# Historical Phase-0 Gowin and board checks
+
+The following section records the initial September 9 investigation of the
+old hierarchy. Its missing-board and failed-synthesis statements are historical;
+the current physical results and reproducible commands are linked above.
 
 Gowin V1.9.11.03 Education is installed at
 `/Applications/GowinIDE.app/Contents/Resources/Gowin_EDA/IDE` on the development

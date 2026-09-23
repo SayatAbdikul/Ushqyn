@@ -33,10 +33,10 @@ Complete tasks in dependency order. Split an implementation task into smaller re
 - [x] **H02 — Define descriptors and memory interfaces.** Specify layer/tile geometry, bases/strides, quantization pointer, datatype and operation flags; support independent kernel/stride/padding axes and logical dimensions beyond 63. Specify memory request/response, backpressure, completion and error semantics. **Done:** reference encoder/decoder round trips; current 24-bit address fields are propagated where needed; out-of-range descriptors are rejected; maximum count/address widths are derived and checked. **Depends:** Q04, H01.
 - [x] **H03 — Implement the static requantizer in shared RTL.** Update quantization and execution interfaces for INT32 bias and per-channel multiplier/shift/output zero point. Preserve the eight-bit MAC input contract using compiler-computed corrected bias `qb - zx * sum(qw)`; check correction/intermediate ranges before packing and apply it once per output. Freeze the integer algorithm chosen in Q01; use sufficient product width and defined pipeline valid timing. **Done:** directed boundary/tie/overflow-rejection and random vector tests match the independent reference exactly, including extreme input zero points, channel transitions and stalled interfaces. **Depends:** Q01, Q03, H01.
 - [x] **H04 — Add reliable addressable host commands.** Implement framed READ/WRITE, RUN(start-PC), STATUS, RESET/ABORT and capability/version queries in board control and host tooling. Define checksum/framing/length recovery. RUN resets program/execution state and counters while preserving weights. Define writes and commands while busy. **Done:** automated load-once/change-input/run/read operation; malformed/truncated commands, wrong image version and aborted execution recover predictably; no button dependence. **Depends:** H01, H02.
-- [ ] **H05 — Add profiling and test the real board top.** Integrate counters for elapsed/compute/wait cycles, useful MACs, transfer bytes, errors and per-layer markers. Use behavioral models of the actual synchronous memory interfaces in the board-hierarchy test. Correct the MLP's board storage profile to fit. **Done:** corrected-MLP strict RTL checks prepared in Q05 pass; 1,000 automated board inferences match the oracle; counters reconcile under documented overlap rules; routed 27-MHz timing/resource report and real board output are archived. **Depends:** H03, H04.
+- [x] **H05 — Add profiling and test the real board top.** Integrate counters for elapsed/compute/wait cycles, useful MACs, transfer bytes, errors and per-layer markers. Use behavioral models of the actual synchronous memory interfaces in the board-hierarchy test. Correct the MLP's board storage profile to fit. **Done:** corrected-MLP strict RTL checks prepared in Q05 pass; 1,000 automated board inferences match the oracle; counters reconcile under documented overlap rules; routed 27-MHz timing/resource report and real board output are archived. **Depends:** H03, H04.
 - [x] **R05 — Validate the early novelty counterexample.** Build a small problem showing why the chosen B3/separate allocator misses physical bank/port/quantized-live-state constraints, if it does. Validate against synchronous memory microbenchmarks; draft the two-page argument. **Done:** an explained and reproducible counterexample or an explicit pivot decision; no unsupported claim that existing work lacks a feature. **Depends:** R01, H02; may use H05 counters when ready.
 
-**Current G2: open.** H01–H04 pass in verified RTL/Gowin evidence and R05 records a pivot. H05 needs physical board programming, readback and 1,000 exact runs; see [phase 2 status](research/PHASE_2_STATUS.md).
+**Current G2 hardware result: pass.** H01–H05 pass for the on-chip MLP and R05 records a pivot. The reset-corrected target completed MLP → SmallCNN → MLP with 1,000 exact physical jobs per stage and full image readback. G0 remains independently open; power is unmeasured. See [phase 2 status](research/PHASE_2_STATUS.md).
 
 **G2:** H01–H05 pass, R05 decision recorded. Freeze numerical/descriptor interfaces before the main memory rewrite.
 
@@ -50,7 +50,7 @@ Complete tasks in dependency order. Split an implementation task into smaller re
 
 **G3:** C03 passes. This is the first major accelerator milestone. SDRAM is deliberately not a prerequisite for this small model.
 
-**Current G3: open.** C01 and C02 have exact functional SmallCNN coverage and a small tagged activation cache, but still need broader activation broadcast and a real line-buffer streaming path; C03 has full-set quality, 1,000 exact board-system RTL jobs and a 27-MHz routed bitstream but no physical board runs. See [Phase 3 status](research/PHASE_3_STATUS.md).
+**Current G3: open.** C01 and C02 have exact functional SmallCNN coverage and a small tagged activation cache, but still need broader activation broadcast and a real line-buffer streaming path; C03 now has 1,000 exact physical jobs, all-layer checks and host/core profiles; the complete 10,000-image board comparison also passes with zero integer mismatches and 96.40% accuracy. See [Phase 3 status](research/PHASE_3_STATUS.md).
 
 ## P4 — weeks 13–17: complete audio/vision kernels and external memory
 
@@ -66,7 +66,7 @@ Complete tasks in dependency order. Split an implementation task into smaller re
 exact tests for pinned KWS/VWW geometries, but real model node execution and
 complete graphs are pending. A standalone abstract-port tile DMA passes
 randomized simulation; SDRAM controller integration, bursts, overlap, tiled
-inference, the measured cost database and board validation remain pending.
+inference, the fitted cost database and integrated-SDRAM board validation remain pending. On-chip physical model and directed-kernel checks now pass.
 See [Phase 4 status](research/PHASE_4_STATUS.md).
 
 ## P5 — weeks 18–20: credible complete-model baselines

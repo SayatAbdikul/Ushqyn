@@ -1,0 +1,8 @@
+{
+  "hardware/bringup/build.tcl": "5a5e9c3fe46a067a954856855b7fada0489c1fd63faa08950e7344825c3fdb7d",
+  "hardware/bringup/uart_loopback.sv": "30436cc147b9e94e53f7dec31b3298b18233dcbfbcbca108dcbdf580ed61d223",
+  "hardware/bringup/uart_loopback.cst": "e8d3811dab2c8b0e65172c0ce267e76dc41c34f672c64a70eba3e443afb942a2",
+  "hardware/tang_nano_v2.sdc": "63a00e1121aec16b5ad702286b43767ec4e3508ec3a2da13a6cabebde3a559fb",
+  "rtl/v2/uart_rx.sv": "4c5499b744202962204c4179b977e2e7fc6e4cc236250e12095d4c9d7681d337",
+  "rtl/v2/uart_tx.sv": "a3ace5523e30af83438478ad82f54a12fcd5aca07e38dbc4e3b46cc46f3af1f1"
+}

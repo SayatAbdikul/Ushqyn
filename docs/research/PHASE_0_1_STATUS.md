@@ -1,5 +1,14 @@
 # Phase 0–1 implementation record — 2026-09-09
 
+**2026-09-23 physical addendum:** the reset-corrected minimal UART passes all
+1,280 bytes on the connected Tang Nano 20K, and the active accelerator passes
+MLP/SmallCNN model switching and full scratchpad readback. The supplied chip
+marking matches `GW2AR-LV18QN88C8/I7`; JTAG identifies revision C. The user has
+no power instrument, and PCB revision/second-target access remain unknown.
+R04 therefore stays partial. See the [physical record](PHYSICAL_BOARD_STATUS.md).
+The report below preserves the original September 9 software/build evidence;
+its old accelerator synthesis failure has since been resolved by Phases 2–4.
+
 The phase-1 **software numerical and primary-quality gate passes on the declared
 research splits**. Phase 0 remains partial: physical board readback/instrument
 access, AD data/calibration provenance, and the remaining prior-work audit are
@@ -13,7 +22,7 @@ is made. This record accompanies two scoped commits on `codex/phase-0-1`.
 | R01 claim/prior work | Partial | `novelty_matrix.md` freezes hypothesis, comparison eligibility, DeFiNES B3 and overlap/pivot decision. Selected full texts and DeFiNES code inspected; exhaustive full-text/code audit and baseline reproduction remain open. |
 | R02 benchmark freeze | Partial | All three original models convert within stated tolerances; TFLite and canonical ONNX inventories agree on MAC counts. Complete declared KWS/VWW data/calibration hashes and source recipes are frozen. AD dataset/calibration content remains unverified; official VWW MLPerf accuracy-set eligibility remains separate. |
 | R03 baseline provenance | Complete | Original `3aa5fe8`, environment, dirty-path manifest, 58-test baseline, five reproduced defects and Gowin evidence in `evidence/`. |
-| R04 lab/toolchain | Partial | Fresh minimal synthesis/route/bitstream passes; UART readback tool and measurement procedure prepared. No connected board readback, confirmed PCB revision, instrument acquisition or second-target access. |
+| R04 lab/toolchain | Partial | Minimal build and 1,280-byte physical UART readback now pass; programmer/UART path and FPGA part identified. PCB revision, instrument acquisition/borrow plan and second-target access remain open. |
 | Q01 arithmetic/oracle | Complete, software | Explicit version-2 INT8 contract, independent centered-input oracle, rounding/bias/overflow regressions. |
 | Q02 graph semantics | Complete for declared subset | BN/affine folding, explicit biases/layouts/outputs, Conv/Gemm/pool attribute validation; unsupported cases reject. |
 | Q03 quantization IR | Complete, software | Saved disjoint calibration, per-channel weights, product-unit INT32 bias, corrected bias and fixed-point requantization survive image serialization. |

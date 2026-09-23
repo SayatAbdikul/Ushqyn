@@ -1,0 +1,97 @@
+{
+  "evidence_type": "randomized-stall RTL simulation; not board latency",
+  "random_seed": 240923,
+  "profiles": [
+    {
+      "label": "kws_conv_10x4_s2",
+      "opcode": 4,
+      "inputs": 55,
+      "outputs": 48,
+      "useful_macs": 1920,
+      "simulated_core_cycles": 3294,
+      "simulated_compute_cycles": 240,
+      "simulated_wait_cycles": 715,
+      "simulated_control_cycles": 2339,
+      "physical_sram_read_bytes": 1112,
+      "physical_sram_write_bytes": 48
+    },
+    {
+      "label": "pointwise_4_to_5",
+      "opcode": 4,
+      "inputs": 48,
+      "outputs": 60,
+      "useful_macs": 240,
+      "simulated_core_cycles": 1363,
+      "simulated_compute_cycles": 60,
+      "simulated_wait_cycles": 761,
+      "simulated_control_cycles": 542,
+      "physical_sram_read_bytes": 1176,
+      "physical_sram_write_bytes": 60
+    },
+    {
+      "label": "vww_depthwise_s2",
+      "opcode": 6,
+      "inputs": 280,
+      "outputs": 48,
+      "useful_macs": 432,
+      "simulated_core_cycles": 1647,
+      "simulated_compute_cycles": 96,
+      "simulated_wait_cycles": 840,
+      "simulated_control_cycles": 711,
+      "physical_sram_read_bytes": 1304,
+      "physical_sram_write_bytes": 48
+    },
+    {
+      "label": "vww_depthwise_256_channels",
+      "opcode": 6,
+      "inputs": 2304,
+      "outputs": 256,
+      "useful_macs": 2304,
+      "simulated_core_cycles": 10625,
+      "simulated_compute_cycles": 512,
+      "simulated_wait_cycles": 6778,
+      "simulated_control_cycles": 3335,
+      "physical_sram_read_bytes": 10624,
+      "physical_sram_write_bytes": 256
+    },
+    {
+      "label": "average_25x5",
+      "opcode": 7,
+      "inputs": 250,
+      "outputs": 2,
+      "useful_macs": 0,
+      "simulated_core_cycles": 529,
+      "simulated_compute_cycles": 0,
+      "simulated_wait_cycles": 262,
+      "simulated_control_cycles": 267,
+      "physical_sram_read_bytes": 416,
+      "physical_sram_write_bytes": 2
+    },
+    {
+      "label": "average_3x3",
+      "opcode": 7,
+      "inputs": 27,
+      "outputs": 3,
+      "useful_macs": 0,
+      "simulated_core_cycles": 180,
+      "simulated_compute_cycles": 0,
+      "simulated_wait_cycles": 131,
+      "simulated_control_cycles": 49,
+      "physical_sram_read_bytes": 208,
+      "physical_sram_write_bytes": 3
+    },
+    {
+      "label": "clip",
+      "opcode": 8,
+      "inputs": 10,
+      "outputs": 10,
+      "useful_macs": 0,
+      "simulated_core_cycles": 184,
+      "simulated_compute_cycles": 10,
+      "simulated_wait_cycles": 139,
+      "simulated_control_cycles": 35,
+      "physical_sram_read_bytes": 224,
+      "physical_sram_write_bytes": 10
+    }
+  ]
+}

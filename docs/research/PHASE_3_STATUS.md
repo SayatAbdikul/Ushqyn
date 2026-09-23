@@ -1,5 +1,15 @@
 # Phase 3 implementation record — 2026-09-23
 
+**Physical update:** the reset-corrected target **8196** has now completed
+1,000 exact SmallCNN jobs in an MLP → SmallCNN → MLP switch test, with full
+SRAM readback, physical counters and all eight layer outputs checked on three
+inputs. The separate 10,000-image board evaluation also passed: every raw INT8
+output matched the independent reference, and 9,640 classifications were correct
+(96.40%). Physical core cycles are fixed at 182,535; median host job time for
+the full set was 185.850 ms, including UART transfers and status polling. See the
+[physical record](PHYSICAL_BOARD_STATUS.md). The original target-8195 source,
+simulation and route results below remain historical evidence.
+
 The same board hierarchy now runs a complete eight-layer on-chip SmallCNN:
 Conv–ReLU–MaxPool–Conv–ReLU–MaxPool–Reshape–Gemm. It uses the existing
 eight-lane signed-INT8 MAC/requantization path, one synchronous 32-KiB SRAM
@@ -15,11 +25,11 @@ version 2.
 | M02 | Complete for the on-chip subset: live tensor regions reuse addresses, while all loaded weights/parameters persist across repeated RUN commands. This rule was caught by the 1,000-job test. There is no active duplicate full tensor array. |
 | C01 | Functional ordinary-Conv/FC subset passes; performance work remains. One MAC array accumulates eight reduction terms into a bounded INT32 output-stationary accumulator. 1×1, rectangular, 3×3, asymmetric padding, stride 1/2, signed extremes, channel and reduction tails pass with randomized SRAM backpressure. Small filters are fetched once per output channel. Activation broadcast and larger-filter reuse are not implemented. |
 | C02 | Functional window/pooling subset passes; streaming work remains. Synchronous scratchpad reads gather each eight-element window with valid/ready, zero-point padding and odd/asymmetric boundaries. An eight-word tagged buffer reuses SRAM words across adjacent windows. MaxPool excludes padding and requantizes at the declared boundary. There is no dedicated multi-row line buffer; gathering remains serialized. |
-| C03 | Simulation and routed build complete; physical gate open. Full MNIST float/INT8 quality and 1,000 exact board-system RTL jobs are archived. Real-board programming, full readback, 1,000 physical runs and measured latency/power remain pending. |
+| C03 | Physical validation passes: complete 10,000-image comparison, another 1,000 switch-stage jobs, full readback and 24 isolated layer checks match the oracle. Full-set accuracy is 96.40%; counters and host latency are recorded. C01/C02 architecture dependencies remain incomplete; power is unmeasured. |
 
-**G3 remains open** because C01/C02 performance features and the real-board
-part of C03 are unfinished; G2 also remains open for the same physical access.
-The routed result is a candidate, not a measured board result or SOTA claim.
+**G3 remains open** because C01/C02 architecture features are unfinished.
+C03's physical correctness/quality/measurement work and G2's hardware gate
+now pass. The measured on-chip results do not establish a SOTA claim.
 
 ## Reproducible results
 
@@ -52,7 +62,7 @@ MLP→SmallCNN→MLP by replacing only the model image, with exact outputs and
 readback at each switch. The [evidence directory](evidence/phase3/)
 contains test XML, source hashes, SRAM layout, quality and route summaries.
 
-## Routed candidate
+## Historical routed candidate
 
 Gowin Education V1.9.11.03, `GW2AR-LV18QN88C8/I7` revision C, 27-MHz constraint:
 
@@ -69,6 +79,9 @@ Gowin Education V1.9.11.03, `GW2AR-LV18QN88C8/I7` revision C, 27-MHz constraint:
 
 The [candidate bitstream](../../hardware/releases/phase3/tinyml_v3.fs) has
 SHA256 `0ea86b65fd31a5d253c1c0e40b7b49b8b26404bac300e1a02a80a564d50f133c`.
+This archived artifact has the old incorrect KEY1 polarity. Use the
+[current physical release](../../hardware/PHYSICAL.md), which has target ID
+8196 and its own source/route/bitstream evidence.
 Gowin still reports generic routing for the board clock (`PR1014`). The
 post-route power estimate is not a measured energy result. The modest timing
 margin and clock warning both require physical bring-up before a release claim.
@@ -78,8 +91,8 @@ margin and clock warning both require physical bring-up before a release claim.
 Add an actual synchronous row/line-buffer path and activation reuse, then
 re-profile end-to-end memory traffic and the port-service lower bound. Test
 larger Conv reductions and memory budgets, preserve one shared MAC array,
-and reroute after every RTL change. With an identified Tang Nano 20K, program
-the candidate, verify CAPS target 8195 and full SRAM readback, and run
-`tools/phase2/verify_board.py --jobs 1000` on the SmallCNN fixture. Archive
-board revision, programmer/serial identity, exact outputs, counters, clock
-and voltage/current traces. Rebuild if the confirmed board pinout differs.
+and reroute after every RTL change. Physical programming, CAPS, full SRAM
+readback, 1,000 repeated jobs and all-layer comparisons now pass on the
+reset-corrected target. The complete 10,000-image board comparison and raw
+outputs are now archived as well. The chip identity and programmer/UART paths are known;
+PCB revision is unknown and voltage/current instrumentation is unavailable.

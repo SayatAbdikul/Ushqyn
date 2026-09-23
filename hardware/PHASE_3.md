@@ -1,5 +1,8 @@
 # Phase 3 SmallCNN candidate (historical release)
 
+For current board execution, use the [reset-corrected physical release](PHYSICAL.md).
+The archived bitstream below has the original incorrect KEY1 polarity.
+
 This build is frozen at commit `06d1751`. The current development hierarchy
 is documented in [Phase 4](PHASE_4.md) under target ID 8196.
 

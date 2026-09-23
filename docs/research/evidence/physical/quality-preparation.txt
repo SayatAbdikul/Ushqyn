@@ -1,0 +1,1 @@
+Prepared 10,000 verified SmallCNN cases; oracle correct: 9640

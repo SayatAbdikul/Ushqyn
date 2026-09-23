@@ -1,0 +1,59 @@
+PASS: zeros
+PASS: ones
+PASS: walking_one
+PASS: walking_zero
+PASS: address_dependent
+PASS: seeded_random
+PASS: CRC rejection preserves SRAM
+PASS: oversized frame drains embedded command
+PASS: version, bounds, alignment and opcode rejection
+PASS: partial frame timeout and recovery
+PASS: busy ownership and ABORT
+PASS: RESET clears counters and preserves SRAM
+PASS: descriptor version rejection and next-RUN recovery
+PASS: kws_conv_10x4_s2
+PASS: pointwise_4_to_5
+PASS: vww_depthwise_s2
+PASS: vww_depthwise_256_channels
+PASS: average_25x5
+PASS: average_3x3
+PASS: clip
+PASS: fc1
+PASS: relu1
+PASS: fc2
+PASS: relu2
+PASS: fc3
+PASS: fc1
+PASS: relu1
+PASS: fc2
+PASS: relu2
+PASS: fc3
+PASS: fc1
+PASS: relu1
+PASS: fc2
+PASS: relu2
+PASS: fc3
+PASS: /conv1/Conv_output_0
+PASS: /relu/Relu_output_0
+PASS: /pool/MaxPool_output_0
+PASS: /conv2/Conv_output_0
+PASS: /relu_1/Relu_output_0
+PASS: /pool_1/MaxPool_output_0
+PASS: /Reshape_output_0
+PASS: output
+PASS: /conv1/Conv_output_0
+PASS: /relu/Relu_output_0
+PASS: /pool/MaxPool_output_0
+PASS: /conv2/Conv_output_0
+PASS: /relu_1/Relu_output_0
+PASS: /pool_1/MaxPool_output_0
+PASS: /Reshape_output_0
+PASS: output
+PASS: /conv1/Conv_output_0
+PASS: /relu/Relu_output_0
+PASS: /pool/MaxPool_output_0
+PASS: /conv2/Conv_output_0
+PASS: /relu_1/Relu_output_0
+PASS: /pool_1/MaxPool_output_0
+PASS: /Reshape_output_0
+PASS: output

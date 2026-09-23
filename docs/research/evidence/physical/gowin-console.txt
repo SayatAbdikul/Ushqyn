@@ -1,0 +1,96 @@
+*** GOWIN Tcl Command Line Console  *** 
+The available OpenGL surface format was either not version 3.2 or higher or not a Core Profile.
+Chromium on macOS will fall back to software rendering in this case.
+Hardware acceleration and features such as WebGL will not be available.
+current working directory: /Users/sayat/Documents/GitHub/tinyML_accelerator/work/physical/accelerator-reset-build/tinyml_v2
+add new file: "/Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/target_pkg.sv"
+add new file: "/Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/requantizer.sv"
+add new file: "/Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/scratchpad.sv"
+add new file: "/Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/engine.sv"
+add new file: "/Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/command.sv"
+add new file: "/Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/system.sv"
+add new file: "/Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/uart_rx.sv"
+add new file: "/Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/uart_tx.sv"
+add new file: "/Users/sayat/Documents/GitHub/tinyML_accelerator/hardware/tang_nano_v2.sv"
+add new file: "/Users/sayat/Documents/GitHub/tinyML_accelerator/hardware/tang_nano_v2.cst"
+add new file: "/Users/sayat/Documents/GitHub/tinyML_accelerator/hardware/tang_nano_v2.sdc"
+GowinSynthesis start
+Running parser ...
+Analyzing Verilog file '/Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/target_pkg.sv'
+Analyzing Verilog file '/Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/requantizer.sv'
+Analyzing Verilog file '/Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/scratchpad.sv'
+Analyzing Verilog file '/Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/engine.sv'
+Analyzing Verilog file '/Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/command.sv'
+Analyzing Verilog file '/Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/system.sv'
+Analyzing Verilog file '/Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/uart_rx.sv'
+Analyzing Verilog file '/Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/uart_tx.sv'
+Analyzing Verilog file '/Users/sayat/Documents/GitHub/tinyML_accelerator/hardware/tang_nano_v2.sv'
+Compiling module 'tang_nano_v2'("/Users/sayat/Documents/GitHub/tinyML_accelerator/hardware/tang_nano_v2.sv":2)
+Compiling module 'uart_rx'("/Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/uart_rx.sv":1)
+Compiling module 'uart_tx'("/Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/uart_tx.sv":11)
+Compiling module 'v2_system'("/Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/system.sv":2)
+Compiling module 'v2_engine'("/Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/engine.sv":3)
+Extracting RAM for identifier 'weight_cache'("/Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/engine.sv":56)
+Extracting RAM for identifier 'activation_cache_data'("/Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/engine.sv":61)
+Extracting RAM for identifier 'activation_cache_tag'("/Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/engine.sv":62)
+Compiling module 'v2_requantizer'("/Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/requantizer.sv":2)
+Compiling module 'v2_command(TIMEOUT_CYCLES=540000)'("/Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/command.sv":4)
+Compiling module 'v2_scratchpad'("/Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/scratchpad.sv":3)
+Extracting RAM for identifier 'ram'("/Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/scratchpad.sv":21)
+Extracting RAM for identifier 'ram'("/Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/scratchpad.sv":21)
+Extracting RAM for identifier 'ram'("/Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/scratchpad.sv":21)
+Extracting RAM for identifier 'ram'("/Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/scratchpad.sv":21)
+Extracting RAM for identifier 'ram'("/Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/scratchpad.sv":21)
+Extracting RAM for identifier 'ram'("/Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/scratchpad.sv":21)
+Extracting RAM for identifier 'ram'("/Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/scratchpad.sv":21)
+Extracting RAM for identifier 'ram'("/Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/scratchpad.sv":21)
+NOTE  (EX0101) : Current top module is "tang_nano_v2"
+[5%] Running netlist conversion ...
+Running device independent optimization ...
+[10%] Optimizing Phase 0 completed
+[15%] Optimizing Phase 1 completed
+[25%] Optimizing Phase 2 completed
+Running inference ...
+[30%] Inferring Phase 0 completed
+[40%] Inferring Phase 1 completed
+[50%] Inferring Phase 2 completed
+[55%] Inferring Phase 3 completed
+Running technical mapping ...
+[60%] Tech-Mapping Phase 0 completed
+[65%] Tech-Mapping Phase 1 completed
+[75%] Tech-Mapping Phase 2 completed
+[80%] Tech-Mapping Phase 3 completed
+[90%] Tech-Mapping Phase 4 completed
+[95%] Generate netlist file "/Users/sayat/Documents/GitHub/tinyML_accelerator/work/physical/accelerator-reset-build/tinyml_v2/impl/gwsynthesis/tinyml_v2.vg" completed
+[100%] Generate report file "/Users/sayat/Documents/GitHub/tinyML_accelerator/work/physical/accelerator-reset-build/tinyml_v2/impl/gwsynthesis/tinyml_v2_syn.rpt.html" completed
+GowinSynthesis finish
+Reading netlist file: "/Users/sayat/Documents/GitHub/tinyML_accelerator/work/physical/accelerator-reset-build/tinyml_v2/impl/gwsynthesis/tinyml_v2.vg"
+Parsing netlist file "/Users/sayat/Documents/GitHub/tinyML_accelerator/work/physical/accelerator-reset-build/tinyml_v2/impl/gwsynthesis/tinyml_v2.vg" completed
+Processing netlist completed
+Reading constraint file: "/Users/sayat/Documents/GitHub/tinyML_accelerator/hardware/tang_nano_v2.cst"
+Physical Constraint parsed completed
+Running placement......
+[10%] Placement Phase 0 completed
+[20%] Placement Phase 1 completed
+[30%] Placement Phase 2 completed
+[50%] Placement Phase 3 completed
+Running routing......
+[60%] Routing Phase 0 completed
+[70%] Routing Phase 1 completed
+[80%] Routing Phase 2 completed
+WARN  (PR1014) : Generic routing resource will be used to clock signal 'sys_clk_d' by the specified constraint. And then it may lead to the excessive delay or skew
+[90%] Routing Phase 3 completed
+Running timing analysis......
+[95%] Timing analysis completed
+Placement and routing completed
+Bitstream generation in progress......
+Bitstream generation completed
+Running power analysis......
+[100%] Power analysis completed
+Generate file "/Users/sayat/Documents/GitHub/tinyML_accelerator/work/physical/accelerator-reset-build/tinyml_v2/impl/pnr/tinyml_v2.power.html" completed
+Generate file "/Users/sayat/Documents/GitHub/tinyML_accelerator/work/physical/accelerator-reset-build/tinyml_v2/impl/pnr/tinyml_v2.pin.html" completed
+Generate file "/Users/sayat/Documents/GitHub/tinyML_accelerator/work/physical/accelerator-reset-build/tinyml_v2/impl/pnr/tinyml_v2.rpt.html" completed
+Generate file "/Users/sayat/Documents/GitHub/tinyML_accelerator/work/physical/accelerator-reset-build/tinyml_v2/impl/pnr/tinyml_v2.rpt.txt" completed
+Generate file "/Users/sayat/Documents/GitHub/tinyML_accelerator/work/physical/accelerator-reset-build/tinyml_v2/impl/pnr/tinyml_v2.tr.html" completed
+Wed Sep 23 19:53:34 2026
+

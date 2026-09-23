@@ -1,5 +1,14 @@
 # Phase 4 working record — 2026-09-23
 
+**Physical addendum:** the reset-corrected target 8196 now runs on the actual
+Tang Nano 20K. MLP → SmallCNN → MLP passed 1,000 jobs per stage, and all seven
+directed kernel cases passed three times each with exact scalar-reference
+outputs and reconciled counters. Full scratchpad patterns and protocol recovery
+also pass. The [physical record](PHYSICAL_BOARD_STATUS.md) and
+[reproduction commands](../../hardware/PHYSICAL.md) identify the new release.
+This closes on-chip bring-up gaps; it does not implement the missing SDRAM,
+tiled full-model, comprehensive node-coverage or fitted cost-model work.
+
 **P4 is in progress; G4 is open.** Target ID 8196 is a routed **kernel-only**
 candidate for Tang Nano 20K. The active board hierarchy still has a single
 32-KiB SRAM and no SDRAM connection. The standalone tile DMA is not in this
@@ -54,7 +63,7 @@ verified here. There is no controller in the current source manifest or
 bitstream. D01's full-range/1-GiB traffic gate, D02's burst/overlap gate and
 D03's tiled inference gate remain open.
 
-## Routed candidate and evidence
+## Historical routed candidate and evidence
 
 Gowin Education V1.9.11.03, `GW2AR-LV18QN88C8/I7` revision C, 27-MHz
 constraint:
@@ -71,6 +80,11 @@ constraint:
 
 The [kernel candidate bitstream](../../hardware/releases/phase4/tinyml_v4_kernels.fs)
 has SHA256 `a214798c00b86a71940dd67f1a943403f15b3a642b9ddbb8cb9f715b172d0b33`.
+It preserves the original pre-bring-up build with incorrect KEY1 polarity.
+Use the physical release for board execution; its new route uses 8,025 logic,
+2,421 registers, 16 BSRAM and 19.75 DSP equivalents, with 27.233-MHz Fmax
+and +0.318-ns setup slack at 27 MHz. Historical source hashes and this old
+candidate remain frozen rather than being relabeled as physical evidence.
 Gowin still warns that the board clock uses generic routing (`PR1014`), so
 physical timing must be checked. The [evidence summary](evidence/phase4/summary.json)
 pins the exact route, bitstream, source hashes, 123 passing compiler tests,

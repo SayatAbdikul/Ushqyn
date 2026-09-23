@@ -1,5 +1,10 @@
 # Phase 5 working record — 2026-09-23
 
+**Physical addendum:** the connected board has passed on-chip MLP/SmallCNN
+switching and directed KWS/VWW-shaped kernel tests on a reset-corrected target
+8196. See the [physical evidence](PHYSICAL_BOARD_STATUS.md). This is useful
+hardware progress, but it is not the complete KWS/VWW switch workload below.
+
 **P5 is in progress; G5 is open.** This repository now pins the primary-model
 switch workload and checks the available evidence, but the Phase 4 external
 memory path is not integrated. There has been no complete KWS or VWW run on
@@ -36,14 +41,14 @@ mismatches. Preprocessing and host argmax must follow the frozen boundaries.
 `make p5-audit` reruns the plan regression tests and the
 [readiness audit](evidence/phase5/readiness.json). The audit checks the
 kernel bitstream and canonical inventory SHA256 values against Phase 4's
-frozen evidence. It also checks that the existing full-set **software**
+frozen evidence. The later on-chip physical release and its raw artifact hashes are checked separately; that clears board-access readiness without claiming complete primary-model execution. It also checks that the existing full-set **software**
 accuracy reports match the pinned split counts and hashes. Current software
 results are KWS 4,514/4,890 (92.31%) and VWW 9,239/10,961 (84.29%). They
 are not hardware measurements; the VWW split is research validation, not an
 official MLPerf certification.
 
 The audit then inventories the missing model images, accuracy NPZ payloads,
-integrated SDRAM/DMA, complete-model RTL, physical run, AD report and baseline
+integrated SDRAM/DMA, complete-model RTL, primary-model board run, AD report and baseline
 report. File presence is only a readiness observation; it cannot certify the
 contents of future results. The `g5_certified` field is deliberately false.
 The current 32-KiB scratchpad is below even KWS's 33,216 bytes of packed

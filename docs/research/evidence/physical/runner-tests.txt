@@ -1,0 +1,14 @@
+test_archive_rejects_wrong_accuracy_summary (test_run_models.PhysicalRunnerTest.test_archive_rejects_wrong_accuracy_summary) ... tmpe6o4pcoc: 1/1 exact physical jobs
+ok
+test_archive_revalidates_raw_logits_despite_pass_flag (test_run_models.PhysicalRunnerTest.test_archive_revalidates_raw_logits_despite_pass_flag) ... tmpnn_shawj: 1/1 exact physical jobs
+ok
+test_bad_counter_does_not_count_as_completed (test_run_models.PhysicalRunnerTest.test_bad_counter_does_not_count_as_completed) ... ok
+test_changed_image_is_rejected_before_execution (test_run_models.PhysicalRunnerTest.test_changed_image_is_rejected_before_execution) ... ok
+test_exact_run_records_accuracy_separately (test_run_models.PhysicalRunnerTest.test_exact_run_records_accuracy_separately) ... tmpqnyr9ul5: 1/1 exact physical jobs
+ok
+test_same_class_wrong_logit_is_failure (test_run_models.PhysicalRunnerTest.test_same_class_wrong_logit_is_failure) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.025s
+
+OK
