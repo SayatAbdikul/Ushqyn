@@ -9,7 +9,8 @@ async def serial_board_top(d):
     period=10
     async def cycle(n=1):
         for _ in range(n):d.sys_clk.value=0;await Timer(5,units='ns');d.sys_clk.value=1;await Timer(5,units='ns')
-    d.sys_rst_n.value=0;d.uart_rx.value=1;await cycle(3);d.sys_rst_n.value=1;await cycle(8)
+    # KEY1 is released LOW; configuration startup must work without a press.
+    d.reset_button.value=0;d.uart_rx.value=1;await cycle(8)
     async def send(data):
         for byte in data:
             for bit in [0]+[(byte>>i)&1 for i in range(8)]+[1]:d.uart_rx.value=bit;await cycle(period)
@@ -37,3 +38,8 @@ async def serial_board_top(d):
     assert (await call(CAPS))[:4]==bytes([2,2,8,64])
     await call(WRITE,0,Descriptor(0).encode());assert await call(READ,0,length=64)==Descriptor(0).encode()
     await call(RUN);r=await call(STATUS);assert r[0]==0 and r[1]==0
+    # Match the physical KEY1 polarity, then prove UART recovery on release.
+    d.reset_button.value=1;await cycle(3)
+    assert int(d.uart_tx.value)==1,'UART must idle during active-high reset'
+    d.reset_button.value=0;await cycle(8)
+    assert (await call(CAPS))[:4]==bytes([2,2,8,64])
