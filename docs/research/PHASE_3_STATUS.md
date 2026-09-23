@@ -1,6 +1,6 @@
 # Phase 3 implementation record — 2026-09-23
 
-**Latest boardless candidate:** the shared engine now has a four-row,
+**Latest board-tested candidate:** the shared engine now has a four-row,
 single-read synchronous activation buffer (eight tagged 64-bit words per row)
 with lookahead reads and a 128-byte filter cache. The buffer maps to two
 additional BSRAM blocks and the filter cache to SSRAM; the main scratchpad
@@ -8,10 +8,16 @@ remains one synchronous 32-KiB port. This source-matched target **8196**
 passes 10,000/10,000 exact SmallCNN RTL jobs, all eight layer stops, the
 MLP→SmallCNN→MLP switch test, and directed wide-row/81-term/261-term kernel
 cases with randomized SRAM stalls. It routes at **27.376 MHz** against a
-27-MHz constraint with **+0.509 ns** worst setup slack. It has **not been
-programmed on the physical board**. Its [candidate evidence](evidence/phase3-linebuffer/summary.json)
-and [bitstream](../../hardware/releases/phase3-linebuffer/tinyml_v5_candidate.fs)
-are separate from the proven physical release.
+27-MHz constraint with **+0.509 ns** worst setup slack. The connected board
+then passed 61 physical diagnostics, 1,000 exact jobs per stage in an
+MLP → SmallCNN → MLP switch, and all 10,000 full-set SmallCNN jobs with zero
+integer mismatches and 96.40% classification accuracy. Physical SmallCNN
+counters are **164,165 cycles** and **152,456 SRAM read bytes** per job.
+The [physical result](PHASE_3_LINEBUFFER_PHYSICAL.md),
+[raw evidence](evidence/phase3-linebuffer-physical/summary.json),
+[boardless candidate evidence](evidence/phase3-linebuffer/summary.json) and
+[bitstream](../../hardware/releases/phase3-linebuffer/tinyml_v5_candidate.fs)
+remain separate from the earlier physical baseline.
 
 **Physical baseline:** the reset-corrected target **8196** has completed
 1,000 exact SmallCNN jobs in an MLP → SmallCNN → MLP switch test, with full
@@ -38,29 +44,30 @@ numerical contract and 64-byte descriptor format remain version 2.
 | M02 | Complete for the on-chip subset: live tensor regions reuse addresses, while all loaded weights/parameters persist across repeated RUN commands. This rule was caught by the 1,000-job test. There is no active duplicate full tensor array. |
 | C01 | Functional ordinary-Conv/FC subset passes. One MAC array accumulates eight reduction terms into a bounded INT32 output-stationary accumulator. 1×1, rectangular, 3×3, asymmetric padding, stride 1/2, signed extremes, channel and reduction tails pass with randomized SRAM backpressure. The new 128-byte cache reuses up to 128 filter terms across spatial outputs; a directed 261-term case verifies the uncached multi-tile fallback. Cross-output-channel activation broadcast and external-memory partial-sum tiling remain. |
 | C02 | A four-row, 256-byte synchronous tagged line buffer is implemented and inferred as two BSRAM blocks. Lookahead hides its read cycle on hits. Zero-point padding, odd/asymmetric boundaries, wide-row tag aliasing and pooling pass with backpressure. The byte-wise window gather still consumes substantial control cycles; a wider streaming datapath remains. |
-| C03 | The prior physical release passes the complete 10,000-image comparison, another 1,000 switch-stage jobs, full readback and isolated layer checks. Full-set accuracy is 96.40%; counters and host latency are recorded. The improved candidate matches the independent oracle on all 10,000 images in board-system RTL simulation and routes, but needs a fresh physical rerun. Power is unmeasured. |
+| C03 | Both the earlier release and improved candidate pass the complete 10,000-image physical comparison, 1,000 switch-stage jobs, full readback and isolated layer checks. Full-set accuracy is 96.40% with zero integer mismatches. The improved image reduces physical cycles 10.064% and SRAM reads 32.522%; host timing is recorded. Power is unmeasured. |
 
 **G3 remains open** because cross-output-channel broadcast and efficient
-streaming are unfinished, and the improved image has not been physically
-rerun. C03's earlier physical correctness/quality work and G2's hardware gate
-pass for the older release. These results do not establish a SOTA claim.
+streaming are unfinished. The improved image has now completed the C03
+physical correctness and quality checks, including the full 10,000-image
+comparison. This does not establish a SOTA claim.
 
 ## Boardless candidate profile
 
 The candidate's 10,000 exact full-MNIST RTL jobs each take **164,165 simulated core cycles**:
 14,370 compute, 46,544 memory wait and 103,251 control cycles. They perform
 61,184 useful MACs and read 152,456 physical SRAM bytes. Relative to the
-board-tested image's matching RTL run, cycles fall **10.064%** and SRAM reads
-fall **32.522%**. At an assumed 27-MHz core clock this is **6.080 ms**;
-it is a simulation conversion, not new board latency. The control fraction
+earlier physical image's matching RTL run, cycles fall **10.064%** and SRAM reads
+fall **32.522%**. The physical board now reports these same counters on every
+SmallCNN job. At the nominal 27-MHz core clock this is **6.080 ms**; clock
+frequency was not independently measured. The control fraction
 is still **62.9%**, making serialized gather the next performance target.
 The one-port trace requires at least **27,487** SRAM service cycles
 (19,057 reads plus 8,430 byte writes), only **16.7%** of elapsed cycles;
 this lower bound quantifies how much time the controller spends outside
 port service.
 The independent oracle scores **9,640/10,000 (96.40%)**, and the candidate
-matches all 10,000 raw INT8 outputs; this is still simulation, not a board
-result. The [per-layer counters](evidence/phase3-linebuffer/summary.json), complete
+matches all 10,000 raw INT8 outputs in both RTL and the separate physical run.
+The [per-layer counters](evidence/phase3-linebuffer/summary.json), complete
 [10,000-job trace](evidence/phase3-linebuffer/smallcnn-10000-rtl.json.gz),
 [randomized-stall kernels](evidence/phase3-linebuffer/kernel-profiles.json),
 [source manifest](evidence/phase3-linebuffer/source-manifest.json) and
@@ -77,11 +84,11 @@ result. The [per-layer counters](evidence/phase3-linebuffer/summary.json), compl
 | Worst setup slack | +0.509 ns |
 | Setup total negative slack | 0 |
 
-The boardless candidate retains Gowin's generic-clock-routing warning
+The routed candidate retains Gowin's generic-clock-routing warning
 (`PR1014`). The bitstream SHA256 is
 `fc6c90d3fb162eadfa042ecbfc1d89277c3a7a0af09fbc44a377c1fe90c81164`; this
 candidate should be identified by that hash rather than target ID alone,
-since the board-tested release also uses target 8196.
+since the earlier board-tested release also uses target 8196.
 
 ## Board-tested baseline
 
@@ -140,11 +147,9 @@ margin and clock warning both require physical bring-up before a release claim.
 
 ## Remaining work
 
-Program the improved candidate on Tang Nano 20K, verify its hash/readback,
-CAPS, all-layer outputs, repeated SmallCNN and MLP switch jobs, then compare
-the full 10,000-image set and physical counters with the archived baseline.
-Those checks require the board. Cross-output-channel activation broadcast,
-less serialized gather, reduction tiles beyond on-chip SRAM and a broader
-latency/energy comparison remain research work. The chip identity and
-programmer/UART paths are known; PCB revision is unknown and voltage/current
-instrumentation is unavailable.
+The improved candidate's board tests are complete. Cross-output-channel
+activation broadcast, less serialized gather and reduction tiles beyond
+on-chip SRAM remain architectural work before closing G3. Subsequent designs
+will need the same physical regression. A broader latency/energy comparison
+remains research work; energy cannot yet be measured because no
+voltage/current instrument is available. The PCB revision is unknown.

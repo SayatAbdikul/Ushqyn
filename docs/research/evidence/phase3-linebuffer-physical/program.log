@@ -1,0 +1,58 @@
+empty
+write to ram
+Jtag frequency : requested 2.50MHz    -> real 2.00MHz
+found 1 devices
+index 0:
+	idcode 0x81b
+	manufacturer Gowin
+	family GW2A
+	model  GW2A(R)-18(C)
+	irlength 8
+File type : fs
+Parse file Parse hardware/releases/phase3-linebuffer/tinyml_v5_candidate.fs:
+checksum 0xb829
+Done
+DONE
+bitstream header infos
+CRCCheck: ON
+Compress: OFF
+ConfDataLength: 2110
+LoadingRate: 2500000
+ProgramDoneBypass: OFF
+SPIAddr: 00000000
+SecurityBit: ON
+idcode: 0000081b
+before program sram: displayReadReg 00006020
+	Memory Erase
+	Done Final
+	Security Final
+Erase SRAM before erase sram: displayReadReg 00006020
+	Memory Erase
+	Done Final
+	Security Final
+pollFlag: 60a0 (80)
+pollFlag: 4080 (0)
+pollFlag: 4080 (0)
+pollFlag: 4080 (0)
+pollFlag: 4080 (0)
+pollFlag: a0 (20)
+after erase sram: displayReadReg 000000a0
+	Memory Erase
+	System Edit Mode
+pollFlag: 20 (0)
+Load SRAM before write sram: displayReadReg 00000020
+	Memory Erase
+Load SRAM: [======================                            ] 43.33%
+Load SRAM: [============================================      ] 86.67%
+Load SRAM: [==================================================] 100.00%
+
+Done
+after write sram: displayReadReg 00006020
+	Memory Erase
+	Done Final
+	Security Final
+DONE
+after program sram: displayReadReg 00006020
+	Memory Erase
+	Done Final
+	Security Final

@@ -42,10 +42,12 @@ FPGA SRAM; the flash image is unchanged and returns after a power cycle.
 The improved Phase 3 line-buffer image is separately archived at
 `hardware/releases/phase3-linebuffer/tinyml_v5_candidate.fs` (SHA256
 `fc6c90d3fb162eadfa042ecbfc1d89277c3a7a0af09fbc44a377c1fe90c81164`).
-It has passed RTL simulation and Gowin routing, but has not been programmed
-on a board. To validate it, substitute this path in the programming and
-`--bitstream` commands below and write results to a new report directory.
-Keep the physical release as the measured baseline until that rerun passes.
+It has now passed RTL simulation, Gowin routing and 13,000 exact physical
+inferences plus 61 diagnostics. Its
+[separate board record](../docs/research/PHASE_3_LINEBUFFER_PHYSICAL.md)
+documents the rerun. Substitute its path in the programming and `--bitstream`
+commands below, and write new runs to their own report directory. The older
+physical release remains the comparison baseline.
 
 Close UART sessions before programming. Keep the successful programmer log
 with the bitstream SHA256. The UART protocol reports the ABI, but cannot
@@ -56,6 +58,12 @@ The tested USB debugger serial is `2025030317`. On this Mac,
 Other boards/hosts may enumerate differently. Pins are clock 4, KEY1 88,
 UART RX 70 and TX 69. The FPGA part is `GW2AR-LV18QN88C8/I7`, revision C
 as detected by JTAG; the PCB revision is unknown.
+
+The six user LEDs are active-low in this accelerator image. `led[0]` lights
+while the engine is busy; `led[4]` pulses for one clock at a layer boundary;
+`led[5]` lights when the engine reports a nonzero error. `led[1]` through
+`led[3]` stay off. A high output pin therefore means the corresponding LED
+is off.
 
 ## Repeat the checks
 
@@ -79,7 +87,7 @@ the original locally held weight file. Then:
 ```
 
 `run_checks.py` verifies six patterns across all 32 KiB, malformed-frame
-recovery, busy ownership, ABORT/RESET, seven directed kernel geometries
+recovery, busy ownership, ABORT/RESET, nine directed kernel geometries
 (three runs each), and every MLP/SmallCNN layer for three inputs. Individual
 layer counters include that isolated RUN's startup/HALT overhead; they are
 not additive measurements of uninterrupted whole-model execution.

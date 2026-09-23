@@ -1,4 +1,8 @@
-# Physical board validation — 2026-09-23
+# Physical board baseline validation — 2026-09-23
+
+This page records the earlier reset-corrected baseline image. The improved
+four-row line-buffer image has since passed its own full physical run; see the
+[Phase 3 line-buffer board record](PHASE_3_LINEBUFFER_PHYSICAL.md).
 
 The connected Tang Nano 20K now executes the accelerator correctly. A board
 reset-polarity defect was fixed, then **MLP → SmallCNN → MLP passed 1,000 jobs
@@ -142,9 +146,11 @@ qualification has been performed.
 H05/G2's on-chip physical execution/readback/counter/route requirements pass.
 G0 remains partial because instrument access, PCB/second-target details, AD
 provenance and research audit items remain open. C03's repeated-board and layer
-checks and complete 10,000-image board comparison pass. G3's C01/C02 architecture
-work (broader reuse, multi-tile accumulation and streaming line buffers) remains
-unfinished. G4/G5 remain open: this bitstream has **no integrated SDRAM controller
+checks and complete 10,000-image board comparison pass. For this baseline,
+G3's C01/C02 architecture work (broader reuse, multi-tile accumulation and
+streaming line buffers) was unfinished; the later physical image adds a
+synchronous four-row buffer but still has open broadcast/streaming work.
+G4/G5 remain open: this bitstream has **no integrated SDRAM controller
 or DMA**, complete KWS/VWW deployment or tuned B1/B2/B3 comparison. Connecting the
 board makes those future tests possible; it does not supply the missing designs.
 
