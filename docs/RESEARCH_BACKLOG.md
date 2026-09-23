@@ -44,20 +44,21 @@ Complete tasks in dependency order. Split an implementation task into smaller re
 
 - [x] **M01 — Specify physical bank organization and a feasibility checker.** Define width/depth modes, port availability, reserved storage and alignment. Build `compiler/memory_planner.py` and a separate verifier emitting logical bytes, physical blocks, lifetimes and access demand. **Done for the active 32-KiB single-port mode:** independent live-overlap/bounds checks pass, and its 16 BSRAM blocks match the routed design. Alternative physical modes remain research work. **Depends:** H02.
 - [x] **M02 — Replace whole-buffer arrays with the shared scratchpad.** Refactor buffer controller/file interfaces to descriptor-based synchronous bank accesses. Allocate vectors, weights, partial sums and metadata from actual live demand. Add explicit lifetime ownership and completion. **Done for on-chip SmallCNN:** live tensors reuse addresses while weights/parameters persist across all RUNs; randomized SRAM stalls and 1,000 repeated jobs pass. **Depends:** M01, H01.
-- [ ] **C01 — Implement the shared tiled FC/ordinary-Conv datapath.** One eight-lane engine; bounded output-stationary partial sums; input-channel accumulation across tiles; weight reuse; activation broadcast where appropriate. Multiply raw INT8 `qx * qw` and add the full-reduction corrected bias from H03 once. Emit padded activations as `qx = zx`; do not skip those products without adjusting the correction. Replace hot dynamic division/modulo address operations with counters/precomputed strides. **Done:** FC, rectangular/1×1/3×3 Conv, channel/spatial tails, signed extremes and extreme zero points, unequal strides/padding and multi-tile partial sums match the oracle; correction/partial-sum bounds checked; shared engine appears once in synthesis. **Depends:** M02, H03.
-- [ ] **C02 — Implement window generation and legal streaming activation/pooling.** Use synchronous line/window buffers and defined valid/backpressure. Apply zero-point padding correctly; handle ReLU and clamped activation semantics. Retain intermediate quantization where required. **Done:** boundary/odd-size/asymmetric-padding and backpressure tests pass, including primary-model-derived shapes; no asynchronous multiport register-array substitution hides BSRAM costs. **Depends:** C01.
-- [ ] **C03 — Release a complete on-chip SmallCNN.** Integrate image compiler, descriptors, engine, memory and commands. Run full MNIST quality/board comparison and 1,000 repeated jobs. Create deterministic build/program/run scripts and save raw reports. **Done:** Q05's corrected SmallCNN strict RTL checks pass; zero board integer-output mismatches; all device resources fit; declared clock meets post-route timing; layer cycles/storage/traffic and host-versus-core latency reported. **Depends:** C01, C02, H05.
+- [x] **C01 — Implement the shared tiled FC/ordinary-Conv datapath.** One eight-lane engine; bounded output-stationary partial sums; input-channel accumulation across tiles; weight reuse; activation broadcast where appropriate. Multiply raw INT8 `qx * qw` and add the full-reduction corrected bias from H03 once. Emit padded activations as `qx = zx`; do not skip those products without adjusting the correction. Replace hot dynamic division/modulo address operations with counters/precomputed strides. **Done:** FC, rectangular/1×1/3×3 Conv, channel/spatial tails, signed extremes and extreme zero points, unequal strides/padding and multi-tile partial sums match the oracle; correction/partial-sum bounds checked; shared engine appears once in synthesis. **Depends:** M02, H03.
+- [x] **C02 — Implement window generation and legal streaming activation/pooling.** Use synchronous line/window buffers and defined valid/backpressure. Apply zero-point padding correctly; handle ReLU and clamped activation semantics. Retain intermediate quantization where required. **Done:** boundary/odd-size/asymmetric-padding and backpressure tests pass, including primary-model-derived shapes; no asynchronous multiport register-array substitution hides BSRAM costs. **Depends:** C01.
+- [x] **C03 — Release a complete on-chip SmallCNN.** Integrate image compiler, descriptors, engine, memory and commands. Run full MNIST quality/board comparison and 1,000 repeated jobs. Create deterministic build/program/run scripts and save raw reports. **Done:** Q05's corrected SmallCNN strict RTL checks pass; zero board integer-output mismatches; all device resources fit; declared clock meets post-route timing; layer cycles/storage/traffic and host-versus-core latency reported. **Depends:** C01, C02, H05.
 
 **G3:** C03 passes. This is the first major accelerator milestone. SDRAM is deliberately not a prerequisite for this small model.
 
-**Current G3: open.** The routed four-row BSRAM line buffer and 128-byte
-filter cache now pass 61 physical diagnostics, MLP → SmallCNN → MLP with 1,000
-exact jobs per stage, and the full 10,000-image SmallCNN board comparison
-with zero integer mismatches and 96.40% accuracy. Physical cycles fall
-10.064% and SRAM reads fall 32.522% versus the earlier board-tested image.
-C03's board-validation criteria are met, but C01/C02 remain open for
-cross-output-channel activation broadcast and less serialized gathering.
-See [Phase 3 status](research/PHASE_3_STATUS.md).
+**Current G3: passed.** Paired-output-channel activation broadcast and
+multi-byte synchronous window/pool streaming pass source-matched RTL,
+27-MHz Gowin post-route timing, 61 board diagnostics, MLP → SmallCNN → MLP
+with 1,000 exact jobs per stage, and the complete 10,000-image SmallCNN board
+comparison. The final image has zero INT8 mismatches, 96.40% accuracy and
+118,267 physical core cycles per image, 27.958% fewer than the previous
+board-tested line-buffer image. See the [closure record](research/PHASE_3_CLOSURE.md)
+and [Phase 3 status](research/PHASE_3_STATUS.md). External-memory tiling,
+complete KWS/VWW inference and energy measurement remain later work.
 
 ## P4 — weeks 13–17: complete audio/vision kernels and external memory
 

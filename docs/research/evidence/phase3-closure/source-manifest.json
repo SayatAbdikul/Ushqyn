@@ -1,0 +1,55 @@
+{
+  "target": {
+    "name": "tang-nano-20k-phase4-kernels",
+    "target_id": 8196,
+    "device": "GW2AR-LV18QN88C8/I7",
+    "device_revision": "C",
+    "numerics": 2,
+    "descriptor_version": 2,
+    "protocol_version": 2,
+    "clock_hz": 27000000,
+    "baud": 115200,
+    "address_bits": 24,
+    "memory_bytes": 32768,
+    "lanes": 8,
+    "descriptor_bytes": 64,
+    "max_transfer": 64,
+    "timeout_cycles": 540000,
+    "max_descriptors": 256,
+    "watchdog_cycles": 27000000,
+    "opcodes": {
+      "HALT": 0,
+      "GEMM": 1,
+      "RELU": 2,
+      "COPY": 3,
+      "CONV": 4,
+      "MAXPOOL": 5,
+      "DWCONV": 6,
+      "AVGPOOL": 7,
+      "CLIP": 8
+    },
+    "sources": [
+      "rtl/v2/target_pkg.sv",
+      "rtl/v2/requantizer.sv",
+      "rtl/v2/scratchpad.sv",
+      "rtl/v2/engine.sv",
+      "rtl/v2/command.sv",
+      "rtl/v2/system.sv",
+      "rtl/v2/uart_rx.sv",
+      "rtl/v2/uart_tx.sv",
+      "hardware/tang_nano_v2.sv"
+    ]
+  },
+  "manifest_sha256": "c65bd618ad02b9d46e38d85a0b02093ccab38dc8342f672d6c02ee37daa35368",
+  "sources_sha256": {
+    "rtl/v2/target_pkg.sv": "52e649f8911e92452cfef5cce9b1ad4e5dd75d20f4a725c67ee391fe75daae6e",
+    "rtl/v2/requantizer.sv": "e40913b484ad629d2445cdfb3edf16d6508f273ce0d4a5855d114780fe0a9e4b",
+    "rtl/v2/scratchpad.sv": "bfdab92e5f5f039e102b76fad82fe6a8df2d7f64d1b2cffd23cc677626654cd2",
+    "rtl/v2/engine.sv": "a4325cf40bddfedfe75d525f5989c1e736a65f3094d6af45c8a5887ad888a73f",
+    "rtl/v2/command.sv": "d75df11823f4d6b180cf4bbeec82ae5575a42670cca12f318cb80806193aca85",
+    "rtl/v2/system.sv": "ef95145af0ad31fd7abd2f87fc8862932ddaebcca1ce0db5395e78d886ed2ee8",
+    "rtl/v2/uart_rx.sv": "4c5499b744202962204c4179b977e2e7fc6e4cc236250e12095d4c9d7681d337",
+    "rtl/v2/uart_tx.sv": "a3ace5523e30af83438478ad82f54a12fcd5aca07e38dbc4e3b46cc46f3af1f1",
+    "hardware/tang_nano_v2.sv": "555f8785c4c56bfe1c49cede0e9ec80ba4f11f52d955ada511dcca8ebeeb3fc3"
+  }
+}

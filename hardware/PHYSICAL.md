@@ -1,9 +1,13 @@
 # Tang Nano 20K physical validation
 
-Use the active target ID **8196** and the reset-corrected release under
-`hardware/releases/physical/`. The older Phase 2–4 bitstreams are historical
-artifacts with the wrong KEY1 polarity. Their reports remain archived; use
-the new release for board execution.
+Use active target ID **8196** and the Phase 3 closure image at
+`hardware/releases/phase3-closure/tinyml_v6_tang20k.fs`. The original
+Phase 2–4 bitstreams have the wrong KEY1 polarity; the reset-corrected v4
+and line-buffer v5 images remain archived comparison baselines. The
+[G3 closure record](../docs/research/PHASE_3_CLOSURE.md) identifies the
+current source-matched board release.
+Its SHA256 is
+`4e3d6e9a47d872bfb65134fff9cdbb25c11dfc22bcbbf39db7d2c1ac9b61c0da`.
 
 The board's KEY1 at pin 88 is **active high**. The wrapper initializes its
 reset synchronizer at configuration, asserts reset while KEY1 is pressed,
@@ -33,21 +37,20 @@ openFPGALoader -b tangnano20k --ftdi-serial 2025030317 --freq 2500000 -m -v \
 ```
 
 For the frozen artifact, substitute
-`hardware/releases/physical/tinyml_v4_tang20k.fs`. The test commands below
-assume that frozen artifact was programmed. If you program a new build,
+`hardware/releases/phase3-closure/tinyml_v6_tang20k.fs`. The test commands
+below assume that frozen artifact was programmed. If you program a new build,
 pass that exact new `.fs` to every `--bitstream` argument so the result records
 its actual supplied hash. `-m` configures temporary
 FPGA SRAM; the flash image is unchanged and returns after a power cycle.
 
-The improved Phase 3 line-buffer image is separately archived at
+The previous Phase 3 line-buffer image is separately archived at
 `hardware/releases/phase3-linebuffer/tinyml_v5_candidate.fs` (SHA256
 `fc6c90d3fb162eadfa042ecbfc1d89277c3a7a0af09fbc44a377c1fe90c81164`).
-It has now passed RTL simulation, Gowin routing and 13,000 exact physical
-inferences plus 61 diagnostics. Its
+It passed RTL simulation, Gowin routing and 13,000 exact physical inferences
+plus 61 diagnostics. Its
 [separate board record](../docs/research/PHASE_3_LINEBUFFER_PHYSICAL.md)
-documents the rerun. Substitute its path in the programming and `--bitstream`
-commands below, and write new runs to their own report directory. The older
-physical release remains the comparison baseline.
+documents that earlier rerun. The closure v6 image passed the same physical
+suite and is the active release. Keep new runs in their own report directory.
 
 Close UART sessions before programming. Keep the successful programmer log
 with the bitstream SHA256. The UART protocol reports the ABI, but cannot
@@ -76,13 +79,13 @@ the original locally held weight file. Then:
   --port /dev/cu.usbserial-20250303171 \
   --fixture work/phase2/mlp --fixture work/phase3/smallcnn \
   --fixture work/phase2/mlp --jobs 1000 \
-  --bitstream hardware/releases/physical/tinyml_v4_tang20k.fs \
+  --bitstream hardware/releases/phase3-closure/tinyml_v6_tang20k.fs \
   --report work/physical/model-switch.json
 
 .venv/bin/python3 tools/physical/run_checks.py \
   --port /dev/cu.usbserial-20250303171 \
   --fixture work/phase2/mlp --fixture work/phase3/smallcnn \
-  --bitstream hardware/releases/physical/tinyml_v4_tang20k.fs \
+  --bitstream hardware/releases/phase3-closure/tinyml_v6_tang20k.fs \
   --report work/physical/checks.json
 ```
 
@@ -101,7 +104,7 @@ already frozen full-set oracle to the current fixture:
 .venv/bin/python3 tools/physical/run_models.py \
   --port /dev/cu.usbserial-20250303171 \
   --fixture work/physical/smallcnn-full --jobs 10000 \
-  --bitstream hardware/releases/physical/tinyml_v4_tang20k.fs \
+  --bitstream hardware/releases/phase3-closure/tinyml_v6_tang20k.fs \
   --report work/physical/smallcnn-full.json
 ```
 

@@ -11,7 +11,7 @@ Ushqyn (Ұшқын — Kazakh for *spark*) is an INT8 TinyML accelerator project
 ### Research planning
 
 - **[Phase 4 status](research/PHASE_4_STATUS.md)** — routed audio/vision kernel candidate, standalone tile DMA and open SDRAM gates.
-- **[Phase 3 status](research/PHASE_3_STATUS.md)** — routed SmallCNN candidate, exact 1,000-job RTL results and open G3 gate.
+- **[Phase 3 status](research/PHASE_3_STATUS.md)** — G3-closed SmallCNN with source-matched RTL, route and 13,000 exact board jobs; see the [physical closure record](research/PHASE_3_CLOSURE.md).
 - **[Phase 2 status](research/PHASE_2_STATUS.md)** — historical routed MLP candidate and pending physical-board checks.
 - **[Phase 0–1 status](research/PHASE_0_1_STATUS.md)** — completed software work, actual Gowin results, quality measurements, and open gates.
 - **[Numerical contract](specs/quantization.md)** — version-2 static INT8 arithmetic shared by software and the supported board subset.

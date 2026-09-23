@@ -11,9 +11,22 @@ import numpy as np
 ROOT=Path(__file__).resolve().parents[2]
 p=argparse.ArgumentParser()
 p.add_argument('--fixture',type=Path,default=ROOT/'work/phase3/smallcnn')
+p.add_argument('--layer-fixture',type=Path,
+               help='same model and first input with saved intermediate layers')
 a=p.parse_args();a.fixture=a.fixture.resolve()
 meta=json.loads((a.fixture/'board.json').read_text())
 f=np.load(a.fixture/'checks.npz',allow_pickle=False)
+layers=f
+if a.layer_fixture:
+    layer_path=a.layer_fixture.resolve()
+    layer_meta=json.loads((layer_path/'board.json').read_text())
+    if (layer_meta['image_sha256']!=meta['image_sha256'] or
+            layer_meta['layer_outputs']!=meta['layer_outputs']):
+        raise ValueError('layer fixture is a different model')
+    layers=np.load(layer_path/'checks.npz',allow_pickle=False)
+    if (not np.array_equal(layers['inputs'][0],f['inputs'][0]) or
+            not np.array_equal(layers['outputs'][0],f['outputs'][0])):
+        raise ValueError('layer fixture has a different first case')
 n=len(f['inputs']);input_size=f['inputs'][0].size;output_size=f['outputs'][0].size
 (a.fixture/'native-inputs.bin').write_bytes(f['inputs'].tobytes())
 (a.fixture/'native-outputs.bin').write_bytes(f['outputs'].tobytes())
@@ -21,7 +34,7 @@ target=json.loads((ROOT/'hardware/targets/tang_nano_20k_v2.json').read_text())
 lines=[f"{meta['inputs']['input']} {next(iter(meta['outputs'].values()))} {meta['used_bytes']} {n} {meta['macs']} {input_size} {output_size} {target['target_id']}"]
 for i,descriptor in enumerate(meta['descriptors']):
     name=meta['layer_outputs'][i]
-    blob=f['layer_'+name][0].tobytes();filename=f'native-layer-{i}.bin'
+    blob=layers['layer_'+name][0].tobytes();filename=f'native-layer-{i}.bin'
     (a.fixture/filename).write_bytes(blob)
     lines.append(f'{descriptor["output"]} {len(blob)} {filename}')
 (a.fixture/'native.txt').write_text('\n'.join(lines)+'\n')

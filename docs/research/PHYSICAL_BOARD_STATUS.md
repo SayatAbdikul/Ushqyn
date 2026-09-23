@@ -3,6 +3,8 @@
 This page records the earlier reset-corrected baseline image. The improved
 four-row line-buffer image has since passed its own full physical run; see the
 [Phase 3 line-buffer board record](PHASE_3_LINEBUFFER_PHYSICAL.md).
+The subsequent [G3 closure image](PHASE_3_CLOSURE.md) also passed its full
+board suite and is the active release.
 
 The connected Tang Nano 20K now executes the accelerator correctly. A board
 reset-polarity defect was fixed, then **MLP → SmallCNN → MLP passed 1,000 jobs
@@ -148,8 +150,9 @@ G0 remains partial because instrument access, PCB/second-target details, AD
 provenance and research audit items remain open. C03's repeated-board and layer
 checks and complete 10,000-image board comparison pass. For this baseline,
 G3's C01/C02 architecture work (broader reuse, multi-tile accumulation and
-streaming line buffers) was unfinished; the later physical image adds a
-synchronous four-row buffer but still has open broadcast/streaming work.
+streaming line buffers) was unfinished in this baseline. The v5 line-buffer
+image added a synchronous four-row buffer; the subsequent v6 closure image
+added activation broadcast and wider streaming and passed G3.
 G4/G5 remain open: this bitstream has **no integrated SDRAM controller
 or DMA**, complete KWS/VWW deployment or tuned B1/B2/B3 comparison. Connecting the
 board makes those future tests possible; it does not supply the missing designs.

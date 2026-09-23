@@ -1,6 +1,17 @@
 # Phase 3 implementation record — 2026-09-23
 
-**Latest board-tested candidate:** the shared engine now has a four-row,
+**Current G3 closure image:** paired-output-channel activation broadcast and
+multi-byte synchronous Conv/pool streaming pass source-matched RTL and the
+connected Tang Nano 20K. The board completed 61 diagnostics, 3,000 exact
+MLP → SmallCNN → MLP switch jobs and 10,000 exact full-set SmallCNN jobs,
+with 96.40% classification accuracy. Physical counters are 118,267 cycles,
+133,032 SRAM read bytes and 61,184 useful MACs per SmallCNN image. The final
+Gowin route meets 27 MHz with 27.023 MHz Fmax and +0.032 ns worst setup
+slack. [Read the closure record](PHASE_3_CLOSURE.md),
+[validated evidence](evidence/phase3-closure/summary.json) and
+[frozen bitstream](../../hardware/releases/phase3-closure/tinyml_v6_tang20k.fs).
+
+**Previous board-tested line-buffer candidate:** the shared engine has a four-row,
 single-read synchronous activation buffer (eight tagged 64-bit words per row)
 with lookahead reads and a 128-byte filter cache. The buffer maps to two
 additional BSRAM blocks and the filter cache to SSRAM; the main scratchpad
@@ -32,9 +43,10 @@ simulation and route results below remain historical evidence.
 The board hierarchy runs a complete eight-layer on-chip SmallCNN:
 Conv–ReLU–MaxPool–Conv–ReLU–MaxPool–Reshape–Gemm. It uses the existing
 eight-lane signed-INT8 MAC/requantization path, one synchronous 32-KiB SRAM
-port and serialized window gather. The previous physical image has an
-eight-word activation cache and a 64-byte filter cache; the latest candidate
-has the four-row buffer and 128-byte filter cache above. The archived
+port. The original physical image had serialized window gather, an
+eight-word activation cache and a 64-byte filter cache; the v5 image added
+the four-row buffer and 128-byte filter cache. The v6 closure image adds
+paired-channel broadcast and wider gather. The archived
 phase-2/3 candidates reported older target IDs and remain historical. The
 numerical contract and 64-byte descriptor format remain version 2.
 
@@ -42,16 +54,14 @@ numerical contract and 64-byte descriptor format remain version 2.
 |---|---|
 | M01 | Complete for this one physical mode: eight byte lanes, one 64-bit synchronous port, 32 KiB addressable SRAM, alignment and reserved descriptor bytes. Independent allocation verification checks live overlap, bounds and peak bytes. The scratchpad uses 16 BSRAM blocks; the candidate line buffer adds two. Other width/depth modes remain later research work. |
 | M02 | Complete for the on-chip subset: live tensor regions reuse addresses, while all loaded weights/parameters persist across repeated RUN commands. This rule was caught by the 1,000-job test. There is no active duplicate full tensor array. |
-| C01 | Functional ordinary-Conv/FC subset passes. One MAC array accumulates eight reduction terms into a bounded INT32 output-stationary accumulator. 1×1, rectangular, 3×3, asymmetric padding, stride 1/2, signed extremes, channel and reduction tails pass with randomized SRAM backpressure. The new 128-byte cache reuses up to 128 filter terms across spatial outputs; a directed 261-term case verifies the uncached multi-tile fallback. Cross-output-channel activation broadcast and external-memory partial-sum tiling remain. |
-| C02 | A four-row, 256-byte synchronous tagged line buffer is implemented and inferred as two BSRAM blocks. Lookahead hides its read cycle on hits. Zero-point padding, odd/asymmetric boundaries, wide-row tag aliasing and pooling pass with backpressure. The byte-wise window gather still consumes substantial control cycles; a wider streaming datapath remains. |
-| C03 | Both the earlier release and improved candidate pass the complete 10,000-image physical comparison, 1,000 switch-stage jobs, full readback and isolated layer checks. Full-set accuracy is 96.40% with zero integer mismatches. The improved image reduces physical cycles 10.064% and SRAM reads 32.522%; host timing is recorded. Power is unmeasured. |
+| C01 | Complete for the on-chip subset: one eight-lane MAC engine, corrected INT8 bias/requantization, reduction tails and bounded INT32 accumulation. Paired ordinary-Conv output channels share activation tiles and retain two filter banks for reductions up to 128 terms; longer reductions use the exact output-stationary fallback. Randomized backpressure and 261-term directed cases pass. External-memory partial-sum scheduling is later work. |
+| C02 | Complete for the on-chip subset: four-row single-read synchronous BSRAM line buffer, tagged lookahead and up to eight Conv or four pool bytes per cycle. Zero-point padding, asymmetric/odd boundaries, wide-row aliasing, pooling and randomized SRAM stalls pass. |
+| C03 | Complete: source-matched 10,000-job RTL and physical SmallCNN comparisons, 1,000 switch-stage jobs, full SRAM readback and 39 layer checks all pass. Accuracy is 96.40% with zero INT8 mismatches; 27-MHz route closes. Physical cycles and SRAM reads fall 27.958% and 12.741% against the previous line-buffer image. Power remains unmeasured. |
 
-**G3 remains open** because cross-output-channel broadcast and efficient
-streaming are unfinished. The improved image has now completed the C03
-physical correctness and quality checks, including the full 10,000-image
-comparison. This does not establish a SOTA claim.
+**G3 passed** for the on-chip SmallCNN in the closure image above. This does
+not establish a SOTA claim or complete the later audio/vision/SDRAM gates.
 
-## Boardless candidate profile
+## Previous line-buffer candidate profile
 
 The candidate's 10,000 exact full-MNIST RTL jobs each take **164,165 simulated core cycles**:
 14,370 compute, 46,544 memory wait and 103,251 control cycles. They perform
@@ -147,9 +157,9 @@ margin and clock warning both require physical bring-up before a release claim.
 
 ## Remaining work
 
-The improved candidate's board tests are complete. Cross-output-channel
-activation broadcast, less serialized gather and reduction tiles beyond
-on-chip SRAM remain architectural work before closing G3. Subsequent designs
-will need the same physical regression. A broader latency/energy comparison
-remains research work; energy cannot yet be measured because no
-voltage/current instrument is available. The PCB revision is unknown.
+The G3 on-chip SmallCNN gate is complete. External-memory tiling, SDRAM,
+complete KWS/VWW execution and a broader latency/energy comparison remain
+later roadmap work. The final route has only +0.032 ns setup slack, so timing
+margin needs attention before claiming robust higher-frequency operation.
+Energy cannot yet be measured because no voltage/current instrument is
+available. The PCB revision is unknown.
