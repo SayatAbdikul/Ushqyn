@@ -1,8 +1,14 @@
 """Abstract-port DMA test; no SDRAM-controller or power claims."""
 import random
+import sys
+from pathlib import Path
 
 import cocotb
 from cocotb.triggers import Timer
+
+ROOT=Path(__file__).resolve().parents[2]
+sys.path.insert(0,str(ROOT/'compiler'))
+from phase4_tiling import plan_inventory
 
 
 @cocotb.test()
@@ -82,6 +88,27 @@ async def tile_transfer_backpressure_bounds_and_abort(d):
             sram[sram_base:sram_base+length]=payload
             await transfer(0,sram_base,ext_base,length)
             assert external[ext_base:ext_base+length]==payload
+    # Exercise actual compiler-planned address/length tuples as well as random
+    # tuples. This is still the abstract external port, not physical SDRAM.
+    kws=plan_inventory(ROOT/'benchmarks/manifests/kws.canonical-inventory.json')
+    vww=plan_inventory(ROOT/'benchmarks/manifests/vww.canonical-inventory.json')
+    planned=[next(t for l in kws['layers'] for q in l['tiles'] for t in q['transfers']
+                  if t['direction']=='to_sram' and t['bytes']%8),
+             next(t for l in vww['layers'] for q in l['tiles'] for t in q['transfers']
+                  if t['direction']=='to_sram' and t['ext']>200000 and t['bytes']<=1024),
+             next(t for l in vww['layers'] for q in l['tiles'] for t in q['transfers']
+                  if t['direction']=='from_sram' and t['bytes']<=1024)]
+    for item in planned:
+        length=item['bytes']; sb=item['sram']; eb=item['ext']
+        payload=bytes(rng.randrange(256) for _ in range(length))
+        if item['direction']=='to_sram':
+            external[eb:eb+length]=payload
+            await transfer(1,sb,eb,length)
+            assert sram[sb:sb+length]==payload
+        else:
+            sram[sb:sb+length]=payload
+            await transfer(0,sb,eb,length)
+            assert external[eb:eb+length]==payload
     # A transfer ending on the last byte verifies the full 24-bit address path.
     external[-16:]=bytes(range(16))
     await transfer(1,0,len(external)-16,16)

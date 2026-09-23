@@ -1,4 +1,4 @@
-# Phase 4 working record — 2026-09-23
+# Phase 4 working record — updated 2026-09-24
 
 **Physical addendum:** the reset-corrected target 8196 now runs on the actual
 Tang Nano 20K. MLP → SmallCNN → MLP passed 1,000 jobs per stage, and all seven
@@ -57,11 +57,47 @@ It is **single-outstanding**: it does not yet issue SDRAM bursts, arbitrate
 with the compute engine, double-buffer tiles or overlap compute and transfer.
 
 Gowin Education includes SDRAM Controller HS IP, which may be a suitable
-integration path. Its project-specific embedded-SDRAM geometry, clocking,
-initialization, refresh, timing and licensing have not been configured or
-verified here. There is no controller in the current source manifest or
-bitstream. D01's full-range/1-GiB traffic gate, D02's burst/overlap gate and
-D03's tiled inference gate remain open.
+integration path. The [vendor datasheet](https://cdn.gowinsemi.com.cn/DS226E.pdf)
+specifies this device's embedded SDRAM as 8 MiB, 32 bits, four banks, 2048
+rows and 256 columns per bank, with 4096 refresh cycles per 64 ms. Those
+facts are pinned in the [geometry manifest](../../hardware/sdram_tang_nano_20k.json).
+The controller IP configuration found in Gowin's installed example tree is
+**not suitable**: it is 16-bit, 13-row-bit, 9-column-bit and describes 32 MiB.
+The new [IP guard](../../tools/phase4/audit_sdram_ip.py) rejects it. This
+example is outside the project, and it was never part of the board image.
+The target-specific controller still needs generation, clocking, route,
+initialization and physical refresh validation. There is no controller in the
+current source manifest or bitstream.
+
+The [boardless tiling planner](../../compiler/phase4_tiling.py) now emits one
+legal v2 descriptor and aligned DMA transfer sequence per tile across all
+frozen KWS/VWW nodes. It reserves two nonoverlapping external activation
+slots, packs per-node weight and parameter regions, and refuses a tile that
+cannot fit the 32-KiB SRAM or 8-MiB external address range. The
+[machine-readable plans](evidence/phase4/boardless-tiling-summary.json) are
+reproducible with `make p4-plan`. KWS uses 20 compute tiles across 20 compute
+nodes, peaks at 21,248 SRAM bytes and plans 322,006 DMA payload bytes. VWW
+uses 75 compute tiles across 56 compute nodes, peaks at 32,768 SRAM bytes and
+plans 1,359,570 DMA payload bytes. Alias/layout nodes do not execute on the
+engine. A host-layout VWW transpose is assumed at its declared boundary.
+These counts are geometry and traffic estimates, **not** full-model RTL
+execution, timing or SDRAM bandwidth measurements. The planner uses a single
+tile at a time and does not implement burst commands, compute/DMA overlap or
+ping-pong scratchpad tiles. The randomized abstract-port RTL DMA test now
+also replays selected planner-produced high-address, short and tail transfers.
+
+D01's physical full-range/1-GiB refresh gate, D02's burst/overlap gate,
+D03's tensor-value tiled inference gate and P01's fitted measurement gate
+remain open.
+
+`make p4-test PYTHON=/absolute/path/to/.venv/bin/python` now passes 127
+compiler tests, target/ISA checks, Verilator lint, the existing kernel RTL
+regression, the abstract DMA RTL regression with planner-derived transfers,
+the frozen inventory audit and deterministic plan reproduction. The new
+schedule tests independently check descriptor legality, all tile output-byte
+coverage, disjoint live activation slots, SRAM region separation and exact
+byte movement through each declared transfer. They do not prove arithmetic
+for complete model nodes, controller behavior, refresh or board timing.
 
 ## Historical routed candidate and evidence
 
@@ -97,11 +133,14 @@ held-out latency model or measured energy database.
 
 ## Next work to close G4
 
-Configure and integrate the target-compatible Gowin SDRAM controller, then
-verify initialization, refresh, full address reach, bank/row boundaries and
-at least 1 GiB aggregate read/write traffic independently of inference.
-Add a burst adapter, compute/DMA arbitration and ping-pong tiles with explicit
-live-region protection. Extend compiler lowering to emit tiled transfers and
-run complete pinned audio and vision node values through RTL, including
-weights larger than SRAM. Only then build the held-out kernel/DMA cost
-database, reroute the integrated hierarchy and collect physical board results.
+Generate the **32-bit, 2-bank-bit, 11-row-bit, 8-column-bit** embedded SDRAM
+IP for this exact part and pass the configuration guard; integrate it into a
+new board hierarchy without changing the archived kernel release. Verify
+initialization, refresh, full address reach, bank/row boundaries and at least
+1 GiB aggregate read/write traffic independently of inference. Add a burst
+adapter, compute/DMA arbitration and ping-pong scratchpad tiles with explicit
+live-region protection. Connect the geometry-only tile plan to real packed
+weights, quantization parameters and tensor values; run all pinned audio and
+vision nodes through RTL with an independent exact oracle. Then build a
+held-out kernel/DMA cost database, reroute the integrated hierarchy and
+collect physical board results.

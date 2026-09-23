@@ -1,0 +1,12 @@
+{
+  "device": "GW2AR-LV18QN88C8/I7",
+  "memory": "embedded SDR SDRAM",
+  "data_width_bits": 32,
+  "bank_address_bits": 2,
+  "row_address_bits": 11,
+  "column_address_bits": 8,
+  "capacity_bytes": 8388608,
+  "refresh_cycles_per_64ms": 4096,
+  "source": "https://cdn.gowinsemi.com.cn/DS226E.pdf",
+  "source_section": "2.2.1 SDR SDRAM, pages 13-14 in PDF"
+}

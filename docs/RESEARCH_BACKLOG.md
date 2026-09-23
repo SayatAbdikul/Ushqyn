@@ -72,9 +72,14 @@ complete KWS/VWW inference and energy measurement remain later work.
 
 **Current G4: open.** C04 now has compiler/RTL kernel support and directed
 exact tests for pinned KWS/VWW geometries, but real model node execution and
-complete graphs are pending. A standalone abstract-port tile DMA passes
-randomized simulation; SDRAM controller integration, bursts, overlap, tiled
-inference, the fitted cost database and integrated-SDRAM board validation remain pending. On-chip physical model and directed-kernel checks now pass.
+complete graphs are pending. A checked geometry-only plan covers all 22 KWS
+and 58 VWW nodes with legal 32-KiB tiles and abstract-port DMA transfers.
+The installed Gowin example SDRAM IP has the wrong width and capacity for the
+board; a guard now rejects it. A standalone abstract-port tile DMA passes
+randomized simulation, including selected transfers from that plan. Correct
+SDRAM controller integration, bursts, overlap, tensor-value tiled inference,
+the fitted cost database and integrated-SDRAM board validation remain pending.
+On-chip physical model and directed-kernel checks now pass.
 See [Phase 4 status](research/PHASE_4_STATUS.md).
 
 ## P5 — weeks 18–20: credible complete-model baselines

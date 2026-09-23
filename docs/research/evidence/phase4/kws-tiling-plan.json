@@ -1,0 +1,1121 @@
+{
+  "activation_slot_bytes": 8000,
+  "external_bytes": 8388608,
+  "final_output_slot": 0,
+  "inventory_sha256": "c66cff83065c39d176f2c289e3b707f258e3a30f6a8fad912e0e46d38675f0d1",
+  "layers": [
+    {
+      "index": 0,
+      "kind": "alias",
+      "tiles": []
+    },
+    {
+      "index": 1,
+      "input_bytes": 490,
+      "input_slot": 0,
+      "kind": "conv",
+      "output_bytes": 8000,
+      "output_slot": 1,
+      "tiles": [
+        {
+          "count": 64,
+          "descriptor_hex": "55534432020400008000000070020000b0210000b02b000028000000401f000028000000400000000a00040002000200040005000100010031000a0001004000",
+          "first": 0,
+          "regions": {
+            "input": {
+              "base": 128,
+              "bytes": 490
+            },
+            "output": {
+              "base": 624,
+              "bytes": 8000
+            },
+            "params": {
+              "base": 11184,
+              "bytes": 1024
+            },
+            "weight": {
+              "base": 8624,
+              "bytes": 2560
+            }
+          },
+          "scratch_bytes": 12208,
+          "transfers": [
+            {
+              "bytes": 490,
+              "direction": "to_sram",
+              "ext": 0,
+              "sram": 128
+            },
+            {
+              "bytes": 2560,
+              "direction": "to_sram",
+              "ext": 16000,
+              "sram": 8624
+            },
+            {
+              "bytes": 1024,
+              "direction": "to_sram",
+              "ext": 18560,
+              "sram": 11184
+            },
+            {
+              "bytes": 8000,
+              "direction": "from_sram",
+              "ext": 8000,
+              "sram": 624
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "input_bytes": 8000,
+      "input_slot": 1,
+      "kind": "relu",
+      "output_bytes": 8000,
+      "output_slot": 0,
+      "tiles": [
+        {
+          "count": 8000,
+          "descriptor_hex": "555344320202000080000000c01f000000000000003f0000401f0000401f00000000000040000000010001000100010000000000000000000100010001000100",
+          "first": 0,
+          "regions": {
+            "input": {
+              "base": 128,
+              "bytes": 8000
+            },
+            "output": {
+              "base": 8128,
+              "bytes": 8000
+            },
+            "params": {
+              "base": 16128,
+              "bytes": 16
+            }
+          },
+          "scratch_bytes": 16144,
+          "transfers": [
+            {
+              "bytes": 8000,
+              "direction": "to_sram",
+              "ext": 8000,
+              "sram": 128
+            },
+            {
+              "bytes": 16,
+              "direction": "to_sram",
+              "ext": 19584,
+              "sram": 16128
+            },
+            {
+              "bytes": 8000,
+              "direction": "from_sram",
+              "ext": 0,
+              "sram": 8128
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "input_bytes": 8000,
+      "input_slot": 0,
+      "kind": "depthwise",
+      "output_bytes": 8000,
+      "output_slot": 1,
+      "tiles": [
+        {
+          "count": 64,
+          "descriptor_hex": "555344320206000080000000c01f0000003f00000043000009000000401f00001000000040000000030003000100010001000100010001001900050040004000",
+          "first": 0,
+          "regions": {
+            "input": {
+              "base": 128,
+              "bytes": 8000
+            },
+            "output": {
+              "base": 8128,
+              "bytes": 8000
+            },
+            "params": {
+              "base": 17152,
+              "bytes": 1024
+            },
+            "weight": {
+              "base": 16128,
+              "bytes": 1024
+            }
+          },
+          "scratch_bytes": 18176,
+          "transfers": [
+            {
+              "bytes": 8000,
+              "direction": "to_sram",
+              "ext": 0,
+              "sram": 128
+            },
+            {
+              "bytes": 1024,
+              "direction": "to_sram",
+              "ext": 19600,
+              "sram": 16128
+            },
+            {
+              "bytes": 1024,
+              "direction": "to_sram",
+              "ext": 20624,
+              "sram": 17152
+            },
+            {
+              "bytes": 8000,
+              "direction": "from_sram",
+              "ext": 8000,
+              "sram": 8128
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "input_bytes": 8000,
+      "input_slot": 1,
+      "kind": "relu",
+      "output_bytes": 8000,
+      "output_slot": 0,
+      "tiles": [
+        {
+          "count": 8000,
+          "descriptor_hex": "555344320202000080000000c01f000000000000003f0000401f0000401f00000000000040000000010001000100010000000000000000000100010001000100",
+          "first": 0,
+          "regions": {
+            "input": {
+              "base": 128,
+              "bytes": 8000
+            },
+            "output": {
+              "base": 8128,
+              "bytes": 8000
+            },
+            "params": {
+              "base": 16128,
+              "bytes": 16
+            }
+          },
+          "scratch_bytes": 16144,
+          "transfers": [
+            {
+              "bytes": 8000,
+              "direction": "to_sram",
+              "ext": 8000,
+              "sram": 128
+            },
+            {
+              "bytes": 16,
+              "direction": "to_sram",
+              "ext": 21648,
+              "sram": 16128
+            },
+            {
+              "bytes": 8000,
+              "direction": "from_sram",
+              "ext": 0,
+              "sram": 8128
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "input_bytes": 8000,
+      "input_slot": 0,
+      "kind": "conv",
+      "output_bytes": 8000,
+      "output_slot": 1,
+      "tiles": [
+        {
+          "count": 64,
+          "descriptor_hex": "555344320204000080000000c01f0000003f0000004f000040000000401f00004000000040000000010001000100010000000000000000001900050040004000",
+          "first": 0,
+          "regions": {
+            "input": {
+              "base": 128,
+              "bytes": 8000
+            },
+            "output": {
+              "base": 8128,
+              "bytes": 8000
+            },
+            "params": {
+              "base": 20224,
+              "bytes": 1024
+            },
+            "weight": {
+              "base": 16128,
+              "bytes": 4096
+            }
+          },
+          "scratch_bytes": 21248,
+          "transfers": [
+            {
+              "bytes": 8000,
+              "direction": "to_sram",
+              "ext": 0,
+              "sram": 128
+            },
+            {
+              "bytes": 4096,
+              "direction": "to_sram",
+              "ext": 21664,
+              "sram": 16128
+            },
+            {
+              "bytes": 1024,
+              "direction": "to_sram",
+              "ext": 25760,
+              "sram": 20224
+            },
+            {
+              "bytes": 8000,
+              "direction": "from_sram",
+              "ext": 8000,
+              "sram": 8128
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "input_bytes": 8000,
+      "input_slot": 1,
+      "kind": "relu",
+      "output_bytes": 8000,
+      "output_slot": 0,
+      "tiles": [
+        {
+          "count": 8000,
+          "descriptor_hex": "555344320202000080000000c01f000000000000003f0000401f0000401f00000000000040000000010001000100010000000000000000000100010001000100",
+          "first": 0,
+          "regions": {
+            "input": {
+              "base": 128,
+              "bytes": 8000
+            },
+            "output": {
+              "base": 8128,
+              "bytes": 8000
+            },
+            "params": {
+              "base": 16128,
+              "bytes": 16
+            }
+          },
+          "scratch_bytes": 16144,
+          "transfers": [
+            {
+              "bytes": 8000,
+              "direction": "to_sram",
+              "ext": 8000,
+              "sram": 128
+            },
+            {
+              "bytes": 16,
+              "direction": "to_sram",
+              "ext": 26784,
+              "sram": 16128
+            },
+            {
+              "bytes": 8000,
+              "direction": "from_sram",
+              "ext": 0,
+              "sram": 8128
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "input_bytes": 8000,
+      "input_slot": 0,
+      "kind": "depthwise",
+      "output_bytes": 8000,
+      "output_slot": 1,
+      "tiles": [
+        {
+          "count": 64,
+          "descriptor_hex": "555344320206000080000000c01f0000003f00000043000009000000401f00001000000040000000030003000100010001000100010001001900050040004000",
+          "first": 0,
+          "regions": {
+            "input": {
+              "base": 128,
+              "bytes": 8000
+            },
+            "output": {
+              "base": 8128,
+              "bytes": 8000
+            },
+            "params": {
+              "base": 17152,
+              "bytes": 1024
+            },
+            "weight": {
+              "base": 16128,
+              "bytes": 1024
+            }
+          },
+          "scratch_bytes": 18176,
+          "transfers": [
+            {
+              "bytes": 8000,
+              "direction": "to_sram",
+              "ext": 0,
+              "sram": 128
+            },
+            {
+              "bytes": 1024,
+              "direction": "to_sram",
+              "ext": 26800,
+              "sram": 16128
+            },
+            {
+              "bytes": 1024,
+              "direction": "to_sram",
+              "ext": 27824,
+              "sram": 17152
+            },
+            {
+              "bytes": 8000,
+              "direction": "from_sram",
+              "ext": 8000,
+              "sram": 8128
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "input_bytes": 8000,
+      "input_slot": 1,
+      "kind": "relu",
+      "output_bytes": 8000,
+      "output_slot": 0,
+      "tiles": [
+        {
+          "count": 8000,
+          "descriptor_hex": "555344320202000080000000c01f000000000000003f0000401f0000401f00000000000040000000010001000100010000000000000000000100010001000100",
+          "first": 0,
+          "regions": {
+            "input": {
+              "base": 128,
+              "bytes": 8000
+            },
+            "output": {
+              "base": 8128,
+              "bytes": 8000
+            },
+            "params": {
+              "base": 16128,
+              "bytes": 16
+            }
+          },
+          "scratch_bytes": 16144,
+          "transfers": [
+            {
+              "bytes": 8000,
+              "direction": "to_sram",
+              "ext": 8000,
+              "sram": 128
+            },
+            {
+              "bytes": 16,
+              "direction": "to_sram",
+              "ext": 28848,
+              "sram": 16128
+            },
+            {
+              "bytes": 8000,
+              "direction": "from_sram",
+              "ext": 0,
+              "sram": 8128
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "input_bytes": 8000,
+      "input_slot": 0,
+      "kind": "conv",
+      "output_bytes": 8000,
+      "output_slot": 1,
+      "tiles": [
+        {
+          "count": 64,
+          "descriptor_hex": "555344320204000080000000c01f0000003f0000004f000040000000401f00004000000040000000010001000100010000000000000000001900050040004000",
+          "first": 0,
+          "regions": {
+            "input": {
+              "base": 128,
+              "bytes": 8000
+            },
+            "output": {
+              "base": 8128,
+              "bytes": 8000
+            },
+            "params": {
+              "base": 20224,
+              "bytes": 1024
+            },
+            "weight": {
+              "base": 16128,
+              "bytes": 4096
+            }
+          },
+          "scratch_bytes": 21248,
+          "transfers": [
+            {
+              "bytes": 8000,
+              "direction": "to_sram",
+              "ext": 0,
+              "sram": 128
+            },
+            {
+              "bytes": 4096,
+              "direction": "to_sram",
+              "ext": 28864,
+              "sram": 16128
+            },
+            {
+              "bytes": 1024,
+              "direction": "to_sram",
+              "ext": 32960,
+              "sram": 20224
+            },
+            {
+              "bytes": 8000,
+              "direction": "from_sram",
+              "ext": 8000,
+              "sram": 8128
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "input_bytes": 8000,
+      "input_slot": 1,
+      "kind": "relu",
+      "output_bytes": 8000,
+      "output_slot": 0,
+      "tiles": [
+        {
+          "count": 8000,
+          "descriptor_hex": "555344320202000080000000c01f000000000000003f0000401f0000401f00000000000040000000010001000100010000000000000000000100010001000100",
+          "first": 0,
+          "regions": {
+            "input": {
+              "base": 128,
+              "bytes": 8000
+            },
+            "output": {
+              "base": 8128,
+              "bytes": 8000
+            },
+            "params": {
+              "base": 16128,
+              "bytes": 16
+            }
+          },
+          "scratch_bytes": 16144,
+          "transfers": [
+            {
+              "bytes": 8000,
+              "direction": "to_sram",
+              "ext": 8000,
+              "sram": 128
+            },
+            {
+              "bytes": 16,
+              "direction": "to_sram",
+              "ext": 33984,
+              "sram": 16128
+            },
+            {
+              "bytes": 8000,
+              "direction": "from_sram",
+              "ext": 0,
+              "sram": 8128
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 11,
+      "input_bytes": 8000,
+      "input_slot": 0,
+      "kind": "depthwise",
+      "output_bytes": 8000,
+      "output_slot": 1,
+      "tiles": [
+        {
+          "count": 64,
+          "descriptor_hex": "555344320206000080000000c01f0000003f00000043000009000000401f00001000000040000000030003000100010001000100010001001900050040004000",
+          "first": 0,
+          "regions": {
+            "input": {
+              "base": 128,
+              "bytes": 8000
+            },
+            "output": {
+              "base": 8128,
+              "bytes": 8000
+            },
+            "params": {
+              "base": 17152,
+              "bytes": 1024
+            },
+            "weight": {
+              "base": 16128,
+              "bytes": 1024
+            }
+          },
+          "scratch_bytes": 18176,
+          "transfers": [
+            {
+              "bytes": 8000,
+              "direction": "to_sram",
+              "ext": 0,
+              "sram": 128
+            },
+            {
+              "bytes": 1024,
+              "direction": "to_sram",
+              "ext": 34000,
+              "sram": 16128
+            },
+            {
+              "bytes": 1024,
+              "direction": "to_sram",
+              "ext": 35024,
+              "sram": 17152
+            },
+            {
+              "bytes": 8000,
+              "direction": "from_sram",
+              "ext": 8000,
+              "sram": 8128
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 12,
+      "input_bytes": 8000,
+      "input_slot": 1,
+      "kind": "relu",
+      "output_bytes": 8000,
+      "output_slot": 0,
+      "tiles": [
+        {
+          "count": 8000,
+          "descriptor_hex": "555344320202000080000000c01f000000000000003f0000401f0000401f00000000000040000000010001000100010000000000000000000100010001000100",
+          "first": 0,
+          "regions": {
+            "input": {
+              "base": 128,
+              "bytes": 8000
+            },
+            "output": {
+              "base": 8128,
+              "bytes": 8000
+            },
+            "params": {
+              "base": 16128,
+              "bytes": 16
+            }
+          },
+          "scratch_bytes": 16144,
+          "transfers": [
+            {
+              "bytes": 8000,
+              "direction": "to_sram",
+              "ext": 8000,
+              "sram": 128
+            },
+            {
+              "bytes": 16,
+              "direction": "to_sram",
+              "ext": 36048,
+              "sram": 16128
+            },
+            {
+              "bytes": 8000,
+              "direction": "from_sram",
+              "ext": 0,
+              "sram": 8128
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 13,
+      "input_bytes": 8000,
+      "input_slot": 0,
+      "kind": "conv",
+      "output_bytes": 8000,
+      "output_slot": 1,
+      "tiles": [
+        {
+          "count": 64,
+          "descriptor_hex": "555344320204000080000000c01f0000003f0000004f000040000000401f00004000000040000000010001000100010000000000000000001900050040004000",
+          "first": 0,
+          "regions": {
+            "input": {
+              "base": 128,
+              "bytes": 8000
+            },
+            "output": {
+              "base": 8128,
+              "bytes": 8000
+            },
+            "params": {
+              "base": 20224,
+              "bytes": 1024
+            },
+            "weight": {
+              "base": 16128,
+              "bytes": 4096
+            }
+          },
+          "scratch_bytes": 21248,
+          "transfers": [
+            {
+              "bytes": 8000,
+              "direction": "to_sram",
+              "ext": 0,
+              "sram": 128
+            },
+            {
+              "bytes": 4096,
+              "direction": "to_sram",
+              "ext": 36064,
+              "sram": 16128
+            },
+            {
+              "bytes": 1024,
+              "direction": "to_sram",
+              "ext": 40160,
+              "sram": 20224
+            },
+            {
+              "bytes": 8000,
+              "direction": "from_sram",
+              "ext": 8000,
+              "sram": 8128
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 14,
+      "input_bytes": 8000,
+      "input_slot": 1,
+      "kind": "relu",
+      "output_bytes": 8000,
+      "output_slot": 0,
+      "tiles": [
+        {
+          "count": 8000,
+          "descriptor_hex": "555344320202000080000000c01f000000000000003f0000401f0000401f00000000000040000000010001000100010000000000000000000100010001000100",
+          "first": 0,
+          "regions": {
+            "input": {
+              "base": 128,
+              "bytes": 8000
+            },
+            "output": {
+              "base": 8128,
+              "bytes": 8000
+            },
+            "params": {
+              "base": 16128,
+              "bytes": 16
+            }
+          },
+          "scratch_bytes": 16144,
+          "transfers": [
+            {
+              "bytes": 8000,
+              "direction": "to_sram",
+              "ext": 8000,
+              "sram": 128
+            },
+            {
+              "bytes": 16,
+              "direction": "to_sram",
+              "ext": 41184,
+              "sram": 16128
+            },
+            {
+              "bytes": 8000,
+              "direction": "from_sram",
+              "ext": 0,
+              "sram": 8128
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 15,
+      "input_bytes": 8000,
+      "input_slot": 0,
+      "kind": "depthwise",
+      "output_bytes": 8000,
+      "output_slot": 1,
+      "tiles": [
+        {
+          "count": 64,
+          "descriptor_hex": "555344320206000080000000c01f0000003f00000043000009000000401f00001000000040000000030003000100010001000100010001001900050040004000",
+          "first": 0,
+          "regions": {
+            "input": {
+              "base": 128,
+              "bytes": 8000
+            },
+            "output": {
+              "base": 8128,
+              "bytes": 8000
+            },
+            "params": {
+              "base": 17152,
+              "bytes": 1024
+            },
+            "weight": {
+              "base": 16128,
+              "bytes": 1024
+            }
+          },
+          "scratch_bytes": 18176,
+          "transfers": [
+            {
+              "bytes": 8000,
+              "direction": "to_sram",
+              "ext": 0,
+              "sram": 128
+            },
+            {
+              "bytes": 1024,
+              "direction": "to_sram",
+              "ext": 41200,
+              "sram": 16128
+            },
+            {
+              "bytes": 1024,
+              "direction": "to_sram",
+              "ext": 42224,
+              "sram": 17152
+            },
+            {
+              "bytes": 8000,
+              "direction": "from_sram",
+              "ext": 8000,
+              "sram": 8128
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 16,
+      "input_bytes": 8000,
+      "input_slot": 1,
+      "kind": "relu",
+      "output_bytes": 8000,
+      "output_slot": 0,
+      "tiles": [
+        {
+          "count": 8000,
+          "descriptor_hex": "555344320202000080000000c01f000000000000003f0000401f0000401f00000000000040000000010001000100010000000000000000000100010001000100",
+          "first": 0,
+          "regions": {
+            "input": {
+              "base": 128,
+              "bytes": 8000
+            },
+            "output": {
+              "base": 8128,
+              "bytes": 8000
+            },
+            "params": {
+              "base": 16128,
+              "bytes": 16
+            }
+          },
+          "scratch_bytes": 16144,
+          "transfers": [
+            {
+              "bytes": 8000,
+              "direction": "to_sram",
+              "ext": 8000,
+              "sram": 128
+            },
+            {
+              "bytes": 16,
+              "direction": "to_sram",
+              "ext": 43248,
+              "sram": 16128
+            },
+            {
+              "bytes": 8000,
+              "direction": "from_sram",
+              "ext": 0,
+              "sram": 8128
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 17,
+      "input_bytes": 8000,
+      "input_slot": 0,
+      "kind": "conv",
+      "output_bytes": 8000,
+      "output_slot": 1,
+      "tiles": [
+        {
+          "count": 64,
+          "descriptor_hex": "555344320204000080000000c01f0000003f0000004f000040000000401f00004000000040000000010001000100010000000000000000001900050040004000",
+          "first": 0,
+          "regions": {
+            "input": {
+              "base": 128,
+              "bytes": 8000
+            },
+            "output": {
+              "base": 8128,
+              "bytes": 8000
+            },
+            "params": {
+              "base": 20224,
+              "bytes": 1024
+            },
+            "weight": {
+              "base": 16128,
+              "bytes": 4096
+            }
+          },
+          "scratch_bytes": 21248,
+          "transfers": [
+            {
+              "bytes": 8000,
+              "direction": "to_sram",
+              "ext": 0,
+              "sram": 128
+            },
+            {
+              "bytes": 4096,
+              "direction": "to_sram",
+              "ext": 43264,
+              "sram": 16128
+            },
+            {
+              "bytes": 1024,
+              "direction": "to_sram",
+              "ext": 47360,
+              "sram": 20224
+            },
+            {
+              "bytes": 8000,
+              "direction": "from_sram",
+              "ext": 8000,
+              "sram": 8128
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 18,
+      "input_bytes": 8000,
+      "input_slot": 1,
+      "kind": "relu",
+      "output_bytes": 8000,
+      "output_slot": 0,
+      "tiles": [
+        {
+          "count": 8000,
+          "descriptor_hex": "555344320202000080000000c01f000000000000003f0000401f0000401f00000000000040000000010001000100010000000000000000000100010001000100",
+          "first": 0,
+          "regions": {
+            "input": {
+              "base": 128,
+              "bytes": 8000
+            },
+            "output": {
+              "base": 8128,
+              "bytes": 8000
+            },
+            "params": {
+              "base": 16128,
+              "bytes": 16
+            }
+          },
+          "scratch_bytes": 16144,
+          "transfers": [
+            {
+              "bytes": 8000,
+              "direction": "to_sram",
+              "ext": 8000,
+              "sram": 128
+            },
+            {
+              "bytes": 16,
+              "direction": "to_sram",
+              "ext": 48384,
+              "sram": 16128
+            },
+            {
+              "bytes": 8000,
+              "direction": "from_sram",
+              "ext": 0,
+              "sram": 8128
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 19,
+      "input_bytes": 8000,
+      "input_slot": 0,
+      "kind": "avgpool",
+      "output_bytes": 64,
+      "output_slot": 1,
+      "tiles": [
+        {
+          "count": 64,
+          "descriptor_hex": "555344320207000080000000c01f00000000000000200000401f0000400000000000000040000000190005001900050000000000000000001900050040004000",
+          "first": 0,
+          "regions": {
+            "input": {
+              "base": 128,
+              "bytes": 8000
+            },
+            "output": {
+              "base": 8128,
+              "bytes": 64
+            },
+            "params": {
+              "base": 8192,
+              "bytes": 16
+            }
+          },
+          "scratch_bytes": 8208,
+          "transfers": [
+            {
+              "bytes": 8000,
+              "direction": "to_sram",
+              "ext": 0,
+              "sram": 128
+            },
+            {
+              "bytes": 16,
+              "direction": "to_sram",
+              "ext": 48400,
+              "sram": 8192
+            },
+            {
+              "bytes": 64,
+              "direction": "from_sram",
+              "ext": 8000,
+              "sram": 8128
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 20,
+      "kind": "alias",
+      "tiles": []
+    },
+    {
+      "index": 21,
+      "input_bytes": 64,
+      "input_slot": 1,
+      "kind": "gemm",
+      "output_bytes": 12,
+      "output_slot": 0,
+      "tiles": [
+        {
+          "count": 12,
+          "descriptor_hex": "555344320201000080000000c0000000d0000000d0030000400000000c0000004000000040000000010001000100010000000000000000000100010001000100",
+          "first": 0,
+          "regions": {
+            "input": {
+              "base": 128,
+              "bytes": 64
+            },
+            "output": {
+              "base": 192,
+              "bytes": 12
+            },
+            "params": {
+              "base": 976,
+              "bytes": 192
+            },
+            "weight": {
+              "base": 208,
+              "bytes": 768
+            }
+          },
+          "scratch_bytes": 1168,
+          "transfers": [
+            {
+              "bytes": 64,
+              "direction": "to_sram",
+              "ext": 8000,
+              "sram": 128
+            },
+            {
+              "bytes": 768,
+              "direction": "to_sram",
+              "ext": 48416,
+              "sram": 208
+            },
+            {
+              "bytes": 192,
+              "direction": "to_sram",
+              "ext": 49184,
+              "sram": 976
+            },
+            {
+              "bytes": 12,
+              "direction": "from_sram",
+              "ext": 0,
+              "sram": 192
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "parameter_end": 49376,
+  "schema": 1,
+  "sram_bytes": 32768
+}

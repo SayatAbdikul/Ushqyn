@@ -57,6 +57,8 @@ test-compiler:
 	    test_static_pipeline.py \
 	    test_hardware_v2.py \
 	    test_phase4_kernels.py \
+	    test_phase4_tiling.py \
+	    test_phase4_sdram_geometry.py \
 	    test_memory_planner.py \
 	    -q --tb=short
 
@@ -120,7 +122,7 @@ p3-quality:
 p3-switch: check-v2-target v2-lint p3-fixture v2-fixture
 	$(PYTHON) test/phase3/run.py
 
-.PHONY: p4-kernels p4-dma p4-audit p4-test
+.PHONY: p4-kernels p4-dma p4-audit p4-plan p4-test
 p4-kernels: check-v2-target v2-lint
 	$(PYTHON) test/phase4/run.py
 
@@ -130,7 +132,10 @@ p4-dma:
 p4-audit:
 	$(PYTHON) tools/phase4/audit_inventories.py
 
-p4-test: ci p4-kernels p4-dma p4-audit
+p4-plan:
+	$(PYTHON) tools/phase4/plan_tiling.py --check
+
+p4-test: ci p4-kernels p4-dma p4-audit p4-plan
 
 .PHONY: p5-plan p5-audit
 p5-plan:
