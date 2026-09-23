@@ -1,0 +1,62 @@
+{
+  "date": "2026-09-23",
+  "tool": "Gowin Education V1.9.11.03",
+  "part": "GW2AR-LV18QN88C8/I7",
+  "revision": "C",
+  "constraint_mhz": 27,
+  "routed_fmax_mhz": 27.473,
+  "worst_setup_slack_ns": 0.638,
+  "resources": {
+    "Logic": [
+      7525,
+      20736
+    ],
+    "Register": [
+      2341,
+      15750
+    ],
+    "BSRAM": [
+      16,
+      46
+    ],
+    "DSP": [
+      19.75,
+      24
+    ],
+    "SSRAM_RAM16_used": 37
+  },
+  "bitstream_sha256": "0ea86b65fd31a5d253c1c0e40b7b49b8b26404bac300e1a02a80a564d50f133c",
+  "bitstream_bytes": 7262008,
+  "raw_route_sha256": "8e497a9aa2c337a223334ded186424d1a90489b0a0cb74f014373f0ce09b46bd",
+  "source_manifest_sha256": "6be09337ec2e8518fa220f693f9b40ed72a1d74079b6f0ba9ca358e109d83cd9",
+  "software_source_manifest_sha256": "fac378cb49319df2bb57e4cfd7d59a479fcc0e0ec239b47a3a8a97cfb4f6baea",
+  "board_image_sha256": "04674e9016efe980f43db5cc5c27d371b2e6ffac5a31e9d1880088719f70ca79",
+  "fixture_sha256": "15bb9a4299eb470ab7644e763bff121fbd8010485611bce307a3ef5431cad960",
+  "full_quality_predictions_sha256": "1f652cf5ce92d85c21700f7f6bcb746cd895dff555579a2f6eef402dde40df13",
+  "simulated_jobs": 1000,
+  "integer_mismatches": 0,
+  "all_layer_jobs": 1,
+  "stage_checks": 8,
+  "core_cycles_per_job": 182535,
+  "useful_macs_per_job": 61184,
+  "full_mnist_float_correct": 9647,
+  "full_mnist_integer_correct": 9640,
+  "directed_rtl_tests": {
+    "engine": [
+      "randomized_memory_latency_and_abort"
+    ],
+    "system": [
+      "protocol_and_inference",
+      "complete_mlp_jobs"
+    ],
+    "board": [
+      "serial_board_top"
+    ],
+    "switch": [
+      "change_mlp_cnn_mlp_without_bitstream_reload"
+    ]
+  },
+  "generic_clock_routing_warning": true,
+  "physical_board_programmed": false,
+  "measured_power": false
+}

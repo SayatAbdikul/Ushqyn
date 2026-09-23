@@ -3,12 +3,13 @@
 import argparse,hashlib,json,time
 from pathlib import Path
 import numpy as np
-from host import Client,RESET
+from host import Client,RESET,TARGET
 p=argparse.ArgumentParser();p.add_argument('--port',required=True);p.add_argument('--fixture',type=Path,required=True);p.add_argument('--report',type=Path,required=True);p.add_argument('--jobs',type=int,default=1000);a=p.parse_args()
 import serial
 meta=json.loads((a.fixture/'board.json').read_text());blob=(a.fixture/'board.bin').read_bytes();f=np.load(a.fixture/'checks.npz',allow_pickle=False)
 if a.jobs<1 or a.jobs>len(f['inputs']):raise ValueError('job count exceeds pinned inputs')
 if hashlib.sha256(blob).hexdigest()!=meta['image_sha256']:raise ValueError('image digest mismatch')
+if meta['target']!=TARGET['name']:raise ValueError('target/image ABI mismatch')
 records=[];begin=time.time()
 with serial.Serial(a.port,115200,timeout=2,write_timeout=2) as uart:
     client=Client(uart)

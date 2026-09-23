@@ -27,6 +27,10 @@ help:
 	@echo "  v2-lint        Strict Verilator lint of active board hierarchy"
 	@echo "  v2-fixture     Build trained MLP image and 1,000 exact oracle cases"
 	@echo "  v2-test        Full phase-2 RTL simulation suites (includes 1,000 jobs)"
+	@echo "  p3-fixture     Build trained SmallCNN and 1,000 independent cases"
+	@echo "  p3-native      Run 1,000 SmallCNN jobs through board-system RTL"
+	@echo "  p3-quality     Evaluate all 10,000 MNIST images in float and INT8"
+	@echo "  p3-switch      Test MLP↔SmallCNN model switching in one RTL system"
 	@echo "  heavy-test     Full MLP MNIST cocotb test (requires Verilator)"
 	@echo "                 Pass NUM_IMAGES=N to test N images (default: 2 here)."
 	@echo "  clean          Remove generated artifacts and caches"
@@ -46,6 +50,7 @@ test-compiler:
 	    test_buffer_allocator.py \
 	    test_static_pipeline.py \
 	    test_hardware_v2.py \
+	    test_memory_planner.py \
 	    -q --tb=short
 
 check-isa:
@@ -94,3 +99,16 @@ v2-test: check-v2-target v2-lint v2-fixture
 	$(PYTHON) test/phase2/run.py engine
 	$(PYTHON) test/phase2/run.py board
 	$(PYTHON) test/phase2/run.py system
+
+.PHONY: p3-fixture p3-native p3-quality p3-switch
+p3-fixture:
+	$(PYTHON) tools/phase3/prepare_smallcnn.py --jobs 1000
+
+p3-native: check-v2-target v2-lint p3-fixture
+	$(PYTHON) tools/phase3/run_native.py
+
+p3-quality:
+	$(PYTHON) tools/phase3/prepare_smallcnn.py --jobs 10000 --quality-only --output work/phase3/full-quality
+
+p3-switch: check-v2-target v2-lint p3-fixture v2-fixture
+	$(PYTHON) test/phase3/run.py

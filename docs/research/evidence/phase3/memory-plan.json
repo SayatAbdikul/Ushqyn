@@ -1,0 +1,191 @@
+{
+  "image_sha256": "04674e9016efe980f43db5cc5c27d371b2e6ffac5a31e9d1880088719f70ca79",
+  "memory": {
+    "logical_bytes": 12014,
+    "allocated_high_watermark": 9568,
+    "peak_live_bytes": 8208,
+    "physical_capacity_bytes": 32768,
+    "reserved_program_bytes": 576,
+    "port_count": 1,
+    "port_width_bits": 64,
+    "byte_lanes": 8,
+    "lane_depth": 4096,
+    "bsram_payload_bits": 18432,
+    "predicted_bsram_blocks": 16,
+    "nominal_bsram_blocks": 16,
+    "note": "BSRAM count is tied to the exact synthesized 32-KiB scratchpad"
+  },
+  "segments": [
+    {
+      "name": "7/weights",
+      "offset": 576,
+      "size": 2000,
+      "logical_bytes": 2000,
+      "first": -1,
+      "last": 8,
+      "kind": "weights"
+    },
+    {
+      "name": "input",
+      "offset": 2576,
+      "size": 784,
+      "logical_bytes": 784,
+      "first": -1,
+      "last": 0,
+      "kind": "tensor"
+    },
+    {
+      "name": "3/weights",
+      "offset": 3360,
+      "size": 320,
+      "logical_bytes": 320,
+      "first": -1,
+      "last": 8,
+      "kind": "weights"
+    },
+    {
+      "name": "7/params",
+      "offset": 3680,
+      "size": 160,
+      "logical_bytes": 160,
+      "first": -1,
+      "last": 8,
+      "kind": "params"
+    },
+    {
+      "name": "3/params",
+      "offset": 3840,
+      "size": 128,
+      "logical_bytes": 128,
+      "first": -1,
+      "last": 8,
+      "kind": "params"
+    },
+    {
+      "name": "0/params",
+      "offset": 3968,
+      "size": 64,
+      "logical_bytes": 64,
+      "first": -1,
+      "last": 8,
+      "kind": "params"
+    },
+    {
+      "name": "0/weights",
+      "offset": 4032,
+      "size": 64,
+      "logical_bytes": 64,
+      "first": -1,
+      "last": 8,
+      "kind": "weights"
+    },
+    {
+      "name": "1/params",
+      "offset": 4096,
+      "size": 16,
+      "logical_bytes": 16,
+      "first": -1,
+      "last": 8,
+      "kind": "params"
+    },
+    {
+      "name": "2/params",
+      "offset": 4112,
+      "size": 16,
+      "logical_bytes": 16,
+      "first": -1,
+      "last": 8,
+      "kind": "params"
+    },
+    {
+      "name": "4/params",
+      "offset": 4128,
+      "size": 16,
+      "logical_bytes": 16,
+      "first": -1,
+      "last": 8,
+      "kind": "params"
+    },
+    {
+      "name": "5/params",
+      "offset": 4144,
+      "size": 16,
+      "logical_bytes": 16,
+      "first": -1,
+      "last": 8,
+      "kind": "params"
+    },
+    {
+      "name": "/conv1/Conv_output_0",
+      "offset": 4160,
+      "size": 2704,
+      "logical_bytes": 2704,
+      "first": 0,
+      "last": 1,
+      "kind": "tensor"
+    },
+    {
+      "name": "/relu/Relu_output_0",
+      "offset": 6864,
+      "size": 2704,
+      "logical_bytes": 2704,
+      "first": 1,
+      "last": 2,
+      "kind": "tensor"
+    },
+    {
+      "name": "/pool/MaxPool_output_0",
+      "offset": 2576,
+      "size": 680,
+      "logical_bytes": 676,
+      "first": 2,
+      "last": 3,
+      "kind": "tensor"
+    },
+    {
+      "name": "/conv2/Conv_output_0",
+      "offset": 4160,
+      "size": 968,
+      "logical_bytes": 968,
+      "first": 3,
+      "last": 4,
+      "kind": "tensor"
+    },
+    {
+      "name": "/relu_1/Relu_output_0",
+      "offset": 5128,
+      "size": 968,
+      "logical_bytes": 968,
+      "first": 4,
+      "last": 5,
+      "kind": "tensor"
+    },
+    {
+      "name": "/pool_1/MaxPool_output_0",
+      "offset": 2576,
+      "size": 200,
+      "logical_bytes": 200,
+      "first": 5,
+      "last": 6,
+      "kind": "tensor"
+    },
+    {
+      "name": "/Reshape_output_0",
+      "offset": 2776,
+      "size": 200,
+      "logical_bytes": 200,
+      "first": 6,
+      "last": 7,
+      "kind": "tensor"
+    },
+    {
+      "name": "output",
+      "offset": 2576,
+      "size": 16,
+      "logical_bytes": 10,
+      "first": 7,
+      "last": 8,
+      "kind": "tensor"
+    }
+  ]
+}

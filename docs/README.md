@@ -4,15 +4,16 @@ Comprehensive documentation for the Ushqyn hardware accelerator.
 
 ## Overview
 
-Ushqyn (Ұшқын — Kazakh for *spark*) is a specialized hardware accelerator for neural-network inference with quantized 8-bit integer arithmetic. It implements a custom **8-instruction ISA** covering both MLP and small-CNN workloads. The simulation RTL has been validated bit-exactly against a Python golden model on a trained SmallCNN; historical FPGA reports describe a 3-layer MLP implementation, with 89.201 MHz synthesis timing and 37.502 MHz routed timing at a 27-MHz constraint. The current hierarchy fails device resource checks. Current board execution has not been verified.
+Ushqyn (Ұшқын — Kazakh for *spark*) is an INT8 TinyML accelerator project. The current numerical-v2 Tang Nano 20K hierarchy runs a complete trained SmallCNN in exact RTL simulation and has a 27-MHz routed candidate bitstream. Physical board execution and energy remain unmeasured. See the [Phase 3 status](research/PHASE_3_STATUS.md) for current evidence. Older architecture and workflow sections below document the historical v1 implementation.
 
 ## What's where
 
 ### Research planning
 
-- **[Phase 2 status](research/PHASE_2_STATUS.md)** — routed v2 MLP candidate, strict RTL results and pending physical-board checks.
+- **[Phase 3 status](research/PHASE_3_STATUS.md)** — routed SmallCNN candidate, exact 1,000-job RTL results and open G3 gate.
+- **[Phase 2 status](research/PHASE_2_STATUS.md)** — historical routed MLP candidate and pending physical-board checks.
 - **[Phase 0–1 status](research/PHASE_0_1_STATUS.md)** — completed software work, actual Gowin results, quality measurements, and open gates.
-- **[Numerical contract](specs/quantization.md)** — version-2 software arithmetic and image format; FPGA migration remains phase 2.
+- **[Numerical contract](specs/quantization.md)** — version-2 static INT8 arithmetic shared by software and the supported board subset.
 - **[Benchmark reproduction](../benchmarks/README.md)** — pinned models/data and exact evaluation commands.
 - **[RESEARCH_ASSESSMENT.md](RESEARCH_ASSESSMENT.md)** — September 2026 source audit, verified limitations, and research positioning; distinguishes current evidence from the historical status below.
 - **[RESEARCH_ROADMAP.md](RESEARCH_ROADMAP.md)** — 32-week plan for one full-time researcher, with equal audio/vision emphasis, measurable targets, experiment design, and publication gates.

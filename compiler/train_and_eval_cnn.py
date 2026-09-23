@@ -8,25 +8,11 @@ import os
 import tqdm
 
 from accelerator_config import AcceleratorConfig
+from smallcnn import SmallCNN
 import compile
 import assembler
 import dram
 import golden_model
-
-class SmallCNN(nn.Module):
-    def __init__(self):
-        super().__init__()
-        self.conv1   = nn.Conv2d(1, 4,  kernel_size=3, stride=1, padding=0, bias=True)
-        self.relu    = nn.ReLU()
-        self.pool    = nn.MaxPool2d(kernel_size=2, stride=2)
-        self.conv2   = nn.Conv2d(4, 8,  kernel_size=3, stride=1, padding=0, bias=True)
-        self.fc      = nn.Linear(8 * 5 * 5, AcceleratorConfig.OUT_N, bias=True)
-
-    def forward(self, x):
-        x = self.pool(self.relu(self.conv1(x)))   # → [4, 13, 13]
-        x = self.pool(self.relu(self.conv2(x)))   # → [8,  5,  5]
-        x = x.view(x.size(0), -1)                 # flatten → 200
-        return self.fc(x)
 
 def train_cnn(epochs=5):
     device = torch.device("cpu")

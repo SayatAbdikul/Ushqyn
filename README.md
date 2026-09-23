@@ -2,18 +2,33 @@
 
 > *Ushqyn* — Kazakh for **spark**: tiny, energetic, the genesis of fire.
 
-A hardware accelerator for neural-network inference with quantized 8-bit integer arithmetic. Implements a custom 8-instruction ISA covering both **MLP** and **small-CNN** workloads. The simulation RTL has been validated bit-exactly against a Python golden model on a trained CNN; the FPGA build runs a 3-layer MLP on MNIST on the Gowin GW2AR-18 (Tang Nano 20K) at 89 MHz.
+An INT8 TinyML accelerator targeting the Tang Nano 20K. The current
+numerical-v2 board hierarchy supports a trained MLP and SmallCNN, passes exact
+RTL simulation, and has a routed **27-MHz candidate bitstream**. No physical
+board execution or energy measurement has been completed. See the
+[Phase 3 status](docs/research/PHASE_3_STATUS.md) and
+[research roadmap](docs/RESEARCH_ROADMAP.md).
 
 ## Status
 
-| Workload | Compiler / Golden | Simulation RTL | FPGA (Tang Nano 20K) |
+| Workload | Software quality | Board-system RTL | Tang Nano 20K |
 |---|---|---|---|
-| **MLP** (3-layer 784→12→32→10 MNIST) | ✅ 95% accuracy | ✅ Bit-exact vs golden | ✅ 89 MHz, 25,470 cycles/img, 95% accuracy on 10K images |
-| **SmallCNN** (Conv→Pool→Conv→Pool→FC, 4/8 channels) | ✅ 96% accuracy | ✅ **Bit-exact vs golden** (every byte, every image) | ⚠️ Not yet ported (conv2d / maxpool units exist in `rtl/execution_unit/` but not in `rtl/fpga_modules/`) |
+| **MLP** (784→12→32→10 MNIST) | 94.84% static INT8 on 10K | 1,000 exact jobs in Phase 2; retained in current RTL | Routed candidate; physical runs pending |
+| **SmallCNN** (Conv→Pool→Conv→Pool→FC) | 96.40% static INT8 on 10K | 1,000 exact jobs, eight layer boundaries checked | 27.473-MHz routed candidate; physical runs pending |
+| **KWS / VWW** | Software models only | Unsupported hardware nodes reject | Future phases |
 
-The simulation RTL produces byte-for-byte the same output as `compiler/golden_model.py` on every MNIST image tested through the SmallCNN. End-to-end accuracy on the trained model matches PyTorch float32 within sample noise (94–96% across sample sizes).
+The current SmallCNN result uses an independent centered-integer oracle,
+source-hashed RTL and a separately calibrated 10,000-image quality evaluation.
+The [evidence record](docs/research/evidence/phase3/) distinguishes simulation,
+place-and-route and open physical checks.
 
-## Key Features
+## Historical v1 architecture
+
+The feature list and workflow below describe the older instruction-set design,
+not the current board ABI. Use [Phase 3 reproduction](hardware/PHASE_3.md) for
+the active accelerator.
+
+## Key Features (legacy)
 
 - **8-instruction ISA**: `LOAD_V`, `LOAD_M`, `STORE`, `GEMV`, `RELU`, `CONV2D_CFG`, `CONV2D_RUN` (with fused ReLU), `MAXPOOL`
 - **Tile-based compute**: 8-element tiles (FPGA) or 32-element tiles (simulation), BSRAM-backed
@@ -26,7 +41,7 @@ The simulation RTL produces byte-for-byte the same output as `compiler/golden_mo
 
 ### Run the CI tier (no simulator required)
 ```bash
-make ci         # 44 compiler-side tests + ISA spec drift check (~5 sec)
+make ci PYTHON=/absolute/path/to/.venv/bin/python3  # 121 compiler tests + generated-file checks
 make help       # full target list
 ```
 

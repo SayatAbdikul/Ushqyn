@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-"""Framed phase-2 serial client; RUN is never automatically retried."""
+"""Framed board serial client; RUN is never automatically retried."""
 import argparse,binascii,json,struct,time
 from pathlib import Path
+TARGET=json.loads((Path(__file__).resolve().parents[2]/'hardware/targets/tang_nano_20k_v2.json').read_text())
 
 CAPS,READ,WRITE,RUN,STATUS,ABORT,RESET=range(1,8)
 
-def frame(cmd,seq=0,address=0,data=b'',length=0,version=2):
+def frame(cmd,seq=0,address=0,data=b'',length=0,version=TARGET['protocol_version']):
     if not 0<=address<1<<24 or not 0<=length<=65535:raise ValueError('frame fields')
     if cmd==WRITE:length=len(data)
     elif data:raise ValueError('payload only valid for WRITE')
@@ -18,7 +19,7 @@ def parse_response(packet):
     length=int.from_bytes(packet[8:10],'little')
     if len(packet)!=12+length or not 1<=length<=65:raise ValueError('response length')
     if binascii.crc_hqx(packet[2:-2],0xffff)!=int.from_bytes(packet[-2:],'little'):raise ValueError('response CRC')
-    if packet[2]!=2 or not packet[3]&128:raise ValueError('response version/command')
+    if packet[2]!=TARGET['protocol_version'] or not packet[3]&128:raise ValueError('response version/command')
     return dict(command=packet[3]&127,sequence=packet[4],address=int.from_bytes(packet[5:8],'little'),status=packet[10],data=packet[11:-2])
 
 
@@ -44,7 +45,9 @@ class Client:
         return result['data']
     def capabilities(self):
         data=self.exchange(CAPS)
-        if len(data)!=10 or data[:4]!=bytes([2,2,8,64]) or data[7]!=24 or int.from_bytes(data[8:10],'little')!=8194:raise ValueError('incompatible target')
+        if (len(data)!=10 or data[:4]!=bytes([TARGET['numerics'],TARGET['descriptor_version'],TARGET['lanes'],TARGET['max_transfer']])
+                or data[7]!=TARGET['address_bits'] or int.from_bytes(data[8:10],'little')!=TARGET['target_id']):
+            raise ValueError('incompatible target')
         return int.from_bytes(data[4:7],'little')
     def write(self,address,data):
         for offset in range(0,len(data),64):self.exchange(WRITE,address+offset,data[offset:offset+64])
@@ -69,7 +72,7 @@ if __name__=='__main__':
             if not a.manifest:raise ValueError('board image requires its manifest')
             import hashlib
             metadata=json.loads(a.manifest.read_text());image=a.image.read_bytes()
-            if metadata.get('image_sha256')!=hashlib.sha256(image).hexdigest() or metadata.get('target')!='tang-nano-20k-v2' or len(image)!=capacity:raise ValueError('image/manifest mismatch')
+            if metadata.get('image_sha256')!=hashlib.sha256(image).hexdigest() or metadata.get('target')!=TARGET['name'] or len(image)!=capacity:raise ValueError('image/manifest mismatch')
             client.exchange(RESET);client.write(0,image)
             if client.read(0,len(image))!=image:raise ValueError('program readback mismatch')
             report['run']=client.run(metadata['entry']);report['image_sha256']=metadata['image_sha256']

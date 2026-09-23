@@ -1,12 +1,12 @@
 {
-  "name": "tang-nano-20k-v2", "target_id": 8194,
+  "name": "tang-nano-20k-phase3", "target_id": 8195,
   "device": "GW2AR-LV18QN88C8/I7", "device_revision": "C",
   "numerics": 2, "descriptor_version": 2, "protocol_version": 2,
   "clock_hz": 27000000, "baud": 115200, "address_bits": 24,
   "memory_bytes": 32768, "lanes": 8, "descriptor_bytes": 64,
   "max_transfer": 64, "timeout_cycles": 540000,
   "max_descriptors": 256, "watchdog_cycles": 27000000,
-  "opcodes": {"HALT": 0, "GEMM": 1, "RELU": 2, "COPY": 3},
+  "opcodes": {"HALT": 0, "GEMM": 1, "RELU": 2, "COPY": 3, "CONV": 4, "MAXPOOL": 5},
   "sources": [
     "rtl/v2/target_pkg.sv", "rtl/v2/requantizer.sv",
     "rtl/v2/scratchpad.sv", "rtl/v2/engine.sv", "rtl/v2/command.sv",

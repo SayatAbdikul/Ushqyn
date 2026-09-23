@@ -4,6 +4,7 @@ from pathlib import Path
 import numpy as np
 import pytest
 from hardware_v2 import Descriptor,lower,TARGET
+from memory_verifier import verify
 from test_static_pipeline import model,compile_case
 from onnx import helper as h
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'tools/phase2'))
@@ -30,7 +31,9 @@ def test_descriptor_legality_and_image_ownership():
     p=compile_case(m,np.ones((1,65),np.float32));blob,meta=lower(p)
     assert len(blob)==TARGET['memory_bytes'] and meta['used_bytes']<2048
     segments=meta['segments'];end=(len(p.layers)+1)*64
-    for s in segments:assert s['offset']>=end and s['offset']%8==0;end=s['offset']+s['size']
+    assert verify(segments,TARGET['memory_bytes'],end)['allocated_high_watermark']==meta['used_bytes']
+    assert meta['memory']['predicted_bsram_blocks']==16
+    for s in segments:assert s['offset']>=end and s['offset']%8==0
     d=Descriptor.decode(blob[:64]);d.validate();assert d.count==65 and d.row_stride==72
     params=struct.unpack('<iiBbbbbb2x',blob[d.params:d.params+16])
     assert params[0]==int(p.layers[0].parameters['corrected_bias'][0])
@@ -39,9 +42,11 @@ def test_descriptor_legality_and_image_ownership():
         with pytest.raises(ValueError):dataclasses.replace(d,**change).validate()
 
 
-def test_hardware_rejects_unsupported_and_oversized():
+def test_hardware_spatial_subset_and_oversized():
     conv=model([h.make_node('Conv',['x','w'],['y'])],{'w':np.ones((1,1,1,1))},[1,1,2,2],{'y':[1,1,2,2]})
-    with pytest.raises(ValueError,match='unsupported hardware'):lower(compile_case(conv,np.ones((1,1,2,2),np.float32)))
+    blob,_=lower(compile_case(conv,np.ones((1,1,2,2),np.float32)))
+    d=Descriptor.decode(blob[:64]);assert d.opcode==4 and d.output_c==1
+    with pytest.raises(ValueError):dataclasses.replace(d,stride_w=3).validate()
     large=model([h.make_node('Gemm',['x','w'],['y'],transB=1)],{'w':np.ones((64,784))*.01},[1,784],{'y':[1,64]})
     with pytest.raises(ValueError,match='exceeds target SRAM'):lower(compile_case(large,np.ones((1,784),np.float32)))
 

@@ -1,6 +1,6 @@
 // Generated from hardware/targets/tang_nano_20k_v2.json; do not edit.
 package target_pkg;
-    localparam integer TARGET_ID = 8194;
+    localparam integer TARGET_ID = 8195;
     localparam integer NUMERICS = 2;
     localparam integer DESC_VERSION = 2;
     localparam integer PROTOCOL_VERSION = 2;
@@ -18,4 +18,6 @@ package target_pkg;
     localparam logic [7:0] OP_GEMM = 1;
     localparam logic [7:0] OP_RELU = 2;
     localparam logic [7:0] OP_COPY = 3;
+    localparam logic [7:0] OP_CONV = 4;
+    localparam logic [7:0] OP_MAXPOOL = 5;
 endpackage

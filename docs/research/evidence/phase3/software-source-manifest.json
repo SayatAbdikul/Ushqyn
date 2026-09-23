@@ -1,0 +1,14 @@
+{
+  "compiler/hardware_v2.py": "b4f45375cf274623573967f0b716a1e5d27b1837b90c0ce00ef9e874ddac0363",
+  "compiler/memory_planner.py": "45d8d7d895a63b1426cb38697fdc03a14da6efc0ca8ed2c3792a09ff506839b0",
+  "compiler/memory_verifier.py": "ada01039b2869b5aea22c9fe169b21bf420b86bbff7c68d8a282399f642244dc",
+  "compiler/static_pipeline.py": "f6f4c5617e4b2ecaf536fdc9db457bfa4aa94192705031ad0f5126964c653b84",
+  "compiler/integer_reference.py": "b42d259a19c1a9c4da19a057d12b863e85076e2b07ffac94f844f585f09d273e",
+  "compiler/smallcnn.py": "a07208e915f835ea1ffe1b809249c6706b3a466850f39fb4a51c7cfc536c7a2e",
+  "tools/phase3/prepare_smallcnn.py": "d11b16f4b120a3b805c396346f6d05b4fa72af3f8ccb4423a7a73c2053699313",
+  "tools/phase3/run_native.py": "0aaab8686e1b82d96d84e002575901d77ba1d15d2384d1864e573a32e2daabd5",
+  "tools/phase3/collect_evidence.py": "fd1755dd3587f57ac0e5342a866b5d533aa40dd1d5cefd6dc4c502bcd90b194e",
+  "test/phase3/cnn_native.cpp": "002f2eeea3242b67b7afc0fd6b5090119e3adac9c8e9fbd23c138ad49979f987",
+  "test/phase3/run.py": "aefd9a375f2a60ccb6f7730099062ba6022e653511d4bfeea04b98dcbf386838",
+  "test/phase3/test_switch.py": "29cfacf6b5bcc1e989b26e48aadaf2a16954882469103f04f11594378c683a60"
+}

@@ -1,6 +1,7 @@
-**Current candidate:** [phase-2 Tang Nano 20K implementation](PHASE_2.md) has a
-routed v2 bitstream and 1,000 exact simulated MLP jobs. Physical board execution
-is still pending. The phase-0 report below describes the old source hierarchy.
+**Current candidate:** [phase-3 Tang Nano 20K implementation](PHASE_3.md) runs
+SmallCNN in board-system simulation and has a routed bitstream. Physical board
+execution is still pending. The [phase-2 FC release](PHASE_2.md) remains
+archived. The phase-0 report below describes the old source hierarchy.
 
 # Phase-0 Gowin and board checks
 

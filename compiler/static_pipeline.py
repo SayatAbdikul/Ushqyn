@@ -1,7 +1,7 @@
 """Calibrated, typed graph compiler and integer software execution (numerics v2).
 
-The descriptor VM is a software target. Existing FPGA RTL implements v1;
-requesting a v2 hardware executable is an error until phase H03 is complete.
+The software VM container is never flashed directly. Hardware lowering of its
+supported graph subset is implemented separately in ``hardware_v2.py``.
 """
 from dataclasses import dataclass, asdict
 import hashlib
@@ -86,7 +86,7 @@ def calibrate(model, samples, sample_ids):
 
 def compile_static(model, calibration, target='software-v2'):
     if target != 'software-v2':
-        raise ValueError("static INT8 v2 requires software-v2; FPGA RTL migration pending H03")
+        raise ValueError("compile_static emits software-v2; lower supported FPGA graphs separately")
     model = canonicalize(model)
     if calibration.get('schema') != 2 or calibration.get('model_sha256') != digest(model):
         raise ValueError("calibration version/model hash mismatch")
