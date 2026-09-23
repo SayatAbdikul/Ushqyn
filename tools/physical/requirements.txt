@@ -1,0 +1,2 @@
+# Install into the project's existing scientific Python environment.
+pyserial==3.5

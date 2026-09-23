@@ -2,7 +2,9 @@
 KWS/VWW-shaped compute nodes and has a routed 27-MHz bitstream. SDRAM and DMA
 are not integrated into that image. The [Phase 3 SmallCNN candidate](PHASE_3.md)
 and [Phase 2 FC release](PHASE_2.md) remain archived. Physical board execution
-is still pending. The phase-0 report below describes the old source hierarchy.
+is still pending. The [physical bring-up record](../docs/research/PHYSICAL_BOARD_STATUS.md)
+records the September 23 device detection and subsequent USB disconnect before
+programming. The phase-0 report below describes the old source hierarchy.
 
 # Phase-0 Gowin and board checks
 
