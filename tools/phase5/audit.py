@@ -43,11 +43,30 @@ def audit(root=ROOT):
         if payload.is_file() and sha256(payload) != plan['accuracy_split_npz_sha256'][name]:
             raise ValueError(f'{name} accuracy payload hash mismatch')
 
+    # The original Phase 4 snapshot remains historical. Later board bring-up
+    # uses a separately frozen reset-corrected release, without upgrading the
+    # complete-primary-model or SDRAM gates.
+    physical_path = root / 'docs/research/evidence/physical/summary.json'
+    physical = None
+    if physical_path.is_file():
+        physical = json.loads(physical_path.read_text())
+        bitstream = (root / physical['bitstream_path']).resolve()
+        if (not bitstream.is_relative_to(root.resolve()) or
+                sha256(bitstream) != physical['bitstream_sha256'] or
+                physical['status'] != 'passed' or
+                not physical['physical_board_programmed']):
+            raise ValueError('physical release evidence mismatch')
+        for name, expected in physical['artifacts'].items():
+            path = (physical_path.parent / name).resolve()
+            if (not path.is_relative_to(physical_path.parent.resolve()) or
+                    sha256(path) != expected['sha256']):
+                raise ValueError(f'physical artifact hash mismatch: {name}')
+
     checks = {
         'integrated_sdram_controller': bool(phase4['sdram_controller_integrated']),
         'integrated_dma': bool(phase4['dma_integrated']),
         'complete_primary_model_rtl': bool(phase4['complete_kws_vww_rtl']),
-        'physical_board_programmed': bool(phase4['physical_board_programmed']),
+        'physical_board_programmed': physical is not None,
         'kws_image_available': (root / 'work/quality/kws.uq2').is_file(),
         'vww_image_available': (root / 'work/quality/vww.uq2').is_file(),
         'kws_accuracy_payload_available': (root / 'work/quality/kws.accuracy.npz').is_file(),
@@ -62,6 +81,8 @@ def audit(root=ROOT):
         'schema': 1,
         'scope': 'readiness inventory; not a G5 certification',
         'phase4_release_sha256': phase4['bitstream_sha256'],
+        'physical_onchip_release_sha256': physical['bitstream_sha256'] if physical else None,
+        'physical_scope': physical['scope'] if physical else None,
         'schedule_sha256': plan['jsonl_sha256'],
         'schedule_jobs': plan['jobs'],
         'software_quality_only': quality,

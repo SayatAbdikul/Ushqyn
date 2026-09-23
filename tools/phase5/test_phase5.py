@@ -64,6 +64,25 @@ class Phase5Test(unittest.TestCase):
             self.assertFalse(report['g5_certified'])
             self.assertEqual(report['schedule_jobs'], 10000)
             self.assertFalse(report['checks']['integrated_sdram_controller'])
+            # A separate physical snapshot may clear board access, while the
+            # full-model gates remain false. Tampering with its raw log fails.
+            folder = root / 'docs/research/evidence/physical'
+            folder.mkdir(parents=True)
+            (folder / 'program.txt').write_text('programmed test fixture')
+            from audit import sha256
+            physical = dict(status='passed', physical_board_programmed=True,
+                            bitstream_path=paths[2], bitstream_sha256=sha256(root/paths[2]),
+                            scope='on-chip only', artifacts={
+                                'program.txt': {'sha256': sha256(folder/'program.txt')}})
+            (folder / 'summary.json').write_text(json.dumps(physical))
+            report = audit(root)
+            self.assertTrue(report['checks']['physical_board_programmed'])
+            self.assertFalse(report['g5_certified'])
+            self.assertFalse(report['checks']['complete_primary_model_rtl'])
+            (folder / 'program.txt').write_text('changed')
+            with self.assertRaisesRegex(ValueError, 'physical artifact hash mismatch'):
+                audit(root)
+            (folder / 'program.txt').write_text('programmed test fixture')
             with (root / paths[2]).open('ab') as stream:
                 stream.write(b'changed')
             with self.assertRaisesRegex(ValueError, 'bitstream hash mismatch'):

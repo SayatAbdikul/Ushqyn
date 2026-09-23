@@ -8,6 +8,7 @@ from pathlib import Path
 import numpy as np
 
 from run_models import ROOT, TARGET, digest, execute_fixture, load_fixture
+from collect_evidence import validate_phase
 
 
 class Link:
@@ -30,7 +31,7 @@ class Link:
 
     def run(self, pc):
         self.memory[16:18] = bytes([7, 9 if self.bad_output else 8])
-        return dict(useful_macs=2, elapsed=10 if not self.bad_counter else 11,
+        return dict(busy=False, error=0, useful_macs=2, elapsed=10 if not self.bad_counter else 11,
                     compute_cycles=4, wait_cycles=3, control_cycles=3,
                     protocol_errors=0)
 
@@ -76,6 +77,22 @@ class PhysicalRunnerTest(unittest.TestCase):
         (self.fixture / 'board.bin').write_bytes(b'wrong')
         with self.assertRaisesRegex(ValueError, 'image digest mismatch'):
             load_fixture(self.fixture, 1)
+
+    def test_archive_revalidates_raw_logits_despite_pass_flag(self):
+        result = {}
+        execute_fixture(Link(), self.fixture, 1, result)
+        validate_phase(result)
+        result['records'][0]['output_hex'] = '0709'  # Same class, wrong logit.
+        with self.assertRaisesRegex(ValueError, 'archived integer output mismatch'):
+            validate_phase(result)
+
+    def test_archive_rejects_wrong_accuracy_summary(self):
+        result = {}
+        execute_fixture(Link(), self.fixture, 1, result)
+        result['correct'] = 0
+        result['accuracy'] = 0
+        with self.assertRaisesRegex(ValueError, 'archived accuracy differs'):
+            validate_phase(result)
 
 
 if __name__ == '__main__':
