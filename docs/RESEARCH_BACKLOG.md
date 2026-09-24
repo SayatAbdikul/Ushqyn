@@ -63,7 +63,7 @@ complete KWS/VWW inference and energy measurement remain later work.
 ## P4 — weeks 13–17: complete audio/vision kernels and external memory
 
 - [ ] **C04 — Complete depthwise, pointwise and average-pool support.** Reuse the MAC engine with a depthwise lane/address mode, support the KWS 10×4 first Conv and VWW stride-2 boundaries, and implement required average/global-average pooling and activation clamps. **Done:** every compute/activation/pooling node in both frozen primary inventories has exact independent-reference/RTL tests, including average-pool rounding and zero points. **Depends:** G3, R02.
-- [ ] **D01 — Bring up the SDR SDRAM controller independently.** Integrate a documented GW2AR-compatible controller/IP with initialization, refresh, full address reach and declared clocking. Test walking/random/address-dependent patterns and row/bank/burst boundaries. **Done:** full 8-MiB range verified without aliasing; at least 1 GiB aggregate randomized read/write traffic passes with refresh active; supported timing and reset/reinitialization recorded. **Depends:** G3, H02.
+- [x] **D01 — Bring up the SDR SDRAM controller independently.** Integrate a documented GW2AR-compatible controller/IP with initialization, refresh, full address reach and declared clocking. Test walking/random/address-dependent patterns and row/bank/burst boundaries. **Done:** full 8-MiB range verified without aliasing; at least 1 GiB aggregate randomized read/write traffic passes with refresh active; supported timing and reset/reinitialization recorded. **Depends:** G3, H02. See the [physical SDRAM evidence](research/PHASE_4_STATUS.md).
 - [ ] **D02 — Add DMA and double-buffer overlap.** Implement burst DMA with partial tails, backpressure, arbitration, completion ordering and ping-pong tiles. Integrate compiler transfers and live-region protection. **Done:** exact data under randomized stalls/refresh/reset cases; no overwrite of live input/partial sums; useful sustained bandwidth and compute/transfer overlap measured, with protocol overhead included. **Depends:** D01, M02.
 - [ ] **D03 — Validate tiled inference with off-chip placement.** Run known SmallCNN/MLP tensors in SDRAM, then large synthetic FC and real AD layer shapes. Audit all downstream address/count widths. **Done:** outputs agree with BSRAM/reference cases, high addresses work, weights larger than one tile execute correctly, and latency accounts for all transfers. **Depends:** D02, C04.
 - [ ] **P01 — Build the measured kernel/cost database.** Profile ordinary/DW/PW/FC/pooling/quantization plus DMA across representative shapes and bandwidth settings. Include short/tail kernels. Split configurations into fitting and validation sets before fitting. **Done:** machine-readable cycles, stalls, traffic, physical blocks and energy where available; a reproducible initial latency/energy model with held-out errors. **Depends:** H05, C04, D02.
@@ -74,14 +74,15 @@ complete KWS/VWW inference and energy measurement remain later work.
 exact tests for pinned KWS/VWW geometries, but real model node execution and
 complete graphs are pending. A checked geometry-only plan covers all 22 KWS
 and 58 VWW nodes with legal 32-KiB tiles and abstract-port DMA transfers.
-The installed Gowin example SDRAM IP has the wrong width and capacity for the
-board; a guard now rejects it. A standalone abstract-port tile DMA passes
+The target-configured Gowin HS IP and an open controller each passed 64
+full-range 8-MiB sweeps (1 GiB aggregate) on the board; a separate two-word
+HS burst image passed 73 directed cases. D01 is complete. An abstract-port tile DMA passes
 randomized simulation, including selected transfers from that plan. An
 isolated RTL hierarchy also passes concurrent engine/DMA scratchpad
 arbitration with exact data and host exclusion. A standalone refresh
-scheduler passes cadence, stall and catch-up simulation. Correct SDRAM controller
-integration, bursts, useful overlap, tensor-value tiled inference,
-the fitted cost database and integrated-SDRAM board validation remain pending.
+scheduler passes cadence, stall and catch-up simulation. Board integration of
+the tested SDRAM port with DMA, useful overlap, tensor-value tiled inference,
+the fitted cost database and integrated-SDRAM accelerator validation remain pending.
 On-chip physical model and directed-kernel checks now pass.
 See [Phase 4 status](research/PHASE_4_STATUS.md).
 

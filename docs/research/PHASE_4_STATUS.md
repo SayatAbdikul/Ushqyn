@@ -6,14 +6,33 @@ directed kernel cases passed three times each with exact scalar-reference
 outputs and reconciled counters. Full scratchpad patterns and protocol recovery
 also pass. The [physical record](PHYSICAL_BOARD_STATUS.md) and
 [reproduction commands](../../hardware/PHYSICAL.md) identify the new release.
-This closes on-chip bring-up gaps; it does not implement the missing SDRAM,
+This closes on-chip bring-up gaps; it does not integrate SDRAM,
 tiled full-model, comprehensive node-coverage or fitted cost-model work.
+
+**SDRAM addendum:** isolated board images now pass full-range 8-MiB,
+64-sweep/1-GiB write-read tests with both the Apache-2.0 open controller
+([evidence](evidence/phase4/physical-sdram-open.json), 288.503 s) and the
+target-configured Gowin HS controller
+([evidence](evidence/phase4/physical-sdram-hs.json), 537.826 s). Both include
+80-ms retention waits per pass and continuous refresh. A separate routed
+two-word HS burst image passed 73 directed write/read pairs twice, including
+all 64 walking-one bits and address boundaries
+([evidence](evidence/phase4/physical-sdram-burst.json)). This closes the
+isolated D01 physical-memory gate and proves a basic burst command path.
+All three standalone routes met their 27-MHz controller-clock constraint with
+zero setup TNS; Gowin reported core-clock Fmax of 125.097 MHz (open BIST),
+119.863 MHz (HS BIST) and 89.398 MHz (two-word burst). The archived
+[open](evidence/phase4/physical-sdram-open-route.txt),
+[HS](evidence/phase4/physical-sdram-hs-route.txt) and
+[burst](evidence/phase4/physical-sdram-burst-route.txt) route summaries apply to
+diagnostic images only; they are not accelerator timing, SDRAM bandwidth or
+inference throughput measurements.
 
 **P4 is in progress; G4 is open.** Target ID 8196 is a routed **kernel-only**
 candidate for Tang Nano 20K. The active board hierarchy still has a single
 32-KiB SRAM and no SDRAM connection. The standalone tile DMA is not in this
-bitstream. None of the KWS/VWW end-to-end, physical SDRAM, latency, bandwidth
-or energy gates are claimed by this result.
+bitstream. None of the KWS/VWW end-to-end, integrated SDRAM,
+sustained-bandwidth or energy gates are claimed by the active accelerator image.
 
 ## Kernel progress (C04)
 
@@ -66,8 +85,8 @@ functional SRAM arbitration only. It is not in the board hierarchy, has no
 SDRAM controller or burst command path, and does not demonstrate useful
 compute/transfer throughput overlap.
 
-Gowin Education includes SDRAM Controller HS IP, which may be a suitable
-integration path. The [vendor datasheet](https://cdn.gowinsemi.com.cn/DS226E.pdf)
+Gowin Education includes SDRAM Controller HS IP, now physically validated in
+isolated board tests. The [vendor datasheet](https://cdn.gowinsemi.com.cn/DS226E.pdf)
 specifies this device's embedded SDRAM as 8 MiB, 32 bits, four banks, 2048
 rows and 256 columns per bank, with 4096 refresh cycles per 64 ms. Those
 facts are pinned in the [geometry manifest](../../hardware/sdram_tang_nano_20k.json).
@@ -78,19 +97,21 @@ example is outside the project, and it was never part of the board image.
 An isolated `gw_sh` Tcl probe using `create_ipc` and `read_ipc` also rejected
 `sdram_controller_hs` with `ERROR (IP1001): The ip is not exist`; Gowin's
 [Tcl IPFlow guide](https://cdn.gowinsemi.com.cn/SUG1220E.pdf) does not list
-this controller among supported scripted IPs. The installed GUI generator is
-therefore the remaining vendor path for producing the correct controller.
-The target-specific controller still needs generation, clocking, route,
-initialization and physical refresh validation. There is no controller in the
-current source manifest or bitstream.
+this controller among supported scripted IPs. The IDE GUI generated the
+correct [target-specific configuration](../../hardware/phase4_sdram/sdram_controller_hs.ipc).
+Its encrypted Verilog remains a local build artifact under `work/`; the routed
+HS full-memory and two-word burst images are archived under
+[hardware/releases/phase4-sdram](../../hardware/releases/phase4-sdram/).
+The active accelerator bitstream still has no SDRAM controller.
 The [Gowin HS controller guide](https://www.gowinsemi.com/upload/database_doc/2265/document/68f697b42e222.pdf)
 requires user-issued auto-refresh commands. A standalone
 [refresh scheduler](../../rtl/v2/sdram_refresh.sv) now issues requests every
 421 core clocks at 27 MHz (within the 4096/64-ms requirement), accumulates
 deferred requests while the controller is busy, catches up after stalls and
 flags a full-window backlog. Its reset/cadence/stall RTL test passes with a
-behavioral acknowledgement. The scheduler is **not wired to Gowin IP**;
-controller command timing and actual retention remain unverified.
+behavioral acknowledgement. It is now wired to the standalone Gowin HS port
+and both physical memory-test hierarchies. The full-memory write/hold/read
+sweeps demonstrate retention and refresh on this board at 27 MHz.
 
 The [boardless tiling planner](../../compiler/phase4_tiling.py) now emits one
 legal v2 descriptor and aligned DMA transfer sequence per tile across all
@@ -109,9 +130,11 @@ tile at a time and does not implement burst commands, compute/DMA overlap or
 ping-pong scratchpad tiles. The randomized abstract-port RTL DMA test now
 also replays selected planner-produced high-address, short and tail transfers.
 
-D01's physical full-range/1-GiB refresh gate, D02's burst/overlap gate,
-D03's tensor-value tiled inference gate and P01's fitted measurement gate
-remain open.
+D01's isolated physical full-range/1-GiB refresh gate is met. D02's basic
+two-word burst command is physically demonstrated, but integrated DMA,
+double buffering and useful compute/transfer overlap remain open. D03's
+tensor-value tiled inference gate and P01's fitted measurement gate remain
+open.
 
 `make p4-test PYTHON=/absolute/path/to/.venv/bin/python` now passes 127
 compiler tests, target/ISA checks, Verilator lint, the existing kernel RTL
@@ -120,8 +143,8 @@ the shared-SRAM arbitration and refresh-scheduler RTL regressions, the frozen in
 deterministic plan reproduction. The new
 schedule tests independently check descriptor legality, all tile output-byte
 coverage, disjoint live activation slots, SRAM region separation and exact
-byte movement through each declared transfer. They do not prove arithmetic
-for complete model nodes, controller behavior, refresh or board timing.
+byte movement through each declared transfer. These boardless checks do not
+prove arithmetic for complete model nodes or the integrated board hierarchy.
 
 ## Historical routed candidate and evidence
 
@@ -157,15 +180,10 @@ held-out latency model or measured energy database.
 
 ## Next work to close G4
 
-Generate the **32-bit, 2-bank-bit, 11-row-bit, 8-column-bit** embedded SDRAM
-IP for this exact part and pass the configuration guard; integrate it and the
-refresh scheduler into a
-new board hierarchy without changing the archived kernel release. Verify
-initialization, refresh, full address reach, bank/row boundaries and at least
-1 GiB aggregate read/write traffic independently of inference. Add a burst
-adapter and connect the tested arbiter to the controller and board hierarchy,
-then implement ping-pong scratchpad tiles with explicit live-region
-protection. Connect the geometry-only tile plan to real packed
+Integrate the physically tested HS port with the tile DMA, shared-SRAM
+arbiter and board hierarchy, then demonstrate actual DMA transfers to SDRAM.
+Implement ping-pong scratchpad tiles with explicit live-region protection.
+Connect the geometry-only tile plan to real packed
 weights, quantization parameters and tensor values; run all pinned audio and
 vision nodes through RTL with an independent exact oracle. Then build a
 held-out kernel/DMA cost database, reroute the integrated hierarchy and

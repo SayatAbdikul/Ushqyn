@@ -1,0 +1,291 @@
+{
+  "aggregate_bytes": 1073741824,
+  "bitstream": "/Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/physical-hs-build1/phase4_hs_sdram_bist/impl/pnr/phase4_hs_sdram_bist.fs",
+  "bitstream_sha256": "33642e92adde7d51b9e646478b20c6d4d95e61bd9a52ac8c04c51572b5eb786e",
+  "controller": "hs",
+  "device": "GW2AR-LV18QN88C8/I7",
+  "elapsed_s": 537.826,
+  "expected": {
+    "address_bytes_per_sweep": 8388608,
+    "aggregate_bytes": 1073741824,
+    "hold_ms_per_pass": 80,
+    "passes": 64
+  },
+  "final_passes": 64,
+  "programmer_exit_code": 0,
+  "programmer_log": "empty\nwrite to ram\nJtag frequency : requested 2.50MHz    -> real 2.00MHz   \nfound 1 devices\nindex 0:\n\tidcode 0x81b\n\tmanufacturer Gowin\n\tfamily GW2A\n\tmodel  GW2A(R)-18(C)\n\tirlength 8\nFile type : fs\nParse file Parse /Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/physical-hs-build1/phase4_hs_sdram_bist/impl/pnr/phase4_hs_sdram_bist.fs: \nchecksum 0xa484\nDone\nDONE\nbitstream header infos\nCRCCheck: ON\nCompress: OFF\nConfDataLength: 1342\nLoadingRate: 2500000\nProgramDoneBypass: OFF\nSPIAddr: 00000000\nSecurityBit: ON\nidcode: 0000081b\nbefore program sram: displayReadReg 00006020\n\tMemory Erase\n\tDone Final\n\tSecurity Final\nErase SRAM before erase sram: displayReadReg 00006020\n\tMemory Erase\n\tDone Final\n\tSecurity Final\npollFlag: 60a0 (80)\npollFlag: 4080 (0)\npollFlag: 4080 (0)\npollFlag: 4080 (0)\npollFlag: a0 (20)\nafter erase sram: displayReadReg 000000a0\n\tMemory Erase\n\tSystem Edit Mode\npollFlag: 20 (0)\nLoad SRAM before write sram: displayReadReg 00000020\n\tMemory Erase\n\nLoad SRAM: [=============================                     ] 56.77%\n\nLoad SRAM: [==================================================] 100.00%\n\nDone\nafter write sram: displayReadReg 00006020\n\tMemory Erase\n\tDone Final\n\tSecurity Final\nDONE\nafter program sram: displayReadReg 00006020\n\tMemory Erase\n\tDone Final\n\tSecurity Final\n",
+  "progress": [
+    {
+      "elapsed_s": 8.576,
+      "pass": 1
+    },
+    {
+      "elapsed_s": 17.147,
+      "pass": 2
+    },
+    {
+      "elapsed_s": 25.215,
+      "pass": 3
+    },
+    {
+      "elapsed_s": 33.785,
+      "pass": 4
+    },
+    {
+      "elapsed_s": 42.359,
+      "pass": 5
+    },
+    {
+      "elapsed_s": 50.43,
+      "pass": 6
+    },
+    {
+      "elapsed_s": 58.998,
+      "pass": 7
+    },
+    {
+      "elapsed_s": 67.615,
+      "pass": 8
+    },
+    {
+      "elapsed_s": 75.688,
+      "pass": 9
+    },
+    {
+      "elapsed_s": 84.261,
+      "pass": 10
+    },
+    {
+      "elapsed_s": 92.374,
+      "pass": 11
+    },
+    {
+      "elapsed_s": 100.956,
+      "pass": 12
+    },
+    {
+      "elapsed_s": 109.537,
+      "pass": 13
+    },
+    {
+      "elapsed_s": 117.608,
+      "pass": 14
+    },
+    {
+      "elapsed_s": 126.183,
+      "pass": 15
+    },
+    {
+      "elapsed_s": 134.76,
+      "pass": 16
+    },
+    {
+      "elapsed_s": 142.835,
+      "pass": 17
+    },
+    {
+      "elapsed_s": 151.416,
+      "pass": 18
+    },
+    {
+      "elapsed_s": 159.982,
+      "pass": 19
+    },
+    {
+      "elapsed_s": 168.097,
+      "pass": 20
+    },
+    {
+      "elapsed_s": 176.744,
+      "pass": 21
+    },
+    {
+      "elapsed_s": 184.897,
+      "pass": 22
+    },
+    {
+      "elapsed_s": 193.347,
+      "pass": 23
+    },
+    {
+      "elapsed_s": 201.927,
+      "pass": 24
+    },
+    {
+      "elapsed_s": 209.989,
+      "pass": 25
+    },
+    {
+      "elapsed_s": 218.581,
+      "pass": 26
+    },
+    {
+      "elapsed_s": 227.152,
+      "pass": 27
+    },
+    {
+      "elapsed_s": 235.219,
+      "pass": 28
+    },
+    {
+      "elapsed_s": 243.781,
+      "pass": 29
+    },
+    {
+      "elapsed_s": 252.364,
+      "pass": 30
+    },
+    {
+      "elapsed_s": 260.498,
+      "pass": 31
+    },
+    {
+      "elapsed_s": 269.08,
+      "pass": 32
+    },
+    {
+      "elapsed_s": 277.154,
+      "pass": 33
+    },
+    {
+      "elapsed_s": 285.726,
+      "pass": 34
+    },
+    {
+      "elapsed_s": 294.296,
+      "pass": 35
+    },
+    {
+      "elapsed_s": 302.364,
+      "pass": 36
+    },
+    {
+      "elapsed_s": 310.931,
+      "pass": 37
+    },
+    {
+      "elapsed_s": 319.501,
+      "pass": 38
+    },
+    {
+      "elapsed_s": 327.575,
+      "pass": 39
+    },
+    {
+      "elapsed_s": 336.147,
+      "pass": 40
+    },
+    {
+      "elapsed_s": 344.727,
+      "pass": 41
+    },
+    {
+      "elapsed_s": 352.794,
+      "pass": 42
+    },
+    {
+      "elapsed_s": 361.382,
+      "pass": 43
+    },
+    {
+      "elapsed_s": 369.518,
+      "pass": 44
+    },
+    {
+      "elapsed_s": 378.085,
+      "pass": 45
+    },
+    {
+      "elapsed_s": 386.652,
+      "pass": 46
+    },
+    {
+      "elapsed_s": 394.713,
+      "pass": 47
+    },
+    {
+      "elapsed_s": 403.29,
+      "pass": 48
+    },
+    {
+      "elapsed_s": 411.862,
+      "pass": 49
+    },
+    {
+      "elapsed_s": 419.926,
+      "pass": 50
+    },
+    {
+      "elapsed_s": 428.505,
+      "pass": 51
+    },
+    {
+      "elapsed_s": 437.073,
+      "pass": 52
+    },
+    {
+      "elapsed_s": 445.151,
+      "pass": 53
+    },
+    {
+      "elapsed_s": 453.72,
+      "pass": 54
+    },
+    {
+      "elapsed_s": 462.292,
+      "pass": 55
+    },
+    {
+      "elapsed_s": 470.356,
+      "pass": 56
+    },
+    {
+      "elapsed_s": 478.953,
+      "pass": 57
+    },
+    {
+      "elapsed_s": 487.531,
+      "pass": 58
+    },
+    {
+      "elapsed_s": 495.599,
+      "pass": 59
+    },
+    {
+      "elapsed_s": 504.17,
+      "pass": 60
+    },
+    {
+      "elapsed_s": 512.742,
+      "pass": 61
+    },
+    {
+      "elapsed_s": 521.17,
+      "pass": 62
+    },
+    {
+      "elapsed_s": 529.251,
+      "pass": 63
+    }
+  ],
+  "serial_id": "2025030317",
+  "source_controller": {
+    "encrypted_generated_ip": true,
+    "origin": "Gowin Education V1.9.11.03 SDRAM Controller HS IP"
+  },
+  "source_sha256": {
+    "hardware/phase4_sdram/bist.cst": "dd27d332ea98dfdd4ab46da25fbd7ba37b8d037cbc7a7fde0ced9b668ea7a8c5",
+    "hardware/phase4_sdram/bist.sdc": "6d8bbb0169f52a717de400a89fb3046edcd07ee3c16a0e2997a2aec7a1e56f6b",
+    "hardware/phase4_sdram/bist_hs.sv": "fb3a473816883e126406d3e9dcd50b48b9b8f79da3bee850f028c5064672bb29",
+    "hardware/phase4_sdram/build_hs.tcl": "f5a850fb7baafda031a0b51d3fdf829679aece2f36d776fb8f560e18a657ffab",
+    "hardware/phase4_sdram/hs_byte_adapter.sv": "80b0a98d5239068ea2813914417a39888380fa46d514b5dd83688a2ac35c8234",
+    "hardware/phase4_sdram/pll.v": "1a7e1351463ff1ee9eba301e33d45ae4b798d6072aab308d45a4e0a145a6f086",
+    "hardware/phase4_sdram/sdram_controller_hs.ipc": "17a51b5650496a041f86cf28477237ab9eacc88044e7ac26366285e0f2876288",
+    "rtl/v2/sdram_refresh.sv": "9b9bfb8c05011ce2d84e9838697ab65ec587dfb3310684d4c37b853e8dcb21ec",
+    "rtl/v2/uart_tx.sv": "a3ace5523e30af83438478ad82f54a12fcd5aca07e38dbc4e3b46cc46f3af1f1",
+    "work/phase4/ip-generated/sdram_controller_hs.v": "3166bcfd473e7af6cbf80110ad952279c0209821dbbde4ee26d8a2d558dcee3d"
+  },
+  "start_utc": "2026-09-24T07:12:00.520680+00:00",
+  "status": "passed",
+  "uart_port": "/dev/cu.usbserial-20250303171"
+}

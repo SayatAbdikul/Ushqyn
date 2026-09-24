@@ -1,0 +1,36 @@
+{
+  "bitstream": "/Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/physical-burst-clean/phase4_burst_smoke/impl/pnr/phase4_burst_smoke.fs",
+  "bitstream_sha256": "163dabafde33328bb1fefac7c535b5f3da203bb8d3c50eeb6233eda097625b2a",
+  "burst_words": 2,
+  "device": "GW2AR-LV18QN88C8/I7",
+  "distinct_half_patterns": 1,
+  "elapsed_s": 3.029,
+  "programmer_exit_code": 0,
+  "programmer_log": "empty\nwrite to ram\nJtag frequency : requested 2.50MHz    -> real 2.00MHz   \nfound 1 devices\nindex 0:\n\tidcode 0x81b\n\tmanufacturer Gowin\n\tfamily GW2A\n\tmodel  GW2A(R)-18(C)\n\tirlength 8\nFile type : fs\nParse file Parse /Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/physical-burst-clean/phase4_burst_smoke/impl/pnr/phase4_burst_smoke.fs: \nchecksum 0xf948\nDone\nDONE\nbitstream header infos\nCRCCheck: ON\nCompress: OFF\nConfDataLength: 1342\nLoadingRate: 2500000\nProgramDoneBypass: OFF\nSPIAddr: 00000000\nSecurityBit: ON\nidcode: 0000081b\nbefore program sram: displayReadReg 00006020\n\tMemory Erase\n\tDone Final\n\tSecurity Final\nErase SRAM before erase sram: displayReadReg 00006020\n\tMemory Erase\n\tDone Final\n\tSecurity Final\npollFlag: 60a0 (80)\npollFlag: 4080 (0)\npollFlag: 4080 (0)\npollFlag: 4080 (0)\npollFlag: a0 (20)\nafter erase sram: displayReadReg 000000a0\n\tMemory Erase\n\tSystem Edit Mode\npollFlag: 20 (0)\nLoad SRAM before write sram: displayReadReg 00000020\n\tMemory Erase\n\nLoad SRAM: [=============================                     ] 56.77%\n\nLoad SRAM: [==================================================] 100.00%\n\nDone\nafter write sram: displayReadReg 00006020\n\tMemory Erase\n\tDone Final\n\tSecurity Final\nDONE\nafter program sram: displayReadReg 00006020\n\tMemory Erase\n\tDone Final\n\tSecurity Final\n",
+  "source_sha256": {
+    "hardware/phase4_sdram/bist.cst": "dd27d332ea98dfdd4ab46da25fbd7ba37b8d037cbc7a7fde0ced9b668ea7a8c5",
+    "hardware/phase4_sdram/bist.sdc": "6d8bbb0169f52a717de400a89fb3046edcd07ee3c16a0e2997a2aec7a1e56f6b",
+    "hardware/phase4_sdram/build_burst.tcl": "f09e39448078d1f02d3d114253c253eb7468d7737709359d099114a86f685cb4",
+    "hardware/phase4_sdram/burst_smoke.sv": "3fdf4441a8274a681ff69986cf61b9cc41b07dfd674b7baef7da699e33e9d466",
+    "hardware/phase4_sdram/pll.v": "1a7e1351463ff1ee9eba301e33d45ae4b798d6072aab308d45a4e0a145a6f086",
+    "hardware/phase4_sdram/sdram_controller_hs.ipc": "17a51b5650496a041f86cf28477237ab9eacc88044e7ac26366285e0f2876288",
+    "rtl/v2/hs_sdram_port.sv": "e18a3e842951f51c28d9dd51b1344cda3df89dc77dd150112e2697cb65e476d9",
+    "rtl/v2/sdram_refresh.sv": "9b9bfb8c05011ce2d84e9838697ab65ec587dfb3310684d4c37b853e8dcb21ec",
+    "rtl/v2/uart_tx.sv": "a3ace5523e30af83438478ad82f54a12fcd5aca07e38dbc4e3b46cc46f3af1f1",
+    "work/phase4/ip-generated/sdram_controller_hs.v": "3166bcfd473e7af6cbf80110ad952279c0209821dbbde4ee26d8a2d558dcee3d"
+  },
+  "start_utc": "2026-09-24T13:31:30.083313+00:00",
+  "status": "passed",
+  "tested_byte_addresses": [
+    0,
+    1016,
+    1024,
+    2097144,
+    2097152,
+    4194296,
+    4194304,
+    8388600
+  ],
+  "total_write_read_pairs": 73,
+  "walking_one_patterns": 64
+}
