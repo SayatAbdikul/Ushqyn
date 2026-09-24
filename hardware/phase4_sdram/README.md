@@ -1,9 +1,10 @@
 # Phase 4 embedded SDRAM diagnostics
 
-The Tang Nano 20K has 8 MiB of embedded 32-bit SDR SDRAM. These are isolated
-memory diagnostics; the released accelerator at target ID 8196 remains the
-on-chip kernel-only image until the SDRAM port and DMA are included in its
-board hierarchy.
+The Tang Nano 20K has 8 MiB of embedded 32-bit SDR SDRAM. These are memory
+diagnostics; the released host-command accelerator at target ID 8196 remains
+the on-chip kernel-only image. The separate DMA diagnostic includes the actual
+`v2_tiled_core`, scratchpad, tile DMA, HS port and SDRAM controller, with its
+compute engine held idle.
 
 `bist.sv` uses the Apache-2.0 NESTang controller copied under `third_party/`.
 It writes and reads every byte in the 8-MiB address space in each of 64 sweeps,
@@ -37,13 +38,25 @@ refresh. Its clean routed image passed twice on the board. The write-data
 changeover and four-clock read offset follow a [working Tang Nano 20K Gowin
 HS implementation](https://github.com/calint/tang-nano-20k--riscv--cache-sdram/blob/main/src/cache.sv).
 The IP command port is single outstanding and the adapter waits for command
-acknowledgment and precharge before accepting another beat. These pieces are
-not yet wired to the active accelerator bitstream.
+acknowledgment and precharge before accepting another beat. The DMA diagnostic
+uses this port, but the host-command accelerator image does not yet use it.
+
+`dma_smoke.sv` fills the real 32-KiB scratchpad, copies the full tile to SDRAM
+at `0x7f8000`, clears SRAM, copies it back, and checks all 4096 64-bit words.
+It then tests a 13-byte bank-crossing transfer at `0x1ffff8`, including a
+five-byte tail strobe. A UART pass frame carries the four DMA cycle counts.
+At 20.25 MHz the full-tile write and read each took about 114,189 cycles,
+5.542 MiB/s, on three fresh-program passes. This is measured DMA-path
+throughput, not inference throughput. The clean integrated route reports
+23.728-MHz core Fmax against a 20.25-MHz clock constraint, 9,910 logic,
+18 BSRAM and 19.75 DSP equivalents. The diagnostic does not have ping-pong
+buffers, useful compute/transfer overlap or full-model inference.
 
 For either build, make a fresh output directory and run Gowin's `gw_sh` with
 `DYLD_FRAMEWORK_PATH` and `DYLD_LIBRARY_PATH` set to the installed IDE's `lib`
 directory, as shown in [the physical build guide](../PHYSICAL.md). Use
-`build.tcl`, `build_hs.tcl`, or `build_burst.tcl`, respectively. Program only
+`build.tcl`, `build_hs.tcl`, `build_burst.tcl`, or `build_dma.tcl`, respectively.
+Program only
 the resulting `.fs` to temporary FPGA SRAM (`openFPGALoader -m`); this leaves
 the board flash unchanged. The physical test runners under `tools/physical/`
 can program and capture the UART result with exact bitstream/source hashes.
@@ -54,8 +67,10 @@ physical SDRAM tests are needed because post-route Fmax alone does not prove
 phase alignment or data retention. No physical power meter is available.
 
 Archived bitstreams are in `hardware/releases/phase4-sdram/`; the corresponding
-board reports are `physical-sdram-open.json`, `physical-sdram-hs.json`, and
-`physical-sdram-burst.json` under `docs/research/evidence/phase4/`. Both full
+board reports are `physical-sdram-open.json`, `physical-sdram-hs.json`,
+`physical-sdram-burst.json`, and `physical-sdram-dma.json` under
+`docs/research/evidence/phase4/`. Both full
 memory tests completed 64 sweeps over the entire 8-MiB address space, with
 1 GiB aggregate traffic each. The burst report covers 73 directed write/read
-pairs; it does not establish sustained DMA bandwidth or model inference FPS.
+pairs. The DMA report establishes a physical, single-outstanding 32-KiB
+round-trip throughput point; it does not establish model inference FPS.

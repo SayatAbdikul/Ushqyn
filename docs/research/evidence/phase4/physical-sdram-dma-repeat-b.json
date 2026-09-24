@@ -1,0 +1,52 @@
+{
+  "bitstream": "/Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/physical-dma-build5/phase4_dma_smoke/impl/pnr/phase4_dma_smoke.fs",
+  "bitstream_sha256": "485f4af9897c622694f8ad0ca9a129a476994fff6b2e32a4b0ae54954f5d1d20",
+  "cases": [
+    {
+      "bytes": 32768,
+      "property": "last SDRAM byte",
+      "read_cycles": 114188,
+      "read_mib_s": 5.542,
+      "sdram_base": 8355840,
+      "sram_base": 0,
+      "write_cycles": 114189,
+      "write_mib_s": 5.542
+    },
+    {
+      "bytes": 13,
+      "property": "bank crossing with five-byte final strobe",
+      "read_cycles": 62,
+      "read_mib_s": 4.049,
+      "sdram_base": 2097144,
+      "sram_base": 0,
+      "write_cycles": 31,
+      "write_mib_s": 8.099
+    }
+  ],
+  "clock_hz": 20250000,
+  "device": "GW2AR-LV18QN88C8/I7",
+  "elapsed_s": 3.022,
+  "programmer_exit_code": 0,
+  "programmer_log": "empty\nwrite to ram\nJtag frequency : requested 2.50MHz    -> real 2.00MHz   \nfound 1 devices\nindex 0:\n\tidcode 0x81b\n\tmanufacturer Gowin\n\tfamily GW2A\n\tmodel  GW2A(R)-18(C)\n\tirlength 8\nFile type : fs\nParse file Parse /Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/physical-dma-build5/phase4_dma_smoke/impl/pnr/phase4_dma_smoke.fs: \nchecksum 0x0683\nDone\nDONE\nbitstream header infos\nCRCCheck: ON\nCompress: OFF\nConfDataLength: 2110\nLoadingRate: 2500000\nProgramDoneBypass: OFF\nSPIAddr: 00000000\nSecurityBit: ON\nidcode: 0000081b\nbefore program sram: displayReadReg 00006020\n\tMemory Erase\n\tDone Final\n\tSecurity Final\nErase SRAM before erase sram: displayReadReg 00006020\n\tMemory Erase\n\tDone Final\n\tSecurity Final\npollFlag: 60a0 (80)\npollFlag: 4080 (0)\npollFlag: 4080 (0)\npollFlag: 4080 (0)\npollFlag: a0 (20)\nafter erase sram: displayReadReg 000000a0\n\tMemory Erase\n\tSystem Edit Mode\npollFlag: 20 (0)\nLoad SRAM before write sram: displayReadReg 00000020\n\tMemory Erase\n\nLoad SRAM: [======================                            ] 43.33%\n\nLoad SRAM: [=====================================             ] 72.22%\n\nLoad SRAM: [==================================================] 100.00%\n\nDone\nafter write sram: displayReadReg 00006020\n\tMemory Erase\n\tDone Final\n\tSecurity Final\nDONE\nafter program sram: displayReadReg 00006020\n\tMemory Erase\n\tDone Final\n\tSecurity Final\n",
+  "reported_cases": 2,
+  "source_sha256": {
+    "hardware/phase4_sdram/bist.cst": "dd27d332ea98dfdd4ab46da25fbd7ba37b8d037cbc7a7fde0ced9b668ea7a8c5",
+    "hardware/phase4_sdram/bist.sdc": "6d8bbb0169f52a717de400a89fb3046edcd07ee3c16a0e2997a2aec7a1e56f6b",
+    "hardware/phase4_sdram/build_dma.tcl": "edd55afe7e1b33e0e86408e806eba10e94ad48752a95907a7fe4be4d4df06021",
+    "hardware/phase4_sdram/dma_smoke.sv": "713e5932678ba9c5255b436df2355f0e87f302175926d632181ac3545e44bf78",
+    "hardware/phase4_sdram/pll_dma_20.v": "104341319eead08208f9da7849ba34c751098e0d4290d6819d4968294953114f",
+    "hardware/phase4_sdram/sdram_controller_hs.ipc": "17a51b5650496a041f86cf28477237ab9eacc88044e7ac26366285e0f2876288",
+    "rtl/v2/engine.sv": "a4325cf40bddfedfe75d525f5989c1e736a65f3094d6af45c8a5887ad888a73f",
+    "rtl/v2/hs_sdram_port.sv": "af91ac8313d821857c4be9173a27b07a883b425ec5e21d47539452f2b2a1e769",
+    "rtl/v2/requantizer.sv": "e40913b484ad629d2445cdfb3edf16d6508f273ce0d4a5855d114780fe0a9e4b",
+    "rtl/v2/scratchpad.sv": "bfdab92e5f5f039e102b76fad82fe6a8df2d7f64d1b2cffd23cc677626654cd2",
+    "rtl/v2/sdram_refresh.sv": "9b9bfb8c05011ce2d84e9838697ab65ec587dfb3310684d4c37b853e8dcb21ec",
+    "rtl/v2/target_pkg.sv": "52e649f8911e92452cfef5cce9b1ad4e5dd75d20f4a725c67ee391fe75daae6e",
+    "rtl/v2/tile_dma.sv": "94e94a4a8c474fd2f0824dff3cc64bca921262cd9e0bf53064713376c1a09ab9",
+    "rtl/v2/tiled_core.sv": "98e36ce05e53823f072b85e7c5d164d0eba3a3daae0592de6a0c86a18921f72a",
+    "rtl/v2/uart_tx.sv": "a3ace5523e30af83438478ad82f54a12fcd5aca07e38dbc4e3b46cc46f3af1f1",
+    "work/phase4/ip-generated/sdram_controller_hs.v": "3166bcfd473e7af6cbf80110ad952279c0209821dbbde4ee26d8a2d558dcee3d"
+  },
+  "start_utc": "2026-09-24T14:21:35.911822+00:00",
+  "status": "passed"
+}

@@ -80,9 +80,14 @@ HS burst image passed 73 directed cases. D01 is complete. An abstract-port tile 
 randomized simulation, including selected transfers from that plan. An
 isolated RTL hierarchy also passes concurrent engine/DMA scratchpad
 arbitration with exact data and host exclusion. A standalone refresh
-scheduler passes cadence, stall and catch-up simulation. Board integration of
-the tested SDRAM port with DMA, useful overlap, tensor-value tiled inference,
-the fitted cost database and integrated-SDRAM accelerator validation remain pending.
+scheduler passes cadence, stall and catch-up simulation. A separate physical
+image now integrates the actual tiled core, scratchpad, DMA and HS SDRAM port;
+three fresh-program runs passed a full 32-KiB round trip ending at the last
+SDRAM byte and a partial-tail bank crossing. It measured 5.542 MiB/s for
+full-tile DMA in each direction at nominal 20.25 MHz. The compute engine was
+held idle in that diagnostic. Useful compute/transfer overlap, host-command
+accelerator integration, tensor-value tiled inference, the fitted cost
+database and full-model validation remain pending.
 On-chip physical model and directed-kernel checks now pass.
 See [Phase 4 status](research/PHASE_4_STATUS.md).
 

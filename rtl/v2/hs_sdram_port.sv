@@ -2,7 +2,9 @@
 // Two 32-bit SDRAM words form one DMA beat. A two-word command is a real SDRAM
 // burst; refresh is prioritized before accepting another beat. The controller
 // IP is generated locally from hardware/phase4_sdram/sdram_controller_hs.ipc.
-module v2_hs_sdram_port (
+module v2_hs_sdram_port #(
+    parameter integer CLOCK_HZ = 27000000
+) (
     input logic clk, clk_sdram, rst_n,
     input logic ext_req, ext_wr,
     input logic [23:0] ext_addr,
@@ -48,7 +50,7 @@ module v2_hs_sdram_port (
     assign ext_ready = init_done && state == IDLE && !refresh_req;
     assign debug_status = {init_done,cmd_ack,cmd_en,write_operation,
                            state,refresh_req};
-    v2_sdram_refresh scheduler (
+    v2_sdram_refresh #(.CLOCK_HZ(CLOCK_HZ)) scheduler (
         .clk(clk), .rst_n(rst_n), .init_done(init_done),
         .controller_idle(state == IDLE), .refresh_ack(refresh_ack),
         .refresh_req(refresh_req), .pending_refreshes(pending_refreshes),

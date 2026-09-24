@@ -120,6 +120,25 @@ fresh directory, program its `uart_loopback.fs`, then run
 It tests all byte values plus 1,024 seeded random bytes. Restore the
 accelerator bitstream before running the model commands.
 
+For the separate Phase 4 SDRAM/DMA diagnostic, generate the pinned Gowin HS
+IP as described in [the SDRAM README](phase4_sdram/README.md), build
+`hardware/phase4_sdram/build_dma.tcl` in a fresh directory, then run:
+
+```sh
+.venv/bin/python3 tools/physical/run_phase4_dma_smoke.py \
+  --bitstream hardware/releases/phase4-sdram/hs_dma_full_tile.fs \
+  --report work/physical/phase4-dma-repeat.json
+```
+
+The runner temporarily programs the diagnostic image, verifies its UART
+result and records the exact source/bitstream hashes and DMA cycle counts.
+The archived [board result](../docs/research/evidence/phase4/physical-sdram-dma.json)
+passed a 32-KiB full-tile round trip and a 13-byte bank crossing. It is not
+the host-command accelerator image; reprogram the Phase 3 release before
+using `run_models.py` or `run_checks.py`. A USB power cycle erases the temporary
+image. If JTAG programming works but UART loopback is silent, power-cycle the
+USB connection, reprogram the image and rerun loopback.
+
 ## Measurement boundary
 
 The reports retain raw INT8 outputs, physical device counters and host

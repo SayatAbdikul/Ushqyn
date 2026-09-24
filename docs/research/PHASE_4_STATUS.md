@@ -28,6 +28,40 @@ zero setup TNS; Gowin reported core-clock Fmax of 125.097 MHz (open BIST),
 diagnostic images only; they are not accelerator timing, SDRAM bandwidth or
 inference throughput measurements.
 
+**Integrated DMA addendum:** a separate board image now joins the actual
+`v2_tiled_core` scratchpad and tile DMA to the two-word HS SDRAM port. It
+passed three fresh-program runs of a 32-KiB SRAM→SDRAM→SRAM round trip ending
+at the last physical SDRAM byte, followed by a 13-byte transfer across a
+2-MiB bank boundary with a five-byte final strobe. The host verified the
+board's exact-data pass frame in every run; the archived
+[physical report](evidence/phase4/physical-sdram-dma.json) and
+[two repeats](evidence/phase4/physical-sdram-dma-repeat-a.json)
+([second](evidence/phase4/physical-sdram-dma-repeat-b.json)) pin the tested
+[bitstream](../../hardware/releases/phase4-sdram/hs_dma_full_tile.fs) and all
+RTL/IP hashes. The full-tile DMA reports 114,189 write and 114,188 read core
+cycles at the nominal 20.25-MHz PLL setting, or 5.542 MiB/s in either
+direction. These cycle counts repeated exactly; they exclude SRAM fill,
+clear and verification and are **DMA-path throughput**, not model inference
+throughput. The integrated route uses 9,910/20,736 logic, 18/46 BSRAM and
+19.75/24 DSP equivalents. Its [timing report](evidence/phase4/physical-sdram-dma-timing.html)
+shows 23.728-MHz core Fmax against the 20.25-MHz generated-clock constraint
+and zero setup TNS; the [place-and-route report](evidence/phase4/physical-sdram-dma-route.txt)
+records the resource usage. The engine is present but held idle in this image.
+Its DMA success closes a board-integration step within D02, while ping-pong
+buffers and useful compute/transfer overlap remain open. A transient USB UART
+silence was isolated with the minimal loopback image and cleared by a USB
+power cycle; the release image then passed three fresh-program runs.
+
+The measured 5.542 MiB/s is only 7.2% of the SDRAM's simple 32-bit ×
+20.25-MHz payload ceiling (77.25 MiB/s). This ratio is a diagnostic, not a
+claim that the memory can sustain the ceiling: each DMA beat currently incurs
+its own activate/read-or-write/settle sequence. Dividing the geometry-only
+planned DMA payloads by the observed full-tile rate gives optimistic
+transfer-only floors of about 55 ms for KWS and 234 ms for VWW. Their many
+short transfers and all compute are excluded, so these are **not** measured
+inference times or FPS. Long streaming bursts and overlapping tile staging
+are now critical performance work for G4.
+
 **P4 is in progress; G4 is open.** Target ID 8196 is a routed **kernel-only**
 candidate for Tang Nano 20K. The active board hierarchy still has a single
 32-KiB SRAM and no SDRAM connection. The standalone tile DMA is not in this
@@ -66,14 +100,15 @@ complete tiled placement schedule.
 
 ## Off-chip progress (D01–D03)
 
-The standalone [tile DMA](../../rtl/v2/tile_dma.sv) copies aligned 64-bit
+The [tile DMA](../../rtl/v2/tile_dma.sv) copies aligned 64-bit
 source/destination beats between a 32-KiB SRAM port and an abstract 8-MiB
 external-memory port. It handles 1–32,768-byte transfers, partial final
 strobes, 24-bit upper addresses, randomized backpressure and delayed reads,
 invalid bounds and abort drain. Its randomized RTL test uses an 8-MiB
 behavioral array, including a transfer ending at the final external byte.
-It is **single-outstanding** and does not yet issue SDRAM bursts, double-buffer
-tiles or overlap transfers from a real memory controller.
+It is **single-outstanding**. The integrated board diagnostic now connects it
+to a real two-word-burst SDRAM port, but it does not yet double-buffer tiles
+or overlap useful compute with transfers.
 
 An isolated [tiled core](../../rtl/v2/tiled_core.sv) now connects the existing
 engine and DMA to the same real RTL scratchpad through a fair single-port
@@ -81,9 +116,9 @@ arbiter. Its regression starts a ReLU kernel and DMA concurrently in both
 transfer directions under randomized external stalls; it verifies exact
 compute/DMA data, read-response ownership, partial tails, host exclusion
 while either client is busy, and actual overlap of busy intervals. This is
-functional SRAM arbitration only. It is not in the board hierarchy, has no
-SDRAM controller or burst command path, and does not demonstrate useful
-compute/transfer throughput overlap.
+functional SRAM arbitration only. The physical DMA diagnostic instantiates
+this same hierarchy with the SDRAM controller but keeps its engine idle; it
+does not demonstrate useful compute/transfer throughput overlap.
 
 Gowin Education includes SDRAM Controller HS IP, now physically validated in
 isolated board tests. The [vendor datasheet](https://cdn.gowinsemi.com.cn/DS226E.pdf)
@@ -131,8 +166,8 @@ ping-pong scratchpad tiles. The randomized abstract-port RTL DMA test now
 also replays selected planner-produced high-address, short and tail transfers.
 
 D01's isolated physical full-range/1-GiB refresh gate is met. D02's basic
-two-word burst command is physically demonstrated, but integrated DMA,
-double buffering and useful compute/transfer overlap remain open. D03's
+two-word burst command and integrated full-tile DMA are physically demonstrated,
+but double buffering and useful compute/transfer overlap remain open. D03's
 tensor-value tiled inference gate and P01's fitted measurement gate remain
 open.
 
@@ -180,9 +215,10 @@ held-out latency model or measured energy database.
 
 ## Next work to close G4
 
-Integrate the physically tested HS port with the tile DMA, shared-SRAM
-arbiter and board hierarchy, then demonstrate actual DMA transfers to SDRAM.
-Implement ping-pong scratchpad tiles with explicit live-region protection.
+Carry the physically tested HS port and tile DMA from the diagnostic image
+into the host-command accelerator board hierarchy. Implement ping-pong
+scratchpad tiles with explicit live-region protection and measure useful
+compute/transfer overlap.
 Connect the geometry-only tile plan to real packed
 weights, quantization parameters and tensor values; run all pinned audio and
 vision nodes through RTL with an independent exact oracle. Then build a
