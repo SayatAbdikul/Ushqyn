@@ -76,8 +76,11 @@ complete graphs are pending. A checked geometry-only plan covers all 22 KWS
 and 58 VWW nodes with legal 32-KiB tiles and abstract-port DMA transfers.
 The installed Gowin example SDRAM IP has the wrong width and capacity for the
 board; a guard now rejects it. A standalone abstract-port tile DMA passes
-randomized simulation, including selected transfers from that plan. Correct
-SDRAM controller integration, bursts, overlap, tensor-value tiled inference,
+randomized simulation, including selected transfers from that plan. An
+isolated RTL hierarchy also passes concurrent engine/DMA scratchpad
+arbitration with exact data and host exclusion. A standalone refresh
+scheduler passes cadence, stall and catch-up simulation. Correct SDRAM controller
+integration, bursts, useful overlap, tensor-value tiled inference,
 the fitted cost database and integrated-SDRAM board validation remain pending.
 On-chip physical model and directed-kernel checks now pass.
 See [Phase 4 status](research/PHASE_4_STATUS.md).

@@ -15,8 +15,9 @@ The boardless tiling plans and the embedded SDRAM geometry guard are described
 in [Phase 4 status](../docs/research/PHASE_4_STATUS.md). The Gowin-installed
 SDRAM IP example does not match this board's 32-bit/8-MiB geometry; do not
 integrate that example as-is. `make p4-plan` regenerates and checks the frozen
-audio/vision schedule evidence. Neither the plans nor the abstract DMA test
-constitute an integrated SDRAM bitstream.
+audio/vision schedule evidence. `make p4-core` tests the isolated engine/DMA
+shared-SRAM hierarchy; `make p4-refresh` tests the standalone user-issued
+refresh scheduler. None of these constitutes an integrated SDRAM bitstream.
 
 From the repository root:
 

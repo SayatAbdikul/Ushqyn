@@ -53,8 +53,18 @@ external-memory port. It handles 1–32,768-byte transfers, partial final
 strobes, 24-bit upper addresses, randomized backpressure and delayed reads,
 invalid bounds and abort drain. Its randomized RTL test uses an 8-MiB
 behavioral array, including a transfer ending at the final external byte.
-It is **single-outstanding**: it does not yet issue SDRAM bursts, arbitrate
-with the compute engine, double-buffer tiles or overlap compute and transfer.
+It is **single-outstanding** and does not yet issue SDRAM bursts, double-buffer
+tiles or overlap transfers from a real memory controller.
+
+An isolated [tiled core](../../rtl/v2/tiled_core.sv) now connects the existing
+engine and DMA to the same real RTL scratchpad through a fair single-port
+arbiter. Its regression starts a ReLU kernel and DMA concurrently in both
+transfer directions under randomized external stalls; it verifies exact
+compute/DMA data, read-response ownership, partial tails, host exclusion
+while either client is busy, and actual overlap of busy intervals. This is
+functional SRAM arbitration only. It is not in the board hierarchy, has no
+SDRAM controller or burst command path, and does not demonstrate useful
+compute/transfer throughput overlap.
 
 Gowin Education includes SDRAM Controller HS IP, which may be a suitable
 integration path. The [vendor datasheet](https://cdn.gowinsemi.com.cn/DS226E.pdf)
@@ -68,6 +78,14 @@ example is outside the project, and it was never part of the board image.
 The target-specific controller still needs generation, clocking, route,
 initialization and physical refresh validation. There is no controller in the
 current source manifest or bitstream.
+The [Gowin HS controller guide](https://www.gowinsemi.com/upload/database_doc/2265/document/68f697b42e222.pdf)
+requires user-issued auto-refresh commands. A standalone
+[refresh scheduler](../../rtl/v2/sdram_refresh.sv) now issues requests every
+421 core clocks at 27 MHz (within the 4096/64-ms requirement), accumulates
+deferred requests while the controller is busy, catches up after stalls and
+flags a full-window backlog. Its reset/cadence/stall RTL test passes with a
+behavioral acknowledgement. The scheduler is **not wired to Gowin IP**;
+controller command timing and actual retention remain unverified.
 
 The [boardless tiling planner](../../compiler/phase4_tiling.py) now emits one
 legal v2 descriptor and aligned DMA transfer sequence per tile across all
@@ -93,7 +111,8 @@ remain open.
 `make p4-test PYTHON=/absolute/path/to/.venv/bin/python` now passes 127
 compiler tests, target/ISA checks, Verilator lint, the existing kernel RTL
 regression, the abstract DMA RTL regression with planner-derived transfers,
-the frozen inventory audit and deterministic plan reproduction. The new
+the shared-SRAM arbitration and refresh-scheduler RTL regressions, the frozen inventory audit and
+deterministic plan reproduction. The new
 schedule tests independently check descriptor legality, all tile output-byte
 coverage, disjoint live activation slots, SRAM region separation and exact
 byte movement through each declared transfer. They do not prove arithmetic
@@ -134,12 +153,14 @@ held-out latency model or measured energy database.
 ## Next work to close G4
 
 Generate the **32-bit, 2-bank-bit, 11-row-bit, 8-column-bit** embedded SDRAM
-IP for this exact part and pass the configuration guard; integrate it into a
+IP for this exact part and pass the configuration guard; integrate it and the
+refresh scheduler into a
 new board hierarchy without changing the archived kernel release. Verify
 initialization, refresh, full address reach, bank/row boundaries and at least
 1 GiB aggregate read/write traffic independently of inference. Add a burst
-adapter, compute/DMA arbitration and ping-pong scratchpad tiles with explicit
-live-region protection. Connect the geometry-only tile plan to real packed
+adapter and connect the tested arbiter to the controller and board hierarchy,
+then implement ping-pong scratchpad tiles with explicit live-region
+protection. Connect the geometry-only tile plan to real packed
 weights, quantization parameters and tensor values; run all pinned audio and
 vision nodes through RTL with an independent exact oracle. Then build a
 held-out kernel/DMA cost database, reroute the integrated hierarchy and
