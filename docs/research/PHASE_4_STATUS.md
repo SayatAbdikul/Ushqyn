@@ -75,6 +75,11 @@ The controller IP configuration found in Gowin's installed example tree is
 **not suitable**: it is 16-bit, 13-row-bit, 9-column-bit and describes 32 MiB.
 The new [IP guard](../../tools/phase4/audit_sdram_ip.py) rejects it. This
 example is outside the project, and it was never part of the board image.
+An isolated `gw_sh` Tcl probe using `create_ipc` and `read_ipc` also rejected
+`sdram_controller_hs` with `ERROR (IP1001): The ip is not exist`; Gowin's
+[Tcl IPFlow guide](https://cdn.gowinsemi.com.cn/SUG1220E.pdf) does not list
+this controller among supported scripted IPs. The installed GUI generator is
+therefore the remaining vendor path for producing the correct controller.
 The target-specific controller still needs generation, clocking, route,
 initialization and physical refresh validation. There is no controller in the
 current source manifest or bitstream.
