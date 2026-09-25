@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1790271273" />
+    <testcase name="packed_conv_pool_fc_chain_matches_independent_oracle" classname="test_tiled_program" file="/Users/sayat/Documents/GitHub/tinyML_accelerator/test/phase4/test_tiled_program.py" lineno="69" time="9.798376083374023" sim_time_ns="1801330.001" ratio_time="183839.6470672843" />
+  </testsuite>
+</testsuites>

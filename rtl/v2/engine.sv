@@ -301,9 +301,9 @@ module v2_engine (
                     if(p0[63]||p0[63:32]==0||p1[7:0]>62||p1[63:40]!=0||
                         ((op==OP_GEMM||op==OP_CONV||op==OP_DWCONV)&&
                             (p1[31:24]!=8'h80||p1[39:32]!=8'd127))||
-                        ((op==OP_RELU||op==OP_MAXPOOL)&&
+                        (op==OP_RELU&&
                             (p1[31:24]!=p1[23:16]||p1[39:32]!=8'd127||p0[31:0]!=0))||
-                        ((op==OP_CLIP||op==OP_AVGPOOL)&&
+                        ((op==OP_CLIP||op==OP_AVGPOOL||op==OP_MAXPOOL)&&
                             (p0[31:0]!=0||$signed(p1[31:24])>$signed(p1[39:32]))))fail(8'd4);
                     else begin
                         acc<=$signed(p0[31:0]);mult<=$signed(p0[63:32]);shift<=p1[5:0];

@@ -1,0 +1,49 @@
+{
+  "bitstream_sha256": "77d700f402d35948326c71dee62eb719dbcc0aab68e4a62bb15eac532cd342cc",
+  "core_clock_constraint_mhz": 20.25,
+  "generated_ip_path": "work/phase4/ip-generated/sdram_controller_hs.v",
+  "generated_ip_sha256": "3166bcfd473e7af6cbf80110ad952279c0209821dbbde4ee26d8a2d558dcee3d",
+  "physical_validation": "not run on board; routed diagnostic bitstream retained only in ignored work directory",
+  "resources": {
+    "bsram": {
+      "available": 46,
+      "used": 18.0
+    },
+    "dsp": {
+      "available": 24,
+      "used": 19.75
+    },
+    "logic": {
+      "available": 20736,
+      "used": 9920.0
+    },
+    "register": {
+      "available": 15915,
+      "used": 2344.0
+    }
+  },
+  "route_report_sha256": "22388d4f5f9398e9dc56f7c906143a62ac2a8f44f4a739b895a0c9afbfab0071",
+  "routed_core_fmax_mhz": 22.552,
+  "scope": "integrated SDRAM/DMA diagnostic with idle compute engine; not full-model accelerator",
+  "setup_tns_ns": 0,
+  "source_sha256": {
+    "hardware/phase4_sdram/bist.cst": "dd27d332ea98dfdd4ab46da25fbd7ba37b8d037cbc7a7fde0ced9b668ea7a8c5",
+    "hardware/phase4_sdram/bist.sdc": "6d8bbb0169f52a717de400a89fb3046edcd07ee3c16a0e2997a2aec7a1e56f6b",
+    "hardware/phase4_sdram/build_dma.tcl": "edd55afe7e1b33e0e86408e806eba10e94ad48752a95907a7fe4be4d4df06021",
+    "hardware/phase4_sdram/dma_smoke.sv": "713e5932678ba9c5255b436df2355f0e87f302175926d632181ac3545e44bf78",
+    "hardware/phase4_sdram/pll_dma_20.v": "104341319eead08208f9da7849ba34c751098e0d4290d6819d4968294953114f",
+    "rtl/v2/engine.sv": "4b8300050934959a627249fca9d7be74a594757abd162ab4710510aaa71cb122",
+    "rtl/v2/hs_sdram_port.sv": "af91ac8313d821857c4be9173a27b07a883b425ec5e21d47539452f2b2a1e769",
+    "rtl/v2/requantizer.sv": "e40913b484ad629d2445cdfb3edf16d6508f273ce0d4a5855d114780fe0a9e4b",
+    "rtl/v2/scratchpad.sv": "bfdab92e5f5f039e102b76fad82fe6a8df2d7f64d1b2cffd23cc677626654cd2",
+    "rtl/v2/sdram_refresh.sv": "9b9bfb8c05011ce2d84e9838697ab65ec587dfb3310684d4c37b853e8dcb21ec",
+    "rtl/v2/target_pkg.sv": "52e649f8911e92452cfef5cce9b1ad4e5dd75d20f4a725c67ee391fe75daae6e",
+    "rtl/v2/tile_dma.sv": "94e94a4a8c474fd2f0824dff3cc64bca921262cd9e0bf53064713376c1a09ab9",
+    "rtl/v2/tiled_core.sv": "98e36ce05e53823f072b85e7c5d164d0eba3a3daae0592de6a0c86a18921f72a",
+    "rtl/v2/uart_tx.sv": "a3ace5523e30af83438478ad82f54a12fcd5aca07e38dbc4e3b46cc46f3af1f1"
+  },
+  "status": "passed-post-route-not-board-tested",
+  "target": "GW2AR-LV18QN88C8/I7 revision C",
+  "timing_report_sha256": "abcbb24273f87045338f59f34b46de53f0c11c9dc9c46dc7829d83523e43fffb",
+  "tool": "Gowin Education V1.9.11.03"
+}

@@ -1,0 +1,2629 @@
+{
+  "source_onnx_sha256": "993c479a58d44c75ca2084b0e4021a4ac31c3aeb584f5874df460cfa05df0d1b",
+  "canonical_onnx_sha256": "b77f6b930c3328227951fb80d37eccb3e4ffbc9f07ce5915739853584f18891d",
+  "classifier_boundary": {
+    "accelerator_output": "Add__87:0",
+    "source_output": "Identity",
+    "host_operation": "argmax over logits; first index on ties",
+    "probability_output_supported": false,
+    "removed_operator": "terminal Softmax"
+  },
+  "operators": [
+    {
+      "name": "model/activation/Relu;model/batch_normalization/FusedBatchNormV3;model/conv2d/BiasAdd/ReadVariableOp/resource;model/conv2d/BiasAdd;model/depthwise_conv2d/depthwise;model/conv2d/Conv2D1__89",
+      "op": "Transpose",
+      "inputs": [
+        "input_1"
+      ],
+      "outputs": [
+        "model/activation/Relu;model/batch_normalization/FusedBatchNormV3;model/conv2d/BiasAdd/ReadVariableOp/resource;model/conv2d/BiasAdd;model/depthwise_conv2d/depthwise;model/conv2d/Conv2D1__89:0"
+      ],
+      "attributes": {
+        "perm": [
+          0,
+          3,
+          1,
+          2
+        ]
+      },
+      "macs": 0
+    },
+    {
+      "name": "model/activation/Relu;model/batch_normalization/FusedBatchNormV3;model/conv2d/BiasAdd/ReadVariableOp/resource;model/conv2d/BiasAdd;model/depthwise_conv2d/depthwise;model/conv2d/Conv2D1",
+      "op": "Conv",
+      "inputs": [
+        "model/activation/Relu;model/batch_normalization/FusedBatchNormV3;model/conv2d/BiasAdd/ReadVariableOp/resource;model/conv2d/BiasAdd;model/depthwise_conv2d/depthwise;model/conv2d/Conv2D1__89:0",
+        "model/activation/Relu;model/batch_normalization/FusedBatchNormV3;model/conv2d/BiasAdd/ReadVariableOp/resource;model/conv2d/BiasAdd;model/depthwise_conv2d/depthwise;model/conv2d/Conv2D1/canonical_w",
+        "model/activation/Relu;model/batch_normalization/FusedBatchNormV3;model/conv2d/BiasAdd/ReadVariableOp/resource;model/conv2d/BiasAdd;model/depthwise_conv2d/depthwise;model/conv2d/Conv2D1/canonical_b"
+      ],
+      "outputs": [
+        "model/activation/Relu;model/batch_normalization/FusedBatchNormV3;model/conv2d/BiasAdd/ReadVariableOp/resource;model/conv2d/BiasAdd;model/depthwise_conv2d/depthwise;model/conv2d/Conv2D1"
+      ],
+      "attributes": {
+        "strides": [
+          2,
+          2
+        ],
+        "dilations": [
+          1,
+          1
+        ],
+        "kernel_shape": [
+          3,
+          3
+        ],
+        "pads": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "group": 1
+      },
+      "macs": 497664
+    },
+    {
+      "name": "Relu__5",
+      "op": "Relu",
+      "inputs": [
+        "model/activation/Relu;model/batch_normalization/FusedBatchNormV3;model/conv2d/BiasAdd/ReadVariableOp/resource;model/conv2d/BiasAdd;model/depthwise_conv2d/depthwise;model/conv2d/Conv2D1"
+      ],
+      "outputs": [
+        "Relu__5:0"
+      ],
+      "attributes": {},
+      "macs": 0
+    },
+    {
+      "name": "model/activation_1/Relu;model/batch_normalization_1/FusedBatchNormV3;model/depthwise_conv2d/depthwise;model/depthwise_conv2d/BiasAdd;model/depthwise_conv2d/BiasAdd/ReadVariableOp/resource1",
+      "op": "Conv",
+      "inputs": [
+        "Relu__5:0",
+        "model/activation_1/Relu;model/batch_normalization_1/FusedBatchNormV3;model/depthwise_conv2d/depthwise;model/depthwise_conv2d/BiasAdd;model/depthwise_conv2d/BiasAdd/ReadVariableOp/resource1/canonical_w",
+        "model/activation_1/Relu;model/batch_normalization_1/FusedBatchNormV3;model/depthwise_conv2d/depthwise;model/depthwise_conv2d/BiasAdd;model/depthwise_conv2d/BiasAdd/ReadVariableOp/resource1/canonical_b"
+      ],
+      "outputs": [
+        "model/activation_1/Relu;model/batch_normalization_1/FusedBatchNormV3;model/depthwise_conv2d/depthwise;model/depthwise_conv2d/BiasAdd;model/depthwise_conv2d/BiasAdd/ReadVariableOp/resource1"
+      ],
+      "attributes": {
+        "strides": [
+          1,
+          1
+        ],
+        "dilations": [
+          1,
+          1
+        ],
+        "kernel_shape": [
+          3,
+          3
+        ],
+        "group": 8,
+        "pads": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "macs": 165888
+    },
+    {
+      "name": "Relu__8",
+      "op": "Relu",
+      "inputs": [
+        "model/activation_1/Relu;model/batch_normalization_1/FusedBatchNormV3;model/depthwise_conv2d/depthwise;model/depthwise_conv2d/BiasAdd;model/depthwise_conv2d/BiasAdd/ReadVariableOp/resource1"
+      ],
+      "outputs": [
+        "Relu__8:0"
+      ],
+      "attributes": {},
+      "macs": 0
+    },
+    {
+      "name": "model/activation_2/Relu;model/batch_normalization_2/FusedBatchNormV3;model/conv2d_1/BiasAdd/ReadVariableOp/resource;model/conv2d_1/BiasAdd;model/depthwise_conv2d_1/depthwise;model/conv2d_1/Conv2D1",
+      "op": "Conv",
+      "inputs": [
+        "Relu__8:0",
+        "model/activation_2/Relu;model/batch_normalization_2/FusedBatchNormV3;model/conv2d_1/BiasAdd/ReadVariableOp/resource;model/conv2d_1/BiasAdd;model/depthwise_conv2d_1/depthwise;model/conv2d_1/Conv2D1/canonical_w",
+        "model/activation_2/Relu;model/batch_normalization_2/FusedBatchNormV3;model/conv2d_1/BiasAdd/ReadVariableOp/resource;model/conv2d_1/BiasAdd;model/depthwise_conv2d_1/depthwise;model/conv2d_1/Conv2D1/canonical_b"
+      ],
+      "outputs": [
+        "model/activation_2/Relu;model/batch_normalization_2/FusedBatchNormV3;model/conv2d_1/BiasAdd/ReadVariableOp/resource;model/conv2d_1/BiasAdd;model/depthwise_conv2d_1/depthwise;model/conv2d_1/Conv2D1"
+      ],
+      "attributes": {
+        "strides": [
+          1,
+          1
+        ],
+        "dilations": [
+          1,
+          1
+        ],
+        "kernel_shape": [
+          1,
+          1
+        ],
+        "pads": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "group": 1
+      },
+      "macs": 294912
+    },
+    {
+      "name": "Relu__11",
+      "op": "Relu",
+      "inputs": [
+        "model/activation_2/Relu;model/batch_normalization_2/FusedBatchNormV3;model/conv2d_1/BiasAdd/ReadVariableOp/resource;model/conv2d_1/BiasAdd;model/depthwise_conv2d_1/depthwise;model/conv2d_1/Conv2D1"
+      ],
+      "outputs": [
+        "Relu__11:0"
+      ],
+      "attributes": {},
+      "macs": 0
+    },
+    {
+      "name": "model/activation_3/Relu;model/batch_normalization_3/FusedBatchNormV3;model/depthwise_conv2d_1/depthwise;model/depthwise_conv2d_1/BiasAdd;model/depthwise_conv2d_1/BiasAdd/ReadVariableOp/resource1",
+      "op": "Conv",
+      "inputs": [
+        "Relu__11:0",
+        "model/activation_3/Relu;model/batch_normalization_3/FusedBatchNormV3;model/depthwise_conv2d_1/depthwise;model/depthwise_conv2d_1/BiasAdd;model/depthwise_conv2d_1/BiasAdd/ReadVariableOp/resource1/canonical_w",
+        "model/activation_3/Relu;model/batch_normalization_3/FusedBatchNormV3;model/depthwise_conv2d_1/depthwise;model/depthwise_conv2d_1/BiasAdd;model/depthwise_conv2d_1/BiasAdd/ReadVariableOp/resource1/canonical_b"
+      ],
+      "outputs": [
+        "model/activation_3/Relu;model/batch_normalization_3/FusedBatchNormV3;model/depthwise_conv2d_1/depthwise;model/depthwise_conv2d_1/BiasAdd;model/depthwise_conv2d_1/BiasAdd/ReadVariableOp/resource1"
+      ],
+      "attributes": {
+        "strides": [
+          2,
+          2
+        ],
+        "dilations": [
+          1,
+          1
+        ],
+        "kernel_shape": [
+          3,
+          3
+        ],
+        "group": 16,
+        "pads": [
+          0,
+          0,
+          1,
+          1
+        ]
+      },
+      "macs": 82944
+    },
+    {
+      "name": "Relu__14",
+      "op": "Relu",
+      "inputs": [
+        "model/activation_3/Relu;model/batch_normalization_3/FusedBatchNormV3;model/depthwise_conv2d_1/depthwise;model/depthwise_conv2d_1/BiasAdd;model/depthwise_conv2d_1/BiasAdd/ReadVariableOp/resource1"
+      ],
+      "outputs": [
+        "Relu__14:0"
+      ],
+      "attributes": {},
+      "macs": 0
+    },
+    {
+      "name": "model/activation_4/Relu;model/batch_normalization_4/FusedBatchNormV3;model/conv2d_2/BiasAdd/ReadVariableOp/resource;model/conv2d_2/BiasAdd;model/depthwise_conv2d_3/depthwise;model/conv2d_2/Conv2D1",
+      "op": "Conv",
+      "inputs": [
+        "Relu__14:0",
+        "model/activation_4/Relu;model/batch_normalization_4/FusedBatchNormV3;model/conv2d_2/BiasAdd/ReadVariableOp/resource;model/conv2d_2/BiasAdd;model/depthwise_conv2d_3/depthwise;model/conv2d_2/Conv2D1/canonical_w",
+        "model/activation_4/Relu;model/batch_normalization_4/FusedBatchNormV3;model/conv2d_2/BiasAdd/ReadVariableOp/resource;model/conv2d_2/BiasAdd;model/depthwise_conv2d_3/depthwise;model/conv2d_2/Conv2D1/canonical_b"
+      ],
+      "outputs": [
+        "model/activation_4/Relu;model/batch_normalization_4/FusedBatchNormV3;model/conv2d_2/BiasAdd/ReadVariableOp/resource;model/conv2d_2/BiasAdd;model/depthwise_conv2d_3/depthwise;model/conv2d_2/Conv2D1"
+      ],
+      "attributes": {
+        "strides": [
+          1,
+          1
+        ],
+        "dilations": [
+          1,
+          1
+        ],
+        "kernel_shape": [
+          1,
+          1
+        ],
+        "pads": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "group": 1
+      },
+      "macs": 294912
+    },
+    {
+      "name": "Relu__17",
+      "op": "Relu",
+      "inputs": [
+        "model/activation_4/Relu;model/batch_normalization_4/FusedBatchNormV3;model/conv2d_2/BiasAdd/ReadVariableOp/resource;model/conv2d_2/BiasAdd;model/depthwise_conv2d_3/depthwise;model/conv2d_2/Conv2D1"
+      ],
+      "outputs": [
+        "Relu__17:0"
+      ],
+      "attributes": {},
+      "macs": 0
+    },
+    {
+      "name": "model/activation_5/Relu;model/batch_normalization_5/FusedBatchNormV3;model/depthwise_conv2d_2/depthwise;model/depthwise_conv2d_2/BiasAdd;model/depthwise_conv2d_3/depthwise;model/depthwise_conv2d_2/BiasAdd/ReadVariableOp/resource1",
+      "op": "Conv",
+      "inputs": [
+        "Relu__17:0",
+        "model/activation_5/Relu;model/batch_normalization_5/FusedBatchNormV3;model/depthwise_conv2d_2/depthwise;model/depthwise_conv2d_2/BiasAdd;model/depthwise_conv2d_3/depthwise;model/depthwise_conv2d_2/BiasAdd/ReadVariableOp/resource1/canonical_w",
+        "model/activation_5/Relu;model/batch_normalization_5/FusedBatchNormV3;model/depthwise_conv2d_2/depthwise;model/depthwise_conv2d_2/BiasAdd;model/depthwise_conv2d_3/depthwise;model/depthwise_conv2d_2/BiasAdd/ReadVariableOp/resource1/canonical_b"
+      ],
+      "outputs": [
+        "model/activation_5/Relu;model/batch_normalization_5/FusedBatchNormV3;model/depthwise_conv2d_2/depthwise;model/depthwise_conv2d_2/BiasAdd;model/depthwise_conv2d_3/depthwise;model/depthwise_conv2d_2/BiasAdd/ReadVariableOp/resource1"
+      ],
+      "attributes": {
+        "strides": [
+          1,
+          1
+        ],
+        "dilations": [
+          1,
+          1
+        ],
+        "kernel_shape": [
+          3,
+          3
+        ],
+        "group": 32,
+        "pads": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "macs": 165888
+    },
+    {
+      "name": "Relu__20",
+      "op": "Relu",
+      "inputs": [
+        "model/activation_5/Relu;model/batch_normalization_5/FusedBatchNormV3;model/depthwise_conv2d_2/depthwise;model/depthwise_conv2d_2/BiasAdd;model/depthwise_conv2d_3/depthwise;model/depthwise_conv2d_2/BiasAdd/ReadVariableOp/resource1"
+      ],
+      "outputs": [
+        "Relu__20:0"
+      ],
+      "attributes": {},
+      "macs": 0
+    },
+    {
+      "name": "model/activation_6/Relu;model/batch_normalization_6/FusedBatchNormV3;model/conv2d_3/BiasAdd/ReadVariableOp/resource;model/conv2d_3/BiasAdd;model/depthwise_conv2d_3/depthwise;model/conv2d_3/Conv2D1",
+      "op": "Conv",
+      "inputs": [
+        "Relu__20:0",
+        "model/activation_6/Relu;model/batch_normalization_6/FusedBatchNormV3;model/conv2d_3/BiasAdd/ReadVariableOp/resource;model/conv2d_3/BiasAdd;model/depthwise_conv2d_3/depthwise;model/conv2d_3/Conv2D1/canonical_w",
+        "model/activation_6/Relu;model/batch_normalization_6/FusedBatchNormV3;model/conv2d_3/BiasAdd/ReadVariableOp/resource;model/conv2d_3/BiasAdd;model/depthwise_conv2d_3/depthwise;model/conv2d_3/Conv2D1/canonical_b"
+      ],
+      "outputs": [
+        "model/activation_6/Relu;model/batch_normalization_6/FusedBatchNormV3;model/conv2d_3/BiasAdd/ReadVariableOp/resource;model/conv2d_3/BiasAdd;model/depthwise_conv2d_3/depthwise;model/conv2d_3/Conv2D1"
+      ],
+      "attributes": {
+        "strides": [
+          1,
+          1
+        ],
+        "dilations": [
+          1,
+          1
+        ],
+        "kernel_shape": [
+          1,
+          1
+        ],
+        "pads": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "group": 1
+      },
+      "macs": 589824
+    },
+    {
+      "name": "Relu__23",
+      "op": "Relu",
+      "inputs": [
+        "model/activation_6/Relu;model/batch_normalization_6/FusedBatchNormV3;model/conv2d_3/BiasAdd/ReadVariableOp/resource;model/conv2d_3/BiasAdd;model/depthwise_conv2d_3/depthwise;model/conv2d_3/Conv2D1"
+      ],
+      "outputs": [
+        "Relu__23:0"
+      ],
+      "attributes": {},
+      "macs": 0
+    },
+    {
+      "name": "model/activation_7/Relu;model/batch_normalization_7/FusedBatchNormV3;model/depthwise_conv2d_3/depthwise;model/depthwise_conv2d_3/BiasAdd;model/depthwise_conv2d_3/BiasAdd/ReadVariableOp/resource1",
+      "op": "Conv",
+      "inputs": [
+        "Relu__23:0",
+        "model/activation_7/Relu;model/batch_normalization_7/FusedBatchNormV3;model/depthwise_conv2d_3/depthwise;model/depthwise_conv2d_3/BiasAdd;model/depthwise_conv2d_3/BiasAdd/ReadVariableOp/resource1/canonical_w",
+        "model/activation_7/Relu;model/batch_normalization_7/FusedBatchNormV3;model/depthwise_conv2d_3/depthwise;model/depthwise_conv2d_3/BiasAdd;model/depthwise_conv2d_3/BiasAdd/ReadVariableOp/resource1/canonical_b"
+      ],
+      "outputs": [
+        "model/activation_7/Relu;model/batch_normalization_7/FusedBatchNormV3;model/depthwise_conv2d_3/depthwise;model/depthwise_conv2d_3/BiasAdd;model/depthwise_conv2d_3/BiasAdd/ReadVariableOp/resource1"
+      ],
+      "attributes": {
+        "strides": [
+          2,
+          2
+        ],
+        "dilations": [
+          1,
+          1
+        ],
+        "kernel_shape": [
+          3,
+          3
+        ],
+        "group": 32,
+        "pads": [
+          0,
+          0,
+          1,
+          1
+        ]
+      },
+      "macs": 41472
+    },
+    {
+      "name": "Relu__26",
+      "op": "Relu",
+      "inputs": [
+        "model/activation_7/Relu;model/batch_normalization_7/FusedBatchNormV3;model/depthwise_conv2d_3/depthwise;model/depthwise_conv2d_3/BiasAdd;model/depthwise_conv2d_3/BiasAdd/ReadVariableOp/resource1"
+      ],
+      "outputs": [
+        "Relu__26:0"
+      ],
+      "attributes": {},
+      "macs": 0
+    },
+    {
+      "name": "model/activation_8/Relu;model/batch_normalization_8/FusedBatchNormV3;model/conv2d_4/BiasAdd/ReadVariableOp/resource;model/conv2d_4/BiasAdd;model/depthwise_conv2d_5/depthwise;model/conv2d_4/Conv2D1",
+      "op": "Conv",
+      "inputs": [
+        "Relu__26:0",
+        "model/activation_8/Relu;model/batch_normalization_8/FusedBatchNormV3;model/conv2d_4/BiasAdd/ReadVariableOp/resource;model/conv2d_4/BiasAdd;model/depthwise_conv2d_5/depthwise;model/conv2d_4/Conv2D1/canonical_w",
+        "model/activation_8/Relu;model/batch_normalization_8/FusedBatchNormV3;model/conv2d_4/BiasAdd/ReadVariableOp/resource;model/conv2d_4/BiasAdd;model/depthwise_conv2d_5/depthwise;model/conv2d_4/Conv2D1/canonical_b"
+      ],
+      "outputs": [
+        "model/activation_8/Relu;model/batch_normalization_8/FusedBatchNormV3;model/conv2d_4/BiasAdd/ReadVariableOp/resource;model/conv2d_4/BiasAdd;model/depthwise_conv2d_5/depthwise;model/conv2d_4/Conv2D1"
+      ],
+      "attributes": {
+        "strides": [
+          1,
+          1
+        ],
+        "dilations": [
+          1,
+          1
+        ],
+        "kernel_shape": [
+          1,
+          1
+        ],
+        "pads": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "group": 1
+      },
+      "macs": 294912
+    },
+    {
+      "name": "Relu__29",
+      "op": "Relu",
+      "inputs": [
+        "model/activation_8/Relu;model/batch_normalization_8/FusedBatchNormV3;model/conv2d_4/BiasAdd/ReadVariableOp/resource;model/conv2d_4/BiasAdd;model/depthwise_conv2d_5/depthwise;model/conv2d_4/Conv2D1"
+      ],
+      "outputs": [
+        "Relu__29:0"
+      ],
+      "attributes": {},
+      "macs": 0
+    },
+    {
+      "name": "model/activation_9/Relu;model/batch_normalization_9/FusedBatchNormV3;model/depthwise_conv2d_4/depthwise;model/depthwise_conv2d_4/BiasAdd;model/depthwise_conv2d_5/depthwise;model/depthwise_conv2d_4/BiasAdd/ReadVariableOp/resource1",
+      "op": "Conv",
+      "inputs": [
+        "Relu__29:0",
+        "model/activation_9/Relu;model/batch_normalization_9/FusedBatchNormV3;model/depthwise_conv2d_4/depthwise;model/depthwise_conv2d_4/BiasAdd;model/depthwise_conv2d_5/depthwise;model/depthwise_conv2d_4/BiasAdd/ReadVariableOp/resource1/canonical_w",
+        "model/activation_9/Relu;model/batch_normalization_9/FusedBatchNormV3;model/depthwise_conv2d_4/depthwise;model/depthwise_conv2d_4/BiasAdd;model/depthwise_conv2d_5/depthwise;model/depthwise_conv2d_4/BiasAdd/ReadVariableOp/resource1/canonical_b"
+      ],
+      "outputs": [
+        "model/activation_9/Relu;model/batch_normalization_9/FusedBatchNormV3;model/depthwise_conv2d_4/depthwise;model/depthwise_conv2d_4/BiasAdd;model/depthwise_conv2d_5/depthwise;model/depthwise_conv2d_4/BiasAdd/ReadVariableOp/resource1"
+      ],
+      "attributes": {
+        "strides": [
+          1,
+          1
+        ],
+        "dilations": [
+          1,
+          1
+        ],
+        "kernel_shape": [
+          3,
+          3
+        ],
+        "group": 64,
+        "pads": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "macs": 82944
+    },
+    {
+      "name": "Relu__32",
+      "op": "Relu",
+      "inputs": [
+        "model/activation_9/Relu;model/batch_normalization_9/FusedBatchNormV3;model/depthwise_conv2d_4/depthwise;model/depthwise_conv2d_4/BiasAdd;model/depthwise_conv2d_5/depthwise;model/depthwise_conv2d_4/BiasAdd/ReadVariableOp/resource1"
+      ],
+      "outputs": [
+        "Relu__32:0"
+      ],
+      "attributes": {},
+      "macs": 0
+    },
+    {
+      "name": "model/activation_10/Relu;model/batch_normalization_10/FusedBatchNormV3;model/conv2d_5/BiasAdd/ReadVariableOp/resource;model/conv2d_5/BiasAdd;model/depthwise_conv2d_5/depthwise;model/conv2d_5/Conv2D1",
+      "op": "Conv",
+      "inputs": [
+        "Relu__32:0",
+        "model/activation_10/Relu;model/batch_normalization_10/FusedBatchNormV3;model/conv2d_5/BiasAdd/ReadVariableOp/resource;model/conv2d_5/BiasAdd;model/depthwise_conv2d_5/depthwise;model/conv2d_5/Conv2D1/canonical_w",
+        "model/activation_10/Relu;model/batch_normalization_10/FusedBatchNormV3;model/conv2d_5/BiasAdd/ReadVariableOp/resource;model/conv2d_5/BiasAdd;model/depthwise_conv2d_5/depthwise;model/conv2d_5/Conv2D1/canonical_b"
+      ],
+      "outputs": [
+        "model/activation_10/Relu;model/batch_normalization_10/FusedBatchNormV3;model/conv2d_5/BiasAdd/ReadVariableOp/resource;model/conv2d_5/BiasAdd;model/depthwise_conv2d_5/depthwise;model/conv2d_5/Conv2D1"
+      ],
+      "attributes": {
+        "strides": [
+          1,
+          1
+        ],
+        "dilations": [
+          1,
+          1
+        ],
+        "kernel_shape": [
+          1,
+          1
+        ],
+        "pads": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "group": 1
+      },
+      "macs": 589824
+    },
+    {
+      "name": "Relu__35",
+      "op": "Relu",
+      "inputs": [
+        "model/activation_10/Relu;model/batch_normalization_10/FusedBatchNormV3;model/conv2d_5/BiasAdd/ReadVariableOp/resource;model/conv2d_5/BiasAdd;model/depthwise_conv2d_5/depthwise;model/conv2d_5/Conv2D1"
+      ],
+      "outputs": [
+        "Relu__35:0"
+      ],
+      "attributes": {},
+      "macs": 0
+    },
+    {
+      "name": "model/activation_11/Relu;model/batch_normalization_11/FusedBatchNormV3;model/depthwise_conv2d_5/depthwise;model/depthwise_conv2d_5/BiasAdd;model/depthwise_conv2d_5/BiasAdd/ReadVariableOp/resource1",
+      "op": "Conv",
+      "inputs": [
+        "Relu__35:0",
+        "model/activation_11/Relu;model/batch_normalization_11/FusedBatchNormV3;model/depthwise_conv2d_5/depthwise;model/depthwise_conv2d_5/BiasAdd;model/depthwise_conv2d_5/BiasAdd/ReadVariableOp/resource1/canonical_w",
+        "model/activation_11/Relu;model/batch_normalization_11/FusedBatchNormV3;model/depthwise_conv2d_5/depthwise;model/depthwise_conv2d_5/BiasAdd;model/depthwise_conv2d_5/BiasAdd/ReadVariableOp/resource1/canonical_b"
+      ],
+      "outputs": [
+        "model/activation_11/Relu;model/batch_normalization_11/FusedBatchNormV3;model/depthwise_conv2d_5/depthwise;model/depthwise_conv2d_5/BiasAdd;model/depthwise_conv2d_5/BiasAdd/ReadVariableOp/resource1"
+      ],
+      "attributes": {
+        "strides": [
+          2,
+          2
+        ],
+        "dilations": [
+          1,
+          1
+        ],
+        "kernel_shape": [
+          3,
+          3
+        ],
+        "group": 64,
+        "pads": [
+          0,
+          0,
+          1,
+          1
+        ]
+      },
+      "macs": 20736
+    },
+    {
+      "name": "Relu__38",
+      "op": "Relu",
+      "inputs": [
+        "model/activation_11/Relu;model/batch_normalization_11/FusedBatchNormV3;model/depthwise_conv2d_5/depthwise;model/depthwise_conv2d_5/BiasAdd;model/depthwise_conv2d_5/BiasAdd/ReadVariableOp/resource1"
+      ],
+      "outputs": [
+        "Relu__38:0"
+      ],
+      "attributes": {},
+      "macs": 0
+    },
+    {
+      "name": "model/activation_12/Relu;model/batch_normalization_12/FusedBatchNormV3;model/conv2d_6/BiasAdd/ReadVariableOp/resource;model/conv2d_6/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_6/Conv2D1",
+      "op": "Conv",
+      "inputs": [
+        "Relu__38:0",
+        "model/activation_12/Relu;model/batch_normalization_12/FusedBatchNormV3;model/conv2d_6/BiasAdd/ReadVariableOp/resource;model/conv2d_6/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_6/Conv2D1/canonical_w",
+        "model/activation_12/Relu;model/batch_normalization_12/FusedBatchNormV3;model/conv2d_6/BiasAdd/ReadVariableOp/resource;model/conv2d_6/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_6/Conv2D1/canonical_b"
+      ],
+      "outputs": [
+        "model/activation_12/Relu;model/batch_normalization_12/FusedBatchNormV3;model/conv2d_6/BiasAdd/ReadVariableOp/resource;model/conv2d_6/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_6/Conv2D1"
+      ],
+      "attributes": {
+        "strides": [
+          1,
+          1
+        ],
+        "dilations": [
+          1,
+          1
+        ],
+        "kernel_shape": [
+          1,
+          1
+        ],
+        "pads": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "group": 1
+      },
+      "macs": 294912
+    },
+    {
+      "name": "Relu__41",
+      "op": "Relu",
+      "inputs": [
+        "model/activation_12/Relu;model/batch_normalization_12/FusedBatchNormV3;model/conv2d_6/BiasAdd/ReadVariableOp/resource;model/conv2d_6/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_6/Conv2D1"
+      ],
+      "outputs": [
+        "Relu__41:0"
+      ],
+      "attributes": {},
+      "macs": 0
+    },
+    {
+      "name": "model/activation_13/Relu;model/batch_normalization_13/FusedBatchNormV3;model/depthwise_conv2d_6/depthwise;model/depthwise_conv2d_6/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_6/BiasAdd/ReadVariableOp/resource1",
+      "op": "Conv",
+      "inputs": [
+        "Relu__41:0",
+        "model/activation_13/Relu;model/batch_normalization_13/FusedBatchNormV3;model/depthwise_conv2d_6/depthwise;model/depthwise_conv2d_6/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_6/BiasAdd/ReadVariableOp/resource1/canonical_w",
+        "model/activation_13/Relu;model/batch_normalization_13/FusedBatchNormV3;model/depthwise_conv2d_6/depthwise;model/depthwise_conv2d_6/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_6/BiasAdd/ReadVariableOp/resource1/canonical_b"
+      ],
+      "outputs": [
+        "model/activation_13/Relu;model/batch_normalization_13/FusedBatchNormV3;model/depthwise_conv2d_6/depthwise;model/depthwise_conv2d_6/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_6/BiasAdd/ReadVariableOp/resource1"
+      ],
+      "attributes": {
+        "strides": [
+          1,
+          1
+        ],
+        "dilations": [
+          1,
+          1
+        ],
+        "kernel_shape": [
+          3,
+          3
+        ],
+        "group": 128,
+        "pads": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "macs": 41472
+    },
+    {
+      "name": "Relu__44",
+      "op": "Relu",
+      "inputs": [
+        "model/activation_13/Relu;model/batch_normalization_13/FusedBatchNormV3;model/depthwise_conv2d_6/depthwise;model/depthwise_conv2d_6/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_6/BiasAdd/ReadVariableOp/resource1"
+      ],
+      "outputs": [
+        "Relu__44:0"
+      ],
+      "attributes": {},
+      "macs": 0
+    },
+    {
+      "name": "model/activation_14/Relu;model/batch_normalization_14/FusedBatchNormV3;model/conv2d_7/BiasAdd/ReadVariableOp/resource;model/conv2d_7/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_7/Conv2D1",
+      "op": "Conv",
+      "inputs": [
+        "Relu__44:0",
+        "model/activation_14/Relu;model/batch_normalization_14/FusedBatchNormV3;model/conv2d_7/BiasAdd/ReadVariableOp/resource;model/conv2d_7/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_7/Conv2D1/canonical_w",
+        "model/activation_14/Relu;model/batch_normalization_14/FusedBatchNormV3;model/conv2d_7/BiasAdd/ReadVariableOp/resource;model/conv2d_7/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_7/Conv2D1/canonical_b"
+      ],
+      "outputs": [
+        "model/activation_14/Relu;model/batch_normalization_14/FusedBatchNormV3;model/conv2d_7/BiasAdd/ReadVariableOp/resource;model/conv2d_7/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_7/Conv2D1"
+      ],
+      "attributes": {
+        "strides": [
+          1,
+          1
+        ],
+        "dilations": [
+          1,
+          1
+        ],
+        "kernel_shape": [
+          1,
+          1
+        ],
+        "pads": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "group": 1
+      },
+      "macs": 589824
+    },
+    {
+      "name": "Relu__47",
+      "op": "Relu",
+      "inputs": [
+        "model/activation_14/Relu;model/batch_normalization_14/FusedBatchNormV3;model/conv2d_7/BiasAdd/ReadVariableOp/resource;model/conv2d_7/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_7/Conv2D1"
+      ],
+      "outputs": [
+        "Relu__47:0"
+      ],
+      "attributes": {},
+      "macs": 0
+    },
+    {
+      "name": "model/activation_15/Relu;model/batch_normalization_15/FusedBatchNormV3;model/depthwise_conv2d_7/depthwise;model/depthwise_conv2d_7/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_7/BiasAdd/ReadVariableOp/resource1",
+      "op": "Conv",
+      "inputs": [
+        "Relu__47:0",
+        "model/activation_15/Relu;model/batch_normalization_15/FusedBatchNormV3;model/depthwise_conv2d_7/depthwise;model/depthwise_conv2d_7/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_7/BiasAdd/ReadVariableOp/resource1/canonical_w",
+        "model/activation_15/Relu;model/batch_normalization_15/FusedBatchNormV3;model/depthwise_conv2d_7/depthwise;model/depthwise_conv2d_7/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_7/BiasAdd/ReadVariableOp/resource1/canonical_b"
+      ],
+      "outputs": [
+        "model/activation_15/Relu;model/batch_normalization_15/FusedBatchNormV3;model/depthwise_conv2d_7/depthwise;model/depthwise_conv2d_7/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_7/BiasAdd/ReadVariableOp/resource1"
+      ],
+      "attributes": {
+        "strides": [
+          1,
+          1
+        ],
+        "dilations": [
+          1,
+          1
+        ],
+        "kernel_shape": [
+          3,
+          3
+        ],
+        "group": 128,
+        "pads": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "macs": 41472
+    },
+    {
+      "name": "Relu__50",
+      "op": "Relu",
+      "inputs": [
+        "model/activation_15/Relu;model/batch_normalization_15/FusedBatchNormV3;model/depthwise_conv2d_7/depthwise;model/depthwise_conv2d_7/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_7/BiasAdd/ReadVariableOp/resource1"
+      ],
+      "outputs": [
+        "Relu__50:0"
+      ],
+      "attributes": {},
+      "macs": 0
+    },
+    {
+      "name": "model/activation_16/Relu;model/batch_normalization_16/FusedBatchNormV3;model/conv2d_8/BiasAdd/ReadVariableOp/resource;model/conv2d_8/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_8/Conv2D1",
+      "op": "Conv",
+      "inputs": [
+        "Relu__50:0",
+        "model/activation_16/Relu;model/batch_normalization_16/FusedBatchNormV3;model/conv2d_8/BiasAdd/ReadVariableOp/resource;model/conv2d_8/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_8/Conv2D1/canonical_w",
+        "model/activation_16/Relu;model/batch_normalization_16/FusedBatchNormV3;model/conv2d_8/BiasAdd/ReadVariableOp/resource;model/conv2d_8/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_8/Conv2D1/canonical_b"
+      ],
+      "outputs": [
+        "model/activation_16/Relu;model/batch_normalization_16/FusedBatchNormV3;model/conv2d_8/BiasAdd/ReadVariableOp/resource;model/conv2d_8/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_8/Conv2D1"
+      ],
+      "attributes": {
+        "strides": [
+          1,
+          1
+        ],
+        "dilations": [
+          1,
+          1
+        ],
+        "kernel_shape": [
+          1,
+          1
+        ],
+        "pads": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "group": 1
+      },
+      "macs": 589824
+    },
+    {
+      "name": "Relu__53",
+      "op": "Relu",
+      "inputs": [
+        "model/activation_16/Relu;model/batch_normalization_16/FusedBatchNormV3;model/conv2d_8/BiasAdd/ReadVariableOp/resource;model/conv2d_8/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_8/Conv2D1"
+      ],
+      "outputs": [
+        "Relu__53:0"
+      ],
+      "attributes": {},
+      "macs": 0
+    },
+    {
+      "name": "model/activation_17/Relu;model/batch_normalization_17/FusedBatchNormV3;model/depthwise_conv2d_8/depthwise;model/depthwise_conv2d_8/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_8/BiasAdd/ReadVariableOp/resource1",
+      "op": "Conv",
+      "inputs": [
+        "Relu__53:0",
+        "model/activation_17/Relu;model/batch_normalization_17/FusedBatchNormV3;model/depthwise_conv2d_8/depthwise;model/depthwise_conv2d_8/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_8/BiasAdd/ReadVariableOp/resource1/canonical_w",
+        "model/activation_17/Relu;model/batch_normalization_17/FusedBatchNormV3;model/depthwise_conv2d_8/depthwise;model/depthwise_conv2d_8/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_8/BiasAdd/ReadVariableOp/resource1/canonical_b"
+      ],
+      "outputs": [
+        "model/activation_17/Relu;model/batch_normalization_17/FusedBatchNormV3;model/depthwise_conv2d_8/depthwise;model/depthwise_conv2d_8/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_8/BiasAdd/ReadVariableOp/resource1"
+      ],
+      "attributes": {
+        "strides": [
+          1,
+          1
+        ],
+        "dilations": [
+          1,
+          1
+        ],
+        "kernel_shape": [
+          3,
+          3
+        ],
+        "group": 128,
+        "pads": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "macs": 41472
+    },
+    {
+      "name": "Relu__56",
+      "op": "Relu",
+      "inputs": [
+        "model/activation_17/Relu;model/batch_normalization_17/FusedBatchNormV3;model/depthwise_conv2d_8/depthwise;model/depthwise_conv2d_8/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_8/BiasAdd/ReadVariableOp/resource1"
+      ],
+      "outputs": [
+        "Relu__56:0"
+      ],
+      "attributes": {},
+      "macs": 0
+    },
+    {
+      "name": "model/activation_18/Relu;model/batch_normalization_18/FusedBatchNormV3;model/conv2d_9/BiasAdd/ReadVariableOp/resource;model/conv2d_9/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_9/Conv2D1",
+      "op": "Conv",
+      "inputs": [
+        "Relu__56:0",
+        "model/activation_18/Relu;model/batch_normalization_18/FusedBatchNormV3;model/conv2d_9/BiasAdd/ReadVariableOp/resource;model/conv2d_9/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_9/Conv2D1/canonical_w",
+        "model/activation_18/Relu;model/batch_normalization_18/FusedBatchNormV3;model/conv2d_9/BiasAdd/ReadVariableOp/resource;model/conv2d_9/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_9/Conv2D1/canonical_b"
+      ],
+      "outputs": [
+        "model/activation_18/Relu;model/batch_normalization_18/FusedBatchNormV3;model/conv2d_9/BiasAdd/ReadVariableOp/resource;model/conv2d_9/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_9/Conv2D1"
+      ],
+      "attributes": {
+        "strides": [
+          1,
+          1
+        ],
+        "dilations": [
+          1,
+          1
+        ],
+        "kernel_shape": [
+          1,
+          1
+        ],
+        "pads": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "group": 1
+      },
+      "macs": 589824
+    },
+    {
+      "name": "Relu__59",
+      "op": "Relu",
+      "inputs": [
+        "model/activation_18/Relu;model/batch_normalization_18/FusedBatchNormV3;model/conv2d_9/BiasAdd/ReadVariableOp/resource;model/conv2d_9/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_9/Conv2D1"
+      ],
+      "outputs": [
+        "Relu__59:0"
+      ],
+      "attributes": {},
+      "macs": 0
+    },
+    {
+      "name": "model/activation_19/Relu;model/batch_normalization_19/FusedBatchNormV3;model/depthwise_conv2d_9/depthwise;model/depthwise_conv2d_9/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_9/BiasAdd/ReadVariableOp/resource1",
+      "op": "Conv",
+      "inputs": [
+        "Relu__59:0",
+        "model/activation_19/Relu;model/batch_normalization_19/FusedBatchNormV3;model/depthwise_conv2d_9/depthwise;model/depthwise_conv2d_9/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_9/BiasAdd/ReadVariableOp/resource1/canonical_w",
+        "model/activation_19/Relu;model/batch_normalization_19/FusedBatchNormV3;model/depthwise_conv2d_9/depthwise;model/depthwise_conv2d_9/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_9/BiasAdd/ReadVariableOp/resource1/canonical_b"
+      ],
+      "outputs": [
+        "model/activation_19/Relu;model/batch_normalization_19/FusedBatchNormV3;model/depthwise_conv2d_9/depthwise;model/depthwise_conv2d_9/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_9/BiasAdd/ReadVariableOp/resource1"
+      ],
+      "attributes": {
+        "strides": [
+          1,
+          1
+        ],
+        "dilations": [
+          1,
+          1
+        ],
+        "kernel_shape": [
+          3,
+          3
+        ],
+        "group": 128,
+        "pads": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "macs": 41472
+    },
+    {
+      "name": "Relu__62",
+      "op": "Relu",
+      "inputs": [
+        "model/activation_19/Relu;model/batch_normalization_19/FusedBatchNormV3;model/depthwise_conv2d_9/depthwise;model/depthwise_conv2d_9/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_9/BiasAdd/ReadVariableOp/resource1"
+      ],
+      "outputs": [
+        "Relu__62:0"
+      ],
+      "attributes": {},
+      "macs": 0
+    },
+    {
+      "name": "model/activation_20/Relu;model/batch_normalization_20/FusedBatchNormV3;model/conv2d_10/BiasAdd/ReadVariableOp/resource;model/conv2d_10/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_10/Conv2D1",
+      "op": "Conv",
+      "inputs": [
+        "Relu__62:0",
+        "model/activation_20/Relu;model/batch_normalization_20/FusedBatchNormV3;model/conv2d_10/BiasAdd/ReadVariableOp/resource;model/conv2d_10/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_10/Conv2D1/canonical_w",
+        "model/activation_20/Relu;model/batch_normalization_20/FusedBatchNormV3;model/conv2d_10/BiasAdd/ReadVariableOp/resource;model/conv2d_10/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_10/Conv2D1/canonical_b"
+      ],
+      "outputs": [
+        "model/activation_20/Relu;model/batch_normalization_20/FusedBatchNormV3;model/conv2d_10/BiasAdd/ReadVariableOp/resource;model/conv2d_10/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_10/Conv2D1"
+      ],
+      "attributes": {
+        "strides": [
+          1,
+          1
+        ],
+        "dilations": [
+          1,
+          1
+        ],
+        "kernel_shape": [
+          1,
+          1
+        ],
+        "pads": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "group": 1
+      },
+      "macs": 589824
+    },
+    {
+      "name": "Relu__65",
+      "op": "Relu",
+      "inputs": [
+        "model/activation_20/Relu;model/batch_normalization_20/FusedBatchNormV3;model/conv2d_10/BiasAdd/ReadVariableOp/resource;model/conv2d_10/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_10/Conv2D1"
+      ],
+      "outputs": [
+        "Relu__65:0"
+      ],
+      "attributes": {},
+      "macs": 0
+    },
+    {
+      "name": "model/activation_21/Relu;model/batch_normalization_21/FusedBatchNormV3;model/depthwise_conv2d_10/depthwise;model/depthwise_conv2d_10/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_10/BiasAdd/ReadVariableOp/resource1",
+      "op": "Conv",
+      "inputs": [
+        "Relu__65:0",
+        "model/activation_21/Relu;model/batch_normalization_21/FusedBatchNormV3;model/depthwise_conv2d_10/depthwise;model/depthwise_conv2d_10/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_10/BiasAdd/ReadVariableOp/resource1/canonical_w",
+        "model/activation_21/Relu;model/batch_normalization_21/FusedBatchNormV3;model/depthwise_conv2d_10/depthwise;model/depthwise_conv2d_10/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_10/BiasAdd/ReadVariableOp/resource1/canonical_b"
+      ],
+      "outputs": [
+        "model/activation_21/Relu;model/batch_normalization_21/FusedBatchNormV3;model/depthwise_conv2d_10/depthwise;model/depthwise_conv2d_10/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_10/BiasAdd/ReadVariableOp/resource1"
+      ],
+      "attributes": {
+        "strides": [
+          1,
+          1
+        ],
+        "dilations": [
+          1,
+          1
+        ],
+        "kernel_shape": [
+          3,
+          3
+        ],
+        "group": 128,
+        "pads": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "macs": 41472
+    },
+    {
+      "name": "Relu__68",
+      "op": "Relu",
+      "inputs": [
+        "model/activation_21/Relu;model/batch_normalization_21/FusedBatchNormV3;model/depthwise_conv2d_10/depthwise;model/depthwise_conv2d_10/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_10/BiasAdd/ReadVariableOp/resource1"
+      ],
+      "outputs": [
+        "Relu__68:0"
+      ],
+      "attributes": {},
+      "macs": 0
+    },
+    {
+      "name": "model/activation_22/Relu;model/batch_normalization_22/FusedBatchNormV3;model/conv2d_11/BiasAdd/ReadVariableOp/resource;model/conv2d_11/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_11/Conv2D1",
+      "op": "Conv",
+      "inputs": [
+        "Relu__68:0",
+        "model/activation_22/Relu;model/batch_normalization_22/FusedBatchNormV3;model/conv2d_11/BiasAdd/ReadVariableOp/resource;model/conv2d_11/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_11/Conv2D1/canonical_w",
+        "model/activation_22/Relu;model/batch_normalization_22/FusedBatchNormV3;model/conv2d_11/BiasAdd/ReadVariableOp/resource;model/conv2d_11/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_11/Conv2D1/canonical_b"
+      ],
+      "outputs": [
+        "model/activation_22/Relu;model/batch_normalization_22/FusedBatchNormV3;model/conv2d_11/BiasAdd/ReadVariableOp/resource;model/conv2d_11/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_11/Conv2D1"
+      ],
+      "attributes": {
+        "strides": [
+          1,
+          1
+        ],
+        "dilations": [
+          1,
+          1
+        ],
+        "kernel_shape": [
+          1,
+          1
+        ],
+        "pads": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "group": 1
+      },
+      "macs": 589824
+    },
+    {
+      "name": "Relu__71",
+      "op": "Relu",
+      "inputs": [
+        "model/activation_22/Relu;model/batch_normalization_22/FusedBatchNormV3;model/conv2d_11/BiasAdd/ReadVariableOp/resource;model/conv2d_11/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_11/Conv2D1"
+      ],
+      "outputs": [
+        "Relu__71:0"
+      ],
+      "attributes": {},
+      "macs": 0
+    },
+    {
+      "name": "model/activation_23/Relu;model/batch_normalization_23/FusedBatchNormV3;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_11/BiasAdd;model/depthwise_conv2d_11/BiasAdd/ReadVariableOp/resource1",
+      "op": "Conv",
+      "inputs": [
+        "Relu__71:0",
+        "model/activation_23/Relu;model/batch_normalization_23/FusedBatchNormV3;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_11/BiasAdd;model/depthwise_conv2d_11/BiasAdd/ReadVariableOp/resource1/canonical_w",
+        "model/activation_23/Relu;model/batch_normalization_23/FusedBatchNormV3;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_11/BiasAdd;model/depthwise_conv2d_11/BiasAdd/ReadVariableOp/resource1/canonical_b"
+      ],
+      "outputs": [
+        "model/activation_23/Relu;model/batch_normalization_23/FusedBatchNormV3;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_11/BiasAdd;model/depthwise_conv2d_11/BiasAdd/ReadVariableOp/resource1"
+      ],
+      "attributes": {
+        "strides": [
+          2,
+          2
+        ],
+        "dilations": [
+          1,
+          1
+        ],
+        "kernel_shape": [
+          3,
+          3
+        ],
+        "group": 128,
+        "pads": [
+          0,
+          0,
+          1,
+          1
+        ]
+      },
+      "macs": 10368
+    },
+    {
+      "name": "Relu__74",
+      "op": "Relu",
+      "inputs": [
+        "model/activation_23/Relu;model/batch_normalization_23/FusedBatchNormV3;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_11/BiasAdd;model/depthwise_conv2d_11/BiasAdd/ReadVariableOp/resource1"
+      ],
+      "outputs": [
+        "Relu__74:0"
+      ],
+      "attributes": {},
+      "macs": 0
+    },
+    {
+      "name": "model/activation_24/Relu;model/batch_normalization_24/FusedBatchNormV3;model/conv2d_12/BiasAdd/ReadVariableOp/resource;model/conv2d_12/BiasAdd;model/conv2d_13/Conv2D;model/conv2d_12/Conv2D1",
+      "op": "Conv",
+      "inputs": [
+        "Relu__74:0",
+        "model/activation_24/Relu;model/batch_normalization_24/FusedBatchNormV3;model/conv2d_12/BiasAdd/ReadVariableOp/resource;model/conv2d_12/BiasAdd;model/conv2d_13/Conv2D;model/conv2d_12/Conv2D1/canonical_w",
+        "model/activation_24/Relu;model/batch_normalization_24/FusedBatchNormV3;model/conv2d_12/BiasAdd/ReadVariableOp/resource;model/conv2d_12/BiasAdd;model/conv2d_13/Conv2D;model/conv2d_12/Conv2D1/canonical_b"
+      ],
+      "outputs": [
+        "model/activation_24/Relu;model/batch_normalization_24/FusedBatchNormV3;model/conv2d_12/BiasAdd/ReadVariableOp/resource;model/conv2d_12/BiasAdd;model/conv2d_13/Conv2D;model/conv2d_12/Conv2D1"
+      ],
+      "attributes": {
+        "strides": [
+          1,
+          1
+        ],
+        "dilations": [
+          1,
+          1
+        ],
+        "kernel_shape": [
+          1,
+          1
+        ],
+        "pads": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "group": 1
+      },
+      "macs": 294912
+    },
+    {
+      "name": "Relu__77",
+      "op": "Relu",
+      "inputs": [
+        "model/activation_24/Relu;model/batch_normalization_24/FusedBatchNormV3;model/conv2d_12/BiasAdd/ReadVariableOp/resource;model/conv2d_12/BiasAdd;model/conv2d_13/Conv2D;model/conv2d_12/Conv2D1"
+      ],
+      "outputs": [
+        "Relu__77:0"
+      ],
+      "attributes": {},
+      "macs": 0
+    },
+    {
+      "name": "model/activation_25/Relu;model/batch_normalization_25/FusedBatchNormV3;model/depthwise_conv2d_12/depthwise;model/depthwise_conv2d_12/BiasAdd;model/conv2d_13/Conv2D;model/depthwise_conv2d_12/BiasAdd/ReadVariableOp/resource1",
+      "op": "Conv",
+      "inputs": [
+        "Relu__77:0",
+        "model/activation_25/Relu;model/batch_normalization_25/FusedBatchNormV3;model/depthwise_conv2d_12/depthwise;model/depthwise_conv2d_12/BiasAdd;model/conv2d_13/Conv2D;model/depthwise_conv2d_12/BiasAdd/ReadVariableOp/resource1/canonical_w",
+        "model/activation_25/Relu;model/batch_normalization_25/FusedBatchNormV3;model/depthwise_conv2d_12/depthwise;model/depthwise_conv2d_12/BiasAdd;model/conv2d_13/Conv2D;model/depthwise_conv2d_12/BiasAdd/ReadVariableOp/resource1/canonical_b"
+      ],
+      "outputs": [
+        "model/activation_25/Relu;model/batch_normalization_25/FusedBatchNormV3;model/depthwise_conv2d_12/depthwise;model/depthwise_conv2d_12/BiasAdd;model/conv2d_13/Conv2D;model/depthwise_conv2d_12/BiasAdd/ReadVariableOp/resource1"
+      ],
+      "attributes": {
+        "strides": [
+          1,
+          1
+        ],
+        "dilations": [
+          1,
+          1
+        ],
+        "kernel_shape": [
+          3,
+          3
+        ],
+        "group": 256,
+        "pads": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "macs": 20736
+    },
+    {
+      "name": "Relu__80",
+      "op": "Relu",
+      "inputs": [
+        "model/activation_25/Relu;model/batch_normalization_25/FusedBatchNormV3;model/depthwise_conv2d_12/depthwise;model/depthwise_conv2d_12/BiasAdd;model/conv2d_13/Conv2D;model/depthwise_conv2d_12/BiasAdd/ReadVariableOp/resource1"
+      ],
+      "outputs": [
+        "Relu__80:0"
+      ],
+      "attributes": {},
+      "macs": 0
+    },
+    {
+      "name": "model/activation_26/Relu;model/batch_normalization_26/FusedBatchNormV3;model/conv2d_13/BiasAdd/ReadVariableOp/resource;model/conv2d_13/BiasAdd;model/conv2d_13/Conv2D1",
+      "op": "Conv",
+      "inputs": [
+        "Relu__80:0",
+        "model/activation_26/Relu;model/batch_normalization_26/FusedBatchNormV3;model/conv2d_13/BiasAdd/ReadVariableOp/resource;model/conv2d_13/BiasAdd;model/conv2d_13/Conv2D1/canonical_w",
+        "model/activation_26/Relu;model/batch_normalization_26/FusedBatchNormV3;model/conv2d_13/BiasAdd/ReadVariableOp/resource;model/conv2d_13/BiasAdd;model/conv2d_13/Conv2D1/canonical_b"
+      ],
+      "outputs": [
+        "model/activation_26/Relu;model/batch_normalization_26/FusedBatchNormV3;model/conv2d_13/BiasAdd/ReadVariableOp/resource;model/conv2d_13/BiasAdd;model/conv2d_13/Conv2D1"
+      ],
+      "attributes": {
+        "strides": [
+          1,
+          1
+        ],
+        "dilations": [
+          1,
+          1
+        ],
+        "kernel_shape": [
+          1,
+          1
+        ],
+        "pads": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "group": 1
+      },
+      "macs": 589824
+    },
+    {
+      "name": "Relu__83",
+      "op": "Relu",
+      "inputs": [
+        "model/activation_26/Relu;model/batch_normalization_26/FusedBatchNormV3;model/conv2d_13/BiasAdd/ReadVariableOp/resource;model/conv2d_13/BiasAdd;model/conv2d_13/Conv2D1"
+      ],
+      "outputs": [
+        "Relu__83:0"
+      ],
+      "attributes": {},
+      "macs": 0
+    },
+    {
+      "name": "model/average_pooling2d/AvgPool",
+      "op": "AveragePool",
+      "inputs": [
+        "Relu__83:0"
+      ],
+      "outputs": [
+        "model/average_pooling2d/AvgPool"
+      ],
+      "attributes": {
+        "strides": [
+          3,
+          3
+        ],
+        "kernel_shape": [
+          3,
+          3
+        ]
+      },
+      "macs": 0
+    },
+    {
+      "name": "model/flatten/Reshape",
+      "op": "Reshape",
+      "inputs": [
+        "model/average_pooling2d/AvgPool",
+        "const_fold_opt__266"
+      ],
+      "outputs": [
+        "model/flatten/Reshape"
+      ],
+      "attributes": {},
+      "macs": 0
+    },
+    {
+      "name": "model/dense/MatMul;model/dense/BiasAdd",
+      "op": "Gemm",
+      "inputs": [
+        "model/flatten/Reshape",
+        "model/dense/MatMul;model/dense/BiasAdd/canonical_w",
+        "Add__87:0/folded_add_bias"
+      ],
+      "outputs": [
+        "Add__87:0"
+      ],
+      "attributes": {
+        "transB": 1
+      },
+      "macs": 512
+    }
+  ],
+  "tensors": [
+    {
+      "name": "input_1",
+      "shape": [
+        1,
+        96,
+        96,
+        3
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 110592
+    },
+    {
+      "name": "model/activation/Relu;model/batch_normalization/FusedBatchNormV3;model/conv2d/BiasAdd/ReadVariableOp/resource;model/conv2d/BiasAdd;model/depthwise_conv2d/depthwise;model/conv2d/Conv2D1__89:0",
+      "shape": [
+        1,
+        3,
+        96,
+        96
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 110592
+    },
+    {
+      "name": "model/activation/Relu;model/batch_normalization/FusedBatchNormV3;model/conv2d/BiasAdd/ReadVariableOp/resource;model/conv2d/BiasAdd;model/depthwise_conv2d/depthwise;model/conv2d/Conv2D1",
+      "shape": [
+        1,
+        8,
+        48,
+        48
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 73728
+    },
+    {
+      "name": "Relu__5:0",
+      "shape": [
+        1,
+        8,
+        48,
+        48
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 73728
+    },
+    {
+      "name": "model/activation_1/Relu;model/batch_normalization_1/FusedBatchNormV3;model/depthwise_conv2d/depthwise;model/depthwise_conv2d/BiasAdd;model/depthwise_conv2d/BiasAdd/ReadVariableOp/resource1",
+      "shape": [
+        1,
+        8,
+        48,
+        48
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 73728
+    },
+    {
+      "name": "Relu__8:0",
+      "shape": [
+        1,
+        8,
+        48,
+        48
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 73728
+    },
+    {
+      "name": "model/activation_2/Relu;model/batch_normalization_2/FusedBatchNormV3;model/conv2d_1/BiasAdd/ReadVariableOp/resource;model/conv2d_1/BiasAdd;model/depthwise_conv2d_1/depthwise;model/conv2d_1/Conv2D1",
+      "shape": [
+        1,
+        16,
+        48,
+        48
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 147456
+    },
+    {
+      "name": "Relu__11:0",
+      "shape": [
+        1,
+        16,
+        48,
+        48
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 147456
+    },
+    {
+      "name": "model/activation_3/Relu;model/batch_normalization_3/FusedBatchNormV3;model/depthwise_conv2d_1/depthwise;model/depthwise_conv2d_1/BiasAdd;model/depthwise_conv2d_1/BiasAdd/ReadVariableOp/resource1",
+      "shape": [
+        1,
+        16,
+        24,
+        24
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 36864
+    },
+    {
+      "name": "Relu__14:0",
+      "shape": [
+        1,
+        16,
+        24,
+        24
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 36864
+    },
+    {
+      "name": "model/activation_4/Relu;model/batch_normalization_4/FusedBatchNormV3;model/conv2d_2/BiasAdd/ReadVariableOp/resource;model/conv2d_2/BiasAdd;model/depthwise_conv2d_3/depthwise;model/conv2d_2/Conv2D1",
+      "shape": [
+        1,
+        32,
+        24,
+        24
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 73728
+    },
+    {
+      "name": "Relu__17:0",
+      "shape": [
+        1,
+        32,
+        24,
+        24
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 73728
+    },
+    {
+      "name": "model/activation_5/Relu;model/batch_normalization_5/FusedBatchNormV3;model/depthwise_conv2d_2/depthwise;model/depthwise_conv2d_2/BiasAdd;model/depthwise_conv2d_3/depthwise;model/depthwise_conv2d_2/BiasAdd/ReadVariableOp/resource1",
+      "shape": [
+        1,
+        32,
+        24,
+        24
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 73728
+    },
+    {
+      "name": "Relu__20:0",
+      "shape": [
+        1,
+        32,
+        24,
+        24
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 73728
+    },
+    {
+      "name": "model/activation_6/Relu;model/batch_normalization_6/FusedBatchNormV3;model/conv2d_3/BiasAdd/ReadVariableOp/resource;model/conv2d_3/BiasAdd;model/depthwise_conv2d_3/depthwise;model/conv2d_3/Conv2D1",
+      "shape": [
+        1,
+        32,
+        24,
+        24
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 73728
+    },
+    {
+      "name": "Relu__23:0",
+      "shape": [
+        1,
+        32,
+        24,
+        24
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 73728
+    },
+    {
+      "name": "model/activation_7/Relu;model/batch_normalization_7/FusedBatchNormV3;model/depthwise_conv2d_3/depthwise;model/depthwise_conv2d_3/BiasAdd;model/depthwise_conv2d_3/BiasAdd/ReadVariableOp/resource1",
+      "shape": [
+        1,
+        32,
+        12,
+        12
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 18432
+    },
+    {
+      "name": "Relu__26:0",
+      "shape": [
+        1,
+        32,
+        12,
+        12
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 18432
+    },
+    {
+      "name": "model/activation_8/Relu;model/batch_normalization_8/FusedBatchNormV3;model/conv2d_4/BiasAdd/ReadVariableOp/resource;model/conv2d_4/BiasAdd;model/depthwise_conv2d_5/depthwise;model/conv2d_4/Conv2D1",
+      "shape": [
+        1,
+        64,
+        12,
+        12
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 36864
+    },
+    {
+      "name": "Relu__29:0",
+      "shape": [
+        1,
+        64,
+        12,
+        12
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 36864
+    },
+    {
+      "name": "model/activation_9/Relu;model/batch_normalization_9/FusedBatchNormV3;model/depthwise_conv2d_4/depthwise;model/depthwise_conv2d_4/BiasAdd;model/depthwise_conv2d_5/depthwise;model/depthwise_conv2d_4/BiasAdd/ReadVariableOp/resource1",
+      "shape": [
+        1,
+        64,
+        12,
+        12
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 36864
+    },
+    {
+      "name": "Relu__32:0",
+      "shape": [
+        1,
+        64,
+        12,
+        12
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 36864
+    },
+    {
+      "name": "model/activation_10/Relu;model/batch_normalization_10/FusedBatchNormV3;model/conv2d_5/BiasAdd/ReadVariableOp/resource;model/conv2d_5/BiasAdd;model/depthwise_conv2d_5/depthwise;model/conv2d_5/Conv2D1",
+      "shape": [
+        1,
+        64,
+        12,
+        12
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 36864
+    },
+    {
+      "name": "Relu__35:0",
+      "shape": [
+        1,
+        64,
+        12,
+        12
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 36864
+    },
+    {
+      "name": "model/activation_11/Relu;model/batch_normalization_11/FusedBatchNormV3;model/depthwise_conv2d_5/depthwise;model/depthwise_conv2d_5/BiasAdd;model/depthwise_conv2d_5/BiasAdd/ReadVariableOp/resource1",
+      "shape": [
+        1,
+        64,
+        6,
+        6
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 9216
+    },
+    {
+      "name": "Relu__38:0",
+      "shape": [
+        1,
+        64,
+        6,
+        6
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 9216
+    },
+    {
+      "name": "model/activation_12/Relu;model/batch_normalization_12/FusedBatchNormV3;model/conv2d_6/BiasAdd/ReadVariableOp/resource;model/conv2d_6/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_6/Conv2D1",
+      "shape": [
+        1,
+        128,
+        6,
+        6
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 18432
+    },
+    {
+      "name": "Relu__41:0",
+      "shape": [
+        1,
+        128,
+        6,
+        6
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 18432
+    },
+    {
+      "name": "model/activation_13/Relu;model/batch_normalization_13/FusedBatchNormV3;model/depthwise_conv2d_6/depthwise;model/depthwise_conv2d_6/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_6/BiasAdd/ReadVariableOp/resource1",
+      "shape": [
+        1,
+        128,
+        6,
+        6
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 18432
+    },
+    {
+      "name": "Relu__44:0",
+      "shape": [
+        1,
+        128,
+        6,
+        6
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 18432
+    },
+    {
+      "name": "model/activation_14/Relu;model/batch_normalization_14/FusedBatchNormV3;model/conv2d_7/BiasAdd/ReadVariableOp/resource;model/conv2d_7/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_7/Conv2D1",
+      "shape": [
+        1,
+        128,
+        6,
+        6
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 18432
+    },
+    {
+      "name": "Relu__47:0",
+      "shape": [
+        1,
+        128,
+        6,
+        6
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 18432
+    },
+    {
+      "name": "model/activation_15/Relu;model/batch_normalization_15/FusedBatchNormV3;model/depthwise_conv2d_7/depthwise;model/depthwise_conv2d_7/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_7/BiasAdd/ReadVariableOp/resource1",
+      "shape": [
+        1,
+        128,
+        6,
+        6
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 18432
+    },
+    {
+      "name": "Relu__50:0",
+      "shape": [
+        1,
+        128,
+        6,
+        6
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 18432
+    },
+    {
+      "name": "model/activation_16/Relu;model/batch_normalization_16/FusedBatchNormV3;model/conv2d_8/BiasAdd/ReadVariableOp/resource;model/conv2d_8/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_8/Conv2D1",
+      "shape": [
+        1,
+        128,
+        6,
+        6
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 18432
+    },
+    {
+      "name": "Relu__53:0",
+      "shape": [
+        1,
+        128,
+        6,
+        6
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 18432
+    },
+    {
+      "name": "model/activation_17/Relu;model/batch_normalization_17/FusedBatchNormV3;model/depthwise_conv2d_8/depthwise;model/depthwise_conv2d_8/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_8/BiasAdd/ReadVariableOp/resource1",
+      "shape": [
+        1,
+        128,
+        6,
+        6
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 18432
+    },
+    {
+      "name": "Relu__56:0",
+      "shape": [
+        1,
+        128,
+        6,
+        6
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 18432
+    },
+    {
+      "name": "model/activation_18/Relu;model/batch_normalization_18/FusedBatchNormV3;model/conv2d_9/BiasAdd/ReadVariableOp/resource;model/conv2d_9/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_9/Conv2D1",
+      "shape": [
+        1,
+        128,
+        6,
+        6
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 18432
+    },
+    {
+      "name": "Relu__59:0",
+      "shape": [
+        1,
+        128,
+        6,
+        6
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 18432
+    },
+    {
+      "name": "model/activation_19/Relu;model/batch_normalization_19/FusedBatchNormV3;model/depthwise_conv2d_9/depthwise;model/depthwise_conv2d_9/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_9/BiasAdd/ReadVariableOp/resource1",
+      "shape": [
+        1,
+        128,
+        6,
+        6
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 18432
+    },
+    {
+      "name": "Relu__62:0",
+      "shape": [
+        1,
+        128,
+        6,
+        6
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 18432
+    },
+    {
+      "name": "model/activation_20/Relu;model/batch_normalization_20/FusedBatchNormV3;model/conv2d_10/BiasAdd/ReadVariableOp/resource;model/conv2d_10/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_10/Conv2D1",
+      "shape": [
+        1,
+        128,
+        6,
+        6
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 18432
+    },
+    {
+      "name": "Relu__65:0",
+      "shape": [
+        1,
+        128,
+        6,
+        6
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 18432
+    },
+    {
+      "name": "model/activation_21/Relu;model/batch_normalization_21/FusedBatchNormV3;model/depthwise_conv2d_10/depthwise;model/depthwise_conv2d_10/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_10/BiasAdd/ReadVariableOp/resource1",
+      "shape": [
+        1,
+        128,
+        6,
+        6
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 18432
+    },
+    {
+      "name": "Relu__68:0",
+      "shape": [
+        1,
+        128,
+        6,
+        6
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 18432
+    },
+    {
+      "name": "model/activation_22/Relu;model/batch_normalization_22/FusedBatchNormV3;model/conv2d_11/BiasAdd/ReadVariableOp/resource;model/conv2d_11/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_11/Conv2D1",
+      "shape": [
+        1,
+        128,
+        6,
+        6
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 18432
+    },
+    {
+      "name": "Relu__71:0",
+      "shape": [
+        1,
+        128,
+        6,
+        6
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 18432
+    },
+    {
+      "name": "model/activation_23/Relu;model/batch_normalization_23/FusedBatchNormV3;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_11/BiasAdd;model/depthwise_conv2d_11/BiasAdd/ReadVariableOp/resource1",
+      "shape": [
+        1,
+        128,
+        3,
+        3
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 4608
+    },
+    {
+      "name": "Relu__74:0",
+      "shape": [
+        1,
+        128,
+        3,
+        3
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 4608
+    },
+    {
+      "name": "model/activation_24/Relu;model/batch_normalization_24/FusedBatchNormV3;model/conv2d_12/BiasAdd/ReadVariableOp/resource;model/conv2d_12/BiasAdd;model/conv2d_13/Conv2D;model/conv2d_12/Conv2D1",
+      "shape": [
+        1,
+        256,
+        3,
+        3
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 9216
+    },
+    {
+      "name": "Relu__77:0",
+      "shape": [
+        1,
+        256,
+        3,
+        3
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 9216
+    },
+    {
+      "name": "model/activation_25/Relu;model/batch_normalization_25/FusedBatchNormV3;model/depthwise_conv2d_12/depthwise;model/depthwise_conv2d_12/BiasAdd;model/conv2d_13/Conv2D;model/depthwise_conv2d_12/BiasAdd/ReadVariableOp/resource1",
+      "shape": [
+        1,
+        256,
+        3,
+        3
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 9216
+    },
+    {
+      "name": "Relu__80:0",
+      "shape": [
+        1,
+        256,
+        3,
+        3
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 9216
+    },
+    {
+      "name": "model/activation_26/Relu;model/batch_normalization_26/FusedBatchNormV3;model/conv2d_13/BiasAdd/ReadVariableOp/resource;model/conv2d_13/BiasAdd;model/conv2d_13/Conv2D1",
+      "shape": [
+        1,
+        256,
+        3,
+        3
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 9216
+    },
+    {
+      "name": "Relu__83:0",
+      "shape": [
+        1,
+        256,
+        3,
+        3
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 9216
+    },
+    {
+      "name": "model/average_pooling2d/AvgPool",
+      "shape": [
+        1,
+        256,
+        1,
+        1
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 1024
+    },
+    {
+      "name": "model/flatten/Reshape",
+      "shape": [
+        1,
+        256
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 1024
+    },
+    {
+      "name": "Add__87:0",
+      "shape": [
+        1,
+        2
+      ],
+      "dtype": "FLOAT",
+      "constant": false,
+      "logical_bytes": 8
+    },
+    {
+      "name": "const_fold_opt__266",
+      "shape": [
+        2
+      ],
+      "dtype": "int64",
+      "constant": true,
+      "logical_bytes": 16
+    },
+    {
+      "name": "model/activation/Relu;model/batch_normalization/FusedBatchNormV3;model/conv2d/BiasAdd/ReadVariableOp/resource;model/conv2d/BiasAdd;model/depthwise_conv2d/depthwise;model/conv2d/Conv2D1/canonical_w",
+      "shape": [
+        8,
+        3,
+        3,
+        3
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 864
+    },
+    {
+      "name": "model/activation/Relu;model/batch_normalization/FusedBatchNormV3;model/conv2d/BiasAdd/ReadVariableOp/resource;model/conv2d/BiasAdd;model/depthwise_conv2d/depthwise;model/conv2d/Conv2D1/canonical_b",
+      "shape": [
+        8
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 32
+    },
+    {
+      "name": "model/activation_1/Relu;model/batch_normalization_1/FusedBatchNormV3;model/depthwise_conv2d/depthwise;model/depthwise_conv2d/BiasAdd;model/depthwise_conv2d/BiasAdd/ReadVariableOp/resource1/canonical_w",
+      "shape": [
+        8,
+        1,
+        3,
+        3
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 288
+    },
+    {
+      "name": "model/activation_1/Relu;model/batch_normalization_1/FusedBatchNormV3;model/depthwise_conv2d/depthwise;model/depthwise_conv2d/BiasAdd;model/depthwise_conv2d/BiasAdd/ReadVariableOp/resource1/canonical_b",
+      "shape": [
+        8
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 32
+    },
+    {
+      "name": "model/activation_2/Relu;model/batch_normalization_2/FusedBatchNormV3;model/conv2d_1/BiasAdd/ReadVariableOp/resource;model/conv2d_1/BiasAdd;model/depthwise_conv2d_1/depthwise;model/conv2d_1/Conv2D1/canonical_w",
+      "shape": [
+        16,
+        8,
+        1,
+        1
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 512
+    },
+    {
+      "name": "model/activation_2/Relu;model/batch_normalization_2/FusedBatchNormV3;model/conv2d_1/BiasAdd/ReadVariableOp/resource;model/conv2d_1/BiasAdd;model/depthwise_conv2d_1/depthwise;model/conv2d_1/Conv2D1/canonical_b",
+      "shape": [
+        16
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 64
+    },
+    {
+      "name": "model/activation_3/Relu;model/batch_normalization_3/FusedBatchNormV3;model/depthwise_conv2d_1/depthwise;model/depthwise_conv2d_1/BiasAdd;model/depthwise_conv2d_1/BiasAdd/ReadVariableOp/resource1/canonical_w",
+      "shape": [
+        16,
+        1,
+        3,
+        3
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 576
+    },
+    {
+      "name": "model/activation_3/Relu;model/batch_normalization_3/FusedBatchNormV3;model/depthwise_conv2d_1/depthwise;model/depthwise_conv2d_1/BiasAdd;model/depthwise_conv2d_1/BiasAdd/ReadVariableOp/resource1/canonical_b",
+      "shape": [
+        16
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 64
+    },
+    {
+      "name": "model/activation_4/Relu;model/batch_normalization_4/FusedBatchNormV3;model/conv2d_2/BiasAdd/ReadVariableOp/resource;model/conv2d_2/BiasAdd;model/depthwise_conv2d_3/depthwise;model/conv2d_2/Conv2D1/canonical_w",
+      "shape": [
+        32,
+        16,
+        1,
+        1
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 2048
+    },
+    {
+      "name": "model/activation_4/Relu;model/batch_normalization_4/FusedBatchNormV3;model/conv2d_2/BiasAdd/ReadVariableOp/resource;model/conv2d_2/BiasAdd;model/depthwise_conv2d_3/depthwise;model/conv2d_2/Conv2D1/canonical_b",
+      "shape": [
+        32
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 128
+    },
+    {
+      "name": "model/activation_5/Relu;model/batch_normalization_5/FusedBatchNormV3;model/depthwise_conv2d_2/depthwise;model/depthwise_conv2d_2/BiasAdd;model/depthwise_conv2d_3/depthwise;model/depthwise_conv2d_2/BiasAdd/ReadVariableOp/resource1/canonical_w",
+      "shape": [
+        32,
+        1,
+        3,
+        3
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 1152
+    },
+    {
+      "name": "model/activation_5/Relu;model/batch_normalization_5/FusedBatchNormV3;model/depthwise_conv2d_2/depthwise;model/depthwise_conv2d_2/BiasAdd;model/depthwise_conv2d_3/depthwise;model/depthwise_conv2d_2/BiasAdd/ReadVariableOp/resource1/canonical_b",
+      "shape": [
+        32
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 128
+    },
+    {
+      "name": "model/activation_6/Relu;model/batch_normalization_6/FusedBatchNormV3;model/conv2d_3/BiasAdd/ReadVariableOp/resource;model/conv2d_3/BiasAdd;model/depthwise_conv2d_3/depthwise;model/conv2d_3/Conv2D1/canonical_w",
+      "shape": [
+        32,
+        32,
+        1,
+        1
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 4096
+    },
+    {
+      "name": "model/activation_6/Relu;model/batch_normalization_6/FusedBatchNormV3;model/conv2d_3/BiasAdd/ReadVariableOp/resource;model/conv2d_3/BiasAdd;model/depthwise_conv2d_3/depthwise;model/conv2d_3/Conv2D1/canonical_b",
+      "shape": [
+        32
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 128
+    },
+    {
+      "name": "model/activation_7/Relu;model/batch_normalization_7/FusedBatchNormV3;model/depthwise_conv2d_3/depthwise;model/depthwise_conv2d_3/BiasAdd;model/depthwise_conv2d_3/BiasAdd/ReadVariableOp/resource1/canonical_w",
+      "shape": [
+        32,
+        1,
+        3,
+        3
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 1152
+    },
+    {
+      "name": "model/activation_7/Relu;model/batch_normalization_7/FusedBatchNormV3;model/depthwise_conv2d_3/depthwise;model/depthwise_conv2d_3/BiasAdd;model/depthwise_conv2d_3/BiasAdd/ReadVariableOp/resource1/canonical_b",
+      "shape": [
+        32
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 128
+    },
+    {
+      "name": "model/activation_8/Relu;model/batch_normalization_8/FusedBatchNormV3;model/conv2d_4/BiasAdd/ReadVariableOp/resource;model/conv2d_4/BiasAdd;model/depthwise_conv2d_5/depthwise;model/conv2d_4/Conv2D1/canonical_w",
+      "shape": [
+        64,
+        32,
+        1,
+        1
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 8192
+    },
+    {
+      "name": "model/activation_8/Relu;model/batch_normalization_8/FusedBatchNormV3;model/conv2d_4/BiasAdd/ReadVariableOp/resource;model/conv2d_4/BiasAdd;model/depthwise_conv2d_5/depthwise;model/conv2d_4/Conv2D1/canonical_b",
+      "shape": [
+        64
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 256
+    },
+    {
+      "name": "model/activation_9/Relu;model/batch_normalization_9/FusedBatchNormV3;model/depthwise_conv2d_4/depthwise;model/depthwise_conv2d_4/BiasAdd;model/depthwise_conv2d_5/depthwise;model/depthwise_conv2d_4/BiasAdd/ReadVariableOp/resource1/canonical_w",
+      "shape": [
+        64,
+        1,
+        3,
+        3
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 2304
+    },
+    {
+      "name": "model/activation_9/Relu;model/batch_normalization_9/FusedBatchNormV3;model/depthwise_conv2d_4/depthwise;model/depthwise_conv2d_4/BiasAdd;model/depthwise_conv2d_5/depthwise;model/depthwise_conv2d_4/BiasAdd/ReadVariableOp/resource1/canonical_b",
+      "shape": [
+        64
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 256
+    },
+    {
+      "name": "model/activation_10/Relu;model/batch_normalization_10/FusedBatchNormV3;model/conv2d_5/BiasAdd/ReadVariableOp/resource;model/conv2d_5/BiasAdd;model/depthwise_conv2d_5/depthwise;model/conv2d_5/Conv2D1/canonical_w",
+      "shape": [
+        64,
+        64,
+        1,
+        1
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 16384
+    },
+    {
+      "name": "model/activation_10/Relu;model/batch_normalization_10/FusedBatchNormV3;model/conv2d_5/BiasAdd/ReadVariableOp/resource;model/conv2d_5/BiasAdd;model/depthwise_conv2d_5/depthwise;model/conv2d_5/Conv2D1/canonical_b",
+      "shape": [
+        64
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 256
+    },
+    {
+      "name": "model/activation_11/Relu;model/batch_normalization_11/FusedBatchNormV3;model/depthwise_conv2d_5/depthwise;model/depthwise_conv2d_5/BiasAdd;model/depthwise_conv2d_5/BiasAdd/ReadVariableOp/resource1/canonical_w",
+      "shape": [
+        64,
+        1,
+        3,
+        3
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 2304
+    },
+    {
+      "name": "model/activation_11/Relu;model/batch_normalization_11/FusedBatchNormV3;model/depthwise_conv2d_5/depthwise;model/depthwise_conv2d_5/BiasAdd;model/depthwise_conv2d_5/BiasAdd/ReadVariableOp/resource1/canonical_b",
+      "shape": [
+        64
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 256
+    },
+    {
+      "name": "model/activation_12/Relu;model/batch_normalization_12/FusedBatchNormV3;model/conv2d_6/BiasAdd/ReadVariableOp/resource;model/conv2d_6/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_6/Conv2D1/canonical_w",
+      "shape": [
+        128,
+        64,
+        1,
+        1
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 32768
+    },
+    {
+      "name": "model/activation_12/Relu;model/batch_normalization_12/FusedBatchNormV3;model/conv2d_6/BiasAdd/ReadVariableOp/resource;model/conv2d_6/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_6/Conv2D1/canonical_b",
+      "shape": [
+        128
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 512
+    },
+    {
+      "name": "model/activation_13/Relu;model/batch_normalization_13/FusedBatchNormV3;model/depthwise_conv2d_6/depthwise;model/depthwise_conv2d_6/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_6/BiasAdd/ReadVariableOp/resource1/canonical_w",
+      "shape": [
+        128,
+        1,
+        3,
+        3
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 4608
+    },
+    {
+      "name": "model/activation_13/Relu;model/batch_normalization_13/FusedBatchNormV3;model/depthwise_conv2d_6/depthwise;model/depthwise_conv2d_6/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_6/BiasAdd/ReadVariableOp/resource1/canonical_b",
+      "shape": [
+        128
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 512
+    },
+    {
+      "name": "model/activation_14/Relu;model/batch_normalization_14/FusedBatchNormV3;model/conv2d_7/BiasAdd/ReadVariableOp/resource;model/conv2d_7/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_7/Conv2D1/canonical_w",
+      "shape": [
+        128,
+        128,
+        1,
+        1
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 65536
+    },
+    {
+      "name": "model/activation_14/Relu;model/batch_normalization_14/FusedBatchNormV3;model/conv2d_7/BiasAdd/ReadVariableOp/resource;model/conv2d_7/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_7/Conv2D1/canonical_b",
+      "shape": [
+        128
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 512
+    },
+    {
+      "name": "model/activation_15/Relu;model/batch_normalization_15/FusedBatchNormV3;model/depthwise_conv2d_7/depthwise;model/depthwise_conv2d_7/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_7/BiasAdd/ReadVariableOp/resource1/canonical_w",
+      "shape": [
+        128,
+        1,
+        3,
+        3
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 4608
+    },
+    {
+      "name": "model/activation_15/Relu;model/batch_normalization_15/FusedBatchNormV3;model/depthwise_conv2d_7/depthwise;model/depthwise_conv2d_7/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_7/BiasAdd/ReadVariableOp/resource1/canonical_b",
+      "shape": [
+        128
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 512
+    },
+    {
+      "name": "model/activation_16/Relu;model/batch_normalization_16/FusedBatchNormV3;model/conv2d_8/BiasAdd/ReadVariableOp/resource;model/conv2d_8/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_8/Conv2D1/canonical_w",
+      "shape": [
+        128,
+        128,
+        1,
+        1
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 65536
+    },
+    {
+      "name": "model/activation_16/Relu;model/batch_normalization_16/FusedBatchNormV3;model/conv2d_8/BiasAdd/ReadVariableOp/resource;model/conv2d_8/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_8/Conv2D1/canonical_b",
+      "shape": [
+        128
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 512
+    },
+    {
+      "name": "model/activation_17/Relu;model/batch_normalization_17/FusedBatchNormV3;model/depthwise_conv2d_8/depthwise;model/depthwise_conv2d_8/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_8/BiasAdd/ReadVariableOp/resource1/canonical_w",
+      "shape": [
+        128,
+        1,
+        3,
+        3
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 4608
+    },
+    {
+      "name": "model/activation_17/Relu;model/batch_normalization_17/FusedBatchNormV3;model/depthwise_conv2d_8/depthwise;model/depthwise_conv2d_8/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_8/BiasAdd/ReadVariableOp/resource1/canonical_b",
+      "shape": [
+        128
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 512
+    },
+    {
+      "name": "model/activation_18/Relu;model/batch_normalization_18/FusedBatchNormV3;model/conv2d_9/BiasAdd/ReadVariableOp/resource;model/conv2d_9/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_9/Conv2D1/canonical_w",
+      "shape": [
+        128,
+        128,
+        1,
+        1
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 65536
+    },
+    {
+      "name": "model/activation_18/Relu;model/batch_normalization_18/FusedBatchNormV3;model/conv2d_9/BiasAdd/ReadVariableOp/resource;model/conv2d_9/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_9/Conv2D1/canonical_b",
+      "shape": [
+        128
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 512
+    },
+    {
+      "name": "model/activation_19/Relu;model/batch_normalization_19/FusedBatchNormV3;model/depthwise_conv2d_9/depthwise;model/depthwise_conv2d_9/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_9/BiasAdd/ReadVariableOp/resource1/canonical_w",
+      "shape": [
+        128,
+        1,
+        3,
+        3
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 4608
+    },
+    {
+      "name": "model/activation_19/Relu;model/batch_normalization_19/FusedBatchNormV3;model/depthwise_conv2d_9/depthwise;model/depthwise_conv2d_9/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_9/BiasAdd/ReadVariableOp/resource1/canonical_b",
+      "shape": [
+        128
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 512
+    },
+    {
+      "name": "model/activation_20/Relu;model/batch_normalization_20/FusedBatchNormV3;model/conv2d_10/BiasAdd/ReadVariableOp/resource;model/conv2d_10/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_10/Conv2D1/canonical_w",
+      "shape": [
+        128,
+        128,
+        1,
+        1
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 65536
+    },
+    {
+      "name": "model/activation_20/Relu;model/batch_normalization_20/FusedBatchNormV3;model/conv2d_10/BiasAdd/ReadVariableOp/resource;model/conv2d_10/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_10/Conv2D1/canonical_b",
+      "shape": [
+        128
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 512
+    },
+    {
+      "name": "model/activation_21/Relu;model/batch_normalization_21/FusedBatchNormV3;model/depthwise_conv2d_10/depthwise;model/depthwise_conv2d_10/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_10/BiasAdd/ReadVariableOp/resource1/canonical_w",
+      "shape": [
+        128,
+        1,
+        3,
+        3
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 4608
+    },
+    {
+      "name": "model/activation_21/Relu;model/batch_normalization_21/FusedBatchNormV3;model/depthwise_conv2d_10/depthwise;model/depthwise_conv2d_10/BiasAdd;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_10/BiasAdd/ReadVariableOp/resource1/canonical_b",
+      "shape": [
+        128
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 512
+    },
+    {
+      "name": "model/activation_22/Relu;model/batch_normalization_22/FusedBatchNormV3;model/conv2d_11/BiasAdd/ReadVariableOp/resource;model/conv2d_11/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_11/Conv2D1/canonical_w",
+      "shape": [
+        128,
+        128,
+        1,
+        1
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 65536
+    },
+    {
+      "name": "model/activation_22/Relu;model/batch_normalization_22/FusedBatchNormV3;model/conv2d_11/BiasAdd/ReadVariableOp/resource;model/conv2d_11/BiasAdd;model/depthwise_conv2d_11/depthwise;model/conv2d_11/Conv2D1/canonical_b",
+      "shape": [
+        128
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 512
+    },
+    {
+      "name": "model/activation_23/Relu;model/batch_normalization_23/FusedBatchNormV3;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_11/BiasAdd;model/depthwise_conv2d_11/BiasAdd/ReadVariableOp/resource1/canonical_w",
+      "shape": [
+        128,
+        1,
+        3,
+        3
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 4608
+    },
+    {
+      "name": "model/activation_23/Relu;model/batch_normalization_23/FusedBatchNormV3;model/depthwise_conv2d_11/depthwise;model/depthwise_conv2d_11/BiasAdd;model/depthwise_conv2d_11/BiasAdd/ReadVariableOp/resource1/canonical_b",
+      "shape": [
+        128
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 512
+    },
+    {
+      "name": "model/activation_24/Relu;model/batch_normalization_24/FusedBatchNormV3;model/conv2d_12/BiasAdd/ReadVariableOp/resource;model/conv2d_12/BiasAdd;model/conv2d_13/Conv2D;model/conv2d_12/Conv2D1/canonical_w",
+      "shape": [
+        256,
+        128,
+        1,
+        1
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 131072
+    },
+    {
+      "name": "model/activation_24/Relu;model/batch_normalization_24/FusedBatchNormV3;model/conv2d_12/BiasAdd/ReadVariableOp/resource;model/conv2d_12/BiasAdd;model/conv2d_13/Conv2D;model/conv2d_12/Conv2D1/canonical_b",
+      "shape": [
+        256
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 1024
+    },
+    {
+      "name": "model/activation_25/Relu;model/batch_normalization_25/FusedBatchNormV3;model/depthwise_conv2d_12/depthwise;model/depthwise_conv2d_12/BiasAdd;model/conv2d_13/Conv2D;model/depthwise_conv2d_12/BiasAdd/ReadVariableOp/resource1/canonical_w",
+      "shape": [
+        256,
+        1,
+        3,
+        3
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 9216
+    },
+    {
+      "name": "model/activation_25/Relu;model/batch_normalization_25/FusedBatchNormV3;model/depthwise_conv2d_12/depthwise;model/depthwise_conv2d_12/BiasAdd;model/conv2d_13/Conv2D;model/depthwise_conv2d_12/BiasAdd/ReadVariableOp/resource1/canonical_b",
+      "shape": [
+        256
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 1024
+    },
+    {
+      "name": "model/activation_26/Relu;model/batch_normalization_26/FusedBatchNormV3;model/conv2d_13/BiasAdd/ReadVariableOp/resource;model/conv2d_13/BiasAdd;model/conv2d_13/Conv2D1/canonical_w",
+      "shape": [
+        256,
+        256,
+        1,
+        1
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 262144
+    },
+    {
+      "name": "model/activation_26/Relu;model/batch_normalization_26/FusedBatchNormV3;model/conv2d_13/BiasAdd/ReadVariableOp/resource;model/conv2d_13/BiasAdd;model/conv2d_13/Conv2D1/canonical_b",
+      "shape": [
+        256
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 1024
+    },
+    {
+      "name": "model/dense/MatMul;model/dense/BiasAdd/canonical_w",
+      "shape": [
+        2,
+        256
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 2048
+    },
+    {
+      "name": "Add__87:0/folded_add_bias",
+      "shape": [
+        2
+      ],
+      "dtype": "float32",
+      "constant": true,
+      "logical_bytes": 8
+    }
+  ],
+  "total_macs": 7489664,
+  "constant_bytes": 843416,
+  "storage_scope": "canonical float tensors; excludes physical banking and v2 quantization metadata",
+  "unknown_required_operators": []
+}

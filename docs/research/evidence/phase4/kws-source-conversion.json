@@ -1,0 +1,105 @@
+{
+  "status": "passed-synthetic-source-framework-parity",
+  "source_format": "TensorFlow SavedModel",
+  "source_files_sha256": {
+    "saved_model.pb": "80665dd19eeb03d1152fdc098b5635261731b23478d09f6ff2166da799f98138",
+    "variables/variables.data-00000-of-00001": "5ebfddd34e85a2d35e87e27a8a803353534019bb460907b16db5fa72d757e8c5",
+    "variables/variables.index": "3f21dd9ea6736e20e70c5ed2f40ed9d8a7d12b98316ac0e4ab8f4eb7e303d738"
+  },
+  "source_runtime": "TensorFlow 2.16.2",
+  "tf2onnx": "1.16.1",
+  "onnx_sha256": "37e4c2daca0acffbdb0031cf746717b20eb0be0e56eb064f49233e20428a6c57",
+  "atol": 1e-05,
+  "rtol": 0.0001,
+  "samples": [
+    {
+      "sample": 0,
+      "input_sha256": "255c3a22d46b57e3f291eac23e404ce7b331400041930a0b43eb777bf8ed06fb",
+      "max_abs_error": 2.980232238769531e-07
+    },
+    {
+      "sample": 1,
+      "input_sha256": "db7ed7e45c84754422639dd7057723ec2e685d40c86bf68c61c840c48623baf2",
+      "max_abs_error": 1.4901161193847656e-08
+    },
+    {
+      "sample": 2,
+      "input_sha256": "b14e69e8f3550eb510de3c99f04e9604f99e261df103b5cd3a7ba5386a5cb1ee",
+      "max_abs_error": 1.7881393432617188e-07
+    },
+    {
+      "sample": 3,
+      "input_sha256": "bf2f0135e807b4a8ce853ee8d04c8efdcb2aa97655cbc07d66d029a460a73286",
+      "max_abs_error": 2.3283064365386963e-09
+    },
+    {
+      "sample": 4,
+      "input_sha256": "35c042d029f2678b99e4fc62d192c4fa420d6fbae4a669b6e04253f6022d635e",
+      "max_abs_error": 2.60770320892334e-08
+    },
+    {
+      "sample": 5,
+      "input_sha256": "1bb7ec303faa3b02ee65f099bbda5b69fbe72c2223ef40f38f16bd636cda9faf",
+      "max_abs_error": 2.980232238769531e-07
+    },
+    {
+      "sample": 6,
+      "input_sha256": "7b3f31155ea881a9cd50fc29ee094976bf4653cb2eb03e75e9c95a69846546c1",
+      "max_abs_error": 5.960464477539062e-07
+    },
+    {
+      "sample": 7,
+      "input_sha256": "075fe53b7ba7fc10afb3f923c0f3d069f59066a3a8b8e3b328e066ac47a818c3",
+      "max_abs_error": 5.662441253662109e-07
+    },
+    {
+      "sample": 8,
+      "input_sha256": "193d28533ae59c38c56d1c6e7ac28652fd88182d5529b14785fbf9d09c4ab283",
+      "max_abs_error": 7.2177499532699585e-09
+    },
+    {
+      "sample": 9,
+      "input_sha256": "59eed1b4dcb728dcf2a1465cd1313dfd849a63de114a9d1ebaf6f806329e82b5",
+      "max_abs_error": 1.1920928955078125e-07
+    },
+    {
+      "sample": 10,
+      "input_sha256": "21fc3b0d3ad5b72a1d6dacf8b35b60e50eb0f2599bfff13b30e98098300cbf59",
+      "max_abs_error": 5.960464477539063e-08
+    },
+    {
+      "sample": 11,
+      "input_sha256": "02fb5d6102bf57bde479f323f9950d5de8d0ab2a64d48950a9da3eb898458cb9",
+      "max_abs_error": 1.1920928955078125e-07
+    },
+    {
+      "sample": 12,
+      "input_sha256": "c179c9d4a3d84891246c075139d4ca4efb63b7c5ea8ab174db7f9027b31a577f",
+      "max_abs_error": 8.940696716308594e-07
+    },
+    {
+      "sample": 13,
+      "input_sha256": "4bafb9194d34b5e8104a2c535ec7302fbbd0fcc7a1a7a8f257c9ed0266191c3f",
+      "max_abs_error": 2.3283064365386963e-08
+    },
+    {
+      "sample": 14,
+      "input_sha256": "0db1af3b985b0abdc4ddde8378b7c7c84a2a88021d0f2633d2d05e044db69347",
+      "max_abs_error": 1.1920928955078125e-07
+    },
+    {
+      "sample": 15,
+      "input_sha256": "cc41f2a37e45d53d2aa16cb7ea998692a206b405e47cbdb9109cf121b2f5f4e1",
+      "max_abs_error": 4.76837158203125e-07
+    }
+  ],
+  "full_dataset_accuracy_evaluated": false,
+  "operators": [
+    "AveragePool",
+    "Conv",
+    "Gemm",
+    "Relu",
+    "Reshape",
+    "Softmax"
+  ]
+}

@@ -52,6 +52,17 @@ buffers and useful compute/transfer overlap remain open. A transient USB UART
 silence was isolated with the minimal loopback image and cleared by a USB
 power cycle; the release image then passed three fresh-program runs.
 
+After the MaxPool RTL fix below, a fresh Gowin route of the **diagnostic**
+SDRAM/DMA hierarchy passed its 20.25-MHz generated-core constraint:
+[22.552-MHz routed Fmax and zero setup TNS](evidence/phase4/boardless-reroute-dma.json),
+with 9,920/20,736 logic, 18/46 BSRAM and 19.75/24 DSP equivalents. The
+[route](evidence/phase4/boardless-reroute-dma-route.txt.gz) and
+[timing report](evidence/phase4/boardless-reroute-dma-timing.html.gz) pin this
+updated build. Its engine is still idle in the diagnostic state machine, and
+the newly routed bitstream has **not** run on the board. These post-route
+numbers do not replace the three-run physical DMA evidence for the earlier
+source revision.
+
 The measured 5.542 MiB/s is only 7.2% of the SDRAM's simple 32-bit ×
 20.25-MHz payload ceiling (77.25 MiB/s). This ratio is a diagnostic, not a
 claim that the memory can sustain the ceiling: each DMA beat currently incurs
@@ -67,6 +78,45 @@ candidate for Tang Nano 20K. The active board hierarchy still has a single
 32-KiB SRAM and no SDRAM connection. The standalone tile DMA is not in this
 bitstream. None of the KWS/VWW end-to-end, integrated SDRAM,
 sustained-bandwidth or energy gates are claimed by the active accelerator image.
+
+**Boardless tile execution addendum:** the calibrated `Program` can now be
+materialized into a parameter image and per-tile descriptors/DMA transfers by
+[`compiler/phase4_compile.py`](../../compiler/phase4_compile.py). The packer
+matches the existing on-chip weight/parameter ABI, rejects branched graphs
+and runtime constants, and materializes all 22 KWS and 58 VWW geometries. The
+[`compile_tiled.py` CLI](../../tools/phase4/compile_tiled.py) accepts a
+converted ONNX graph and its schema-2 calibration report, verifies the model
+hash before writing outputs, and emits the parameter image and tile plan. A new
+[RTL regression](evidence/phase4/boardless-tiled-program.json) uses the real
+engine, tile DMA and scratchpad with randomized external-memory stalls. It
+matches an independent integer oracle after each layer of an eight-kernel
+Conv→depthwise→pointwise→ReLU→MaxPool→AveragePool→Clip→FC chain, crosses a
+two-tile ReLU boundary, and executes a two-tile FC whose weight matrix alone
+occupies 32 KiB. This synthetic regression uses an abstract external-memory
+port; it is not physical SDRAM inference. This
+regression found and fixed an RTL MaxPool parameter validation mismatch for
+non-−128 input zero points. The archived physical releases predate that RTL
+fix and remain source-hash pinned to their tested revision.
+
+The same RTL path has now executed real weights from the SHA-verified MLCommons
+KWS and VWW source artifacts. A fresh conversion passed source-framework
+parity, but its canonical ONNX bytes differ from the frozen conversion because
+of generated constant names. A strict
+[calibration rebase](PHASE_4_REAL_MODEL.md) checked the original source hashes,
+conversion parity, every operator, attribute, activation tensor and constant
+geometry; only two KWS and one VWW constant input names changed. The resulting
+[KWS](evidence/phase4/boardless-real-kws.json) and
+[VWW](evidence/phase4/boardless-real-vww.json) tests compared **every** node
+output byte with an independent integer oracle for one deterministic INT8
+input per model: 22/22 KWS nodes (20 compute tiles) and 58/58 VWW nodes
+(75 compute tiles) passed. The external parameter images contain 49,376 KWS
+bytes and 334,816 VWW bytes. Their SHA-256s, the converted-model provenance,
+the fixture hashes and the simulation transcripts are archived alongside the
+reports. This proves one-input boardless tensor-value coverage of the two real
+source models, not complete-set accuracy, a byte-identical rerun of the frozen
+ONNX binaries, or physical model execution. Reported simulation clocks include
+test-host descriptor writes and randomized abstract-memory stalls and must not
+be converted to board FPS.
 
 ## Kernel progress (C04)
 
@@ -85,11 +135,12 @@ domain before one requantization.
 The [frozen inventory audit](evidence/phase4/inventory-audit.json) identifies
 0 geometries outside this kernel subset among KWS's 22 and VWW's 58
 operators. VWW's initial NHWC→NCHW transpose is explicitly the declared host
-layout boundary. This is a **shape/attribute audit**, not execution of all
-real model nodes. Independent scalar RTL tests cover the named boundary
+layout boundary. This is a **shape/attribute audit**; the separate real-model
+boardless run above supplies one-input tensor-value execution of all nodes.
+Independent scalar RTL tests cover the named boundary
 geometries under randomized SRAM stalls; an exact 1,000-job SmallCNN
 board-system regression also passes on the new target. Complete pinned
-KWS/VWW tensor-value RTL coverage remains outstanding.
+KWS/VWW physical tensor-value execution remains outstanding.
 
 The audit also shows why external memory is mandatory under the current
 32-KiB scratchpad: KWS has 33,216 packed persistent weight/parameter bytes
@@ -159,8 +210,10 @@ nodes, peaks at 21,248 SRAM bytes and plans 322,006 DMA payload bytes. VWW
 uses 75 compute tiles across 56 compute nodes, peaks at 32,768 SRAM bytes and
 plans 1,359,570 DMA payload bytes. Alias/layout nodes do not execute on the
 engine. A host-layout VWW transpose is assumed at its declared boundary.
-These counts are geometry and traffic estimates, **not** full-model RTL
-execution, timing or SDRAM bandwidth measurements. The planner uses a single
+These counts are geometry and traffic estimates, **not** physical timing or
+SDRAM bandwidth measurements. Real source-model parameter images and one-input
+full-graph RTL execution now pass as described above; the model payloads remain
+outside Git and are reproducible from their pinned source manifests. The planner uses a single
 tile at a time and does not implement burst commands, compute/DMA overlap or
 ping-pong scratchpad tiles. The randomized abstract-port RTL DMA test now
 also replays selected planner-produced high-address, short and tail transfers.
@@ -168,18 +221,20 @@ also replays selected planner-produced high-address, short and tail transfers.
 D01's isolated physical full-range/1-GiB refresh gate is met. D02's basic
 two-word burst command and integrated full-tile DMA are physically demonstrated,
 but double buffering and useful compute/transfer overlap remain open. D03's
-tensor-value tiled inference gate and P01's fitted measurement gate remain
-open.
+physical SDRAM tensor-value tiled inference gate and P01's fitted measurement
+gate remain open.
 
-`make p4-test PYTHON=/absolute/path/to/.venv/bin/python` now passes 127
+`make p4-test PYTHON=/absolute/path/to/.venv/bin/python` now passes 135
 compiler tests, target/ISA checks, Verilator lint, the existing kernel RTL
 regression, the abstract DMA RTL regression with planner-derived transfers,
-the shared-SRAM arbitration and refresh-scheduler RTL regressions, the frozen inventory audit and
+the shared-SRAM arbitration, packed tiled-program and refresh-scheduler RTL regressions, the frozen inventory audit and
 deterministic plan reproduction. The new
 schedule tests independently check descriptor legality, all tile output-byte
 coverage, disjoint live activation slots, SRAM region separation and exact
-byte movement through each declared transfer. These boardless checks do not
-prove arithmetic for complete model nodes or the integrated board hierarchy.
+byte movement through each declared transfer. The separate one-input
+real-model RTL runs prove complete-node arithmetic under the abstract-memory
+test conditions, but not the integrated board hierarchy. The
+[suite log](evidence/phase4/boardless-suite-log.txt) records this run.
 
 ## Historical routed candidate and evidence
 
@@ -218,9 +273,7 @@ held-out latency model or measured energy database.
 Carry the physically tested HS port and tile DMA from the diagnostic image
 into the host-command accelerator board hierarchy. Implement ping-pong
 scratchpad tiles with explicit live-region protection and measure useful
-compute/transfer overlap.
-Connect the geometry-only tile plan to real packed
-weights, quantization parameters and tensor values; run all pinned audio and
-vision nodes through RTL with an independent exact oracle. Then build a
-held-out kernel/DMA cost database, reroute the integrated hierarchy and
-collect physical board results.
+compute/transfer overlap. Run several independent inputs from each real model
+through that routed hierarchy, then build a held-out kernel/DMA cost database
+and collect physical latency, accuracy and power results. The corrected MaxPool
+RTL must be rebuilt and revalidated on the board before any new physical claim.

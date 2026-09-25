@@ -1,0 +1,149 @@
+{
+  "calibration_sha256": "96d7614d7c9404ea42178caf54a286fa04ee0d72b6c02a01e011895573df1997",
+  "expected_npz_sha256": "d038eb5d3c45e3374ca9352b382cb37d3a8a7af3f972a12d6142745db01677a1",
+  "image_sha256": "7157cfdbc8380d6283cebc1c3819c44c3532ae28508bbf07b7577d0f3b656139",
+  "input_bytes": 490,
+  "input_sha256": "5f4ad0b2d11bf1cccab552fb5a4d95d082b70f2d1fe2459127673d270cb1cdf4",
+  "layers": [
+    {
+      "index": 0,
+      "op": "Reshape",
+      "output_bytes": 490,
+      "output_sha256": "5f4ad0b2d11bf1cccab552fb5a4d95d082b70f2d1fe2459127673d270cb1cdf4"
+    },
+    {
+      "index": 1,
+      "op": "Conv",
+      "output_bytes": 8000,
+      "output_sha256": "c94f01e1c381d6d93c7f9fdce8ce1cfcace2d1413dde52aa6dabeb9a975f55b3"
+    },
+    {
+      "index": 2,
+      "op": "Relu",
+      "output_bytes": 8000,
+      "output_sha256": "28e6b01d788fb4591fab9fe452f7010bce25c3b1027429b28ffe2f3a98cc308d"
+    },
+    {
+      "index": 3,
+      "op": "Conv",
+      "output_bytes": 8000,
+      "output_sha256": "852f889e8994de655066782ff3096620e431babea8d1f516854e2c5c94168531"
+    },
+    {
+      "index": 4,
+      "op": "Relu",
+      "output_bytes": 8000,
+      "output_sha256": "4850b3ec9271b43fc3b802651f7135c84bbce68d041683e9bfbaba673cfcc2d9"
+    },
+    {
+      "index": 5,
+      "op": "Conv",
+      "output_bytes": 8000,
+      "output_sha256": "602f3c44f0a50496470494f3f4ce34820fb9c0f546edbfe30fcc1f54643b411d"
+    },
+    {
+      "index": 6,
+      "op": "Relu",
+      "output_bytes": 8000,
+      "output_sha256": "9733ada9d59c11c5e92f96a397cbc321a8c553ba2281d3b34f36ce22469a8205"
+    },
+    {
+      "index": 7,
+      "op": "Conv",
+      "output_bytes": 8000,
+      "output_sha256": "e58e0d481943d32eb4067bf481b5b40f99d024abf17ae9a8a009a882ba9bc4e1"
+    },
+    {
+      "index": 8,
+      "op": "Relu",
+      "output_bytes": 8000,
+      "output_sha256": "d32a295f2d3d018636c8f15c9705f6f2a9099401edbd5801c8d51379260a6307"
+    },
+    {
+      "index": 9,
+      "op": "Conv",
+      "output_bytes": 8000,
+      "output_sha256": "8355a8fde2b7096543bfda10826ec2fa9c8400f04ce693c6e24a8232bbcfb48d"
+    },
+    {
+      "index": 10,
+      "op": "Relu",
+      "output_bytes": 8000,
+      "output_sha256": "19733719e30130052f2ab4db3c6e89cd74d955e8aea7a20da4eedf42fa754efc"
+    },
+    {
+      "index": 11,
+      "op": "Conv",
+      "output_bytes": 8000,
+      "output_sha256": "53166a9e34f1641a23cfee3dd1af3c44195a0615b20815565277dcc6e6b2badf"
+    },
+    {
+      "index": 12,
+      "op": "Relu",
+      "output_bytes": 8000,
+      "output_sha256": "3a5a90031e26deea03ab9091dd90d70f7de34469d660b0d2213474c923536ecd"
+    },
+    {
+      "index": 13,
+      "op": "Conv",
+      "output_bytes": 8000,
+      "output_sha256": "8f3e310930da0d748b02a217a00cb2750eb9e02bb0287f71abd43018354e7999"
+    },
+    {
+      "index": 14,
+      "op": "Relu",
+      "output_bytes": 8000,
+      "output_sha256": "cf9cf4aba5059fc5241b49e0685e47bfaa8ac279b8b18b07b81bafe1244b1588"
+    },
+    {
+      "index": 15,
+      "op": "Conv",
+      "output_bytes": 8000,
+      "output_sha256": "6d68704abc93f692834dab304838e0b07c11ca40bd3c42a9fbbef01e24455e83"
+    },
+    {
+      "index": 16,
+      "op": "Relu",
+      "output_bytes": 8000,
+      "output_sha256": "9ff86b91cd54c69766edfef9bfa927d7ee9f706e03a9f99cc47084605ecbf400"
+    },
+    {
+      "index": 17,
+      "op": "Conv",
+      "output_bytes": 8000,
+      "output_sha256": "e75754369c62a84f79b282a760022d3eb7ee21b784ca73c9adbc140e58a517ba"
+    },
+    {
+      "index": 18,
+      "op": "Relu",
+      "output_bytes": 8000,
+      "output_sha256": "3c66fd54582b325336e56e3b00f4aa9b8aded50e247d2700af1e46ced09480ce"
+    },
+    {
+      "index": 19,
+      "op": "AveragePool",
+      "output_bytes": 64,
+      "output_sha256": "3fa70869e389352480248ab9a454ad7fa79767bbf8a154d56ba13decf646c042"
+    },
+    {
+      "index": 20,
+      "op": "Reshape",
+      "output_bytes": 64,
+      "output_sha256": "3fa70869e389352480248ab9a454ad7fa79767bbf8a154d56ba13decf646c042"
+    },
+    {
+      "index": 21,
+      "op": "Gemm",
+      "output_bytes": 12,
+      "output_sha256": "ce178213db2ef2aa27d0b532e4a17851cfef1772ad74b2fc7a95311b4a6714a7"
+    }
+  ],
+  "name": "kws",
+  "nodes": 22,
+  "output_sha256": "ce178213db2ef2aa27d0b532e4a17851cfef1772ad74b2fc7a95311b4a6714a7",
+  "plan_sha256": "9e3b40c1cce2495af6d01a739428d862bdeb65966a07b2334d7daffe5d75fa0f",
+  "scope": "one deterministic quantized input; independent integer oracle",
+  "source_onnx_sha256": "074aacbdd17f488e7717e5ab2add811341569e71023d9b778ce472e27991d8de",
+  "status": "prepared",
+  "tiles": 20
+}

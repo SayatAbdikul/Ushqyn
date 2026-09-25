@@ -71,8 +71,9 @@ complete KWS/VWW inference and energy measurement remain later work.
 **G4:** C04, D01–D03 and P01 pass. The pinned model inventories, not assumptions about “typical CNNs,” define kernel completeness.
 
 **Current G4: open.** C04 now has compiler/RTL kernel support and directed
-exact tests for pinned KWS/VWW geometries, but real model node execution and
-complete graphs are pending. A checked geometry-only plan covers all 22 KWS
+exact tests for pinned KWS/VWW geometries. One-input boardless runs with real
+source-model weights matched an independent oracle after every node of the
+22-node KWS and 58-node VWW graphs. A checked geometry plan covers all 22 KWS
 and 58 VWW nodes with legal 32-KiB tiles and abstract-port DMA transfers.
 The target-configured Gowin HS IP and an open controller each passed 64
 full-range 8-MiB sweeps (1 GiB aggregate) on the board; a separate two-word
@@ -86,8 +87,18 @@ three fresh-program runs passed a full 32-KiB round trip ending at the last
 SDRAM byte and a partial-tail bank crossing. It measured 5.542 MiB/s for
 full-tile DMA in each direction at nominal 20.25 MHz. The compute engine was
 held idle in that diagnostic. Useful compute/transfer overlap, host-command
-accelerator integration, tensor-value tiled inference, the fitted cost
-database and full-model validation remain pending.
+accelerator integration, physical tensor-value tiled inference, the fitted
+cost database and full-set model validation remain pending.
+The new boardless materializer packs a calibrated `Program` into per-tile
+descriptors and an external parameter image. Synthetic parameters cover all
+22 KWS and 58 VWW pinned geometries; a real-engine/DMA/SRAM RTL regression
+matches an independent oracle for a multi-kernel chain, a split elementwise
+tensor and a two-tile FC with 32 KiB of weights. SHA-verified KWS/VWW source
+weights were also compiled into 49,376-byte and 334,816-byte images and each
+complete graph passed the same abstract-memory RTL path for one quantized input.
+The new canonical inventories differ from the frozen inventories only in
+checked constant names; ONNX binary equality is not claimed. This is
+development validation, not a fresh accuracy or board throughput claim.
 On-chip physical model and directed-kernel checks now pass.
 See [Phase 4 status](research/PHASE_4_STATUS.md).
 

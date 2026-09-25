@@ -1,0 +1,104 @@
+{
+  "status": "passed-synthetic-float-artifact-parity",
+  "source_format": "float32 TFLite",
+  "source_runtime": "TensorFlow Lite 2.16.2",
+  "tf2onnx": "1.16.1",
+  "source_sha256": "115bbc094d2119561320a21f01b6500a18bea8cc8589282ab007097bec8af38c",
+  "onnx_sha256": "993c479a58d44c75ca2084b0e4021a4ac31c3aeb584f5874df460cfa05df0d1b",
+  "atol": 1e-05,
+  "rtol": 0.0001,
+  "samples": [
+    {
+      "sample": 0,
+      "input_sha256": "7c98d2da7afa2bdee9765910c81cb588e14781b77538fb54df84f7e7039e4348",
+      "max_abs_error": 3.91155481338501e-08
+    },
+    {
+      "sample": 1,
+      "input_sha256": "5f5327aa3fa6891d27f8fd5e897681e2134804974e153b682b5f7701a6878971",
+      "max_abs_error": 1.1920928955078125e-07
+    },
+    {
+      "sample": 2,
+      "input_sha256": "f724fea881609d53f5408f8854a495375f55a7deabaa9ca93cdb274405a098d3",
+      "max_abs_error": 4.023313522338867e-07
+    },
+    {
+      "sample": 3,
+      "input_sha256": "972303b184433b5fa7b11ccf4ffdd937c0a5a9257d78c48d4968f154067fe214",
+      "max_abs_error": 1.210719347000122e-08
+    },
+    {
+      "sample": 4,
+      "input_sha256": "f76a59a8f7628ada31e6adc0994e802acb63620b11bc2f70f95a7f9d73dad69a",
+      "max_abs_error": 2.2351741790771484e-08
+    },
+    {
+      "sample": 5,
+      "input_sha256": "a8ff95681df66e4a95a4d8d5b5cfadf39e2e1fb21276085afabb235bb9dc6dd3",
+      "max_abs_error": 1.1175870895385742e-08
+    },
+    {
+      "sample": 6,
+      "input_sha256": "03a14721f2b06239d941f16b42b67e62ae2f2290558f77dcd5d1061c4657492d",
+      "max_abs_error": 0.0
+    },
+    {
+      "sample": 7,
+      "input_sha256": "13c0c5714fb0f1e980bc652146c618e8c30112cfc3d5d738946eb9c25e8eb170",
+      "max_abs_error": 2.0489096641540527e-08
+    },
+    {
+      "sample": 8,
+      "input_sha256": "945c2d304a28f8ed72eded2255d780c725417d8f6eaaed1ede1d374664c4dbd2",
+      "max_abs_error": 3.725290298461914e-08
+    },
+    {
+      "sample": 9,
+      "input_sha256": "e3e9f599efb2fe12204e28b3276cf06d228422c6d9ed75fa3858e7f6158b6544",
+      "max_abs_error": 3.725290298461914e-09
+    },
+    {
+      "sample": 10,
+      "input_sha256": "f4a9eb95099ae7932059b9cb6223a79d209189c6791df73a6fb5fe877e2449b6",
+      "max_abs_error": 4.0978193283081055e-08
+    },
+    {
+      "sample": 11,
+      "input_sha256": "9fce6892e30c48abd0578f1b6983b5fb7b76a488008e0babfb3ddbec747c7f77",
+      "max_abs_error": 1.1920928955078125e-07
+    },
+    {
+      "sample": 12,
+      "input_sha256": "d190fa54f9140c710a54a0300b18f28cdb3dc8ab3f76436a7f28580f06bf68e2",
+      "max_abs_error": 1.1920928955078125e-07
+    },
+    {
+      "sample": 13,
+      "input_sha256": "92f36eb2a0ee73ce6d1eea31de8011899d04d8421d3527250e38e221a1174f13",
+      "max_abs_error": 0.0
+    },
+    {
+      "sample": 14,
+      "input_sha256": "44ae3049668590ebc2d9cb3edc500e26b63c4a0d51c6ae8a73689d08f101ce4a",
+      "max_abs_error": 1.1175870895385742e-08
+    },
+    {
+      "sample": 15,
+      "input_sha256": "bd62375b9a64cef8a8a4ad6b817fafcc116e2beed7f1ad277a2c302b412f6966",
+      "max_abs_error": 3.725290298461914e-09
+    }
+  ],
+  "operators": [
+    "Add",
+    "AveragePool",
+    "Conv",
+    "MatMul",
+    "Relu",
+    "Reshape",
+    "Softmax",
+    "Transpose"
+  ],
+  "full_dataset_accuracy_evaluated": false,
+  "keras_to_tflite_parity_evaluated": false
+}

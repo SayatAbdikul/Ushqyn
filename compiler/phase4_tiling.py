@@ -56,7 +56,12 @@ def _kind(node, input_shape, output_shape):
 
 def plan_inventory(path):
     path = Path(path)
-    inventory = json.loads(path.read_text())
+    return plan_graph(json.loads(path.read_text()),
+                      hashlib.sha256(path.read_bytes()).hexdigest())
+
+
+def plan_graph(inventory, inventory_sha256):
+    """Plan a verified inventory, including one derived from a typed Program."""
     tensors = {t['name']: t for t in inventory['tensors']}
     nodes = inventory['operators']
     if not nodes:
@@ -197,7 +202,7 @@ def plan_inventory(path):
                        'output_slot': 1-current_slot, 'input_bytes': input_bytes,
                        'output_bytes': output_bytes, 'tiles': tiles})
         current_slot = 1-current_slot
-    return {'schema': 1, 'inventory_sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
+    return {'schema': 1, 'inventory_sha256': inventory_sha256,
             'external_bytes': EXT_BYTES, 'sram_bytes': SRAM_BYTES,
             'activation_slot_bytes': slot_bytes, 'parameter_end': parameter_cursor,
             'final_output_slot': current_slot, 'layers': layers}

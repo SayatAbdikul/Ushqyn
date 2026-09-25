@@ -1,0 +1,52 @@
+{
+  "cases": [
+    {
+      "compute_nodes": 8,
+      "dma_payload_bytes": 931,
+      "name": "conv-depthwise-pointwise-relu-maxpool-avgpool-clip-fc",
+      "output_sha256": "69e50f00d8001b5581400afbc283ccb6cbfcd3def887652464621db27005ba85",
+      "parameter_image_sha256": "9352af8d72d6bcfba5a9657cd42bd3973c6e881a258012bd1cac4c1069987d80",
+      "simulated_clocks_including_host": 4251,
+      "tiles": 8
+    },
+    {
+      "compute_nodes": 1,
+      "dma_payload_bytes": 32672,
+      "name": "two-tile-relu",
+      "output_sha256": "3dca37cc4d8cb2cf9f966b4207b590c415383437d11aa8fc0d432c782e1b6b77",
+      "parameter_image_sha256": "52b4915424135db4d3e4f0d6e001749cca1a74a5a3e9948f075ad93ed3b513c4",
+      "simulated_clocks_including_host": 131749,
+      "tiles": 2
+    },
+    {
+      "compute_nodes": 1,
+      "dma_payload_bytes": 34880,
+      "name": "multi-tile-fc-32kib-weights",
+      "output_sha256": "26bf73d8d265d8d2915affae02eb29e85a203551a34e9f6b5000eafac24936f8",
+      "parameter_image_sha256": "8aefbc20771ff99f46f02cdf56c7830d6c4c7beb3e9eda4743c4b91209354067",
+      "simulated_clocks_including_host": 44131,
+      "tiles": 2
+    },
+    {
+      "compute_nodes": 56,
+      "dma_payload_bytes": 1359570,
+      "name": "vww",
+      "output_sha256": "6a0cfa0be8aa6d3a3137a6926b09aa569b91c44d1b845612779c2d55e019dbc2",
+      "parameter_image_sha256": "6251628dcaf714c8690a3454126ee4a1ac6a7eebe5d7d044af812bead6bc4805",
+      "simulated_clocks_including_host": 18008277,
+      "tiles": 75
+    }
+  ],
+  "evidence_type": "randomized-stall RTL simulation; no physical SDRAM",
+  "random_seed": 4412,
+  "source_sha256": {
+    "compiler/phase4_compile.py": "fa9a392f1552ebd6dca66890e83adb678d953591fb0720cd2eab09a1fbc5a3b3",
+    "compiler/phase4_tiling.py": "da59d83b9aa6963d498d3f28872a1564e68d22eb18a6e0422ae6929b1da1315c",
+    "rtl/v2/engine.sv": "4b8300050934959a627249fca9d7be74a594757abd162ab4710510aaa71cb122",
+    "rtl/v2/scratchpad.sv": "bfdab92e5f5f039e102b76fad82fe6a8df2d7f64d1b2cffd23cc677626654cd2",
+    "rtl/v2/tile_dma.sv": "94e94a4a8c474fd2f0824dff3cc64bca921262cd9e0bf53064713376c1a09ab9",
+    "rtl/v2/tiled_core.sv": "98e36ce05e53823f072b85e7c5d164d0eba3a3daae0592de6a0c86a18921f72a",
+    "test/phase4/test_tiled_program.py": "d48f8cc5698458fd3fb80e97a8c6584980d3c9cbfe2e73433ca2b00f38b128ba"
+  },
+  "status": "passed"
+}

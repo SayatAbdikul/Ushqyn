@@ -1,0 +1,15 @@
+{
+  "calibration_sample_count": 96,
+  "constant_input_renames": {
+    "const_fold_opt__68": "const_fold_opt__65",
+    "new_shape__62": "new_shape__63"
+  },
+  "new_canonical_sha256": "e7f093709b00da784e81eda2f38cfd2dda7b46149a27fb755f77652a229c2b55",
+  "old_canonical_sha256": "6599b4b8373a807b6d894a4e155be3556e973f036ecbbff4afe837f6ac071ed9",
+  "operators": 22,
+  "scope": "boardless development; not byte-identical to frozen conversion",
+  "source_onnx_sha256": "37e4c2daca0acffbdb0031cf746717b20eb0be0e56eb064f49233e20428a6c57",
+  "source_parity_report_sha256": "094f64de4f2cc9dd9501d2cc43fd536e4192dfaeeab942aa7d0db354269c8a4b",
+  "status": "passed-structure-checked-calibration-rebase",
+  "workload": "kws"
+}
