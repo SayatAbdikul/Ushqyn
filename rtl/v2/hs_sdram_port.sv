@@ -12,6 +12,7 @@ module v2_hs_sdram_port #(
     input logic [7:0] ext_wstrb,
     output logic ext_ready, ext_rvalid,
     output logic [63:0] ext_rdata,
+    output logic port_busy,
     output logic init_done, refresh_deadline_missed,
     output logic [7:0] debug_status,
     output logic O_sdram_clk, O_sdram_cke, O_sdram_cs_n,
@@ -48,6 +49,7 @@ module v2_hs_sdram_port #(
     wire [3:0] write_dqm = cycle_count == 0 ? ~write_strobes[3:0] :
                             ~write_strobes[7:4];
     assign ext_ready = init_done && state == IDLE && !refresh_req;
+    assign port_busy = state != IDLE;
     assign debug_status = {init_done,cmd_ack,cmd_en,write_operation,
                            state,refresh_req};
     v2_sdram_refresh #(.CLOCK_HZ(CLOCK_HZ)) scheduler (

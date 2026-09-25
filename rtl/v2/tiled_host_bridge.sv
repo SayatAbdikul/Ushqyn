@@ -17,6 +17,7 @@ module v2_tiled_host_bridge #(
     input logic ext_ready, ext_rvalid,
     input logic [63:0] ext_rdata,
     input logic memory_initialized,
+    input logic memory_port_busy,
     output logic engine_busy, dma_busy
 );
     logic start_engine, abort_command, clear_counters;
@@ -25,6 +26,10 @@ module v2_tiled_host_bridge #(
     logic [31:0] engine_elapsed, compute_cycles, wait_cycles, control_cycles;
     logic [31:0] useful_macs, read_bytes, write_bytes, layer_count;
     logic [31:0] protocol_errors, dma_bytes_copied;
+    logic [31:0] dma_elapsed_cycles;
+    logic dma_pending;
+    logic [15:0] engine_live_limit, overlap_cycles;
+    logic [7:0] guard_error;
     logic command_req, command_wr, command_ready, command_rvalid;
     logic [23:0] command_addr;
     logic [63:0] command_wdata, command_rdata;
@@ -58,8 +63,11 @@ module v2_tiled_host_bridge #(
         .tx_valid(tx_valid), .tx_data(tx_data), .tx_ready(tx_ready),
         .start(start_engine), .abort_run(abort_command),
         .clear_counters(clear_counters), .start_pc(start_pc),
-        .busy(engine_busy || dma_busy || !memory_initialized),
-        .core_error(engine_error != 0 ? engine_error : dma_error),
+        .busy(engine_busy || dma_busy || dma_pending || !memory_initialized),
+        .core_error(engine_error != 0 ? engine_error :
+                    dma_error != 0 ? dma_error : guard_error),
+        .mmio_while_busy(memory_initialized && engine_busy &&
+                         !dma_busy && !dma_pending),
         .elapsed(engine_elapsed), .compute_cycles(compute_cycles),
         .wait_cycles(wait_cycles), .control_cycles(control_cycles),
         .useful_macs(useful_macs), .read_bytes(read_bytes),
@@ -127,7 +135,10 @@ module v2_tiled_host_bridge #(
             11: control_byte = dma_length[31:24];
             12: control_byte = {7'b0,dma_to_sram};
             16: control_byte = {6'b0,engine_busy,dma_busy};
-            17: control_byte = engine_error != 0 ? engine_error : dma_error;
+            14: control_byte = engine_live_limit[7:0];
+            15: control_byte = engine_live_limit[15:8];
+            17: control_byte = engine_error != 0 ? engine_error :
+                               dma_error != 0 ? dma_error : guard_error;
             18: control_byte = dma_bytes_copied[7:0];
             19: control_byte = dma_bytes_copied[15:8];
             20: control_byte = dma_bytes_copied[23:16];
@@ -136,6 +147,12 @@ module v2_tiled_host_bridge #(
             23: control_byte = engine_elapsed[15:8];
             24: control_byte = engine_elapsed[23:16];
             25: control_byte = engine_elapsed[31:24];
+            26: control_byte = dma_elapsed_cycles[7:0];
+            27: control_byte = dma_elapsed_cycles[15:8];
+            28: control_byte = dma_elapsed_cycles[23:16];
+            29: control_byte = dma_elapsed_cycles[31:24];
+            30: control_byte = overlap_cycles[7:0];
+            31: control_byte = overlap_cycles[15:8];
             default: control_byte = 0;
         endcase
     endfunction
@@ -157,10 +174,25 @@ module v2_tiled_host_bridge #(
         if (!rst_n) begin
             dma_ext_base <= 0; dma_sram_base <= 0; dma_length <= 0;
             dma_to_sram <= 0; dma_start <= 0; dma_abort_register <= 0;
+            dma_elapsed_cycles <= 0; dma_pending <= 0;
+            engine_live_limit <= 16'd32768; overlap_cycles <= 0;
+            guard_error <= 0;
             mmio_rvalid <= 0; mmio_rdata <= 0; read_owner <= 0;
         end else begin
             dma_start <= 0;
             dma_abort_register <= 0;
+            if (clear_counters) begin
+                overlap_cycles <= 0;
+                guard_error <= 0;
+            end else if (engine_busy && dma_busy && overlap_cycles != 16'hffff)
+                overlap_cycles <= overlap_cycles + 1'b1;
+            if (dma_start) begin
+                dma_elapsed_cycles <= 0;
+                dma_pending <= 1;
+            end else if (dma_pending) begin
+                if (!dma_busy && !memory_port_busy) dma_pending <= 0;
+                else dma_elapsed_cycles <= dma_elapsed_cycles + 1'b1;
+            end
             mmio_rvalid <= command_req && command_ready &&
                             !command_wr && mmio_region;
             if (command_req && command_ready && !command_wr && mmio_region)
@@ -180,8 +212,14 @@ module v2_tiled_host_bridge #(
                     10: dma_length[23:16] <= command_wdata[7:0];
                     11: dma_length[31:24] <= command_wdata[7:0];
                     12: dma_to_sram <= command_wdata[0];
-                    13: if (command_wdata[0]) dma_start <= 1;
-                    14: if (command_wdata[0]) dma_abort_register <= 1;
+                    13: if (command_wdata[0]) begin
+                        if (engine_busy && (dma_sram_base < {8'b0,engine_live_limit} ||
+                            {9'b0,dma_sram_base}+{1'b0,dma_length} > 33'd32768))
+                            guard_error <= 8'd9;
+                        else begin dma_start <= 1; guard_error <= 0; end
+                    end
+                    14: engine_live_limit[7:0] <= command_wdata[7:0];
+                    15: engine_live_limit[15:8] <= command_wdata[7:0];
                     default: ;
                 endcase
             end

@@ -10,6 +10,7 @@ module v2_command #(
     output logic tx_valid, output logic [7:0] tx_data, input logic tx_ready,
     output logic start, abort_run, clear_counters, output logic [23:0] start_pc,
     input logic busy, input logic [7:0] core_error,
+    input logic mmio_while_busy,
     input logic [31:0] elapsed,compute_cycles,wait_cycles,control_cycles,useful_macs,read_bytes,write_bytes,layer_count,
     output logic mem_req,mem_wr,output logic [23:0] mem_addr,
     output logic [63:0] mem_wdata,output logic [7:0] mem_wstrb,
@@ -37,6 +38,9 @@ module v2_command #(
         (address>=24'h400000 && address<24'h400020 &&
          transfer_end<=25'h400020) ||
         (address>=24'h800000 && transfer_end<=25'h1000000);
+    wire tiled_busy_mmio_write = TILED_MEM_MAP && mmio_while_busy &&
+        cmd==WRITE && address>=24'h400000 && address<24'h400020 &&
+        transfer_end<=25'h400020;
     logic [24:0] transfer_addr;
     logic [7:0] send_byte;
     integer i;
@@ -131,7 +135,7 @@ module v2_command #(
                         else if(address[5:0]!=0||{8'b0,address}>MEM_BYTES-64)respond(8'd4,1);
                         else begin start<=1;respond(0,1);end
                     end else if(cmd==READ||cmd==WRITE)begin
-                        if(busy)respond(8'd3,1);
+                        if(busy && !tiled_busy_mmio_write)respond(8'd3,1);
                         else if(length==0||length>16'(MAX_TRANSFER)||
                                 (TILED_MEM_MAP ? !tiled_transfer_valid :
                                  {8'b0,address}+{16'b0,length}>MEM_BYTES))respond(8'd4,1);

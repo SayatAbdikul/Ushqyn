@@ -1,16 +1,17 @@
-# Phase 5 working record — 2026-09-23
+# Phase 5 working record — updated 2026-09-25
 
-**Physical addendum:** the connected board has passed on-chip MLP/SmallCNN
-switching and directed KWS/VWW-shaped kernel tests on a reset-corrected target
-8196. See the [physical evidence](PHYSICAL_BOARD_STATUS.md). This is useful
-hardware progress, but it is not the complete KWS/VWW switch workload below.
+**Physical addendum:** the SDRAM-connected board has now passed one complete,
+byte-exact KWS input and one complete, byte-exact VWW input on the same image,
+with every intermediate node checked. It also passed the prior on-chip
+MLP/SmallCNN tensors through SDRAM and a directed compute/DMA overlap. See
+the [Phase 4 physical evidence](PHASE_4_STATUS.md). This is one input per
+primary model, not the complete accuracy or 10,000-job switch workload below.
 
-**P5 is in progress; G5 is open.** This repository now pins the primary-model
-switch workload and checks the available evidence, but the Phase 4 external
-memory path is not integrated. There has been no complete KWS or VWW run on
-the board or in board-system RTL, no AD full-set result, and no measured B1/B2/B3
-comparison. The Phase 4 kernel-only bitstream cannot be described as a Phase 5
-release or as a complete-model/SOTA accelerator.
+**P5 is in progress; G5 is open.** This repository pins the primary-model
+switch workload, but its complete accuracy sets and 10,000 alternating board
+jobs have not run. There is no AD full-set result or measured B1/B2/B3
+comparison. The physical Phase 4 image proves model execution; it does not
+establish a Phase 5 or SOTA accelerator claim.
 
 ## Reproducible B01 switch workload
 
@@ -47,10 +48,12 @@ results are KWS 4,514/4,890 (92.31%) and VWW 9,239/10,961 (84.29%). They
 are not hardware measurements; the VWW split is research validation, not an
 official MLPerf certification.
 
-The audit then inventories the missing model images, accuracy NPZ payloads,
-integrated SDRAM/DMA, complete-model RTL, primary-model board run, AD report and baseline
-report. File presence is only a readiness observation; it cannot certify the
-contents of future results. The `g5_certified` field is deliberately false.
+The archived readiness audit predates the new Phase 4 physical image and
+therefore still lists integrated SDRAM/DMA and primary-model board execution
+as missing. Those two one-input checks now pass, but the audit must be updated
+before it is used as a current inventory. Full-set model images/accuracy
+payloads, AD and baseline reports remain missing. File presence alone cannot
+certify the contents of future results. The `g5_certified` field is false.
 The current 32-KiB scratchpad is below even KWS's 33,216 bytes of packed
 persistent parameters; VWW needs 260,640 bytes of such parameters and has
 six full-layer input/output pairs that exceed the scratchpad. Tiling and real
@@ -82,9 +85,9 @@ SDRAM behavior, end-to-end latency or power.
 
 ## Work required to close G5
 
-1. Close G4: integrate and validate the SDRAM controller and DMA in the board
-   hierarchy; implement tiled full-model lowering and verify all KWS/VWW node
-   values, transfers and physical memory constraints.
+1. Close G4's remaining compiler-managed ping-pong/streaming DMA and reliable
+   static cost-model gates. The integrated SDRAM image and one-input KWS/VWW
+   node-value checks are complete.
 2. Materialize the frozen KWS/VWW model images and accuracy payloads using
    [the pinned benchmark recipes](../../benchmarks/README.md). Validate all
    source, preprocessing and split hashes before using them.

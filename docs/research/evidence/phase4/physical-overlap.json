@@ -1,0 +1,28 @@
+{
+  "bitstream_sha256": "c8eb28fadf68d14fac8c9592c608b73b3bb8ddff0a23c215b94f3d1d442ad206",
+  "case": "KWS first Conv and disjoint 8192-byte SDRAM-to-SRAM transfer",
+  "concurrent_dma_cycles": 28548,
+  "concurrent_engine_cycles": 256021,
+  "concurrent_union_cycles": 256036,
+  "dma_only_cycles": 28548,
+  "engine_only_cycles": 255911,
+  "expected_output_sha256": "c94f01e1c381d6d93c7f9fdce8ce1cfcace2d1413dde52aa6dabeb9a975f55b3",
+  "guard_error_for_live_region": 9,
+  "incoming_region": [
+    16384,
+    24576
+  ],
+  "input_sha256": "5f4ad0b2d11bf1cccab552fb5a4d95d082b70f2d1fe2459127673d270cb1cdf4",
+  "limits": [
+    "one directed tile, not a full-model ping-pong schedule",
+    "nominal core cycles exclude host UART staging and upload",
+    "no board power measurement"
+  ],
+  "live_region_limit_bytes": 12208,
+  "overlap_cycles": 28533,
+  "physical_board": true,
+  "plan_sha256": "9e3b40c1cce2495af6d01a739428d862bdeb65966a07b2334d7daffe5d75fa0f",
+  "sequential_cycle_sum": 284459,
+  "speedup_from_overlap": 1.1110117327250855,
+  "status": "passed"
+}

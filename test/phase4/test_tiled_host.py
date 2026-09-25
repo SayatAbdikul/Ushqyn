@@ -45,6 +45,7 @@ async def uart_packet_tile_program_uses_sdram_window_and_dma(d):
     d.ext_rvalid.value = 0
     d.ext_rdata.value = 0
     d.memory_initialized.value = 0
+    d.memory_port_busy.value = 0
 
     async def step(byte=None):
         nonlocal pending, held
@@ -147,6 +148,7 @@ async def uart_packet_tile_program_uses_sdram_window_and_dma(d):
         reg = await read(0x400010, 6)
         assert reg[1] == 0
         assert int.from_bytes(reg[2:6], 'little') == transfer['bytes']
+        assert int.from_bytes(await read(0x40001a, 4), 'little') > 0
 
     await step()
     d.rst_n.value = 1
@@ -176,6 +178,20 @@ async def uart_packet_tile_program_uses_sdram_window_and_dma(d):
     await dma({'ext': 0x7fffd0, 'sram': 0x1000, 'bytes': len(tail),
                'direction': 'from_sram'})
     assert await read(0xffffd0, len(tail)) == transformed
+    config = (0x7fffd0).to_bytes(3, 'little') + b'\0' + \
+             (0x1000).to_bytes(3, 'little') + b'\0' + \
+             (8).to_bytes(4, 'little') + b'\x01'
+    await write(0x400000, config)
+    d.memory_port_busy.value = 1  # the final beat is accepted but not settled
+    await write(0x40000d, b'\x01')
+    for _ in range(1000):
+        if not int(d.dma_busy.value):
+            break
+        await step()
+    assert (await command(5))[0] == 1
+    d.memory_port_busy.value = 0
+    await wait_idle()
+    assert await read(0x1000, 8) == transformed[:8]
 
     q = Quantization(.05, -7)
     x = np.array([[-128, -20, -7, -1, 0, 1, 20, 127,
@@ -205,6 +221,57 @@ async def uart_packet_tile_program_uses_sdram_window_and_dma(d):
     address = 0x800000 + plan['final_output_slot'] * plan['activation_slot_bytes']
     assert await read(address, len(oracle)) == oracle
     assert memory[address - 0x800000:address - 0x800000 + len(oracle)] == oracle
+
+    # A longer live tile lets the framed host start a disjoint DMA while the
+    # engine runs. A second launch into its live footprint must be rejected.
+    long_x = np.arange(2048, dtype=np.uint16).astype(np.uint8).view(np.int8)
+    long_program = SimpleNamespace(
+        inputs=['x'], outputs=['y'], constants={},
+        tensors={name: SimpleNamespace(shape=(1, 2048), quantization=q)
+                 for name in ('x', 'y')},
+        layers=[SimpleNamespace(op='Relu', inputs=['x'], output='y',
+                                attributes={}, parameters={})])
+    long_plan, long_image = compile_tiled(long_program)
+    long_tile = long_plan['layers'][0]['tiles'][0]
+    assert long_tile['scratch_bytes'] < 0x4000
+    long_oracle = evaluate(long_program, {'x': long_x.reshape(1, -1)})['y'].tobytes()
+    await write(0x800000, long_image)
+    await write(0x800000, long_x.tobytes())
+    for move in long_tile['transfers'][:-1]:
+        await dma(move)
+    await write(0, bytes.fromhex(long_tile['descriptor_hex']) +
+                Descriptor(0).encode())
+    spare = bytes((i * 29 + 3) & 255 for i in range(32))
+    await write(0xf00000, spare)
+    await write(0x40000e, long_tile['scratch_bytes'].to_bytes(2, 'little'))
+    config = (0x700000).to_bytes(3, 'little') + b'\0' + \
+             (0x4000).to_bytes(3, 'little') + b'\0' + \
+             (32).to_bytes(4, 'little') + b'\x01'
+    await write(0x400000, config)
+    await command(7)
+    await command(4, 0)
+    await write(0x40000d, b'\x01')
+    await wait_idle()
+    assert await read(long_tile['transfers'][-1]['sram'], 2048) == long_oracle
+    assert await read(0x4000, len(spare)) == spare
+    assert int.from_bytes(await read(0x40001e, 2), 'little') > 0
+    dma_cycles_before_guard = await read(0x40001a, 4)
+    config = (0x700000).to_bytes(3, 'little') + b'\0' + \
+             (0x100).to_bytes(3, 'little') + b'\0' + \
+             (32).to_bytes(4, 'little') + b'\x01'
+    await write(0x400000, config)
+    await command(7)
+    await command(4, 0)
+    await write(0x40000d, b'\x01')
+    for _ in range(100000):
+        if not int(d.engine_busy.value):
+            break
+        await step()
+    else:
+        raise AssertionError('guarded engine run did not finish')
+    assert (await command(5))[1] == 9
+    assert await read(0x40001a, 4) == dma_cycles_before_guard
+    await command(7)
 
     fixture = os.environ.get('PHASE4_TILED_HOST_FIXTURE')
     if fixture:

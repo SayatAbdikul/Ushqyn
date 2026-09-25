@@ -26,7 +26,7 @@ module phase4_tiled_host (
     logic [23:0] ext_addr;
     logic [63:0] ext_wdata, ext_rdata;
     logic [7:0] ext_wstrb;
-    logic init_done, refresh_missed, engine_busy, dma_busy;
+    logic init_done, refresh_missed, engine_busy, dma_busy, memory_port_busy;
     uart_rx #(.CLK_FREQ(20250000), .BAUD_RATE(115200)) receiver (
         .clk(clk), .rst_n(rst_n), .rx_i(uart_rx_pin),
         .rx_data(rx_data), .rx_valid(rx_valid)
@@ -43,6 +43,7 @@ module phase4_tiled_host (
         .ext_wdata(ext_wdata), .ext_wstrb(ext_wstrb),
         .ext_ready(ext_ready), .ext_rvalid(ext_rvalid),
         .ext_rdata(ext_rdata), .memory_initialized(init_done),
+        .memory_port_busy(memory_port_busy),
         .engine_busy(engine_busy), .dma_busy(dma_busy)
     );
     v2_hs_sdram_port #(.CLOCK_HZ(20250000)) memory (
@@ -50,7 +51,8 @@ module phase4_tiled_host (
         .ext_req(ext_req), .ext_wr(ext_wr), .ext_addr(ext_addr),
         .ext_wdata(ext_wdata), .ext_wstrb(ext_wstrb),
         .ext_ready(ext_ready), .ext_rvalid(ext_rvalid),
-        .ext_rdata(ext_rdata), .init_done(init_done),
+        .ext_rdata(ext_rdata), .port_busy(memory_port_busy),
+        .init_done(init_done),
         .refresh_deadline_missed(refresh_missed), .debug_status(),
         .O_sdram_clk(O_sdram_clk), .O_sdram_cke(O_sdram_cke),
         .O_sdram_cs_n(O_sdram_cs_n), .O_sdram_cas_n(O_sdram_cas_n),

@@ -1,0 +1,33 @@
+{
+  "bitstream_sha256": "c8eb28fadf68d14fac8c9592c608b73b3bb8ddff0a23c215b94f3d1d442ad206",
+  "checks": [
+    "routed timing and source/IP hashes",
+    "KWS/VWW node counts",
+    "guarded physical overlap",
+    "78 exact DMA transfers",
+    "MLP/SmallCNN SDRAM replay",
+    "19 frozen AD layer shapes with synthetic weights"
+  ],
+  "limits": [
+    "no full-model ping-pong schedule",
+    "no validated compiler-static cost predictor",
+    "no measured board energy"
+  ],
+  "program_log_sha256": "05d47e27e6278f14e7e8d3e237b1a14f61ac6d6b0e99e59583a9fec7b50949ce",
+  "reports_sha256": {
+    "physical-cost-model-overlap.json": "c2d3f76e94cc73a8030639437edae2eefd13c88e058ed930eaab59846a1d4207",
+    "physical-dma-profile-overlap.json": "4a9123d8deefacc6a783a70886fcdeba977d8297500757ac6aa7ffac9012ae79",
+    "physical-host-overlap-kws.json": "58d44adaadd8636e152dd5407a78dd2a486997b7159caf64ae2c0795e29ec76b",
+    "physical-host-overlap-vww.json": "ac9de89dc7274b4d499b173ba3f452ccb27a28748421e28bdb1943488399da74",
+    "physical-host-overlap.json": "b357825fd86723d1137de225c7bd8aaec8557b4036eef1ea878d49a8217a5ba1",
+    "physical-kernel-profiles-overlap.json": "af1d4c96de386923804d1f540756de89a278f57711554ff2403991aa449866f1",
+    "physical-legacy-overlap.json": "43042ff52582de50da2dd8d48e6c8d5174af529e354cf98050225e00f003e1ac",
+    "physical-overlap.json": "7be4ae05367ddf4ad95f620c67262ca00494870df9811515de0e4c7fd438120c",
+    "physical-static-cost-model.json": "826590de5d4b77e29a09ef29d5ecd443f1610a02d9de17f5e1449eb409204f3d",
+    "physical-synthetic-overlap.json": "041b740caabbf93e64b01c8f9963a3202082727534d161f327f893f1cd3691a8"
+  },
+  "route_record_sha256": "4f52f8785441bd5a49a62647771f604fd04b6602643099afbd2ce8611cbbb4fb",
+  "scope": "single routed physical Phase 4 image",
+  "status": "passed",
+  "suite_log_sha256": "efed6fb49b7b49ad44c46cf539f8d818b83abbbcf85a03514fae36ced9a5f07b"
+}

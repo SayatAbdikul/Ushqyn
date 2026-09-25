@@ -1,0 +1,1054 @@
+{
+  "final_output_sha256": "6a0cfa0be8aa6d3a3137a6926b09aa569b91c44d1b845612779c2d55e019dbc2",
+  "fixture_sha256": "b55d9e1d99d326ad8209f26f341eb7048d90d6f5cee68dadf93d6c4d3e6fb0fe",
+  "model": "vww",
+  "nodes": [
+    {
+      "dma_elapsed_cycles": 0,
+      "dma_payload_bytes": 0,
+      "engine_counters": {
+        "compute_cycles": 0,
+        "control_cycles": 0,
+        "elapsed": 0,
+        "read_bytes": 0,
+        "useful_macs": 0,
+        "wait_cycles": 0,
+        "write_bytes": 0
+      },
+      "host_wall_seconds": 5.1951881248969585,
+      "kind": "host_layout",
+      "node": 0,
+      "output_sha256": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+      "tiles": 0
+    },
+    {
+      "dma_elapsed_cycles": 451000,
+      "dma_payload_bytes": 129408,
+      "engine_counters": {
+        "compute_cycles": 73728,
+        "control_cycles": 304796,
+        "elapsed": 673364,
+        "read_bytes": 1105632,
+        "useful_macs": 497664,
+        "wait_cycles": 294840,
+        "write_bytes": 18432
+      },
+      "host_wall_seconds": 4.133312083082274,
+      "kind": "conv",
+      "node": 1,
+      "output_sha256": "06984013846e2f05d0220e20d65566916ad137ac3cb63d2d30db06d0c1485145",
+      "tiles": 4
+    },
+    {
+      "dma_elapsed_cycles": 128598,
+      "dma_payload_bytes": 36896,
+      "engine_counters": {
+        "compute_cycles": 18432,
+        "control_cycles": 55306,
+        "elapsed": 129106,
+        "read_bytes": 147744,
+        "useful_macs": 0,
+        "wait_cycles": 55368,
+        "write_bytes": 18432
+      },
+      "host_wall_seconds": 3.7194633749313653,
+      "kind": "relu",
+      "node": 2,
+      "output_sha256": "d12555fad1310af0635639ef931480667e6acd3f1c9f83b705d6a77917637360",
+      "tiles": 2
+    },
+    {
+      "dma_elapsed_cycles": 129384,
+      "dma_payload_bytes": 37120,
+      "engine_counters": {
+        "compute_cycles": 36864,
+        "control_cycles": 196846,
+        "elapsed": 330574,
+        "read_bytes": 313728,
+        "useful_macs": 165888,
+        "wait_cycles": 96864,
+        "write_bytes": 18432
+      },
+      "host_wall_seconds": 3.7975499171297997,
+      "kind": "depthwise",
+      "node": 3,
+      "output_sha256": "9ca9d3b4cc5e82eb374108f7b4d159e5dcd312b81fad2472b468c4d5f32a2e03",
+      "tiles": 2
+    },
+    {
+      "dma_elapsed_cycles": 128598,
+      "dma_payload_bytes": 36896,
+      "engine_counters": {
+        "compute_cycles": 18432,
+        "control_cycles": 55306,
+        "elapsed": 129106,
+        "read_bytes": 147744,
+        "useful_macs": 0,
+        "wait_cycles": 55368,
+        "write_bytes": 18432
+      },
+      "host_wall_seconds": 3.7374575829599053,
+      "kind": "relu",
+      "node": 4,
+      "output_sha256": "fd204131fb1338dc35ed6b9b7beab6f75db000504d1747e7d6746a96ec25d593",
+      "tiles": 2
+    },
+    {
+      "dma_elapsed_cycles": 322542,
+      "dma_payload_bytes": 92544,
+      "engine_counters": {
+        "compute_cycles": 36864,
+        "control_cycles": 350213,
+        "elapsed": 866437,
+        "read_bytes": 1769984,
+        "useful_macs": 294912,
+        "wait_cycles": 479360,
+        "write_bytes": 36864
+      },
+      "host_wall_seconds": 7.53506829100661,
+      "kind": "conv",
+      "node": 5,
+      "output_sha256": "7274726aa4546266926163d080b92c700c1736265984fe83e1cba24c362ae8ba",
+      "tiles": 3
+    },
+    {
+      "dma_elapsed_cycles": 257140,
+      "dma_payload_bytes": 73776,
+      "engine_counters": {
+        "compute_cycles": 36864,
+        "control_cycles": 110607,
+        "elapsed": 258171,
+        "read_bytes": 295344,
+        "useful_macs": 0,
+        "wait_cycles": 110700,
+        "write_bytes": 36864
+      },
+      "host_wall_seconds": 7.6487122911494225,
+      "kind": "relu",
+      "node": 6,
+      "output_sha256": "b25d84633e309cf1811ee2b1759d7c12937115b89da9f184701c812432a61599",
+      "tiles": 3
+    },
+    {
+      "dma_elapsed_cycles": 162402,
+      "dma_payload_bytes": 46592,
+      "engine_counters": {
+        "compute_cycles": 18432,
+        "control_cycles": 97134,
+        "elapsed": 170990,
+        "read_bytes": 184832,
+        "useful_macs": 82944,
+        "wait_cycles": 55424,
+        "write_bytes": 9216
+      },
+      "host_wall_seconds": 2.0530282908584923,
+      "kind": "depthwise",
+      "node": 7,
+      "output_sha256": "e79fd2a949e43d03f3edaf24daad6a027bd0c34cf9ebe194a2708dc6a5aaed51",
+      "tiles": 2
+    },
+    {
+      "dma_elapsed_cycles": 64301,
+      "dma_payload_bytes": 18448,
+      "engine_counters": {
+        "compute_cycles": 9216,
+        "control_cycles": 27653,
+        "elapsed": 64553,
+        "read_bytes": 73872,
+        "useful_macs": 0,
+        "wait_cycles": 27684,
+        "write_bytes": 9216
+      },
+      "host_wall_seconds": 1.8701721671968699,
+      "kind": "relu",
+      "node": 8,
+      "output_sha256": "1ae692bd5a132b317d7b167575b678bddf6bd0eddd37bc7c856dbf624900350a",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 99920,
+      "dma_payload_bytes": 28672,
+      "engine_counters": {
+        "compute_cycles": 36864,
+        "control_cycles": 276423,
+        "elapsed": 700519,
+        "read_bytes": 1475200,
+        "useful_macs": 294912,
+        "wait_cycles": 387232,
+        "write_bytes": 18432
+      },
+      "host_wall_seconds": 3.647970541846007,
+      "kind": "conv",
+      "node": 9,
+      "output_sha256": "7a244d909e6ae36d02f39a1b60f250372eb03e71d0fe3fe34843639d08b08a5b",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 128578,
+      "dma_payload_bytes": 36896,
+      "engine_counters": {
+        "compute_cycles": 18432,
+        "control_cycles": 55306,
+        "elapsed": 129106,
+        "read_bytes": 147744,
+        "useful_macs": 0,
+        "wait_cycles": 55368,
+        "write_bytes": 18432
+      },
+      "host_wall_seconds": 3.845067583024502,
+      "kind": "relu",
+      "node": 10,
+      "output_sha256": "d7d0dbfd54b0cc3080bf8b70dad72fb5e8a267a201a92475c648c7fed6274eec",
+      "tiles": 2
+    },
+    {
+      "dma_elapsed_cycles": 132046,
+      "dma_payload_bytes": 37888,
+      "engine_counters": {
+        "compute_cycles": 36864,
+        "control_cycles": 197806,
+        "elapsed": 331630,
+        "read_bytes": 314112,
+        "useful_macs": 165888,
+        "wait_cycles": 96960,
+        "write_bytes": 18432
+      },
+      "host_wall_seconds": 3.797280666884035,
+      "kind": "depthwise",
+      "node": 11,
+      "output_sha256": "446ed3f4b1d2f17c8eb94ef475b58ec84d30672bbcc3dd9b641c41a79b32d48c",
+      "tiles": 2
+    },
+    {
+      "dma_elapsed_cycles": 128598,
+      "dma_payload_bytes": 36896,
+      "engine_counters": {
+        "compute_cycles": 18432,
+        "control_cycles": 55306,
+        "elapsed": 129106,
+        "read_bytes": 147744,
+        "useful_macs": 0,
+        "wait_cycles": 55368,
+        "write_bytes": 18432
+      },
+      "host_wall_seconds": 3.779581791954115,
+      "kind": "relu",
+      "node": 12,
+      "output_sha256": "6eb28e52e11e420d3b9a060ec1d5219ac3a256a566da5491aa827856d080a60c",
+      "tiles": 2
+    },
+    {
+      "dma_elapsed_cycles": 198082,
+      "dma_payload_bytes": 56832,
+      "engine_counters": {
+        "compute_cycles": 73728,
+        "control_cycles": 479118,
+        "elapsed": 1235150,
+        "read_bytes": 2655488,
+        "useful_macs": 589824,
+        "wait_cycles": 682304,
+        "write_bytes": 18432
+      },
+      "host_wall_seconds": 3.9073255830444396,
+      "kind": "conv",
+      "node": 13,
+      "output_sha256": "59d962f962a4b59907549d5856a5ae32b43a41ca01db7ae04f5ad0e35bd77189",
+      "tiles": 2
+    },
+    {
+      "dma_elapsed_cycles": 128598,
+      "dma_payload_bytes": 36896,
+      "engine_counters": {
+        "compute_cycles": 18432,
+        "control_cycles": 55306,
+        "elapsed": 129106,
+        "read_bytes": 147744,
+        "useful_macs": 0,
+        "wait_cycles": 55368,
+        "write_bytes": 18432
+      },
+      "host_wall_seconds": 3.7134378750342876,
+      "kind": "relu",
+      "node": 14,
+      "output_sha256": "b603387040561489782e1a77a666911711ae4cd72b2cea0a21907704a7769a8d",
+      "tiles": 2
+    },
+    {
+      "dma_elapsed_cycles": 83848,
+      "dma_payload_bytes": 24064,
+      "engine_counters": {
+        "compute_cycles": 9216,
+        "control_cycles": 48711,
+        "elapsed": 85735,
+        "read_bytes": 92800,
+        "useful_macs": 41472,
+        "wait_cycles": 27808,
+        "write_bytes": 4608
+      },
+      "host_wall_seconds": 1.0197661248967052,
+      "kind": "depthwise",
+      "node": 15,
+      "output_sha256": "501f53aa2fb0370f349d7e0db3069370c3995c43287e498b959e55a607b513bd",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 32170,
+      "dma_payload_bytes": 9232,
+      "engine_counters": {
+        "compute_cycles": 4608,
+        "control_cycles": 13829,
+        "elapsed": 32297,
+        "read_bytes": 37008,
+        "useful_macs": 0,
+        "wait_cycles": 13860,
+        "write_bytes": 4608
+      },
+      "host_wall_seconds": 0.98982062516734,
+      "kind": "relu",
+      "node": 16,
+      "output_sha256": "8f672022aa3ec547a2a74d0fc7902f00aca34623ee4c6ac0f13396cdc3189877",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 58896,
+      "dma_payload_bytes": 16896,
+      "engine_counters": {
+        "compute_cycles": 36864,
+        "control_cycles": 239367,
+        "elapsed": 617767,
+        "read_bytes": 1329280,
+        "useful_macs": 294912,
+        "wait_cycles": 341536,
+        "write_bytes": 9216
+      },
+      "host_wall_seconds": 1.9139156669843942,
+      "kind": "conv",
+      "node": 17,
+      "output_sha256": "532312ed7b3ac862d370e67cea749af066bf7d8be884e461ac6db8e712848596",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 64304,
+      "dma_payload_bytes": 18448,
+      "engine_counters": {
+        "compute_cycles": 9216,
+        "control_cycles": 27653,
+        "elapsed": 64553,
+        "read_bytes": 73872,
+        "useful_macs": 0,
+        "wait_cycles": 27684,
+        "write_bytes": 9216
+      },
+      "host_wall_seconds": 1.8534667079802603,
+      "kind": "relu",
+      "node": 18,
+      "output_sha256": "58861e22c722a3e38bb24b38da8a58f80d6e8bca5041e02623e6a1a0a594ca1b",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 71362,
+      "dma_payload_bytes": 20480,
+      "engine_counters": {
+        "compute_cycles": 18432,
+        "control_cycles": 101639,
+        "elapsed": 169511,
+        "read_bytes": 160896,
+        "useful_macs": 82944,
+        "wait_cycles": 49440,
+        "write_bytes": 9216
+      },
+      "host_wall_seconds": 1.889731999952346,
+      "kind": "depthwise",
+      "node": 19,
+      "output_sha256": "3440c8923bb7f2ef646a4a6a92e1d3456424825589e6b69dc68d1cbc1207804c",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 64288,
+      "dma_payload_bytes": 18448,
+      "engine_counters": {
+        "compute_cycles": 9216,
+        "control_cycles": 27653,
+        "elapsed": 64553,
+        "read_bytes": 73872,
+        "useful_macs": 0,
+        "wait_cycles": 27684,
+        "write_bytes": 9216
+      },
+      "host_wall_seconds": 1.8549580839462578,
+      "kind": "relu",
+      "node": 20,
+      "output_sha256": "1a5d161b06492b61cd996e53520415e6db095995153af3e0ce5e1111b66ba9e2",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 82090,
+      "dma_payload_bytes": 23552,
+      "engine_counters": {
+        "compute_cycles": 73728,
+        "control_cycles": 441863,
+        "elapsed": 1152551,
+        "read_bytes": 2510976,
+        "useful_macs": 589824,
+        "wait_cycles": 636960,
+        "write_bytes": 9216
+      },
+      "host_wall_seconds": 1.9364189158659428,
+      "kind": "conv",
+      "node": 21,
+      "output_sha256": "5336063325400ee1e852156f90d2869d83855e969d236e3ce79a521cdc7a082d",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 64314,
+      "dma_payload_bytes": 18448,
+      "engine_counters": {
+        "compute_cycles": 9216,
+        "control_cycles": 27653,
+        "elapsed": 64553,
+        "read_bytes": 73872,
+        "useful_macs": 0,
+        "wait_cycles": 27684,
+        "write_bytes": 9216
+      },
+      "host_wall_seconds": 1.8597391250077635,
+      "kind": "relu",
+      "node": 22,
+      "output_sha256": "d99054d5617459f1ff8d2d8a30ee819d5fdd80c51bd312c50e418251acd8b24e",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 47284,
+      "dma_payload_bytes": 13568,
+      "engine_counters": {
+        "compute_cycles": 4608,
+        "control_cycles": 24839,
+        "elapsed": 44327,
+        "read_bytes": 50304,
+        "useful_macs": 20736,
+        "wait_cycles": 14880,
+        "write_bytes": 2304
+      },
+      "host_wall_seconds": 0.587839666986838,
+      "kind": "depthwise",
+      "node": 23,
+      "output_sha256": "c6eb378dfec73611d8b0e935bf07fba85315feeca7a86c4efefb802abd44a551",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 16120,
+      "dma_payload_bytes": 4624,
+      "engine_counters": {
+        "compute_cycles": 2304,
+        "control_cycles": 6917,
+        "elapsed": 16169,
+        "read_bytes": 18576,
+        "useful_macs": 0,
+        "wait_cycles": 6948,
+        "write_bytes": 2304
+      },
+      "host_wall_seconds": 0.563964958069846,
+      "kind": "relu",
+      "node": 24,
+      "output_sha256": "537490fd58fc787e8dea2257eeb04429277c22f5174d80372ed6bbf095f128ce",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 59780,
+      "dma_payload_bytes": 17152,
+      "engine_counters": {
+        "compute_cycles": 36864,
+        "control_cycles": 220167,
+        "elapsed": 577063,
+        "read_bytes": 1261696,
+        "useful_macs": 294912,
+        "wait_cycles": 320032,
+        "write_bytes": 4608
+      },
+      "host_wall_seconds": 1.0557405001018196,
+      "kind": "conv",
+      "node": 25,
+      "output_sha256": "452cfc4bf8189f3367ffe930a2f178359c91d0ec947b606acd12e7e9cdc83caa",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 32170,
+      "dma_payload_bytes": 9232,
+      "engine_counters": {
+        "compute_cycles": 4608,
+        "control_cycles": 13829,
+        "elapsed": 32297,
+        "read_bytes": 37008,
+        "useful_macs": 0,
+        "wait_cycles": 13860,
+        "write_bytes": 4608
+      },
+      "host_wall_seconds": 0.995873250067234,
+      "kind": "relu",
+      "node": 26,
+      "output_sha256": "5a97d91174d756422bbfcb0f530335d1c30a8fc53c0e5396cac7b52f4818395a",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 46386,
+      "dma_payload_bytes": 13312,
+      "engine_counters": {
+        "compute_cycles": 9216,
+        "control_cycles": 53319,
+        "elapsed": 88423,
+        "read_bytes": 85120,
+        "useful_macs": 41472,
+        "wait_cycles": 25888,
+        "write_bytes": 4608
+      },
+      "host_wall_seconds": 1.0197363330516964,
+      "kind": "depthwise",
+      "node": 27,
+      "output_sha256": "f6951f64befd845a7d77fd78cb9a6cc1e6ad137f92122e7062ee9794f6e83900",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 32180,
+      "dma_payload_bytes": 9232,
+      "engine_counters": {
+        "compute_cycles": 4608,
+        "control_cycles": 13829,
+        "elapsed": 32297,
+        "read_bytes": 37008,
+        "useful_macs": 0,
+        "wait_cycles": 13860,
+        "write_bytes": 4608
+      },
+      "host_wall_seconds": 0.9959530828054994,
+      "kind": "relu",
+      "node": 28,
+      "output_sha256": "5c1325a40b5604b19786b42c72d782d121f8bdeee32c2aa23abe979d42e2f731",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 96364,
+      "dma_payload_bytes": 27648,
+      "engine_counters": {
+        "compute_cycles": 73728,
+        "control_cycles": 421895,
+        "elapsed": 1112615,
+        "read_bytes": 2449536,
+        "useful_macs": 589824,
+        "wait_cycles": 616992,
+        "write_bytes": 4608
+      },
+      "host_wall_seconds": 1.0857690419070423,
+      "kind": "conv",
+      "node": 29,
+      "output_sha256": "e8a5aa48d6a1996fa66535e1f4eb1373eaaf7dfa53ed69568edc84e1d170208c",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 32180,
+      "dma_payload_bytes": 9232,
+      "engine_counters": {
+        "compute_cycles": 4608,
+        "control_cycles": 13829,
+        "elapsed": 32297,
+        "read_bytes": 37008,
+        "useful_macs": 0,
+        "wait_cycles": 13860,
+        "write_bytes": 4608
+      },
+      "host_wall_seconds": 1.1578551249112934,
+      "kind": "relu",
+      "node": 30,
+      "output_sha256": "19d73fc2070353fba0831070313a34d490e8e48f5a9e6603c5afa5b92db9c889",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 46410,
+      "dma_payload_bytes": 13312,
+      "engine_counters": {
+        "compute_cycles": 9216,
+        "control_cycles": 53319,
+        "elapsed": 88423,
+        "read_bytes": 85120,
+        "useful_macs": 41472,
+        "wait_cycles": 25888,
+        "write_bytes": 4608
+      },
+      "host_wall_seconds": 1.259721624897793,
+      "kind": "depthwise",
+      "node": 31,
+      "output_sha256": "8b320fde73604b9ab96af85b49738cbb8a83a727f06f1b7fe3c6de48a02f1c4a",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 32180,
+      "dma_payload_bytes": 9232,
+      "engine_counters": {
+        "compute_cycles": 4608,
+        "control_cycles": 13829,
+        "elapsed": 32297,
+        "read_bytes": 37008,
+        "useful_macs": 0,
+        "wait_cycles": 13860,
+        "write_bytes": 4608
+      },
+      "host_wall_seconds": 1.0558202920947224,
+      "kind": "relu",
+      "node": 32,
+      "output_sha256": "356cde89b5d97512b47eb1b3d2c5a1c9fa4b1d1a0a151ed8544ce4a3bb2d0be6",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 96354,
+      "dma_payload_bytes": 27648,
+      "engine_counters": {
+        "compute_cycles": 73728,
+        "control_cycles": 421895,
+        "elapsed": 1112615,
+        "read_bytes": 2449536,
+        "useful_macs": 589824,
+        "wait_cycles": 616992,
+        "write_bytes": 4608
+      },
+      "host_wall_seconds": 1.0737176251132041,
+      "kind": "conv",
+      "node": 33,
+      "output_sha256": "290a8de65faaa7bd6bcffb0ce04909c9993bf0679fc39d2db5f1ae044edb9563",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 32170,
+      "dma_payload_bytes": 9232,
+      "engine_counters": {
+        "compute_cycles": 4608,
+        "control_cycles": 13829,
+        "elapsed": 32297,
+        "read_bytes": 37008,
+        "useful_macs": 0,
+        "wait_cycles": 13860,
+        "write_bytes": 4608
+      },
+      "host_wall_seconds": 0.989895457867533,
+      "kind": "relu",
+      "node": 34,
+      "output_sha256": "da8100eeb69fd92d1568d4745e80db7d8d397fd11189d6dd840c17c66f0ba048",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 46380,
+      "dma_payload_bytes": 13312,
+      "engine_counters": {
+        "compute_cycles": 9216,
+        "control_cycles": 53319,
+        "elapsed": 88423,
+        "read_bytes": 85120,
+        "useful_macs": 41472,
+        "wait_cycles": 25888,
+        "write_bytes": 4608
+      },
+      "host_wall_seconds": 1.0257287910208106,
+      "kind": "depthwise",
+      "node": 35,
+      "output_sha256": "fc84ddffa1f14b14cf551795e4d1f3c689274a6b628d91306e3abe78e95119b1",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 32180,
+      "dma_payload_bytes": 9232,
+      "engine_counters": {
+        "compute_cycles": 4608,
+        "control_cycles": 13829,
+        "elapsed": 32297,
+        "read_bytes": 37008,
+        "useful_macs": 0,
+        "wait_cycles": 13860,
+        "write_bytes": 4608
+      },
+      "host_wall_seconds": 0.9899383748415858,
+      "kind": "relu",
+      "node": 36,
+      "output_sha256": "55c89c4108fae21da158ac916aa5d190e41c499290438fbc0c1d034e88a9aee9",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 96364,
+      "dma_payload_bytes": 27648,
+      "engine_counters": {
+        "compute_cycles": 73728,
+        "control_cycles": 421895,
+        "elapsed": 1112615,
+        "read_bytes": 2449536,
+        "useful_macs": 589824,
+        "wait_cycles": 616992,
+        "write_bytes": 4608
+      },
+      "host_wall_seconds": 1.0798081250395626,
+      "kind": "conv",
+      "node": 37,
+      "output_sha256": "a50e19be104d2a650bb796f7b0d3736556ce08c7375a0d0bb4d6757c09684762",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 32180,
+      "dma_payload_bytes": 9232,
+      "engine_counters": {
+        "compute_cycles": 4608,
+        "control_cycles": 13829,
+        "elapsed": 32297,
+        "read_bytes": 37008,
+        "useful_macs": 0,
+        "wait_cycles": 13860,
+        "write_bytes": 4608
+      },
+      "host_wall_seconds": 0.9899048749357462,
+      "kind": "relu",
+      "node": 38,
+      "output_sha256": "34471bb21e8355c1a432a23fa4a49849eb59e753c27209b8fd384302ab7b125d",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 46400,
+      "dma_payload_bytes": 13312,
+      "engine_counters": {
+        "compute_cycles": 9216,
+        "control_cycles": 53319,
+        "elapsed": 88423,
+        "read_bytes": 85120,
+        "useful_macs": 41472,
+        "wait_cycles": 25888,
+        "write_bytes": 4608
+      },
+      "host_wall_seconds": 1.0258813330437988,
+      "kind": "depthwise",
+      "node": 39,
+      "output_sha256": "6fb0b9cf8947fac55082b22dcdafc39ecff8870655ef078a4c431a9f2e59ee10",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 32180,
+      "dma_payload_bytes": 9232,
+      "engine_counters": {
+        "compute_cycles": 4608,
+        "control_cycles": 13829,
+        "elapsed": 32297,
+        "read_bytes": 37008,
+        "useful_macs": 0,
+        "wait_cycles": 13860,
+        "write_bytes": 4608
+      },
+      "host_wall_seconds": 1.0077097499743104,
+      "kind": "relu",
+      "node": 40,
+      "output_sha256": "e353c2d3c65f701ba5078ace01e90ebd570750ba0439e0331b3907e7ea11092d",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 96374,
+      "dma_payload_bytes": 27648,
+      "engine_counters": {
+        "compute_cycles": 73728,
+        "control_cycles": 421895,
+        "elapsed": 1112615,
+        "read_bytes": 2449536,
+        "useful_macs": 589824,
+        "wait_cycles": 616992,
+        "write_bytes": 4608
+      },
+      "host_wall_seconds": 1.0797981251962483,
+      "kind": "conv",
+      "node": 41,
+      "output_sha256": "19e8c4ec74a081713760b06526da6a4afe8fe8e943255ac65f983289575fe510",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 32170,
+      "dma_payload_bytes": 9232,
+      "engine_counters": {
+        "compute_cycles": 4608,
+        "control_cycles": 13829,
+        "elapsed": 32297,
+        "read_bytes": 37008,
+        "useful_macs": 0,
+        "wait_cycles": 13860,
+        "write_bytes": 4608
+      },
+      "host_wall_seconds": 1.0018988749943674,
+      "kind": "relu",
+      "node": 42,
+      "output_sha256": "21fa6e7188f70f58577367c9d2738b7c552dcf963c1122b9304e8ce1a21bd282",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 46400,
+      "dma_payload_bytes": 13312,
+      "engine_counters": {
+        "compute_cycles": 9216,
+        "control_cycles": 53319,
+        "elapsed": 88423,
+        "read_bytes": 85120,
+        "useful_macs": 41472,
+        "wait_cycles": 25888,
+        "write_bytes": 4608
+      },
+      "host_wall_seconds": 1.0197812500409782,
+      "kind": "depthwise",
+      "node": 43,
+      "output_sha256": "daeff7a54092ee4b1c203735650cac08228d0cb8d4d9f8224647cfe9307fd29b",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 32180,
+      "dma_payload_bytes": 9232,
+      "engine_counters": {
+        "compute_cycles": 4608,
+        "control_cycles": 13829,
+        "elapsed": 32297,
+        "read_bytes": 37008,
+        "useful_macs": 0,
+        "wait_cycles": 13860,
+        "write_bytes": 4608
+      },
+      "host_wall_seconds": 0.9898591248784214,
+      "kind": "relu",
+      "node": 44,
+      "output_sha256": "9378f5917ef2daaa4581be6d732593d07a3f495aebc70f95cefa82668b6b29b0",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 96374,
+      "dma_payload_bytes": 27648,
+      "engine_counters": {
+        "compute_cycles": 73728,
+        "control_cycles": 421895,
+        "elapsed": 1112615,
+        "read_bytes": 2449536,
+        "useful_macs": 589824,
+        "wait_cycles": 616992,
+        "write_bytes": 4608
+      },
+      "host_wall_seconds": 1.0798070828896016,
+      "kind": "conv",
+      "node": 45,
+      "output_sha256": "fc35ee1cd9459f3403a3e03631476dbefc5d99d749412f130c255e7fe1dad421",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 32190,
+      "dma_payload_bytes": 9232,
+      "engine_counters": {
+        "compute_cycles": 4608,
+        "control_cycles": 13829,
+        "elapsed": 32297,
+        "read_bytes": 37008,
+        "useful_macs": 0,
+        "wait_cycles": 13860,
+        "write_bytes": 4608
+      },
+      "host_wall_seconds": 0.9898122081067413,
+      "kind": "relu",
+      "node": 46,
+      "output_sha256": "bf72edb96e44eb7c8dec06dd3844da36c8246884828dfe1a7f488f15a2d13e1e",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 34356,
+      "dma_payload_bytes": 9856,
+      "engine_counters": {
+        "compute_cycles": 2304,
+        "control_cycles": 12807,
+        "elapsed": 23719,
+        "read_bytes": 29824,
+        "useful_macs": 10368,
+        "wait_cycles": 8608,
+        "write_bytes": 1152
+      },
+      "host_wall_seconds": 0.3839924589265138,
+      "kind": "depthwise",
+      "node": 47,
+      "output_sha256": "c21111ff4c69f2332bfc839161cf37516c4895bf21187101105db25f99c8d771",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 8082,
+      "dma_payload_bytes": 2320,
+      "engine_counters": {
+        "compute_cycles": 1152,
+        "control_cycles": 3461,
+        "elapsed": 8105,
+        "read_bytes": 9360,
+        "useful_macs": 0,
+        "wait_cycles": 3492,
+        "write_bytes": 1152
+      },
+      "host_wall_seconds": 0.34193637501448393,
+      "kind": "relu",
+      "node": 48,
+      "output_sha256": "3d2717412c0256959bf603057a7a0efb15a105e51b0f20b79b3729bc01e32ed1",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 144512,
+      "dma_payload_bytes": 41472,
+      "engine_counters": {
+        "compute_cycles": 36864,
+        "control_cycles": 207886,
+        "elapsed": 559438,
+        "read_bytes": 1249536,
+        "useful_macs": 294912,
+        "wait_cycles": 314688,
+        "write_bytes": 2304
+      },
+      "host_wall_seconds": 0.7799109159968793,
+      "kind": "conv",
+      "node": 49,
+      "output_sha256": "350b10b17fd0dd7e74158eecde795f40e08c7f22b5ce3e88fe6111be534015fa",
+      "tiles": 2
+    },
+    {
+      "dma_elapsed_cycles": 16108,
+      "dma_payload_bytes": 4624,
+      "engine_counters": {
+        "compute_cycles": 2304,
+        "control_cycles": 6917,
+        "elapsed": 16169,
+        "read_bytes": 18576,
+        "useful_macs": 0,
+        "wait_cycles": 6948,
+        "write_bytes": 2304
+      },
+      "host_wall_seconds": 0.5577189170289785,
+      "kind": "relu",
+      "node": 50,
+      "output_sha256": "0616ec40f424df7c15d0244e78451891f1e9528c2580eb46b3304885a802283b",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 44602,
+      "dma_payload_bytes": 12800,
+      "engine_counters": {
+        "compute_cycles": 4608,
+        "control_cycles": 28679,
+        "elapsed": 47591,
+        "read_bytes": 48000,
+        "useful_macs": 20736,
+        "wait_cycles": 14304,
+        "write_bytes": 2304
+      },
+      "host_wall_seconds": 0.5999176669865847,
+      "kind": "depthwise",
+      "node": 51,
+      "output_sha256": "c1eccf81b4df27ea0100bafb2a0253920a5f5a0d7c0995dce58364bc7c61970e",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 16118,
+      "dma_payload_bytes": 4624,
+      "engine_counters": {
+        "compute_cycles": 2304,
+        "control_cycles": 6917,
+        "elapsed": 16169,
+        "read_bytes": 18576,
+        "useful_macs": 0,
+        "wait_cycles": 6948,
+        "write_bytes": 2304
+      },
+      "host_wall_seconds": 0.5578525420278311,
+      "kind": "relu",
+      "node": 52,
+      "output_sha256": "51116090187d29277d2122319f19a4c37225963a759c661b810f9cb5df661c1c",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 274798,
+      "dma_payload_bytes": 78848,
+      "engine_counters": {
+        "compute_cycles": 73728,
+        "control_cycles": 599061,
+        "elapsed": 2011509,
+        "read_bytes": 5345664,
+        "useful_macs": 589824,
+        "wait_cycles": 1338720,
+        "write_bytes": 2304
+      },
+      "host_wall_seconds": 1.0198838340584189,
+      "kind": "conv",
+      "node": 53,
+      "output_sha256": "f3092b9d632920750c2ad5d9840e3a141f0ffed61f56dceeca18b6c342eb83c6",
+      "tiles": 3
+    },
+    {
+      "dma_elapsed_cycles": 16108,
+      "dma_payload_bytes": 4624,
+      "engine_counters": {
+        "compute_cycles": 2304,
+        "control_cycles": 6917,
+        "elapsed": 16169,
+        "read_bytes": 18576,
+        "useful_macs": 0,
+        "wait_cycles": 6948,
+        "write_bytes": 2304
+      },
+      "host_wall_seconds": 0.5578050829935819,
+      "kind": "relu",
+      "node": 54,
+      "output_sha256": "cdbc5cb7222d439bfc4ebc2bb0bee986d22528a1b71e22b15f4aa2e0a42b8b0c",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 8986,
+      "dma_payload_bytes": 2576,
+      "engine_counters": {
+        "compute_cycles": 0,
+        "control_cycles": 2247,
+        "elapsed": 5287,
+        "read_bytes": 11136,
+        "useful_macs": 0,
+        "wait_cycles": 3040,
+        "write_bytes": 256
+      },
+      "host_wall_seconds": 0.17395337508060038,
+      "kind": "avgpool",
+      "node": 55,
+      "output_sha256": "7d1485634a8349ed6919deff2ee8943313133cd31af46e3dc970e250c7fe000b",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 0,
+      "dma_payload_bytes": 0,
+      "engine_counters": {
+        "compute_cycles": 0,
+        "control_cycles": 0,
+        "elapsed": 0,
+        "read_bytes": 0,
+        "useful_macs": 0,
+        "wait_cycles": 0,
+        "write_bytes": 0
+      },
+      "host_wall_seconds": 0.048045249888673425,
+      "kind": "alias",
+      "node": 56,
+      "output_sha256": "7d1485634a8349ed6919deff2ee8943313133cd31af46e3dc970e250c7fe000b",
+      "tiles": 0
+    },
+    {
+      "dma_elapsed_cycles": 2819,
+      "dma_payload_bytes": 802,
+      "engine_counters": {
+        "compute_cycles": 64,
+        "control_cycles": 12,
+        "elapsed": 374,
+        "read_bytes": 1184,
+        "useful_macs": 512,
+        "wait_cycles": 298,
+        "write_bytes": 2
+      },
+      "host_wall_seconds": 0.16786908404901624,
+      "kind": "gemm",
+      "node": 57,
+      "output_sha256": "6a0cfa0be8aa6d3a3137a6926b09aa569b91c44d1b845612779c2d55e019dbc2",
+      "tiles": 1
+    }
+  ],
+  "parameter_image_sha256": "6251628dcaf714c8690a3454126ee4a1ac6a7eebe5d7d044af812bead6bc4805",
+  "physical_board": true,
+  "status": "passed"
+}

@@ -1,0 +1,637 @@
+{
+  "bitstream_sha256": "c38e06aa9d9d939598b4ae901af177fa15301c01c9bc9ae05071faba561d69cb",
+  "limits": [
+    "DMA duration excludes UART upload/readback and compute",
+    "clock period is nominal PLL setting, not oscilloscope-measured"
+  ],
+  "nominal_core_clock_hz": 20250000,
+  "physical_board": true,
+  "records": [
+    {
+      "direction": "to_sram",
+      "dma_cycles": 27,
+      "external_offset": 16384,
+      "length_bytes": 1,
+      "payload_mib_per_second_at_nominal_clock": 0.7152557373046875,
+      "repeat": 0
+    },
+    {
+      "direction": "from_sram",
+      "dma_cycles": 29,
+      "external_offset": 16384,
+      "length_bytes": 1,
+      "payload_mib_per_second_at_nominal_clock": 0.6659277554216056,
+      "repeat": 0
+    },
+    {
+      "direction": "to_sram",
+      "dma_cycles": 27,
+      "external_offset": 16384,
+      "length_bytes": 7,
+      "payload_mib_per_second_at_nominal_clock": 5.0067901611328125,
+      "repeat": 0
+    },
+    {
+      "direction": "from_sram",
+      "dma_cycles": 29,
+      "external_offset": 16384,
+      "length_bytes": 7,
+      "payload_mib_per_second_at_nominal_clock": 4.661494287951239,
+      "repeat": 0
+    },
+    {
+      "direction": "to_sram",
+      "dma_cycles": 27,
+      "external_offset": 16384,
+      "length_bytes": 8,
+      "payload_mib_per_second_at_nominal_clock": 5.7220458984375,
+      "repeat": 0
+    },
+    {
+      "direction": "from_sram",
+      "dma_cycles": 29,
+      "external_offset": 16384,
+      "length_bytes": 8,
+      "payload_mib_per_second_at_nominal_clock": 5.327422043372845,
+      "repeat": 0
+    },
+    {
+      "direction": "to_sram",
+      "dma_cycles": 54,
+      "external_offset": 16384,
+      "length_bytes": 9,
+      "payload_mib_per_second_at_nominal_clock": 3.2186508178710938,
+      "repeat": 0
+    },
+    {
+      "direction": "from_sram",
+      "dma_cycles": 56,
+      "external_offset": 16384,
+      "length_bytes": 9,
+      "payload_mib_per_second_at_nominal_clock": 3.1036990029471263,
+      "repeat": 0
+    },
+    {
+      "direction": "to_sram",
+      "dma_cycles": 226,
+      "external_offset": 16384,
+      "length_bytes": 63,
+      "payload_mib_per_second_at_nominal_clock": 5.383407120156077,
+      "repeat": 0
+    },
+    {
+      "direction": "from_sram",
+      "dma_cycles": 218,
+      "external_offset": 16384,
+      "length_bytes": 63,
+      "payload_mib_per_second_at_nominal_clock": 5.580963344748961,
+      "repeat": 0
+    },
+    {
+      "direction": "to_sram",
+      "dma_cycles": 226,
+      "external_offset": 16384,
+      "length_bytes": 64,
+      "payload_mib_per_second_at_nominal_clock": 5.468858026825221,
+      "repeat": 0
+    },
+    {
+      "direction": "from_sram",
+      "dma_cycles": 228,
+      "external_offset": 16384,
+      "length_bytes": 64,
+      "payload_mib_per_second_at_nominal_clock": 5.420885587993421,
+      "repeat": 0
+    },
+    {
+      "direction": "to_sram",
+      "dma_cycles": 253,
+      "external_offset": 16384,
+      "length_bytes": 65,
+      "payload_mib_per_second_at_nominal_clock": 4.961556596718287,
+      "repeat": 0
+    },
+    {
+      "direction": "from_sram",
+      "dma_cycles": 255,
+      "external_offset": 16384,
+      "length_bytes": 65,
+      "payload_mib_per_second_at_nominal_clock": 4.922642427332261,
+      "repeat": 0
+    },
+    {
+      "direction": "to_sram",
+      "dma_cycles": 884,
+      "external_offset": 16384,
+      "length_bytes": 256,
+      "payload_mib_per_second_at_nominal_clock": 5.592587846436651,
+      "repeat": 0
+    },
+    {
+      "direction": "from_sram",
+      "dma_cycles": 896,
+      "external_offset": 16384,
+      "length_bytes": 256,
+      "payload_mib_per_second_at_nominal_clock": 5.517687116350446,
+      "repeat": 0
+    },
+    {
+      "direction": "to_sram",
+      "dma_cycles": 3566,
+      "external_offset": 16384,
+      "length_bytes": 1024,
+      "payload_mib_per_second_at_nominal_clock": 5.545538593662367,
+      "repeat": 0
+    },
+    {
+      "direction": "from_sram",
+      "dma_cycles": 3568,
+      "external_offset": 16384,
+      "length_bytes": 1024,
+      "payload_mib_per_second_at_nominal_clock": 5.542430107903588,
+      "repeat": 0
+    },
+    {
+      "direction": "to_sram",
+      "dma_cycles": 14274,
+      "external_offset": 16384,
+      "length_bytes": 4096,
+      "payload_mib_per_second_at_nominal_clock": 5.541653530895334,
+      "repeat": 0
+    },
+    {
+      "direction": "from_sram",
+      "dma_cycles": 14276,
+      "external_offset": 16384,
+      "length_bytes": 4096,
+      "payload_mib_per_second_at_nominal_clock": 5.5408771714766045,
+      "repeat": 0
+    },
+    {
+      "direction": "to_sram",
+      "dma_cycles": 114202,
+      "external_offset": 16384,
+      "length_bytes": 32768,
+      "payload_mib_per_second_at_nominal_clock": 5.541168280765661,
+      "repeat": 0
+    },
+    {
+      "direction": "from_sram",
+      "dma_cycles": 114204,
+      "external_offset": 16384,
+      "length_bytes": 32768,
+      "payload_mib_per_second_at_nominal_clock": 5.54107124093727,
+      "repeat": 0
+    },
+    {
+      "direction": "to_sram",
+      "dma_cycles": 54,
+      "external_offset": 2097144,
+      "length_bytes": 16,
+      "payload_mib_per_second_at_nominal_clock": 5.7220458984375,
+      "repeat": 0
+    },
+    {
+      "direction": "from_sram",
+      "dma_cycles": 56,
+      "external_offset": 2097144,
+      "length_bytes": 16,
+      "payload_mib_per_second_at_nominal_clock": 5.517687116350446,
+      "repeat": 0
+    },
+    {
+      "direction": "to_sram",
+      "dma_cycles": 894,
+      "external_offset": 8388352,
+      "length_bytes": 256,
+      "payload_mib_per_second_at_nominal_clock": 5.530030935402684,
+      "repeat": 0
+    },
+    {
+      "direction": "from_sram",
+      "dma_cycles": 896,
+      "external_offset": 8388352,
+      "length_bytes": 256,
+      "payload_mib_per_second_at_nominal_clock": 5.517687116350446,
+      "repeat": 0
+    },
+    {
+      "direction": "to_sram",
+      "dma_cycles": 27,
+      "external_offset": 16384,
+      "length_bytes": 1,
+      "payload_mib_per_second_at_nominal_clock": 0.7152557373046875,
+      "repeat": 1
+    },
+    {
+      "direction": "from_sram",
+      "dma_cycles": 31,
+      "external_offset": 16384,
+      "length_bytes": 1,
+      "payload_mib_per_second_at_nominal_clock": 0.6229646744266633,
+      "repeat": 1
+    },
+    {
+      "direction": "to_sram",
+      "dma_cycles": 27,
+      "external_offset": 16384,
+      "length_bytes": 7,
+      "payload_mib_per_second_at_nominal_clock": 5.0067901611328125,
+      "repeat": 1
+    },
+    {
+      "direction": "from_sram",
+      "dma_cycles": 29,
+      "external_offset": 16384,
+      "length_bytes": 7,
+      "payload_mib_per_second_at_nominal_clock": 4.661494287951239,
+      "repeat": 1
+    },
+    {
+      "direction": "to_sram",
+      "dma_cycles": 27,
+      "external_offset": 16384,
+      "length_bytes": 8,
+      "payload_mib_per_second_at_nominal_clock": 5.7220458984375,
+      "repeat": 1
+    },
+    {
+      "direction": "from_sram",
+      "dma_cycles": 29,
+      "external_offset": 16384,
+      "length_bytes": 8,
+      "payload_mib_per_second_at_nominal_clock": 5.327422043372845,
+      "repeat": 1
+    },
+    {
+      "direction": "to_sram",
+      "dma_cycles": 54,
+      "external_offset": 16384,
+      "length_bytes": 9,
+      "payload_mib_per_second_at_nominal_clock": 3.2186508178710938,
+      "repeat": 1
+    },
+    {
+      "direction": "from_sram",
+      "dma_cycles": 56,
+      "external_offset": 16384,
+      "length_bytes": 9,
+      "payload_mib_per_second_at_nominal_clock": 3.1036990029471263,
+      "repeat": 1
+    },
+    {
+      "direction": "to_sram",
+      "dma_cycles": 226,
+      "external_offset": 16384,
+      "length_bytes": 63,
+      "payload_mib_per_second_at_nominal_clock": 5.383407120156077,
+      "repeat": 1
+    },
+    {
+      "direction": "from_sram",
+      "dma_cycles": 228,
+      "external_offset": 16384,
+      "length_bytes": 63,
+      "payload_mib_per_second_at_nominal_clock": 5.336184250681024,
+      "repeat": 1
+    },
+    {
+      "direction": "to_sram",
+      "dma_cycles": 216,
+      "external_offset": 16384,
+      "length_bytes": 64,
+      "payload_mib_per_second_at_nominal_clock": 5.7220458984375,
+      "repeat": 1
+    },
+    {
+      "direction": "from_sram",
+      "dma_cycles": 228,
+      "external_offset": 16384,
+      "length_bytes": 64,
+      "payload_mib_per_second_at_nominal_clock": 5.420885587993421,
+      "repeat": 1
+    },
+    {
+      "direction": "to_sram",
+      "dma_cycles": 253,
+      "external_offset": 16384,
+      "length_bytes": 65,
+      "payload_mib_per_second_at_nominal_clock": 4.961556596718287,
+      "repeat": 1
+    },
+    {
+      "direction": "from_sram",
+      "dma_cycles": 255,
+      "external_offset": 16384,
+      "length_bytes": 65,
+      "payload_mib_per_second_at_nominal_clock": 4.922642427332261,
+      "repeat": 1
+    },
+    {
+      "direction": "to_sram",
+      "dma_cycles": 894,
+      "external_offset": 16384,
+      "length_bytes": 256,
+      "payload_mib_per_second_at_nominal_clock": 5.530030935402684,
+      "repeat": 1
+    },
+    {
+      "direction": "from_sram",
+      "dma_cycles": 896,
+      "external_offset": 16384,
+      "length_bytes": 256,
+      "payload_mib_per_second_at_nominal_clock": 5.517687116350446,
+      "repeat": 1
+    },
+    {
+      "direction": "to_sram",
+      "dma_cycles": 3576,
+      "external_offset": 16384,
+      "length_bytes": 1024,
+      "payload_mib_per_second_at_nominal_clock": 5.530030935402684,
+      "repeat": 1
+    },
+    {
+      "direction": "from_sram",
+      "dma_cycles": 3568,
+      "external_offset": 16384,
+      "length_bytes": 1024,
+      "payload_mib_per_second_at_nominal_clock": 5.542430107903588,
+      "repeat": 1
+    },
+    {
+      "direction": "to_sram",
+      "dma_cycles": 14284,
+      "external_offset": 16384,
+      "length_bytes": 4096,
+      "payload_mib_per_second_at_nominal_clock": 5.537773907868944,
+      "repeat": 1
+    },
+    {
+      "direction": "from_sram",
+      "dma_cycles": 14283,
+      "external_offset": 16384,
+      "length_bytes": 4096,
+      "payload_mib_per_second_at_nominal_clock": 5.538161625708884,
+      "repeat": 1
+    },
+    {
+      "direction": "to_sram",
+      "dma_cycles": 114212,
+      "external_offset": 16384,
+      "length_bytes": 32768,
+      "payload_mib_per_second_at_nominal_clock": 5.540683115609569,
+      "repeat": 1
+    },
+    {
+      "direction": "from_sram",
+      "dma_cycles": 114204,
+      "external_offset": 16384,
+      "length_bytes": 32768,
+      "payload_mib_per_second_at_nominal_clock": 5.54107124093727,
+      "repeat": 1
+    },
+    {
+      "direction": "to_sram",
+      "dma_cycles": 54,
+      "external_offset": 2097144,
+      "length_bytes": 16,
+      "payload_mib_per_second_at_nominal_clock": 5.7220458984375,
+      "repeat": 1
+    },
+    {
+      "direction": "from_sram",
+      "dma_cycles": 56,
+      "external_offset": 2097144,
+      "length_bytes": 16,
+      "payload_mib_per_second_at_nominal_clock": 5.517687116350446,
+      "repeat": 1
+    },
+    {
+      "direction": "to_sram",
+      "dma_cycles": 894,
+      "external_offset": 8388352,
+      "length_bytes": 256,
+      "payload_mib_per_second_at_nominal_clock": 5.530030935402684,
+      "repeat": 1
+    },
+    {
+      "direction": "from_sram",
+      "dma_cycles": 886,
+      "external_offset": 8388352,
+      "length_bytes": 256,
+      "payload_mib_per_second_at_nominal_clock": 5.579963494638826,
+      "repeat": 1
+    },
+    {
+      "direction": "to_sram",
+      "dma_cycles": 27,
+      "external_offset": 16384,
+      "length_bytes": 1,
+      "payload_mib_per_second_at_nominal_clock": 0.7152557373046875,
+      "repeat": 2
+    },
+    {
+      "direction": "from_sram",
+      "dma_cycles": 29,
+      "external_offset": 16384,
+      "length_bytes": 1,
+      "payload_mib_per_second_at_nominal_clock": 0.6659277554216056,
+      "repeat": 2
+    },
+    {
+      "direction": "to_sram",
+      "dma_cycles": 27,
+      "external_offset": 16384,
+      "length_bytes": 7,
+      "payload_mib_per_second_at_nominal_clock": 5.0067901611328125,
+      "repeat": 2
+    },
+    {
+      "direction": "from_sram",
+      "dma_cycles": 29,
+      "external_offset": 16384,
+      "length_bytes": 7,
+      "payload_mib_per_second_at_nominal_clock": 4.661494287951239,
+      "repeat": 2
+    },
+    {
+      "direction": "to_sram",
+      "dma_cycles": 27,
+      "external_offset": 16384,
+      "length_bytes": 8,
+      "payload_mib_per_second_at_nominal_clock": 5.7220458984375,
+      "repeat": 2
+    },
+    {
+      "direction": "from_sram",
+      "dma_cycles": 29,
+      "external_offset": 16384,
+      "length_bytes": 8,
+      "payload_mib_per_second_at_nominal_clock": 5.327422043372845,
+      "repeat": 2
+    },
+    {
+      "direction": "to_sram",
+      "dma_cycles": 54,
+      "external_offset": 16384,
+      "length_bytes": 9,
+      "payload_mib_per_second_at_nominal_clock": 3.2186508178710938,
+      "repeat": 2
+    },
+    {
+      "direction": "from_sram",
+      "dma_cycles": 66,
+      "external_offset": 16384,
+      "length_bytes": 9,
+      "payload_mib_per_second_at_nominal_clock": 2.6334415782581675,
+      "repeat": 2
+    },
+    {
+      "direction": "to_sram",
+      "dma_cycles": 216,
+      "external_offset": 16384,
+      "length_bytes": 63,
+      "payload_mib_per_second_at_nominal_clock": 5.632638931274414,
+      "repeat": 2
+    },
+    {
+      "direction": "from_sram",
+      "dma_cycles": 228,
+      "external_offset": 16384,
+      "length_bytes": 63,
+      "payload_mib_per_second_at_nominal_clock": 5.336184250681024,
+      "repeat": 2
+    },
+    {
+      "direction": "to_sram",
+      "dma_cycles": 226,
+      "external_offset": 16384,
+      "length_bytes": 64,
+      "payload_mib_per_second_at_nominal_clock": 5.468858026825221,
+      "repeat": 2
+    },
+    {
+      "direction": "from_sram",
+      "dma_cycles": 228,
+      "external_offset": 16384,
+      "length_bytes": 64,
+      "payload_mib_per_second_at_nominal_clock": 5.420885587993421,
+      "repeat": 2
+    },
+    {
+      "direction": "to_sram",
+      "dma_cycles": 253,
+      "external_offset": 16384,
+      "length_bytes": 65,
+      "payload_mib_per_second_at_nominal_clock": 4.961556596718287,
+      "repeat": 2
+    },
+    {
+      "direction": "from_sram",
+      "dma_cycles": 255,
+      "external_offset": 16384,
+      "length_bytes": 65,
+      "payload_mib_per_second_at_nominal_clock": 4.922642427332261,
+      "repeat": 2
+    },
+    {
+      "direction": "to_sram",
+      "dma_cycles": 894,
+      "external_offset": 16384,
+      "length_bytes": 256,
+      "payload_mib_per_second_at_nominal_clock": 5.530030935402684,
+      "repeat": 2
+    },
+    {
+      "direction": "from_sram",
+      "dma_cycles": 886,
+      "external_offset": 16384,
+      "length_bytes": 256,
+      "payload_mib_per_second_at_nominal_clock": 5.579963494638826,
+      "repeat": 2
+    },
+    {
+      "direction": "to_sram",
+      "dma_cycles": 3576,
+      "external_offset": 16384,
+      "length_bytes": 1024,
+      "payload_mib_per_second_at_nominal_clock": 5.530030935402684,
+      "repeat": 2
+    },
+    {
+      "direction": "from_sram",
+      "dma_cycles": 3578,
+      "external_offset": 16384,
+      "length_bytes": 1024,
+      "payload_mib_per_second_at_nominal_clock": 5.526939805757406,
+      "repeat": 2
+    },
+    {
+      "direction": "to_sram",
+      "dma_cycles": 14284,
+      "external_offset": 16384,
+      "length_bytes": 4096,
+      "payload_mib_per_second_at_nominal_clock": 5.537773907868944,
+      "repeat": 2
+    },
+    {
+      "direction": "from_sram",
+      "dma_cycles": 14276,
+      "external_offset": 16384,
+      "length_bytes": 4096,
+      "payload_mib_per_second_at_nominal_clock": 5.5408771714766045,
+      "repeat": 2
+    },
+    {
+      "direction": "to_sram",
+      "dma_cycles": 114212,
+      "external_offset": 16384,
+      "length_bytes": 32768,
+      "payload_mib_per_second_at_nominal_clock": 5.540683115609569,
+      "repeat": 2
+    },
+    {
+      "direction": "from_sram",
+      "dma_cycles": 114204,
+      "external_offset": 16384,
+      "length_bytes": 32768,
+      "payload_mib_per_second_at_nominal_clock": 5.54107124093727,
+      "repeat": 2
+    },
+    {
+      "direction": "to_sram",
+      "dma_cycles": 54,
+      "external_offset": 2097144,
+      "length_bytes": 16,
+      "payload_mib_per_second_at_nominal_clock": 5.7220458984375,
+      "repeat": 2
+    },
+    {
+      "direction": "from_sram",
+      "dma_cycles": 56,
+      "external_offset": 2097144,
+      "length_bytes": 16,
+      "payload_mib_per_second_at_nominal_clock": 5.517687116350446,
+      "repeat": 2
+    },
+    {
+      "direction": "to_sram",
+      "dma_cycles": 894,
+      "external_offset": 8388352,
+      "length_bytes": 256,
+      "payload_mib_per_second_at_nominal_clock": 5.530030935402684,
+      "repeat": 2
+    },
+    {
+      "direction": "from_sram",
+      "dma_cycles": 896,
+      "external_offset": 8388352,
+      "length_bytes": 256,
+      "payload_mib_per_second_at_nominal_clock": 5.517687116350446,
+      "repeat": 2
+    }
+  ],
+  "scope": "byte-exact bidirectional DMA with host readback",
+  "status": "passed"
+}

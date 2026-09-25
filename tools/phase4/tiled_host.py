@@ -86,11 +86,15 @@ class TiledClient(Client):
         registers = self.read(CONTROL_BASE + 16, 6)
         if registers[1] or int.from_bytes(registers[2:6], 'little') != length:
             raise RuntimeError('DMA status or copied-byte count mismatch')
+        status['dma_elapsed_cycles'] = int.from_bytes(
+            self.read(CONTROL_BASE + 26, 4), 'little')
+        if status['dma_elapsed_cycles'] == 0:
+            raise RuntimeError('DMA elapsed-cycle counter did not advance')
         return status
 
 
 def execute_plan(client, plan, image, input_bytes, expected_layers=None,
-                 timeout=30):
+                 timeout=30, progress=None):
     """Execute sequential tiles, checking every supplied intermediate tensor."""
     if sha(image) != plan['parameter_image_sha256'] or \
        len(image) != plan['parameter_image_bytes']:
@@ -117,17 +121,20 @@ def execute_plan(client, plan, image, input_bytes, expected_layers=None,
             'elapsed', 'compute_cycles', 'wait_cycles', 'control_cycles',
             'useful_macs', 'read_bytes', 'write_bytes')}
         dma_payload_bytes = 0
+        dma_elapsed_cycles = 0
         for tile in layer['tiles']:
             for transfer in tile['transfers'][:-1]:
-                client.transfer(transfer, timeout)
+                dma_status = client.transfer(transfer, timeout) or {}
                 dma_payload_bytes += int(transfer['bytes'])
+                dma_elapsed_cycles += int(dma_status.get('dma_elapsed_cycles', 0))
             client.write(0, bytes.fromhex(tile['descriptor_hex']) +
                          Descriptor(0).encode())
             tile_status = client.run(0, timeout=timeout)
             for name in counters:
                 counters[name] += int(tile_status.get(name, 0))
-            client.transfer(tile['transfers'][-1], timeout)
+            dma_status = client.transfer(tile['transfers'][-1], timeout) or {}
             dma_payload_bytes += int(tile['transfers'][-1]['bytes'])
+            dma_elapsed_cycles += int(dma_status.get('dma_elapsed_cycles', 0))
         if layer['tiles']:
             slot = layer['output_slot']
         output = None
@@ -144,7 +151,10 @@ def execute_plan(client, plan, image, input_bytes, expected_layers=None,
                         'host_wall_seconds': time.monotonic() - start,
                         'engine_counters': counters,
                         'dma_payload_bytes': dma_payload_bytes,
+                        'dma_elapsed_cycles': dma_elapsed_cycles,
                         'output_sha256': sha(output) if output is not None else None})
+        if progress is not None:
+            progress(index + 1, len(plan['layers']))
     return {'status': 'passed', 'nodes': records,
             'parameter_image_sha256': sha(image),
             'final_output_sha256': records[-1]['output_sha256']}
@@ -174,10 +184,13 @@ def main():
                    for i in range(manifest['nodes'])]
     import serial
     with serial.Serial(args.port, 115200, timeout=5, write_timeout=5) as uart:
+        uart.reset_input_buffer()
         client = TiledClient(uart)
         result = execute_plan(client, plan, image,
                               (folder/'input.bin').read_bytes(), outputs,
-                              timeout=args.timeout)
+                              timeout=args.timeout,
+                              progress=lambda current, total: print(
+                                  f'{name}: exact node {current}/{total}', flush=True))
     if result['final_output_sha256'] != manifest['output_sha256']:
         raise AssertionError('final output manifest mismatch')
     result.update({'fixture_sha256': sha((folder/'manifest.json').read_bytes()),

@@ -1,0 +1,408 @@
+{
+  "bitstream_sha256": "c38e06aa9d9d939598b4ae901af177fa15301c01c9bc9ae05071faba561d69cb",
+  "final_output_sha256": "ce178213db2ef2aa27d0b532e4a17851cfef1772ad74b2fc7a95311b4a6714a7",
+  "fixture_sha256": "702422f42debf72524a7adce99debef55ea6e11538691cc4f250e363cbeede51",
+  "model": "kws",
+  "nodes": [
+    {
+      "dma_elapsed_cycles": 0,
+      "dma_payload_bytes": 0,
+      "engine_counters": {
+        "compute_cycles": 0,
+        "control_cycles": 0,
+        "elapsed": 0,
+        "read_bytes": 0,
+        "useful_macs": 0,
+        "wait_cycles": 0,
+        "write_bytes": 0
+      },
+      "host_wall_seconds": 0.09590762504376471,
+      "kind": "alias",
+      "node": 0,
+      "output_sha256": "5f4ad0b2d11bf1cccab552fb5a4d95d082b70f2d1fe2459127673d270cb1cdf4",
+      "tiles": 0
+    },
+    {
+      "dma_elapsed_cycles": 42100,
+      "dma_payload_bytes": 12074,
+      "engine_counters": {
+        "compute_cycles": 40000,
+        "control_cycles": 168967,
+        "elapsed": 255911,
+        "read_bytes": 155776,
+        "useful_macs": 320000,
+        "wait_cycles": 46944,
+        "write_bytes": 8000
+      },
+      "host_wall_seconds": 1.6677165830042213,
+      "kind": "conv",
+      "node": 1,
+      "output_sha256": "c94f01e1c381d6d93c7f9fdce8ce1cfcace2d1413dde52aa6dabeb9a975f55b3",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 55816,
+      "dma_payload_bytes": 16016,
+      "engine_counters": {
+        "compute_cycles": 8000,
+        "control_cycles": 24005,
+        "elapsed": 56041,
+        "read_bytes": 64144,
+        "useful_macs": 0,
+        "wait_cycles": 24036,
+        "write_bytes": 8000
+      },
+      "host_wall_seconds": 1.6256045000627637,
+      "kind": "relu",
+      "node": 2,
+      "output_sha256": "28e6b01d788fb4591fab9fe452f7010bce25c3b1027429b28ffe2f3a98cc308d",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 62904,
+      "dma_payload_bytes": 18048,
+      "engine_counters": {
+        "compute_cycles": 16000,
+        "control_cycles": 92551,
+        "elapsed": 153527,
+        "read_bytes": 147904,
+        "useful_macs": 72000,
+        "wait_cycles": 44976,
+        "write_bytes": 8000
+      },
+      "host_wall_seconds": 1.6677792081609368,
+      "kind": "depthwise",
+      "node": 3,
+      "output_sha256": "852f889e8994de655066782ff3096620e431babea8d1f516854e2c5c94168531",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 55816,
+      "dma_payload_bytes": 16016,
+      "engine_counters": {
+        "compute_cycles": 8000,
+        "control_cycles": 24005,
+        "elapsed": 56041,
+        "read_bytes": 64144,
+        "useful_macs": 0,
+        "wait_cycles": 24036,
+        "write_bytes": 8000
+      },
+      "host_wall_seconds": 1.6258354580495507,
+      "kind": "relu",
+      "node": 4,
+      "output_sha256": "4850b3ec9271b43fc3b802651f7135c84bbce68d041683e9bfbaba673cfcc2d9",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 73602,
+      "dma_payload_bytes": 21120,
+      "engine_counters": {
+        "compute_cycles": 64000,
+        "control_cycles": 383495,
+        "elapsed": 1000551,
+        "read_bytes": 2180224,
+        "useful_macs": 512000,
+        "wait_cycles": 553056,
+        "write_bytes": 8000
+      },
+      "host_wall_seconds": 1.7157460001762956,
+      "kind": "conv",
+      "node": 5,
+      "output_sha256": "602f3c44f0a50496470494f3f4ce34820fb9c0f546edbfe30fcc1f54643b411d",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 55826,
+      "dma_payload_bytes": 16016,
+      "engine_counters": {
+        "compute_cycles": 8000,
+        "control_cycles": 24005,
+        "elapsed": 56041,
+        "read_bytes": 64144,
+        "useful_macs": 0,
+        "wait_cycles": 24036,
+        "write_bytes": 8000
+      },
+      "host_wall_seconds": 1.6257127500139177,
+      "kind": "relu",
+      "node": 6,
+      "output_sha256": "9733ada9d59c11c5e92f96a397cbc321a8c553ba2281d3b34f36ce22469a8205",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 62904,
+      "dma_payload_bytes": 18048,
+      "engine_counters": {
+        "compute_cycles": 16000,
+        "control_cycles": 92551,
+        "elapsed": 153527,
+        "read_bytes": 147904,
+        "useful_macs": 72000,
+        "wait_cycles": 44976,
+        "write_bytes": 8000
+      },
+      "host_wall_seconds": 1.6857089579571038,
+      "kind": "depthwise",
+      "node": 7,
+      "output_sha256": "e58e0d481943d32eb4067bf481b5b40f99d024abf17ae9a8a009a882ba9bc4e1",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 55826,
+      "dma_payload_bytes": 16016,
+      "engine_counters": {
+        "compute_cycles": 8000,
+        "control_cycles": 24005,
+        "elapsed": 56041,
+        "read_bytes": 64144,
+        "useful_macs": 0,
+        "wait_cycles": 24036,
+        "write_bytes": 8000
+      },
+      "host_wall_seconds": 1.631906749913469,
+      "kind": "relu",
+      "node": 8,
+      "output_sha256": "d32a295f2d3d018636c8f15c9705f6f2a9099401edbd5801c8d51379260a6307",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 73602,
+      "dma_payload_bytes": 21120,
+      "engine_counters": {
+        "compute_cycles": 64000,
+        "control_cycles": 383495,
+        "elapsed": 1000551,
+        "read_bytes": 2180224,
+        "useful_macs": 512000,
+        "wait_cycles": 553056,
+        "write_bytes": 8000
+      },
+      "host_wall_seconds": 1.8537589171901345,
+      "kind": "conv",
+      "node": 9,
+      "output_sha256": "8355a8fde2b7096543bfda10826ec2fa9c8400f04ce693c6e24a8232bbcfb48d",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 55816,
+      "dma_payload_bytes": 16016,
+      "engine_counters": {
+        "compute_cycles": 8000,
+        "control_cycles": 24005,
+        "elapsed": 56041,
+        "read_bytes": 64144,
+        "useful_macs": 0,
+        "wait_cycles": 24036,
+        "write_bytes": 8000
+      },
+      "host_wall_seconds": 1.625578957842663,
+      "kind": "relu",
+      "node": 10,
+      "output_sha256": "19733719e30130052f2ab4db3c6e89cd74d955e8aea7a20da4eedf42fa754efc",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 62904,
+      "dma_payload_bytes": 18048,
+      "engine_counters": {
+        "compute_cycles": 16000,
+        "control_cycles": 92551,
+        "elapsed": 153527,
+        "read_bytes": 147904,
+        "useful_macs": 72000,
+        "wait_cycles": 44976,
+        "write_bytes": 8000
+      },
+      "host_wall_seconds": 1.6677686660550535,
+      "kind": "depthwise",
+      "node": 11,
+      "output_sha256": "53166a9e34f1641a23cfee3dd1af3c44195a0615b20815565277dcc6e6b2badf",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 55836,
+      "dma_payload_bytes": 16016,
+      "engine_counters": {
+        "compute_cycles": 8000,
+        "control_cycles": 24005,
+        "elapsed": 56041,
+        "read_bytes": 64144,
+        "useful_macs": 0,
+        "wait_cycles": 24036,
+        "write_bytes": 8000
+      },
+      "host_wall_seconds": 1.6938389579299837,
+      "kind": "relu",
+      "node": 12,
+      "output_sha256": "3a5a90031e26deea03ab9091dd90d70f7de34469d660b0d2213474c923536ecd",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 73612,
+      "dma_payload_bytes": 21120,
+      "engine_counters": {
+        "compute_cycles": 64000,
+        "control_cycles": 383495,
+        "elapsed": 1000551,
+        "read_bytes": 2180224,
+        "useful_macs": 512000,
+        "wait_cycles": 553056,
+        "write_bytes": 8000
+      },
+      "host_wall_seconds": 1.731550709111616,
+      "kind": "conv",
+      "node": 13,
+      "output_sha256": "8f3e310930da0d748b02a217a00cb2750eb9e02bb0287f71abd43018354e7999",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 55824,
+      "dma_payload_bytes": 16016,
+      "engine_counters": {
+        "compute_cycles": 8000,
+        "control_cycles": 24005,
+        "elapsed": 56041,
+        "read_bytes": 64144,
+        "useful_macs": 0,
+        "wait_cycles": 24036,
+        "write_bytes": 8000
+      },
+      "host_wall_seconds": 1.6257825829088688,
+      "kind": "relu",
+      "node": 14,
+      "output_sha256": "cf9cf4aba5059fc5241b49e0685e47bfaa8ac279b8b18b07b81bafe1244b1588",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 62894,
+      "dma_payload_bytes": 18048,
+      "engine_counters": {
+        "compute_cycles": 16000,
+        "control_cycles": 92551,
+        "elapsed": 153527,
+        "read_bytes": 147904,
+        "useful_macs": 72000,
+        "wait_cycles": 44976,
+        "write_bytes": 8000
+      },
+      "host_wall_seconds": 1.661609834060073,
+      "kind": "depthwise",
+      "node": 15,
+      "output_sha256": "6d68704abc93f692834dab304838e0b07c11ca40bd3c42a9fbbef01e24455e83",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 55816,
+      "dma_payload_bytes": 16016,
+      "engine_counters": {
+        "compute_cycles": 8000,
+        "control_cycles": 24005,
+        "elapsed": 56041,
+        "read_bytes": 64144,
+        "useful_macs": 0,
+        "wait_cycles": 24036,
+        "write_bytes": 8000
+      },
+      "host_wall_seconds": 1.6258352920413017,
+      "kind": "relu",
+      "node": 16,
+      "output_sha256": "9ff86b91cd54c69766edfef9bfa927d7ee9f706e03a9f99cc47084605ecbf400",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 73610,
+      "dma_payload_bytes": 21120,
+      "engine_counters": {
+        "compute_cycles": 64000,
+        "control_cycles": 383495,
+        "elapsed": 1000551,
+        "read_bytes": 2180224,
+        "useful_macs": 512000,
+        "wait_cycles": 553056,
+        "write_bytes": 8000
+      },
+      "host_wall_seconds": 1.7097501249518245,
+      "kind": "conv",
+      "node": 17,
+      "output_sha256": "e75754369c62a84f79b282a760022d3eb7ee21b784ca73c9adbc140e58a517ba",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 55816,
+      "dma_payload_bytes": 16016,
+      "engine_counters": {
+        "compute_cycles": 8000,
+        "control_cycles": 24005,
+        "elapsed": 56041,
+        "read_bytes": 64144,
+        "useful_macs": 0,
+        "wait_cycles": 24036,
+        "write_bytes": 8000
+      },
+      "host_wall_seconds": 1.631622000131756,
+      "kind": "relu",
+      "node": 18,
+      "output_sha256": "3c66fd54582b325336e56e3b00f4aa9b8aded50e247d2700af1e46ced09480ce",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 28162,
+      "dma_payload_bytes": 8080,
+      "engine_counters": {
+        "compute_cycles": 0,
+        "control_cycles": 3527,
+        "elapsed": 8567,
+        "read_bytes": 19904,
+        "useful_macs": 0,
+        "wait_cycles": 5040,
+        "write_bytes": 64
+      },
+      "host_wall_seconds": 0.14402120909653604,
+      "kind": "avgpool",
+      "node": 19,
+      "output_sha256": "3fa70869e389352480248ab9a454ad7fa79767bbf8a154d56ba13decf646c042",
+      "tiles": 1
+    },
+    {
+      "dma_elapsed_cycles": 0,
+      "dma_payload_bytes": 0,
+      "engine_counters": {
+        "compute_cycles": 0,
+        "control_cycles": 0,
+        "elapsed": 0,
+        "read_bytes": 0,
+        "useful_macs": 0,
+        "wait_cycles": 0,
+        "write_bytes": 0
+      },
+      "host_wall_seconds": 0.012057667132467031,
+      "kind": "alias",
+      "node": 20,
+      "output_sha256": "3fa70869e389352480248ab9a454ad7fa79767bbf8a154d56ba13decf646c042",
+      "tiles": 0
+    },
+    {
+      "dma_elapsed_cycles": 3622,
+      "dma_payload_bytes": 1036,
+      "engine_counters": {
+        "compute_cycles": 96,
+        "control_cycles": 52,
+        "elapsed": 624,
+        "read_bytes": 1856,
+        "useful_macs": 768,
+        "wait_cycles": 476,
+        "write_bytes": 12
+      },
+      "host_wall_seconds": 0.1618069999385625,
+      "kind": "gemm",
+      "node": 21,
+      "output_sha256": "ce178213db2ef2aa27d0b532e4a17851cfef1772ad74b2fc7a95311b4a6714a7",
+      "tiles": 1
+    }
+  ],
+  "parameter_image_sha256": "7157cfdbc8380d6283cebc1c3819c44c3532ae28508bbf07b7577d0f3b656139",
+  "physical_board": true,
+  "status": "passed",
+  "switchback_sequence": "KWS -> VWW -> KWS; no reprogramming between runs"
+}

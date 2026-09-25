@@ -1,0 +1,62 @@
+{
+  "bitstream_sha256": "c8eb28fadf68d14fac8c9592c608b73b3bb8ddff0a23c215b94f3d1d442ad206",
+  "cases": [
+    {
+      "case": "conv-depthwise-pointwise-relu-maxpool-avgpool-clip-fc",
+      "dma_cycles": 3278,
+      "dma_payload_bytes": 931,
+      "engine_cycles": 3531,
+      "final_output_sha256": "69e50f00d8001b5581400afbc283ccb6cbfcd3def887652464621db27005ba85",
+      "host_node_schedule_seconds": 1.211510832887143,
+      "host_wall_seconds_including_upload": 1.4554900419898331,
+      "nodes": 9,
+      "parameter_image_bytes": 528,
+      "parameter_image_sha256": "9352af8d72d6bcfba5a9657cd42bd3973c6e881a258012bd1cac4c1069987d80",
+      "tiles": 8
+    },
+    {
+      "case": "two-tile-relu",
+      "dma_cycles": 113872,
+      "dma_payload_bytes": 32672,
+      "engine_cycles": 114322,
+      "final_output_sha256": "3dca37cc4d8cb2cf9f966b4207b590c415383437d11aa8fc0d432c782e1b6b77",
+      "host_node_schedule_seconds": 3.3116172081790864,
+      "host_wall_seconds_including_upload": 21.701347958063707,
+      "nodes": 1,
+      "parameter_image_bytes": 32656,
+      "parameter_image_sha256": "52b4915424135db4d3e4f0d6e001749cca1a74a5a3e9948f075ad93ed3b513c4",
+      "tiles": 2
+    },
+    {
+      "case": "multi-tile-fc-32kib-weights",
+      "dma_cycles": 121564,
+      "dma_payload_bytes": 34880,
+      "engine_cycles": 21128,
+      "final_output_sha256": "26bf73d8d265d8d2915affae02eb29e85a203551a34e9f6b5000eafac24936f8",
+      "host_node_schedule_seconds": 0.32393183396197855,
+      "host_wall_seconds_including_upload": 13.656871666898951,
+      "nodes": 1,
+      "parameter_image_bytes": 34816,
+      "parameter_image_sha256": "8aefbc20771ff99f46f02cdf56c7830d6c4c7beb3e9eda4743c4b91209354067",
+      "tiles": 2
+    },
+    {
+      "case": "toycar-frozen-layer-shapes-synthetic-weights",
+      "dma_cycles": 1038743,
+      "dma_payload_bytes": 298032,
+      "engine_cycles": 188265,
+      "final_output_sha256": "ddc578b6684f5a925da7364d4ec433eb852b989206f0294b72efebf1a5789919",
+      "host_node_schedule_seconds": 3.9346233741380274,
+      "host_wall_seconds_including_upload": 114.16695329197682,
+      "nodes": 19,
+      "parameter_image_bytes": 292368,
+      "parameter_image_sha256": "de2808f7e93b84d3a0ef5169f99efbc9c8e83aad0bfb213f862c92f5c5497922",
+      "source_inventory_sha256": "afb462e2725cb739750a8016c699bbed76edca47c81c5d0afeaf35d35a4ef916",
+      "tiles": 23,
+      "weight_scope": "deterministic synthetic parameters; frozen ToyCar operator shapes"
+    }
+  ],
+  "physical_board": true,
+  "scope": "independent integer oracle at every synthetic node",
+  "status": "passed"
+}

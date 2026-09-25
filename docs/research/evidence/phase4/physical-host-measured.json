@@ -1,0 +1,44 @@
+{
+  "bitstream_sha256": "c38e06aa9d9d939598b4ae901af177fa15301c01c9bc9ae05071faba561d69cb",
+  "board_part": "GW2AR-LV18QN88C8/I7 revision C",
+  "limits": [
+    "host schedule includes stop-and-wait UART and per-node readback",
+    "engine-only clocks exclude DMA and host scheduling",
+    "no whole-board power/energy measurement"
+  ],
+  "models": [
+    {
+      "dma_elapsed_cycles": 1122375,
+      "dma_payload_bytes": 322006,
+      "engine_cycles": 5385783,
+      "engine_only_seconds_at_nominal_clock": 0.2659645925925926,
+      "final_output_sha256": "ce178213db2ef2aa27d0b532e4a17851cfef1772ad74b2fc7a95311b4a6714a7",
+      "fixture_manifest_sha256": "702422f42debf72524a7adce99debef55ea6e11538691cc4f250e363cbeede51",
+      "host_schedule_wall_seconds": 30.327056541806087,
+      "node_count": 22,
+      "raw_report_sha256": "2b7ae88721d87f0001cbb1b4379b33b5b41cdb19ef70aa9a84b4cad5d2e62625",
+      "status": "all-node-exact-on-physical-board",
+      "tile_count": 20,
+      "workload": "kws"
+    },
+    {
+      "dma_elapsed_cycles": 4738498,
+      "dma_payload_bytes": 1359570,
+      "engine_cycles": 17230984,
+      "engine_only_seconds_at_nominal_clock": 0.8509127901234568,
+      "final_output_sha256": "6a0cfa0be8aa6d3a3137a6926b09aa569b91c44d1b845612779c2d55e019dbc2",
+      "fixture_manifest_sha256": "b55d9e1d99d326ad8209f26f341eb7048d90d6f5cee68dadf93d6c4d3e6fb0fe",
+      "host_schedule_wall_seconds": 105.00913378968835,
+      "node_count": 58,
+      "raw_report_sha256": "84a2f8886a62bd7f21db48869571c9a7a8208338223b83655a5c264d5e7593cc",
+      "status": "all-node-exact-on-physical-board",
+      "tile_count": 75,
+      "workload": "vww"
+    }
+  ],
+  "nominal_core_clock_hz": 20250000,
+  "programming": "openFPGALoader -b tangnano20k -m -v; temporary SRAM image",
+  "route_record_sha256": "6e17f8d0866c17bb30539b8d597d3fc6911b9a98dd518f2f5f7d8ff91c8fadcd",
+  "scope": "one deterministic input per model; every node checked byte-exactly",
+  "status": "passed"
+}

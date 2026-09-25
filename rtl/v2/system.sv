@@ -18,7 +18,7 @@ module v2_system #(
     v2_engine engine(.clk(clk),.rst_n(rst_n),.start(start),.abort_run(abort_run),.clear_counters(clear_counters),.start_pc(pc),.busy(busy),.done(done),.error_code(error_code),
         .mem_req(ereq),.mem_wr(ewr),.mem_addr(eaddr),.mem_wdata(ewdata),.mem_wstrb(estrb),.mem_ready(mready&&busy),.mem_rvalid(mvalid&&busy),.mem_rdata(mdata),
         .elapsed(elapsed),.compute_cycles(compute_cycles),.wait_cycles(wait_cycles),.control_cycles(control_cycles),.useful_macs(useful_macs),.read_bytes(read_bytes),.write_bytes(write_bytes),.layer_count(layer_count),.layer_marker(layer_marker));
-    v2_command #(.TIMEOUT_CYCLES(TIMEOUT_CYCLES)) command(.clk(clk),.rst_n(rst_n),.rx_valid(rx_valid),.rx_data(rx_data),.tx_valid(tx_valid),.tx_data(tx_data),.tx_ready(tx_ready),
+    v2_command #(.TIMEOUT_CYCLES(TIMEOUT_CYCLES)) command(.clk(clk),.rst_n(rst_n),.rx_valid(rx_valid),.rx_data(rx_data),.tx_valid(tx_valid),.tx_data(tx_data),.tx_ready(tx_ready),.mmio_while_busy(1'b0),
         .start(start),.abort_run(abort_run),.clear_counters(clear_counters),.start_pc(pc),.busy(busy),.core_error(error_code),
         .elapsed(elapsed),.compute_cycles(compute_cycles),.wait_cycles(wait_cycles),.control_cycles(control_cycles),.useful_macs(useful_macs),.read_bytes(read_bytes),.write_bytes(write_bytes),.layer_count(layer_count),
         .mem_req(hreq),.mem_wr(hwr),.mem_addr(haddr),.mem_wdata(hwdata),.mem_wstrb(hstrb),.mem_ready(mready&&!busy),.mem_rvalid(mvalid&&!busy),.mem_rdata(mdata),.protocol_errors(protocol_errors));

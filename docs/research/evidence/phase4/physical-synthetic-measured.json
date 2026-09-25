@@ -1,0 +1,41 @@
+{
+  "bitstream_sha256": "c38e06aa9d9d939598b4ae901af177fa15301c01c9bc9ae05071faba561d69cb",
+  "cases": [
+    {
+      "case": "conv-depthwise-pointwise-relu-maxpool-avgpool-clip-fc",
+      "dma_cycles": 3319,
+      "dma_payload_bytes": 931,
+      "engine_cycles": 3531,
+      "final_output_sha256": "69e50f00d8001b5581400afbc283ccb6cbfcd3def887652464621db27005ba85",
+      "nodes": 9,
+      "parameter_image_bytes": 528,
+      "parameter_image_sha256": "9352af8d72d6bcfba5a9657cd42bd3973c6e881a258012bd1cac4c1069987d80",
+      "tiles": 8
+    },
+    {
+      "case": "two-tile-relu",
+      "dma_cycles": 113862,
+      "dma_payload_bytes": 32672,
+      "engine_cycles": 114322,
+      "final_output_sha256": "3dca37cc4d8cb2cf9f966b4207b590c415383437d11aa8fc0d432c782e1b6b77",
+      "nodes": 1,
+      "parameter_image_bytes": 32656,
+      "parameter_image_sha256": "52b4915424135db4d3e4f0d6e001749cca1a74a5a3e9948f075ad93ed3b513c4",
+      "tiles": 2
+    },
+    {
+      "case": "multi-tile-fc-32kib-weights",
+      "dma_cycles": 121579,
+      "dma_payload_bytes": 34880,
+      "engine_cycles": 21128,
+      "final_output_sha256": "26bf73d8d265d8d2915affae02eb29e85a203551a34e9f6b5000eafac24936f8",
+      "nodes": 1,
+      "parameter_image_bytes": 34816,
+      "parameter_image_sha256": "8aefbc20771ff99f46f02cdf56c7830d6c4c7beb3e9eda4743c4b91209354067",
+      "tiles": 2
+    }
+  ],
+  "physical_board": true,
+  "scope": "independent integer oracle at every synthetic node",
+  "status": "passed"
+}

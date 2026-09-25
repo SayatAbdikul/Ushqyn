@@ -1,8 +1,10 @@
 # Tang Nano 20K physical validation
 
+## Phase 3 on-chip release
+
 Use active target ID **8196** and the Phase 3 closure image at
 `hardware/releases/phase3-closure/tinyml_v6_tang20k.fs`. The original
-Phase 2–4 bitstreams have the wrong KEY1 polarity; the reset-corrected v4
+Phase 2–4 kernel-only bitstreams have the wrong KEY1 polarity; the reset-corrected v4
 and line-buffer v5 images remain archived comparison baselines. The
 [G3 closure record](../docs/research/PHASE_3_CLOSURE.md) identifies the
 current source-matched board release.
@@ -139,9 +141,44 @@ using `run_models.py` or `run_checks.py`. A USB power cycle erases the temporary
 image. If JTAG programming works but UART loopback is silent, power-cycle the
 USB connection, reprogram the image and rerun loopback.
 
+## Phase 4 SDRAM-connected release
+
+The [current Phase 4 image](releases/phase4-sdram/hs_tiled_host_overlap.fs)
+has SHA256 `c8eb28fadf68d14fac8c9592c608b73b3bb8ddff0a23c215b94f3d1d442ad206`.
+It is a separate 20.25-MHz routed hierarchy with the Gowin HS SDRAM
+controller, scratchpad, engine, tile DMA and UART host bridge. Configure it
+temporarily with `openFPGALoader` and run the exact-data checks:
+
+```sh
+openFPGALoader -b tangnano20k --ftdi-serial 2025030317 --freq 2500000 -m -v \
+  hardware/releases/phase4-sdram/hs_tiled_host_overlap.fs
+.venv/bin/python3 tools/phase4/tiled_host.py \
+  --port /dev/cu.usbserial-20250303171 \
+  --fixture work/phase4/rtl-kws --timeout 30 \
+  --report work/phase4/repeat-kws.json
+.venv/bin/python3 tools/phase4/tiled_host.py \
+  --port /dev/cu.usbserial-20250303171 \
+  --fixture work/phase4/rtl-vww --timeout 30 \
+  --report work/phase4/repeat-vww.json
+.venv/bin/python3 tools/phase4/run_physical_overlap.py \
+  --port /dev/cu.usbserial-20250303171 \
+  --bitstream hardware/releases/phase4-sdram/hs_tiled_host_overlap.fs \
+  --report work/phase4/repeat-overlap.json
+```
+
+Keep the same programmed image for KWS and VWW. The prepared fixtures are
+hash-checked against the source-model manifests by the runner. The overlap
+test stages an independent DMA outside the live Conv scratch region, checks
+both outputs and verifies that an attempted live-region overwrite is rejected.
+For MLP/SmallCNN SDRAM comparisons, run
+`tools/phase4/run_physical_legacy.py`; for short/tail/high-address DMA,
+directed kernels and ToyCar AD shapes with synthetic weights, use the other
+`tools/phase4/*physical*.py` runners. The [Phase 4 status](../docs/research/PHASE_4_STATUS.md)
+links the source-pinned physical reports and post-route timing.
+
 ## Measurement boundary
 
-The reports retain raw INT8 outputs, physical device counters and host
+The Phase 3 reports retain raw INT8 outputs, physical device counters and host
 wall times. Core milliseconds derived from counters use the nominal
 27-MHz clock; no independent clock instrument was available. Host job time
 covers quantized-input upload, RUN/status polling and output readback;
@@ -150,7 +187,8 @@ Model load plus full memory readback is reported separately. These bring-up
 runs have no explicit warm-up exclusion and are not a tuned baseline comparison.
 
 No power instrument is available, so board power/energy are unmeasured.
-The present bitstream has no SDRAM controller or integrated DMA. Passing
-these on-chip tests does not certify full KWS/VWW deployment, SDRAM, energy
-efficiency or the remaining research novelty/baseline gates. See the
+The Phase 3 bitstream has no SDRAM controller or integrated DMA; the separate
+Phase 4 image now does and passes one full input per KWS/VWW graph. Neither
+image establishes full-set primary-model accuracy, energy efficiency or the
+remaining research novelty/baseline gates. See the
 [physical results](../docs/research/PHYSICAL_BOARD_STATUS.md).

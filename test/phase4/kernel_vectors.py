@@ -163,6 +163,23 @@ def vectors():
         yield (desc,x,None,[param(0,m,s,zy,zx)],[*expected],0,
                       f'average_{height}x{width}')
 
+    # MaxPool uses a nonzero input zero point and requantizes the maximum.
+    x=np.array([rng.randrange(-128,128) for _ in range(2*4*4)],np.int8).reshape(2,4,4)
+    x[0,0,0]=-128;x[1,3,3]=127
+    zx,zy=11,-7
+    expected=[]
+    for c in range(2):
+        for y in (0,2):
+            for z in (0,2):
+                maximum=max(int(v) for v in x[c,y:y+2,z:z+2].ravel())
+                expected.append(rounded(maximum-zx,1<<30,30,zy))
+    desc=Descriptor(5,input=512,output=4096,params=16384,
+                    count=x.size,outputs=len(expected),next_pc=64,
+                    kernel_h=2,kernel_w=2,stride_h=2,stride_w=2,
+                    input_h=4,input_w=4,input_c=2,output_c=2)
+    yield (desc,x.ravel(),None,[param(0,1<<30,30,zy,zx)],expected,0,
+           'maxpool_nonzero_zero_point')
+
     # Clip is an input-domain clamp followed by one normal requantization.
     x=np.array([-128,-40,-17,-16,-11,0,22,23,24,127],np.int8)
     zx,zy,lo,hi=-11,7,-17,23
