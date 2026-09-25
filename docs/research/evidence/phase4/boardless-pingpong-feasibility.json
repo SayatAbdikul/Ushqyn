@@ -1,0 +1,506 @@
+{
+  "kws": {
+    "bank_bytes": 16384,
+    "eligible_nodes": 22,
+    "interpretation": "A bank fit does not imply safe overlap; activation dependencies, liveness, descriptor staging and SRAM-port contention remain.",
+    "inventory_sha256": "c66cff83065c39d176f2c289e3b707f258e3a30f6a8fad912e0e46d38675f0d1",
+    "nodes": [
+      {
+        "fits_16k_bank": true,
+        "index": 0,
+        "op": "Reshape",
+        "tiles": 0
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 1,
+        "op": "Conv",
+        "tiles": 1
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 2,
+        "op": "Relu",
+        "tiles": 1
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 3,
+        "op": "Conv",
+        "tiles": 2
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 4,
+        "op": "Relu",
+        "tiles": 1
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 5,
+        "op": "Conv",
+        "tiles": 2
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 6,
+        "op": "Relu",
+        "tiles": 1
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 7,
+        "op": "Conv",
+        "tiles": 2
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 8,
+        "op": "Relu",
+        "tiles": 1
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 9,
+        "op": "Conv",
+        "tiles": 2
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 10,
+        "op": "Relu",
+        "tiles": 1
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 11,
+        "op": "Conv",
+        "tiles": 2
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 12,
+        "op": "Relu",
+        "tiles": 1
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 13,
+        "op": "Conv",
+        "tiles": 2
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 14,
+        "op": "Relu",
+        "tiles": 1
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 15,
+        "op": "Conv",
+        "tiles": 2
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 16,
+        "op": "Relu",
+        "tiles": 1
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 17,
+        "op": "Conv",
+        "tiles": 2
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 18,
+        "op": "Relu",
+        "tiles": 1
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 19,
+        "op": "AveragePool",
+        "tiles": 1
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 20,
+        "op": "Reshape",
+        "tiles": 0
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 21,
+        "op": "Gemm",
+        "tiles": 1
+      }
+    ],
+    "sram_bytes": 32768,
+    "status": "geometry-only-feasibility-audit",
+    "total_nodes": 22,
+    "workload": "kws"
+  },
+  "vww": {
+    "bank_bytes": 16384,
+    "eligible_nodes": 55,
+    "interpretation": "A bank fit does not imply safe overlap; activation dependencies, liveness, descriptor staging and SRAM-port contention remain.",
+    "inventory_sha256": "43e05faf97353b47488b5b452697376e89a978f8c57b71d28874ad27d232a18d",
+    "nodes": [
+      {
+        "fits_16k_bank": true,
+        "index": 0,
+        "op": "Transpose",
+        "tiles": 0
+      },
+      {
+        "fits_16k_bank": false,
+        "index": 1,
+        "op": "Conv",
+        "reason": "node 0: no aligned tile fits 16 KiB SRAM audit limit at 0"
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 2,
+        "op": "Relu",
+        "tiles": 3
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 3,
+        "op": "Conv",
+        "tiles": 3
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 4,
+        "op": "Relu",
+        "tiles": 3
+      },
+      {
+        "fits_16k_bank": false,
+        "index": 5,
+        "op": "Conv",
+        "reason": "node 0: no aligned tile fits 16 KiB SRAM audit limit at 0"
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 6,
+        "op": "Relu",
+        "tiles": 5
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 7,
+        "op": "Conv",
+        "tiles": 4
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 8,
+        "op": "Relu",
+        "tiles": 2
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 9,
+        "op": "Conv",
+        "tiles": 3
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 10,
+        "op": "Relu",
+        "tiles": 3
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 11,
+        "op": "Conv",
+        "tiles": 3
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 12,
+        "op": "Relu",
+        "tiles": 3
+      },
+      {
+        "fits_16k_bank": false,
+        "index": 13,
+        "op": "Conv",
+        "reason": "node 0: no aligned tile fits 16 KiB SRAM audit limit at 0"
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 14,
+        "op": "Relu",
+        "tiles": 3
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 15,
+        "op": "Conv",
+        "tiles": 2
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 16,
+        "op": "Relu",
+        "tiles": 1
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 17,
+        "op": "Conv",
+        "tiles": 2
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 18,
+        "op": "Relu",
+        "tiles": 2
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 19,
+        "op": "Conv",
+        "tiles": 2
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 20,
+        "op": "Relu",
+        "tiles": 2
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 21,
+        "op": "Conv",
+        "tiles": 3
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 22,
+        "op": "Relu",
+        "tiles": 2
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 23,
+        "op": "Conv",
+        "tiles": 1
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 24,
+        "op": "Relu",
+        "tiles": 1
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 25,
+        "op": "Conv",
+        "tiles": 2
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 26,
+        "op": "Relu",
+        "tiles": 1
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 27,
+        "op": "Conv",
+        "tiles": 1
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 28,
+        "op": "Relu",
+        "tiles": 1
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 29,
+        "op": "Conv",
+        "tiles": 2
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 30,
+        "op": "Relu",
+        "tiles": 1
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 31,
+        "op": "Conv",
+        "tiles": 1
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 32,
+        "op": "Relu",
+        "tiles": 1
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 33,
+        "op": "Conv",
+        "tiles": 2
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 34,
+        "op": "Relu",
+        "tiles": 1
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 35,
+        "op": "Conv",
+        "tiles": 1
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 36,
+        "op": "Relu",
+        "tiles": 1
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 37,
+        "op": "Conv",
+        "tiles": 2
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 38,
+        "op": "Relu",
+        "tiles": 1
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 39,
+        "op": "Conv",
+        "tiles": 1
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 40,
+        "op": "Relu",
+        "tiles": 1
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 41,
+        "op": "Conv",
+        "tiles": 2
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 42,
+        "op": "Relu",
+        "tiles": 1
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 43,
+        "op": "Conv",
+        "tiles": 1
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 44,
+        "op": "Relu",
+        "tiles": 1
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 45,
+        "op": "Conv",
+        "tiles": 2
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 46,
+        "op": "Relu",
+        "tiles": 1
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 47,
+        "op": "Conv",
+        "tiles": 1
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 48,
+        "op": "Relu",
+        "tiles": 1
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 49,
+        "op": "Conv",
+        "tiles": 3
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 50,
+        "op": "Relu",
+        "tiles": 1
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 51,
+        "op": "Conv",
+        "tiles": 1
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 52,
+        "op": "Relu",
+        "tiles": 1
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 53,
+        "op": "Conv",
+        "tiles": 6
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 54,
+        "op": "Relu",
+        "tiles": 1
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 55,
+        "op": "AveragePool",
+        "tiles": 1
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 56,
+        "op": "Reshape",
+        "tiles": 0
+      },
+      {
+        "fits_16k_bank": true,
+        "index": 57,
+        "op": "Gemm",
+        "tiles": 1
+      }
+    ],
+    "sram_bytes": 32768,
+    "status": "geometry-only-feasibility-audit",
+    "total_nodes": 58,
+    "workload": "vww"
+  }
+}

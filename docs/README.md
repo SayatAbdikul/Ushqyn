@@ -4,13 +4,13 @@ Comprehensive documentation for the Ushqyn hardware accelerator.
 
 ## Overview
 
-Ushqyn (Ұшқын — Kazakh for *spark*) is an INT8 TinyML accelerator project. The current numerical-v2 Tang Nano 20K hierarchy runs a complete trained SmallCNN in exact RTL simulation and has a 27-MHz routed Phase 4 kernel candidate. KWS/VWW kernels have directed exact RTL tests, while SDRAM and complete-model execution remain open. Physical board execution and energy remain unmeasured. See the [Phase 4 status](research/PHASE_4_STATUS.md) for current evidence. Older architecture and workflow sections below document the historical v1 implementation.
+Ushqyn (Ұшқын — Kazakh for *spark*) is an INT8 TinyML accelerator project. MLP and SmallCNN pass exact physical board execution. One deterministic input of each real KWS/VWW model passes every node in tiled RTL simulation with abstract external memory. A host-addressable SDRAM candidate has been routed but awaits physical model execution; energy remains unmeasured. See the [Phase 4 status](research/PHASE_4_STATUS.md) for current evidence. Older architecture and workflow sections below document the historical v1 implementation.
 
 ## What's where
 
 ### Research planning
 
-- **[Phase 4 status](research/PHASE_4_STATUS.md)** — routed audio/vision kernel candidate, standalone tile DMA and open SDRAM gates.
+- **[Phase 4 status](research/PHASE_4_STATUS.md)** — routed host-addressable audio/vision candidate, exact boardless model execution and remaining physical gates.
 - **[Phase 3 status](research/PHASE_3_STATUS.md)** — G3-closed SmallCNN with source-matched RTL, route and 13,000 exact board jobs; see the [physical closure record](research/PHASE_3_CLOSURE.md).
 - **[Phase 2 status](research/PHASE_2_STATUS.md)** — historical routed MLP candidate and pending physical-board checks.
 - **[Phase 0–1 status](research/PHASE_0_1_STATUS.md)** — completed software work, actual Gowin results, quality measurements, and open gates.

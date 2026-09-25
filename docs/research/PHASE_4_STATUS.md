@@ -1,4 +1,4 @@
-# Phase 4 working record — updated 2026-09-24
+# Phase 4 working record — updated 2026-09-25
 
 **Physical addendum:** the reset-corrected target 8196 now runs on the actual
 Tang Nano 20K. MLP → SmallCNN → MLP passed 1,000 jobs per stage, and all seven
@@ -78,6 +78,41 @@ candidate for Tang Nano 20K. The active board hierarchy still has a single
 32-KiB SRAM and no SDRAM connection. The standalone tile DMA is not in this
 bitstream. None of the KWS/VWW end-to-end, integrated SDRAM,
 sustained-bandwidth or energy gates are claimed by the active accelerator image.
+
+**Host-addressable candidate:** a new
+[UART + tiled-core + SDRAM hierarchy](../../hardware/phase4_sdram/TILED_HOST.md)
+now exposes scratchpad, DMA control and the actual 8-MiB SDRAM through the
+existing CRC-framed host protocol. The host can upload an input/parameter
+image, replay a compiler tile plan, execute descriptors and read outputs;
+[`tiled_host.py`](../../tools/phase4/tiled_host.py) prepares exact per-node
+checks for KWS/VWW on a future board run. The
+[boardless packet regression](evidence/phase4/boardless-tiled-host-results.xml)
+passes upload→DMA→ReLU→Clip→readback with randomized abstract-memory stalls and
+rejects region-crossing commands. The complete hierarchy
+[routed](evidence/phase4/boardless-tiled-host-route.json) at 22.008-MHz core
+Fmax against 20.25 MHz, zero setup TNS, using 12,151/20,736 logic,
+18/46 BSRAM and 19.75/24 DSP equivalents. Its raw
+[route](evidence/phase4/boardless-tiled-host-route.txt.gz) and
+[timing](evidence/phase4/boardless-tiled-host-timing.html.gz) reports are
+archived. The exact candidate
+[bitstream](../../hardware/releases/phase4-sdram/hs_tiled_host_candidate.fs)
+is retained for a future physical run. Gowin's
+[power report](evidence/phase4/boardless-tiled-host-power.html.gz) estimates
+162.510 mW with default 0.125 toggle rates and no activity trace; this is
+**not** measured board power or inference energy. This candidate has **not**
+been programmed or run on the board.
+The test uses behavioral external memory, not the Gowin SDRAM controller's
+physical signaling. Physical model inference and bandwidth remain unmeasured.
+The same CRC-framed host path also passed one full deterministic input of each
+real model, comparing every intermediate output byte against the independent
+integer oracle: [KWS 22/22 nodes](evidence/phase4/boardless-host-kws.json) and
+[VWW 58/58 nodes](evidence/phase4/boardless-host-vww.json). These regressions
+upload the actual 49,376-byte KWS and 334,816-byte VWW images, replay all
+compiler tile transfers and read every node back through the host window.
+Their [KWS](evidence/phase4/boardless-host-kws-simulation.txt) and
+[VWW](evidence/phase4/boardless-host-vww-simulation.txt) transcripts and JUnit
+results are archived. The simulated clocks include packet handling and random
+behavioral-memory stalls; they are not physical inference latency or FPS.
 
 **Boardless tile execution addendum:** the calibrated `Program` can now be
 materialized into a parameter image and per-tile descriptors/DMA transfers by
@@ -227,14 +262,16 @@ gate remain open.
 `make p4-test PYTHON=/absolute/path/to/.venv/bin/python` now passes 135
 compiler tests, target/ISA checks, Verilator lint, the existing kernel RTL
 regression, the abstract DMA RTL regression with planner-derived transfers,
-the shared-SRAM arbitration, packed tiled-program and refresh-scheduler RTL regressions, the frozen inventory audit and
+the shared-SRAM arbitration, packed tiled-program, framed tiled-host and
+refresh-scheduler RTL regressions, the frozen inventory audit and
 deterministic plan reproduction. The new
 schedule tests independently check descriptor legality, all tile output-byte
 coverage, disjoint live activation slots, SRAM region separation and exact
 byte movement through each declared transfer. The separate one-input
-real-model RTL runs prove complete-node arithmetic under the abstract-memory
-test conditions, but not the integrated board hierarchy. The
-[suite log](evidence/phase4/boardless-suite-log.txt) records this run.
+real-model RTL runs prove complete-node arithmetic and packet-level host
+control under the abstract-memory test conditions, but not the integrated
+board hierarchy's physical SDRAM behavior. The
+[latest suite log](evidence/phase4/boardless-tiled-host-suite.txt) records this run.
 
 ## Historical routed candidate and evidence
 
@@ -270,10 +307,11 @@ held-out latency model or measured energy database.
 
 ## Next work to close G4
 
-Carry the physically tested HS port and tile DMA from the diagnostic image
-into the host-command accelerator board hierarchy. Implement ping-pong
-scratchpad tiles with explicit live-region protection and measure useful
-compute/transfer overlap. Run several independent inputs from each real model
-through that routed hierarchy, then build a held-out kernel/DMA cost database
-and collect physical latency, accuracy and power results. The corrected MaxPool
-RTL must be rebuilt and revalidated on the board before any new physical claim.
+Program and validate the new routed host-command hierarchy on the board. Run
+several independent inputs from each real model, with exact per-node readback,
+then measure actual latency and SDRAM bandwidth. The current two-word,
+single-outstanding memory commands and sequential tile schedule still need
+longer streaming bursts, protected ping-pong regions and demonstrated useful
+compute/transfer overlap. Build a held-out kernel/DMA cost database and
+collect physical power data with an instrument. The corrected MaxPool RTL and
+the host candidate require board revalidation before any new physical claim.

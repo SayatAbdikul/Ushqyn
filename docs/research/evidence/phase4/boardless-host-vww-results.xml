@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1790318115" />
+    <testcase name="uart_packet_tile_program_uses_sdram_window_and_dma" classname="test_tiled_host" file="/Users/sayat/Documents/GitHub/tinyML_accelerator/test/phase4/test_tiled_host.py" lineno="32" time="929.5180706977844" sim_time_ns="225210580.001" ratio_time="242287.46820590112" />
+  </testsuite>
+</testsuites>

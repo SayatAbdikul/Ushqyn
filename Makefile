@@ -35,6 +35,7 @@ help:
 	@echo "  p4-dma         Standalone abstract-port tile-transfer RTL tests"
 	@echo "  p4-core        Concurrent engine/DMA shared-SRAM RTL test"
 	@echo "  p4-tiled-program  Packed multi-layer and multi-tile RTL/oracle test"
+	@echo "  p4-tiled-host  UART-framed SDRAM upload/DMA/engine RTL test"
 	@echo "  p4-refresh     Standalone SDRAM refresh scheduler RTL test"
 	@echo "  p4-audit       Audit frozen KWS/VWW operator and storage inventories"
 	@echo "  p4-test        Run the reproducible Phase 4 simulation tier"
@@ -127,7 +128,7 @@ p3-quality:
 p3-switch: check-v2-target v2-lint p3-fixture v2-fixture
 	$(PYTHON) test/phase3/run.py
 
-.PHONY: p4-kernels p4-dma p4-core p4-tiled-program p4-refresh p4-audit p4-plan p4-test
+.PHONY: p4-kernels p4-dma p4-core p4-tiled-program p4-tiled-host p4-real-host p4-refresh p4-audit p4-plan p4-pingpong-audit p4-test
 p4-kernels: check-v2-target v2-lint
 	$(PYTHON) test/phase4/run.py
 
@@ -140,6 +141,14 @@ p4-core:
 p4-tiled-program:
 	$(PYTHON) test/phase4/run_tiled_program.py
 
+p4-tiled-host:
+	$(PYTHON) -m pytest tools/phase4/test_tiled_host.py -q --tb=short
+	$(PYTHON) test/phase4/run_tiled_host.py
+
+p4-real-host:
+	$(PYTHON) test/phase4/run_tiled_host.py --fixture work/phase4/rtl-kws
+	$(PYTHON) test/phase4/run_tiled_host.py --fixture work/phase4/rtl-vww
+
 p4-refresh:
 	$(PYTHON) test/phase4/run_sdram_refresh.py
 
@@ -149,7 +158,10 @@ p4-audit:
 p4-plan:
 	$(PYTHON) tools/phase4/plan_tiling.py --check
 
-p4-test: ci p4-kernels p4-dma p4-core p4-tiled-program p4-refresh p4-audit p4-plan
+p4-pingpong-audit:
+	$(PYTHON) tools/phase4/audit_pingpong_feasibility.py
+
+p4-test: ci p4-kernels p4-dma p4-core p4-tiled-program p4-tiled-host p4-refresh p4-audit p4-plan p4-pingpong-audit
 
 .PHONY: p5-plan p5-audit
 p5-plan:

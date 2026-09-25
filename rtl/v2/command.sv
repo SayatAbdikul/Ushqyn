@@ -2,7 +2,8 @@
 // A5 5A, version, command, sequence, address LE24, length LE16, [WRITE data], CRC LE16.
 // Responses use command|80 and payload {status, data...}; length includes status.
 module v2_command #(
-    parameter integer TIMEOUT_CYCLES=target_pkg::RX_TIMEOUT
+    parameter integer TIMEOUT_CYCLES=target_pkg::RX_TIMEOUT,
+    parameter bit TILED_MEM_MAP=0
 )(
     input logic clk,rst_n,
     input logic rx_valid, input logic [7:0] rx_data,
@@ -30,6 +31,12 @@ module v2_command #(
     wire [7:0] cmd=header[1];
     wire [15:0] length={header[7],header[6]};
     wire [23:0] address={header[5],header[4],header[3]};
+    wire [24:0] transfer_end={1'b0,address}+{9'b0,length};
+    wire tiled_transfer_valid=
+        (address<24'h008000 && transfer_end<=25'h008000) ||
+        (address>=24'h400000 && address<24'h400020 &&
+         transfer_end<=25'h400020) ||
+        (address>=24'h800000 && transfer_end<=25'h1000000);
     logic [24:0] transfer_addr;
     logic [7:0] send_byte;
     integer i;
@@ -104,7 +111,13 @@ module v2_command #(
                     else if(cmd==CAPS&&length==0)begin
                         payload[0]<=8'(NUMERICS);payload[1]<=8'(DESC_VERSION);payload[2]<=8'(LANES);payload[3]<=8'(MAX_TRANSFER);
                         payload[4]<=MEM_BYTES[7:0];payload[5]<=MEM_BYTES[15:8];payload[6]<=MEM_BYTES[23:16];payload[7]<=8'(ADDR_BITS);
-                        payload[8]<=TARGET_ID[7:0];payload[9]<=TARGET_ID[15:8];respond(0,11);
+                        payload[8]<=TARGET_ID[7:0];payload[9]<=TARGET_ID[15:8];
+                        if(TILED_MEM_MAP)begin
+                            payload[10]<=8'd1; // external-memory and DMA register capability
+                            payload[11]<=8'h00;payload[12]<=8'h00;
+                            payload[13]<=8'h80; // external capacity, 0x800000 bytes
+                            respond(0,15);
+                        end else respond(0,11);
                     end else if(cmd==STATUS&&length==0)begin
                         payload[0]<={7'b0,busy};payload[1]<=core_error;
                         for(i=0;i<4;i=i+1)begin
@@ -119,7 +132,9 @@ module v2_command #(
                         else begin start<=1;respond(0,1);end
                     end else if(cmd==READ||cmd==WRITE)begin
                         if(busy)respond(8'd3,1);
-                        else if(length==0||length>16'(MAX_TRANSFER)||{8'b0,address}+{16'b0,length}>MEM_BYTES)respond(8'd4,1);
+                        else if(length==0||length>16'(MAX_TRANSFER)||
+                                (TILED_MEM_MAP ? !tiled_transfer_valid :
+                                 {8'b0,address}+{16'b0,length}>MEM_BYTES))respond(8'd4,1);
                         else begin transfer_index<=0;state<=MREQ;end
                     end else respond(8'd5,1);
                 end

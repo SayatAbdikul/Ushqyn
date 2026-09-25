@@ -1,0 +1,25 @@
+{
+  "expected_npz_sha256": "d038eb5d3c45e3374ca9352b382cb37d3a8a7af3f972a12d6142745db01677a1",
+  "final_output_sha256": "ce178213db2ef2aa27d0b532e4a17851cfef1772ad74b2fc7a95311b4a6714a7",
+  "fixture_manifest_sha256": "702422f42debf72524a7adce99debef55ea6e11538691cc4f250e363cbeede51",
+  "input_sha256": "5f4ad0b2d11bf1cccab552fb5a4d95d082b70f2d1fe2459127673d270cb1cdf4",
+  "limits": [
+    "abstract external memory, not physical SDRAM",
+    "simulation includes host packet activity and random stalls",
+    "no complete-set accuracy or physical FPS/energy claim"
+  ],
+  "nodes_checked": 22,
+  "parameter_image_sha256": "7157cfdbc8380d6283cebc1c3819c44c3532ae28508bbf07b7577d0f3b656139",
+  "physical_board": false,
+  "plan_sha256": "9e3b40c1cce2495af6d01a739428d862bdeb65966a07b2334d7daffe5d75fa0f",
+  "random_seed": "1790317800",
+  "results_xml_sha256": "d875d4c2c6b1ac823cfacad0fd3054de7dfb25ec4032e938521abb69da7f1312",
+  "routed_candidate_bitstream_sha256": "1a613c75b1689a8370e82ea34fe9efb444b0680f1d2dbf202020f241c9a193ca",
+  "scope": "one deterministic INT8 input, exact output for every node through framed command parser, tiled engine, DMA and behavioral 8-MiB external-memory port",
+  "sim_time_ns_including_host": "67276350.001",
+  "simulation_log_sha256": "fd00f61b7ac4ce347e74150a87fc2078d3188917759ae8d467d75bee6a65b409",
+  "source_onnx_sha256": "074aacbdd17f488e7717e5ab2add811341569e71023d9b778ce472e27991d8de",
+  "status": "passed",
+  "tiles": 20,
+  "workload": "kws"
+}

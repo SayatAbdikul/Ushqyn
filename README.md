@@ -8,8 +8,11 @@ audio/vision-shaped depthwise, pointwise and average-pool kernels. It passes
 exact RTL simulation and **physical MLP/SmallCNN execution** on the board,
 using a reset-corrected G3 release routed for 27 MHz. The MLP → SmallCNN → MLP
 test passed 1,000 exact jobs per stage without reprogramming, and a separate
-10,000-image SmallCNN board run matched every INT8 output. SDRAM integration
-and complete KWS/VWW inference remain Phase 4 work; energy is unmeasured. See the
+10,000-image SmallCNN board run matched every INT8 output. The real KWS and
+VWW graphs also pass one-input, exact per-node tiled RTL simulation through an
+abstract external-memory port. A host-addressable SDRAM candidate now meets
+its 20.25-MHz post-route timing constraint, but physical complete-model
+execution and energy measurement remain Phase 4 work. See the
 [Phase 3 board closure](docs/research/PHASE_3_CLOSURE.md),
 [Phase 4 status](docs/research/PHASE_4_STATUS.md),
 [Phase 5 status](docs/research/PHASE_5_STATUS.md),
@@ -22,7 +25,7 @@ and complete KWS/VWW inference remain Phase 4 work; energy is unmeasured. See th
 |---|---|---|---|
 | **MLP** (784→12→32→10 MNIST) | 94.84% static INT8 on 10K | 1,000 exact jobs in Phase 2; retained in current RTL | Two 1,000-job stages exact; 7,316 core cycles |
 | **SmallCNN** (Conv→Pool→Conv→Pool→FC) | 96.40% static INT8 on 10K | 10,000 exact jobs, eight layer boundaries checked | Full 10K set + 1K repeated jobs exact; 96.40% accuracy; 118,267 core cycles |
-| **KWS / VWW** | Full-set software INT8 quality recorded | Directed exact kernel RTL tests; no complete-model RTL run | Nine directed kernel cases exact, three repetitions; full models need SDRAM/tiling |
+| **KWS / VWW** | Full-set software INT8 quality recorded | One deterministic input per real model, all 22/58 node outputs exact through tiled RTL with abstract external memory | Nine directed kernel cases exact, three repetitions; full models need the SDRAM host candidate validated on board |
 
 The current SmallCNN result uses an independent centered-integer oracle,
 source-hashed RTL and a separately calibrated 10,000-image quality evaluation.

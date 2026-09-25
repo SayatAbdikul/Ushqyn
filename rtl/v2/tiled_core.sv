@@ -7,6 +7,8 @@ module v2_tiled_core (
     output logic engine_busy, engine_done,
     output logic [7:0] engine_error,
     output logic [31:0] engine_elapsed,
+    output logic [31:0] compute_cycles, wait_cycles, control_cycles,
+    output logic [31:0] useful_macs, read_bytes, write_bytes, layer_count,
     input logic dma_start, dma_abort, dma_to_sram,
     input logic [23:0] dma_sram_base, dma_ext_base,
     input logic [31:0] dma_length,
@@ -31,8 +33,6 @@ module v2_tiled_core (
     logic [63:0] ewdata, dwdata, srdata;
     logic [7:0] estrb, dstrb;
     logic [31:0] dma_physical_read_bytes;
-    logic [31:0] compute_cycles, wait_cycles, control_cycles;
-    logic [31:0] useful_macs, read_bytes, write_bytes, layer_count;
     logic layer_marker;
 
     v2_engine engine (

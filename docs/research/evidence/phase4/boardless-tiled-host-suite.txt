@@ -1,0 +1,381 @@
+cd compiler && /Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/bin/python3 -m pytest \
+	    test_isa_spec.py \
+	    test_cnn_golden.py \
+	    test_accelerator_config.py \
+	    test_unified_walker.py \
+	    test_buffer_allocator.py \
+	    test_static_pipeline.py \
+	    test_hardware_v2.py \
+	    test_phase4_kernels.py \
+	    test_phase4_tiling.py \
+	    test_phase4_compile.py \
+	    test_phase4_rebase.py \
+	    test_phase4_sdram_geometry.py \
+	    test_memory_planner.py \
+	    -q --tb=short
+........................................................................ [ 53%]
+...............................................................          [100%]
+=============================== warnings summary ===============================
+test_cnn_golden.py::test_smallcnn_end_to_end
+test_unified_walker.py::test_assembly_addresses_match_walker_maps_cnn
+  /Users/sayat/Documents/GitHub/tinyML_accelerator/compiler/model.py:85: UserWarning: # 'dynamic_axes' is not recommended when dynamo=True, and may lead to 'torch._dynamo.exc.UserError: Constraints violated.' Supply the 'dynamic_shapes' argument instead if export is unsuccessful.
+    torch.onnx.export(
+
+test_cnn_golden.py: 2698 warnings
+test_unified_walker.py: 11570 warnings
+  /Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/lib/python3.13/site-packages/onnxscript/converter.py:464: DeprecationWarning: Expression.__init__ got an unexpected keyword argument 'lineno'. Support for arbitrary keyword arguments is deprecated and will be removed in Python 3.15.
+    expr = ast.Expression(expr, lineno=expr.lineno, col_offset=expr.col_offset)
+
+test_cnn_golden.py: 2698 warnings
+test_unified_walker.py: 11570 warnings
+  /Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/lib/python3.13/site-packages/onnxscript/converter.py:464: DeprecationWarning: Expression.__init__ got an unexpected keyword argument 'col_offset'. Support for arbitrary keyword arguments is deprecated and will be removed in Python 3.15.
+    expr = ast.Expression(expr, lineno=expr.lineno, col_offset=expr.col_offset)
+
+test_unified_walker.py::test_generate_assembly_requires_maps
+test_unified_walker.py::test_assembly_addresses_match_walker_maps_mlp
+test_unified_walker.py::test_unknown_initializer_raises
+test_unified_walker.py::test_address_mutation_propagates
+  /Users/sayat/Documents/GitHub/tinyML_accelerator/compiler/model.py:35: UserWarning: # 'dynamic_axes' is not recommended when dynamo=True, and may lead to 'torch._dynamo.exc.UserError: Constraints violated.' Supply the 'dynamic_shapes' argument instead if export is unsuccessful.
+    torch.onnx.export(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+135 passed, 28542 warnings in 9.57s
+/Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/bin/python3 tools/generate_i_decoder.py --check
+/Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/i_decoder.sv is up to date with isa_spec.
+/Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/bin/python3 tools/phase2/generate_target.py --check
+
+✓ CI tier passed (compiler pytest + ISA/target --check)
+/Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/bin/python3 tools/phase2/lint.py
+- V e r i l a t i o n   R e p o r t: Verilator 5.044 2026-01-01 rev vUNKNOWN-built20260101
+- Verilator: Built from 0.405 MB sources in 10 modules, into 0.444 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.089 s (elab=0.012, cvt=0.052, bld=0.000); cpu 0.081 s on 1 threads; alloced 20.078 MB
+/Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/bin/python3 test/phase4/run.py
+/Users/sayat/Documents/GitHub/tinyML_accelerator/test/phase4/run.py:8: UserWarning: Python runners and associated APIs are an experimental feature and subject to change.
+  from cocotb.runner import get_runner
+- V e r i l a t i o n   R e p o r t: Verilator 5.044 2026-01-01 rev vUNKNOWN-built20260101
+- Verilator: Built from 0.000 MB sources in 0 modules, into 0.000 MB in 0 C++ files needing 0.000 MB
+- Verilator: Walltime 0.002 s (elab=0.000, cvt=0.000, bld=0.000); cpu 0.002 s on 1 threads; alloced 3.125 MB
+make[1]: Nothing to be done for `default'.
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:81   in set_program_name_in_venv        Did not detect Python virtual environment. Using system-wide Python interpreter
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:101  in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Verilator version 5.044 2026-01-01
+     0.00ns INFO     cocotb                             Running tests with cocotb v1.9.2 from /Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/lib/python3.13/site-packages/cocotb
+     0.00ns INFO     cocotb                             Seeding Python random module with 1790319218
+     0.00ns INFO     cocotb.regression                  Found test test_kernels.pinned_audio_vision_kernels_with_stalls
+     0.00ns INFO     cocotb.regression                  running pinned_audio_vision_kernels_with_stalls (1/1)
+460170.00ns INFO     cocotb.regression                  pinned_audio_vision_kernels_with_stalls passed
+460170.00ns INFO     cocotb.regression                  **************************************************************************************************************
+                                                        ** TEST                                                  STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        **************************************************************************************************************
+                                                        ** test_kernels.pinned_audio_vision_kernels_with_stalls   PASS      460170.00           2.74     167717.61  **
+                                                        **************************************************************************************************************
+                                                        ** TESTS=1 PASS=1 FAIL=0 SKIP=0                                     460170.00           3.02     152446.07  **
+                                                        **************************************************************************************************************
+
+- :0: Verilog $finish
+INFO: Running command perl /opt/homebrew/bin/verilator -cc --exe -Mdir /Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/sim_kernels -DCOCOTB_SIM=1 --top-module v2_engine --vpi --public-flat-rw --prefix Vtop -o v2_engine -LDFLAGS '-Wl,-rpath,/Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/lib/python3.13/site-packages/cocotb/libs -L/Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/lib/python3.13/site-packages/cocotb/libs -lcocotbvpi_verilator' --timing -Wno-fatal /Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/lib/python3.13/site-packages/cocotb/share/lib/verilator/verilator.cpp /Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/target_pkg.sv /Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/requantizer.sv /Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/scratchpad.sv /Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/engine.sv /Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/command.sv /Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/system.sv /Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/uart_rx.sv /Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/uart_tx.sv /Users/sayat/Documents/GitHub/tinyML_accelerator/hardware/tang_nano_v2.sv in directory /Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/sim_kernels
+INFO: Running command make -C /Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/sim_kernels -f Vtop.mk VM_TRACE=0 in directory /Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/sim_kernels
+INFO: Running command /Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/sim_kernels/v2_engine in directory /Users/sayat/Documents/GitHub/tinyML_accelerator/test/phase4
+INFO: Results file: /Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/sim_kernels/results.xml
+/Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/bin/python3 test/phase4/run_dma.py
+/Users/sayat/Documents/GitHub/tinyML_accelerator/test/phase4/run_dma.py:5: UserWarning: Python runners and associated APIs are an experimental feature and subject to change.
+  from cocotb.runner import get_runner
+- V e r i l a t i o n   R e p o r t: Verilator 5.044 2026-01-01 rev vUNKNOWN-built20260101
+- Verilator: Built from 0.000 MB sources in 0 modules, into 0.000 MB in 0 C++ files needing 0.000 MB
+- Verilator: Walltime 0.002 s (elab=0.000, cvt=0.000, bld=0.000); cpu 0.001 s on 1 threads; alloced 3.109 MB
+make[1]: Nothing to be done for `default'.
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:81   in set_program_name_in_venv        Did not detect Python virtual environment. Using system-wide Python interpreter
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:101  in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Verilator version 5.044 2026-01-01
+     0.00ns INFO     cocotb                             Running tests with cocotb v1.9.2 from /Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/lib/python3.13/site-packages/cocotb
+     0.00ns INFO     cocotb                             Seeding Python random module with 1790319221
+     0.00ns INFO     cocotb.regression                  Found test test_tile_dma.tile_transfer_backpressure_bounds_and_abort
+     0.00ns INFO     cocotb.regression                  running tile_transfer_backpressure_bounds_and_abort (1/1)
+ 63490.00ns INFO     cocotb.regression                  tile_transfer_backpressure_bounds_and_abort passed
+ 63490.00ns INFO     cocotb.regression                  *******************************************************************************************************************
+                                                        ** TEST                                                       STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        *******************************************************************************************************************
+                                                        ** test_tile_dma.tile_transfer_backpressure_bounds_and_abort   PASS       63490.00           0.48     132688.88  **
+                                                        *******************************************************************************************************************
+                                                        ** TESTS=1 PASS=1 FAIL=0 SKIP=0                                           63490.00           0.68      92773.74  **
+                                                        *******************************************************************************************************************
+
+- :0: Verilog $finish
+INFO: Running command perl /opt/homebrew/bin/verilator -cc --exe -Mdir /Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/sim_dma -DCOCOTB_SIM=1 --top-module v2_tile_dma --vpi --public-flat-rw --prefix Vtop -o v2_tile_dma -LDFLAGS '-Wl,-rpath,/Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/lib/python3.13/site-packages/cocotb/libs -L/Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/lib/python3.13/site-packages/cocotb/libs -lcocotbvpi_verilator' --timing -Wno-fatal /Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/lib/python3.13/site-packages/cocotb/share/lib/verilator/verilator.cpp /Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/tile_dma.sv in directory /Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/sim_dma
+INFO: Running command make -C /Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/sim_dma -f Vtop.mk VM_TRACE=0 in directory /Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/sim_dma
+INFO: Running command /Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/sim_dma/v2_tile_dma in directory /Users/sayat/Documents/GitHub/tinyML_accelerator/test/phase4
+INFO: Results file: /Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/sim_dma/results.xml
+/Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/bin/python3 test/phase4/run_tiled_core.py
+/Users/sayat/Documents/GitHub/tinyML_accelerator/test/phase4/run_tiled_core.py:9: UserWarning: Python runners and associated APIs are an experimental feature and subject to change.
+  from cocotb.runner import get_runner
+- V e r i l a t i o n   R e p o r t: Verilator 5.044 2026-01-01 rev vUNKNOWN-built20260101
+- Verilator: Built from 0.000 MB sources in 0 modules, into 0.000 MB in 0 C++ files needing 0.000 MB
+- Verilator: Walltime 0.002 s (elab=0.000, cvt=0.000, bld=0.000); cpu 0.002 s on 1 threads; alloced 3.125 MB
+make[1]: Nothing to be done for `default'.
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:81   in set_program_name_in_venv        Did not detect Python virtual environment. Using system-wide Python interpreter
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:101  in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Verilator version 5.044 2026-01-01
+     0.00ns INFO     cocotb                             Running tests with cocotb v1.9.2 from /Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/lib/python3.13/site-packages/cocotb
+     0.00ns INFO     cocotb                             Seeding Python random module with 1790319222
+     0.00ns INFO     cocotb.regression                  Found test test_tiled_core.engine_dma_arbitration_and_read_ownership
+     0.00ns INFO     cocotb.regression                  running engine_dma_arbitration_and_read_ownership (1/1)
+ 38620.00ns INFO     cocotb.regression                  engine_dma_arbitration_and_read_ownership passed
+ 38620.00ns INFO     cocotb.regression                  *******************************************************************************************************************
+                                                        ** TEST                                                       STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        *******************************************************************************************************************
+                                                        ** test_tiled_core.engine_dma_arbitration_and_read_ownership   PASS       38620.00           0.26     149690.40  **
+                                                        *******************************************************************************************************************
+                                                        ** TESTS=1 PASS=1 FAIL=0 SKIP=0                                           38620.00           0.46      83490.21  **
+                                                        *******************************************************************************************************************
+
+- :0: Verilog $finish
+INFO: Running command perl /opt/homebrew/bin/verilator -cc --exe -Mdir /Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/sim_tiled_core -DCOCOTB_SIM=1 --top-module v2_tiled_core --vpi --public-flat-rw --prefix Vtop -o v2_tiled_core -LDFLAGS '-Wl,-rpath,/Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/lib/python3.13/site-packages/cocotb/libs -L/Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/lib/python3.13/site-packages/cocotb/libs -lcocotbvpi_verilator' --timing -Wno-fatal /Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/lib/python3.13/site-packages/cocotb/share/lib/verilator/verilator.cpp /Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/target_pkg.sv /Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/requantizer.sv /Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/scratchpad.sv /Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/engine.sv /Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/tile_dma.sv /Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/tiled_core.sv in directory /Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/sim_tiled_core
+INFO: Running command make -C /Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/sim_tiled_core -f Vtop.mk VM_TRACE=0 in directory /Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/sim_tiled_core
+INFO: Running command /Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/sim_tiled_core/v2_tiled_core in directory /Users/sayat/Documents/GitHub/tinyML_accelerator/test/phase4
+INFO: Results file: /Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/sim_tiled_core/results.xml
+/Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/bin/python3 test/phase4/run_tiled_program.py
+/Users/sayat/Documents/GitHub/tinyML_accelerator/test/phase4/run_tiled_program.py:10: UserWarning: Python runners and associated APIs are an experimental feature and subject to change.
+  from cocotb.runner import get_runner
+- V e r i l a t i o n   R e p o r t: Verilator 5.044 2026-01-01 rev vUNKNOWN-built20260101
+- Verilator: Built from 0.000 MB sources in 0 modules, into 0.000 MB in 0 C++ files needing 0.000 MB
+- Verilator: Walltime 0.002 s (elab=0.000, cvt=0.000, bld=0.000); cpu 0.002 s on 1 threads; alloced 3.156 MB
+make[1]: Nothing to be done for `default'.
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:81   in set_program_name_in_venv        Did not detect Python virtual environment. Using system-wide Python interpreter
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:101  in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Verilator version 5.044 2026-01-01
+     0.00ns INFO     cocotb                             Running tests with cocotb v1.9.2 from /Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/lib/python3.13/site-packages/cocotb
+     0.00ns INFO     cocotb                             Seeding Python random module with 1790319223
+     0.00ns INFO     cocotb.regression                  Found test test_tiled_program.packed_conv_pool_fc_chain_matches_independent_oracle
+     0.00ns INFO     cocotb.regression                  running packed_conv_pool_fc_chain_matches_independent_oracle (1/1)
+1801330.00ns INFO     cocotb.regression                  packed_conv_pool_fc_chain_matches_independent_oracle passed
+1801330.00ns INFO     cocotb.regression                  *********************************************************************************************************************************
+                                                         ** TEST                                                                     STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                         *********************************************************************************************************************************
+                                                         ** test_tiled_program.packed_conv_pool_fc_chain_matches_independent_oracle   PASS     1801330.00          10.26     175502.03  **
+                                                         *********************************************************************************************************************************
+                                                         ** TESTS=1 PASS=1 FAIL=0 SKIP=0                                                       1801330.00          10.53     171100.27  **
+                                                         *********************************************************************************************************************************
+
+- :0: Verilog $finish
+INFO: Running command perl /opt/homebrew/bin/verilator -cc --exe -Mdir /Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/sim_tiled_program -DCOCOTB_SIM=1 --top-module v2_tiled_core --vpi --public-flat-rw --prefix Vtop -o v2_tiled_core -LDFLAGS '-Wl,-rpath,/Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/lib/python3.13/site-packages/cocotb/libs -L/Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/lib/python3.13/site-packages/cocotb/libs -lcocotbvpi_verilator' --timing -Wno-fatal /Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/lib/python3.13/site-packages/cocotb/share/lib/verilator/verilator.cpp /Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/target_pkg.sv /Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/requantizer.sv /Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/scratchpad.sv /Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/engine.sv /Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/tile_dma.sv /Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/tiled_core.sv in directory /Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/sim_tiled_program
+INFO: Running command make -C /Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/sim_tiled_program -f Vtop.mk VM_TRACE=0 in directory /Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/sim_tiled_program
+INFO: Running command /Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/sim_tiled_program/v2_tiled_core in directory /Users/sayat/Documents/GitHub/tinyML_accelerator/test/phase4
+INFO: Results file: /Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/sim_tiled_program/results.xml
+/Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/bin/python3 -m pytest tools/phase4/test_tiled_host.py -q --tb=short
+..                                                                       [100%]
+2 passed in 0.15s
+/Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/bin/python3 test/phase4/run_tiled_host.py
+/Users/sayat/Documents/GitHub/tinyML_accelerator/test/phase4/run_tiled_host.py:10: UserWarning: Python runners and associated APIs are an experimental feature and subject to change.
+  from cocotb.runner import get_runner
+- V e r i l a t i o n   R e p o r t: Verilator 5.044 2026-01-01 rev vUNKNOWN-built20260101
+- Verilator: Built from 0.000 MB sources in 0 modules, into 0.000 MB in 0 C++ files needing 0.000 MB
+- Verilator: Walltime 0.003 s (elab=0.000, cvt=0.000, bld=0.000); cpu 0.002 s on 1 threads; alloced 3.172 MB
+make[1]: Nothing to be done for `default'.
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:81   in set_program_name_in_venv        Did not detect Python virtual environment. Using system-wide Python interpreter
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:101  in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Verilator version 5.044 2026-01-01
+     0.00ns INFO     cocotb                             Running tests with cocotb v1.9.2 from /Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/lib/python3.13/site-packages/cocotb
+     0.00ns INFO     cocotb                             Seeding Python random module with 1790319235
+     0.00ns INFO     cocotb.regression                  Found test test_tiled_host.uart_packet_tile_program_uses_sdram_window_and_dma
+     0.00ns INFO     cocotb.regression                  running uart_packet_tile_program_uses_sdram_window_and_dma (1/1)
+ 46880.00ns INFO     cocotb.regression                  uart_packet_tile_program_uses_sdram_window_and_dma passed
+ 46880.00ns INFO     cocotb.regression                  ****************************************************************************************************************************
+                                                        ** TEST                                                                STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        ****************************************************************************************************************************
+                                                        ** test_tiled_host.uart_packet_tile_program_uses_sdram_window_and_dma   PASS       46880.00           0.29     163071.20  **
+                                                        ****************************************************************************************************************************
+                                                        ** TESTS=1 PASS=1 FAIL=0 SKIP=0                                                    46880.00           0.55      85942.84  **
+                                                        ****************************************************************************************************************************
+
+- :0: Verilog $finish
+INFO: Running command perl /opt/homebrew/bin/verilator -cc --exe -Mdir /Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/sim_tiled_host -DCOCOTB_SIM=1 --top-module v2_tiled_host_bridge --vpi --public-flat-rw --prefix Vtop -o v2_tiled_host_bridge -LDFLAGS '-Wl,-rpath,/Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/lib/python3.13/site-packages/cocotb/libs -L/Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/lib/python3.13/site-packages/cocotb/libs -lcocotbvpi_verilator' --timing -Wno-fatal /Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/lib/python3.13/site-packages/cocotb/share/lib/verilator/verilator.cpp /Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/target_pkg.sv /Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/requantizer.sv /Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/scratchpad.sv /Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/engine.sv /Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/tile_dma.sv /Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/tiled_core.sv /Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/command.sv /Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/tiled_host_bridge.sv in directory /Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/sim_tiled_host
+INFO: Running command make -C /Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/sim_tiled_host -f Vtop.mk VM_TRACE=0 in directory /Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/sim_tiled_host
+INFO: Running command /Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/sim_tiled_host/v2_tiled_host_bridge in directory /Users/sayat/Documents/GitHub/tinyML_accelerator/test/phase4
+INFO: Results file: /Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/sim_tiled_host/results.xml
+/Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/bin/python3 test/phase4/run_sdram_refresh.py
+/Users/sayat/Documents/GitHub/tinyML_accelerator/test/phase4/run_sdram_refresh.py:7: UserWarning: Python runners and associated APIs are an experimental feature and subject to change.
+  from cocotb.runner import get_runner
+- V e r i l a t i o n   R e p o r t: Verilator 5.044 2026-01-01 rev vUNKNOWN-built20260101
+- Verilator: Built from 0.000 MB sources in 0 modules, into 0.000 MB in 0 C++ files needing 0.000 MB
+- Verilator: Walltime 0.002 s (elab=0.000, cvt=0.000, bld=0.000); cpu 0.001 s on 1 threads; alloced 3.109 MB
+make[1]: Nothing to be done for `default'.
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:81   in set_program_name_in_venv        Did not detect Python virtual environment. Using system-wide Python interpreter
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:101  in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Verilator version 5.044 2026-01-01
+     0.00ns INFO     cocotb                             Running tests with cocotb v1.9.2 from /Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/lib/python3.13/site-packages/cocotb
+     0.00ns INFO     cocotb                             Seeding Python random module with 1790319236
+     0.00ns INFO     cocotb.regression                  Found test test_sdram_refresh.refresh_cadence_stalls_catchup_and_reset
+     0.00ns INFO     cocotb.regression                  running refresh_cadence_stalls_catchup_and_reset (1/1)
+  3940.00ns INFO     cocotb.regression                  refresh_cadence_stalls_catchup_and_reset passed
+  3940.00ns INFO     cocotb.regression                  *********************************************************************************************************************
+                                                        ** TEST                                                         STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        *********************************************************************************************************************
+                                                        ** test_sdram_refresh.refresh_cadence_stalls_catchup_and_reset   PASS        3940.00           0.02     174508.04  **
+                                                        *********************************************************************************************************************
+                                                        ** TESTS=1 PASS=1 FAIL=0 SKIP=0                                              3940.00           0.05      77444.82  **
+                                                        *********************************************************************************************************************
+
+- :0: Verilog $finish
+INFO: Running command perl /opt/homebrew/bin/verilator -cc --exe -Mdir /Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/sim_sdram_refresh -DCOCOTB_SIM=1 --top-module v2_sdram_refresh --vpi --public-flat-rw --prefix Vtop -o v2_sdram_refresh -LDFLAGS '-Wl,-rpath,/Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/lib/python3.13/site-packages/cocotb/libs -L/Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/lib/python3.13/site-packages/cocotb/libs -lcocotbvpi_verilator' --timing -Wno-fatal -GREFRESH_PERIOD_CYCLES=8 /Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/lib/python3.13/site-packages/cocotb/share/lib/verilator/verilator.cpp /Users/sayat/Documents/GitHub/tinyML_accelerator/rtl/v2/sdram_refresh.sv in directory /Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/sim_sdram_refresh
+INFO: Running command make -C /Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/sim_sdram_refresh -f Vtop.mk VM_TRACE=0 in directory /Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/sim_sdram_refresh
+INFO: Running command /Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/sim_sdram_refresh/v2_sdram_refresh in directory /Users/sayat/Documents/GitHub/tinyML_accelerator/test/phase4
+INFO: Results file: /Users/sayat/Documents/GitHub/tinyML_accelerator/work/phase4/sim_sdram_refresh/results.xml
+/Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/bin/python3 tools/phase4/audit_inventories.py
+{
+  "kws": {
+    "operators": 22,
+    "classes": {
+      "reshape": 2,
+      "ordinary_conv": 1,
+      "relu": 9,
+      "depthwise": 4,
+      "pointwise": 4,
+      "average_pool": 1,
+      "gemm": 1
+    },
+    "unsupported": 0,
+    "placement_pressure": 0,
+    "weight_pressure": 0,
+    "all_persistent_weight_parameter_bytes": 33216
+  },
+  "vww": {
+    "operators": 58,
+    "classes": {
+      "declared_host_layout": 1,
+      "ordinary_conv": 1,
+      "relu": 27,
+      "depthwise": 13,
+      "pointwise": 13,
+      "average_pool": 1,
+      "reshape": 1,
+      "gemm": 1
+    },
+    "unsupported": 0,
+    "placement_pressure": 6,
+    "weight_pressure": 2,
+    "all_persistent_weight_parameter_bytes": 260640
+  }
+}
+/Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/bin/python3 tools/phase4/plan_tiling.py --check
+{
+  "schema": 1,
+  "evidence_type": "geometry-only boardless schedule; not inference or SDRAM measurement",
+  "models": {
+    "kws": {
+      "inventory_sha256": "c66cff83065c39d176f2c289e3b707f258e3a30f6a8fad912e0e46d38675f0d1",
+      "plan_sha256": "dfe963c31bb6cd33df9425e1ecfcfec123ecc48ed3f45618188a94dc743b03ef",
+      "nodes": 22,
+      "compute_tiles": 20,
+      "compute_nodes": 20,
+      "activation_slot_bytes": 8000,
+      "external_image_end": 49376,
+      "peak_tile_sram_bytes": 21248,
+      "dma_transactions": 70,
+      "dma_payload_bytes": 322006,
+      "dma_physical_read_bytes": 177936,
+      "dma_ideal_data_beats_lower_bound": 40252,
+      "max_external_transfer_end": 49376,
+      "per_node_tiles": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    "vww": {
+      "inventory_sha256": "43e05faf97353b47488b5b452697376e89a978f8c57b71d28874ad27d232a18d",
+      "plan_sha256": "94e14ad6fc9bfaa1080c7c1d45571b80eb39508a9f5a63c05e1c77d88f75b7bc",
+      "nodes": 58,
+      "compute_tiles": 75,
+      "compute_nodes": 56,
+      "activation_slot_bytes": 36864,
+      "external_image_end": 334816,
+      "peak_tile_sram_bytes": 32768,
+      "dma_transactions": 265,
+      "dma_payload_bytes": 1359570,
+      "dma_physical_read_bytes": 896208,
+      "dma_ideal_data_beats_lower_bound": 169947,
+      "max_external_transfer_end": 334816,
+      "per_node_tiles": [
+        0,
+        4,
+        2,
+        2,
+        2,
+        3,
+        3,
+        2,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        3,
+        1,
+        1,
+        0,
+        1
+      ]
+    }
+  }
+}
+/Users/sayat/Documents/GitHub/tinyML_accelerator/.venv/bin/python3 tools/phase4/audit_pingpong_feasibility.py
+{"kws": {"eligible": 22, "total": 22, "ineligible": []}, "vww": {"eligible": 55, "total": 58, "ineligible": [1, 5, 13]}}

@@ -86,9 +86,16 @@ image now integrates the actual tiled core, scratchpad, DMA and HS SDRAM port;
 three fresh-program runs passed a full 32-KiB round trip ending at the last
 SDRAM byte and a partial-tail bank crossing. It measured 5.542 MiB/s for
 full-tile DMA in each direction at nominal 20.25 MHz. The compute engine was
-held idle in that diagnostic. Useful compute/transfer overlap, host-command
-accelerator integration, physical tensor-value tiled inference, the fitted
-cost database and full-set model validation remain pending.
+held idle in that diagnostic. A new host-command accelerator candidate now
+integrates UART, engine, tile DMA, scratchpad and the Gowin HS SDRAM port. It
+passes packet-level upload/DMA/compute/readback simulation and routes at
+22.008 MHz against a 20.25-MHz core clock, but has not run on the board. The
+full framed-host path passes all 22 KWS and 58 VWW node outputs on one
+deterministic input per real model with behavioral external memory. An audited
+simple 16-KiB/16-KiB scratchpad split cannot fit three VWW Conv nodes, so
+double buffering needs a hybrid/finer-tiling design.
+Useful compute/transfer overlap, physical tensor-value tiled inference, the
+fitted cost database and full-set model validation remain pending.
 The new boardless materializer packs a calibrated `Program` into per-tile
 descriptors and an external parameter image. Synthetic parameters cover all
 22 KWS and 58 VWW pinned geometries; a real-engine/DMA/SRAM RTL regression

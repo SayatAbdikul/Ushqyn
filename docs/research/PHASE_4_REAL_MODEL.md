@@ -43,9 +43,10 @@ loads and all behavioral memory stalls; they are not physical inference FPS.
 The KWS graph has 22 operators and 20 compute tiles; its parameter image
 through the final packed region is 49,376 bytes. VWW has 58 operators and 75
 compute tiles; its image is 334,816 bytes. Actual board closure still needs an
-SDRAM-connected host-command hierarchy, useful compute/DMA overlap, routed
-timing and physical output validation. Complete-set accuracy uses the frozen
-quality fixtures and is a separate check.
+physical output validation, useful compute/DMA overlap and measured bandwidth.
+The SDRAM-connected host-command hierarchy now exists and meets post-route
+timing, but has not been programmed on the board. Complete-set accuracy uses
+the frozen quality fixtures and is a separate check.
 
 Both one-input full-graph RTL runs passed on 2026-09-24. The archived
 [KWS report](evidence/phase4/boardless-real-kws.json) records all 22 exact
@@ -66,3 +67,22 @@ model, calibration, plan and expected-output hashes. The
 pass events. The external-memory port is behavioral with randomized stalls;
 the recorded 5,561,680 KWS and 18,008,277 VWW simulated clocks include host
 activity and must not be read as physical inference latency or FPS.
+
+The newer framed-host regression executes the same prepared fixture through
+the packet parser, host-visible 8-MiB window, DMA registers and tiled engine.
+It validates the upload/run/readback sequence intended for the routed
+[board candidate](../../hardware/phase4_sdram/TILED_HOST.md), still using a
+behavioral external-memory port. To reproduce it after preparing the fixtures:
+
+```sh
+.venv/bin/python3 test/phase4/run_tiled_host.py --fixture work/phase4/rtl-kws
+.venv/bin/python3 test/phase4/run_tiled_host.py --fixture work/phase4/rtl-vww
+```
+
+The separate [physical host runner](../../tools/phase4/tiled_host.py) uses the
+same tile plan and exact expected tensors once a board is available. It
+records engine counters and DMA payload bytes independently of host wall time.
+The framed-host boardless runs passed all [22 KWS nodes](evidence/phase4/boardless-host-kws.json)
+and [58 VWW nodes](evidence/phase4/boardless-host-vww.json) on 2026-09-25.
+Those reports pin fixture and transcript hashes. They do not exercise the
+encrypted controller's physical SDRAM signaling or establish board FPS.

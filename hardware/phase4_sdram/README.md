@@ -38,8 +38,10 @@ refresh. Its clean routed image passed twice on the board. The write-data
 changeover and four-clock read offset follow a [working Tang Nano 20K Gowin
 HS implementation](https://github.com/calint/tang-nano-20k--riscv--cache-sdram/blob/main/src/cache.sv).
 The IP command port is single outstanding and the adapter waits for command
-acknowledgment and precharge before accepting another beat. The DMA diagnostic
-uses this port, but the host-command accelerator image does not yet use it.
+acknowledgment and precharge before accepting another beat. The physically
+tested DMA diagnostic uses this port. The new
+[host-command tiled candidate](TILED_HOST.md) also uses it and has passed
+boardless RTL regression and routing, but has not been programmed on the board.
 
 `dma_smoke.sv` fills the real 32-KiB scratchpad, copies the full tile to SDRAM
 at `0x7f8000`, clears SRAM, copies it back, and checks all 4096 64-bit words.
@@ -55,7 +57,8 @@ buffers, useful compute/transfer overlap or full-model inference.
 For either build, make a fresh output directory and run Gowin's `gw_sh` with
 `DYLD_FRAMEWORK_PATH` and `DYLD_LIBRARY_PATH` set to the installed IDE's `lib`
 directory, as shown in [the physical build guide](../PHYSICAL.md). Use
-`build.tcl`, `build_hs.tcl`, `build_burst.tcl`, or `build_dma.tcl`, respectively.
+`build.tcl`, `build_hs.tcl`, `build_burst.tcl`, `build_dma.tcl`, or
+`build_tiled_host.tcl`, respectively.
 Program only
 the resulting `.fs` to temporary FPGA SRAM (`openFPGALoader -m`); this leaves
 the board flash unchanged. The physical test runners under `tools/physical/`
