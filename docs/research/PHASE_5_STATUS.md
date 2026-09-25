@@ -3,7 +3,8 @@
 **Physical addendum:** the SDRAM-connected board has now passed one complete,
 byte-exact KWS input and one complete, byte-exact VWW input on the same image,
 with every intermediate node checked. It also passed the prior on-chip
-MLP/SmallCNN tensors through SDRAM and a directed compute/DMA overlap. See
+MLP/SmallCNN tensors through SDRAM and autonomous full-model compute/DMA
+overlap on both primary workloads. G4 now passes. See
 the [Phase 4 physical evidence](PHASE_4_STATUS.md). This is one input per
 primary model, not the complete accuracy or 10,000-job switch workload below.
 
@@ -85,9 +86,9 @@ SDRAM behavior, end-to-end latency or power.
 
 ## Work required to close G5
 
-1. Close G4's remaining compiler-managed ping-pong/streaming DMA and reliable
-   static cost-model gates. The integrated SDRAM image and one-input KWS/VWW
-   node-value checks are complete.
+1. G4 is now closed: autonomous hybrid ping-pong, burst DMA and the static
+   latency model pass their physical gates. Use the new release and preserve
+   its exact source/bitstream identity for the Phase 5 campaigns.
 2. Materialize the frozen KWS/VWW model images and accuracy payloads using
    [the pinned benchmark recipes](../../benchmarks/README.md). Validate all
    source, preprocessing and split hashes before using them.

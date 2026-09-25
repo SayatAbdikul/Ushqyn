@@ -1,0 +1,47 @@
+{
+  "bitstream_sha256": "ea4eed105933e87d308d42b4bfa581010e843c9c9b9f94e9c9e8e852c19b98fb",
+  "checks": [
+    "complete frozen audio/vision kernels",
+    "retained full-range SDRAM evidence",
+    "compiler-managed hybrid ping-pong with full-model net benefit",
+    "64-byte burst DMA correctness and bandwidth",
+    "live-region guard, abort/reset and stalled simulation",
+    "prospective compiler-static timing prediction and held-out DMA fit"
+  ],
+  "gate": "G4",
+  "limits": [
+    "one deterministic primary input per model; complete-set quality and 10000 jobs are Phase 5",
+    "physical energy unavailable without instrumentation",
+    "clock below the broader 27/54-MHz aspirations; no SOTA or publication claim"
+  ],
+  "performance": {
+    "kws": {
+      "execution_ms_median": 280.9397037037037,
+      "input_run_output_wall_seconds_median": 0.39604924991726875,
+      "overlap_cycles_median": 5689029,
+      "overlap_speedup": 1.0125968772526912,
+      "sequential_cycles_median": 5760693
+    },
+    "vww": {
+      "execution_ms_median": 903.7503703703703,
+      "input_run_output_wall_seconds_median": 6.119066167157143,
+      "overlap_cycles_median": 18300945,
+      "overlap_speedup": 1.0270634112063612,
+      "sequential_cycles_median": 18796231
+    }
+  },
+  "reports_sha256": {
+    "physical-sequence-checks.json": "287c28fee001da0103893b48e791d676fa956646d045d8429ef33752d06aa4a6",
+    "physical-sequence-costs.json": "757821f05d844d876ac3472b3efa4123239d6b3d907e84a9cb5c1f08da457913",
+    "physical-sequence-dma.json": "2fbd75122d5d39004f62932676780f85b7958a5b2a17506acee8c902e3b5cd76",
+    "physical-sequence-kernel-holdout.json": "3103faabf51588e135f50022f45e52b66b41ee531ee7b98f5012f3663d22754e",
+    "physical-sequence-kws.json": "fb3c2d7edbfd072a20bf9fbad5f044286acb25c2f757b15c8e898822ce42c7bf",
+    "physical-sequence-legacy.json": "ad441c64e3eb717d4473fdfd28630dcb4e6c140a8515f9d04c668e6725ec992d",
+    "physical-sequence-synthetic.json": "ba7673046ec68a88d9bfa1ace007bcddc6cdb8b88ba3c23082efff447327bdc2",
+    "physical-sequence-vww.json": "12059758899477d6ace9b6d6cbebc227626028941f4f0e19a013bdfccc39e458"
+  },
+  "retained_sdram_evidence_sha256": "fc1a1a1812ef48e00407b9f8797cc1c2e8a61307408f786912936910219e79b4",
+  "route_sha256": "d7088b8137c08297a1258dd23030b2e81c7c0f5d7ef1d30829cbdd63fc2153e5",
+  "status": "passed",
+  "suite_sha256": "f07538e978cea14df9d65e0e082415941b37277f24ef1f3f4360fa05856a42dd"
+}

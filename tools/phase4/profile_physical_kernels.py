@@ -17,6 +17,7 @@ from kernel_vectors import vectors
 from tiled_host import TiledClient
 from host import RESET
 from hardware_v2 import Descriptor
+from phase4_cost import engine_cycles
 
 
 def main():
@@ -25,16 +26,31 @@ def main():
     parser.add_argument('--bitstream', required=True, type=Path)
     parser.add_argument('--report', required=True, type=Path)
     parser.add_argument('--repeats', type=int, default=3)
+    parser.add_argument('--holdout', action='store_true')
+    parser.add_argument('--recover-usb', action='store_true')
     args = parser.parse_args()
     if args.repeats < 1:
         raise ValueError('repeats must be positive')
     cases = []
+    source_vectors = vectors
+    if args.holdout:
+        from holdout_vectors import vectors as source_vectors
+    prepared = list(source_vectors())
+    predictions = [{'label': v[-1], 'descriptor': vars(v[0]),
+                    'predicted_cycles': engine_cycles(v[0])} for v in prepared]
+    args.report.parent.mkdir(parents=True, exist_ok=True)
+    prediction_path=args.report.with_suffix('.predictions.json')
+    prediction_path.write_text(json.dumps(predictions,indent=2,sort_keys=True)+'\n')
     with serial.Serial(args.port, 115200, timeout=5, write_timeout=5) as uart:
         uart.reset_input_buffer()
-        client = TiledClient(uart)
+        client_type=TiledClient
+        if args.recover_usb:
+            from run_physical_sequence import RecoverableUploadClient
+            client_type=RecoverableUploadClient
+        client = client_type(uart)
         client.capabilities()
         client.wait_idle(30)
-        for desc, inputs, weights, params, expected, macs, label in vectors():
+        for desc, inputs, weights, params, expected, macs, label in prepared:
             client.exchange(RESET)
             segments = [(0, desc.encode() + Descriptor(0).encode()),
                         (desc.input, np.asarray(inputs, np.int8).tobytes())]
@@ -63,6 +79,7 @@ def main():
             cases.append({'label': label, 'descriptor': vars(desc),
                           'expected_sha256': hashlib.sha256(expected_bytes).hexdigest(),
                           'runs': runs, 'integer_mismatches': 0})
+            cases[-1]['predicted_cycles']=engine_cycles(desc)
             print(f'{label}: {args.repeats} exact physical runs, '
                   f'{runs[-1]["elapsed"]} engine cycles', flush=True)
     result = {
@@ -70,6 +87,8 @@ def main():
         'bitstream_sha256': hashlib.sha256(args.bitstream.read_bytes()).hexdigest(),
         'scope': 'directed audio/vision kernels on host-addressable SDRAM image',
         'cases': cases,
+        'prospective_holdout': args.holdout,
+        'predictions_sha256': hashlib.sha256(prediction_path.read_bytes()).hexdigest(),
         'limits': ['SRAM-resident kernel cycles; no DMA or UART time included',
                    'nominal 20.25-MHz core clock'],
     }

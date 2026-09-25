@@ -141,40 +141,32 @@ using `run_models.py` or `run_checks.py`. A USB power cycle erases the temporary
 image. If JTAG programming works but UART loopback is silent, power-cycle the
 USB connection, reprogram the image and rerun loopback.
 
-## Phase 4 SDRAM-connected release
+## Phase 4 autonomous SDRAM-connected release
 
-The [current Phase 4 image](releases/phase4-sdram/hs_tiled_host_overlap.fs)
-has SHA256 `c8eb28fadf68d14fac8c9592c608b73b3bb8ddff0a23c215b94f3d1d442ad206`.
-It is a separate 20.25-MHz routed hierarchy with the Gowin HS SDRAM
-controller, scratchpad, engine, tile DMA and UART host bridge. Configure it
-temporarily with `openFPGALoader` and run the exact-data checks:
+The current image is `hardware/releases/phase4-sdram/hs_tiled_autonomous.fs`,
+SHA256 `ea4eed105933e87d308d42b4bfa581010e843c9c9b9f94e9c9e8e852c19b98fb`.
+It operates at 20.25 MHz and includes the command sequencer, 32-KiB engine
+scratchpad, tile DMA and 64-byte burst SDRAM adapter. G4's physical results
+and limits are recorded in [Phase 4 closure](../docs/research/PHASE_4_STATUS.md).
 
 ```sh
 openFPGALoader -b tangnano20k --ftdi-serial 2025030317 --freq 2500000 -m -v \
-  hardware/releases/phase4-sdram/hs_tiled_host_overlap.fs
-.venv/bin/python3 tools/phase4/tiled_host.py \
-  --port /dev/cu.usbserial-20250303171 \
-  --fixture work/phase4/rtl-kws --timeout 30 \
-  --report work/phase4/repeat-kws.json
-.venv/bin/python3 tools/phase4/tiled_host.py \
-  --port /dev/cu.usbserial-20250303171 \
-  --fixture work/phase4/rtl-vww --timeout 30 \
-  --report work/phase4/repeat-vww.json
-.venv/bin/python3 tools/phase4/run_physical_overlap.py \
-  --port /dev/cu.usbserial-20250303171 \
-  --bitstream hardware/releases/phase4-sdram/hs_tiled_host_overlap.fs \
-  --report work/phase4/repeat-overlap.json
+  hardware/releases/phase4-sdram/hs_tiled_autonomous.fs
+.venv/bin/python3 tools/phase4/run_physical_sequence.py --model kws \
+  --bitstream hardware/releases/phase4-sdram/hs_tiled_autonomous.fs \
+  --report work/phase4/repeat-autonomous-kws.json
+.venv/bin/python3 tools/phase4/run_physical_sequence.py --model vww \
+  --bitstream hardware/releases/phase4-sdram/hs_tiled_autonomous.fs \
+  --report work/phase4/repeat-autonomous-vww.json
+.venv/bin/python3 tools/phase4/audit_phase4_closure.py
 ```
 
-Keep the same programmed image for KWS and VWW. The prepared fixtures are
-hash-checked against the source-model manifests by the runner. The overlap
-test stages an independent DMA outside the live Conv scratch region, checks
-both outputs and verifies that an attempted live-region overwrite is rejected.
-For MLP/SmallCNN SDRAM comparisons, run
-`tools/phase4/run_physical_legacy.py`; for short/tail/high-address DMA,
-directed kernels and ToyCar AD shapes with synthetic weights, use the other
-`tools/phase4/*physical*.py` runners. The [Phase 4 status](../docs/research/PHASE_4_STATUS.md)
-links the source-pinned physical reports and post-route timing.
+Keep the same programmed image for both workloads. The runner verifies model,
+calibration and fixture hashes, compares all intermediate snapshots, and then
+measures sequential/overlap modes on identical tile placements. The last command
+checks archived evidence; new reports should be archived and audited explicitly.
+See [AUTONOMOUS.md](phase4_sdram/AUTONOMOUS.md) for interface/measurement details.
+The older `hs_tiled_host_overlap.fs` remains an archived diagnostic baseline.
 
 ## Measurement boundary
 

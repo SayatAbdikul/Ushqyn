@@ -18,7 +18,7 @@ sources = [ROOT/name for name in (
     'rtl/v2/target_pkg.sv', 'rtl/v2/requantizer.sv',
     'rtl/v2/scratchpad.sv', 'rtl/v2/engine.sv',
     'rtl/v2/tile_dma.sv', 'rtl/v2/tiled_core.sv',
-    'rtl/v2/command.sv', 'rtl/v2/tiled_host_bridge.sv')]
+    'rtl/v2/command.sv', 'rtl/v2/tile_sequencer.sv', 'rtl/v2/tiled_host_bridge.sv')]
 runner = get_runner('verilator')
 runner.build(verilog_sources=sources, hdl_toplevel='v2_tiled_host_bridge',
              build_dir=BUILD, build_args=['--timing', '-Wno-fatal'],

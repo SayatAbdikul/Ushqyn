@@ -47,6 +47,16 @@ module v2_tiled_host_bridge #(
     logic mmio_rvalid;
     logic [63:0] mmio_rdata;
     logic [1:0] read_owner; // 1 = DMA, 2 = host
+    logic seq_busy, seq_start, seq_abort, seq_engine_start, seq_dma_start;
+    logic seq_dma_to_sram, seq_host_ready, seq_host_rvalid, seq_reg_rvalid;
+    logic [7:0] seq_error;
+    logic [11:0] seq_index;
+    logic [23:0] seq_pc, seq_dma_ext, seq_dma_sram;
+    logic [31:0] seq_dma_length, seq_elapsed, seq_engine_cycles, seq_dma_cycles, seq_overlap;
+    logic [63:0] seq_host_rdata, seq_reg_rdata;
+    wire seq_program_region = command_addr>=24'h500000 && command_addr<24'h508000;
+    wire seq_control_region = command_addr>=24'h410000 && command_addr<24'h410020;
+    wire active_dma_start = seq_busy ? seq_dma_start : dma_start;
 
     wire sram_region = command_addr < 24'h008000;
     wire mmio_region = command_addr >= 24'h400000 &&
@@ -63,10 +73,10 @@ module v2_tiled_host_bridge #(
         .tx_valid(tx_valid), .tx_data(tx_data), .tx_ready(tx_ready),
         .start(start_engine), .abort_run(abort_command),
         .clear_counters(clear_counters), .start_pc(start_pc),
-        .busy(engine_busy || dma_busy || dma_pending || !memory_initialized),
-        .core_error(engine_error != 0 ? engine_error :
+        .busy(seq_busy || engine_busy || dma_busy || dma_pending || !memory_initialized),
+        .core_error(seq_error != 0 ? seq_error : engine_error != 0 ? engine_error :
                     dma_error != 0 ? dma_error : guard_error),
-        .mmio_while_busy(memory_initialized && engine_busy &&
+        .mmio_while_busy(!seq_busy && memory_initialized && engine_busy &&
                          !dma_busy && !dma_pending),
         .elapsed(engine_elapsed), .compute_cycles(compute_cycles),
         .wait_cycles(wait_cycles), .control_cycles(control_cycles),
@@ -81,17 +91,20 @@ module v2_tiled_host_bridge #(
 
     v2_tiled_core core (
         .clk(clk), .rst_n(rst_n),
-        .engine_start(start_engine), .engine_abort(abort_command),
-        .engine_start_pc(start_pc), .engine_busy(engine_busy),
+        .engine_start(seq_busy ? seq_engine_start : start_engine),
+        .engine_abort(abort_command || seq_abort),
+        .engine_start_pc(seq_busy ? seq_pc : start_pc), .engine_busy(engine_busy),
         .engine_done(engine_done), .engine_error(engine_error),
         .engine_elapsed(engine_elapsed), .compute_cycles(compute_cycles),
         .wait_cycles(wait_cycles), .control_cycles(control_cycles),
         .useful_macs(useful_macs), .read_bytes(read_bytes),
         .write_bytes(write_bytes), .layer_count(layer_count),
-        .dma_start(dma_start),
-        .dma_abort(abort_command || dma_abort_register),
-        .dma_to_sram(dma_to_sram), .dma_sram_base(dma_sram_base),
-        .dma_ext_base(dma_ext_base), .dma_length(dma_length),
+        .dma_start(active_dma_start),
+        .dma_abort(abort_command || seq_abort || dma_abort_register),
+        .dma_to_sram(seq_busy ? seq_dma_to_sram : dma_to_sram),
+        .dma_sram_base(seq_busy ? seq_dma_sram : dma_sram_base),
+        .dma_ext_base(seq_busy ? seq_dma_ext : dma_ext_base),
+        .dma_length(seq_busy ? seq_dma_length : dma_length),
         .dma_busy(dma_busy), .dma_done(dma_done), .dma_error(dma_error),
         .dma_bytes_copied(dma_bytes_copied),
         .host_req(command_req && sram_region), .host_wr(command_wr),
@@ -105,6 +118,36 @@ module v2_tiled_host_bridge #(
         .ext_rdata(ext_rdata)
     );
 
+    v2_tile_sequencer sequencer (
+        .clk(clk), .rst_n(rst_n), .start(seq_start), .abort_run(abort_command),
+        .busy(seq_busy), .abort_units(seq_abort), .error_code(seq_error),
+        .elapsed(seq_elapsed), .engine_cycles(seq_engine_cycles),
+        .dma_cycles(seq_dma_cycles), .overlap_cycles(seq_overlap), .command_index(seq_index),
+        .host_req(command_req && seq_program_region), .host_wr(command_wr),
+        .host_addr(command_addr), .host_wdata(command_wdata), .host_wstrb(command_wstrb),
+        .host_ready(seq_host_ready), .host_rvalid(seq_host_rvalid), .host_rdata(seq_host_rdata),
+        .engine_start(seq_engine_start), .engine_pc(seq_pc),
+        .engine_busy(engine_busy), .engine_error(engine_error),
+        .dma_start(seq_dma_start), .dma_to_sram(seq_dma_to_sram),
+        .dma_ext(seq_dma_ext), .dma_sram(seq_dma_sram), .dma_length(seq_dma_length),
+        .dma_busy(dma_busy || dma_pending), .dma_error(dma_error)
+    );
+    wire [255:0] seq_registers = {32'd0, 20'd0,seq_index, seq_overlap,
+        seq_dma_cycles, seq_engine_cycles, seq_elapsed, 32'h34514553,
+        16'd0, seq_error, 7'd0,seq_busy};
+    always_ff @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin seq_start<=0;seq_reg_rvalid<=0;seq_reg_rdata<=0;end
+        else begin
+            seq_start<=0;
+            seq_reg_rvalid<=command_req && seq_control_region && !command_wr;
+            if (command_req && seq_control_region) begin
+                if (!command_wr) seq_reg_rdata<=seq_registers >> (command_addr[4:0]*8);
+                else if (command_addr[4:0]==0 && command_wstrb[0] && command_wdata[0])
+                    seq_start<=1;
+            end
+        end
+    end
+
     always_comb begin
         ext_req = core_ext_req || host_ext_req;
         ext_wr = core_ext_req ? core_ext_wr : command_wr;
@@ -115,9 +158,11 @@ module v2_tiled_host_bridge #(
         core_ext_rvalid = ext_rvalid && read_owner == 2'd1;
         command_ready = (sram_region && sram_ready) ||
                         (mmio_region && command_req) ||
+                        (seq_program_region && seq_host_ready) ||
+                        (seq_control_region && command_req) ||
                         (external_region && host_ext_ready);
-        command_rvalid = sram_rvalid || mmio_rvalid || host_ext_rvalid;
-        command_rdata = sram_rvalid ? sram_rdata :
+        command_rvalid = sram_rvalid || mmio_rvalid || host_ext_rvalid || seq_host_rvalid || seq_reg_rvalid;
+        command_rdata = seq_host_rvalid ? seq_host_rdata : seq_reg_rvalid ? seq_reg_rdata : sram_rvalid ? sram_rdata :
                         mmio_rvalid ? mmio_rdata : ext_rdata;
     end
 
@@ -186,7 +231,7 @@ module v2_tiled_host_bridge #(
                 guard_error <= 0;
             end else if (engine_busy && dma_busy && overlap_cycles != 16'hffff)
                 overlap_cycles <= overlap_cycles + 1'b1;
-            if (dma_start) begin
+            if (active_dma_start) begin
                 dma_elapsed_cycles <= 0;
                 dma_pending <= 1;
             end else if (dma_pending) begin

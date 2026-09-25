@@ -26,7 +26,7 @@ def elements(shape):
     return math.prod(shape)
 
 
-def _scratch(input_bytes, output_bytes, weight_bytes, param_bytes):
+def _scratch(input_bytes, output_bytes, weight_bytes, param_bytes, capacity=None):
     regions = {}
     end = 128  # one 64-byte descriptor and one HALT descriptor
     for name, size in (('input', input_bytes), ('output', output_bytes),
@@ -35,7 +35,7 @@ def _scratch(input_bytes, output_bytes, weight_bytes, param_bytes):
             end = align8(end)
             regions[name] = {'base': end, 'bytes': size}
             end += size
-    if end > SRAM_BYTES:
+    if end > (SRAM_BYTES if capacity is None else capacity):
         return None
     return regions, end
 
@@ -60,7 +60,7 @@ def plan_inventory(path):
                       hashlib.sha256(path.read_bytes()).hexdigest())
 
 
-def plan_graph(inventory, inventory_sha256):
+def plan_graph(inventory, inventory_sha256, prefer_half=False):
     """Plan a verified inventory, including one derived from a typed Program."""
     tensors = {t['name']: t for t in inventory['tensors']}
     nodes = inventory['operators']
@@ -132,20 +132,23 @@ def plan_graph(inventory, inventory_sha256):
         first = 0
         while first < total:
             choice = None
-            for count in range(total-first, 0, -1):
-                end = first + count
-                # The current DMA accepts aligned base addresses; a tail may
-                # have non-multiple-of-eight length, but the next tile may not.
-                if end < total and ((end * output_plane) % 8 or
-                                    (kind in ('depthwise', 'maxpool', 'avgpool') and end * input_plane % 8)):
-                    continue
-                ib = input_bytes if kind in ('conv', 'gemm') else count * input_plane
-                ob = count * output_plane
-                wb = count * row_stride if weight_shape else 0
-                pb = count * 16 if weight_shape else (16 if params_base is not None else 0)
-                fit = _scratch(ib, ob, wb, pb)
-                if fit is not None:
-                    choice = (count, ib, ob, wb, pb, fit)
+            for capacity in ((16384, SRAM_BYTES) if prefer_half else (SRAM_BYTES,)):
+                for count in range(total-first, 0, -1):
+                    end = first + count
+                    # The current DMA accepts aligned base addresses; a tail may
+                    # have non-multiple-of-eight length, but the next tile may not.
+                    if end < total and ((end * output_plane) % 8 or
+                                        (kind in ('depthwise', 'maxpool', 'avgpool') and end * input_plane % 8)):
+                        continue
+                    ib = input_bytes if kind in ('conv', 'gemm') else count * input_plane
+                    ob = count * output_plane
+                    wb = count * row_stride if weight_shape else 0
+                    pb = count * 16 if weight_shape else (16 if params_base is not None else 0)
+                    fit = _scratch(ib, ob, wb, pb, capacity)
+                    if fit is not None:
+                        choice = (count, ib, ob, wb, pb, fit)
+                        break
+                if choice is not None:
                     break
             if choice is None:
                 raise ValueError(f'node {index}: no aligned tile fits 32 KiB SRAM at {first}')

@@ -46,7 +46,7 @@ module phase4_tiled_host (
         .memory_port_busy(memory_port_busy),
         .engine_busy(engine_busy), .dma_busy(dma_busy)
     );
-    v2_hs_sdram_port #(.CLOCK_HZ(20250000)) memory (
+    v2_hs_sdram_burst_port #(.CLOCK_HZ(20250000)) memory (
         .clk(clk), .clk_sdram(clk_sdram), .rst_n(rst_n),
         .ext_req(ext_req), .ext_wr(ext_wr), .ext_addr(ext_addr),
         .ext_wdata(ext_wdata), .ext_wstrb(ext_wstrb),

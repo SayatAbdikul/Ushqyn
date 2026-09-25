@@ -1,8 +1,8 @@
 """Materialize the Phase 4 tile plan from a calibrated integer Program.
 
 This produces an external parameter image and per-tile SRAM descriptors. It
-does not claim that the board can execute the schedule yet: the host-command
-board image still needs an SDRAM/DMA sequencer.
+feeds either the diagnostic host runner or the autonomous command-list
+compiler. Physical evidence is recorded separately from compilation.
 """
 
 import hashlib
@@ -71,7 +71,7 @@ def _parameter_rows(program, layer):
     return b'', b''
 
 
-def compile_tiled(program):
+def compile_tiled(program, prefer_half=False):
     """Return (tile plan, immutable external parameter image).
 
     Activation slot zero is intentionally blank. The caller supplies a
@@ -80,7 +80,7 @@ def compile_tiled(program):
     inventory = _inventory(program)
     digest = hashlib.sha256(json.dumps(inventory, sort_keys=True,
                                       separators=(',', ':')).encode()).hexdigest()
-    plan = plan_graph(inventory, digest)
+    plan = plan_graph(inventory, digest, prefer_half=prefer_half)
     image = bytearray(plan['parameter_end'])
     for layer, scheduled in zip(program.layers, plan['layers']):
         weights, parameters = _parameter_rows(program, layer)

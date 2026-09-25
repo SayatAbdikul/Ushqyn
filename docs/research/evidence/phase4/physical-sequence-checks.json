@@ -1,0 +1,17 @@
+{
+  "abort_while_busy": true,
+  "bitstream_sha256": "ea4eed105933e87d308d42b4bfa581010e843c9c9b9f94e9c9e8e852c19b98fb",
+  "cache_line_addresses": [
+    4194304,
+    4194368,
+    2097088,
+    2097152,
+    8388544
+  ],
+  "live_guard_error": 9,
+  "masked_write_trials": 25,
+  "neighbor_readbacks": 125,
+  "physical_board": true,
+  "reset_and_transfer_recovery": true,
+  "status": "passed"
+}

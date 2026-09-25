@@ -1,0 +1,4717 @@
+{
+  "bitstream_sha256": "ea4eed105933e87d308d42b4bfa581010e843c9c9b9f94e9c9e8e852c19b98fb",
+  "core_clock_hz": 20250000,
+  "correctness_nodes": [
+    {
+      "bytes": 490,
+      "index": 0,
+      "output_sha256": "5f4ad0b2d11bf1cccab552fb5a4d95d082b70f2d1fe2459127673d270cb1cdf4"
+    },
+    {
+      "bytes": 8000,
+      "index": 1,
+      "output_sha256": "c94f01e1c381d6d93c7f9fdce8ce1cfcace2d1413dde52aa6dabeb9a975f55b3"
+    },
+    {
+      "bytes": 8000,
+      "index": 2,
+      "output_sha256": "28e6b01d788fb4591fab9fe452f7010bce25c3b1027429b28ffe2f3a98cc308d"
+    },
+    {
+      "bytes": 8000,
+      "index": 3,
+      "output_sha256": "852f889e8994de655066782ff3096620e431babea8d1f516854e2c5c94168531"
+    },
+    {
+      "bytes": 8000,
+      "index": 4,
+      "output_sha256": "4850b3ec9271b43fc3b802651f7135c84bbce68d041683e9bfbaba673cfcc2d9"
+    },
+    {
+      "bytes": 8000,
+      "index": 5,
+      "output_sha256": "602f3c44f0a50496470494f3f4ce34820fb9c0f546edbfe30fcc1f54643b411d"
+    },
+    {
+      "bytes": 8000,
+      "index": 6,
+      "output_sha256": "9733ada9d59c11c5e92f96a397cbc321a8c553ba2281d3b34f36ce22469a8205"
+    },
+    {
+      "bytes": 8000,
+      "index": 7,
+      "output_sha256": "e58e0d481943d32eb4067bf481b5b40f99d024abf17ae9a8a009a882ba9bc4e1"
+    },
+    {
+      "bytes": 8000,
+      "index": 8,
+      "output_sha256": "d32a295f2d3d018636c8f15c9705f6f2a9099401edbd5801c8d51379260a6307"
+    },
+    {
+      "bytes": 8000,
+      "index": 9,
+      "output_sha256": "8355a8fde2b7096543bfda10826ec2fa9c8400f04ce693c6e24a8232bbcfb48d"
+    },
+    {
+      "bytes": 8000,
+      "index": 10,
+      "output_sha256": "19733719e30130052f2ab4db3c6e89cd74d955e8aea7a20da4eedf42fa754efc"
+    },
+    {
+      "bytes": 8000,
+      "index": 11,
+      "output_sha256": "53166a9e34f1641a23cfee3dd1af3c44195a0615b20815565277dcc6e6b2badf"
+    },
+    {
+      "bytes": 8000,
+      "index": 12,
+      "output_sha256": "3a5a90031e26deea03ab9091dd90d70f7de34469d660b0d2213474c923536ecd"
+    },
+    {
+      "bytes": 8000,
+      "index": 13,
+      "output_sha256": "8f3e310930da0d748b02a217a00cb2750eb9e02bb0287f71abd43018354e7999"
+    },
+    {
+      "bytes": 8000,
+      "index": 14,
+      "output_sha256": "cf9cf4aba5059fc5241b49e0685e47bfaa8ac279b8b18b07b81bafe1244b1588"
+    },
+    {
+      "bytes": 8000,
+      "index": 15,
+      "output_sha256": "6d68704abc93f692834dab304838e0b07c11ca40bd3c42a9fbbef01e24455e83"
+    },
+    {
+      "bytes": 8000,
+      "index": 16,
+      "output_sha256": "9ff86b91cd54c69766edfef9bfa927d7ee9f706e03a9f99cc47084605ecbf400"
+    },
+    {
+      "bytes": 8000,
+      "index": 17,
+      "output_sha256": "e75754369c62a84f79b282a760022d3eb7ee21b784ca73c9adbc140e58a517ba"
+    },
+    {
+      "bytes": 8000,
+      "index": 18,
+      "output_sha256": "3c66fd54582b325336e56e3b00f4aa9b8aded50e247d2700af1e46ced09480ce"
+    },
+    {
+      "bytes": 64,
+      "index": 19,
+      "output_sha256": "3fa70869e389352480248ab9a454ad7fa79767bbf8a154d56ba13decf646c042"
+    },
+    {
+      "bytes": 64,
+      "index": 20,
+      "output_sha256": "3fa70869e389352480248ab9a454ad7fa79767bbf8a154d56ba13decf646c042"
+    },
+    {
+      "bytes": 12,
+      "index": 21,
+      "output_sha256": "ce178213db2ef2aa27d0b532e4a17851cfef1772ad74b2fc7a95311b4a6714a7"
+    }
+  ],
+  "fixture_manifest_sha256": "702422f42debf72524a7adce99debef55ea6e11538691cc4f250e363cbeede51",
+  "limits": [
+    "one pinned deterministic input; no full-set model accuracy",
+    "no measured power; timings use nominal PLL frequency",
+    "command/weight loading excluded from input-run-output wall time"
+  ],
+  "model": "kws",
+  "model_load_and_verify_seconds": 19.90703016682528,
+  "modes": {
+    "overlap": {
+      "runs": [
+        {
+          "dma_busy_cycles": 374760,
+          "elapsed_cycles": 5689108,
+          "engine_busy_cycles": 5387508,
+          "input_run_output_wall_seconds": 0.39604924991726875,
+          "last_command_index": 316,
+          "output_hex": "1d09f52aeb180be7af03a435",
+          "output_sha256": "ce178213db2ef2aa27d0b532e4a17851cfef1772ad74b2fc7a95311b4a6714a7",
+          "overlap_cycles": 73797
+        },
+        {
+          "dma_busy_cycles": 374673,
+          "elapsed_cycles": 5689029,
+          "engine_busy_cycles": 5387508,
+          "input_run_output_wall_seconds": 0.3959127909038216,
+          "last_command_index": 316,
+          "output_hex": "1d09f52aeb180be7af03a435",
+          "output_sha256": "ce178213db2ef2aa27d0b532e4a17851cfef1772ad74b2fc7a95311b4a6714a7",
+          "overlap_cycles": 73789
+        },
+        {
+          "dma_busy_cycles": 373784,
+          "elapsed_cycles": 5688240,
+          "engine_busy_cycles": 5387559,
+          "input_run_output_wall_seconds": 0.40190404187887907,
+          "last_command_index": 316,
+          "output_hex": "1d09f52aeb180be7af03a435",
+          "output_sha256": "ce178213db2ef2aa27d0b532e4a17851cfef1772ad74b2fc7a95311b4a6714a7",
+          "overlap_cycles": 73740
+        }
+      ],
+      "schedule": {
+        "command_count": 317,
+        "final_output": {
+          "bytes": 12,
+          "ext": 0
+        },
+        "image_sha256": "6bd9ee5d19311282b867fa85a030b88c1b5c957b41a4fd89e0b38831d92bf1fe",
+        "overlap_enabled": true,
+        "prefetch_payload_bytes": 69248,
+        "program_bytes": 5072,
+        "program_sha256": "c7ff74dbd02c1655450672c02b20d400b021301bb85b1bc47f7ba01dd60201c6",
+        "schema": 1,
+        "snapshot_regions": {},
+        "snapshots_enabled": false,
+        "tiles": [
+          {
+            "count": 64,
+            "descriptor_hex": "55534432020400008000000070020000b0210000b02b000028000000401f000028000000400000000a00040002000200040005000100010031000a0001004000",
+            "first": 0,
+            "layer": 1,
+            "live": [
+              0,
+              12208
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 49376,
+                "role": "descriptor",
+                "sram": 0
+              },
+              {
+                "bytes": 490,
+                "direction": "to_sram",
+                "ext": 0,
+                "role": "input",
+                "sram": 128
+              },
+              {
+                "bytes": 2560,
+                "direction": "to_sram",
+                "ext": 16000,
+                "role": "parameter",
+                "sram": 8624
+              },
+              {
+                "bytes": 1024,
+                "direction": "to_sram",
+                "ext": 18560,
+                "role": "parameter",
+                "sram": 11184
+              }
+            ],
+            "pc": 0,
+            "regions": {
+              "input": {
+                "base": 128,
+                "bytes": 490
+              },
+              "output": {
+                "base": 624,
+                "bytes": 8000
+              },
+              "params": {
+                "base": 11184,
+                "bytes": 1024
+              },
+              "weight": {
+                "base": 8624,
+                "bytes": 2560
+              }
+            },
+            "scratch_bytes": 12208,
+            "transfers": [
+              {
+                "bytes": 490,
+                "direction": "to_sram",
+                "ext": 0,
+                "sram": 128
+              },
+              {
+                "bytes": 2560,
+                "direction": "to_sram",
+                "ext": 16000,
+                "sram": 8624
+              },
+              {
+                "bytes": 1024,
+                "direction": "to_sram",
+                "ext": 18560,
+                "sram": 11184
+              },
+              {
+                "bytes": 8000,
+                "direction": "from_sram",
+                "ext": 8000,
+                "sram": 624
+              }
+            ]
+          },
+          {
+            "count": 8000,
+            "descriptor_hex": "555344320202000080400000c05f000000000000007f0000401f0000401f00000000000040400000010001000100010000000000000000000100010001000100",
+            "first": 0,
+            "layer": 2,
+            "live": [
+              16384,
+              32528
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 49504,
+                "role": "descriptor",
+                "sram": 16384
+              },
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 8000,
+                "role": "input",
+                "sram": 16512
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 19584,
+                "role": "parameter",
+                "sram": 32512
+              }
+            ],
+            "pc": 16384,
+            "regions": {
+              "input": {
+                "base": 16512,
+                "bytes": 8000
+              },
+              "output": {
+                "base": 24512,
+                "bytes": 8000
+              },
+              "params": {
+                "base": 32512,
+                "bytes": 16
+              }
+            },
+            "scratch_bytes": 16144,
+            "transfers": [
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 8000,
+                "sram": 16512
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 19584,
+                "sram": 32512
+              },
+              {
+                "bytes": 8000,
+                "direction": "from_sram",
+                "ext": 0,
+                "sram": 24512
+              }
+            ]
+          },
+          {
+            "count": 56,
+            "descriptor_hex": "555344320206000080000000d81b000030370000b03a000009000000581b00001000000040000000030003000100010001000100010001001900050038003800",
+            "first": 0,
+            "layer": 3,
+            "live": [
+              0,
+              15920
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 49632,
+                "role": "descriptor",
+                "sram": 0
+              },
+              {
+                "bytes": 7000,
+                "direction": "to_sram",
+                "ext": 0,
+                "role": "input",
+                "sram": 128
+              },
+              {
+                "bytes": 896,
+                "direction": "to_sram",
+                "ext": 19600,
+                "role": "parameter",
+                "sram": 14128
+              },
+              {
+                "bytes": 896,
+                "direction": "to_sram",
+                "ext": 20624,
+                "role": "parameter",
+                "sram": 15024
+              }
+            ],
+            "pc": 0,
+            "regions": {
+              "input": {
+                "base": 128,
+                "bytes": 7000
+              },
+              "output": {
+                "base": 7128,
+                "bytes": 7000
+              },
+              "params": {
+                "base": 15024,
+                "bytes": 896
+              },
+              "weight": {
+                "base": 14128,
+                "bytes": 896
+              }
+            },
+            "scratch_bytes": 15920,
+            "transfers": [
+              {
+                "bytes": 7000,
+                "direction": "to_sram",
+                "ext": 0,
+                "sram": 128
+              },
+              {
+                "bytes": 896,
+                "direction": "to_sram",
+                "ext": 19600,
+                "sram": 14128
+              },
+              {
+                "bytes": 896,
+                "direction": "to_sram",
+                "ext": 20624,
+                "sram": 15024
+              },
+              {
+                "bytes": 7000,
+                "direction": "from_sram",
+                "ext": 8000,
+                "sram": 7128
+              }
+            ]
+          },
+          {
+            "count": 8,
+            "descriptor_hex": "5553443202060000804000006844000050480000d048000009000000e80300001000000040400000030003000100010001000100010001001900050008000800",
+            "first": 56,
+            "layer": 3,
+            "live": [
+              16384,
+              18768
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 49760,
+                "role": "descriptor",
+                "sram": 16384
+              },
+              {
+                "bytes": 1000,
+                "direction": "to_sram",
+                "ext": 7000,
+                "role": "input",
+                "sram": 16512
+              },
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 20496,
+                "role": "parameter",
+                "sram": 18512
+              },
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 21520,
+                "role": "parameter",
+                "sram": 18640
+              }
+            ],
+            "pc": 16384,
+            "regions": {
+              "input": {
+                "base": 16512,
+                "bytes": 1000
+              },
+              "output": {
+                "base": 17512,
+                "bytes": 1000
+              },
+              "params": {
+                "base": 18640,
+                "bytes": 128
+              },
+              "weight": {
+                "base": 18512,
+                "bytes": 128
+              }
+            },
+            "scratch_bytes": 2384,
+            "transfers": [
+              {
+                "bytes": 1000,
+                "direction": "to_sram",
+                "ext": 7000,
+                "sram": 16512
+              },
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 20496,
+                "sram": 18512
+              },
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 21520,
+                "sram": 18640
+              },
+              {
+                "bytes": 1000,
+                "direction": "from_sram",
+                "ext": 15000,
+                "sram": 17512
+              }
+            ]
+          },
+          {
+            "count": 8000,
+            "descriptor_hex": "555344320202000080000000c01f000000000000003f0000401f0000401f00000000000040000000010001000100010000000000000000000100010001000100",
+            "first": 0,
+            "layer": 4,
+            "live": [
+              0,
+              16144
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 49888,
+                "role": "descriptor",
+                "sram": 0
+              },
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 8000,
+                "role": "input",
+                "sram": 128
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 21648,
+                "role": "parameter",
+                "sram": 16128
+              }
+            ],
+            "pc": 0,
+            "regions": {
+              "input": {
+                "base": 128,
+                "bytes": 8000
+              },
+              "output": {
+                "base": 8128,
+                "bytes": 8000
+              },
+              "params": {
+                "base": 16128,
+                "bytes": 16
+              }
+            },
+            "scratch_bytes": 16144,
+            "transfers": [
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 8000,
+                "sram": 128
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 21648,
+                "sram": 16128
+              },
+              {
+                "bytes": 8000,
+                "direction": "from_sram",
+                "ext": 0,
+                "sram": 8128
+              }
+            ]
+          },
+          {
+            "count": 40,
+            "descriptor_hex": "555344320204000080400000c05f000048730000487d000040000000881300004000000040400000010001000100010000000000000000001900050040002800",
+            "first": 0,
+            "layer": 5,
+            "live": [
+              16384,
+              32712
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 50016,
+                "role": "descriptor",
+                "sram": 16384
+              },
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 0,
+                "role": "input",
+                "sram": 16512
+              },
+              {
+                "bytes": 2560,
+                "direction": "to_sram",
+                "ext": 21664,
+                "role": "parameter",
+                "sram": 29512
+              },
+              {
+                "bytes": 640,
+                "direction": "to_sram",
+                "ext": 25760,
+                "role": "parameter",
+                "sram": 32072
+              }
+            ],
+            "pc": 16384,
+            "regions": {
+              "input": {
+                "base": 16512,
+                "bytes": 8000
+              },
+              "output": {
+                "base": 24512,
+                "bytes": 5000
+              },
+              "params": {
+                "base": 32072,
+                "bytes": 640
+              },
+              "weight": {
+                "base": 29512,
+                "bytes": 2560
+              }
+            },
+            "scratch_bytes": 16328,
+            "transfers": [
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 0,
+                "sram": 16512
+              },
+              {
+                "bytes": 2560,
+                "direction": "to_sram",
+                "ext": 21664,
+                "sram": 29512
+              },
+              {
+                "bytes": 640,
+                "direction": "to_sram",
+                "ext": 25760,
+                "sram": 32072
+              },
+              {
+                "bytes": 5000,
+                "direction": "from_sram",
+                "ext": 8000,
+                "sram": 24512
+              }
+            ]
+          },
+          {
+            "count": 24,
+            "descriptor_hex": "555344320204000080000000c01f0000782b00007831000040000000b80b00004000000040000000010001000100010000000000000000001900050040001800",
+            "first": 40,
+            "layer": 5,
+            "live": [
+              0,
+              13048
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 50144,
+                "role": "descriptor",
+                "sram": 0
+              },
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 0,
+                "role": "input",
+                "sram": 128
+              },
+              {
+                "bytes": 1536,
+                "direction": "to_sram",
+                "ext": 24224,
+                "role": "parameter",
+                "sram": 11128
+              },
+              {
+                "bytes": 384,
+                "direction": "to_sram",
+                "ext": 26400,
+                "role": "parameter",
+                "sram": 12664
+              }
+            ],
+            "pc": 0,
+            "regions": {
+              "input": {
+                "base": 128,
+                "bytes": 8000
+              },
+              "output": {
+                "base": 8128,
+                "bytes": 3000
+              },
+              "params": {
+                "base": 12664,
+                "bytes": 384
+              },
+              "weight": {
+                "base": 11128,
+                "bytes": 1536
+              }
+            },
+            "scratch_bytes": 13048,
+            "transfers": [
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 0,
+                "sram": 128
+              },
+              {
+                "bytes": 1536,
+                "direction": "to_sram",
+                "ext": 24224,
+                "sram": 11128
+              },
+              {
+                "bytes": 384,
+                "direction": "to_sram",
+                "ext": 26400,
+                "sram": 12664
+              },
+              {
+                "bytes": 3000,
+                "direction": "from_sram",
+                "ext": 13000,
+                "sram": 8128
+              }
+            ]
+          },
+          {
+            "count": 8000,
+            "descriptor_hex": "555344320202000080400000c05f000000000000007f0000401f0000401f00000000000040400000010001000100010000000000000000000100010001000100",
+            "first": 0,
+            "layer": 6,
+            "live": [
+              16384,
+              32528
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 50272,
+                "role": "descriptor",
+                "sram": 16384
+              },
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 8000,
+                "role": "input",
+                "sram": 16512
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 26784,
+                "role": "parameter",
+                "sram": 32512
+              }
+            ],
+            "pc": 16384,
+            "regions": {
+              "input": {
+                "base": 16512,
+                "bytes": 8000
+              },
+              "output": {
+                "base": 24512,
+                "bytes": 8000
+              },
+              "params": {
+                "base": 32512,
+                "bytes": 16
+              }
+            },
+            "scratch_bytes": 16144,
+            "transfers": [
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 8000,
+                "sram": 16512
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 26784,
+                "sram": 32512
+              },
+              {
+                "bytes": 8000,
+                "direction": "from_sram",
+                "ext": 0,
+                "sram": 24512
+              }
+            ]
+          },
+          {
+            "count": 56,
+            "descriptor_hex": "555344320206000080000000d81b000030370000b03a000009000000581b00001000000040000000030003000100010001000100010001001900050038003800",
+            "first": 0,
+            "layer": 7,
+            "live": [
+              0,
+              15920
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 50400,
+                "role": "descriptor",
+                "sram": 0
+              },
+              {
+                "bytes": 7000,
+                "direction": "to_sram",
+                "ext": 0,
+                "role": "input",
+                "sram": 128
+              },
+              {
+                "bytes": 896,
+                "direction": "to_sram",
+                "ext": 26800,
+                "role": "parameter",
+                "sram": 14128
+              },
+              {
+                "bytes": 896,
+                "direction": "to_sram",
+                "ext": 27824,
+                "role": "parameter",
+                "sram": 15024
+              }
+            ],
+            "pc": 0,
+            "regions": {
+              "input": {
+                "base": 128,
+                "bytes": 7000
+              },
+              "output": {
+                "base": 7128,
+                "bytes": 7000
+              },
+              "params": {
+                "base": 15024,
+                "bytes": 896
+              },
+              "weight": {
+                "base": 14128,
+                "bytes": 896
+              }
+            },
+            "scratch_bytes": 15920,
+            "transfers": [
+              {
+                "bytes": 7000,
+                "direction": "to_sram",
+                "ext": 0,
+                "sram": 128
+              },
+              {
+                "bytes": 896,
+                "direction": "to_sram",
+                "ext": 26800,
+                "sram": 14128
+              },
+              {
+                "bytes": 896,
+                "direction": "to_sram",
+                "ext": 27824,
+                "sram": 15024
+              },
+              {
+                "bytes": 7000,
+                "direction": "from_sram",
+                "ext": 8000,
+                "sram": 7128
+              }
+            ]
+          },
+          {
+            "count": 8,
+            "descriptor_hex": "5553443202060000804000006844000050480000d048000009000000e80300001000000040400000030003000100010001000100010001001900050008000800",
+            "first": 56,
+            "layer": 7,
+            "live": [
+              16384,
+              18768
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 50528,
+                "role": "descriptor",
+                "sram": 16384
+              },
+              {
+                "bytes": 1000,
+                "direction": "to_sram",
+                "ext": 7000,
+                "role": "input",
+                "sram": 16512
+              },
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 27696,
+                "role": "parameter",
+                "sram": 18512
+              },
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 28720,
+                "role": "parameter",
+                "sram": 18640
+              }
+            ],
+            "pc": 16384,
+            "regions": {
+              "input": {
+                "base": 16512,
+                "bytes": 1000
+              },
+              "output": {
+                "base": 17512,
+                "bytes": 1000
+              },
+              "params": {
+                "base": 18640,
+                "bytes": 128
+              },
+              "weight": {
+                "base": 18512,
+                "bytes": 128
+              }
+            },
+            "scratch_bytes": 2384,
+            "transfers": [
+              {
+                "bytes": 1000,
+                "direction": "to_sram",
+                "ext": 7000,
+                "sram": 16512
+              },
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 27696,
+                "sram": 18512
+              },
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 28720,
+                "sram": 18640
+              },
+              {
+                "bytes": 1000,
+                "direction": "from_sram",
+                "ext": 15000,
+                "sram": 17512
+              }
+            ]
+          },
+          {
+            "count": 8000,
+            "descriptor_hex": "555344320202000080000000c01f000000000000003f0000401f0000401f00000000000040000000010001000100010000000000000000000100010001000100",
+            "first": 0,
+            "layer": 8,
+            "live": [
+              0,
+              16144
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 50656,
+                "role": "descriptor",
+                "sram": 0
+              },
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 8000,
+                "role": "input",
+                "sram": 128
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 28848,
+                "role": "parameter",
+                "sram": 16128
+              }
+            ],
+            "pc": 0,
+            "regions": {
+              "input": {
+                "base": 128,
+                "bytes": 8000
+              },
+              "output": {
+                "base": 8128,
+                "bytes": 8000
+              },
+              "params": {
+                "base": 16128,
+                "bytes": 16
+              }
+            },
+            "scratch_bytes": 16144,
+            "transfers": [
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 8000,
+                "sram": 128
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 28848,
+                "sram": 16128
+              },
+              {
+                "bytes": 8000,
+                "direction": "from_sram",
+                "ext": 0,
+                "sram": 8128
+              }
+            ]
+          },
+          {
+            "count": 40,
+            "descriptor_hex": "555344320204000080400000c05f000048730000487d000040000000881300004000000040400000010001000100010000000000000000001900050040002800",
+            "first": 0,
+            "layer": 9,
+            "live": [
+              16384,
+              32712
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 50784,
+                "role": "descriptor",
+                "sram": 16384
+              },
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 0,
+                "role": "input",
+                "sram": 16512
+              },
+              {
+                "bytes": 2560,
+                "direction": "to_sram",
+                "ext": 28864,
+                "role": "parameter",
+                "sram": 29512
+              },
+              {
+                "bytes": 640,
+                "direction": "to_sram",
+                "ext": 32960,
+                "role": "parameter",
+                "sram": 32072
+              }
+            ],
+            "pc": 16384,
+            "regions": {
+              "input": {
+                "base": 16512,
+                "bytes": 8000
+              },
+              "output": {
+                "base": 24512,
+                "bytes": 5000
+              },
+              "params": {
+                "base": 32072,
+                "bytes": 640
+              },
+              "weight": {
+                "base": 29512,
+                "bytes": 2560
+              }
+            },
+            "scratch_bytes": 16328,
+            "transfers": [
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 0,
+                "sram": 16512
+              },
+              {
+                "bytes": 2560,
+                "direction": "to_sram",
+                "ext": 28864,
+                "sram": 29512
+              },
+              {
+                "bytes": 640,
+                "direction": "to_sram",
+                "ext": 32960,
+                "sram": 32072
+              },
+              {
+                "bytes": 5000,
+                "direction": "from_sram",
+                "ext": 8000,
+                "sram": 24512
+              }
+            ]
+          },
+          {
+            "count": 24,
+            "descriptor_hex": "555344320204000080000000c01f0000782b00007831000040000000b80b00004000000040000000010001000100010000000000000000001900050040001800",
+            "first": 40,
+            "layer": 9,
+            "live": [
+              0,
+              13048
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 50912,
+                "role": "descriptor",
+                "sram": 0
+              },
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 0,
+                "role": "input",
+                "sram": 128
+              },
+              {
+                "bytes": 1536,
+                "direction": "to_sram",
+                "ext": 31424,
+                "role": "parameter",
+                "sram": 11128
+              },
+              {
+                "bytes": 384,
+                "direction": "to_sram",
+                "ext": 33600,
+                "role": "parameter",
+                "sram": 12664
+              }
+            ],
+            "pc": 0,
+            "regions": {
+              "input": {
+                "base": 128,
+                "bytes": 8000
+              },
+              "output": {
+                "base": 8128,
+                "bytes": 3000
+              },
+              "params": {
+                "base": 12664,
+                "bytes": 384
+              },
+              "weight": {
+                "base": 11128,
+                "bytes": 1536
+              }
+            },
+            "scratch_bytes": 13048,
+            "transfers": [
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 0,
+                "sram": 128
+              },
+              {
+                "bytes": 1536,
+                "direction": "to_sram",
+                "ext": 31424,
+                "sram": 11128
+              },
+              {
+                "bytes": 384,
+                "direction": "to_sram",
+                "ext": 33600,
+                "sram": 12664
+              },
+              {
+                "bytes": 3000,
+                "direction": "from_sram",
+                "ext": 13000,
+                "sram": 8128
+              }
+            ]
+          },
+          {
+            "count": 8000,
+            "descriptor_hex": "555344320202000080400000c05f000000000000007f0000401f0000401f00000000000040400000010001000100010000000000000000000100010001000100",
+            "first": 0,
+            "layer": 10,
+            "live": [
+              16384,
+              32528
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 51040,
+                "role": "descriptor",
+                "sram": 16384
+              },
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 8000,
+                "role": "input",
+                "sram": 16512
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 33984,
+                "role": "parameter",
+                "sram": 32512
+              }
+            ],
+            "pc": 16384,
+            "regions": {
+              "input": {
+                "base": 16512,
+                "bytes": 8000
+              },
+              "output": {
+                "base": 24512,
+                "bytes": 8000
+              },
+              "params": {
+                "base": 32512,
+                "bytes": 16
+              }
+            },
+            "scratch_bytes": 16144,
+            "transfers": [
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 8000,
+                "sram": 16512
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 33984,
+                "sram": 32512
+              },
+              {
+                "bytes": 8000,
+                "direction": "from_sram",
+                "ext": 0,
+                "sram": 24512
+              }
+            ]
+          },
+          {
+            "count": 56,
+            "descriptor_hex": "555344320206000080000000d81b000030370000b03a000009000000581b00001000000040000000030003000100010001000100010001001900050038003800",
+            "first": 0,
+            "layer": 11,
+            "live": [
+              0,
+              15920
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 51168,
+                "role": "descriptor",
+                "sram": 0
+              },
+              {
+                "bytes": 7000,
+                "direction": "to_sram",
+                "ext": 0,
+                "role": "input",
+                "sram": 128
+              },
+              {
+                "bytes": 896,
+                "direction": "to_sram",
+                "ext": 34000,
+                "role": "parameter",
+                "sram": 14128
+              },
+              {
+                "bytes": 896,
+                "direction": "to_sram",
+                "ext": 35024,
+                "role": "parameter",
+                "sram": 15024
+              }
+            ],
+            "pc": 0,
+            "regions": {
+              "input": {
+                "base": 128,
+                "bytes": 7000
+              },
+              "output": {
+                "base": 7128,
+                "bytes": 7000
+              },
+              "params": {
+                "base": 15024,
+                "bytes": 896
+              },
+              "weight": {
+                "base": 14128,
+                "bytes": 896
+              }
+            },
+            "scratch_bytes": 15920,
+            "transfers": [
+              {
+                "bytes": 7000,
+                "direction": "to_sram",
+                "ext": 0,
+                "sram": 128
+              },
+              {
+                "bytes": 896,
+                "direction": "to_sram",
+                "ext": 34000,
+                "sram": 14128
+              },
+              {
+                "bytes": 896,
+                "direction": "to_sram",
+                "ext": 35024,
+                "sram": 15024
+              },
+              {
+                "bytes": 7000,
+                "direction": "from_sram",
+                "ext": 8000,
+                "sram": 7128
+              }
+            ]
+          },
+          {
+            "count": 8,
+            "descriptor_hex": "5553443202060000804000006844000050480000d048000009000000e80300001000000040400000030003000100010001000100010001001900050008000800",
+            "first": 56,
+            "layer": 11,
+            "live": [
+              16384,
+              18768
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 51296,
+                "role": "descriptor",
+                "sram": 16384
+              },
+              {
+                "bytes": 1000,
+                "direction": "to_sram",
+                "ext": 7000,
+                "role": "input",
+                "sram": 16512
+              },
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 34896,
+                "role": "parameter",
+                "sram": 18512
+              },
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 35920,
+                "role": "parameter",
+                "sram": 18640
+              }
+            ],
+            "pc": 16384,
+            "regions": {
+              "input": {
+                "base": 16512,
+                "bytes": 1000
+              },
+              "output": {
+                "base": 17512,
+                "bytes": 1000
+              },
+              "params": {
+                "base": 18640,
+                "bytes": 128
+              },
+              "weight": {
+                "base": 18512,
+                "bytes": 128
+              }
+            },
+            "scratch_bytes": 2384,
+            "transfers": [
+              {
+                "bytes": 1000,
+                "direction": "to_sram",
+                "ext": 7000,
+                "sram": 16512
+              },
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 34896,
+                "sram": 18512
+              },
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 35920,
+                "sram": 18640
+              },
+              {
+                "bytes": 1000,
+                "direction": "from_sram",
+                "ext": 15000,
+                "sram": 17512
+              }
+            ]
+          },
+          {
+            "count": 8000,
+            "descriptor_hex": "555344320202000080000000c01f000000000000003f0000401f0000401f00000000000040000000010001000100010000000000000000000100010001000100",
+            "first": 0,
+            "layer": 12,
+            "live": [
+              0,
+              16144
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 51424,
+                "role": "descriptor",
+                "sram": 0
+              },
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 8000,
+                "role": "input",
+                "sram": 128
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 36048,
+                "role": "parameter",
+                "sram": 16128
+              }
+            ],
+            "pc": 0,
+            "regions": {
+              "input": {
+                "base": 128,
+                "bytes": 8000
+              },
+              "output": {
+                "base": 8128,
+                "bytes": 8000
+              },
+              "params": {
+                "base": 16128,
+                "bytes": 16
+              }
+            },
+            "scratch_bytes": 16144,
+            "transfers": [
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 8000,
+                "sram": 128
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 36048,
+                "sram": 16128
+              },
+              {
+                "bytes": 8000,
+                "direction": "from_sram",
+                "ext": 0,
+                "sram": 8128
+              }
+            ]
+          },
+          {
+            "count": 40,
+            "descriptor_hex": "555344320204000080400000c05f000048730000487d000040000000881300004000000040400000010001000100010000000000000000001900050040002800",
+            "first": 0,
+            "layer": 13,
+            "live": [
+              16384,
+              32712
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 51552,
+                "role": "descriptor",
+                "sram": 16384
+              },
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 0,
+                "role": "input",
+                "sram": 16512
+              },
+              {
+                "bytes": 2560,
+                "direction": "to_sram",
+                "ext": 36064,
+                "role": "parameter",
+                "sram": 29512
+              },
+              {
+                "bytes": 640,
+                "direction": "to_sram",
+                "ext": 40160,
+                "role": "parameter",
+                "sram": 32072
+              }
+            ],
+            "pc": 16384,
+            "regions": {
+              "input": {
+                "base": 16512,
+                "bytes": 8000
+              },
+              "output": {
+                "base": 24512,
+                "bytes": 5000
+              },
+              "params": {
+                "base": 32072,
+                "bytes": 640
+              },
+              "weight": {
+                "base": 29512,
+                "bytes": 2560
+              }
+            },
+            "scratch_bytes": 16328,
+            "transfers": [
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 0,
+                "sram": 16512
+              },
+              {
+                "bytes": 2560,
+                "direction": "to_sram",
+                "ext": 36064,
+                "sram": 29512
+              },
+              {
+                "bytes": 640,
+                "direction": "to_sram",
+                "ext": 40160,
+                "sram": 32072
+              },
+              {
+                "bytes": 5000,
+                "direction": "from_sram",
+                "ext": 8000,
+                "sram": 24512
+              }
+            ]
+          },
+          {
+            "count": 24,
+            "descriptor_hex": "555344320204000080000000c01f0000782b00007831000040000000b80b00004000000040000000010001000100010000000000000000001900050040001800",
+            "first": 40,
+            "layer": 13,
+            "live": [
+              0,
+              13048
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 51680,
+                "role": "descriptor",
+                "sram": 0
+              },
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 0,
+                "role": "input",
+                "sram": 128
+              },
+              {
+                "bytes": 1536,
+                "direction": "to_sram",
+                "ext": 38624,
+                "role": "parameter",
+                "sram": 11128
+              },
+              {
+                "bytes": 384,
+                "direction": "to_sram",
+                "ext": 40800,
+                "role": "parameter",
+                "sram": 12664
+              }
+            ],
+            "pc": 0,
+            "regions": {
+              "input": {
+                "base": 128,
+                "bytes": 8000
+              },
+              "output": {
+                "base": 8128,
+                "bytes": 3000
+              },
+              "params": {
+                "base": 12664,
+                "bytes": 384
+              },
+              "weight": {
+                "base": 11128,
+                "bytes": 1536
+              }
+            },
+            "scratch_bytes": 13048,
+            "transfers": [
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 0,
+                "sram": 128
+              },
+              {
+                "bytes": 1536,
+                "direction": "to_sram",
+                "ext": 38624,
+                "sram": 11128
+              },
+              {
+                "bytes": 384,
+                "direction": "to_sram",
+                "ext": 40800,
+                "sram": 12664
+              },
+              {
+                "bytes": 3000,
+                "direction": "from_sram",
+                "ext": 13000,
+                "sram": 8128
+              }
+            ]
+          },
+          {
+            "count": 8000,
+            "descriptor_hex": "555344320202000080400000c05f000000000000007f0000401f0000401f00000000000040400000010001000100010000000000000000000100010001000100",
+            "first": 0,
+            "layer": 14,
+            "live": [
+              16384,
+              32528
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 51808,
+                "role": "descriptor",
+                "sram": 16384
+              },
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 8000,
+                "role": "input",
+                "sram": 16512
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 41184,
+                "role": "parameter",
+                "sram": 32512
+              }
+            ],
+            "pc": 16384,
+            "regions": {
+              "input": {
+                "base": 16512,
+                "bytes": 8000
+              },
+              "output": {
+                "base": 24512,
+                "bytes": 8000
+              },
+              "params": {
+                "base": 32512,
+                "bytes": 16
+              }
+            },
+            "scratch_bytes": 16144,
+            "transfers": [
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 8000,
+                "sram": 16512
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 41184,
+                "sram": 32512
+              },
+              {
+                "bytes": 8000,
+                "direction": "from_sram",
+                "ext": 0,
+                "sram": 24512
+              }
+            ]
+          },
+          {
+            "count": 56,
+            "descriptor_hex": "555344320206000080000000d81b000030370000b03a000009000000581b00001000000040000000030003000100010001000100010001001900050038003800",
+            "first": 0,
+            "layer": 15,
+            "live": [
+              0,
+              15920
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 51936,
+                "role": "descriptor",
+                "sram": 0
+              },
+              {
+                "bytes": 7000,
+                "direction": "to_sram",
+                "ext": 0,
+                "role": "input",
+                "sram": 128
+              },
+              {
+                "bytes": 896,
+                "direction": "to_sram",
+                "ext": 41200,
+                "role": "parameter",
+                "sram": 14128
+              },
+              {
+                "bytes": 896,
+                "direction": "to_sram",
+                "ext": 42224,
+                "role": "parameter",
+                "sram": 15024
+              }
+            ],
+            "pc": 0,
+            "regions": {
+              "input": {
+                "base": 128,
+                "bytes": 7000
+              },
+              "output": {
+                "base": 7128,
+                "bytes": 7000
+              },
+              "params": {
+                "base": 15024,
+                "bytes": 896
+              },
+              "weight": {
+                "base": 14128,
+                "bytes": 896
+              }
+            },
+            "scratch_bytes": 15920,
+            "transfers": [
+              {
+                "bytes": 7000,
+                "direction": "to_sram",
+                "ext": 0,
+                "sram": 128
+              },
+              {
+                "bytes": 896,
+                "direction": "to_sram",
+                "ext": 41200,
+                "sram": 14128
+              },
+              {
+                "bytes": 896,
+                "direction": "to_sram",
+                "ext": 42224,
+                "sram": 15024
+              },
+              {
+                "bytes": 7000,
+                "direction": "from_sram",
+                "ext": 8000,
+                "sram": 7128
+              }
+            ]
+          },
+          {
+            "count": 8,
+            "descriptor_hex": "5553443202060000804000006844000050480000d048000009000000e80300001000000040400000030003000100010001000100010001001900050008000800",
+            "first": 56,
+            "layer": 15,
+            "live": [
+              16384,
+              18768
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 52064,
+                "role": "descriptor",
+                "sram": 16384
+              },
+              {
+                "bytes": 1000,
+                "direction": "to_sram",
+                "ext": 7000,
+                "role": "input",
+                "sram": 16512
+              },
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 42096,
+                "role": "parameter",
+                "sram": 18512
+              },
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 43120,
+                "role": "parameter",
+                "sram": 18640
+              }
+            ],
+            "pc": 16384,
+            "regions": {
+              "input": {
+                "base": 16512,
+                "bytes": 1000
+              },
+              "output": {
+                "base": 17512,
+                "bytes": 1000
+              },
+              "params": {
+                "base": 18640,
+                "bytes": 128
+              },
+              "weight": {
+                "base": 18512,
+                "bytes": 128
+              }
+            },
+            "scratch_bytes": 2384,
+            "transfers": [
+              {
+                "bytes": 1000,
+                "direction": "to_sram",
+                "ext": 7000,
+                "sram": 16512
+              },
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 42096,
+                "sram": 18512
+              },
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 43120,
+                "sram": 18640
+              },
+              {
+                "bytes": 1000,
+                "direction": "from_sram",
+                "ext": 15000,
+                "sram": 17512
+              }
+            ]
+          },
+          {
+            "count": 8000,
+            "descriptor_hex": "555344320202000080000000c01f000000000000003f0000401f0000401f00000000000040000000010001000100010000000000000000000100010001000100",
+            "first": 0,
+            "layer": 16,
+            "live": [
+              0,
+              16144
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 52192,
+                "role": "descriptor",
+                "sram": 0
+              },
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 8000,
+                "role": "input",
+                "sram": 128
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 43248,
+                "role": "parameter",
+                "sram": 16128
+              }
+            ],
+            "pc": 0,
+            "regions": {
+              "input": {
+                "base": 128,
+                "bytes": 8000
+              },
+              "output": {
+                "base": 8128,
+                "bytes": 8000
+              },
+              "params": {
+                "base": 16128,
+                "bytes": 16
+              }
+            },
+            "scratch_bytes": 16144,
+            "transfers": [
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 8000,
+                "sram": 128
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 43248,
+                "sram": 16128
+              },
+              {
+                "bytes": 8000,
+                "direction": "from_sram",
+                "ext": 0,
+                "sram": 8128
+              }
+            ]
+          },
+          {
+            "count": 40,
+            "descriptor_hex": "555344320204000080400000c05f000048730000487d000040000000881300004000000040400000010001000100010000000000000000001900050040002800",
+            "first": 0,
+            "layer": 17,
+            "live": [
+              16384,
+              32712
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 52320,
+                "role": "descriptor",
+                "sram": 16384
+              },
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 0,
+                "role": "input",
+                "sram": 16512
+              },
+              {
+                "bytes": 2560,
+                "direction": "to_sram",
+                "ext": 43264,
+                "role": "parameter",
+                "sram": 29512
+              },
+              {
+                "bytes": 640,
+                "direction": "to_sram",
+                "ext": 47360,
+                "role": "parameter",
+                "sram": 32072
+              }
+            ],
+            "pc": 16384,
+            "regions": {
+              "input": {
+                "base": 16512,
+                "bytes": 8000
+              },
+              "output": {
+                "base": 24512,
+                "bytes": 5000
+              },
+              "params": {
+                "base": 32072,
+                "bytes": 640
+              },
+              "weight": {
+                "base": 29512,
+                "bytes": 2560
+              }
+            },
+            "scratch_bytes": 16328,
+            "transfers": [
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 0,
+                "sram": 16512
+              },
+              {
+                "bytes": 2560,
+                "direction": "to_sram",
+                "ext": 43264,
+                "sram": 29512
+              },
+              {
+                "bytes": 640,
+                "direction": "to_sram",
+                "ext": 47360,
+                "sram": 32072
+              },
+              {
+                "bytes": 5000,
+                "direction": "from_sram",
+                "ext": 8000,
+                "sram": 24512
+              }
+            ]
+          },
+          {
+            "count": 24,
+            "descriptor_hex": "555344320204000080000000c01f0000782b00007831000040000000b80b00004000000040000000010001000100010000000000000000001900050040001800",
+            "first": 40,
+            "layer": 17,
+            "live": [
+              0,
+              13048
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 52448,
+                "role": "descriptor",
+                "sram": 0
+              },
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 0,
+                "role": "input",
+                "sram": 128
+              },
+              {
+                "bytes": 1536,
+                "direction": "to_sram",
+                "ext": 45824,
+                "role": "parameter",
+                "sram": 11128
+              },
+              {
+                "bytes": 384,
+                "direction": "to_sram",
+                "ext": 48000,
+                "role": "parameter",
+                "sram": 12664
+              }
+            ],
+            "pc": 0,
+            "regions": {
+              "input": {
+                "base": 128,
+                "bytes": 8000
+              },
+              "output": {
+                "base": 8128,
+                "bytes": 3000
+              },
+              "params": {
+                "base": 12664,
+                "bytes": 384
+              },
+              "weight": {
+                "base": 11128,
+                "bytes": 1536
+              }
+            },
+            "scratch_bytes": 13048,
+            "transfers": [
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 0,
+                "sram": 128
+              },
+              {
+                "bytes": 1536,
+                "direction": "to_sram",
+                "ext": 45824,
+                "sram": 11128
+              },
+              {
+                "bytes": 384,
+                "direction": "to_sram",
+                "ext": 48000,
+                "sram": 12664
+              },
+              {
+                "bytes": 3000,
+                "direction": "from_sram",
+                "ext": 13000,
+                "sram": 8128
+              }
+            ]
+          },
+          {
+            "count": 8000,
+            "descriptor_hex": "555344320202000080400000c05f000000000000007f0000401f0000401f00000000000040400000010001000100010000000000000000000100010001000100",
+            "first": 0,
+            "layer": 18,
+            "live": [
+              16384,
+              32528
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 52576,
+                "role": "descriptor",
+                "sram": 16384
+              },
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 8000,
+                "role": "input",
+                "sram": 16512
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 48384,
+                "role": "parameter",
+                "sram": 32512
+              }
+            ],
+            "pc": 16384,
+            "regions": {
+              "input": {
+                "base": 16512,
+                "bytes": 8000
+              },
+              "output": {
+                "base": 24512,
+                "bytes": 8000
+              },
+              "params": {
+                "base": 32512,
+                "bytes": 16
+              }
+            },
+            "scratch_bytes": 16144,
+            "transfers": [
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 8000,
+                "sram": 16512
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 48384,
+                "sram": 32512
+              },
+              {
+                "bytes": 8000,
+                "direction": "from_sram",
+                "ext": 0,
+                "sram": 24512
+              }
+            ]
+          },
+          {
+            "count": 64,
+            "descriptor_hex": "555344320207000080000000c01f00000000000000200000401f0000400000000000000040000000190005001900050000000000000000001900050040004000",
+            "first": 0,
+            "layer": 19,
+            "live": [
+              0,
+              8208
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 52704,
+                "role": "descriptor",
+                "sram": 0
+              },
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 0,
+                "role": "input",
+                "sram": 128
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 48400,
+                "role": "parameter",
+                "sram": 8192
+              }
+            ],
+            "pc": 0,
+            "regions": {
+              "input": {
+                "base": 128,
+                "bytes": 8000
+              },
+              "output": {
+                "base": 8128,
+                "bytes": 64
+              },
+              "params": {
+                "base": 8192,
+                "bytes": 16
+              }
+            },
+            "scratch_bytes": 8208,
+            "transfers": [
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 0,
+                "sram": 128
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 48400,
+                "sram": 8192
+              },
+              {
+                "bytes": 64,
+                "direction": "from_sram",
+                "ext": 8000,
+                "sram": 8128
+              }
+            ]
+          },
+          {
+            "count": 12,
+            "descriptor_hex": "555344320201000080400000c0400000d0400000d0430000400000000c0000004000000040400000010001000100010000000000000000000100010001000100",
+            "first": 0,
+            "layer": 21,
+            "live": [
+              16384,
+              17552
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 52832,
+                "role": "descriptor",
+                "sram": 16384
+              },
+              {
+                "bytes": 64,
+                "direction": "to_sram",
+                "ext": 8000,
+                "role": "input",
+                "sram": 16512
+              },
+              {
+                "bytes": 768,
+                "direction": "to_sram",
+                "ext": 48416,
+                "role": "parameter",
+                "sram": 16592
+              },
+              {
+                "bytes": 192,
+                "direction": "to_sram",
+                "ext": 49184,
+                "role": "parameter",
+                "sram": 17360
+              }
+            ],
+            "pc": 16384,
+            "regions": {
+              "input": {
+                "base": 16512,
+                "bytes": 64
+              },
+              "output": {
+                "base": 16576,
+                "bytes": 12
+              },
+              "params": {
+                "base": 17360,
+                "bytes": 192
+              },
+              "weight": {
+                "base": 16592,
+                "bytes": 768
+              }
+            },
+            "scratch_bytes": 1168,
+            "transfers": [
+              {
+                "bytes": 64,
+                "direction": "to_sram",
+                "ext": 8000,
+                "sram": 16512
+              },
+              {
+                "bytes": 768,
+                "direction": "to_sram",
+                "ext": 48416,
+                "sram": 16592
+              },
+              {
+                "bytes": 192,
+                "direction": "to_sram",
+                "ext": 49184,
+                "sram": 17360
+              },
+              {
+                "bytes": 12,
+                "direction": "from_sram",
+                "ext": 0,
+                "sram": 16576
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "sequential": {
+      "runs": [
+        {
+          "dma_busy_cycles": 373329,
+          "elapsed_cycles": 5760693,
+          "engine_busy_cycles": 5386095,
+          "input_run_output_wall_seconds": 0.4019470829516649,
+          "last_command_index": 316,
+          "output_hex": "1d09f52aeb180be7af03a435",
+          "output_sha256": "ce178213db2ef2aa27d0b532e4a17851cfef1772ad74b2fc7a95311b4a6714a7",
+          "overlap_cycles": 0
+        },
+        {
+          "dma_busy_cycles": 373220,
+          "elapsed_cycles": 5760584,
+          "engine_busy_cycles": 5386095,
+          "input_run_output_wall_seconds": 0.4019869160838425,
+          "last_command_index": 316,
+          "output_hex": "1d09f52aeb180be7af03a435",
+          "output_sha256": "ce178213db2ef2aa27d0b532e4a17851cfef1772ad74b2fc7a95311b4a6714a7",
+          "overlap_cycles": 0
+        },
+        {
+          "dma_busy_cycles": 373958,
+          "elapsed_cycles": 5761322,
+          "engine_busy_cycles": 5386095,
+          "input_run_output_wall_seconds": 0.4020035839639604,
+          "last_command_index": 316,
+          "output_hex": "1d09f52aeb180be7af03a435",
+          "output_sha256": "ce178213db2ef2aa27d0b532e4a17851cfef1772ad74b2fc7a95311b4a6714a7",
+          "overlap_cycles": 0
+        }
+      ],
+      "schedule": {
+        "command_count": 317,
+        "final_output": {
+          "bytes": 12,
+          "ext": 0
+        },
+        "image_sha256": "6bd9ee5d19311282b867fa85a030b88c1b5c957b41a4fd89e0b38831d92bf1fe",
+        "overlap_enabled": false,
+        "prefetch_payload_bytes": 0,
+        "program_bytes": 5072,
+        "program_sha256": "321cf57c9cc76a5e22147500980e6ed99175f0f9a49abfef6c9e5bde057dd034",
+        "schema": 1,
+        "snapshot_regions": {},
+        "snapshots_enabled": false,
+        "tiles": [
+          {
+            "count": 64,
+            "descriptor_hex": "55534432020400008000000070020000b0210000b02b000028000000401f000028000000400000000a00040002000200040005000100010031000a0001004000",
+            "first": 0,
+            "layer": 1,
+            "live": [
+              0,
+              12208
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 49376,
+                "role": "descriptor",
+                "sram": 0
+              },
+              {
+                "bytes": 490,
+                "direction": "to_sram",
+                "ext": 0,
+                "role": "input",
+                "sram": 128
+              },
+              {
+                "bytes": 2560,
+                "direction": "to_sram",
+                "ext": 16000,
+                "role": "parameter",
+                "sram": 8624
+              },
+              {
+                "bytes": 1024,
+                "direction": "to_sram",
+                "ext": 18560,
+                "role": "parameter",
+                "sram": 11184
+              }
+            ],
+            "pc": 0,
+            "regions": {
+              "input": {
+                "base": 128,
+                "bytes": 490
+              },
+              "output": {
+                "base": 624,
+                "bytes": 8000
+              },
+              "params": {
+                "base": 11184,
+                "bytes": 1024
+              },
+              "weight": {
+                "base": 8624,
+                "bytes": 2560
+              }
+            },
+            "scratch_bytes": 12208,
+            "transfers": [
+              {
+                "bytes": 490,
+                "direction": "to_sram",
+                "ext": 0,
+                "sram": 128
+              },
+              {
+                "bytes": 2560,
+                "direction": "to_sram",
+                "ext": 16000,
+                "sram": 8624
+              },
+              {
+                "bytes": 1024,
+                "direction": "to_sram",
+                "ext": 18560,
+                "sram": 11184
+              },
+              {
+                "bytes": 8000,
+                "direction": "from_sram",
+                "ext": 8000,
+                "sram": 624
+              }
+            ]
+          },
+          {
+            "count": 8000,
+            "descriptor_hex": "555344320202000080400000c05f000000000000007f0000401f0000401f00000000000040400000010001000100010000000000000000000100010001000100",
+            "first": 0,
+            "layer": 2,
+            "live": [
+              16384,
+              32528
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 49504,
+                "role": "descriptor",
+                "sram": 16384
+              },
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 8000,
+                "role": "input",
+                "sram": 16512
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 19584,
+                "role": "parameter",
+                "sram": 32512
+              }
+            ],
+            "pc": 16384,
+            "regions": {
+              "input": {
+                "base": 16512,
+                "bytes": 8000
+              },
+              "output": {
+                "base": 24512,
+                "bytes": 8000
+              },
+              "params": {
+                "base": 32512,
+                "bytes": 16
+              }
+            },
+            "scratch_bytes": 16144,
+            "transfers": [
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 8000,
+                "sram": 16512
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 19584,
+                "sram": 32512
+              },
+              {
+                "bytes": 8000,
+                "direction": "from_sram",
+                "ext": 0,
+                "sram": 24512
+              }
+            ]
+          },
+          {
+            "count": 56,
+            "descriptor_hex": "555344320206000080000000d81b000030370000b03a000009000000581b00001000000040000000030003000100010001000100010001001900050038003800",
+            "first": 0,
+            "layer": 3,
+            "live": [
+              0,
+              15920
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 49632,
+                "role": "descriptor",
+                "sram": 0
+              },
+              {
+                "bytes": 7000,
+                "direction": "to_sram",
+                "ext": 0,
+                "role": "input",
+                "sram": 128
+              },
+              {
+                "bytes": 896,
+                "direction": "to_sram",
+                "ext": 19600,
+                "role": "parameter",
+                "sram": 14128
+              },
+              {
+                "bytes": 896,
+                "direction": "to_sram",
+                "ext": 20624,
+                "role": "parameter",
+                "sram": 15024
+              }
+            ],
+            "pc": 0,
+            "regions": {
+              "input": {
+                "base": 128,
+                "bytes": 7000
+              },
+              "output": {
+                "base": 7128,
+                "bytes": 7000
+              },
+              "params": {
+                "base": 15024,
+                "bytes": 896
+              },
+              "weight": {
+                "base": 14128,
+                "bytes": 896
+              }
+            },
+            "scratch_bytes": 15920,
+            "transfers": [
+              {
+                "bytes": 7000,
+                "direction": "to_sram",
+                "ext": 0,
+                "sram": 128
+              },
+              {
+                "bytes": 896,
+                "direction": "to_sram",
+                "ext": 19600,
+                "sram": 14128
+              },
+              {
+                "bytes": 896,
+                "direction": "to_sram",
+                "ext": 20624,
+                "sram": 15024
+              },
+              {
+                "bytes": 7000,
+                "direction": "from_sram",
+                "ext": 8000,
+                "sram": 7128
+              }
+            ]
+          },
+          {
+            "count": 8,
+            "descriptor_hex": "5553443202060000804000006844000050480000d048000009000000e80300001000000040400000030003000100010001000100010001001900050008000800",
+            "first": 56,
+            "layer": 3,
+            "live": [
+              16384,
+              18768
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 49760,
+                "role": "descriptor",
+                "sram": 16384
+              },
+              {
+                "bytes": 1000,
+                "direction": "to_sram",
+                "ext": 7000,
+                "role": "input",
+                "sram": 16512
+              },
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 20496,
+                "role": "parameter",
+                "sram": 18512
+              },
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 21520,
+                "role": "parameter",
+                "sram": 18640
+              }
+            ],
+            "pc": 16384,
+            "regions": {
+              "input": {
+                "base": 16512,
+                "bytes": 1000
+              },
+              "output": {
+                "base": 17512,
+                "bytes": 1000
+              },
+              "params": {
+                "base": 18640,
+                "bytes": 128
+              },
+              "weight": {
+                "base": 18512,
+                "bytes": 128
+              }
+            },
+            "scratch_bytes": 2384,
+            "transfers": [
+              {
+                "bytes": 1000,
+                "direction": "to_sram",
+                "ext": 7000,
+                "sram": 16512
+              },
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 20496,
+                "sram": 18512
+              },
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 21520,
+                "sram": 18640
+              },
+              {
+                "bytes": 1000,
+                "direction": "from_sram",
+                "ext": 15000,
+                "sram": 17512
+              }
+            ]
+          },
+          {
+            "count": 8000,
+            "descriptor_hex": "555344320202000080000000c01f000000000000003f0000401f0000401f00000000000040000000010001000100010000000000000000000100010001000100",
+            "first": 0,
+            "layer": 4,
+            "live": [
+              0,
+              16144
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 49888,
+                "role": "descriptor",
+                "sram": 0
+              },
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 8000,
+                "role": "input",
+                "sram": 128
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 21648,
+                "role": "parameter",
+                "sram": 16128
+              }
+            ],
+            "pc": 0,
+            "regions": {
+              "input": {
+                "base": 128,
+                "bytes": 8000
+              },
+              "output": {
+                "base": 8128,
+                "bytes": 8000
+              },
+              "params": {
+                "base": 16128,
+                "bytes": 16
+              }
+            },
+            "scratch_bytes": 16144,
+            "transfers": [
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 8000,
+                "sram": 128
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 21648,
+                "sram": 16128
+              },
+              {
+                "bytes": 8000,
+                "direction": "from_sram",
+                "ext": 0,
+                "sram": 8128
+              }
+            ]
+          },
+          {
+            "count": 40,
+            "descriptor_hex": "555344320204000080400000c05f000048730000487d000040000000881300004000000040400000010001000100010000000000000000001900050040002800",
+            "first": 0,
+            "layer": 5,
+            "live": [
+              16384,
+              32712
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 50016,
+                "role": "descriptor",
+                "sram": 16384
+              },
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 0,
+                "role": "input",
+                "sram": 16512
+              },
+              {
+                "bytes": 2560,
+                "direction": "to_sram",
+                "ext": 21664,
+                "role": "parameter",
+                "sram": 29512
+              },
+              {
+                "bytes": 640,
+                "direction": "to_sram",
+                "ext": 25760,
+                "role": "parameter",
+                "sram": 32072
+              }
+            ],
+            "pc": 16384,
+            "regions": {
+              "input": {
+                "base": 16512,
+                "bytes": 8000
+              },
+              "output": {
+                "base": 24512,
+                "bytes": 5000
+              },
+              "params": {
+                "base": 32072,
+                "bytes": 640
+              },
+              "weight": {
+                "base": 29512,
+                "bytes": 2560
+              }
+            },
+            "scratch_bytes": 16328,
+            "transfers": [
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 0,
+                "sram": 16512
+              },
+              {
+                "bytes": 2560,
+                "direction": "to_sram",
+                "ext": 21664,
+                "sram": 29512
+              },
+              {
+                "bytes": 640,
+                "direction": "to_sram",
+                "ext": 25760,
+                "sram": 32072
+              },
+              {
+                "bytes": 5000,
+                "direction": "from_sram",
+                "ext": 8000,
+                "sram": 24512
+              }
+            ]
+          },
+          {
+            "count": 24,
+            "descriptor_hex": "555344320204000080000000c01f0000782b00007831000040000000b80b00004000000040000000010001000100010000000000000000001900050040001800",
+            "first": 40,
+            "layer": 5,
+            "live": [
+              0,
+              13048
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 50144,
+                "role": "descriptor",
+                "sram": 0
+              },
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 0,
+                "role": "input",
+                "sram": 128
+              },
+              {
+                "bytes": 1536,
+                "direction": "to_sram",
+                "ext": 24224,
+                "role": "parameter",
+                "sram": 11128
+              },
+              {
+                "bytes": 384,
+                "direction": "to_sram",
+                "ext": 26400,
+                "role": "parameter",
+                "sram": 12664
+              }
+            ],
+            "pc": 0,
+            "regions": {
+              "input": {
+                "base": 128,
+                "bytes": 8000
+              },
+              "output": {
+                "base": 8128,
+                "bytes": 3000
+              },
+              "params": {
+                "base": 12664,
+                "bytes": 384
+              },
+              "weight": {
+                "base": 11128,
+                "bytes": 1536
+              }
+            },
+            "scratch_bytes": 13048,
+            "transfers": [
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 0,
+                "sram": 128
+              },
+              {
+                "bytes": 1536,
+                "direction": "to_sram",
+                "ext": 24224,
+                "sram": 11128
+              },
+              {
+                "bytes": 384,
+                "direction": "to_sram",
+                "ext": 26400,
+                "sram": 12664
+              },
+              {
+                "bytes": 3000,
+                "direction": "from_sram",
+                "ext": 13000,
+                "sram": 8128
+              }
+            ]
+          },
+          {
+            "count": 8000,
+            "descriptor_hex": "555344320202000080400000c05f000000000000007f0000401f0000401f00000000000040400000010001000100010000000000000000000100010001000100",
+            "first": 0,
+            "layer": 6,
+            "live": [
+              16384,
+              32528
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 50272,
+                "role": "descriptor",
+                "sram": 16384
+              },
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 8000,
+                "role": "input",
+                "sram": 16512
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 26784,
+                "role": "parameter",
+                "sram": 32512
+              }
+            ],
+            "pc": 16384,
+            "regions": {
+              "input": {
+                "base": 16512,
+                "bytes": 8000
+              },
+              "output": {
+                "base": 24512,
+                "bytes": 8000
+              },
+              "params": {
+                "base": 32512,
+                "bytes": 16
+              }
+            },
+            "scratch_bytes": 16144,
+            "transfers": [
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 8000,
+                "sram": 16512
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 26784,
+                "sram": 32512
+              },
+              {
+                "bytes": 8000,
+                "direction": "from_sram",
+                "ext": 0,
+                "sram": 24512
+              }
+            ]
+          },
+          {
+            "count": 56,
+            "descriptor_hex": "555344320206000080000000d81b000030370000b03a000009000000581b00001000000040000000030003000100010001000100010001001900050038003800",
+            "first": 0,
+            "layer": 7,
+            "live": [
+              0,
+              15920
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 50400,
+                "role": "descriptor",
+                "sram": 0
+              },
+              {
+                "bytes": 7000,
+                "direction": "to_sram",
+                "ext": 0,
+                "role": "input",
+                "sram": 128
+              },
+              {
+                "bytes": 896,
+                "direction": "to_sram",
+                "ext": 26800,
+                "role": "parameter",
+                "sram": 14128
+              },
+              {
+                "bytes": 896,
+                "direction": "to_sram",
+                "ext": 27824,
+                "role": "parameter",
+                "sram": 15024
+              }
+            ],
+            "pc": 0,
+            "regions": {
+              "input": {
+                "base": 128,
+                "bytes": 7000
+              },
+              "output": {
+                "base": 7128,
+                "bytes": 7000
+              },
+              "params": {
+                "base": 15024,
+                "bytes": 896
+              },
+              "weight": {
+                "base": 14128,
+                "bytes": 896
+              }
+            },
+            "scratch_bytes": 15920,
+            "transfers": [
+              {
+                "bytes": 7000,
+                "direction": "to_sram",
+                "ext": 0,
+                "sram": 128
+              },
+              {
+                "bytes": 896,
+                "direction": "to_sram",
+                "ext": 26800,
+                "sram": 14128
+              },
+              {
+                "bytes": 896,
+                "direction": "to_sram",
+                "ext": 27824,
+                "sram": 15024
+              },
+              {
+                "bytes": 7000,
+                "direction": "from_sram",
+                "ext": 8000,
+                "sram": 7128
+              }
+            ]
+          },
+          {
+            "count": 8,
+            "descriptor_hex": "5553443202060000804000006844000050480000d048000009000000e80300001000000040400000030003000100010001000100010001001900050008000800",
+            "first": 56,
+            "layer": 7,
+            "live": [
+              16384,
+              18768
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 50528,
+                "role": "descriptor",
+                "sram": 16384
+              },
+              {
+                "bytes": 1000,
+                "direction": "to_sram",
+                "ext": 7000,
+                "role": "input",
+                "sram": 16512
+              },
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 27696,
+                "role": "parameter",
+                "sram": 18512
+              },
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 28720,
+                "role": "parameter",
+                "sram": 18640
+              }
+            ],
+            "pc": 16384,
+            "regions": {
+              "input": {
+                "base": 16512,
+                "bytes": 1000
+              },
+              "output": {
+                "base": 17512,
+                "bytes": 1000
+              },
+              "params": {
+                "base": 18640,
+                "bytes": 128
+              },
+              "weight": {
+                "base": 18512,
+                "bytes": 128
+              }
+            },
+            "scratch_bytes": 2384,
+            "transfers": [
+              {
+                "bytes": 1000,
+                "direction": "to_sram",
+                "ext": 7000,
+                "sram": 16512
+              },
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 27696,
+                "sram": 18512
+              },
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 28720,
+                "sram": 18640
+              },
+              {
+                "bytes": 1000,
+                "direction": "from_sram",
+                "ext": 15000,
+                "sram": 17512
+              }
+            ]
+          },
+          {
+            "count": 8000,
+            "descriptor_hex": "555344320202000080000000c01f000000000000003f0000401f0000401f00000000000040000000010001000100010000000000000000000100010001000100",
+            "first": 0,
+            "layer": 8,
+            "live": [
+              0,
+              16144
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 50656,
+                "role": "descriptor",
+                "sram": 0
+              },
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 8000,
+                "role": "input",
+                "sram": 128
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 28848,
+                "role": "parameter",
+                "sram": 16128
+              }
+            ],
+            "pc": 0,
+            "regions": {
+              "input": {
+                "base": 128,
+                "bytes": 8000
+              },
+              "output": {
+                "base": 8128,
+                "bytes": 8000
+              },
+              "params": {
+                "base": 16128,
+                "bytes": 16
+              }
+            },
+            "scratch_bytes": 16144,
+            "transfers": [
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 8000,
+                "sram": 128
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 28848,
+                "sram": 16128
+              },
+              {
+                "bytes": 8000,
+                "direction": "from_sram",
+                "ext": 0,
+                "sram": 8128
+              }
+            ]
+          },
+          {
+            "count": 40,
+            "descriptor_hex": "555344320204000080400000c05f000048730000487d000040000000881300004000000040400000010001000100010000000000000000001900050040002800",
+            "first": 0,
+            "layer": 9,
+            "live": [
+              16384,
+              32712
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 50784,
+                "role": "descriptor",
+                "sram": 16384
+              },
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 0,
+                "role": "input",
+                "sram": 16512
+              },
+              {
+                "bytes": 2560,
+                "direction": "to_sram",
+                "ext": 28864,
+                "role": "parameter",
+                "sram": 29512
+              },
+              {
+                "bytes": 640,
+                "direction": "to_sram",
+                "ext": 32960,
+                "role": "parameter",
+                "sram": 32072
+              }
+            ],
+            "pc": 16384,
+            "regions": {
+              "input": {
+                "base": 16512,
+                "bytes": 8000
+              },
+              "output": {
+                "base": 24512,
+                "bytes": 5000
+              },
+              "params": {
+                "base": 32072,
+                "bytes": 640
+              },
+              "weight": {
+                "base": 29512,
+                "bytes": 2560
+              }
+            },
+            "scratch_bytes": 16328,
+            "transfers": [
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 0,
+                "sram": 16512
+              },
+              {
+                "bytes": 2560,
+                "direction": "to_sram",
+                "ext": 28864,
+                "sram": 29512
+              },
+              {
+                "bytes": 640,
+                "direction": "to_sram",
+                "ext": 32960,
+                "sram": 32072
+              },
+              {
+                "bytes": 5000,
+                "direction": "from_sram",
+                "ext": 8000,
+                "sram": 24512
+              }
+            ]
+          },
+          {
+            "count": 24,
+            "descriptor_hex": "555344320204000080000000c01f0000782b00007831000040000000b80b00004000000040000000010001000100010000000000000000001900050040001800",
+            "first": 40,
+            "layer": 9,
+            "live": [
+              0,
+              13048
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 50912,
+                "role": "descriptor",
+                "sram": 0
+              },
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 0,
+                "role": "input",
+                "sram": 128
+              },
+              {
+                "bytes": 1536,
+                "direction": "to_sram",
+                "ext": 31424,
+                "role": "parameter",
+                "sram": 11128
+              },
+              {
+                "bytes": 384,
+                "direction": "to_sram",
+                "ext": 33600,
+                "role": "parameter",
+                "sram": 12664
+              }
+            ],
+            "pc": 0,
+            "regions": {
+              "input": {
+                "base": 128,
+                "bytes": 8000
+              },
+              "output": {
+                "base": 8128,
+                "bytes": 3000
+              },
+              "params": {
+                "base": 12664,
+                "bytes": 384
+              },
+              "weight": {
+                "base": 11128,
+                "bytes": 1536
+              }
+            },
+            "scratch_bytes": 13048,
+            "transfers": [
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 0,
+                "sram": 128
+              },
+              {
+                "bytes": 1536,
+                "direction": "to_sram",
+                "ext": 31424,
+                "sram": 11128
+              },
+              {
+                "bytes": 384,
+                "direction": "to_sram",
+                "ext": 33600,
+                "sram": 12664
+              },
+              {
+                "bytes": 3000,
+                "direction": "from_sram",
+                "ext": 13000,
+                "sram": 8128
+              }
+            ]
+          },
+          {
+            "count": 8000,
+            "descriptor_hex": "555344320202000080400000c05f000000000000007f0000401f0000401f00000000000040400000010001000100010000000000000000000100010001000100",
+            "first": 0,
+            "layer": 10,
+            "live": [
+              16384,
+              32528
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 51040,
+                "role": "descriptor",
+                "sram": 16384
+              },
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 8000,
+                "role": "input",
+                "sram": 16512
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 33984,
+                "role": "parameter",
+                "sram": 32512
+              }
+            ],
+            "pc": 16384,
+            "regions": {
+              "input": {
+                "base": 16512,
+                "bytes": 8000
+              },
+              "output": {
+                "base": 24512,
+                "bytes": 8000
+              },
+              "params": {
+                "base": 32512,
+                "bytes": 16
+              }
+            },
+            "scratch_bytes": 16144,
+            "transfers": [
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 8000,
+                "sram": 16512
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 33984,
+                "sram": 32512
+              },
+              {
+                "bytes": 8000,
+                "direction": "from_sram",
+                "ext": 0,
+                "sram": 24512
+              }
+            ]
+          },
+          {
+            "count": 56,
+            "descriptor_hex": "555344320206000080000000d81b000030370000b03a000009000000581b00001000000040000000030003000100010001000100010001001900050038003800",
+            "first": 0,
+            "layer": 11,
+            "live": [
+              0,
+              15920
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 51168,
+                "role": "descriptor",
+                "sram": 0
+              },
+              {
+                "bytes": 7000,
+                "direction": "to_sram",
+                "ext": 0,
+                "role": "input",
+                "sram": 128
+              },
+              {
+                "bytes": 896,
+                "direction": "to_sram",
+                "ext": 34000,
+                "role": "parameter",
+                "sram": 14128
+              },
+              {
+                "bytes": 896,
+                "direction": "to_sram",
+                "ext": 35024,
+                "role": "parameter",
+                "sram": 15024
+              }
+            ],
+            "pc": 0,
+            "regions": {
+              "input": {
+                "base": 128,
+                "bytes": 7000
+              },
+              "output": {
+                "base": 7128,
+                "bytes": 7000
+              },
+              "params": {
+                "base": 15024,
+                "bytes": 896
+              },
+              "weight": {
+                "base": 14128,
+                "bytes": 896
+              }
+            },
+            "scratch_bytes": 15920,
+            "transfers": [
+              {
+                "bytes": 7000,
+                "direction": "to_sram",
+                "ext": 0,
+                "sram": 128
+              },
+              {
+                "bytes": 896,
+                "direction": "to_sram",
+                "ext": 34000,
+                "sram": 14128
+              },
+              {
+                "bytes": 896,
+                "direction": "to_sram",
+                "ext": 35024,
+                "sram": 15024
+              },
+              {
+                "bytes": 7000,
+                "direction": "from_sram",
+                "ext": 8000,
+                "sram": 7128
+              }
+            ]
+          },
+          {
+            "count": 8,
+            "descriptor_hex": "5553443202060000804000006844000050480000d048000009000000e80300001000000040400000030003000100010001000100010001001900050008000800",
+            "first": 56,
+            "layer": 11,
+            "live": [
+              16384,
+              18768
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 51296,
+                "role": "descriptor",
+                "sram": 16384
+              },
+              {
+                "bytes": 1000,
+                "direction": "to_sram",
+                "ext": 7000,
+                "role": "input",
+                "sram": 16512
+              },
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 34896,
+                "role": "parameter",
+                "sram": 18512
+              },
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 35920,
+                "role": "parameter",
+                "sram": 18640
+              }
+            ],
+            "pc": 16384,
+            "regions": {
+              "input": {
+                "base": 16512,
+                "bytes": 1000
+              },
+              "output": {
+                "base": 17512,
+                "bytes": 1000
+              },
+              "params": {
+                "base": 18640,
+                "bytes": 128
+              },
+              "weight": {
+                "base": 18512,
+                "bytes": 128
+              }
+            },
+            "scratch_bytes": 2384,
+            "transfers": [
+              {
+                "bytes": 1000,
+                "direction": "to_sram",
+                "ext": 7000,
+                "sram": 16512
+              },
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 34896,
+                "sram": 18512
+              },
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 35920,
+                "sram": 18640
+              },
+              {
+                "bytes": 1000,
+                "direction": "from_sram",
+                "ext": 15000,
+                "sram": 17512
+              }
+            ]
+          },
+          {
+            "count": 8000,
+            "descriptor_hex": "555344320202000080000000c01f000000000000003f0000401f0000401f00000000000040000000010001000100010000000000000000000100010001000100",
+            "first": 0,
+            "layer": 12,
+            "live": [
+              0,
+              16144
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 51424,
+                "role": "descriptor",
+                "sram": 0
+              },
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 8000,
+                "role": "input",
+                "sram": 128
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 36048,
+                "role": "parameter",
+                "sram": 16128
+              }
+            ],
+            "pc": 0,
+            "regions": {
+              "input": {
+                "base": 128,
+                "bytes": 8000
+              },
+              "output": {
+                "base": 8128,
+                "bytes": 8000
+              },
+              "params": {
+                "base": 16128,
+                "bytes": 16
+              }
+            },
+            "scratch_bytes": 16144,
+            "transfers": [
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 8000,
+                "sram": 128
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 36048,
+                "sram": 16128
+              },
+              {
+                "bytes": 8000,
+                "direction": "from_sram",
+                "ext": 0,
+                "sram": 8128
+              }
+            ]
+          },
+          {
+            "count": 40,
+            "descriptor_hex": "555344320204000080400000c05f000048730000487d000040000000881300004000000040400000010001000100010000000000000000001900050040002800",
+            "first": 0,
+            "layer": 13,
+            "live": [
+              16384,
+              32712
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 51552,
+                "role": "descriptor",
+                "sram": 16384
+              },
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 0,
+                "role": "input",
+                "sram": 16512
+              },
+              {
+                "bytes": 2560,
+                "direction": "to_sram",
+                "ext": 36064,
+                "role": "parameter",
+                "sram": 29512
+              },
+              {
+                "bytes": 640,
+                "direction": "to_sram",
+                "ext": 40160,
+                "role": "parameter",
+                "sram": 32072
+              }
+            ],
+            "pc": 16384,
+            "regions": {
+              "input": {
+                "base": 16512,
+                "bytes": 8000
+              },
+              "output": {
+                "base": 24512,
+                "bytes": 5000
+              },
+              "params": {
+                "base": 32072,
+                "bytes": 640
+              },
+              "weight": {
+                "base": 29512,
+                "bytes": 2560
+              }
+            },
+            "scratch_bytes": 16328,
+            "transfers": [
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 0,
+                "sram": 16512
+              },
+              {
+                "bytes": 2560,
+                "direction": "to_sram",
+                "ext": 36064,
+                "sram": 29512
+              },
+              {
+                "bytes": 640,
+                "direction": "to_sram",
+                "ext": 40160,
+                "sram": 32072
+              },
+              {
+                "bytes": 5000,
+                "direction": "from_sram",
+                "ext": 8000,
+                "sram": 24512
+              }
+            ]
+          },
+          {
+            "count": 24,
+            "descriptor_hex": "555344320204000080000000c01f0000782b00007831000040000000b80b00004000000040000000010001000100010000000000000000001900050040001800",
+            "first": 40,
+            "layer": 13,
+            "live": [
+              0,
+              13048
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 51680,
+                "role": "descriptor",
+                "sram": 0
+              },
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 0,
+                "role": "input",
+                "sram": 128
+              },
+              {
+                "bytes": 1536,
+                "direction": "to_sram",
+                "ext": 38624,
+                "role": "parameter",
+                "sram": 11128
+              },
+              {
+                "bytes": 384,
+                "direction": "to_sram",
+                "ext": 40800,
+                "role": "parameter",
+                "sram": 12664
+              }
+            ],
+            "pc": 0,
+            "regions": {
+              "input": {
+                "base": 128,
+                "bytes": 8000
+              },
+              "output": {
+                "base": 8128,
+                "bytes": 3000
+              },
+              "params": {
+                "base": 12664,
+                "bytes": 384
+              },
+              "weight": {
+                "base": 11128,
+                "bytes": 1536
+              }
+            },
+            "scratch_bytes": 13048,
+            "transfers": [
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 0,
+                "sram": 128
+              },
+              {
+                "bytes": 1536,
+                "direction": "to_sram",
+                "ext": 38624,
+                "sram": 11128
+              },
+              {
+                "bytes": 384,
+                "direction": "to_sram",
+                "ext": 40800,
+                "sram": 12664
+              },
+              {
+                "bytes": 3000,
+                "direction": "from_sram",
+                "ext": 13000,
+                "sram": 8128
+              }
+            ]
+          },
+          {
+            "count": 8000,
+            "descriptor_hex": "555344320202000080400000c05f000000000000007f0000401f0000401f00000000000040400000010001000100010000000000000000000100010001000100",
+            "first": 0,
+            "layer": 14,
+            "live": [
+              16384,
+              32528
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 51808,
+                "role": "descriptor",
+                "sram": 16384
+              },
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 8000,
+                "role": "input",
+                "sram": 16512
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 41184,
+                "role": "parameter",
+                "sram": 32512
+              }
+            ],
+            "pc": 16384,
+            "regions": {
+              "input": {
+                "base": 16512,
+                "bytes": 8000
+              },
+              "output": {
+                "base": 24512,
+                "bytes": 8000
+              },
+              "params": {
+                "base": 32512,
+                "bytes": 16
+              }
+            },
+            "scratch_bytes": 16144,
+            "transfers": [
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 8000,
+                "sram": 16512
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 41184,
+                "sram": 32512
+              },
+              {
+                "bytes": 8000,
+                "direction": "from_sram",
+                "ext": 0,
+                "sram": 24512
+              }
+            ]
+          },
+          {
+            "count": 56,
+            "descriptor_hex": "555344320206000080000000d81b000030370000b03a000009000000581b00001000000040000000030003000100010001000100010001001900050038003800",
+            "first": 0,
+            "layer": 15,
+            "live": [
+              0,
+              15920
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 51936,
+                "role": "descriptor",
+                "sram": 0
+              },
+              {
+                "bytes": 7000,
+                "direction": "to_sram",
+                "ext": 0,
+                "role": "input",
+                "sram": 128
+              },
+              {
+                "bytes": 896,
+                "direction": "to_sram",
+                "ext": 41200,
+                "role": "parameter",
+                "sram": 14128
+              },
+              {
+                "bytes": 896,
+                "direction": "to_sram",
+                "ext": 42224,
+                "role": "parameter",
+                "sram": 15024
+              }
+            ],
+            "pc": 0,
+            "regions": {
+              "input": {
+                "base": 128,
+                "bytes": 7000
+              },
+              "output": {
+                "base": 7128,
+                "bytes": 7000
+              },
+              "params": {
+                "base": 15024,
+                "bytes": 896
+              },
+              "weight": {
+                "base": 14128,
+                "bytes": 896
+              }
+            },
+            "scratch_bytes": 15920,
+            "transfers": [
+              {
+                "bytes": 7000,
+                "direction": "to_sram",
+                "ext": 0,
+                "sram": 128
+              },
+              {
+                "bytes": 896,
+                "direction": "to_sram",
+                "ext": 41200,
+                "sram": 14128
+              },
+              {
+                "bytes": 896,
+                "direction": "to_sram",
+                "ext": 42224,
+                "sram": 15024
+              },
+              {
+                "bytes": 7000,
+                "direction": "from_sram",
+                "ext": 8000,
+                "sram": 7128
+              }
+            ]
+          },
+          {
+            "count": 8,
+            "descriptor_hex": "5553443202060000804000006844000050480000d048000009000000e80300001000000040400000030003000100010001000100010001001900050008000800",
+            "first": 56,
+            "layer": 15,
+            "live": [
+              16384,
+              18768
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 52064,
+                "role": "descriptor",
+                "sram": 16384
+              },
+              {
+                "bytes": 1000,
+                "direction": "to_sram",
+                "ext": 7000,
+                "role": "input",
+                "sram": 16512
+              },
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 42096,
+                "role": "parameter",
+                "sram": 18512
+              },
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 43120,
+                "role": "parameter",
+                "sram": 18640
+              }
+            ],
+            "pc": 16384,
+            "regions": {
+              "input": {
+                "base": 16512,
+                "bytes": 1000
+              },
+              "output": {
+                "base": 17512,
+                "bytes": 1000
+              },
+              "params": {
+                "base": 18640,
+                "bytes": 128
+              },
+              "weight": {
+                "base": 18512,
+                "bytes": 128
+              }
+            },
+            "scratch_bytes": 2384,
+            "transfers": [
+              {
+                "bytes": 1000,
+                "direction": "to_sram",
+                "ext": 7000,
+                "sram": 16512
+              },
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 42096,
+                "sram": 18512
+              },
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 43120,
+                "sram": 18640
+              },
+              {
+                "bytes": 1000,
+                "direction": "from_sram",
+                "ext": 15000,
+                "sram": 17512
+              }
+            ]
+          },
+          {
+            "count": 8000,
+            "descriptor_hex": "555344320202000080000000c01f000000000000003f0000401f0000401f00000000000040000000010001000100010000000000000000000100010001000100",
+            "first": 0,
+            "layer": 16,
+            "live": [
+              0,
+              16144
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 52192,
+                "role": "descriptor",
+                "sram": 0
+              },
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 8000,
+                "role": "input",
+                "sram": 128
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 43248,
+                "role": "parameter",
+                "sram": 16128
+              }
+            ],
+            "pc": 0,
+            "regions": {
+              "input": {
+                "base": 128,
+                "bytes": 8000
+              },
+              "output": {
+                "base": 8128,
+                "bytes": 8000
+              },
+              "params": {
+                "base": 16128,
+                "bytes": 16
+              }
+            },
+            "scratch_bytes": 16144,
+            "transfers": [
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 8000,
+                "sram": 128
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 43248,
+                "sram": 16128
+              },
+              {
+                "bytes": 8000,
+                "direction": "from_sram",
+                "ext": 0,
+                "sram": 8128
+              }
+            ]
+          },
+          {
+            "count": 40,
+            "descriptor_hex": "555344320204000080400000c05f000048730000487d000040000000881300004000000040400000010001000100010000000000000000001900050040002800",
+            "first": 0,
+            "layer": 17,
+            "live": [
+              16384,
+              32712
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 52320,
+                "role": "descriptor",
+                "sram": 16384
+              },
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 0,
+                "role": "input",
+                "sram": 16512
+              },
+              {
+                "bytes": 2560,
+                "direction": "to_sram",
+                "ext": 43264,
+                "role": "parameter",
+                "sram": 29512
+              },
+              {
+                "bytes": 640,
+                "direction": "to_sram",
+                "ext": 47360,
+                "role": "parameter",
+                "sram": 32072
+              }
+            ],
+            "pc": 16384,
+            "regions": {
+              "input": {
+                "base": 16512,
+                "bytes": 8000
+              },
+              "output": {
+                "base": 24512,
+                "bytes": 5000
+              },
+              "params": {
+                "base": 32072,
+                "bytes": 640
+              },
+              "weight": {
+                "base": 29512,
+                "bytes": 2560
+              }
+            },
+            "scratch_bytes": 16328,
+            "transfers": [
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 0,
+                "sram": 16512
+              },
+              {
+                "bytes": 2560,
+                "direction": "to_sram",
+                "ext": 43264,
+                "sram": 29512
+              },
+              {
+                "bytes": 640,
+                "direction": "to_sram",
+                "ext": 47360,
+                "sram": 32072
+              },
+              {
+                "bytes": 5000,
+                "direction": "from_sram",
+                "ext": 8000,
+                "sram": 24512
+              }
+            ]
+          },
+          {
+            "count": 24,
+            "descriptor_hex": "555344320204000080000000c01f0000782b00007831000040000000b80b00004000000040000000010001000100010000000000000000001900050040001800",
+            "first": 40,
+            "layer": 17,
+            "live": [
+              0,
+              13048
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 52448,
+                "role": "descriptor",
+                "sram": 0
+              },
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 0,
+                "role": "input",
+                "sram": 128
+              },
+              {
+                "bytes": 1536,
+                "direction": "to_sram",
+                "ext": 45824,
+                "role": "parameter",
+                "sram": 11128
+              },
+              {
+                "bytes": 384,
+                "direction": "to_sram",
+                "ext": 48000,
+                "role": "parameter",
+                "sram": 12664
+              }
+            ],
+            "pc": 0,
+            "regions": {
+              "input": {
+                "base": 128,
+                "bytes": 8000
+              },
+              "output": {
+                "base": 8128,
+                "bytes": 3000
+              },
+              "params": {
+                "base": 12664,
+                "bytes": 384
+              },
+              "weight": {
+                "base": 11128,
+                "bytes": 1536
+              }
+            },
+            "scratch_bytes": 13048,
+            "transfers": [
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 0,
+                "sram": 128
+              },
+              {
+                "bytes": 1536,
+                "direction": "to_sram",
+                "ext": 45824,
+                "sram": 11128
+              },
+              {
+                "bytes": 384,
+                "direction": "to_sram",
+                "ext": 48000,
+                "sram": 12664
+              },
+              {
+                "bytes": 3000,
+                "direction": "from_sram",
+                "ext": 13000,
+                "sram": 8128
+              }
+            ]
+          },
+          {
+            "count": 8000,
+            "descriptor_hex": "555344320202000080400000c05f000000000000007f0000401f0000401f00000000000040400000010001000100010000000000000000000100010001000100",
+            "first": 0,
+            "layer": 18,
+            "live": [
+              16384,
+              32528
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 52576,
+                "role": "descriptor",
+                "sram": 16384
+              },
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 8000,
+                "role": "input",
+                "sram": 16512
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 48384,
+                "role": "parameter",
+                "sram": 32512
+              }
+            ],
+            "pc": 16384,
+            "regions": {
+              "input": {
+                "base": 16512,
+                "bytes": 8000
+              },
+              "output": {
+                "base": 24512,
+                "bytes": 8000
+              },
+              "params": {
+                "base": 32512,
+                "bytes": 16
+              }
+            },
+            "scratch_bytes": 16144,
+            "transfers": [
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 8000,
+                "sram": 16512
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 48384,
+                "sram": 32512
+              },
+              {
+                "bytes": 8000,
+                "direction": "from_sram",
+                "ext": 0,
+                "sram": 24512
+              }
+            ]
+          },
+          {
+            "count": 64,
+            "descriptor_hex": "555344320207000080000000c01f00000000000000200000401f0000400000000000000040000000190005001900050000000000000000001900050040004000",
+            "first": 0,
+            "layer": 19,
+            "live": [
+              0,
+              8208
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 52704,
+                "role": "descriptor",
+                "sram": 0
+              },
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 0,
+                "role": "input",
+                "sram": 128
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 48400,
+                "role": "parameter",
+                "sram": 8192
+              }
+            ],
+            "pc": 0,
+            "regions": {
+              "input": {
+                "base": 128,
+                "bytes": 8000
+              },
+              "output": {
+                "base": 8128,
+                "bytes": 64
+              },
+              "params": {
+                "base": 8192,
+                "bytes": 16
+              }
+            },
+            "scratch_bytes": 8208,
+            "transfers": [
+              {
+                "bytes": 8000,
+                "direction": "to_sram",
+                "ext": 0,
+                "sram": 128
+              },
+              {
+                "bytes": 16,
+                "direction": "to_sram",
+                "ext": 48400,
+                "sram": 8192
+              },
+              {
+                "bytes": 64,
+                "direction": "from_sram",
+                "ext": 8000,
+                "sram": 8128
+              }
+            ]
+          },
+          {
+            "count": 12,
+            "descriptor_hex": "555344320201000080400000c0400000d0400000d0430000400000000c0000004000000040400000010001000100010000000000000000000100010001000100",
+            "first": 0,
+            "layer": 21,
+            "live": [
+              16384,
+              17552
+            ],
+            "loads": [
+              {
+                "bytes": 128,
+                "direction": "to_sram",
+                "ext": 52832,
+                "role": "descriptor",
+                "sram": 16384
+              },
+              {
+                "bytes": 64,
+                "direction": "to_sram",
+                "ext": 8000,
+                "role": "input",
+                "sram": 16512
+              },
+              {
+                "bytes": 768,
+                "direction": "to_sram",
+                "ext": 48416,
+                "role": "parameter",
+                "sram": 16592
+              },
+              {
+                "bytes": 192,
+                "direction": "to_sram",
+                "ext": 49184,
+                "role": "parameter",
+                "sram": 17360
+              }
+            ],
+            "pc": 16384,
+            "regions": {
+              "input": {
+                "base": 16512,
+                "bytes": 64
+              },
+              "output": {
+                "base": 16576,
+                "bytes": 12
+              },
+              "params": {
+                "base": 17360,
+                "bytes": 192
+              },
+              "weight": {
+                "base": 16592,
+                "bytes": 768
+              }
+            },
+            "scratch_bytes": 1168,
+            "transfers": [
+              {
+                "bytes": 64,
+                "direction": "to_sram",
+                "ext": 8000,
+                "sram": 16512
+              },
+              {
+                "bytes": 768,
+                "direction": "to_sram",
+                "ext": 48416,
+                "sram": 16592
+              },
+              {
+                "bytes": 192,
+                "direction": "to_sram",
+                "ext": 49184,
+                "sram": 17360
+              },
+              {
+                "bytes": 12,
+                "direction": "from_sram",
+                "ext": 0,
+                "sram": 16576
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "physical_board": true,
+  "snapshot_run": {
+    "dma_busy_cycles": 529466,
+    "elapsed_cycles": 5844025,
+    "engine_busy_cycles": 5387503,
+    "input_run_output_wall_seconds": 0.40796454111114144,
+    "last_command_index": 372,
+    "output_hex": "1d09f52aeb180be7af03a435",
+    "output_sha256": "ce178213db2ef2aa27d0b532e4a17851cfef1772ad74b2fc7a95311b4a6714a7",
+    "overlap_cycles": 73805
+  },
+  "status": "passed",
+  "usb_reopen_count": 0
+}

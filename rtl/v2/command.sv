@@ -37,6 +37,10 @@ module v2_command #(
         (address<24'h008000 && transfer_end<=25'h008000) ||
         (address>=24'h400000 && address<24'h400020 &&
          transfer_end<=25'h400020) ||
+        (address>=24'h410000 && address<24'h410020 &&
+         transfer_end<=25'h410020) ||
+        (address>=24'h500000 && address<24'h508000 &&
+         transfer_end<=25'h508000) ||
         (address>=24'h800000 && transfer_end<=25'h1000000);
     wire tiled_busy_mmio_write = TILED_MEM_MAP && mmio_while_busy &&
         cmd==WRITE && address>=24'h400000 && address<24'h400020 &&

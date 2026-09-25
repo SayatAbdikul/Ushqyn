@@ -30,13 +30,18 @@ def main():
     parser.add_argument('--bitstream', required=True, type=Path)
     parser.add_argument('--report', required=True, type=Path)
     parser.add_argument('--repeats', type=int, default=3)
+    parser.add_argument('--recover-usb', action='store_true')
     args = parser.parse_args()
     if args.repeats < 1:
         raise ValueError('repeats must be positive')
     records = []
     with serial.Serial(args.port, 115200, timeout=5, write_timeout=5) as uart:
         uart.reset_input_buffer()
-        client = TiledClient(uart)
+        client_type=TiledClient
+        if args.recover_usb:
+            from run_physical_sequence import RecoverableUploadClient
+            client_type=RecoverableUploadClient
+        client = client_type(uart)
         client.capabilities()
         client.wait_idle(30)
         client.exchange(RESET)

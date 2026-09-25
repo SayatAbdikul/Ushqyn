@@ -1,0 +1,58 @@
+{
+  "bitstream_path": "hardware/releases/phase4-sdram/hs_tiled_autonomous.fs",
+  "bitstream_sha256": "ea4eed105933e87d308d42b4bfa581010e843c9c9b9f94e9c9e8e852c19b98fb",
+  "core_clock_constraint_mhz": 20.25,
+  "generated_ip_path": "work/phase4/ip-generated/sdram_controller_hs.v",
+  "generated_ip_sha256": "3166bcfd473e7af6cbf80110ad952279c0209821dbbde4ee26d8a2d558dcee3d",
+  "limits": [
+    "physical run reports are separate",
+    "Gowin power report is an estimate, not measured energy"
+  ],
+  "power_report_sha256": "2cc8661e257934e252f52d872226a0068d7e40dbd2088d19e88148433e2777d1",
+  "program_log_sha256": "bc979a349a1a6fc862bcd4c6c179e5fef8e87a09d19ff68b90bd54079ce67628",
+  "resources": {
+    "bsram": {
+      "available": 46,
+      "used": 34.0
+    },
+    "dsp": {
+      "available": 24,
+      "used": 19.75
+    },
+    "logic": {
+      "available": 20736,
+      "used": 14182.0
+    },
+    "register": {
+      "available": 15915,
+      "used": 4876.0
+    }
+  },
+  "route_report_sha256": "c0d80ebf98726ae5bf9f8ad01c46b8b7db608922cfeab40a6ea778cc92340ff0",
+  "routed_core_fmax_mhz": 21.897,
+  "scope": "autonomous sequencer and 64-byte SDRAM bursts",
+  "setup_tns_ns": 0.0,
+  "source_sha256": {
+    "hardware/phase4_sdram/bist.sdc": "6d8bbb0169f52a717de400a89fb3046edcd07ee3c16a0e2997a2aec7a1e56f6b",
+    "hardware/phase4_sdram/build_tiled_host.tcl": "ace200ddb6e27e488e0ed0d74927bd03e46e86fa334b2da389295b0b3b019204",
+    "hardware/phase4_sdram/pll_dma_20.v": "104341319eead08208f9da7849ba34c751098e0d4290d6819d4968294953114f",
+    "hardware/phase4_sdram/sdram_controller_hs.ipc": "17a51b5650496a041f86cf28477237ab9eacc88044e7ac26366285e0f2876288",
+    "hardware/phase4_sdram/tiled_host.cst": "c643c6e072d3ce570a8bb87637845b250594ce095b33ae27a273e6afb748445d",
+    "hardware/phase4_sdram/tiled_host.sv": "24a63f9b0d16d47bee5d9bc308cac50845474f879b015988d76d29dc1df8e4b1",
+    "rtl/v2/command.sv": "e574d1eec72d747931707a37ca79a45718dffb1ddae8cca88301a496c9ab67b7",
+    "rtl/v2/engine.sv": "4b8300050934959a627249fca9d7be74a594757abd162ab4710510aaa71cb122",
+    "rtl/v2/hs_sdram_burst_port.sv": "3eb45a79185c09d822e2cb8398ce4cc2413478daa232a3178baa8c7e05859dc0",
+    "rtl/v2/requantizer.sv": "e40913b484ad629d2445cdfb3edf16d6508f273ce0d4a5855d114780fe0a9e4b",
+    "rtl/v2/scratchpad.sv": "bfdab92e5f5f039e102b76fad82fe6a8df2d7f64d1b2cffd23cc677626654cd2",
+    "rtl/v2/sdram_refresh.sv": "9b9bfb8c05011ce2d84e9838697ab65ec587dfb3310684d4c37b853e8dcb21ec",
+    "rtl/v2/target_pkg.sv": "52e649f8911e92452cfef5cce9b1ad4e5dd75d20f4a725c67ee391fe75daae6e",
+    "rtl/v2/tile_dma.sv": "94e94a4a8c474fd2f0824dff3cc64bca921262cd9e0bf53064713376c1a09ab9",
+    "rtl/v2/tile_sequencer.sv": "439c7db6b03cf0d775301186f2255a3cdfc19cfa89f2752325639611fb6234e8",
+    "rtl/v2/tiled_core.sv": "30b7ec281a044e10e50209204dbd4a99e56768edb422fe8e1fc22fde6e661068",
+    "rtl/v2/tiled_host_bridge.sv": "3855832e9e8a06aabb04fe643a7cd00060d1619e2f2b77b9a38d7943a86263aa",
+    "rtl/v2/uart_rx.sv": "4c5499b744202962204c4179b977e2e7fc6e4cc236250e12095d4c9d7681d337",
+    "rtl/v2/uart_tx.sv": "a3ace5523e30af83438478ad82f54a12fcd5aca07e38dbc4e3b46cc46f3af1f1"
+  },
+  "status": "passed-post-route",
+  "timing_report_sha256": "99ee7f2bf604aec25409e903e77c37dc28375889d539dd4e1eaf9df68fbd8487"
+}

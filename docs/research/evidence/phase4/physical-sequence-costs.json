@@ -1,0 +1,591 @@
+{
+  "bitstream_sha256": "ea4eed105933e87d308d42b4bfa581010e843c9c9b9f94e9c9e8e852c19b98fb",
+  "dma": {
+    "from_sram": {
+      "coefficients": [
+        18.22410182381248,
+        3.9261358387085594,
+        36.84976233747721,
+        -18.771600570628685,
+        4.557435157148085
+      ],
+      "validation_configurations": 6,
+      "validation_error": {
+        "median_absolute_percent_error": 2.3544400745605003,
+        "p95_absolute_percent_error": 10.409905591973104,
+        "samples": 18,
+        "worst_absolute_percent_error": 10.659705756797848
+      },
+      "validation_predictions": [
+        {
+          "cycles": 59,
+          "direction": "from_sram",
+          "dma_cycles": 59,
+          "external_offset": 16384,
+          "length_bytes": 7,
+          "payload_mib_per_second_at_nominal_clock": 2.291242955094677,
+          "predicted_cycles": 58.99999999999825,
+          "repeat": 0
+        },
+        {
+          "cycles": 62,
+          "direction": "from_sram",
+          "dma_cycles": 62,
+          "external_offset": 16384,
+          "length_bytes": 9,
+          "payload_mib_per_second_at_nominal_clock": 2.8033410349199848,
+          "predicted_cycles": 62.92613583870681,
+          "repeat": 0
+        },
+        {
+          "cycles": 122,
+          "direction": "from_sram",
+          "dma_cycles": 122,
+          "external_offset": 16384,
+          "length_bytes": 65,
+          "payload_mib_per_second_at_nominal_clock": 10.289129663686284,
+          "predicted_cycles": 127.25884904714393,
+          "repeat": 0
+        },
+        {
+          "cycles": 254,
+          "direction": "from_sram",
+          "dma_cycles": 254,
+          "external_offset": 16384,
+          "length_bytes": 256,
+          "payload_mib_per_second_at_nominal_clock": 19.463967150590552,
+          "predicted_cycles": 272.48789744176656,
+          "repeat": 0
+        },
+        {
+          "cycles": 4371,
+          "direction": "from_sram",
+          "dma_cycles": 4371,
+          "external_offset": 16384,
+          "length_bytes": 4096,
+          "payload_mib_per_second_at_nominal_clock": 18.096902882635554,
+          "predicted_cycles": 4368.018840270508,
+          "repeat": 0
+        },
+        {
+          "cycles": 304,
+          "direction": "from_sram",
+          "dma_cycles": 304,
+          "external_offset": 8388352,
+          "length_bytes": 256,
+          "payload_mib_per_second_at_nominal_clock": 16.262656763980264,
+          "predicted_cycles": 272.48789744176656,
+          "repeat": 0
+        },
+        {
+          "cycles": 59,
+          "direction": "from_sram",
+          "dma_cycles": 59,
+          "external_offset": 16384,
+          "length_bytes": 7,
+          "payload_mib_per_second_at_nominal_clock": 2.291242955094677,
+          "predicted_cycles": 58.99999999999825,
+          "repeat": 1
+        },
+        {
+          "cycles": 62,
+          "direction": "from_sram",
+          "dma_cycles": 62,
+          "external_offset": 16384,
+          "length_bytes": 9,
+          "payload_mib_per_second_at_nominal_clock": 2.8033410349199848,
+          "predicted_cycles": 62.92613583870681,
+          "repeat": 1
+        },
+        {
+          "cycles": 132,
+          "direction": "from_sram",
+          "dma_cycles": 132,
+          "external_offset": 16384,
+          "length_bytes": 65,
+          "payload_mib_per_second_at_nominal_clock": 9.509650143710049,
+          "predicted_cycles": 127.25884904714393,
+          "repeat": 1
+        },
+        {
+          "cycles": 264,
+          "direction": "from_sram",
+          "dma_cycles": 264,
+          "external_offset": 16384,
+          "length_bytes": 256,
+          "payload_mib_per_second_at_nominal_clock": 18.726695667613637,
+          "predicted_cycles": 272.48789744176656,
+          "repeat": 1
+        },
+        {
+          "cycles": 4320,
+          "direction": "from_sram",
+          "dma_cycles": 4320,
+          "external_offset": 16384,
+          "length_bytes": 4096,
+          "payload_mib_per_second_at_nominal_clock": 18.310546875,
+          "predicted_cycles": 4368.018840270508,
+          "repeat": 1
+        },
+        {
+          "cycles": 305,
+          "direction": "from_sram",
+          "dma_cycles": 305,
+          "external_offset": 8388352,
+          "length_bytes": 256,
+          "payload_mib_per_second_at_nominal_clock": 16.209336577868854,
+          "predicted_cycles": 272.48789744176656,
+          "repeat": 1
+        },
+        {
+          "cycles": 59,
+          "direction": "from_sram",
+          "dma_cycles": 59,
+          "external_offset": 16384,
+          "length_bytes": 7,
+          "payload_mib_per_second_at_nominal_clock": 2.291242955094677,
+          "predicted_cycles": 58.99999999999825,
+          "repeat": 2
+        },
+        {
+          "cycles": 62,
+          "direction": "from_sram",
+          "dma_cycles": 62,
+          "external_offset": 16384,
+          "length_bytes": 9,
+          "payload_mib_per_second_at_nominal_clock": 2.8033410349199848,
+          "predicted_cycles": 62.92613583870681,
+          "repeat": 2
+        },
+        {
+          "cycles": 122,
+          "direction": "from_sram",
+          "dma_cycles": 122,
+          "external_offset": 16384,
+          "length_bytes": 65,
+          "payload_mib_per_second_at_nominal_clock": 10.289129663686284,
+          "predicted_cycles": 127.25884904714393,
+          "repeat": 2
+        },
+        {
+          "cycles": 303,
+          "direction": "from_sram",
+          "dma_cycles": 303,
+          "external_offset": 16384,
+          "length_bytes": 256,
+          "payload_mib_per_second_at_nominal_clock": 16.31632889851485,
+          "predicted_cycles": 272.48789744176656,
+          "repeat": 2
+        },
+        {
+          "cycles": 4331,
+          "direction": "from_sram",
+          "dma_cycles": 4331,
+          "external_offset": 16384,
+          "length_bytes": 4096,
+          "payload_mib_per_second_at_nominal_clock": 18.264041214500114,
+          "predicted_cycles": 4368.018840270508,
+          "repeat": 2
+        },
+        {
+          "cycles": 264,
+          "direction": "from_sram",
+          "dma_cycles": 264,
+          "external_offset": 8388352,
+          "length_bytes": 256,
+          "payload_mib_per_second_at_nominal_clock": 18.726695667613637,
+          "predicted_cycles": 272.48789744176656,
+          "repeat": 2
+        }
+      ]
+    },
+    "to_sram": {
+      "coefficients": [
+        10.475882255490982,
+        4.7898428885479225,
+        26.734274855958493,
+        -8.917429197460917,
+        10.475882255494607
+      ],
+      "validation_configurations": 6,
+      "validation_error": {
+        "median_absolute_percent_error": 0.09127676637107968,
+        "p95_absolute_percent_error": 3.9774286412118283,
+        "samples": 18,
+        "worst_absolute_percent_error": 3.9774286412118283
+      },
+      "validation_predictions": [
+        {
+          "cycles": 42,
+          "direction": "to_sram",
+          "dma_cycles": 42,
+          "external_offset": 16384,
+          "length_bytes": 7,
+          "payload_mib_per_second_at_nominal_clock": 3.2186508178710938,
+          "predicted_cycles": 41.9999999999974,
+          "repeat": 0
+        },
+        {
+          "cycles": 45,
+          "direction": "to_sram",
+          "dma_cycles": 45,
+          "external_offset": 16384,
+          "length_bytes": 9,
+          "payload_mib_per_second_at_nominal_clock": 3.8623809814453125,
+          "predicted_cycles": 46.78984288854532,
+          "repeat": 0
+        },
+        {
+          "cycles": 105,
+          "direction": "to_sram",
+          "dma_cycles": 105,
+          "external_offset": 16384,
+          "length_bytes": 65,
+          "payload_mib_per_second_at_nominal_clock": 11.954988752092634,
+          "predicted_cycles": 107.05301796433926,
+          "repeat": 0
+        },
+        {
+          "cycles": 262,
+          "direction": "to_sram",
+          "dma_cycles": 262,
+          "external_offset": 16384,
+          "length_bytes": 256,
+          "payload_mib_per_second_at_nominal_clock": 18.86964754293893,
+          "predicted_cycles": 261.7705249153976,
+          "repeat": 0
+        },
+        {
+          "cycles": 4172,
+          "direction": "to_sram",
+          "dma_cycles": 4172,
+          "external_offset": 16384,
+          "length_bytes": 4096,
+          "payload_mib_per_second_at_nominal_clock": 18.960106064237774,
+          "predicted_cycles": 4164.95160277591,
+          "repeat": 0
+        },
+        {
+          "cycles": 262,
+          "direction": "to_sram",
+          "dma_cycles": 262,
+          "external_offset": 8388352,
+          "length_bytes": 256,
+          "payload_mib_per_second_at_nominal_clock": 18.86964754293893,
+          "predicted_cycles": 261.7705249153976,
+          "repeat": 0
+        },
+        {
+          "cycles": 42,
+          "direction": "to_sram",
+          "dma_cycles": 42,
+          "external_offset": 16384,
+          "length_bytes": 7,
+          "payload_mib_per_second_at_nominal_clock": 3.2186508178710938,
+          "predicted_cycles": 41.9999999999974,
+          "repeat": 1
+        },
+        {
+          "cycles": 45,
+          "direction": "to_sram",
+          "dma_cycles": 45,
+          "external_offset": 16384,
+          "length_bytes": 9,
+          "payload_mib_per_second_at_nominal_clock": 3.8623809814453125,
+          "predicted_cycles": 46.78984288854532,
+          "repeat": 1
+        },
+        {
+          "cycles": 105,
+          "direction": "to_sram",
+          "dma_cycles": 105,
+          "external_offset": 16384,
+          "length_bytes": 65,
+          "payload_mib_per_second_at_nominal_clock": 11.954988752092634,
+          "predicted_cycles": 107.05301796433926,
+          "repeat": 1
+        },
+        {
+          "cycles": 262,
+          "direction": "to_sram",
+          "dma_cycles": 262,
+          "external_offset": 16384,
+          "length_bytes": 256,
+          "payload_mib_per_second_at_nominal_clock": 18.86964754293893,
+          "predicted_cycles": 261.7705249153976,
+          "repeat": 1
+        },
+        {
+          "cycles": 4161,
+          "direction": "to_sram",
+          "dma_cycles": 4161,
+          "external_offset": 16384,
+          "length_bytes": 4096,
+          "payload_mib_per_second_at_nominal_clock": 19.010228911319395,
+          "predicted_cycles": 4164.95160277591,
+          "repeat": 1
+        },
+        {
+          "cycles": 261,
+          "direction": "to_sram",
+          "dma_cycles": 261,
+          "external_offset": 8388352,
+          "length_bytes": 256,
+          "payload_mib_per_second_at_nominal_clock": 18.94194504310345,
+          "predicted_cycles": 261.7705249153976,
+          "repeat": 1
+        },
+        {
+          "cycles": 42,
+          "direction": "to_sram",
+          "dma_cycles": 42,
+          "external_offset": 16384,
+          "length_bytes": 7,
+          "payload_mib_per_second_at_nominal_clock": 3.2186508178710938,
+          "predicted_cycles": 41.9999999999974,
+          "repeat": 2
+        },
+        {
+          "cycles": 45,
+          "direction": "to_sram",
+          "dma_cycles": 45,
+          "external_offset": 16384,
+          "length_bytes": 9,
+          "payload_mib_per_second_at_nominal_clock": 3.8623809814453125,
+          "predicted_cycles": 46.78984288854532,
+          "repeat": 2
+        },
+        {
+          "cycles": 105,
+          "direction": "to_sram",
+          "dma_cycles": 105,
+          "external_offset": 16384,
+          "length_bytes": 65,
+          "payload_mib_per_second_at_nominal_clock": 11.954988752092634,
+          "predicted_cycles": 107.05301796433926,
+          "repeat": 2
+        },
+        {
+          "cycles": 262,
+          "direction": "to_sram",
+          "dma_cycles": 262,
+          "external_offset": 16384,
+          "length_bytes": 256,
+          "payload_mib_per_second_at_nominal_clock": 18.86964754293893,
+          "predicted_cycles": 261.7705249153976,
+          "repeat": 2
+        },
+        {
+          "cycles": 4162,
+          "direction": "to_sram",
+          "dma_cycles": 4162,
+          "external_offset": 16384,
+          "length_bytes": 4096,
+          "payload_mib_per_second_at_nominal_clock": 19.005661340701586,
+          "predicted_cycles": 4164.95160277591,
+          "repeat": 2
+        },
+        {
+          "cycles": 262,
+          "direction": "to_sram",
+          "dma_cycles": 262,
+          "external_offset": 8388352,
+          "length_bytes": 256,
+          "payload_mib_per_second_at_nominal_clock": 18.86964754293893,
+          "predicted_cycles": 261.7705249153976,
+          "repeat": 2
+        }
+      ]
+    }
+  },
+  "dma_feature_names": [
+    "intercept",
+    "8_byte_beats",
+    "64_byte_lines",
+    "ends_in_last_beat",
+    "unaligned_line_start"
+  ],
+  "engine": {
+    "full_model_predictions": [
+      {
+        "cycles": 5386095.0,
+        "model": "kws",
+        "predicted_cycles": 5386095
+      },
+      {
+        "cycles": 17285246.0,
+        "model": "vww",
+        "predicted_cycles": 17285246
+      }
+    ],
+    "full_model_uncontended_error": {
+      "median_absolute_percent_error": 0.0,
+      "p95_absolute_percent_error": 0.0,
+      "samples": 2,
+      "worst_absolute_percent_error": 0.0
+    },
+    "method": "static descriptor/cache address walk; zero fitted coefficients",
+    "predictions": [
+      {
+        "cycles": 2428.0,
+        "label": "holdout_spatial_0",
+        "predicted_cycles": 2428
+      },
+      {
+        "cycles": 1061.0,
+        "label": "holdout_spatial_1",
+        "predicted_cycles": 1061
+      },
+      {
+        "cycles": 9534.0,
+        "label": "holdout_spatial_2",
+        "predicted_cycles": 9534
+      },
+      {
+        "cycles": 6297.0,
+        "label": "holdout_spatial_3",
+        "predicted_cycles": 6297
+      },
+      {
+        "cycles": 11861.0,
+        "label": "holdout_spatial_4",
+        "predicted_cycles": 11861
+      },
+      {
+        "cycles": 4508.0,
+        "label": "holdout_spatial_5",
+        "predicted_cycles": 4508
+      },
+      {
+        "cycles": 1269.0,
+        "label": "holdout_spatial_6",
+        "predicted_cycles": 1269
+      },
+      {
+        "cycles": 3839.0,
+        "label": "holdout_spatial_7",
+        "predicted_cycles": 3839
+      },
+      {
+        "cycles": 7322.0,
+        "label": "holdout_spatial_8",
+        "predicted_cycles": 7322
+      },
+      {
+        "cycles": 2372.0,
+        "label": "holdout_spatial_9",
+        "predicted_cycles": 2372
+      },
+      {
+        "cycles": 78.0,
+        "label": "holdout_fc_1",
+        "predicted_cycles": 78
+      },
+      {
+        "cycles": 78.0,
+        "label": "holdout_fc_7",
+        "predicted_cycles": 78
+      },
+      {
+        "cycles": 93.0,
+        "label": "holdout_fc_9",
+        "predicted_cycles": 93
+      },
+      {
+        "cycles": 123.0,
+        "label": "holdout_fc_31",
+        "predicted_cycles": 123
+      },
+      {
+        "cycles": 318.0,
+        "label": "holdout_fc_129",
+        "predicted_cycles": 318
+      },
+      {
+        "cycles": 558.0,
+        "label": "holdout_fc_257",
+        "predicted_cycles": 558
+      },
+      {
+        "cycles": 48.0,
+        "label": "holdout_clamp_2_1",
+        "predicted_cycles": 48
+      },
+      {
+        "cycles": 104.0,
+        "label": "holdout_clamp_2_9",
+        "predicted_cycles": 104
+      },
+      {
+        "cycles": 272.0,
+        "label": "holdout_clamp_2_33",
+        "predicted_cycles": 272
+      },
+      {
+        "cycles": 48.0,
+        "label": "holdout_clamp_8_1",
+        "predicted_cycles": 48
+      },
+      {
+        "cycles": 104.0,
+        "label": "holdout_clamp_8_9",
+        "predicted_cycles": 104
+      },
+      {
+        "cycles": 272.0,
+        "label": "holdout_clamp_8_33",
+        "predicted_cycles": 272
+      },
+      {
+        "cycles": 87.0,
+        "label": "holdout_pool_5_2_3",
+        "predicted_cycles": 87
+      },
+      {
+        "cycles": 121.0,
+        "label": "holdout_pool_5_3_7",
+        "predicted_cycles": 121
+      },
+      {
+        "cycles": 170.0,
+        "label": "holdout_pool_5_5_9",
+        "predicted_cycles": 170
+      },
+      {
+        "cycles": 87.0,
+        "label": "holdout_pool_7_2_3",
+        "predicted_cycles": 87
+      },
+      {
+        "cycles": 121.0,
+        "label": "holdout_pool_7_3_7",
+        "predicted_cycles": 121
+      },
+      {
+        "cycles": 170.0,
+        "label": "holdout_pool_7_5_9",
+        "predicted_cycles": 170
+      }
+    ],
+    "prospective_holdout_error": {
+      "median_absolute_percent_error": 0.0,
+      "p95_absolute_percent_error": 0.0,
+      "samples": 28,
+      "worst_absolute_percent_error": 0.0
+    }
+  },
+  "limits": [
+    "engine predictor assumes uncontended SRAM; overlap contention is separately measured",
+    "DMA fit is calibrated for this 64-byte burst adapter and nominal clock",
+    "no calibrated energy model: physical power instrumentation unavailable"
+  ],
+  "predictor_sha256": "e56aef5b93d3394fef7df4a1f1a3ea1db9fa2b771b8a680ecdefa615d9843237",
+  "source_sha256": {
+    "docs/research/evidence/phase4/physical-sequence-dma.json": "2fbd75122d5d39004f62932676780f85b7958a5b2a17506acee8c902e3b5cd76",
+    "docs/research/evidence/phase4/physical-sequence-kernel-holdout.json": "3103faabf51588e135f50022f45e52b66b41ee531ee7b98f5012f3663d22754e",
+    "docs/research/evidence/phase4/physical-sequence-kws.json": "fb3c2d7edbfd072a20bf9fbad5f044286acb25c2f757b15c8e898822ce42c7bf",
+    "docs/research/evidence/phase4/physical-sequence-vww.json": "12059758899477d6ace9b6d6cbebc227626028941f4f0e19a013bdfccc39e458"
+  },
+  "split_policy": "DMA hold out lengths 7,9,65,256,4096 before fitting; engine prospective fixed shape seed 250926",
+  "status": "passed"
+}

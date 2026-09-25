@@ -1,0 +1,48 @@
+{
+  "bitstream_sha256": "ea4eed105933e87d308d42b4bfa581010e843c9c9b9f94e9c9e8e852c19b98fb",
+  "limits": [
+    "one input/model, not a complete-set accuracy comparison",
+    "sequential host schedule; no autonomous FPS or board energy"
+  ],
+  "models": [
+    {
+      "calibration_sha256": "204670068641164851a7f177e4e3c6165a828fc80e30a2d845d12c4f32bec3bd",
+      "dma_cycles": 12713,
+      "dma_payload_bytes": 12106,
+      "engine_cycles": 7384,
+      "final_output_sha256": "a6dde5891d3129720d8f44b44734f716d66a48f01ae8a58fe855f8b69f593522",
+      "host_node_schedule_seconds": 0.8511476251296699,
+      "host_wall_seconds_including_upload": 5.939988041995093,
+      "input_sha256": "1f84c643695b1a774441f8f8b6a29ba99024fd234c0cfe98ba6095dc270077f8",
+      "model": "mlp",
+      "nodes": 5,
+      "original_checks_sha256": "e930e6d45a24b0806ca4c0e9e779df3023601e64807bacc1a16e46886d6c31e8",
+      "parameter_image_bytes": 12704,
+      "parameter_image_sha256": "ec0b154a88feb1012f0fc7148270d880006fdbf9a89ae0125b97aa098b75774e",
+      "source_onnx_sha256": "4d91123dc98e57c0e0c7a133c59405c6d421e08af6a9a6d783092940071c5397",
+      "status": "all-node-exact",
+      "tiles": 5
+    },
+    {
+      "calibration_sha256": "6de2d82618b09929d8456f54f1e0a550298ebf950d26f653e7a3a416cf3654f2",
+      "dma_cycles": 21584,
+      "dma_payload_bytes": 20034,
+      "engine_cycles": 117350,
+      "final_output_sha256": "a7d8c8d6cf5eae02f5628c175215a0cc2c23c240dbdd9c17f696906231aeb618",
+      "host_node_schedule_seconds": 2.746171668637544,
+      "host_wall_seconds_including_upload": 6.149906125152484,
+      "input_sha256": "1f84c643695b1a774441f8f8b6a29ba99024fd234c0cfe98ba6095dc270077f8",
+      "model": "smallcnn",
+      "nodes": 8,
+      "original_checks_sha256": "15bb9a4299eb470ab7644e763bff121fbd8010485611bce307a3ef5431cad960",
+      "parameter_image_bytes": 8208,
+      "parameter_image_sha256": "db6ae7e4275621ac26847213c644b693cab099a6c48021626a6db045e0d842f7",
+      "source_onnx_sha256": "1674329e27dedb04e492cc7ca9c31d80d579ff39307d7333fd1ad801c1c4120e",
+      "status": "all-node-exact",
+      "tiles": 7
+    }
+  ],
+  "physical_board": true,
+  "scope": "one preexisting pinned fixture input per model, every node compared with the saved independent oracle",
+  "status": "passed"
+}

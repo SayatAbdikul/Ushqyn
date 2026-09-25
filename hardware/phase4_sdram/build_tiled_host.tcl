@@ -14,7 +14,8 @@ foreach source {
     rtl/v2/tiled_core.sv
     rtl/v2/command.sv
     rtl/v2/tiled_host_bridge.sv
-    rtl/v2/hs_sdram_port.sv
+    rtl/v2/tile_sequencer.sv
+    rtl/v2/hs_sdram_burst_port.sv
     rtl/v2/sdram_refresh.sv
     rtl/v2/uart_rx.sv
     rtl/v2/uart_tx.sv

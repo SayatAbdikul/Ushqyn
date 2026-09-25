@@ -1,5 +1,11 @@
 # Phase 4 host-addressable tiled board image
 
+The current release adds an [autonomous command sequencer](AUTONOMOUS.md) and
+64-byte SDRAM bursts. The diagnostic UART/DMA interface below is retained.
+Older bitstream hashes, route numbers and two-word-adapter limitations in this
+document describe the preceding `hs_tiled_host_overlap.fs` release; use the
+[Phase 4 closure](../../docs/research/PHASE_4_STATUS.md) for current results.
+
 `phase4_tiled_host` joins the UART command parser, v2 engine, tile DMA,
 32-KiB scratchpad, Gowin HS SDRAM controller and refresh scheduler. It is a
 **physically tested image**. The host
@@ -82,8 +88,8 @@ pins the source/IP/bitstream hashes and reports 21.458-MHz core Fmax at a
 20.25-MHz generated clock, zero setup TNS, 12,405 logic, 18 BSRAM and 19.75
 DSP equivalents. The [physical result](../../docs/research/PHASE_4_STATUS.md)
 includes full KWS/VWW node-value checks and one guarded overlap experiment.
-The current SDRAM adapter remains single-outstanding. The planner does not
-yet create a full-model ping-pong schedule or long streaming bursts.
+That preceding adapter used single-outstanding two-word commands. The current
+autonomous release adds full-model hybrid ping-pong schedules and 64-byte bursts.
 
 Gowin's [power estimate](../../docs/research/evidence/phase4/physical-tiled-host-overlap-power.html.gz)
 for this route is 162.572 mW total (122.800 mW quiescent, 39.772 mW dynamic)

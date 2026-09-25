@@ -1,117 +1,107 @@
-# Phase 4 working record — updated 2026-09-25
+# Phase 4 closure — 2026-09-25
 
-**G4 remains open.** The connected Tang Nano 20K now executes one complete,
-byte-exact KWS input and one complete, byte-exact VWW input through its own
-8-MiB SDRAM. A separately measured Conv tile overlaps a protected DMA transfer
-with compute. The remaining Phase 4 work is a compiler-generated, full-model
-ping-pong/streaming schedule with sustained burst bandwidth and a model cost
-database whose features are available before execution. Complete-set accuracy,
-board energy and defensible FPS have not been established by these experiments.
+**G4 passes its engineering acceptance gate on the physical Tang Nano 20K.**
+The same release executes complete KWS and VWW schedules autonomously from
+on-board SDRAM, including compiler-managed hybrid ping-pong transfers. Every
+node matches the independent integer oracle for the pinned deterministic
+input. Complete-set accuracy, the balanced 10,000-job campaign, matched
+research baselines and measured energy remain separate work.
 
-## Current physical result
+Reproduce the [closure audit](evidence/phase4/physical-sequence-closure.json)
+with `.venv/bin/python3 tools/phase4/audit_phase4_closure.py`. It checks the
+bitstream, current RTL/IP hashes, timing, physical reports, net overlap benefit
+and held-out prediction thresholds.
 
-The [overlap release](../../hardware/releases/phase4-sdram/hs_tiled_host_overlap.fs)
-connects CRC-framed UART control, the v2 tiled engine, 32-KiB scratchpad, DMA,
-Gowin HS SDRAM controller and refresh scheduler. The computer uploads and
-schedules tiles; all parameters, inputs and intermediate tensors reside in the
-board's SDRAM during execution. It is not using computer RAM as the FPGA's
-working SDRAM. The [route record](evidence/phase4/physical-tiled-host-overlap-route.json)
-pins the bitstream (`c8eb28fadf68d14fac8c9592c608b73b3bb8ddff0a23c215b94f3d1d442ad206`),
-RTL/IP hashes and raw Gowin reports. Its core Fmax is 21.458 MHz against the
-20.25-MHz generated-clock constraint, with zero setup TNS. It uses 12,405 of
-20,736 logic, 3,366 of 15,915 registers, 18 of 46 BSRAM and 19.75 of 24 DSP
-equivalents. The [release audit](evidence/phase4/physical-release-audit.json)
-checks the bitstream, current RTL/IP hashes, successful programming transcript
-and ten same-image physical reports. This narrow timing margin should be
-revisited after any DMA redesign.
+## Measured execution
 
-The same image passed exact independent-oracle checks at every KWS and VWW
-node, with no reflash between models. The [physical model summary](evidence/phase4/physical-host-overlap.json)
-links per-node reports and fixture hashes. These are **one deterministic input
-per model**, not model accuracy-set measurements. KWS has 22 nodes and 20
-compute tiles; VWW has 58 nodes and 75 compute tiles. Their parameter images
-contain 49,376 and 334,816 bytes respectively. The VWW initial transpose is
-the declared host preprocessing boundary. The compiler's real source-model
-rebase and frozen-name caveat are recorded in [the model record](PHASE_4_REAL_MODEL.md).
+The [autonomous release](../../hardware/releases/phase4-sdram/hs_tiled_autonomous.fs)
+has SHA256 `ea4eed105933e87d308d42b4bfa581010e843c9c9b9f94e9c9e8e852c19b98fb`.
+The [route record](evidence/phase4/physical-sequence-route.json) reports
+21.897-MHz core Fmax at the **20.25-MHz operating clock**, zero setup TNS,
+14,182/20,736 logic, 4,876/15,915 registers, 34/46 BSRAM and 19.75/24 DSP
+equivalents. Additional BSRAM stores commands; engine scratchpad remains 32 KiB.
 
-The [physical overlap report](evidence/phase4/physical-overlap.json) uses the
-first KWS Conv and an 8,192-byte SDRAM-to-SRAM transfer into a disjoint
-scratchpad region. Both outputs match expected bytes. The engine and DMA were
-busy together for 28,533 core cycles; their combined active interval fell from
-284,459 sequential cycle-counts to 256,036, a **1.111× directed cycle-level
-speedup**. A transfer aimed inside the live tile region was rejected with
-error 9, and the DMA cycle count did not advance. This is a directed overlap
-proof, not a full KWS/VWW ping-pong speedup or wall-clock FPS measurement. The
-host still stages most tiles sequentially with stop-and-wait UART commands.
+| Workload | Exact nodes | Tiles | Sequential | Overlap | Matched speedup | Input → result wall time |
+|---|---:|---:|---:|---:|---:|---:|
+| KWS | 22/22 | 28 | 284.479 ms | 280.940 ms | 1.0126× | 0.396 s |
+| VWW | 58/58 | 107 | 928.209 ms | 903.750 ms | 1.0271× | 6.119 s |
 
-The same release also has [78 directed DMA transfers](evidence/phase4/physical-dma-profile-overlap.json),
-[directed kernel repetitions](evidence/phase4/physical-kernel-profiles-overlap.json),
-[synthetic multi-kernel/large-FC tests](evidence/phase4/physical-synthetic-overlap.json)
-and [the earlier pinned MLP/SmallCNN tensors](evidence/phase4/physical-legacy-overlap.json).
-The MLP's 5/5 and SmallCNN's 8/8 nodes agree with their saved on-chip
-independent-reference fixtures through the new SDRAM tile path. The synthetic
-tests include a mixed nine-node chain, split ReLU, a two-tile FC with 32 KiB
-of weights, and all 19 frozen ToyCar AD layer shapes with deterministic
-synthetic weights. This tests AD geometry, not anomaly-detection quality.
-Their physical input/output and bitstream hashes are archived. The KWS/VWW
-sequential runs used 5,385,783 and 17,230,984 engine
-cycles, plus 1,122,254 and 4,738,426 DMA cycles. The post-upload host
-schedules took about 30 and 107 seconds respectively,
-including UART commands and per-node readback. Sums of engine and DMA cycles
-are lower bounds for this sequential schedule; neither they nor the host
-times are autonomous inference throughput. A
-[KWS→VWW→KWS switchback](evidence/phase4/physical-host-kws-switchback.json)
-on the previous measured-host image also reconfirmed the KWS hash without
-reflashing; its different bitstream SHA is recorded separately.
+Numbers are medians of three physical repeats per mode. Device execution
+includes command dispatch, compute, DMA, refresh stalls and dependency waits.
+Both modes use identical tile placement and one bitstream; their observed
+latency ranges do not overlap. Diagnostic snapshot copies are excluded from
+both timed modes. Wall time includes input upload, launch/status traffic and
+final readback; it excludes preprocessing and model/program upload plus their
+verification. These are repeated single-input latencies, not sustained FPS.
 
-The DMA profile verifies byte-exact partial tails, 2-MiB bank
-crossings, the final SDRAM byte and a full 32-KiB tile, in both directions.
-Its full-tile path sustains about **5.54 MiB/s at the nominal 20.25-MHz core
-clock**. The present two-word, single-outstanding SDRAM command path incurs
-an activate/operation/settle sequence per 8-byte DMA beat. Streaming longer
-bursts is a material performance task, especially with VWW's 1,359,570
-planned DMA payload bytes.
+[KWS](evidence/phase4/physical-sequence-kws.json) and
+[VWW](evidence/phase4/physical-sequence-vww.json) retain node hashes, placement
+and raw counters. VWW node checks came from an
+[initial run](evidence/phase4/physical-sequence-vww-initial.json) whose later
+timing repeat was interrupted by macOS USB. Its resumed run reverified every
+immutable model/descriptor byte before collecting all six timings. An old
+serial diagnostic process was removed; the final resumed run records zero
+USB recoveries. The original interruption remains in the evidence.
 
-The [initial physical cost fit](evidence/phase4/physical-cost-model-overlap.json)
-splits directed DMA lengths and common kernel configurations before fitting.
-Its DMA held-out mean absolute percent errors are 0.75% toward SRAM and
-1.52% from SRAM; the common-kernel in-distribution holdout mean is 1.39%.
-Cross-model held-out worst errors exceed 100%, and rare kinds lack independent
-validation. Engine features currently include MAC/SRAM-traffic counters read
-from the device. A useful compiler cost model must derive them statically and
-be revalidated across both workloads. An
-[exploratory static-feature fit](evidence/phase4/physical-static-cost-model.json)
-does use only compiler-visible tile geometry, but has 25.62% in-distribution
-and 99.43% KWS / 33.81% VWW whole-model mean absolute errors; it is not
-ready for scheduler decisions. Gowin's 162.572-mW total figure for
-the overlap route assumes a default 0.125 toggle factor without activity data;
-it is **not measured board power or energy per inference**. The user has no
-current/power meter, so no physical energy result is claimed.
+The [DMA profile](evidence/phase4/physical-sequence-dma.json) passes 78 transfers:
+13 lengths/addresses, both directions, three repeats. Full 32-KiB transfers
+sustain median **19.00 MiB/s toward SRAM** and **18.12 MiB/s toward SDRAM**,
+versus about 5.54 MiB/s previously. The adapter uses aligned 64-byte bursts,
+read-ahead and masked write combining. Short transfers have proportionally
+larger fixed and refresh overhead.
 
-## Gate accounting
+## Gate evidence
 
-| Item | State | Evidence and remaining work |
+| Item | State | Evidence |
 |---|---|---|
-| C04, pinned audio/vision kernel arithmetic | Passed for one physical input/model | All KWS/VWW nodes exact; directed boundary kernels and RTL regressions pass. More inputs belong to complete-model validation. |
-| D01, physical SDRAM bring-up | Passed | [Open-controller](evidence/phase4/physical-sdram-open.json) and [Gowin-HS](evidence/phase4/physical-sdram-hs.json) full-range 1-GiB sweeps with refresh; [two-word burst](evidence/phase4/physical-sdram-burst.json) boundary checks. |
-| D02, burst DMA and double-buffer overlap | In progress | Exact partial-tail/full-range DMA and guarded physical overlap pass. Compiler-managed ping-pong tiles, sustained longer bursts and a full-model net benefit remain. A simple 16-KiB/16-KiB split cannot fit three VWW Conv nodes, so a hybrid or finer tiler is required. |
-| D03, off-chip tiled inference | Passed for the pinned shape/one-input gate | Full KWS/VWW, the named MLP/SmallCNN on-chip fixtures through SDRAM, a synthetic chain/two-tile 32-KiB-weight FC, and all 19 frozen ToyCar AD layer shapes pass physically. The [MLP/SmallCNN](evidence/phase4/physical-legacy-overlap.json) and [synthetic/AD-shape](evidence/phase4/physical-synthetic-overlap.json) reports include host time from upload through all tile transfers and output readback. AD uses synthetic weights because the source model/data are unavailable locally; this is not AD quality validation. |
-| P01, physical kernel/cost database | In progress | Kernel/DMA cycle and traffic records plus held-out fits exist. The compiler-static fit has large cross-model errors, and bandwidth variants and measured energy where instrumentation becomes available remain. |
+| C04, complete frozen arithmetic | Passed | All primary node snapshots exact; original and 28 new directed geometries pass randomized-stall RTL and physical tests. |
+| D01, SDRAM initialization/addressing/refresh | Passed | Retained full-8-MiB and ≥1-GiB randomized [HS-controller evidence](evidence/phase4/physical-sdram-hs.json), plus new burst boundary, mask/coherence and refresh-contract checks. |
+| D02, burst DMA and double buffering | Passed | Compiler-generated half-bank schedules with full-SRAM fallback; full-model net overlap benefit; physical live-region rejection and abort/reset/transfer recovery. |
+| D03, tiled inference | Passed at its defined fixture/shape boundary | KWS/VWW, known MLP/SmallCNN fixtures, larger-than-tile FC and frozen ToyCar AD shapes. AD uses synthetic weights, not trained-model quality evidence. |
+| P01, measured cost database | Passed for latency and memory feasibility | Static prediction, prospective holdouts, measured DMA fit, routed resources and exact placement checks. Physical energy is unavailable. |
 
-The current schedule emits legal sequential tiles for all frozen KWS/VWW
-nodes, with two external activation slots and checked 32-KiB SRAM regions.
-[KWS/VWW tiling evidence](evidence/phase4/boardless-tiling-summary.json) records
-20/75 compute tiles and 322,006/1,359,570 DMA payload bytes. The
-[half-scratchpad audit](evidence/phase4/boardless-pingpong-feasibility.json)
-shows why a uniform 16-KiB bank split fails three VWW Conv layers. Host-facing
-registers and reproduction steps are documented in
-[TILED_HOST.md](../../hardware/phase4_sdram/TILED_HOST.md).
+The [cost report](evidence/phase4/physical-sequence-costs.json) replaces the
+counter-dependent fit with a descriptor/cache-address walk. All **28 prospective
+configurations × 3 physical repeats** have exactly predicted isolated engine
+cycles. Both models' aggregate uncontended engine cycles are also exact.
+Prediction consumes no weights, input values, measured engine counters or
+fitted per-model coefficients. Independently counted randomized SRAM stalls
+reconcile with this prediction in RTL tests.
 
-Run `make p4-test PYTHON=/absolute/path/to/.venv/bin/python3` for compiler,
-protocol, numerical, DMA, tiling and RTL regression. The packet-level test
-now checks simultaneous engine/DMA work and live-region rejection. Earlier
-[abstract-memory KWS](evidence/phase4/boardless-host-kws.json) and
-[VWW](evidence/phase4/boardless-host-vww.json) runs checked every node before
-physical deployment. The older on-chip kernel milestone and historical
-routes remain in [the Phase 3 closure](PHASE_3_CLOSURE.md); their resource and
-timing numbers do not describe this SDRAM-connected image.
+DMA fitting holds out lengths 7, 9, 65, 256 and 4,096 bytes before fitting.
+Held-out median/p95 errors are **0.09%/3.98%** toward SRAM and **2.35%/10.41%**
+toward SDRAM, meeting the ≤10% median and ≤20% p95 development targets.
+Concurrent SRAM contention is separately measured; the isolated engine model
+does not automatically predict overlap stalls.
+
+The [physical recovery checks](evidence/phase4/physical-sequence-checks.json)
+cover 25 masked writes, 125 neighboring-line readbacks, bank/end boundaries,
+live-region error 9, ABORT while busy and a correct fresh transfer after RESET.
+DMA abort errors retain the existing sticky-until-next-transfer behavior.
+The [simulation transcript](evidence/phase4/physical-sequence-suite.txt.gz)
+includes compiler, arithmetic, DMA, sequencer, refresh and burst-adapter tests.
+The test-only HS command model validates adapter logic, not electrical timing.
+
+The final image also passes fresh [MLP/SmallCNN replay](evidence/phase4/physical-sequence-legacy.json)
+and [synthetic/AD-shape checks](evidence/phase4/physical-sequence-synthetic.json),
+including every frozen ToyCar node and weights larger than a scratchpad tile.
+
+## Remaining scope and reproduction
+
+See [the autonomous interface](../../hardware/phase4_sdram/AUTONOMOUS.md) for
+registers, command records, compiler behavior and reproduction commands.
+`make p4-test PYTHON=/absolute/path/to/.venv/bin/python3` runs boardless checks.
+The programmer log and archived bitstream identify the temporary SRAM image
+used for all new physical reports.
+
+The current 20.25-MHz clock and 281/904-ms execution remain below the broader
+roadmap aspirations of 27/54 MHz and 20/100 ms. These are development targets,
+not fixed G4 FPS requirements or publication acceptance thresholds. Phase 4
+closure establishes the memory/scheduling foundation; it does not establish
+SOTA performance. Gowin power analysis is an estimate. No physical meter was
+available, so measured energy and an energy cost model are explicitly deferred.
+
+Earlier [host-controlled results](evidence/phase4/physical-host-overlap.json)
+and the [previous route](evidence/phase4/physical-tiled-host-overlap-route.json)
+remain historical evidence. Their two-word DMA and UART-per-tile timings do
+not describe this autonomous release.

@@ -5,11 +5,11 @@
 An INT8 TinyML accelerator targeting the Tang Nano 20K. The reset-corrected
 G3 on-chip release passed MLP → SmallCNN → MLP with 1,000 exact jobs per stage
 and a separate 10,000-image SmallCNN run with every INT8 output matched.
-The SDRAM-connected Phase 4 image now runs one complete KWS input and one
-complete VWW input on the physical board, matching an independent oracle at
-all 22 and 58 nodes without reflashing. A guarded Conv/DMA overlap also
-passes physically. Full-set KWS/VWW accuracy, full-model ping-pong scheduling,
-autonomous throughput and measured board energy remain open. See the
+Phase 4's autonomous SDRAM-connected release passes G4: all 22 KWS and 58 VWW
+nodes match the independent oracle on one bitstream, with compiler-managed
+ping-pong and 64-byte bursts. Median on-device execution is 280.94 ms for KWS
+and 903.75 ms for VWW, including DMA and scheduling. Complete-set primary-model
+accuracy, matched research baselines and measured board energy remain open. See the
 [Phase 3 board closure](docs/research/PHASE_3_CLOSURE.md),
 [Phase 4 status](docs/research/PHASE_4_STATUS.md),
 [Phase 5 status](docs/research/PHASE_5_STATUS.md),
@@ -22,7 +22,7 @@ autonomous throughput and measured board energy remain open. See the
 |---|---|---|---|
 | **MLP** (784→12→32→10 MNIST) | 94.84% static INT8 on 10K | 1,000 exact jobs in Phase 2; retained in current RTL | Two 1,000-job stages exact; 7,316 core cycles |
 | **SmallCNN** (Conv→Pool→Conv→Pool→FC) | 96.40% static INT8 on 10K | 10,000 exact jobs, eight layer boundaries checked | Full 10K set + 1K repeated jobs exact; 96.40% accuracy; 118,267 core cycles |
-| **KWS / VWW** | Full-set software INT8 quality recorded | One deterministic input per real model, all 22/58 node outputs exact through tiled RTL with abstract external memory | One input/model, all 22/58 nodes exact on the same SDRAM-connected image; directed Conv/DMA overlap exact |
+| **KWS / VWW** | Full-set software INT8 quality recorded | One deterministic input per real model, all 22/58 node outputs exact through tiled RTL with abstract external memory | One input/model, all 22/58 nodes exact on the same autonomous image; full-model DMA overlap measured; G4 passed |
 
 The current SmallCNN result uses an independent centered-integer oracle,
 source-hashed RTL and a separately calibrated 10,000-image quality evaluation.

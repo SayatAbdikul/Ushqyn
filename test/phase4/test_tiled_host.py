@@ -17,6 +17,7 @@ sys.path.insert(0, str(ROOT/'compiler'))
 from hardware_v2 import Descriptor
 from integer_reference import evaluate
 from phase4_compile import compile_tiled
+from phase4_sequence import compile_sequence
 from quantization import Quantization
 
 
@@ -222,6 +223,42 @@ async def uart_packet_tile_program_uses_sdram_window_and_dma(d):
     assert await read(address, len(oracle)) == oracle
     assert memory[address - 0x800000:address - 0x800000 + len(oracle)] == oracle
 
+    # Execute the same independent-oracle chain autonomously, with snapshots
+    # and both SRAM banks. Random external stalls remain active throughout.
+    for overlap in (False, True):
+        commands, sequence_image, schedule = compile_sequence(plan, image, overlap, True)
+        await command(7)
+        await write(0x800000, sequence_image)
+        await write(0x800000, x.tobytes())
+        await write(0x500000, commands)
+        assert await read(0x500000, len(commands)) == commands
+        await write(0x410000, b'\x01')
+        for _ in range(200000):
+            if not int(d.seq_busy.value):
+                break
+            await step()
+        else:
+            raise AssertionError('autonomous schedule timeout')
+        registers = await read(0x410000, 32)
+        assert registers[1] == 0, registers
+        assert registers[4:8] == b'SEQ4'
+        assert int.from_bytes(registers[8:12], 'little') > 0
+        all_outputs = evaluate(program, {'x': x})
+        for index, region in schedule['snapshot_regions'].items():
+            expected = all_outputs[program.layers[index].output].tobytes()
+            assert await read(0x800000+region['ext'], region['bytes']) == expected
+
+    # Invalid autonomous memory ranges fail closed; RESET clears sequencer
+    # errors without changing the existing host-command ABI.
+    import struct
+    invalid = struct.pack('<BBHIII', 1, 1, 0, 0x7ffff8, 0, 16) + bytes(16)
+    await write(0x500000, invalid)
+    await write(0x410000, b'\x01')
+    for _ in range(100):
+        await step()
+    assert (await command(5))[1] == 1
+    await command(7)
+
     # A longer live tile lets the framed host start a disjoint DMA while the
     # engine runs. A second launch into its live footprint must be rejected.
     long_x = np.arange(2048, dtype=np.uint16).astype(np.uint8).view(np.int8)
@@ -272,6 +309,52 @@ async def uart_packet_tile_program_uses_sdram_window_and_dma(d):
     assert (await command(5))[1] == 9
     assert await read(0x40001a, 4) == dma_cycles_before_guard
     await command(7)
+
+    # Three dependent layers exercise alternation in both directions. Guard
+    # failure and ABORT are followed by a successful fresh schedule.
+    chain=SimpleNamespace(inputs=['x'],outputs=['z'],constants={},
+        tensors={n:SimpleNamespace(shape=(1,2048),quantization=q) for n in ('x','a','b','z')},
+        layers=[SimpleNamespace(op='Relu',inputs=[a],output=b,attributes={},parameters={})
+                for a,b in (('x','a'),('a','b'),('b','z'))])
+    chain_plan,chain_image=compile_tiled(chain,prefer_half=True)
+    chain_commands,chain_payload,chain_schedule=compile_sequence(chain_plan,chain_image,True,True)
+    await write(0x800000,chain_payload)
+    await write(0x800000,long_x.tobytes())
+    # Program upload, launch and abort all use the framed host protocol.
+    await write(0x500000,chain_commands)
+    await write(0x410000,b'\x01')
+    await command(3,0x500000,1,b'\xff',check=3)
+    await command(6)
+    for _ in range(10000):
+        await step()
+        if not int(d.seq_busy.value): break
+    assert not int(d.seq_busy.value)
+    await command(7)
+    bad=bytearray(chain_commands)
+    after_run=False
+    for offset in range(0,len(bad),16):
+        if bad[offset]==2: after_run=True
+        elif after_run and bad[offset]==1:
+            bad[offset+8:offset+12]=(128).to_bytes(4,'little')
+            break
+    await write(0x500000,bad)
+    await write(0x410000,b'\x01')
+    for _ in range(100000):
+        await step()
+        if not int(d.seq_busy.value): break
+    assert (await command(5))[1]==9
+    await command(7)
+    await write(0x500000,chain_commands)
+    await write(0x410000,b'\x01')
+    for _ in range(200000):
+        await step()
+        if not int(d.seq_busy.value): break
+    assert (await command(5))[:2]==b'\x00\x00'
+    registers=await read(0x410000,32)
+    assert int.from_bytes(registers[20:24],'little')>0
+    expected=evaluate(chain,{'x':long_x.reshape(1,-1)})
+    for index,region in chain_schedule['snapshot_regions'].items():
+        assert await read(0x800000+region['ext'],region['bytes'])==expected[chain.layers[index].output].tobytes()
 
     fixture = os.environ.get('PHASE4_TILED_HOST_FIXTURE')
     if fixture:

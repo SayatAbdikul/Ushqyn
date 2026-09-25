@@ -64,31 +64,26 @@ complete KWS/VWW inference and energy measurement remain later work.
 
 - [x] **C04 — Complete depthwise, pointwise and average-pool support.** Reuse the MAC engine with a depthwise lane/address mode, support the KWS 10×4 first Conv and VWW stride-2 boundaries, and implement required average/global-average pooling and activation clamps. **Done:** every compute/activation/pooling node in both frozen primary inventories has exact independent-reference/RTL tests, including average-pool rounding and zero points. **Depends:** G3, R02.
 - [x] **D01 — Bring up the SDR SDRAM controller independently.** Integrate a documented GW2AR-compatible controller/IP with initialization, refresh, full address reach and declared clocking. Test walking/random/address-dependent patterns and row/bank/burst boundaries. **Done:** full 8-MiB range verified without aliasing; at least 1 GiB aggregate randomized read/write traffic passes with refresh active; supported timing and reset/reinitialization recorded. **Depends:** G3, H02. See the [physical SDRAM evidence](research/PHASE_4_STATUS.md).
-- [ ] **D02 — Add DMA and double-buffer overlap.** Implement burst DMA with partial tails, backpressure, arbitration, completion ordering and ping-pong tiles. Integrate compiler transfers and live-region protection. **Done:** exact data under randomized stalls/refresh/reset cases; no overwrite of live input/partial sums; useful sustained bandwidth and compute/transfer overlap measured, with protocol overhead included. **Depends:** D01, M02.
+- [x] **D02 — Add DMA and double-buffer overlap.** Implement burst DMA with partial tails, backpressure, arbitration, completion ordering and ping-pong tiles. Integrate compiler transfers and live-region protection. **Done:** exact data under randomized stalls/refresh/reset cases; no overwrite of live input/partial sums; useful sustained bandwidth and compute/transfer overlap measured, with protocol overhead included. **Depends:** D01, M02.
 - [x] **D03 — Validate tiled inference with off-chip placement.** Run known SmallCNN/MLP tensors in SDRAM, then large synthetic FC and real AD layer shapes. Audit all downstream address/count widths. **Done:** outputs agree with BSRAM/reference cases, high addresses work, weights larger than one tile execute correctly, and latency accounts for all transfers. **Depends:** D02, C04.
-- [ ] **P01 — Build the measured kernel/cost database.** Profile ordinary/DW/PW/FC/pooling/quantization plus DMA across representative shapes and bandwidth settings. Include short/tail kernels. Split configurations into fitting and validation sets before fitting. **Done:** machine-readable cycles, stalls, traffic, physical blocks and energy where available; a reproducible initial latency/energy model with held-out errors. **Depends:** H05, C04, D02.
+- [x] **P01 — Build the measured kernel/cost database.** Profile ordinary/DW/PW/FC/pooling/quantization plus DMA across representative shapes and bandwidth settings. Include short/tail kernels. Split configurations into fitting and validation sets before fitting. **Done:** machine-readable cycles, stalls, traffic, physical blocks and energy where available; a reproducible initial latency/energy model with held-out errors. **Depends:** H05, C04, D02.
 
 **G4:** C04, D01–D03 and P01 pass. The pinned model inventories, not assumptions about “typical CNNs,” define kernel completeness.
 
-**Current G4: open.** C04's complete pinned audio/vision kernel inventory and
-D01's full-range SDRAM/refresh tests pass. On the connected board, one real
-source-model input of each KWS and VWW graph now matches the independent
-integer oracle at every node (22/22 and 58/58) through the integrated
-host/engine/DMA/SDRAM image. A directed KWS Conv overlaps an 8,192-byte DMA
-for 28,533 cycles with a 1.111× cycle-level benefit; an attempted overwrite
-of its live SRAM region is rejected. The DMA profile covers short/tail,
-bank-crossing and full-tile transfers, and a first physically fitted
-kernel/DMA cost database has explicit holdouts. D02 still lacks
-compiler-managed full-model ping-pong and efficient longer bursts; a fixed
-16-KiB/16-KiB split cannot fit three VWW Conv tiles. D03's named SmallCNN/MLP
-SDRAM comparison and transfer-inclusive host timing now pass as well. The
-frozen ToyCar AD operator shapes pass all 19 nodes with synthetic weights,
-which closes D03's shape test but does not claim actual AD model quality. P01
-still needs a reliable compiler-static
-fit, stronger cross-model validation and energy
-data if a meter becomes available. Neither the Gowin default-toggle power
-estimate nor the one-input host schedule is a measured energy/FPS result.
-See [Phase 4 status](research/PHASE_4_STATUS.md).
+**Current G4: passed for its engineering gate (2026-09-25).** The autonomous
+Tang Nano release executes all 22 KWS and 58 VWW nodes exactly for the pinned
+inputs on one bitstream. The compiler emits hybrid 16-KiB ping-pong schedules
+with a full-SRAM fallback, and a 64-byte burst adapter sustains approximately
+19.00/18.12 MiB/s in the two DMA directions. Matched full-model overlap improves
+latency by 1.0126×/1.0271×, including on-board command dispatch. Physical
+live-region rejection, abort/reset/transfer recovery and masked-write checks
+pass. Static engine predictions match all 28 prospective configurations across
+84 physical runs and both aggregate model compute times exactly; held-out DMA
+p95 errors are 3.98%/10.41%. Physical energy is unavailable without a meter and
+is explicitly deferred. The defined D03 AD shape test uses synthetic weights;
+complete-set primary/AD quality and the balanced 10,000-job campaign remain P5.
+See [Phase 4 closure](research/PHASE_4_STATUS.md) and the
+[machine-checkable audit](research/evidence/phase4/physical-sequence-closure.json).
 
 ## P5 — weeks 18–20: credible complete-model baselines
 
@@ -100,8 +95,9 @@ See [Phase 4 status](research/PHASE_4_STATUS.md).
 
 **Current G5: open.** The [Phase 5 status](research/PHASE_5_STATUS.md)
 pins a deterministic 10,000-job audio/vision switch plan and a fail-closed
-readiness audit. No complete KWS/VWW board run or matched B1/B2/B3 measurement
-exists. Phase 4's SDRAM and complete-model gates remain prerequisites.
+readiness audit. G4 now passes, including autonomous complete-model board runs
+for one deterministic input per workload. Complete accuracy/stress campaigns
+and matched B1/B2/B3 measurements remain required for G5.
 
 ## P6 — weeks 21–25: prove the proposed mechanism matters
 

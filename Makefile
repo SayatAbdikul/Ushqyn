@@ -62,6 +62,7 @@ test-compiler:
 	    test_hardware_v2.py \
 	    test_phase4_kernels.py \
 	    test_phase4_tiling.py \
+	    test_phase4_sequence.py \
 	    test_phase4_compile.py \
 	    test_phase4_rebase.py \
 	    test_phase4_sdram_geometry.py \
@@ -152,6 +153,9 @@ p4-real-host:
 p4-refresh:
 	$(PYTHON) test/phase4/run_sdram_refresh.py
 
+p4-burst-port:
+	$(PYTHON) test/phase4/run_burst_port.py
+
 p4-audit:
 	$(PYTHON) tools/phase4/audit_inventories.py
 
@@ -161,7 +165,7 @@ p4-plan:
 p4-pingpong-audit:
 	$(PYTHON) tools/phase4/audit_pingpong_feasibility.py
 
-p4-test: ci p4-kernels p4-dma p4-core p4-tiled-program p4-tiled-host p4-refresh p4-audit p4-plan p4-pingpong-audit
+p4-test: ci p4-kernels p4-dma p4-core p4-tiled-program p4-tiled-host p4-refresh p4-burst-port p4-audit p4-plan p4-pingpong-audit
 
 .PHONY: p5-plan p5-audit
 p5-plan:
