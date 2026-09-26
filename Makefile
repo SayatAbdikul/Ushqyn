@@ -87,6 +87,28 @@ p6-boardless:
 p6-rtl:
 	$(PYTHON) tools/phase6/run_rtl.py
 
+.PHONY: p6-opt-fixtures p6-opt-native p6-opt-search p6-opt-audit
+p6-opt-fixtures:
+	$(PYTHON) tools/phase6/prepare_native.py
+	$(PYTHON) tools/phase6/prepare_resident.py
+	$(PYTHON) tools/phase6/run_search.py
+	$(PYTHON) tools/phase6/run_search.py --spatial
+
+p6-opt-native:
+	$(PYTHON) tools/phase6/run_native.py --select timed --exclude resident --exclude searched
+	$(PYTHON) tools/phase6/run_native.py --variants baseline c256p1 --select half-overlap --exclude resident --exclude searched
+	$(PYTHON) tools/phase6/run_native.py --variants baseline c256p1 --select resident
+	$(PYTHON) tools/phase6/run_native.py --variants baseline c256p1 --select searched
+	$(PYTHON) tools/phase6/run_native.py --variants spatial
+
+p6-opt-search:
+	$(PYTHON) tools/phase6/run_search.py
+	$(PYTHON) tools/phase6/run_search.py --spatial
+
+p6-opt-audit:
+	$(PYTHON) tools/phase6/audit_optimization.py --archive
+	$(PYTHON) tools/phase6/prepare_campaign.py --archive
+
 config:
 	$(PYTHON) generate_config.py
 
