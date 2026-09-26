@@ -1,0 +1,1459 @@
+{
+  "status": "passed",
+  "source_sha256": "651a62de1b7facd68d1269373992a2d09ffd28e6a816935d4834fcc558bde512",
+  "onnx_sha256": "e42c5b9fa478e8d302620d4a9ef4f67722b138c1b1da4ee82a67d7ca1dea3b67",
+  "canonical_sha256": "7e47c78993bfe84d5a3e2e70036b72c97e58ba4331084160c3aeb23625f80357",
+  "data_sha256": "e434b84a30da69da47bb8f1f3247a64d95b2d91d37ba43836d03aee42acdb830",
+  "manifest_sha256": "dd7c6275ebf1e2678c07357b009464b47f5a127a4e0c8a790d95ff0a46969990",
+  "script_sha256": "76c08326c6a2a9eab3f6b8090730c8fc2073aab20c7a50049a7d5ed43b94fd6a",
+  "runtime": "tf_keras 2.16.0",
+  "scope": "research-reconstructed AD float model; official binary parity unverified; no INT8/FPGA quality claim",
+  "recordings": 248,
+  "frames": 48608,
+  "atol": 1e-05,
+  "rtol": 0.0001,
+  "real_input_parity_probes": [
+    {
+      "frame_index": 0,
+      "input_sha256": "5cc9a976cb73d8ac7412269a9319b1e77baaae47242ba3a911d7bbb2ff6e5f23",
+      "onnx_max_abs_error": 2.288818359375e-05,
+      "canonical_max_abs_error": 1.1444091796875e-05
+    },
+    {
+      "frame_index": 1567,
+      "input_sha256": "9d72b4db826a85d3b2c8b8a40e19cc20e32629b56defafa66fe59f2189c2e610",
+      "onnx_max_abs_error": 2.288818359375e-05,
+      "canonical_max_abs_error": 1.52587890625e-05
+    },
+    {
+      "frame_index": 3135,
+      "input_sha256": "7af4079aae594c980a6e2a4f591c6f577be49e9aee5be51280b6d4328f620477",
+      "onnx_max_abs_error": 2.6702880859375e-05,
+      "canonical_max_abs_error": 7.62939453125e-06
+    },
+    {
+      "frame_index": 4703,
+      "input_sha256": "7bd21a5a4efb29767f21ae5d50eecc34200879870eb882b8f87e996781f391b3",
+      "onnx_max_abs_error": 3.24249267578125e-05,
+      "canonical_max_abs_error": 1.1444091796875e-05
+    },
+    {
+      "frame_index": 6271,
+      "input_sha256": "6c1fe486e87d09a92b523a4c17f7797689d99d02f21067e17c16b11f2500edd5",
+      "onnx_max_abs_error": 2.288818359375e-05,
+      "canonical_max_abs_error": 1.1444091796875e-05
+    },
+    {
+      "frame_index": 7839,
+      "input_sha256": "b8762bb17420578894a3b681e4c4f30da320c0128876e47d11f9f61682270ba7",
+      "onnx_max_abs_error": 3.0517578125e-05,
+      "canonical_max_abs_error": 1.52587890625e-05
+    },
+    {
+      "frame_index": 9407,
+      "input_sha256": "922ff50026388f33dd1ce56d8d0e87c78a52239a4f54c983240fb61f77a9c093",
+      "onnx_max_abs_error": 2.288818359375e-05,
+      "canonical_max_abs_error": 7.62939453125e-06
+    },
+    {
+      "frame_index": 10975,
+      "input_sha256": "7e9670282c1ae8c304af0442cf6f15d34682f5b73cc0fd24251ecc4c5b7797b2",
+      "onnx_max_abs_error": 4.1961669921875e-05,
+      "canonical_max_abs_error": 1.049041748046875e-05
+    },
+    {
+      "frame_index": 12543,
+      "input_sha256": "2dde8ddfd29367456d8a4780a6dfd77804efb6728623d39bf6cdf94e79889837",
+      "onnx_max_abs_error": 3.24249267578125e-05,
+      "canonical_max_abs_error": 9.5367431640625e-06
+    },
+    {
+      "frame_index": 14111,
+      "input_sha256": "e6fed88e0b341f193a2b3d7ee8207a2aa9f47a518e21b854c5598e35cc3cc874",
+      "onnx_max_abs_error": 3.4332275390625e-05,
+      "canonical_max_abs_error": 8.58306884765625e-06
+    },
+    {
+      "frame_index": 15679,
+      "input_sha256": "508a1e308bbb3d27cf6149a8ff094796881242e65fd68aa08f3e47a87457ef04",
+      "onnx_max_abs_error": 2.6702880859375e-05,
+      "canonical_max_abs_error": 1.33514404296875e-05
+    },
+    {
+      "frame_index": 17247,
+      "input_sha256": "8a76cc0e58bd4fd45735637043fc463b0d604ee699be24e16bca2f5431091552",
+      "onnx_max_abs_error": 2.288818359375e-05,
+      "canonical_max_abs_error": 1.52587890625e-05
+    },
+    {
+      "frame_index": 18815,
+      "input_sha256": "2b74765cfb1a67ecbfbe6edee639dfbfba92977fa5674f3dc233d1cc32ad3971",
+      "onnx_max_abs_error": 3.814697265625e-05,
+      "canonical_max_abs_error": 1.239776611328125e-05
+    },
+    {
+      "frame_index": 20383,
+      "input_sha256": "5e427f3b604dfef7a6dfd37febbc54198c17302035f47fa7435d19e4ecf30e9e",
+      "onnx_max_abs_error": 2.384185791015625e-05,
+      "canonical_max_abs_error": 1.1444091796875e-05
+    },
+    {
+      "frame_index": 21951,
+      "input_sha256": "6862a53d597880d8eae82d2d3789b1f50b365e50f2e55b3621021f3494279a06",
+      "onnx_max_abs_error": 4.00543212890625e-05,
+      "canonical_max_abs_error": 1.52587890625e-05
+    },
+    {
+      "frame_index": 23519,
+      "input_sha256": "145052616484869de52ce8bb10f9093c374131ac2f9c1cdc5d2ebc5aac873489",
+      "onnx_max_abs_error": 2.86102294921875e-05,
+      "canonical_max_abs_error": 1.1444091796875e-05
+    },
+    {
+      "frame_index": 25087,
+      "input_sha256": "4ff4c0f490e9812ab1fac91c12e3b25e106c02f8d30f693d0bdcd2dd47c1fcb9",
+      "onnx_max_abs_error": 4.482269287109375e-05,
+      "canonical_max_abs_error": 2.193450927734375e-05
+    },
+    {
+      "frame_index": 26655,
+      "input_sha256": "f44a698d7c611a091508539934ae6a3f0541d3026934ac0cb0fee3580580d869",
+      "onnx_max_abs_error": 2.47955322265625e-05,
+      "canonical_max_abs_error": 1.1444091796875e-05
+    },
+    {
+      "frame_index": 28223,
+      "input_sha256": "f53fd2694c35546ca969968dbc9e07442802f154f734fabe26aebe878169ab19",
+      "onnx_max_abs_error": 3.4332275390625e-05,
+      "canonical_max_abs_error": 1.33514404296875e-05
+    },
+    {
+      "frame_index": 29791,
+      "input_sha256": "775d54f620c38b3653fba06a26c2af87a3ad92e6509792fd09050a85e3e54ccb",
+      "onnx_max_abs_error": 2.6702880859375e-05,
+      "canonical_max_abs_error": 1.33514404296875e-05
+    },
+    {
+      "frame_index": 31359,
+      "input_sha256": "60d7323914d717b59f6425d8732962a3ba344110e24bc50bcf0ffa0d4260fae7",
+      "onnx_max_abs_error": 3.4332275390625e-05,
+      "canonical_max_abs_error": 1.33514404296875e-05
+    },
+    {
+      "frame_index": 32927,
+      "input_sha256": "fc4f9f688691f7e7c4f244ed2c327bc4a178c91dedaa0285c56f4531b8ab53c4",
+      "onnx_max_abs_error": 3.0994415283203125e-05,
+      "canonical_max_abs_error": 1.1444091796875e-05
+    },
+    {
+      "frame_index": 34495,
+      "input_sha256": "710b952bb82196309b5e814286d62abf92e217e1121034cfbaa6d151728adc3b",
+      "onnx_max_abs_error": 2.288818359375e-05,
+      "canonical_max_abs_error": 9.5367431640625e-06
+    },
+    {
+      "frame_index": 36063,
+      "input_sha256": "ee4e6475c993b160af930bd5115c971a23cb9c5850a4d895ad27d5b6dc49816a",
+      "onnx_max_abs_error": 3.147125244140625e-05,
+      "canonical_max_abs_error": 1.1444091796875e-05
+    },
+    {
+      "frame_index": 37631,
+      "input_sha256": "3b0b745fcc5bce285d9db57ba1b12cda0cde6e1ea539df4d4efe3aee994b57e7",
+      "onnx_max_abs_error": 5.817413330078125e-05,
+      "canonical_max_abs_error": 1.33514404296875e-05
+    },
+    {
+      "frame_index": 39199,
+      "input_sha256": "d2447ccb4c4b0a4bbb224978ff3c561ac01d356da54138cdc0f5699b5443c47d",
+      "onnx_max_abs_error": 2.86102294921875e-05,
+      "canonical_max_abs_error": 1.1444091796875e-05
+    },
+    {
+      "frame_index": 40767,
+      "input_sha256": "5740f92c028deaf5b77eea9aa2ba1eaca1709398b8a138ed06d8f0a22f3348db",
+      "onnx_max_abs_error": 2.2113323211669922e-05,
+      "canonical_max_abs_error": 1.33514404296875e-05
+    },
+    {
+      "frame_index": 42335,
+      "input_sha256": "0e89a5d1d5062d3ddad4b4f1cfcc1f8428183e158473f44b7ea5b6f99b625d0c",
+      "onnx_max_abs_error": 2.6702880859375e-05,
+      "canonical_max_abs_error": 1.1444091796875e-05
+    },
+    {
+      "frame_index": 43903,
+      "input_sha256": "8521b8b5754c50c388ae9c828545e16b1dc71f66aaeb3ae147d3a3c95bd1e978",
+      "onnx_max_abs_error": 2.6702880859375e-05,
+      "canonical_max_abs_error": 1.9073486328125e-05
+    },
+    {
+      "frame_index": 45471,
+      "input_sha256": "fa5441ef12e7d2998ba42dd7d5a17b6cb1f3d7615d474b676a80451a73697f26",
+      "onnx_max_abs_error": 2.288818359375e-05,
+      "canonical_max_abs_error": 9.059906005859375e-06
+    },
+    {
+      "frame_index": 47039,
+      "input_sha256": "41ea9af805d569cddb298e21e96b65c5996e10177b27414d5dcf5520f6bcf60d",
+      "onnx_max_abs_error": 4.57763671875e-05,
+      "canonical_max_abs_error": 1.1444091796875e-05
+    },
+    {
+      "frame_index": 48607,
+      "input_sha256": "9e30c0defb0facd8d59d19fabdfc9c28f67ad4b715ca6edbcc0eb90d79c63aad",
+      "onnx_max_abs_error": 1.52587890625e-05,
+      "canonical_max_abs_error": 1.71661376953125e-05
+    }
+  ],
+  "pooled_roc_auc": 0.8804232804232804,
+  "per_machine_id_roc_auc": {
+    "01": 0.8423280423280424,
+    "02": 0.9333333333333333,
+    "03": 0.7798941798941799,
+    "04": 0.9735449735449735
+  },
+  "macro_machine_id_roc_auc": 0.8822751322751322,
+  "records": [
+    {
+      "path": "dev_data/ToyCar/test/normal_id_01_00000003.wav",
+      "label": 0,
+      "score": 9.630959398892461
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_01_00000013.wav",
+      "label": 0,
+      "score": 9.509101466256745
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_01_00000023.wav",
+      "label": 0,
+      "score": 10.581926194988952
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_01_00000033.wav",
+      "label": 0,
+      "score": 9.670146492062782
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_01_00000043.wav",
+      "label": 0,
+      "score": 9.48499746955171
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_01_00000053.wav",
+      "label": 0,
+      "score": 9.846935447381467
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_01_00000063.wav",
+      "label": 0,
+      "score": 10.252168054483375
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_01_00000073.wav",
+      "label": 0,
+      "score": 10.60993563399023
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_01_00000083.wav",
+      "label": 0,
+      "score": 9.716864568846566
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_01_00000093.wav",
+      "label": 0,
+      "score": 9.678097559481252
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_01_00000103.wav",
+      "label": 0,
+      "score": 9.732123598760488
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_01_00000113.wav",
+      "label": 0,
+      "score": 9.380495287934128
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_01_00000123.wav",
+      "label": 0,
+      "score": 9.836831326387367
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_01_00000133.wav",
+      "label": 0,
+      "score": 9.67070113396158
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_01_00000143.wav",
+      "label": 0,
+      "score": 10.2032886427276
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_01_00000153.wav",
+      "label": 0,
+      "score": 10.03795051574707
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_01_00000163.wav",
+      "label": 0,
+      "score": 10.571723397897214
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_01_00000173.wav",
+      "label": 0,
+      "score": 9.957668260652191
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_01_00000183.wav",
+      "label": 0,
+      "score": 9.371467483286954
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_01_00000193.wav",
+      "label": 0,
+      "score": 9.621296396060865
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_01_00000203.wav",
+      "label": 0,
+      "score": 9.801723745404457
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_01_00000213.wav",
+      "label": 0,
+      "score": 10.192855333795352
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_01_00000223.wav",
+      "label": 0,
+      "score": 10.575822265780701
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_01_00000233.wav",
+      "label": 0,
+      "score": 9.543612485029259
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_01_00000243.wav",
+      "label": 0,
+      "score": 10.138735668999809
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_01_00000253.wav",
+      "label": 0,
+      "score": 9.344320878690603
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_01_00000263.wav",
+      "label": 0,
+      "score": 11.51144162976012
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_01_00000273.wav",
+      "label": 0,
+      "score": 10.167657762157674
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_01_00000283.wav",
+      "label": 0,
+      "score": 9.708584019115992
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_01_00000293.wav",
+      "label": 0,
+      "score": 9.729626908594248
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_01_00000303.wav",
+      "label": 0,
+      "score": 9.420282991565003
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_01_00000313.wav",
+      "label": 0,
+      "score": 9.750894480822037
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_01_00000323.wav",
+      "label": 0,
+      "score": 9.999468805838605
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_01_00000333.wav",
+      "label": 0,
+      "score": 9.39656381461085
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_01_00000343.wav",
+      "label": 0,
+      "score": 9.54248173869386
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_02_00000003.wav",
+      "label": 0,
+      "score": 10.12685793273303
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_02_00000013.wav",
+      "label": 0,
+      "score": 9.908170069966998
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_02_00000023.wav",
+      "label": 0,
+      "score": 10.19596291561516
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_02_00000033.wav",
+      "label": 0,
+      "score": 9.907943723153094
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_02_00000043.wav",
+      "label": 0,
+      "score": 9.895496592229726
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_02_00000053.wav",
+      "label": 0,
+      "score": 9.720755764416285
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_02_00000063.wav",
+      "label": 0,
+      "score": 9.781780225890023
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_02_00000073.wav",
+      "label": 0,
+      "score": 9.39771921294076
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_02_00000083.wav",
+      "label": 0,
+      "score": 9.62480022955914
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_02_00000093.wav",
+      "label": 0,
+      "score": 9.540672506604876
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_02_00000103.wav",
+      "label": 0,
+      "score": 10.57806412054568
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_02_00000113.wav",
+      "label": 0,
+      "score": 10.027633160960917
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_02_00000123.wav",
+      "label": 0,
+      "score": 9.781138884777926
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_02_00000133.wav",
+      "label": 0,
+      "score": 10.39125514517025
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_02_00000143.wav",
+      "label": 0,
+      "score": 9.547312897078845
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_02_00000153.wav",
+      "label": 0,
+      "score": 10.253131574513962
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_02_00000163.wav",
+      "label": 0,
+      "score": 9.497136505282654
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_02_00000173.wav",
+      "label": 0,
+      "score": 9.414934058578647
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_02_00000183.wav",
+      "label": 0,
+      "score": 9.807246750714828
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_02_00000193.wav",
+      "label": 0,
+      "score": 9.407229338373456
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_02_00000203.wav",
+      "label": 0,
+      "score": 9.815987686721646
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_02_00000213.wav",
+      "label": 0,
+      "score": 10.073136952458595
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_02_00000223.wav",
+      "label": 0,
+      "score": 9.65216812552238
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_02_00000233.wav",
+      "label": 0,
+      "score": 9.999615574369626
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_02_00000243.wav",
+      "label": 0,
+      "score": 9.998415467690448
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_02_00000253.wav",
+      "label": 0,
+      "score": 9.562285671428759
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_02_00000263.wav",
+      "label": 0,
+      "score": 10.16538215899954
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_02_00000273.wav",
+      "label": 0,
+      "score": 9.801349270100497
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_02_00000283.wav",
+      "label": 0,
+      "score": 9.919332263421039
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_02_00000293.wav",
+      "label": 0,
+      "score": 9.456948457931986
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_02_00000303.wav",
+      "label": 0,
+      "score": 9.70619660494279
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_02_00000313.wav",
+      "label": 0,
+      "score": 9.986595562526158
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_02_00000323.wav",
+      "label": 0,
+      "score": 9.179417067644547
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_02_00000333.wav",
+      "label": 0,
+      "score": 9.80843807483206
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_02_00000343.wav",
+      "label": 0,
+      "score": 9.828251130726873
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_03_00000003.wav",
+      "label": 0,
+      "score": 10.05064379439062
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_03_00000013.wav",
+      "label": 0,
+      "score": 9.682069598412028
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_03_00000023.wav",
+      "label": 0,
+      "score": 10.301317307413841
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_03_00000033.wav",
+      "label": 0,
+      "score": 9.587678906868915
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_03_00000043.wav",
+      "label": 0,
+      "score": 10.141645884027286
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_03_00000053.wav",
+      "label": 0,
+      "score": 9.61691326024581
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_03_00000063.wav",
+      "label": 0,
+      "score": 9.567014536079096
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_03_00000073.wav",
+      "label": 0,
+      "score": 10.284931528324984
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_03_00000083.wav",
+      "label": 0,
+      "score": 9.922730667250496
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_03_00000093.wav",
+      "label": 0,
+      "score": 9.36320795818251
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_03_00000103.wav",
+      "label": 0,
+      "score": 10.156770657519905
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_03_00000113.wav",
+      "label": 0,
+      "score": 13.651583189866981
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_03_00000123.wav",
+      "label": 0,
+      "score": 10.086540385168426
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_03_00000133.wav",
+      "label": 0,
+      "score": 9.78390355256139
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_03_00000143.wav",
+      "label": 0,
+      "score": 9.636322259902954
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_03_00000153.wav",
+      "label": 0,
+      "score": 9.906941323864217
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_03_00000163.wav",
+      "label": 0,
+      "score": 10.671349496257548
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_03_00000173.wav",
+      "label": 0,
+      "score": 10.173107205605021
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_03_00000183.wav",
+      "label": 0,
+      "score": 9.926902571502996
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_03_00000193.wav",
+      "label": 0,
+      "score": 9.773713797939067
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_03_00000203.wav",
+      "label": 0,
+      "score": 9.656731427932272
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_03_00000213.wav",
+      "label": 0,
+      "score": 9.705701093284452
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_03_00000223.wav",
+      "label": 0,
+      "score": 9.67188860932175
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_03_00000233.wav",
+      "label": 0,
+      "score": 9.667723278610074
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_03_00000243.wav",
+      "label": 0,
+      "score": 9.717266654481692
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_03_00000253.wav",
+      "label": 0,
+      "score": 9.585850365307866
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_03_00000263.wav",
+      "label": 0,
+      "score": 9.784617389951434
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_03_00000273.wav",
+      "label": 0,
+      "score": 9.80734347323982
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_03_00000283.wav",
+      "label": 0,
+      "score": 9.880491782207878
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_03_00000293.wav",
+      "label": 0,
+      "score": 10.35825652005721
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_03_00000303.wav",
+      "label": 0,
+      "score": 10.181368599132616
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_03_00000313.wav",
+      "label": 0,
+      "score": 10.948031882850492
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_03_00000323.wav",
+      "label": 0,
+      "score": 9.798553865783068
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_03_00000333.wav",
+      "label": 0,
+      "score": 9.642236755818736
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_03_00000343.wav",
+      "label": 0,
+      "score": 10.403791853359767
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_04_00000003.wav",
+      "label": 0,
+      "score": 10.448512826647077
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_04_00000013.wav",
+      "label": 0,
+      "score": 9.84035808212903
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_04_00000023.wav",
+      "label": 0,
+      "score": 9.630241773566421
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_04_00000033.wav",
+      "label": 0,
+      "score": 9.803546095380979
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_04_00000043.wav",
+      "label": 0,
+      "score": 10.01441528359238
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_04_00000053.wav",
+      "label": 0,
+      "score": 9.619846538621552
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_04_00000063.wav",
+      "label": 0,
+      "score": 9.654111611599825
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_04_00000073.wav",
+      "label": 0,
+      "score": 9.726478982944878
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_04_00000083.wav",
+      "label": 0,
+      "score": 10.204479037498942
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_04_00000093.wav",
+      "label": 0,
+      "score": 9.940644295848145
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_04_00000103.wav",
+      "label": 0,
+      "score": 10.242151722616079
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_04_00000113.wav",
+      "label": 0,
+      "score": 9.370655794532931
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_04_00000123.wav",
+      "label": 0,
+      "score": 9.264825940132141
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_04_00000133.wav",
+      "label": 0,
+      "score": 9.725566951596008
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_04_00000143.wav",
+      "label": 0,
+      "score": 9.83537549388652
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_04_00000153.wav",
+      "label": 0,
+      "score": 9.892425310855009
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_04_00000163.wav",
+      "label": 0,
+      "score": 9.662403583526611
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_04_00000173.wav",
+      "label": 0,
+      "score": 9.497270559778018
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_04_00000183.wav",
+      "label": 0,
+      "score": 10.215756095185572
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_04_00000193.wav",
+      "label": 0,
+      "score": 9.426319324240392
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_04_00000203.wav",
+      "label": 0,
+      "score": 10.39924997699504
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_04_00000213.wav",
+      "label": 0,
+      "score": 10.464740680188548
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_04_00000223.wav",
+      "label": 0,
+      "score": 9.525704252476595
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_04_00000233.wav",
+      "label": 0,
+      "score": 9.90056351739533
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_04_00000243.wav",
+      "label": 0,
+      "score": 10.293111085891724
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_04_00000253.wav",
+      "label": 0,
+      "score": 9.331240556677994
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_04_00000263.wav",
+      "label": 0,
+      "score": 10.079732418060303
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_04_00000273.wav",
+      "label": 0,
+      "score": 9.732292048785151
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_04_00000283.wav",
+      "label": 0,
+      "score": 9.655247508263102
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_04_00000293.wav",
+      "label": 0,
+      "score": 9.665023577456571
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_04_00000303.wav",
+      "label": 0,
+      "score": 10.098702367471189
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_04_00000313.wav",
+      "label": 0,
+      "score": 10.172154407111966
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_04_00000323.wav",
+      "label": 0,
+      "score": 9.816325460161481
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_04_00000333.wav",
+      "label": 0,
+      "score": 9.69363100188119
+    },
+    {
+      "path": "dev_data/ToyCar/test/normal_id_04_00000343.wav",
+      "label": 0,
+      "score": 9.93215509336822
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_01_00000003.wav",
+      "label": 1,
+      "score": 9.982744747278641
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_01_00000013.wav",
+      "label": 1,
+      "score": 11.073529238603554
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_01_00000023.wav",
+      "label": 1,
+      "score": 10.815824815205165
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_01_00000033.wav",
+      "label": 1,
+      "score": 9.882620675223214
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_01_00000043.wav",
+      "label": 1,
+      "score": 9.960121962488914
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_01_00000053.wav",
+      "label": 1,
+      "score": 10.261836268463913
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_01_00000063.wav",
+      "label": 1,
+      "score": 10.882089201284915
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_01_00000073.wav",
+      "label": 1,
+      "score": 10.296419484274727
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_01_00000083.wav",
+      "label": 1,
+      "score": 10.175918126592832
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_01_00000093.wav",
+      "label": 1,
+      "score": 11.137299055955848
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_01_00000103.wav",
+      "label": 1,
+      "score": 12.787633900739708
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_01_00000113.wav",
+      "label": 1,
+      "score": 10.383694171905518
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_01_00000123.wav",
+      "label": 1,
+      "score": 11.795902709571683
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_01_00000133.wav",
+      "label": 1,
+      "score": 10.172162284656446
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_01_00000143.wav",
+      "label": 1,
+      "score": 9.998253669057574
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_01_00000153.wav",
+      "label": 1,
+      "score": 10.837177281477013
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_01_00000163.wav",
+      "label": 1,
+      "score": 10.529676515228894
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_01_00000173.wav",
+      "label": 1,
+      "score": 11.449105145979901
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_01_00000183.wav",
+      "label": 1,
+      "score": 9.710461434052915
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_01_00000193.wav",
+      "label": 1,
+      "score": 11.493027365937525
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_01_00000203.wav",
+      "label": 1,
+      "score": 11.389070145937861
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_01_00000213.wav",
+      "label": 1,
+      "score": 11.736278645846308
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_01_00000223.wav",
+      "label": 1,
+      "score": 11.830722740718297
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_01_00000233.wav",
+      "label": 1,
+      "score": 9.703848006773969
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_01_00000243.wav",
+      "label": 1,
+      "score": 10.096704728749334
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_01_00000253.wav",
+      "label": 1,
+      "score": 10.41165476185935
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_01_00000263.wav",
+      "label": 1,
+      "score": 13.105791437382601
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_02_00000003.wav",
+      "label": 1,
+      "score": 10.01524880467629
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_02_00000013.wav",
+      "label": 1,
+      "score": 10.765595518812841
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_02_00000023.wav",
+      "label": 1,
+      "score": 11.88594930999133
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_02_00000033.wav",
+      "label": 1,
+      "score": 12.499577862875801
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_02_00000043.wav",
+      "label": 1,
+      "score": 11.278383595602852
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_02_00000053.wav",
+      "label": 1,
+      "score": 9.99888427890077
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_02_00000063.wav",
+      "label": 1,
+      "score": 10.108056370092898
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_02_00000073.wav",
+      "label": 1,
+      "score": 11.988018984697304
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_02_00000083.wav",
+      "label": 1,
+      "score": 9.772337940274452
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_02_00000093.wav",
+      "label": 1,
+      "score": 11.848183875181237
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_02_00000103.wav",
+      "label": 1,
+      "score": 9.965286853362104
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_02_00000113.wav",
+      "label": 1,
+      "score": 11.031421958183756
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_02_00000123.wav",
+      "label": 1,
+      "score": 11.26175278790143
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_02_00000133.wav",
+      "label": 1,
+      "score": 12.658487889231468
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_02_00000143.wav",
+      "label": 1,
+      "score": 10.530650630289195
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_02_00000153.wav",
+      "label": 1,
+      "score": 10.873035426042518
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_02_00000163.wav",
+      "label": 1,
+      "score": 11.04400145277685
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_02_00000173.wav",
+      "label": 1,
+      "score": 10.272145417271828
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_02_00000183.wav",
+      "label": 1,
+      "score": 11.113665069852557
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_02_00000193.wav",
+      "label": 1,
+      "score": 10.177028602483322
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_02_00000203.wav",
+      "label": 1,
+      "score": 11.865606283654971
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_02_00000213.wav",
+      "label": 1,
+      "score": 11.693981190117038
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_02_00000223.wav",
+      "label": 1,
+      "score": 11.860447718172658
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_02_00000233.wav",
+      "label": 1,
+      "score": 12.654565923067988
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_02_00000243.wav",
+      "label": 1,
+      "score": 10.944782738782921
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_02_00000253.wav",
+      "label": 1,
+      "score": 12.016516485992742
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_02_00000263.wav",
+      "label": 1,
+      "score": 11.032093461678953
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_03_00000003.wav",
+      "label": 1,
+      "score": 11.65395838873727
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_03_00000013.wav",
+      "label": 1,
+      "score": 10.935255094450348
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_03_00000023.wav",
+      "label": 1,
+      "score": 10.957311863801918
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_03_00000033.wav",
+      "label": 1,
+      "score": 10.048170663872543
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_03_00000043.wav",
+      "label": 1,
+      "score": 10.406324746657392
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_03_00000053.wav",
+      "label": 1,
+      "score": 10.277308634349279
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_03_00000063.wav",
+      "label": 1,
+      "score": 10.370739829783536
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_03_00000073.wav",
+      "label": 1,
+      "score": 9.912643573722061
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_03_00000083.wav",
+      "label": 1,
+      "score": 9.088821226236771
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_03_00000093.wav",
+      "label": 1,
+      "score": 10.363194932742994
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_03_00000103.wav",
+      "label": 1,
+      "score": 10.568394242500773
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_03_00000113.wav",
+      "label": 1,
+      "score": 9.964794903385396
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_03_00000123.wav",
+      "label": 1,
+      "score": 10.360213683576
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_03_00000133.wav",
+      "label": 1,
+      "score": 11.24638126820934
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_03_00000143.wav",
+      "label": 1,
+      "score": 9.783169551771515
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_03_00000153.wav",
+      "label": 1,
+      "score": 10.386303719209165
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_03_00000163.wav",
+      "label": 1,
+      "score": 10.50033657161557
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_03_00000173.wav",
+      "label": 1,
+      "score": 9.99074446425146
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_03_00000183.wav",
+      "label": 1,
+      "score": 10.468890467468572
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_03_00000193.wav",
+      "label": 1,
+      "score": 10.20005380864046
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_03_00000203.wav",
+      "label": 1,
+      "score": 10.054212409622815
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_03_00000213.wav",
+      "label": 1,
+      "score": 11.745628580755117
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_03_00000223.wav",
+      "label": 1,
+      "score": 10.35482745267907
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_03_00000233.wav",
+      "label": 1,
+      "score": 9.836630478197215
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_03_00000243.wav",
+      "label": 1,
+      "score": 11.033927221687472
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_03_00000253.wav",
+      "label": 1,
+      "score": 10.90102606890153
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_03_00000263.wav",
+      "label": 1,
+      "score": 10.048019550284561
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_04_00000003.wav",
+      "label": 1,
+      "score": 10.568183801612076
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_04_00000013.wav",
+      "label": 1,
+      "score": 11.474065094578023
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_04_00000023.wav",
+      "label": 1,
+      "score": 11.193354290358874
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_04_00000033.wav",
+      "label": 1,
+      "score": 10.226622535257924
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_04_00000043.wav",
+      "label": 1,
+      "score": 11.781079360416957
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_04_00000053.wav",
+      "label": 1,
+      "score": 10.76346950141751
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_04_00000063.wav",
+      "label": 1,
+      "score": 12.289777741140249
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_04_00000073.wav",
+      "label": 1,
+      "score": 10.493352418043175
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_04_00000083.wav",
+      "label": 1,
+      "score": 10.038526063062706
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_04_00000093.wav",
+      "label": 1,
+      "score": 11.64782671539151
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_04_00000103.wav",
+      "label": 1,
+      "score": 10.637028577376386
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_04_00000113.wav",
+      "label": 1,
+      "score": 11.313180996447194
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_04_00000123.wav",
+      "label": 1,
+      "score": 10.722654245337662
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_04_00000133.wav",
+      "label": 1,
+      "score": 10.693888868604388
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_04_00000143.wav",
+      "label": 1,
+      "score": 10.485192542173424
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_04_00000153.wav",
+      "label": 1,
+      "score": 10.457918848310198
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_04_00000163.wav",
+      "label": 1,
+      "score": 10.25755498847183
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_04_00000173.wav",
+      "label": 1,
+      "score": 11.078878718979505
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_04_00000183.wav",
+      "label": 1,
+      "score": 10.568216007582995
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_04_00000193.wav",
+      "label": 1,
+      "score": 11.099384045114322
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_04_00000203.wav",
+      "label": 1,
+      "score": 10.482629771135292
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_04_00000213.wav",
+      "label": 1,
+      "score": 10.641519342150007
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_04_00000223.wav",
+      "label": 1,
+      "score": 10.410352492819028
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_04_00000233.wav",
+      "label": 1,
+      "score": 10.492844031781566
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_04_00000243.wav",
+      "label": 1,
+      "score": 10.629101344517299
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_04_00000253.wav",
+      "label": 1,
+      "score": 10.317617574516607
+    },
+    {
+      "path": "dev_data/ToyCar/test/anomaly_id_04_00000263.wav",
+      "label": 1,
+      "score": 11.214380281312126
+    }
+  ]
+}

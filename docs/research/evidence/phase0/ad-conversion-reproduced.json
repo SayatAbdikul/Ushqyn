@@ -1,0 +1,99 @@
+{
+  "status": "passed-synthetic-source-framework-parity",
+  "source_format": "Keras H5",
+  "source_sha256": "651a62de1b7facd68d1269373992a2d09ffd28e6a816935d4834fcc558bde512",
+  "onnx_sha256": "e42c5b9fa478e8d302620d4a9ef4f67722b138c1b1da4ee82a67d7ca1dea3b67",
+  "source_runtime": "tf_keras 2.16.0",
+  "tf2onnx": "1.16.1",
+  "atol": 1e-05,
+  "rtol": 0.0001,
+  "samples": [
+    {
+      "sample": 0,
+      "input_sha256": "8ce8ba8e726ee8925e6560d86ac35be1097691d1cfac888e6bd20e804ea9eb15",
+      "max_abs_error": 1.9073486328125e-05
+    },
+    {
+      "sample": 1,
+      "input_sha256": "71f3f0e94575685f1a2bdf9de61e7afedd35f1309b25791d3f8c7879ec1d576b",
+      "max_abs_error": 1.9073486328125e-05
+    },
+    {
+      "sample": 2,
+      "input_sha256": "10755854b810aa5d73d5202a20f32938b89fb0687e92af80bf84da50ec11acd5",
+      "max_abs_error": 1.1444091796875e-05
+    },
+    {
+      "sample": 3,
+      "input_sha256": "023c348f2102ab38f4e1bec6e77b04229e62d89bf70d65e31a9d9e5daeb745ac",
+      "max_abs_error": 1.1444091796875e-05
+    },
+    {
+      "sample": 4,
+      "input_sha256": "13c08780705794d3f86f1ca4a09b6005d667c2c6b10bb647392c6f72f2d844e8",
+      "max_abs_error": 1.52587890625e-05
+    },
+    {
+      "sample": 5,
+      "input_sha256": "58d79298266f404b090f50cdc95df19541405dcabebe70b8bb822a65228211c0",
+      "max_abs_error": 1.1444091796875e-05
+    },
+    {
+      "sample": 6,
+      "input_sha256": "4231ca4350ba845022c4369e455dcd42b5922ca44c2b83c6faa0a5be04d0a99b",
+      "max_abs_error": 1.1444091796875e-05
+    },
+    {
+      "sample": 7,
+      "input_sha256": "45d6177d8151d71f628b0db9b23c5912e593a472b778abdca0b56ecefbd3755f",
+      "max_abs_error": 1.33514404296875e-05
+    },
+    {
+      "sample": 8,
+      "input_sha256": "193beb763e85d319311efb687e376fb4caf92b4d747a19151116bc676b0d70cb",
+      "max_abs_error": 1.52587890625e-05
+    },
+    {
+      "sample": 9,
+      "input_sha256": "905ee0ac293ea9123d3e8e4a6d86e599bfb176f2fb405669ef8bc718dd668e7a",
+      "max_abs_error": 1.52587890625e-05
+    },
+    {
+      "sample": 10,
+      "input_sha256": "9665328d8a7468b525bc80d566cd174692e65615375d83f15b44fe9bf20f14ea",
+      "max_abs_error": 1.52587890625e-05
+    },
+    {
+      "sample": 11,
+      "input_sha256": "ae91101428022ab398aa9c6d318be4cc131b3737853e918b014c2a844848a9dc",
+      "max_abs_error": 1.52587890625e-05
+    },
+    {
+      "sample": 12,
+      "input_sha256": "fcf8fe0521ebdf1e2b3515ce62f7a1cbf9411dd157e18588e6f7d8faf55f4888",
+      "max_abs_error": 9.5367431640625e-06
+    },
+    {
+      "sample": 13,
+      "input_sha256": "6ee801c56b3969f758417cc42abe99f89f9d48d043001e6eb8b47416f064c982",
+      "max_abs_error": 1.52587890625e-05
+    },
+    {
+      "sample": 14,
+      "input_sha256": "efc88b729f324f7b625952759faa89737c2a2fe9c0fa6d2145c269537a5a9b6e",
+      "max_abs_error": 1.1444091796875e-05
+    },
+    {
+      "sample": 15,
+      "input_sha256": "b1664ef1687a68124b30c7e6b89e632a0368270912ab382ab3644897f3795a27",
+      "max_abs_error": 1.1444091796875e-05
+    }
+  ],
+  "operators": [
+    "Add",
+    "Gemm",
+    "Mul",
+    "Relu"
+  ],
+  "full_dataset_accuracy_evaluated": false
+}

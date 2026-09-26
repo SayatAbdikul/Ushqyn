@@ -202,18 +202,30 @@
   },
   "dataset": {
     "name": "ToyADMOS ToyCar",
-    "local_split_sha256": null,
-    "status": "not materialized or verified",
+    "local_split_sha256": "e434b84a30da69da47bb8f1f3247a64d95b2d91d37ba43836d03aee42acdb830",
+    "status": "complete declared research accuracy split materialized and hashed",
     "index": {
       "path": "benchmark/evaluation/datasets/ad01/y_labels.csv",
       "sha256": "4ecd91868e197ee0a6739d4bd7abde73eac2fa31e9a88d6bc6aedefa136ff2a4",
-      "status": "index pinned; referenced sample contents unavailable locally"
-    }
+      "status": "all referenced recordings materialized; official binary parity unverified"
+    },
+    "split_manifest": "ad.data.json",
+    "archive_manifest": "ad.raw-data.json",
+    "scope": "all 248 pinned y_labels.csv recordings reconstructed from public ToyCar WAVs; 196 frames each",
+    "official_mlperf_submission_certified": false
   },
   "calibration": {
-    "sample_ids_sha256": null,
-    "sample_content_sha256": null,
-    "status": "not materialized; upstream calibration recipe files are pinned above"
+    "sample_ids_sha256": "657d501142003c08d0b8cfed5b88ddc9dc003b6e6a310c9003c237739b017d30",
+    "sample_content_sha256": "137e452aec4fd2283843c14df29238169caf1d38e19bacd9acfd2d252677e3e4",
+    "npz_sha256": "98c126ba81871376f5027cf12da033b488a6fb6452691fb26ded113c7d590f85",
+    "status": "materialized; 112 recording research subset, disjoint from accuracy",
+    "count": 21952,
+    "recording_count": 112,
+    "policy": "16 evenly spaced indices floor(i*199/15) per machine ID, i=0..15, from sorted upstream 200 clips per ID; 112 clips total",
+    "sample_ids_hash_encoding": "UTF-8 ordered newline-terminated frame IDs",
+    "sample_content_hash_encoding": "C-order little-endian float32 vectors",
+    "report": "ad.data.json",
+    "upstream_full_list_count": 1400
   },
   "conversion_parity": {
     "status": "passed-synthetic-source-framework-parity",
@@ -227,5 +239,13 @@
     "minimum": 0.85
   },
   "quality_measured": null,
-  "canonical_inventory": "ad.canonical-inventory.json"
+  "canonical_inventory": "ad.canonical-inventory.json",
+  "source_float_quality": {
+    "report": "../../docs/research/evidence/phase0/ad-real-input-parity.json",
+    "pooled_roc_auc": 0.8804232804232804,
+    "macro_machine_id_roc_auc": 0.8822751322751322,
+    "recordings": 248,
+    "hardware_execution": false,
+    "scope": "research reconstruction; original H5 float; no INT8 quality claim"
+  }
 }
