@@ -79,7 +79,11 @@ alternate 16-KiB live regions with legal prefetch and falls back to 32 KiB
 where needed. The candidate manifest records model hashes, transfer volume,
 scratch use and command counts. The physical sample probe is prepared, but it
 has not run and does not establish a fair, fully tuned B03 comparison. B3's
-actual DeFiNES adaptation remains unimplemented.
+actual DeFiNES adaptation remains unimplemented. The current descriptor path
+keeps layers separated by SDRAM and tiles output channels; it cannot yet
+express DeFiNES's spatial cross-layer tiles or horizontal-overlap
+cache/recompute modes. A faithful B3 therefore requires compiler/RTL support
+or an explicit, justified restricted-policy comparison, not a relabeling of B2.
 
 AD remains a planned third workload. The frozen ToyCar model has a 640-element
 input and reconstruction output. Its model/data manifest says the referenced
