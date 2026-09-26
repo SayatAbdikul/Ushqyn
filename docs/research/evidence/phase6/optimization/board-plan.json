@@ -1,0 +1,1140 @@
+{
+  "controls": [
+    "Verify all artifact hashes before programming or uploading.",
+    "Run both pinned and stress snapshot fixtures first; check every tensor against the integer oracle.",
+    "Stop on any output mismatch, protocol failure, counter inconsistency or reset; record it.",
+    "Use a warmup followed by 30 repeats for each policy in each independently initialized session.",
+    "Record engine, DMA, overlap and whole-sequence counters; exclude snapshots from timed runs.",
+    "Report UART/input-loading and preprocessing separately from device inference latency.",
+    "Preserve per-session paired comparisons and uncertainty; publish negative cases.",
+    "Evaluate projected-cycle errors without refitting the model on this measurement set.",
+    "Do not claim measured power or energy without an instrument."
+  ],
+  "core_clock_mhz": 20.25,
+  "images": {
+    "baseline": {
+      "file": "hardware/releases/phase5/dual_resident_750k.fs",
+      "sha256": "9a0cf45477b8602b97a2ab81cbf5ae0e09a8c95bbfcd174cf1998a1b938e5ed1"
+    },
+    "c0p1": {
+      "file": "work/phase6/optimization/route-c0p1/phase6_tiled_host/impl/pnr/phase6_tiled_host.fs",
+      "routed_core_fmax_mhz": 22.451,
+      "sha256": "63838a93b68f03e0396ab1d06c140c57d991c07c349c11056b96769b3fac3f4e"
+    },
+    "c128p0": {
+      "file": "work/phase6/optimization/route-c128p0/phase6_tiled_host/impl/pnr/phase6_tiled_host.fs",
+      "routed_core_fmax_mhz": 23.625,
+      "sha256": "18761f0b588be522fb37e28fc39a5d770e8a6a68544d1c8c57d34b78458853bb"
+    },
+    "c256p0": {
+      "file": "work/phase6/optimization/route-c256p0/phase6_tiled_host/impl/pnr/phase6_tiled_host.fs",
+      "routed_core_fmax_mhz": 23.714,
+      "sha256": "9d183213fd64c3dc75488936cc12a06dee6a293be8cc4c3bc1f2b8c487358277"
+    },
+    "c256p1": {
+      "file": "work/phase6/optimization/route-c256p1/phase6_tiled_host/impl/pnr/phase6_tiled_host.fs",
+      "routed_core_fmax_mhz": 24.123,
+      "sha256": "1dbc989708a4b24e342935a5b62ce1f98d055041801d9f4a98854eafb7fe2051"
+    },
+    "c64p0": {
+      "file": "work/phase6/optimization/route-c64p0/phase6_tiled_host/impl/pnr/phase6_tiled_host.fs",
+      "routed_core_fmax_mhz": 23.324,
+      "sha256": "ead1111cdfcb0d423cda8ca035114ec8dea4c6c7b36ac118736d0b38114c1238"
+    },
+    "spatial": {
+      "file": "work/phase6/optimization/route-spatial/phase6_tiled_host/impl/pnr/phase6_tiled_host.fs",
+      "routed_core_fmax_mhz": 20.798,
+      "sha256": "c20147ff9f35a677ebbc0e24281fc65ab14c35d33d807f49bc5eaf7092288500"
+    }
+  },
+  "physical_board": false,
+  "planned_timed_jobs": 17850,
+  "policies": {
+    "kws-pinned-full-overlap-timed": {
+      "aliases": [],
+      "directory": "work/phase6/optimization/fixtures/kws-pinned-full-overlap-timed",
+      "files": {
+        "checks.txt": "c91d3e53abe149b8e2c5a0cd46e59a07f922c7fdbec06740c67b828eddbfc0a7",
+        "commands.bin": "b96a5bb1da8fdc47da1234d3ce71ac12774918923bb7e0b671065bf56c5029f1",
+        "input.bin": "5f4ad0b2d11bf1cccab552fb5a4d95d082b70f2d1fe2459127673d270cb1cdf4",
+        "output.bin": "ce178213db2ef2aa27d0b532e4a17851cfef1772ad74b2fc7a95311b4a6714a7",
+        "payload.bin": "b5b67a01bb73eb7204a08cfbebd6b050fa2271b752a0a34058e1736a02efa05d",
+        "schedule.json": "80ca13928f15bc01ca05675abaa9723713dc45af5827f3b93e6457f1a62e5704"
+      },
+      "model": "kws",
+      "status": "not_run"
+    },
+    "kws-pinned-full-serial-timed": {
+      "aliases": [],
+      "directory": "work/phase6/optimization/fixtures/kws-pinned-full-serial-timed",
+      "files": {
+        "checks.txt": "c91d3e53abe149b8e2c5a0cd46e59a07f922c7fdbec06740c67b828eddbfc0a7",
+        "commands.bin": "4ca2b7242654911a5c9eed8de6729ba65f9abd32160a24037f513018903213ca",
+        "input.bin": "5f4ad0b2d11bf1cccab552fb5a4d95d082b70f2d1fe2459127673d270cb1cdf4",
+        "output.bin": "ce178213db2ef2aa27d0b532e4a17851cfef1772ad74b2fc7a95311b4a6714a7",
+        "payload.bin": "b5b67a01bb73eb7204a08cfbebd6b050fa2271b752a0a34058e1736a02efa05d",
+        "schedule.json": "c8edfc478945ae2575fa11989661ac29326300e716dbe94f4636152d4235cdd7"
+      },
+      "model": "kws",
+      "status": "not_run"
+    },
+    "kws-pinned-half-overlap-timed": {
+      "aliases": [],
+      "directory": "work/phase6/optimization/fixtures/kws-pinned-half-overlap-timed",
+      "files": {
+        "checks.txt": "c91d3e53abe149b8e2c5a0cd46e59a07f922c7fdbec06740c67b828eddbfc0a7",
+        "commands.bin": "c7ff74dbd02c1655450672c02b20d400b021301bb85b1bc47f7ba01dd60201c6",
+        "input.bin": "5f4ad0b2d11bf1cccab552fb5a4d95d082b70f2d1fe2459127673d270cb1cdf4",
+        "output.bin": "ce178213db2ef2aa27d0b532e4a17851cfef1772ad74b2fc7a95311b4a6714a7",
+        "payload.bin": "6bd9ee5d19311282b867fa85a030b88c1b5c957b41a4fd89e0b38831d92bf1fe",
+        "schedule.json": "fe4d66eee6920f469c4d52d0324ab5380761009f84ec3f7e7c3d5b1fcc85d363"
+      },
+      "model": "kws",
+      "status": "not_run"
+    },
+    "kws-pinned-half-serial-timed": {
+      "aliases": [],
+      "directory": "work/phase6/optimization/fixtures/kws-pinned-half-serial-timed",
+      "files": {
+        "checks.txt": "c91d3e53abe149b8e2c5a0cd46e59a07f922c7fdbec06740c67b828eddbfc0a7",
+        "commands.bin": "321cf57c9cc76a5e22147500980e6ed99175f0f9a49abfef6c9e5bde057dd034",
+        "input.bin": "5f4ad0b2d11bf1cccab552fb5a4d95d082b70f2d1fe2459127673d270cb1cdf4",
+        "output.bin": "ce178213db2ef2aa27d0b532e4a17851cfef1772ad74b2fc7a95311b4a6714a7",
+        "payload.bin": "6bd9ee5d19311282b867fa85a030b88c1b5c957b41a4fd89e0b38831d92bf1fe",
+        "schedule.json": "38423e3057f45731a7076cca504be50764a2eace3a4787fd237c773b2413fad7"
+      },
+      "model": "kws",
+      "status": "not_run"
+    },
+    "kws-pinned-resident-full-overlap-timed": {
+      "aliases": [],
+      "directory": "work/phase6/optimization/fixtures/kws-pinned-resident-full-overlap-timed",
+      "files": {
+        "checks.txt": "0258c1889f1aa327b0b54f378d72d77fb1ca4c7d56dd168ad464a3ec0d7df35c",
+        "commands.bin": "a1b086bb670f94fea40484d02d52001ebd451a9cd197b563c9de8ce8d5b5f1c5",
+        "input.bin": "5f4ad0b2d11bf1cccab552fb5a4d95d082b70f2d1fe2459127673d270cb1cdf4",
+        "output.bin": "ce178213db2ef2aa27d0b532e4a17851cfef1772ad74b2fc7a95311b4a6714a7",
+        "payload.bin": "ea1cd7904d257f12ec27ea9f5c857cd8a68a8bab2fa9b719cf4d7169cfb875cb",
+        "schedule.json": "7e566f07fc54dc613bc3908acd0a2cb5332db8725748b09bdd946dc0d60a86fd"
+      },
+      "model": "kws",
+      "status": "not_run"
+    },
+    "kws-pinned-resident-full-serial-timed": {
+      "aliases": [],
+      "directory": "work/phase6/optimization/fixtures/kws-pinned-resident-full-serial-timed",
+      "files": {
+        "checks.txt": "0258c1889f1aa327b0b54f378d72d77fb1ca4c7d56dd168ad464a3ec0d7df35c",
+        "commands.bin": "e10d1ce54bfb5f4e1163fe9e68b09344d4771551f41381ec3b44e740d3a49cc3",
+        "input.bin": "5f4ad0b2d11bf1cccab552fb5a4d95d082b70f2d1fe2459127673d270cb1cdf4",
+        "output.bin": "ce178213db2ef2aa27d0b532e4a17851cfef1772ad74b2fc7a95311b4a6714a7",
+        "payload.bin": "ea1cd7904d257f12ec27ea9f5c857cd8a68a8bab2fa9b719cf4d7169cfb875cb",
+        "schedule.json": "3fa0f4dd72f44ef323778b0c2dbee6f827b3a5b1f0ea92b74a658539366c74cc"
+      },
+      "model": "kws",
+      "status": "not_run"
+    },
+    "kws-pinned-resident-half-overlap-timed": {
+      "aliases": [
+        "kws-pinned-searched-timed",
+        "kws-pinned-spatial-searched-timed"
+      ],
+      "directory": "work/phase6/optimization/fixtures/kws-pinned-resident-half-overlap-timed",
+      "files": {
+        "checks.txt": "0258c1889f1aa327b0b54f378d72d77fb1ca4c7d56dd168ad464a3ec0d7df35c",
+        "commands.bin": "f9e7fddb2ce8c73d0f7cec8d986a963c2c6c0960ac1062adf0409d4fc6044efc",
+        "input.bin": "5f4ad0b2d11bf1cccab552fb5a4d95d082b70f2d1fe2459127673d270cb1cdf4",
+        "output.bin": "ce178213db2ef2aa27d0b532e4a17851cfef1772ad74b2fc7a95311b4a6714a7",
+        "payload.bin": "7818c4aa954422f38db88dacf56bd85f19a236511e8bdea06423593c7a92210f",
+        "schedule.json": "6f5652110a271ad0d377395021686732c3c0936df9451391d9f1bbb4c0e9ad5b"
+      },
+      "model": "kws",
+      "status": "not_run"
+    },
+    "kws-pinned-resident-half-serial-timed": {
+      "aliases": [],
+      "directory": "work/phase6/optimization/fixtures/kws-pinned-resident-half-serial-timed",
+      "files": {
+        "checks.txt": "0258c1889f1aa327b0b54f378d72d77fb1ca4c7d56dd168ad464a3ec0d7df35c",
+        "commands.bin": "df39ba81b9f78e43d5bbcf591f434c367025e2f58dda22201eac954538b7c7f6",
+        "input.bin": "5f4ad0b2d11bf1cccab552fb5a4d95d082b70f2d1fe2459127673d270cb1cdf4",
+        "output.bin": "ce178213db2ef2aa27d0b532e4a17851cfef1772ad74b2fc7a95311b4a6714a7",
+        "payload.bin": "7818c4aa954422f38db88dacf56bd85f19a236511e8bdea06423593c7a92210f",
+        "schedule.json": "e523d69434a36bebaa292ec8dc10e9afeabe0c937905c49cf1976c0ff0206c61"
+      },
+      "model": "kws",
+      "status": "not_run"
+    },
+    "vww-pinned-full-overlap-timed": {
+      "aliases": [],
+      "directory": "work/phase6/optimization/fixtures/vww-pinned-full-overlap-timed",
+      "files": {
+        "checks.txt": "c91d3e53abe149b8e2c5a0cd46e59a07f922c7fdbec06740c67b828eddbfc0a7",
+        "commands.bin": "c2547fe0c0a3010fde4940ba5c05f3b85779f5a6c30bb2880570872d7596ac40",
+        "input.bin": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+        "output.bin": "6a0cfa0be8aa6d3a3137a6926b09aa569b91c44d1b845612779c2d55e019dbc2",
+        "payload.bin": "df45265dafc280b7f5c37d95802fe08921b81a599b22d5c17309f1b8c1a3a6d6",
+        "schedule.json": "b8af11bef2d25e4d9bc41a74837378e1ba0739cb3ee0a903e4bf9c8adefc0570"
+      },
+      "model": "vww",
+      "status": "not_run"
+    },
+    "vww-pinned-full-serial-timed": {
+      "aliases": [],
+      "directory": "work/phase6/optimization/fixtures/vww-pinned-full-serial-timed",
+      "files": {
+        "checks.txt": "c91d3e53abe149b8e2c5a0cd46e59a07f922c7fdbec06740c67b828eddbfc0a7",
+        "commands.bin": "5974a335464991822a746729b63d8a09f54bf0d5c2d305bdf5da4e4ba058d2c8",
+        "input.bin": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+        "output.bin": "6a0cfa0be8aa6d3a3137a6926b09aa569b91c44d1b845612779c2d55e019dbc2",
+        "payload.bin": "df45265dafc280b7f5c37d95802fe08921b81a599b22d5c17309f1b8c1a3a6d6",
+        "schedule.json": "a63a50b48a468af13204216b72016c2570829c8f4a039fa943d0b3862fb97afc"
+      },
+      "model": "vww",
+      "status": "not_run"
+    },
+    "vww-pinned-half-overlap-timed": {
+      "aliases": [],
+      "directory": "work/phase6/optimization/fixtures/vww-pinned-half-overlap-timed",
+      "files": {
+        "checks.txt": "c91d3e53abe149b8e2c5a0cd46e59a07f922c7fdbec06740c67b828eddbfc0a7",
+        "commands.bin": "58f3c622e420191097e8c0014d817905e3c3c018504b85e10a2e4922ec6a7181",
+        "input.bin": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+        "output.bin": "6a0cfa0be8aa6d3a3137a6926b09aa569b91c44d1b845612779c2d55e019dbc2",
+        "payload.bin": "25dadec0589a76868ee7f711e11fb695cf470cc7f70d48a8de65d1b24d7af32c",
+        "schedule.json": "244d46397fd0b7f44eaa30bbfb8a04dbc1aeb9229de959cfc4635fb5ab447079"
+      },
+      "model": "vww",
+      "status": "not_run"
+    },
+    "vww-pinned-half-serial-timed": {
+      "aliases": [],
+      "directory": "work/phase6/optimization/fixtures/vww-pinned-half-serial-timed",
+      "files": {
+        "checks.txt": "c91d3e53abe149b8e2c5a0cd46e59a07f922c7fdbec06740c67b828eddbfc0a7",
+        "commands.bin": "5ae61faf53a5e3075f28755345d141ffd01ec1e69fc7582c014efd7ba170f2a5",
+        "input.bin": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+        "output.bin": "6a0cfa0be8aa6d3a3137a6926b09aa569b91c44d1b845612779c2d55e019dbc2",
+        "payload.bin": "25dadec0589a76868ee7f711e11fb695cf470cc7f70d48a8de65d1b24d7af32c",
+        "schedule.json": "a6e84f61e468508b5af93b65eb6dec85d918bff57f45672200a5fdf322bb0a74"
+      },
+      "model": "vww",
+      "status": "not_run"
+    },
+    "vww-pinned-resident-full-overlap-timed": {
+      "aliases": [],
+      "directory": "work/phase6/optimization/fixtures/vww-pinned-resident-full-overlap-timed",
+      "files": {
+        "checks.txt": "7fe170b594022a583bc22e129db3badbcbc6a8ff868483c71a95b09793d668f2",
+        "commands.bin": "e8f0211b84c272d7b384f96e29ba841c0f7264b9109e3d05872654572a8ea6f8",
+        "input.bin": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+        "output.bin": "6a0cfa0be8aa6d3a3137a6926b09aa569b91c44d1b845612779c2d55e019dbc2",
+        "payload.bin": "147296375cb526f2ff7d74345305a513998e744ab4252b7daf8afa8d3a6267a5",
+        "schedule.json": "e4a1f676cb0015582bfb9d6ae5d88726899a3e840d790657bca8226bc78b7745"
+      },
+      "model": "vww",
+      "status": "not_run"
+    },
+    "vww-pinned-resident-full-serial-timed": {
+      "aliases": [],
+      "directory": "work/phase6/optimization/fixtures/vww-pinned-resident-full-serial-timed",
+      "files": {
+        "checks.txt": "7fe170b594022a583bc22e129db3badbcbc6a8ff868483c71a95b09793d668f2",
+        "commands.bin": "da552b86fc8c666dd9e45ddbdccacab4958942e4c51dcb718bc7a1b999c3298e",
+        "input.bin": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+        "output.bin": "6a0cfa0be8aa6d3a3137a6926b09aa569b91c44d1b845612779c2d55e019dbc2",
+        "payload.bin": "147296375cb526f2ff7d74345305a513998e744ab4252b7daf8afa8d3a6267a5",
+        "schedule.json": "de68566865bffb3534dd873e3c229a9ccc832d921b9c9c82004e5d0633e93873"
+      },
+      "model": "vww",
+      "status": "not_run"
+    },
+    "vww-pinned-resident-half-overlap-timed": {
+      "aliases": [],
+      "directory": "work/phase6/optimization/fixtures/vww-pinned-resident-half-overlap-timed",
+      "files": {
+        "checks.txt": "7fe170b594022a583bc22e129db3badbcbc6a8ff868483c71a95b09793d668f2",
+        "commands.bin": "c1dd0230b6b0eb744884858b04f5d0fa09efc9eb73662d58694c000bad8c8530",
+        "input.bin": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+        "output.bin": "6a0cfa0be8aa6d3a3137a6926b09aa569b91c44d1b845612779c2d55e019dbc2",
+        "payload.bin": "a810f41466f103a608cc0bbf9589b216aaed50e48ac67195bc99a6de1231d591",
+        "schedule.json": "c24f13b9fe102486c5b112083babbedd4389bcf134f7951b9b3ef43a23072e29"
+      },
+      "model": "vww",
+      "status": "not_run"
+    },
+    "vww-pinned-resident-half-serial-timed": {
+      "aliases": [],
+      "directory": "work/phase6/optimization/fixtures/vww-pinned-resident-half-serial-timed",
+      "files": {
+        "checks.txt": "7fe170b594022a583bc22e129db3badbcbc6a8ff868483c71a95b09793d668f2",
+        "commands.bin": "eb39b01365e5a42123e62fa357023324ad2498eb80a65d6bd275ed06551235af",
+        "input.bin": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+        "output.bin": "6a0cfa0be8aa6d3a3137a6926b09aa569b91c44d1b845612779c2d55e019dbc2",
+        "payload.bin": "a810f41466f103a608cc0bbf9589b216aaed50e48ac67195bc99a6de1231d591",
+        "schedule.json": "7ed97ff0661acf212a7de7bcfbcb2e60937991e1c7b16677cf968b243fe66dd5"
+      },
+      "model": "vww",
+      "status": "not_run"
+    },
+    "vww-pinned-searched-timed": {
+      "aliases": [
+        "vww-pinned-spatial-searched-timed"
+      ],
+      "directory": "work/phase6/optimization/fixtures/vww-pinned-searched-timed",
+      "files": {
+        "checks.txt": "7fe170b594022a583bc22e129db3badbcbc6a8ff868483c71a95b09793d668f2",
+        "commands.bin": "d69548a780a87731462ede4d903745263a13c4507a6b1900322558c94784ac62",
+        "input.bin": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+        "output.bin": "6a0cfa0be8aa6d3a3137a6926b09aa569b91c44d1b845612779c2d55e019dbc2",
+        "payload.bin": "38ca99267cf329451c74deb5123efbc453d7a40f73929f393d954f3f21f0cd24",
+        "schedule.json": "63dbe99d419f0201c2c6026d36b680a644bf6021f57ad8b18ff3a98a8ed85eaa"
+      },
+      "model": "vww",
+      "status": "not_run"
+    }
+  },
+  "requires": "Finish the original Phase 5 campaigns before any reprogramming.",
+  "schema": 1,
+  "scope": "engineering hardware and restricted scheduling comparisons; not complete B3/B4",
+  "sessions": [
+    {
+      "blocks": [
+        {
+          "policies": [
+            "kws-pinned-resident-full-serial-timed",
+            "vww-pinned-half-serial-timed",
+            "vww-pinned-resident-half-serial-timed",
+            "vww-pinned-resident-full-serial-timed",
+            "kws-pinned-resident-half-serial-timed",
+            "vww-pinned-resident-full-overlap-timed",
+            "kws-pinned-full-overlap-timed",
+            "kws-pinned-resident-full-overlap-timed",
+            "vww-pinned-full-serial-timed",
+            "vww-pinned-full-overlap-timed",
+            "kws-pinned-half-serial-timed",
+            "vww-pinned-resident-half-overlap-timed",
+            "kws-pinned-half-overlap-timed",
+            "vww-pinned-half-overlap-timed",
+            "vww-pinned-searched-timed",
+            "kws-pinned-resident-half-overlap-timed",
+            "kws-pinned-full-serial-timed"
+          ],
+          "repeats_per_policy": 30,
+          "variant": "c64p0"
+        },
+        {
+          "policies": [
+            "vww-pinned-full-overlap-timed",
+            "vww-pinned-full-serial-timed",
+            "kws-pinned-resident-full-serial-timed",
+            "vww-pinned-resident-half-overlap-timed",
+            "kws-pinned-half-overlap-timed",
+            "kws-pinned-full-serial-timed",
+            "vww-pinned-resident-full-overlap-timed",
+            "kws-pinned-resident-full-overlap-timed",
+            "vww-pinned-resident-half-serial-timed",
+            "kws-pinned-full-overlap-timed",
+            "kws-pinned-half-serial-timed",
+            "vww-pinned-resident-full-serial-timed",
+            "kws-pinned-resident-half-serial-timed",
+            "vww-pinned-half-serial-timed",
+            "vww-pinned-half-overlap-timed",
+            "vww-pinned-searched-timed",
+            "kws-pinned-resident-half-overlap-timed"
+          ],
+          "repeats_per_policy": 30,
+          "variant": "c256p1"
+        },
+        {
+          "policies": [
+            "vww-pinned-resident-full-overlap-timed",
+            "kws-pinned-resident-half-serial-timed",
+            "kws-pinned-resident-half-overlap-timed",
+            "vww-pinned-half-overlap-timed",
+            "kws-pinned-full-serial-timed",
+            "vww-pinned-full-overlap-timed",
+            "vww-pinned-resident-half-serial-timed",
+            "kws-pinned-resident-full-serial-timed",
+            "vww-pinned-full-serial-timed",
+            "vww-pinned-searched-timed",
+            "kws-pinned-full-overlap-timed",
+            "kws-pinned-half-serial-timed",
+            "kws-pinned-half-overlap-timed",
+            "kws-pinned-resident-full-overlap-timed",
+            "vww-pinned-resident-half-overlap-timed",
+            "vww-pinned-half-serial-timed",
+            "vww-pinned-resident-full-serial-timed"
+          ],
+          "repeats_per_policy": 30,
+          "variant": "spatial"
+        },
+        {
+          "policies": [
+            "vww-pinned-half-serial-timed",
+            "vww-pinned-resident-half-serial-timed",
+            "kws-pinned-half-overlap-timed",
+            "kws-pinned-resident-half-serial-timed",
+            "vww-pinned-full-overlap-timed",
+            "kws-pinned-resident-full-overlap-timed",
+            "vww-pinned-searched-timed",
+            "vww-pinned-half-overlap-timed",
+            "vww-pinned-full-serial-timed",
+            "vww-pinned-resident-full-overlap-timed",
+            "kws-pinned-resident-half-overlap-timed",
+            "kws-pinned-full-serial-timed",
+            "vww-pinned-resident-full-serial-timed",
+            "vww-pinned-resident-half-overlap-timed",
+            "kws-pinned-full-overlap-timed",
+            "kws-pinned-half-serial-timed",
+            "kws-pinned-resident-full-serial-timed"
+          ],
+          "repeats_per_policy": 30,
+          "variant": "c256p0"
+        },
+        {
+          "policies": [
+            "kws-pinned-half-serial-timed",
+            "kws-pinned-resident-full-overlap-timed",
+            "vww-pinned-resident-full-overlap-timed",
+            "kws-pinned-resident-half-overlap-timed",
+            "kws-pinned-full-serial-timed",
+            "kws-pinned-resident-full-serial-timed",
+            "vww-pinned-full-serial-timed",
+            "vww-pinned-full-overlap-timed",
+            "kws-pinned-half-overlap-timed",
+            "vww-pinned-half-overlap-timed",
+            "vww-pinned-half-serial-timed",
+            "vww-pinned-resident-half-overlap-timed",
+            "kws-pinned-resident-half-serial-timed",
+            "vww-pinned-resident-half-serial-timed",
+            "vww-pinned-resident-full-serial-timed",
+            "kws-pinned-full-overlap-timed",
+            "vww-pinned-searched-timed"
+          ],
+          "repeats_per_policy": 30,
+          "variant": "baseline"
+        },
+        {
+          "policies": [
+            "kws-pinned-resident-full-overlap-timed",
+            "vww-pinned-full-overlap-timed",
+            "kws-pinned-full-serial-timed",
+            "kws-pinned-resident-half-overlap-timed",
+            "vww-pinned-resident-full-serial-timed",
+            "vww-pinned-searched-timed",
+            "vww-pinned-full-serial-timed",
+            "vww-pinned-half-overlap-timed",
+            "kws-pinned-resident-full-serial-timed",
+            "kws-pinned-full-overlap-timed",
+            "kws-pinned-half-serial-timed",
+            "vww-pinned-half-serial-timed",
+            "vww-pinned-resident-full-overlap-timed",
+            "vww-pinned-resident-half-overlap-timed",
+            "vww-pinned-resident-half-serial-timed",
+            "kws-pinned-resident-half-serial-timed",
+            "kws-pinned-half-overlap-timed"
+          ],
+          "repeats_per_policy": 30,
+          "variant": "c0p1"
+        },
+        {
+          "policies": [
+            "kws-pinned-half-overlap-timed",
+            "kws-pinned-half-serial-timed",
+            "kws-pinned-resident-half-overlap-timed",
+            "vww-pinned-searched-timed",
+            "kws-pinned-resident-full-overlap-timed",
+            "vww-pinned-resident-half-overlap-timed",
+            "vww-pinned-half-overlap-timed",
+            "vww-pinned-full-serial-timed",
+            "vww-pinned-resident-full-serial-timed",
+            "vww-pinned-half-serial-timed",
+            "kws-pinned-full-overlap-timed",
+            "vww-pinned-resident-half-serial-timed",
+            "vww-pinned-full-overlap-timed",
+            "kws-pinned-resident-full-serial-timed",
+            "kws-pinned-full-serial-timed",
+            "kws-pinned-resident-half-serial-timed",
+            "vww-pinned-resident-full-overlap-timed"
+          ],
+          "repeats_per_policy": 30,
+          "variant": "c128p0"
+        }
+      ],
+      "seed": 6107,
+      "session": 1
+    },
+    {
+      "blocks": [
+        {
+          "policies": [
+            "kws-pinned-resident-full-serial-timed",
+            "kws-pinned-resident-half-serial-timed",
+            "vww-pinned-half-overlap-timed",
+            "vww-pinned-full-overlap-timed",
+            "kws-pinned-resident-half-overlap-timed",
+            "kws-pinned-half-serial-timed",
+            "vww-pinned-resident-full-serial-timed",
+            "vww-pinned-searched-timed",
+            "vww-pinned-resident-half-serial-timed",
+            "vww-pinned-resident-full-overlap-timed",
+            "kws-pinned-half-overlap-timed",
+            "vww-pinned-full-serial-timed",
+            "kws-pinned-resident-full-overlap-timed",
+            "vww-pinned-half-serial-timed",
+            "kws-pinned-full-overlap-timed",
+            "vww-pinned-resident-half-overlap-timed",
+            "kws-pinned-full-serial-timed"
+          ],
+          "repeats_per_policy": 30,
+          "variant": "c256p0"
+        },
+        {
+          "policies": [
+            "vww-pinned-resident-half-serial-timed",
+            "kws-pinned-full-serial-timed",
+            "vww-pinned-half-overlap-timed",
+            "kws-pinned-half-serial-timed",
+            "vww-pinned-half-serial-timed",
+            "vww-pinned-resident-full-overlap-timed",
+            "kws-pinned-full-overlap-timed",
+            "kws-pinned-resident-full-overlap-timed",
+            "vww-pinned-full-overlap-timed",
+            "kws-pinned-resident-full-serial-timed",
+            "kws-pinned-resident-half-overlap-timed",
+            "kws-pinned-resident-half-serial-timed",
+            "vww-pinned-full-serial-timed",
+            "vww-pinned-searched-timed",
+            "vww-pinned-resident-half-overlap-timed",
+            "kws-pinned-half-overlap-timed",
+            "vww-pinned-resident-full-serial-timed"
+          ],
+          "repeats_per_policy": 30,
+          "variant": "spatial"
+        },
+        {
+          "policies": [
+            "vww-pinned-half-serial-timed",
+            "vww-pinned-resident-half-serial-timed",
+            "kws-pinned-resident-half-overlap-timed",
+            "kws-pinned-half-serial-timed",
+            "kws-pinned-full-overlap-timed",
+            "vww-pinned-full-overlap-timed",
+            "kws-pinned-full-serial-timed",
+            "vww-pinned-resident-half-overlap-timed",
+            "vww-pinned-resident-full-serial-timed",
+            "kws-pinned-resident-full-serial-timed",
+            "kws-pinned-resident-half-serial-timed",
+            "vww-pinned-full-serial-timed",
+            "kws-pinned-half-overlap-timed",
+            "kws-pinned-resident-full-overlap-timed",
+            "vww-pinned-searched-timed",
+            "vww-pinned-resident-full-overlap-timed",
+            "vww-pinned-half-overlap-timed"
+          ],
+          "repeats_per_policy": 30,
+          "variant": "c0p1"
+        },
+        {
+          "policies": [
+            "vww-pinned-half-overlap-timed",
+            "kws-pinned-resident-half-overlap-timed",
+            "vww-pinned-full-serial-timed",
+            "vww-pinned-searched-timed",
+            "vww-pinned-full-overlap-timed",
+            "kws-pinned-half-overlap-timed",
+            "vww-pinned-half-serial-timed",
+            "kws-pinned-resident-full-overlap-timed",
+            "vww-pinned-resident-half-overlap-timed",
+            "kws-pinned-full-overlap-timed",
+            "vww-pinned-resident-half-serial-timed",
+            "vww-pinned-resident-full-overlap-timed",
+            "vww-pinned-resident-full-serial-timed",
+            "kws-pinned-resident-half-serial-timed",
+            "kws-pinned-full-serial-timed",
+            "kws-pinned-half-serial-timed",
+            "kws-pinned-resident-full-serial-timed"
+          ],
+          "repeats_per_policy": 30,
+          "variant": "c128p0"
+        },
+        {
+          "policies": [
+            "vww-pinned-half-serial-timed",
+            "vww-pinned-resident-half-serial-timed",
+            "kws-pinned-full-overlap-timed",
+            "kws-pinned-resident-half-serial-timed",
+            "kws-pinned-resident-half-overlap-timed",
+            "vww-pinned-resident-half-overlap-timed",
+            "vww-pinned-half-overlap-timed",
+            "vww-pinned-full-serial-timed",
+            "kws-pinned-resident-full-overlap-timed",
+            "kws-pinned-full-serial-timed",
+            "vww-pinned-searched-timed",
+            "kws-pinned-half-serial-timed",
+            "kws-pinned-resident-full-serial-timed",
+            "vww-pinned-resident-full-overlap-timed",
+            "vww-pinned-resident-full-serial-timed",
+            "vww-pinned-full-overlap-timed",
+            "kws-pinned-half-overlap-timed"
+          ],
+          "repeats_per_policy": 30,
+          "variant": "c256p1"
+        },
+        {
+          "policies": [
+            "vww-pinned-resident-full-serial-timed",
+            "vww-pinned-resident-half-serial-timed",
+            "kws-pinned-half-overlap-timed",
+            "vww-pinned-half-overlap-timed",
+            "kws-pinned-half-serial-timed",
+            "kws-pinned-resident-full-overlap-timed",
+            "vww-pinned-resident-half-overlap-timed",
+            "kws-pinned-resident-full-serial-timed",
+            "kws-pinned-full-overlap-timed",
+            "vww-pinned-resident-full-overlap-timed",
+            "kws-pinned-resident-half-serial-timed",
+            "vww-pinned-full-overlap-timed",
+            "vww-pinned-searched-timed",
+            "kws-pinned-resident-half-overlap-timed",
+            "kws-pinned-full-serial-timed",
+            "vww-pinned-full-serial-timed",
+            "vww-pinned-half-serial-timed"
+          ],
+          "repeats_per_policy": 30,
+          "variant": "baseline"
+        },
+        {
+          "policies": [
+            "vww-pinned-full-overlap-timed",
+            "kws-pinned-half-overlap-timed",
+            "vww-pinned-resident-full-overlap-timed",
+            "vww-pinned-searched-timed",
+            "vww-pinned-resident-full-serial-timed",
+            "kws-pinned-resident-half-serial-timed",
+            "kws-pinned-resident-full-overlap-timed",
+            "kws-pinned-full-serial-timed",
+            "vww-pinned-half-overlap-timed",
+            "kws-pinned-resident-full-serial-timed",
+            "vww-pinned-full-serial-timed",
+            "vww-pinned-resident-half-serial-timed",
+            "kws-pinned-full-overlap-timed",
+            "vww-pinned-resident-half-overlap-timed",
+            "kws-pinned-half-serial-timed",
+            "vww-pinned-half-serial-timed",
+            "kws-pinned-resident-half-overlap-timed"
+          ],
+          "repeats_per_policy": 30,
+          "variant": "c64p0"
+        }
+      ],
+      "seed": 6108,
+      "session": 2
+    },
+    {
+      "blocks": [
+        {
+          "policies": [
+            "kws-pinned-resident-full-serial-timed",
+            "vww-pinned-searched-timed",
+            "kws-pinned-full-overlap-timed",
+            "kws-pinned-resident-full-overlap-timed",
+            "vww-pinned-resident-full-serial-timed",
+            "kws-pinned-half-serial-timed",
+            "vww-pinned-full-overlap-timed",
+            "kws-pinned-half-overlap-timed",
+            "vww-pinned-full-serial-timed",
+            "kws-pinned-full-serial-timed",
+            "vww-pinned-half-serial-timed",
+            "kws-pinned-resident-half-serial-timed",
+            "vww-pinned-resident-full-overlap-timed",
+            "kws-pinned-resident-half-overlap-timed",
+            "vww-pinned-half-overlap-timed",
+            "vww-pinned-resident-half-overlap-timed",
+            "vww-pinned-resident-half-serial-timed"
+          ],
+          "repeats_per_policy": 30,
+          "variant": "spatial"
+        },
+        {
+          "policies": [
+            "vww-pinned-resident-full-overlap-timed",
+            "kws-pinned-full-overlap-timed",
+            "kws-pinned-full-serial-timed",
+            "vww-pinned-resident-half-overlap-timed",
+            "vww-pinned-half-overlap-timed",
+            "vww-pinned-resident-half-serial-timed",
+            "kws-pinned-half-overlap-timed",
+            "kws-pinned-resident-half-serial-timed",
+            "vww-pinned-searched-timed",
+            "vww-pinned-half-serial-timed",
+            "vww-pinned-full-overlap-timed",
+            "kws-pinned-resident-full-overlap-timed",
+            "kws-pinned-half-serial-timed",
+            "vww-pinned-full-serial-timed",
+            "vww-pinned-resident-full-serial-timed",
+            "kws-pinned-resident-full-serial-timed",
+            "kws-pinned-resident-half-overlap-timed"
+          ],
+          "repeats_per_policy": 30,
+          "variant": "c256p1"
+        },
+        {
+          "policies": [
+            "vww-pinned-resident-full-overlap-timed",
+            "kws-pinned-resident-full-serial-timed",
+            "vww-pinned-resident-half-overlap-timed",
+            "kws-pinned-resident-full-overlap-timed",
+            "kws-pinned-full-serial-timed",
+            "vww-pinned-half-serial-timed",
+            "kws-pinned-resident-half-serial-timed",
+            "vww-pinned-half-overlap-timed",
+            "kws-pinned-resident-half-overlap-timed",
+            "kws-pinned-half-overlap-timed",
+            "vww-pinned-searched-timed",
+            "kws-pinned-full-overlap-timed",
+            "vww-pinned-resident-full-serial-timed",
+            "vww-pinned-full-serial-timed",
+            "vww-pinned-full-overlap-timed",
+            "kws-pinned-half-serial-timed",
+            "vww-pinned-resident-half-serial-timed"
+          ],
+          "repeats_per_policy": 30,
+          "variant": "c128p0"
+        },
+        {
+          "policies": [
+            "kws-pinned-full-overlap-timed",
+            "vww-pinned-searched-timed",
+            "vww-pinned-resident-full-overlap-timed",
+            "kws-pinned-resident-full-overlap-timed",
+            "kws-pinned-resident-half-overlap-timed",
+            "kws-pinned-full-serial-timed",
+            "vww-pinned-resident-half-overlap-timed",
+            "vww-pinned-half-overlap-timed",
+            "kws-pinned-half-serial-timed",
+            "vww-pinned-full-serial-timed",
+            "kws-pinned-resident-half-serial-timed",
+            "vww-pinned-full-overlap-timed",
+            "kws-pinned-half-overlap-timed",
+            "vww-pinned-resident-half-serial-timed",
+            "kws-pinned-resident-full-serial-timed",
+            "vww-pinned-half-serial-timed",
+            "vww-pinned-resident-full-serial-timed"
+          ],
+          "repeats_per_policy": 30,
+          "variant": "baseline"
+        },
+        {
+          "policies": [
+            "vww-pinned-resident-full-overlap-timed",
+            "kws-pinned-resident-half-serial-timed",
+            "vww-pinned-half-overlap-timed",
+            "kws-pinned-full-serial-timed",
+            "vww-pinned-searched-timed",
+            "kws-pinned-half-serial-timed",
+            "kws-pinned-resident-full-serial-timed",
+            "vww-pinned-full-serial-timed",
+            "vww-pinned-resident-half-serial-timed",
+            "kws-pinned-resident-half-overlap-timed",
+            "vww-pinned-full-overlap-timed",
+            "kws-pinned-resident-full-overlap-timed",
+            "vww-pinned-half-serial-timed",
+            "kws-pinned-half-overlap-timed",
+            "kws-pinned-full-overlap-timed",
+            "vww-pinned-resident-full-serial-timed",
+            "vww-pinned-resident-half-overlap-timed"
+          ],
+          "repeats_per_policy": 30,
+          "variant": "c256p0"
+        },
+        {
+          "policies": [
+            "vww-pinned-resident-full-overlap-timed",
+            "vww-pinned-full-overlap-timed",
+            "kws-pinned-resident-half-serial-timed",
+            "vww-pinned-resident-full-serial-timed",
+            "kws-pinned-resident-full-serial-timed",
+            "vww-pinned-resident-half-overlap-timed",
+            "kws-pinned-resident-full-overlap-timed",
+            "kws-pinned-full-serial-timed",
+            "vww-pinned-half-overlap-timed",
+            "kws-pinned-full-overlap-timed",
+            "kws-pinned-resident-half-overlap-timed",
+            "vww-pinned-full-serial-timed",
+            "vww-pinned-resident-half-serial-timed",
+            "kws-pinned-half-serial-timed",
+            "vww-pinned-searched-timed",
+            "kws-pinned-half-overlap-timed",
+            "vww-pinned-half-serial-timed"
+          ],
+          "repeats_per_policy": 30,
+          "variant": "c64p0"
+        },
+        {
+          "policies": [
+            "kws-pinned-half-overlap-timed",
+            "vww-pinned-half-overlap-timed",
+            "kws-pinned-half-serial-timed",
+            "kws-pinned-resident-full-overlap-timed",
+            "kws-pinned-resident-half-overlap-timed",
+            "vww-pinned-resident-half-overlap-timed",
+            "vww-pinned-searched-timed",
+            "vww-pinned-full-overlap-timed",
+            "kws-pinned-full-serial-timed",
+            "vww-pinned-half-serial-timed",
+            "vww-pinned-full-serial-timed",
+            "vww-pinned-resident-full-overlap-timed",
+            "vww-pinned-resident-half-serial-timed",
+            "kws-pinned-resident-full-serial-timed",
+            "kws-pinned-resident-half-serial-timed",
+            "kws-pinned-full-overlap-timed",
+            "vww-pinned-resident-full-serial-timed"
+          ],
+          "repeats_per_policy": 30,
+          "variant": "c0p1"
+        }
+      ],
+      "seed": 6109,
+      "session": 3
+    },
+    {
+      "blocks": [
+        {
+          "policies": [
+            "kws-pinned-resident-half-overlap-timed",
+            "vww-pinned-full-overlap-timed",
+            "kws-pinned-full-overlap-timed",
+            "kws-pinned-resident-half-serial-timed",
+            "vww-pinned-resident-full-serial-timed",
+            "vww-pinned-resident-half-serial-timed",
+            "kws-pinned-resident-full-serial-timed",
+            "vww-pinned-resident-full-overlap-timed",
+            "kws-pinned-resident-full-overlap-timed",
+            "vww-pinned-half-serial-timed",
+            "kws-pinned-full-serial-timed",
+            "vww-pinned-resident-half-overlap-timed",
+            "kws-pinned-half-serial-timed",
+            "vww-pinned-searched-timed",
+            "vww-pinned-half-overlap-timed",
+            "vww-pinned-full-serial-timed",
+            "kws-pinned-half-overlap-timed"
+          ],
+          "repeats_per_policy": 30,
+          "variant": "c0p1"
+        },
+        {
+          "policies": [
+            "vww-pinned-half-serial-timed",
+            "vww-pinned-searched-timed",
+            "vww-pinned-full-serial-timed",
+            "kws-pinned-half-serial-timed",
+            "vww-pinned-resident-half-serial-timed",
+            "kws-pinned-resident-full-serial-timed",
+            "kws-pinned-full-serial-timed",
+            "kws-pinned-resident-half-overlap-timed",
+            "kws-pinned-resident-full-overlap-timed",
+            "kws-pinned-full-overlap-timed",
+            "vww-pinned-resident-half-overlap-timed",
+            "kws-pinned-resident-half-serial-timed",
+            "vww-pinned-resident-full-serial-timed",
+            "vww-pinned-half-overlap-timed",
+            "vww-pinned-resident-full-overlap-timed",
+            "kws-pinned-half-overlap-timed",
+            "vww-pinned-full-overlap-timed"
+          ],
+          "repeats_per_policy": 30,
+          "variant": "c256p1"
+        },
+        {
+          "policies": [
+            "kws-pinned-half-serial-timed",
+            "kws-pinned-resident-half-overlap-timed",
+            "kws-pinned-half-overlap-timed",
+            "vww-pinned-full-serial-timed",
+            "kws-pinned-resident-half-serial-timed",
+            "vww-pinned-half-overlap-timed",
+            "vww-pinned-resident-full-serial-timed",
+            "kws-pinned-resident-full-serial-timed",
+            "kws-pinned-full-overlap-timed",
+            "vww-pinned-resident-full-overlap-timed",
+            "vww-pinned-half-serial-timed",
+            "vww-pinned-searched-timed",
+            "vww-pinned-full-overlap-timed",
+            "vww-pinned-resident-half-serial-timed",
+            "kws-pinned-resident-full-overlap-timed",
+            "kws-pinned-full-serial-timed",
+            "vww-pinned-resident-half-overlap-timed"
+          ],
+          "repeats_per_policy": 30,
+          "variant": "c128p0"
+        },
+        {
+          "policies": [
+            "vww-pinned-searched-timed",
+            "kws-pinned-half-serial-timed",
+            "vww-pinned-half-overlap-timed",
+            "vww-pinned-full-overlap-timed",
+            "kws-pinned-resident-half-serial-timed",
+            "vww-pinned-resident-half-overlap-timed",
+            "vww-pinned-resident-half-serial-timed",
+            "kws-pinned-resident-full-serial-timed",
+            "vww-pinned-half-serial-timed",
+            "kws-pinned-resident-half-overlap-timed",
+            "vww-pinned-resident-full-overlap-timed",
+            "kws-pinned-resident-full-overlap-timed",
+            "kws-pinned-full-serial-timed",
+            "vww-pinned-full-serial-timed",
+            "kws-pinned-half-overlap-timed",
+            "vww-pinned-resident-full-serial-timed",
+            "kws-pinned-full-overlap-timed"
+          ],
+          "repeats_per_policy": 30,
+          "variant": "spatial"
+        },
+        {
+          "policies": [
+            "vww-pinned-resident-full-serial-timed",
+            "kws-pinned-full-overlap-timed",
+            "vww-pinned-resident-half-overlap-timed",
+            "kws-pinned-half-serial-timed",
+            "vww-pinned-resident-half-serial-timed",
+            "kws-pinned-resident-full-overlap-timed",
+            "vww-pinned-full-overlap-timed",
+            "kws-pinned-resident-half-serial-timed",
+            "kws-pinned-half-overlap-timed",
+            "kws-pinned-resident-full-serial-timed",
+            "vww-pinned-half-overlap-timed",
+            "vww-pinned-half-serial-timed",
+            "kws-pinned-resident-half-overlap-timed",
+            "vww-pinned-resident-full-overlap-timed",
+            "vww-pinned-searched-timed",
+            "kws-pinned-full-serial-timed",
+            "vww-pinned-full-serial-timed"
+          ],
+          "repeats_per_policy": 30,
+          "variant": "baseline"
+        },
+        {
+          "policies": [
+            "kws-pinned-half-overlap-timed",
+            "vww-pinned-full-overlap-timed",
+            "kws-pinned-full-serial-timed",
+            "vww-pinned-resident-full-overlap-timed",
+            "vww-pinned-resident-full-serial-timed",
+            "vww-pinned-half-serial-timed",
+            "kws-pinned-resident-half-serial-timed",
+            "kws-pinned-resident-half-overlap-timed",
+            "vww-pinned-resident-half-serial-timed",
+            "kws-pinned-half-serial-timed",
+            "vww-pinned-searched-timed",
+            "vww-pinned-resident-half-overlap-timed",
+            "vww-pinned-full-serial-timed",
+            "kws-pinned-full-overlap-timed",
+            "kws-pinned-resident-full-overlap-timed",
+            "kws-pinned-resident-full-serial-timed",
+            "vww-pinned-half-overlap-timed"
+          ],
+          "repeats_per_policy": 30,
+          "variant": "c256p0"
+        },
+        {
+          "policies": [
+            "vww-pinned-full-serial-timed",
+            "kws-pinned-half-overlap-timed",
+            "kws-pinned-resident-full-overlap-timed",
+            "kws-pinned-resident-half-overlap-timed",
+            "vww-pinned-full-overlap-timed",
+            "kws-pinned-half-serial-timed",
+            "kws-pinned-resident-half-serial-timed",
+            "vww-pinned-half-serial-timed",
+            "vww-pinned-half-overlap-timed",
+            "vww-pinned-resident-full-overlap-timed",
+            "kws-pinned-full-overlap-timed",
+            "vww-pinned-resident-full-serial-timed",
+            "kws-pinned-full-serial-timed",
+            "vww-pinned-resident-half-serial-timed",
+            "kws-pinned-resident-full-serial-timed",
+            "vww-pinned-searched-timed",
+            "vww-pinned-resident-half-overlap-timed"
+          ],
+          "repeats_per_policy": 30,
+          "variant": "c64p0"
+        }
+      ],
+      "seed": 6110,
+      "session": 4
+    },
+    {
+      "blocks": [
+        {
+          "policies": [
+            "kws-pinned-resident-full-serial-timed",
+            "vww-pinned-searched-timed",
+            "vww-pinned-full-overlap-timed",
+            "vww-pinned-resident-half-overlap-timed",
+            "kws-pinned-full-serial-timed",
+            "vww-pinned-resident-half-serial-timed",
+            "kws-pinned-half-overlap-timed",
+            "kws-pinned-half-serial-timed",
+            "kws-pinned-resident-half-serial-timed",
+            "vww-pinned-full-serial-timed",
+            "kws-pinned-resident-half-overlap-timed",
+            "vww-pinned-resident-full-overlap-timed",
+            "kws-pinned-full-overlap-timed",
+            "vww-pinned-resident-full-serial-timed",
+            "kws-pinned-resident-full-overlap-timed",
+            "vww-pinned-half-serial-timed",
+            "vww-pinned-half-overlap-timed"
+          ],
+          "repeats_per_policy": 30,
+          "variant": "baseline"
+        },
+        {
+          "policies": [
+            "kws-pinned-resident-half-serial-timed",
+            "vww-pinned-searched-timed",
+            "kws-pinned-half-overlap-timed",
+            "vww-pinned-resident-half-overlap-timed",
+            "kws-pinned-resident-full-serial-timed",
+            "vww-pinned-half-overlap-timed",
+            "kws-pinned-full-overlap-timed",
+            "kws-pinned-full-serial-timed",
+            "kws-pinned-half-serial-timed",
+            "vww-pinned-resident-half-serial-timed",
+            "vww-pinned-resident-full-serial-timed",
+            "vww-pinned-full-serial-timed",
+            "kws-pinned-resident-half-overlap-timed",
+            "vww-pinned-half-serial-timed",
+            "vww-pinned-full-overlap-timed",
+            "kws-pinned-resident-full-overlap-timed",
+            "vww-pinned-resident-full-overlap-timed"
+          ],
+          "repeats_per_policy": 30,
+          "variant": "c0p1"
+        },
+        {
+          "policies": [
+            "kws-pinned-full-serial-timed",
+            "vww-pinned-resident-half-serial-timed",
+            "kws-pinned-half-overlap-timed",
+            "kws-pinned-resident-full-overlap-timed",
+            "vww-pinned-full-serial-timed",
+            "vww-pinned-resident-full-serial-timed",
+            "kws-pinned-resident-half-serial-timed",
+            "vww-pinned-full-overlap-timed",
+            "vww-pinned-resident-full-overlap-timed",
+            "kws-pinned-resident-half-overlap-timed",
+            "kws-pinned-resident-full-serial-timed",
+            "vww-pinned-resident-half-overlap-timed",
+            "vww-pinned-searched-timed",
+            "vww-pinned-half-overlap-timed",
+            "kws-pinned-half-serial-timed",
+            "kws-pinned-full-overlap-timed",
+            "vww-pinned-half-serial-timed"
+          ],
+          "repeats_per_policy": 30,
+          "variant": "c64p0"
+        },
+        {
+          "policies": [
+            "kws-pinned-full-serial-timed",
+            "vww-pinned-searched-timed",
+            "vww-pinned-resident-half-serial-timed",
+            "kws-pinned-resident-full-overlap-timed",
+            "kws-pinned-resident-full-serial-timed",
+            "vww-pinned-half-serial-timed",
+            "kws-pinned-half-overlap-timed",
+            "kws-pinned-resident-half-overlap-timed",
+            "kws-pinned-half-serial-timed",
+            "kws-pinned-full-overlap-timed",
+            "vww-pinned-resident-half-overlap-timed",
+            "vww-pinned-full-serial-timed",
+            "vww-pinned-full-overlap-timed",
+            "kws-pinned-resident-half-serial-timed",
+            "vww-pinned-half-overlap-timed",
+            "vww-pinned-resident-full-serial-timed",
+            "vww-pinned-resident-full-overlap-timed"
+          ],
+          "repeats_per_policy": 30,
+          "variant": "c128p0"
+        },
+        {
+          "policies": [
+            "vww-pinned-resident-full-serial-timed",
+            "kws-pinned-full-serial-timed",
+            "kws-pinned-resident-full-serial-timed",
+            "kws-pinned-full-overlap-timed",
+            "vww-pinned-full-serial-timed",
+            "vww-pinned-searched-timed",
+            "vww-pinned-full-overlap-timed",
+            "kws-pinned-resident-half-serial-timed",
+            "vww-pinned-half-serial-timed",
+            "kws-pinned-resident-full-overlap-timed",
+            "kws-pinned-half-overlap-timed",
+            "vww-pinned-resident-full-overlap-timed",
+            "vww-pinned-half-overlap-timed",
+            "vww-pinned-resident-half-serial-timed",
+            "kws-pinned-resident-half-overlap-timed",
+            "vww-pinned-resident-half-overlap-timed",
+            "kws-pinned-half-serial-timed"
+          ],
+          "repeats_per_policy": 30,
+          "variant": "spatial"
+        },
+        {
+          "policies": [
+            "kws-pinned-full-serial-timed",
+            "kws-pinned-half-overlap-timed",
+            "vww-pinned-resident-half-serial-timed",
+            "vww-pinned-full-serial-timed",
+            "kws-pinned-resident-full-overlap-timed",
+            "vww-pinned-searched-timed",
+            "kws-pinned-resident-half-overlap-timed",
+            "kws-pinned-resident-full-serial-timed",
+            "vww-pinned-resident-half-overlap-timed",
+            "kws-pinned-full-overlap-timed",
+            "vww-pinned-half-serial-timed",
+            "kws-pinned-half-serial-timed",
+            "kws-pinned-resident-half-serial-timed",
+            "vww-pinned-resident-full-overlap-timed",
+            "vww-pinned-full-overlap-timed",
+            "vww-pinned-half-overlap-timed",
+            "vww-pinned-resident-full-serial-timed"
+          ],
+          "repeats_per_policy": 30,
+          "variant": "c256p0"
+        },
+        {
+          "policies": [
+            "vww-pinned-resident-full-serial-timed",
+            "kws-pinned-resident-full-overlap-timed",
+            "kws-pinned-half-serial-timed",
+            "kws-pinned-resident-half-serial-timed",
+            "vww-pinned-searched-timed",
+            "vww-pinned-full-overlap-timed",
+            "kws-pinned-full-overlap-timed",
+            "vww-pinned-half-serial-timed",
+            "kws-pinned-full-serial-timed",
+            "vww-pinned-resident-half-serial-timed",
+            "vww-pinned-resident-half-overlap-timed",
+            "kws-pinned-half-overlap-timed",
+            "vww-pinned-resident-full-overlap-timed",
+            "kws-pinned-resident-half-overlap-timed",
+            "vww-pinned-full-serial-timed",
+            "kws-pinned-resident-full-serial-timed",
+            "vww-pinned-half-overlap-timed"
+          ],
+          "repeats_per_policy": 30,
+          "variant": "c256p1"
+        }
+      ],
+      "seed": 6111,
+      "session": 5
+    }
+  ],
+  "simulation_summary_sha256": "aa3f07c89db3fe2095033941ae864f431b7756205c0dde6c684c9deb74e83fb3",
+  "status": "not_run",
+  "unique_policy_count": 17
+}

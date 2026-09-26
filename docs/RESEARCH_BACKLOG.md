@@ -112,6 +112,13 @@ measurements remain required for G5.
 **G6:** S01–S04 pass and the research claim survives B3. S05 is not required. New INT4/sparsity/16-lane work needs a measured bottleneck rationale and must not delay G7.
 
 **Current G6: open; boardless search/semantics/integration milestone passes.**
+The later [cache/spatial/retention milestone](research/PHASE_6_OPTIMIZATION.md) adds
+timing-closed experimental engines, executable producer/activation retention,
+independent lifetime/provenance checks, full-model RTL ablations and an actual
+overlap-aware search. The measured-DMA-fit projections improve substantially
+over the original hardware, but search gains over a simple retained baseline
+remain negligible. These are boardless results; full B3/backend work and the
+physical G6 comparison have not been marked complete.
 The [Phase 6 record](research/PHASE_6_STATUS.md) documents exact/beam search,
 halo/INT32/quantization semantics, 112 regressions, 24 KWS/VWW command replays,
 152 spatial segment checks and four distinct candidate RTL executions. S02's

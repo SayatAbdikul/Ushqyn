@@ -1,5 +1,12 @@
 # Phase 6 — boardless milestone, 2026-09-26
 
+**Later milestone:** the [cache, spatial SIMD and retention implementation](PHASE_6_OPTIMIZATION.md)
+adds routed cache/parameter-reuse and spatial pointwise hardware, executable exact activation retention,
+full-model RTL checks, overlap-aware bounded search and an upstream DeFiNES
+geometry cross-check. It produces a substantial simulated hardware gain; the
+new search nearly ties a simple retention baseline. Full B3 adaptation and G6
+remain open. The rest of this file preserves the earlier foundation milestone.
+
 **The boardless search/semantics/integration milestone passes; G6 remains open.**
 This is implementation and verification, not evidence of a new state-of-the-art
 accelerator. The restricted real-model search found **no gain over its

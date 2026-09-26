@@ -1,0 +1,1404 @@
+{
+  "cost_checks": [
+    {
+      "engine_cycle_error": -439,
+      "fixture": "kws-pinned-half-overlap-timed",
+      "fractional_error": -7.988566341676987e-05,
+      "physical_dma_fit_projection_cycles": 5687789,
+      "predicted_fixed_ram_cycles": 5494915,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 5495354,
+      "variant": "baseline"
+    },
+    {
+      "engine_cycle_error": -2484,
+      "fixture": "vww-pinned-half-overlap-timed",
+      "fractional_error": -0.00014074627254688426,
+      "physical_dma_fit_projection_cycles": 18291626,
+      "predicted_fixed_ram_cycles": 17646296,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 17648780,
+      "variant": "baseline"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "kws-pinned-full-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 5725914,
+      "predicted_fixed_ram_cycles": 5508474,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 5508474,
+      "variant": "baseline"
+    },
+    {
+      "engine_cycle_error": -19,
+      "fixture": "kws-pinned-full-overlap-timed",
+      "fractional_error": -3.4495818199049588e-06,
+      "physical_dma_fit_projection_cycles": 5724147,
+      "predicted_fixed_ram_cycles": 5507895,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 5507914,
+      "variant": "baseline"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "kws-pinned-half-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 5761834,
+      "predicted_fixed_ram_cycles": 5521594,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 5521594,
+      "variant": "baseline"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "vww-pinned-full-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 18657800,
+      "predicted_fixed_ram_cycles": 17748090,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 17748090,
+      "variant": "baseline"
+    },
+    {
+      "engine_cycle_error": -133,
+      "fixture": "vww-pinned-full-overlap-timed",
+      "fractional_error": -7.499574695171892e-06,
+      "physical_dma_fit_projection_cycles": 18618905,
+      "predicted_fixed_ram_cycles": 17734206,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 17734339,
+      "variant": "baseline"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "vww-pinned-half-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 18799037,
+      "predicted_fixed_ram_cycles": 17833631,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 17833631,
+      "variant": "baseline"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "kws-pinned-resident-full-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 5575603,
+      "predicted_fixed_ram_cycles": 5454312,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 5454312,
+      "variant": "baseline"
+    },
+    {
+      "engine_cycle_error": -10,
+      "fixture": "kws-pinned-resident-full-overlap-timed",
+      "fractional_error": -1.8335546739417227e-06,
+      "physical_dma_fit_projection_cycles": 5574329,
+      "predicted_fixed_ram_cycles": 5453877,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 5453887,
+      "variant": "baseline"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "kws-pinned-resident-half-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 5613707,
+      "predicted_fixed_ram_cycles": 5468400,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 5468400,
+      "variant": "baseline"
+    },
+    {
+      "engine_cycle_error": -119,
+      "fixture": "kws-pinned-resident-half-overlap-timed",
+      "fractional_error": -2.186499997795126e-05,
+      "physical_dma_fit_projection_cycles": 5542063,
+      "predicted_fixed_ram_cycles": 5442369,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 5442488,
+      "variant": "baseline"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "vww-pinned-resident-full-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 18174649,
+      "predicted_fixed_ram_cycles": 17574419,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 17574419,
+      "variant": "baseline"
+    },
+    {
+      "engine_cycle_error": -42,
+      "fixture": "vww-pinned-resident-full-overlap-timed",
+      "fractional_error": -6.374127235433454e-06,
+      "physical_dma_fit_projection_cycles": 18170060,
+      "predicted_fixed_ram_cycles": 17570921,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 17571033,
+      "variant": "baseline"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "vww-pinned-resident-half-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 18317009,
+      "predicted_fixed_ram_cycles": 17660972,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 17660972,
+      "variant": "baseline"
+    },
+    {
+      "engine_cycle_error": -371,
+      "fixture": "vww-pinned-resident-half-overlap-timed",
+      "fractional_error": -0.00014238607444788586,
+      "physical_dma_fit_projection_cycles": 17985870,
+      "predicted_fixed_ram_cycles": 17520286,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 17522781,
+      "variant": "baseline"
+    },
+    {
+      "engine_cycle_error": -119,
+      "fixture": "kws-pinned-searched-timed",
+      "fractional_error": -2.186499997795126e-05,
+      "physical_dma_fit_projection_cycles": 5542063,
+      "predicted_fixed_ram_cycles": 5442369,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 5442488,
+      "variant": "baseline"
+    },
+    {
+      "engine_cycle_error": -415,
+      "fixture": "vww-pinned-searched-timed",
+      "fractional_error": -2.3697940905900902e-05,
+      "physical_dma_fit_projection_cycles": 17919038,
+      "predicted_fixed_ram_cycles": 17511655,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 17512070,
+      "variant": "baseline"
+    },
+    {
+      "engine_cycle_error": -119,
+      "fixture": "kws-pinned-spatial-searched-timed",
+      "fractional_error": -2.186499997795126e-05,
+      "physical_dma_fit_projection_cycles": 5542063,
+      "predicted_fixed_ram_cycles": 5442369,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 5442488,
+      "variant": "baseline"
+    },
+    {
+      "engine_cycle_error": -415,
+      "fixture": "vww-pinned-spatial-searched-timed",
+      "fractional_error": -2.3697940905900902e-05,
+      "physical_dma_fit_projection_cycles": 17919038,
+      "predicted_fixed_ram_cycles": 17511655,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 17512070,
+      "variant": "baseline"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "kws-pinned-full-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 5725914,
+      "predicted_fixed_ram_cycles": 5508474,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 5508474,
+      "variant": "c0p0"
+    },
+    {
+      "engine_cycle_error": -19,
+      "fixture": "kws-pinned-full-overlap-timed",
+      "fractional_error": -3.4495818199049588e-06,
+      "physical_dma_fit_projection_cycles": 5724147,
+      "predicted_fixed_ram_cycles": 5507895,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 5507914,
+      "variant": "c0p0"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "kws-pinned-half-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 5761834,
+      "predicted_fixed_ram_cycles": 5521594,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 5521594,
+      "variant": "c0p0"
+    },
+    {
+      "engine_cycle_error": -439,
+      "fixture": "kws-pinned-half-overlap-timed",
+      "fractional_error": -7.988566341676987e-05,
+      "physical_dma_fit_projection_cycles": 5687789,
+      "predicted_fixed_ram_cycles": 5494915,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 5495354,
+      "variant": "c0p0"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "vww-pinned-full-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 18657800,
+      "predicted_fixed_ram_cycles": 17748090,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 17748090,
+      "variant": "c0p0"
+    },
+    {
+      "engine_cycle_error": -133,
+      "fixture": "vww-pinned-full-overlap-timed",
+      "fractional_error": -7.499574695171892e-06,
+      "physical_dma_fit_projection_cycles": 18618905,
+      "predicted_fixed_ram_cycles": 17734206,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 17734339,
+      "variant": "c0p0"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "vww-pinned-half-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 18799037,
+      "predicted_fixed_ram_cycles": 17833631,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 17833631,
+      "variant": "c0p0"
+    },
+    {
+      "engine_cycle_error": -2484,
+      "fixture": "vww-pinned-half-overlap-timed",
+      "fractional_error": -0.00014074627254688426,
+      "physical_dma_fit_projection_cycles": 18291626,
+      "predicted_fixed_ram_cycles": 17646296,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 17648780,
+      "variant": "c0p0"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "kws-pinned-full-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 5511453,
+      "predicted_fixed_ram_cycles": 5294013,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 5294013,
+      "variant": "c0p1"
+    },
+    {
+      "engine_cycle_error": -15,
+      "fixture": "kws-pinned-full-overlap-timed",
+      "fractional_error": -2.8336912285354972e-06,
+      "physical_dma_fit_projection_cycles": 5509686,
+      "predicted_fixed_ram_cycles": 5293434,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 5293449,
+      "variant": "c0p1"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "kws-pinned-half-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 5547373,
+      "predicted_fixed_ram_cycles": 5307133,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 5307133,
+      "variant": "c0p1"
+    },
+    {
+      "engine_cycle_error": -131,
+      "fixture": "kws-pinned-half-overlap-timed",
+      "fractional_error": -2.4807857462762176e-05,
+      "physical_dma_fit_projection_cycles": 5473328,
+      "predicted_fixed_ram_cycles": 5280454,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 5280585,
+      "variant": "c0p1"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "vww-pinned-full-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 17970587,
+      "predicted_fixed_ram_cycles": 17060877,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 17060877,
+      "variant": "c0p1"
+    },
+    {
+      "engine_cycle_error": -93,
+      "fixture": "vww-pinned-full-overlap-timed",
+      "fractional_error": -5.45547784530447e-06,
+      "physical_dma_fit_projection_cycles": 17931692,
+      "predicted_fixed_ram_cycles": 17046993,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 17047086,
+      "variant": "c0p1"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "vww-pinned-half-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 18111824,
+      "predicted_fixed_ram_cycles": 17146418,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 17146418,
+      "variant": "c0p1"
+    },
+    {
+      "engine_cycle_error": -512,
+      "fixture": "vww-pinned-half-overlap-timed",
+      "fractional_error": -3.018940015961466e-05,
+      "physical_dma_fit_projection_cycles": 17604413,
+      "predicted_fixed_ram_cycles": 16959083,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 16959595,
+      "variant": "c0p1"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "kws-pinned-full-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 3948250,
+      "predicted_fixed_ram_cycles": 3730810,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 3730810,
+      "variant": "c64p0"
+    },
+    {
+      "engine_cycle_error": -19,
+      "fixture": "kws-pinned-full-overlap-timed",
+      "fractional_error": -5.093492393271229e-06,
+      "physical_dma_fit_projection_cycles": 3946483,
+      "predicted_fixed_ram_cycles": 3730231,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 3730250,
+      "variant": "c64p0"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "kws-pinned-half-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 3984170,
+      "predicted_fixed_ram_cycles": 3743930,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 3743930,
+      "variant": "c64p0"
+    },
+    {
+      "engine_cycle_error": -471,
+      "fixture": "kws-pinned-half-overlap-timed",
+      "fractional_error": -0.0001266904841190385,
+      "physical_dma_fit_projection_cycles": 3910125,
+      "predicted_fixed_ram_cycles": 3717251,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 3717722,
+      "variant": "c64p0"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "vww-pinned-full-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 16597512,
+      "predicted_fixed_ram_cycles": 15687802,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 15687802,
+      "variant": "c64p0"
+    },
+    {
+      "engine_cycle_error": -133,
+      "fixture": "vww-pinned-full-overlap-timed",
+      "fractional_error": -8.4853622078938e-06,
+      "physical_dma_fit_projection_cycles": 16558617,
+      "predicted_fixed_ram_cycles": 15673918,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 15674051,
+      "variant": "c64p0"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "vww-pinned-half-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 16706493,
+      "predicted_fixed_ram_cycles": 15741087,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 15741087,
+      "variant": "c64p0"
+    },
+    {
+      "engine_cycle_error": -2583,
+      "fixture": "vww-pinned-half-overlap-timed",
+      "fractional_error": -0.0001660416801258137,
+      "physical_dma_fit_projection_cycles": 16199082,
+      "predicted_fixed_ram_cycles": 15553752,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 15556335,
+      "variant": "c64p0"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "kws-pinned-full-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 3948250,
+      "predicted_fixed_ram_cycles": 3730810,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 3730810,
+      "variant": "c128p0"
+    },
+    {
+      "engine_cycle_error": -19,
+      "fixture": "kws-pinned-full-overlap-timed",
+      "fractional_error": -5.093492393271229e-06,
+      "physical_dma_fit_projection_cycles": 3946483,
+      "predicted_fixed_ram_cycles": 3730231,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 3730250,
+      "variant": "c128p0"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "kws-pinned-half-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 3984170,
+      "predicted_fixed_ram_cycles": 3743930,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 3743930,
+      "variant": "c128p0"
+    },
+    {
+      "engine_cycle_error": -471,
+      "fixture": "kws-pinned-half-overlap-timed",
+      "fractional_error": -0.0001266904841190385,
+      "physical_dma_fit_projection_cycles": 3910125,
+      "predicted_fixed_ram_cycles": 3717251,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 3717722,
+      "variant": "c128p0"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "vww-pinned-full-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 13828616,
+      "predicted_fixed_ram_cycles": 12918906,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 12918906,
+      "variant": "c128p0"
+    },
+    {
+      "engine_cycle_error": -133,
+      "fixture": "vww-pinned-full-overlap-timed",
+      "fractional_error": -1.0305959130285533e-05,
+      "physical_dma_fit_projection_cycles": 13789721,
+      "predicted_fixed_ram_cycles": 12905022,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 12905155,
+      "variant": "c128p0"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "vww-pinned-half-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 13937597,
+      "predicted_fixed_ram_cycles": 12972191,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 12972191,
+      "variant": "c128p0"
+    },
+    {
+      "engine_cycle_error": -2715,
+      "fixture": "vww-pinned-half-overlap-timed",
+      "fractional_error": -0.00021231553670356942,
+      "physical_dma_fit_projection_cycles": 13430186,
+      "predicted_fixed_ram_cycles": 12784856,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 12787571,
+      "variant": "c128p0"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "kws-pinned-full-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 3948250,
+      "predicted_fixed_ram_cycles": 3730810,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 3730810,
+      "variant": "c256p0"
+    },
+    {
+      "engine_cycle_error": -19,
+      "fixture": "kws-pinned-full-overlap-timed",
+      "fractional_error": -5.093492393271229e-06,
+      "physical_dma_fit_projection_cycles": 3946483,
+      "predicted_fixed_ram_cycles": 3730231,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 3730250,
+      "variant": "c256p0"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "kws-pinned-half-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 3984170,
+      "predicted_fixed_ram_cycles": 3743930,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 3743930,
+      "variant": "c256p0"
+    },
+    {
+      "engine_cycle_error": -471,
+      "fixture": "kws-pinned-half-overlap-timed",
+      "fractional_error": -0.0001266904841190385,
+      "physical_dma_fit_projection_cycles": 3910125,
+      "predicted_fixed_ram_cycles": 3717251,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 3717722,
+      "variant": "c256p0"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "vww-pinned-full-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 12911112,
+      "predicted_fixed_ram_cycles": 12001402,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 12001402,
+      "variant": "c256p0"
+    },
+    {
+      "engine_cycle_error": -133,
+      "fixture": "vww-pinned-full-overlap-timed",
+      "fractional_error": -1.1094750756424257e-05,
+      "physical_dma_fit_projection_cycles": 12872217,
+      "predicted_fixed_ram_cycles": 11987518,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 11987651,
+      "variant": "c256p0"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "vww-pinned-half-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 13020093,
+      "predicted_fixed_ram_cycles": 12054687,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 12054687,
+      "variant": "c256p0"
+    },
+    {
+      "engine_cycle_error": -2776,
+      "fixture": "vww-pinned-half-overlap-timed",
+      "fractional_error": -0.00023386436944909103,
+      "physical_dma_fit_projection_cycles": 12512682,
+      "predicted_fixed_ram_cycles": 11867352,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 11870128,
+      "variant": "c256p0"
+    },
+    {
+      "engine_cycle_error": -131,
+      "fixture": "kws-pinned-half-overlap-timed",
+      "fractional_error": -3.739736065986073e-05,
+      "physical_dma_fit_projection_cycles": 3695664,
+      "predicted_fixed_ram_cycles": 3502790,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 3502921,
+      "variant": "c256p1"
+    },
+    {
+      "engine_cycle_error": -500,
+      "fixture": "vww-pinned-half-overlap-timed",
+      "fractional_error": -4.472016313199988e-05,
+      "physical_dma_fit_projection_cycles": 11825469,
+      "predicted_fixed_ram_cycles": 11180139,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 11180639,
+      "variant": "c256p1"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "kws-pinned-full-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 3733789,
+      "predicted_fixed_ram_cycles": 3516349,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 3516349,
+      "variant": "c256p1"
+    },
+    {
+      "engine_cycle_error": -15,
+      "fixture": "kws-pinned-full-overlap-timed",
+      "fractional_error": -4.266472494762905e-06,
+      "physical_dma_fit_projection_cycles": 3732022,
+      "predicted_fixed_ram_cycles": 3515770,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 3515785,
+      "variant": "c256p1"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "kws-pinned-half-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 3769709,
+      "predicted_fixed_ram_cycles": 3529469,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 3529469,
+      "variant": "c256p1"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "vww-pinned-full-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 12223899,
+      "predicted_fixed_ram_cycles": 11314189,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 11314189,
+      "variant": "c256p1"
+    },
+    {
+      "engine_cycle_error": -93,
+      "fixture": "vww-pinned-full-overlap-timed",
+      "fractional_error": -8.229798631871196e-06,
+      "physical_dma_fit_projection_cycles": 12185004,
+      "predicted_fixed_ram_cycles": 11300305,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 11300398,
+      "variant": "c256p1"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "vww-pinned-half-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 12332880,
+      "predicted_fixed_ram_cycles": 11367474,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 11367474,
+      "variant": "c256p1"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "kws-pinned-resident-full-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 3583478,
+      "predicted_fixed_ram_cycles": 3462187,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 3462187,
+      "variant": "c256p1"
+    },
+    {
+      "engine_cycle_error": -6,
+      "fixture": "kws-pinned-resident-full-overlap-timed",
+      "fractional_error": -1.7332234084531618e-06,
+      "physical_dma_fit_projection_cycles": 3582204,
+      "predicted_fixed_ram_cycles": 3461752,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 3461758,
+      "variant": "c256p1"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "kws-pinned-resident-half-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 3621582,
+      "predicted_fixed_ram_cycles": 3476275,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 3476275,
+      "variant": "c256p1"
+    },
+    {
+      "engine_cycle_error": -115,
+      "fixture": "kws-pinned-resident-half-overlap-timed",
+      "fractional_error": -3.332986509519734e-05,
+      "physical_dma_fit_projection_cycles": 3549938,
+      "predicted_fixed_ram_cycles": 3450244,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 3450359,
+      "variant": "c256p1"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "vww-pinned-resident-full-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 11740748,
+      "predicted_fixed_ram_cycles": 11140518,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 11140518,
+      "variant": "c256p1"
+    },
+    {
+      "engine_cycle_error": -22,
+      "fixture": "vww-pinned-resident-full-overlap-timed",
+      "fractional_error": -8.260669372814065e-06,
+      "physical_dma_fit_projection_cycles": 11736159,
+      "predicted_fixed_ram_cycles": 11137020,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 11137112,
+      "variant": "c256p1"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "vww-pinned-resident-half-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 11850852,
+      "predicted_fixed_ram_cycles": 11194815,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 11194815,
+      "variant": "c256p1"
+    },
+    {
+      "engine_cycle_error": -351,
+      "fixture": "vww-pinned-resident-half-overlap-timed",
+      "fractional_error": -0.00022384811828297368,
+      "physical_dma_fit_projection_cycles": 11519713,
+      "predicted_fixed_ram_cycles": 11054129,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 11056604,
+      "variant": "c256p1"
+    },
+    {
+      "engine_cycle_error": -115,
+      "fixture": "kws-pinned-searched-timed",
+      "fractional_error": -3.332986509519734e-05,
+      "physical_dma_fit_projection_cycles": 3549938,
+      "predicted_fixed_ram_cycles": 3450244,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 3450359,
+      "variant": "c256p1"
+    },
+    {
+      "engine_cycle_error": -333,
+      "fixture": "vww-pinned-searched-timed",
+      "fractional_error": -3.0147120664801045e-05,
+      "physical_dma_fit_projection_cycles": 11452881,
+      "predicted_fixed_ram_cycles": 11045498,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 11045831,
+      "variant": "c256p1"
+    },
+    {
+      "engine_cycle_error": -115,
+      "fixture": "kws-pinned-spatial-searched-timed",
+      "fractional_error": -3.332986509519734e-05,
+      "physical_dma_fit_projection_cycles": 3549938,
+      "predicted_fixed_ram_cycles": 3450244,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 3450359,
+      "variant": "c256p1"
+    },
+    {
+      "engine_cycle_error": -333,
+      "fixture": "vww-pinned-spatial-searched-timed",
+      "fractional_error": -3.0147120664801045e-05,
+      "physical_dma_fit_projection_cycles": 11452881,
+      "predicted_fixed_ram_cycles": 11045498,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 11045831,
+      "variant": "c256p1"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "kws-pinned-full-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 3009309,
+      "predicted_fixed_ram_cycles": 2791869,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 2791869,
+      "variant": "spatial"
+    },
+    {
+      "engine_cycle_error": -15,
+      "fixture": "kws-pinned-full-overlap-timed",
+      "fractional_error": -5.373830520133056e-06,
+      "physical_dma_fit_projection_cycles": 3007542,
+      "predicted_fixed_ram_cycles": 2791290,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 2791305,
+      "variant": "spatial"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "kws-pinned-half-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 3045229,
+      "predicted_fixed_ram_cycles": 2804989,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 2804989,
+      "variant": "spatial"
+    },
+    {
+      "engine_cycle_error": -2059,
+      "fixture": "kws-pinned-half-overlap-timed",
+      "fractional_error": -0.0007405491860972411,
+      "physical_dma_fit_projection_cycles": 2971184,
+      "predicted_fixed_ram_cycles": 2778310,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 2780369,
+      "variant": "spatial"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "vww-pinned-full-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 8977307,
+      "predicted_fixed_ram_cycles": 8067597,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 8067597,
+      "variant": "spatial"
+    },
+    {
+      "engine_cycle_error": -101,
+      "fixture": "vww-pinned-full-overlap-timed",
+      "fractional_error": -1.2540642234846745e-05,
+      "physical_dma_fit_projection_cycles": 8938412,
+      "predicted_fixed_ram_cycles": 8053713,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 8053814,
+      "variant": "spatial"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "vww-pinned-half-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 9065552,
+      "predicted_fixed_ram_cycles": 8100146,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 8100146,
+      "variant": "spatial"
+    },
+    {
+      "engine_cycle_error": -6992,
+      "fixture": "vww-pinned-half-overlap-timed",
+      "fractional_error": -0.0008828502426133579,
+      "physical_dma_fit_projection_cycles": 8558141,
+      "predicted_fixed_ram_cycles": 7912811,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 7919803,
+      "variant": "spatial"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "kws-pinned-resident-full-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 2858998,
+      "predicted_fixed_ram_cycles": 2737707,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 2737707,
+      "variant": "spatial"
+    },
+    {
+      "engine_cycle_error": -6,
+      "fixture": "kws-pinned-resident-full-overlap-timed",
+      "fractional_error": -2.191958580750658e-06,
+      "physical_dma_fit_projection_cycles": 2857724,
+      "predicted_fixed_ram_cycles": 2737272,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 2737278,
+      "variant": "spatial"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "kws-pinned-resident-half-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 2897102,
+      "predicted_fixed_ram_cycles": 2751795,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 2751795,
+      "variant": "spatial"
+    },
+    {
+      "engine_cycle_error": -115,
+      "fixture": "kws-pinned-resident-half-overlap-timed",
+      "fractional_error": -4.2188226256557974e-05,
+      "physical_dma_fit_projection_cycles": 2825458,
+      "predicted_fixed_ram_cycles": 2725764,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 2725879,
+      "variant": "spatial"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "vww-pinned-resident-full-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 8494156,
+      "predicted_fixed_ram_cycles": 7893926,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 7893926,
+      "variant": "spatial"
+    },
+    {
+      "engine_cycle_error": -22,
+      "fixture": "vww-pinned-resident-full-overlap-timed",
+      "fractional_error": -1.1659561093565442e-05,
+      "physical_dma_fit_projection_cycles": 8489567,
+      "predicted_fixed_ram_cycles": 7890428,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 7890520,
+      "variant": "spatial"
+    },
+    {
+      "engine_cycle_error": 0,
+      "fixture": "vww-pinned-resident-half-serial-timed",
+      "fractional_error": 0.0,
+      "physical_dma_fit_projection_cycles": 8583524,
+      "predicted_fixed_ram_cycles": 7927487,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 7927487,
+      "variant": "spatial"
+    },
+    {
+      "engine_cycle_error": -351,
+      "fixture": "vww-pinned-resident-half-overlap-timed",
+      "fractional_error": -0.0003177445503279124,
+      "physical_dma_fit_projection_cycles": 8252385,
+      "predicted_fixed_ram_cycles": 7786801,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 7789276,
+      "variant": "spatial"
+    },
+    {
+      "engine_cycle_error": -115,
+      "fixture": "kws-pinned-searched-timed",
+      "fractional_error": -4.2188226256557974e-05,
+      "physical_dma_fit_projection_cycles": 2825458,
+      "predicted_fixed_ram_cycles": 2725764,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 2725879,
+      "variant": "spatial"
+    },
+    {
+      "engine_cycle_error": -4477,
+      "fixture": "vww-pinned-searched-timed",
+      "fractional_error": -0.0005752541519614085,
+      "physical_dma_fit_projection_cycles": 8185553,
+      "predicted_fixed_ram_cycles": 7778170,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 7782647,
+      "variant": "spatial"
+    },
+    {
+      "engine_cycle_error": -115,
+      "fixture": "kws-pinned-spatial-searched-timed",
+      "fractional_error": -4.2188226256557974e-05,
+      "physical_dma_fit_projection_cycles": 2825458,
+      "predicted_fixed_ram_cycles": 2725764,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 2725879,
+      "variant": "spatial"
+    },
+    {
+      "engine_cycle_error": -4477,
+      "fixture": "vww-pinned-spatial-searched-timed",
+      "fractional_error": -0.0005752541519614085,
+      "physical_dma_fit_projection_cycles": 8185553,
+      "predicted_fixed_ram_cycles": 7778170,
+      "projection_scope": "old measured DMA fit + new RTL-validated uncontended engine; physical arbitration not recalibrated",
+      "simulated_cycles": 7782647,
+      "variant": "spatial"
+    }
+  ],
+  "engine_tests": {
+    "engine-c128p0": {
+      "cases": 2,
+      "xml_sha256": "a5e91030852089f8c1d7859fb43de78f3e28fb06ab5101f85a63fc764704b382"
+    },
+    "engine-c256p1": {
+      "cases": 2,
+      "xml_sha256": "08378a7d52d218b9b53d7b41cff28e0a1d55595e701d7193353d8dcb6ac6cbfc"
+    },
+    "engine-c64p0": {
+      "cases": 2,
+      "xml_sha256": "04c293d496834463f999bd84fda422c4b813fd20bc745fcab1726f5c73d2d490"
+    },
+    "engine-spatial": {
+      "cases": 2,
+      "xml_sha256": "c8df45cbee8a8207864375eb496c6d84251433baa824d61afdcd932c8f986db8"
+    }
+  },
+  "frozen_phase5_files_verified": 109,
+  "max_fixed_ram_timeline_error_fraction": 0.0008828502426133579,
+  "native_runs": 392,
+  "native_tensor_checks": 7688,
+  "phase6_gate_complete": false,
+  "physical_board": false,
+  "rejected_routes": {
+    "spatial-initial": {
+      "bitstream_sha256": "50849e1868bfec19add46f18c17359ca4aa449a0d9fe3ea5bbb3ffc310185c03",
+      "build_seconds": null,
+      "build_tcl_sha256": "76880b31f4ca482cd41899ca54b4c86dd259fdcdf62c73e97f2ec4261daf524c",
+      "core_clock_mhz": 20.25,
+      "engine_sha256": "56abb36b1089bc5b1870d8f0a5b650787eb9ad14fd0afdb2e4ed7c08a046d625",
+      "frozen_manifest_sha256": "1105b8d47a68315910a94e0f6b37213c975511da94e08f2025d98bd4402d1718",
+      "generated_ip_sha256": "3166bcfd473e7af6cbf80110ad952279c0209821dbbde4ee26d8a2d558dcee3d",
+      "hold_violated_endpoints": 0,
+      "label": "spatial-initial",
+      "physical_board": false,
+      "report_only": true,
+      "reports": {
+        "route": {
+          "file": "work/phase6/optimization/route-spatial-initial/route.gz",
+          "raw_sha256": "6d192ac2cd54daae38673065943a55af2172e5179db5450be5e8c9802de04a60",
+          "sha256": "2ce700d63d849ba3251fb0557d0965c172badeba231479c31dd6a1e1bb3fe5b3"
+        },
+        "timing": {
+          "file": "work/phase6/optimization/route-spatial-initial/timing.gz",
+          "raw_sha256": "5e7901ce9069d2451c470e2623b78e1480f8453204427be7e2e4a4261e88213d",
+          "sha256": "81a73facb69d7908df70ed4c2024268d24541c7396ad416f645511f23bda3a2c"
+        }
+      },
+      "resources": {
+        "BSRAM": {
+          "available": 46.0,
+          "used": 35.0
+        },
+        "CLS": {
+          "available": 10368.0,
+          "used": 9673.0
+        },
+        "DSP": {
+          "available": 24.0,
+          "used": 14.5
+        },
+        "Logic": {
+          "available": 20736.0,
+          "used": 17419.0
+        },
+        "Register": {
+          "available": 15915.0,
+          "used": 5450.0
+        }
+      },
+      "returncode": null,
+      "routed_core_fmax_mhz": 18.336,
+      "scope": "Gowin synthesis and place-and-route; no measured latency/power",
+      "setup_tns_ns": -362.969,
+      "setup_violated_endpoints": 154,
+      "status": "failed-timing",
+      "variant": "spatial"
+    }
+  },
+  "routes": {
+    "c0p1": {
+      "bitstream_sha256": "63838a93b68f03e0396ab1d06c140c57d991c07c349c11056b96769b3fac3f4e",
+      "build_seconds": 116.13055216590874,
+      "build_tcl_sha256": "76880b31f4ca482cd41899ca54b4c86dd259fdcdf62c73e97f2ec4261daf524c",
+      "core_clock_mhz": 20.25,
+      "engine_sha256": "df3f5edee49aa26efc4632b2a388aa9a7808935594aa128294c273ab5f75b011",
+      "frozen_manifest_sha256": "1105b8d47a68315910a94e0f6b37213c975511da94e08f2025d98bd4402d1718",
+      "generated_ip_sha256": "3166bcfd473e7af6cbf80110ad952279c0209821dbbde4ee26d8a2d558dcee3d",
+      "hold_violated_endpoints": 0,
+      "physical_board": false,
+      "reports": {
+        "route": {
+          "file": "work/phase6/optimization/route-c0p1/route.gz",
+          "raw_sha256": "8b346ad0272e8aac3043fe7f956a76fcd655de7dfd29d58a53b6d6b2a950fa6a",
+          "sha256": "07b91a9ce8729ebed99047e72c7c56480daf6d7054d38f0c12f0e403a856ba6d"
+        },
+        "timing": {
+          "file": "work/phase6/optimization/route-c0p1/timing.gz",
+          "raw_sha256": "94233fdb7756eb4994543bf159957aeae4a694f447c9a1df22cc61659496fc4b",
+          "sha256": "07cf8e2b8dabc491a93d41c1729d0a279376bf6af50381ba1b52e73711050ea4"
+        }
+      },
+      "resources": {
+        "BSRAM": {
+          "available": 46.0,
+          "used": 35.0
+        },
+        "CLS": {
+          "available": 10368.0,
+          "used": 9024.0
+        },
+        "DSP": {
+          "available": 24.0,
+          "used": 19.75
+        },
+        "Logic": {
+          "available": 20736.0,
+          "used": 14620.0
+        },
+        "Register": {
+          "available": 15915.0,
+          "used": 4904.0
+        }
+      },
+      "returncode": 0,
+      "routed_core_fmax_mhz": 22.451,
+      "scope": "Gowin synthesis and place-and-route; no measured latency/power",
+      "setup_tns_ns": 0.0,
+      "setup_violated_endpoints": 0,
+      "status": "passed-route",
+      "variant": "c0p1"
+    },
+    "c128p0": {
+      "bitstream_sha256": "18761f0b588be522fb37e28fc39a5d770e8a6a68544d1c8c57d34b78458853bb",
+      "build_seconds": 215.48711545788683,
+      "build_tcl_sha256": "76880b31f4ca482cd41899ca54b4c86dd259fdcdf62c73e97f2ec4261daf524c",
+      "core_clock_mhz": 20.25,
+      "engine_sha256": "e4a29ad37204ac640afe043ce1e01430939c31e6f5e565ecfca6c444da95c252",
+      "frozen_manifest_sha256": "1105b8d47a68315910a94e0f6b37213c975511da94e08f2025d98bd4402d1718",
+      "generated_ip_sha256": "3166bcfd473e7af6cbf80110ad952279c0209821dbbde4ee26d8a2d558dcee3d",
+      "hold_violated_endpoints": 0,
+      "physical_board": false,
+      "reports": {
+        "route": {
+          "file": "work/phase6/optimization/route-c128p0/route.gz",
+          "raw_sha256": "7032485d3e2c91cb1974ffc34b74a748f667fe07cc76c67736bae4f273b2d96a",
+          "sha256": "f1ca2b361632dfe37cba227fe0fa2102ea4f8fd8d4a1df3710e6605a595018da"
+        },
+        "timing": {
+          "file": "work/phase6/optimization/route-c128p0/timing.gz",
+          "raw_sha256": "47e36456210a0dbd4f01bb790cf2733013c901352796b1f89c7211b300a79408",
+          "sha256": "a810101c552b5d70d7f4cc2950e72fa7b1a40680e1c7c7de184ed1022ef63781"
+        }
+      },
+      "resources": {
+        "BSRAM": {
+          "available": 46.0,
+          "used": 35.0
+        },
+        "CLS": {
+          "available": 10368.0,
+          "used": 9085.0
+        },
+        "DSP": {
+          "available": 24.0,
+          "used": 19.75
+        },
+        "Logic": {
+          "available": 20736.0,
+          "used": 14402.0
+        },
+        "Register": {
+          "available": 15915.0,
+          "used": 5005.0
+        }
+      },
+      "returncode": 0,
+      "routed_core_fmax_mhz": 23.625,
+      "scope": "Gowin synthesis and place-and-route; no measured latency/power",
+      "setup_tns_ns": 0.0,
+      "setup_violated_endpoints": 0,
+      "status": "passed-route",
+      "variant": "c128p0"
+    },
+    "c256p0": {
+      "bitstream_sha256": "9d183213fd64c3dc75488936cc12a06dee6a293be8cc4c3bc1f2b8c487358277",
+      "build_seconds": 229.65643204189837,
+      "build_tcl_sha256": "76880b31f4ca482cd41899ca54b4c86dd259fdcdf62c73e97f2ec4261daf524c",
+      "core_clock_mhz": 20.25,
+      "engine_sha256": "44d937ca45edf7f9c921514185dd8d921cd7ee255b4d11d83b124b1e9b10e6fd",
+      "frozen_manifest_sha256": "1105b8d47a68315910a94e0f6b37213c975511da94e08f2025d98bd4402d1718",
+      "generated_ip_sha256": "3166bcfd473e7af6cbf80110ad952279c0209821dbbde4ee26d8a2d558dcee3d",
+      "hold_violated_endpoints": 0,
+      "physical_board": false,
+      "reports": {
+        "route": {
+          "file": "work/phase6/optimization/route-c256p0/route.gz",
+          "raw_sha256": "daa80a5b0093b9c51558e5315d9d1fb2378ab22eaede2143e11d6598a0b6e644",
+          "sha256": "201b29ee5d66099dd441ba628fedea847f77c440795d93a64706da1d5eb3d4e8"
+        },
+        "timing": {
+          "file": "work/phase6/optimization/route-c256p0/timing.gz",
+          "raw_sha256": "92a7dad01aec4d6b1e5e65bfeb81bb263075b9a6f0373923e3b1a4a3af6b4add",
+          "sha256": "f8305dfd3a05a40ef11516ef4dbfb1e7bfa3a0c16289b30eb128df2458dd5458"
+        }
+      },
+      "resources": {
+        "BSRAM": {
+          "available": 46.0,
+          "used": 35.0
+        },
+        "CLS": {
+          "available": 10368.0,
+          "used": 9179.0
+        },
+        "DSP": {
+          "available": 24.0,
+          "used": 19.75
+        },
+        "Logic": {
+          "available": 20736.0,
+          "used": 14768.0
+        },
+        "Register": {
+          "available": 15915.0,
+          "used": 5134.0
+        }
+      },
+      "returncode": 0,
+      "routed_core_fmax_mhz": 23.714,
+      "scope": "Gowin synthesis and place-and-route; no measured latency/power",
+      "setup_tns_ns": 0.0,
+      "setup_violated_endpoints": 0,
+      "status": "passed-route",
+      "variant": "c256p0"
+    },
+    "c256p1": {
+      "bitstream_sha256": "1dbc989708a4b24e342935a5b62ce1f98d055041801d9f4a98854eafb7fe2051",
+      "build_seconds": 266.21095983311534,
+      "build_tcl_sha256": "76880b31f4ca482cd41899ca54b4c86dd259fdcdf62c73e97f2ec4261daf524c",
+      "core_clock_mhz": 20.25,
+      "engine_sha256": "63b32c2e5fe4c1935452ce606871efabe082e41ba4f4978ac03d9b59c9f38f38",
+      "frozen_manifest_sha256": "1105b8d47a68315910a94e0f6b37213c975511da94e08f2025d98bd4402d1718",
+      "generated_ip_sha256": "3166bcfd473e7af6cbf80110ad952279c0209821dbbde4ee26d8a2d558dcee3d",
+      "hold_violated_endpoints": 0,
+      "physical_board": false,
+      "reports": {
+        "route": {
+          "file": "work/phase6/optimization/route-c256p1/route.gz",
+          "raw_sha256": "6053e5b15823162a6c7cbd50c7c9004233185470d700466fda84c6e7f12a9161",
+          "sha256": "10caf4e7b561237093dc1804ce0a7835d9f06ec9fe71a797c87d5c94052cc89a"
+        },
+        "timing": {
+          "file": "work/phase6/optimization/route-c256p1/timing.gz",
+          "raw_sha256": "7f39ee3195676b76a7b6894edc760550d10f7ec0386af798c9f2d767cbd69d4e",
+          "sha256": "1d617381063ed67a6df740840b763d9a9acd52074305516eb4633844d6d96bb7"
+        }
+      },
+      "resources": {
+        "BSRAM": {
+          "available": 46.0,
+          "used": 35.0
+        },
+        "CLS": {
+          "available": 10368.0,
+          "used": 9220.0
+        },
+        "DSP": {
+          "available": 24.0,
+          "used": 19.75
+        },
+        "Logic": {
+          "available": 20736.0,
+          "used": 14911.0
+        },
+        "Register": {
+          "available": 15915.0,
+          "used": 5136.0
+        }
+      },
+      "returncode": 0,
+      "routed_core_fmax_mhz": 24.123,
+      "scope": "Gowin synthesis and place-and-route; no measured latency/power",
+      "setup_tns_ns": 0.0,
+      "setup_violated_endpoints": 0,
+      "status": "passed-route",
+      "variant": "c256p1"
+    },
+    "c64p0": {
+      "bitstream_sha256": "ead1111cdfcb0d423cda8ca035114ec8dea4c6c7b36ac118736d0b38114c1238",
+      "build_seconds": 229.201253333129,
+      "build_tcl_sha256": "76880b31f4ca482cd41899ca54b4c86dd259fdcdf62c73e97f2ec4261daf524c",
+      "core_clock_mhz": 20.25,
+      "engine_sha256": "030988e7b0070bd75333fa5583689cce076e2b0f90a9db8cd2b1f8c6becf8f70",
+      "frozen_manifest_sha256": "1105b8d47a68315910a94e0f6b37213c975511da94e08f2025d98bd4402d1718",
+      "generated_ip_sha256": "3166bcfd473e7af6cbf80110ad952279c0209821dbbde4ee26d8a2d558dcee3d",
+      "hold_violated_endpoints": 0,
+      "physical_board": false,
+      "reports": {
+        "route": {
+          "file": "work/phase6/optimization/route-c64p0/route.gz",
+          "raw_sha256": "90c93b177e0463fa54930053c07573ba70dc2f996d65e02a2685bc199088dc58",
+          "sha256": "b4527025f4adbe1973705ba3df9427e084e264f393c75b2e33b60a99f8d9a3d9"
+        },
+        "timing": {
+          "file": "work/phase6/optimization/route-c64p0/timing.gz",
+          "raw_sha256": "03ea47d4c45a2b7531201ada1b8fc1fc13092c0de7fe8ef0bfe2c8812c72c887",
+          "sha256": "d6605d2a2b322ecf91eff7e33e82ec8fd70f972ad35e8491b47df980b7337219"
+        }
+      },
+      "resources": {
+        "BSRAM": {
+          "available": 46.0,
+          "used": 35.0
+        },
+        "CLS": {
+          "available": 10368.0,
+          "used": 9102.0
+        },
+        "DSP": {
+          "available": 24.0,
+          "used": 19.75
+        },
+        "Logic": {
+          "available": 20736.0,
+          "used": 14616.0
+        },
+        "Register": {
+          "available": 15915.0,
+          "used": 4940.0
+        }
+      },
+      "returncode": 0,
+      "routed_core_fmax_mhz": 23.324,
+      "scope": "Gowin synthesis and place-and-route; no measured latency/power",
+      "setup_tns_ns": 0.0,
+      "setup_violated_endpoints": 0,
+      "status": "passed-route",
+      "variant": "c64p0"
+    },
+    "spatial": {
+      "bitstream_sha256": "c20147ff9f35a677ebbc0e24281fc65ab14c35d33d807f49bc5eaf7092288500",
+      "build_seconds": 191.16357291699387,
+      "build_tcl_sha256": "76880b31f4ca482cd41899ca54b4c86dd259fdcdf62c73e97f2ec4261daf524c",
+      "core_clock_mhz": 20.25,
+      "engine_sha256": "358b0e890b7de654488dc88f5e043d5c4ea789aa6301d532631b5b91d97689a7",
+      "frozen_manifest_sha256": "1105b8d47a68315910a94e0f6b37213c975511da94e08f2025d98bd4402d1718",
+      "generated_ip_sha256": "3166bcfd473e7af6cbf80110ad952279c0209821dbbde4ee26d8a2d558dcee3d",
+      "hold_violated_endpoints": 0,
+      "label": "spatial",
+      "physical_board": false,
+      "report_only": false,
+      "reports": {
+        "route": {
+          "file": "work/phase6/optimization/route-spatial/route.gz",
+          "raw_sha256": "fb545b14e2270d335264e9dc79d52f6e45dc6474ddad855ca43f4bd2efb0f880",
+          "sha256": "81ac56c0d2aa80cb8929c68551ca95061a3559fc2aa8426339a1bc48a2d69795"
+        },
+        "timing": {
+          "file": "work/phase6/optimization/route-spatial/timing.gz",
+          "raw_sha256": "800ae7b7d510a6766358fc0f298ada1b9c5e76c41e1dc5777796f0ab4505d629",
+          "sha256": "a35993081db0158f308ed319dfed6786fa937886637fe8be32b8df19f37e3b23"
+        }
+      },
+      "resources": {
+        "BSRAM": {
+          "available": 46.0,
+          "used": 35.0
+        },
+        "CLS": {
+          "available": 10368.0,
+          "used": 9585.0
+        },
+        "DSP": {
+          "available": 24.0,
+          "used": 14.5
+        },
+        "Logic": {
+          "available": 20736.0,
+          "used": 17242.0
+        },
+        "Register": {
+          "available": 15915.0,
+          "used": 5451.0
+        }
+      },
+      "returncode": 0,
+      "routed_core_fmax_mhz": 20.798,
+      "scope": "Gowin synthesis and place-and-route; no measured latency/power",
+      "setup_tns_ns": 0.0,
+      "setup_violated_endpoints": 0,
+      "status": "passed-route",
+      "variant": "spatial"
+    }
+  },
+  "schema": 1,
+  "source_pins_archive": "summary.json.gz",
+  "status": "passed-boardless-milestone",
+  "unit_tests": 159
+}
