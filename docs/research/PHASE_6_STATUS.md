@@ -1,71 +1,168 @@
-# Phase 6 preparation — 2026-09-26
+# Phase 6 — boardless milestone, 2026-09-26
 
-**Boardless preparation has started; G6 remains open.** This work is isolated in
-`compiler/scheduler/` and `tools/phase6/`. Active Phase 5 runners do not import
-these modules. Their RTL, bitstream, compiler lowering, command images and
-physical test fixtures are unchanged. No UART or JTAG access is needed here.
+**The boardless search/semantics/integration milestone passes; G6 remains open.**
+This is implementation and verification, not evidence of a new state-of-the-art
+accelerator. The restricted real-model search found **no gain over its
+largest-tile serialized baseline**. Spatial halo caching has useful software
+tradeoffs, but has not been lowered to a physically feasible fused schedule or
+measured on the FPGA.
 
-## What can proceed alongside Phase 5
+New work is isolated in `compiler/scheduler/`, `tools/phase6/`, `test/phase6/`
+and `work/phase6/`. SHA256 checks confirm preservation of 109 pre-existing
+Phase 5 compiler, runner, RTL and release files. No device was opened, FPGA
+image changed, or Phase 5 job interrupted.
 
-| Item | Useful work without the FPGA | What still depends on later evidence |
+## Implementation and acceptance scope
+
+| Item | Implemented and checked without a board | Still required for the full backlog item |
 |---|---|---|
-| S01 candidates and certificates | Define the fixed arithmetic/task contract; check dependencies, live INT32/INT8 storage, addresses, banks/ports and transfer ownership. Add halo/partial-sum semantics and a real-model adapter next. | Actual command/RTL expressiveness and the fair B3 candidate space must agree before S01 closes. |
-| S02 exact small search | Implement bounded exhaustive/DP search and compare with independently enumerated small cases. | Optimality applies only to the declared candidate catalog, not arbitrary schedules. |
-| S03 practical search | Deterministic search budgets, feasible fallback, cost-model integration and runtime/quality evaluation in software. | New fusion/caching costs need simulation and eventually physical validation; old kernel costs alone do not establish those costs. |
-| S04 ablations | Generate matched configurations, analysis scripts and experimental manifests. | Board latency/traffic, fair tuned B1/B2/B3 and measured benefits are required to close the research gate. |
+| S01 | Independent timing/placement/resource certificates; halo and INT32 reduction contracts; quantization-preserving segment executor; real-model candidates and independent command replay | Bind fused live buffers, port traces and transfers to actual lowering; agree fair B3 candidates; prove complete physical SRAM fit |
+| S02 | Exact integer-time/address enumeration and catalogue DP; independent exhaustive timing/address and path oracles | Extend the declared catalogue to the final fused/B3-compatible implementation |
+| S03 | Bounded beam search, valid catalogue bounds, feasible fallback, measured DMA cost integration; KWS/VWW runtime and exact-gap checks | Optimize the actual fusion/recompute/placement space; calibrate new costs and evaluate held-out prediction errors |
+| S04 | DMA-cost ablation, paired serialized/prefetch artifacts, cache/recompute semantic sweeps, pending physical matrix, negative result recorded | Matched B1/B2/B3/B4 measurements and causal fusion/placement/bank/overlap ablations; an explained physical benefit |
+| S05 | Optional dynamic-quantization experiment deferred | Consider only after the main mechanism demonstrates a benefit |
 
-The backlog dependency on B03 remains intact for gate acceptance. Independent
-specification, checker and small-instance work can be prepared before B03 is
-finished. The current Phase 5 command format lacks DeFiNES's general spatial
-cross-layer caching/recomputation modes. Neither renaming B2 nor constraining B3
-to fit a convenient optimizer establishes a fair comparison.
+B03's dependency has not been waived. `retain-last-region` is a restricted
+software cache policy, **not a DeFiNES reproduction**. Neither the baseline
+tuner nor the spatial executor is presented as completed B4.
 
-## Implemented starting point
+## Search and legality
 
-`contract.py` defines immutable memories, resource capacities, versioned buffers
-and fixed tasks. A certificate supplies only task start times and buffer
-addresses. Its SHA256 binds it to the complete problem, including each task's
-arithmetic identity and explicit requantization operation.
+The immutable contract binds versioned buffers and arithmetic tasks to a SHA256.
+Its independent verifier checks complete production/consumption, INT32 lifetime
+through requantization, aligned addresses, memory overlap, resource capacities
+and half-open request intervals.
 
-`verify.py` is independent of a candidate generator. It checks:
+`search.py` exhaustively considers integer starts and aligned addresses within
+an explicit horizon. `catalogue.py` performs exact DP or bounded beam search
+over positive-length segments. Dominance is allowed only at the same position
+and **complete frontier state**. The caller must encode every future-relevant
+distinction in that state. The adapter's fully materialized layer boundaries
+make its state sufficient; arbitrary fused frontiers do not inherit that proof.
 
-- Every fixed task appears once and every buffer has a placement and producer.
-- Consumers start only after the complete producer finishes; cycles reject.
-- Sizes, alignment, bounds and simultaneous live ranges permit each placement.
-- INT32 accumulator storage stays live through its quantization consumer.
-- Half-open resource reservations fit their capacities, including a shared
-  SRAM request port. Different addresses alone do not eliminate port conflicts.
+Candidate order and expansion limits are deterministic. Wall-time cutoffs are
+explicitly marked as non-reproducible truncation. Interruption never proves
+infeasibility; a feasible fallback is retained when available. Optimality is
+limited to the declared integer-time problem/catalogue. The relaxed catalogue
+bound ignores boundary compatibility and is admissible for its additive cost,
+not a lower bound on physical latency.
 
-Two hand-derived examples cover an INT32→INT8 chain with legal lifetime reuse
-and a compute/DMA overlap with nonintersecting SRAM request intervals. The
-20 regression cases include a 25-timeline exhaustive check against independent
-interval conditions, corruption/reordering cases, quantization identity drift,
-invalid geometry, cycles and retained-buffer overwrites. Reproduce with:
+The **112 regression tests** include 12 independently enumerated placement/timing
+problems, 30 independently enumerated random catalogues, an adversarial frontier
+case, budget/timeout failures, numerical and command corruptions, and the
+earlier 20 fixed-contract checks.
+
+## Numerical and command integration
+
+`spatial.py` executes batch-one NCHW Conv/Relu/Clip segments. Backward halos
+include stride, dilation and asymmetric padding. Group/depthwise convolutions
+are covered. Reduction chunks partition K exactly once, add corrected bias once,
+and require an all-INT8-input INT32 bound. Requantization remains at **every
+original layer boundary**, with original multiplier, shift, zero point and
+rounding semantics.
+
+Cache/no-cache execution, odd tails, extreme zero points and negative ties are
+compared to `integer_reference.py`, which uses centered inputs, uncorrected
+bias and independent rounding. The real-model sweep covers 18 KWS and 54 VWW
+spatial layers in segments of at most four layers: **152 exact segment checks**
+across two inputs, two tile sizes and two cache modes. Reshape/Transpose/pooling/
+Gemm remain explicit fusion barriers. This is not an accuracy-set evaluation or
+a fused full-model hardware run.
+
+`abi_verify.py` replays raw commands without importing the tiler or trusting its
+manifest. It checks graph-derived descriptor geometry, input versions and
+coordinates, parameters, DMA bounds, waits, live ownership, output coverage
+and SDRAM results. The oracle supplies engine outputs; this checker does not
+simulate arithmetic or port timing. Six policies per model pass on a pinned
+fixture and a seeded INT8 stress input: **24 complete command replays**. Pinned
+fixture tensors also match the previously archived per-layer hashes.
+
+The new integration simulation runs generated bytecode on the actual sequencer,
+engine, DMA and SRAM RTL with random external-port stalls. **Four distinct
+synthetic-chain artifacts pass**; two other policies are identical aliases.
+Both prefetch variants exercise overlap. The fixture crosses the 16 KiB tiling
+threshold. External memory is an abstract stalled RAM, not the physical SDRAM
+controller. Its counters are diagnostic, not a matched physical speedup
+comparison. No new synthesis or board claim follows.
+
+## Real-model results and negative result
+
+The executable catalogue chooses full-32KiB or preferred-16KiB tiles per layer,
+with materialized SDRAM boundaries. All candidate combinations fit command and
+payload capacities before frontier-state merging. Ranking uses the pinned
+Phase 4 uncontended engine model plus fitted DMA costs. It excludes dispatch/
+host uncertainty and overlap contention. The inherited DMA holdout errors and
+calibration bitstream remain in the [cost evidence](evidence/phase4/physical-sequence-costs.json);
+coefficients were not refitted. Costs are estimates, not upper bounds.
+
+| Model | Local choices | Construction + costing + search | Beam gap to restricted exact optimum | Selected serialized component cycles |
+|---|---:|---:|---:|---:|
+| KWS | 30 across 22 layers | 1.40 s | 0% | 5,725,029 |
+| VWW | 84 across 58 layers | 6.70 s | 0% | 18,654,475 |
+
+Host: macOS 26.4 arm64, Python 3.13.7, with Phase 5 and the isolated RTL test
+also running. CPU model is not recorded; these are observations on this host,
+not portable runtime guarantees. The ≤60 s and ≤10% targets pass **only for this
+restricted additive catalogue**. Each layer has the same materialized boundary
+state, so its exact optimum is easy; the general placement/fusion problem has
+not been solved.
+
+Full32, mixed and DMA-blind select identical serialized artifacts. Preferred-
+16KiB serialized estimates are 5,760,565 KWS and 18,794,264 VWW component cycles.
+Prefetch artifacts receive no additive latency prediction. **Tuning only this
+two-geometry serialized catalogue does not establish a research contribution.**
+
+For fixed ≤4-layer spatial segments, the software experiment shows:
+
+| Model / output tile | MACs without cache | MACs with last-region cache | Useful MACs | Peak retained cache bytes |
+|---|---:|---:|---:|---:|
+| KWS / 4×4 | 4,645,632 | 3,190,528 | 2,656,000 | 4,224 |
+| KWS / 8×8 | 3,101,440 | 2,656,000 | 2,656,000 | 8,320 |
+| VWW / 4×4 | 10,910,048 | 8,653,184 | 7,489,152 | 11,392 |
+| VWW / 8×8 | 8,006,368 | 7,718,784 | 7,489,152 | 20,736 |
+
+These count semantic Conv MACs within the supported spatial scope. Cache bytes
+exclude transient inputs/outputs, weights, descriptors, banks and INT32 working
+storage. They **do not prove a 32 KiB SRAM fit**, bandwidth reduction or faster
+inference. Larger tiles reduce repeated work while increasing retained storage;
+this is a direction to implement and test, not a measured accelerator result.
+
+## Reproduction and evidence
+
+Run from the repository root with pinned Phase 4 models/calibrations and fixtures:
 
 ```sh
-make p6-check PYTHON=/absolute/path/to/tinyML_accelerator/.venv/bin/python3
+make p6-check PYTHON="$PWD/.venv/bin/python3"
+.venv/bin/python3 -m pytest compiler/test_scheduler_*.py -q --junitxml=work/phase6/tests.xml
+make p6-boardless PYTHON="$PWD/.venv/bin/python3"
+make p6-rtl PYTHON="$PWD/venv/bin/python3"
+.venv/bin/python3 tools/phase6/summarize.py
 ```
 
-The [starting evidence](evidence/phase6/contract.json) pins source hashes, complete
-synthetic problems, proposed certificates and verification reports.
+The summary expects the preservation manifest at
+`work/phase6/phase5-frozen-files.json`; restore it from the archived `.json.gz`
+below when reproducing this snapshot. Changed pinned sources/artifacts fail
+verification. The boardless runner recreates command/payload binaries under
+`work/phase6/boardless/`; large binaries are not added to Git.
 
-## Explicit limits and next steps
+- [Compact results](evidence/phase6/summary.json)
+- [Source-pinned software report](evidence/phase6/boardless-report.json.gz)
+- [Source-pinned RTL results](evidence/phase6/rtl-candidates.json.gz)
+- [112-case JUnit record](evidence/phase6/tests.xml.gz)
+- [Frozen Phase 5 manifest](evidence/phase6/phase5-frozen-files.json.gz)
+- [Pending physical experiment matrix](evidence/phase6/physical-matrix.json)
 
-This checker verifies a **fixed-task abstraction**. Arithmetic identities are
-opaque labels bound by the problem hash; numerical equivalence needs the
-independent integer oracle. Durations and port traces in these examples are
-synthetic ticks. Their makespans are neither predictions nor measured FPGA
-latencies. A caller-supplied port trace cannot certify hardware behavior unless
-that trace has itself been validated against the relevant implementation.
+## Next work and gate boundary
 
-Whole-buffer availability, one producer per version and conservative lifetimes
-are intentional initial restrictions. No in-place operations, partial-output
-streaming, halo/recomputation graph transformation, physical BSRAM-mode proof,
-real-model certificate adapter, search optimizer or RTL lowering is implemented
-by this change. S01 is partial; S02–S04 are not complete. No Phase 6 gate or
-performance claim follows from passing these examples.
+Further boardless research work remains: implement a fair B3 policy, choose the
+comparable fused catalogue, lower halo/carry/INT32 storage and strided transfers
+to actual hardware, and validate the lowering in RTL. These are substantial
+design tasks; the software cache is not automatically executable by the
+current ABI. Certificates, oracles and search infrastructure are now available
+to check those changes.
 
-Next implement a versioned tile/halo/partial-sum graph contract and its semantic
-oracle; then add real-model candidate adapters and bounded exact search. Keep
-the executing Phase 5 release frozen. New RTL/physical experiments should wait
-for its campaigns to finish or use a separately available board.
+After Phase 5 releases the board, run the prepared current-ABI comparisons and
+calibrate new hardware modes. Full B4 evaluation needs matched B1/B2/B3,
+held-out cost errors, causal ablations, correctness/quality constraints and an
+explained measured gain. **A board connection alone cannot close G6, and this
+milestone is not a SOTA claim.**

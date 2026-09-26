@@ -1,0 +1,355 @@
+{
+  "command_entry": 0,
+  "controls": [
+    "same pinned quantized model and inputs",
+    "same bitstream/core clock and SDRAM controller",
+    "report accelerator cycles separately from UART transfer time",
+    "randomize policy order with seed 6107",
+    "minimum 5 independent sessions, 30 repeated jobs per policy/model/session",
+    "check every output against integer oracle; report engine/DMA/overlap counters",
+    "publish paired differences and uncertainty, including negative results"
+  ],
+  "models": {
+    "kws": {
+      "dma-blind-serial": {
+        "artifacts": {
+          "commands.bin": {
+            "bytes": 3536,
+            "file": "kws-dma-blind-serial.commands.bin",
+            "sha256": "4ca2b7242654911a5c9eed8de6729ba65f9abd32160a24037f513018903213ca"
+          },
+          "payload.bin": {
+            "bytes": 51936,
+            "file": "kws-dma-blind-serial.payload.bin",
+            "sha256": "b5b67a01bb73eb7204a08cfbebd6b050fa2271b752a0a34058e1736a02efa05d"
+          },
+          "schedule.json": {
+            "bytes": 33612,
+            "file": "kws-dma-blind-serial.schedule.json",
+            "sha256": "c8edfc478945ae2575fa11989661ac29326300e716dbe94f4636152d4235cdd7"
+          }
+        },
+        "source_sha256": {
+          "work/phase4/kws-calibration-rebased.json": "96d7614d7c9404ea42178caf54a286fa04ee0d72b6c02a01e011895573df1997",
+          "work/phase4/kws-logits.onnx": "074aacbdd17f488e7717e5ab2add811341569e71023d9b778ce472e27991d8de",
+          "work/phase4/rtl-kws/expected.npz": "d038eb5d3c45e3374ca9352b382cb37d3a8a7af3f972a12d6142745db01677a1",
+          "work/phase4/rtl-kws/input.bin": "5f4ad0b2d11bf1cccab552fb5a4d95d082b70f2d1fe2459127673d270cb1cdf4",
+          "work/phase4/rtl-kws/manifest.json": "702422f42debf72524a7adce99debef55ea6e11538691cc4f250e363cbeede51"
+        },
+        "status": "not_run"
+      },
+      "full32-serial": {
+        "artifacts": {
+          "commands.bin": {
+            "bytes": 3536,
+            "file": "kws-full32-serial.commands.bin",
+            "sha256": "4ca2b7242654911a5c9eed8de6729ba65f9abd32160a24037f513018903213ca"
+          },
+          "payload.bin": {
+            "bytes": 51936,
+            "file": "kws-full32-serial.payload.bin",
+            "sha256": "b5b67a01bb73eb7204a08cfbebd6b050fa2271b752a0a34058e1736a02efa05d"
+          },
+          "schedule.json": {
+            "bytes": 33612,
+            "file": "kws-full32-serial.schedule.json",
+            "sha256": "c8edfc478945ae2575fa11989661ac29326300e716dbe94f4636152d4235cdd7"
+          }
+        },
+        "source_sha256": {
+          "work/phase4/kws-calibration-rebased.json": "96d7614d7c9404ea42178caf54a286fa04ee0d72b6c02a01e011895573df1997",
+          "work/phase4/kws-logits.onnx": "074aacbdd17f488e7717e5ab2add811341569e71023d9b778ce472e27991d8de",
+          "work/phase4/rtl-kws/expected.npz": "d038eb5d3c45e3374ca9352b382cb37d3a8a7af3f972a12d6142745db01677a1",
+          "work/phase4/rtl-kws/input.bin": "5f4ad0b2d11bf1cccab552fb5a4d95d082b70f2d1fe2459127673d270cb1cdf4",
+          "work/phase4/rtl-kws/manifest.json": "702422f42debf72524a7adce99debef55ea6e11538691cc4f250e363cbeede51"
+        },
+        "status": "not_run"
+      },
+      "mixed-prefetch": {
+        "artifacts": {
+          "commands.bin": {
+            "bytes": 3536,
+            "file": "kws-mixed-prefetch.commands.bin",
+            "sha256": "b96a5bb1da8fdc47da1234d3ce71ac12774918923bb7e0b671065bf56c5029f1"
+          },
+          "payload.bin": {
+            "bytes": 51936,
+            "file": "kws-mixed-prefetch.payload.bin",
+            "sha256": "b5b67a01bb73eb7204a08cfbebd6b050fa2271b752a0a34058e1736a02efa05d"
+          },
+          "schedule.json": {
+            "bytes": 33614,
+            "file": "kws-mixed-prefetch.schedule.json",
+            "sha256": "80ca13928f15bc01ca05675abaa9723713dc45af5827f3b93e6457f1a62e5704"
+          }
+        },
+        "source_sha256": {
+          "work/phase4/kws-calibration-rebased.json": "96d7614d7c9404ea42178caf54a286fa04ee0d72b6c02a01e011895573df1997",
+          "work/phase4/kws-logits.onnx": "074aacbdd17f488e7717e5ab2add811341569e71023d9b778ce472e27991d8de",
+          "work/phase4/rtl-kws/expected.npz": "d038eb5d3c45e3374ca9352b382cb37d3a8a7af3f972a12d6142745db01677a1",
+          "work/phase4/rtl-kws/input.bin": "5f4ad0b2d11bf1cccab552fb5a4d95d082b70f2d1fe2459127673d270cb1cdf4",
+          "work/phase4/rtl-kws/manifest.json": "702422f42debf72524a7adce99debef55ea6e11538691cc4f250e363cbeede51"
+        },
+        "status": "not_run"
+      },
+      "mixed-serial": {
+        "artifacts": {
+          "commands.bin": {
+            "bytes": 3536,
+            "file": "kws-mixed-serial.commands.bin",
+            "sha256": "4ca2b7242654911a5c9eed8de6729ba65f9abd32160a24037f513018903213ca"
+          },
+          "payload.bin": {
+            "bytes": 51936,
+            "file": "kws-mixed-serial.payload.bin",
+            "sha256": "b5b67a01bb73eb7204a08cfbebd6b050fa2271b752a0a34058e1736a02efa05d"
+          },
+          "schedule.json": {
+            "bytes": 33612,
+            "file": "kws-mixed-serial.schedule.json",
+            "sha256": "c8edfc478945ae2575fa11989661ac29326300e716dbe94f4636152d4235cdd7"
+          }
+        },
+        "source_sha256": {
+          "work/phase4/kws-calibration-rebased.json": "96d7614d7c9404ea42178caf54a286fa04ee0d72b6c02a01e011895573df1997",
+          "work/phase4/kws-logits.onnx": "074aacbdd17f488e7717e5ab2add811341569e71023d9b778ce472e27991d8de",
+          "work/phase4/rtl-kws/expected.npz": "d038eb5d3c45e3374ca9352b382cb37d3a8a7af3f972a12d6142745db01677a1",
+          "work/phase4/rtl-kws/input.bin": "5f4ad0b2d11bf1cccab552fb5a4d95d082b70f2d1fe2459127673d270cb1cdf4",
+          "work/phase4/rtl-kws/manifest.json": "702422f42debf72524a7adce99debef55ea6e11538691cc4f250e363cbeede51"
+        },
+        "status": "not_run"
+      },
+      "prefer16-prefetch": {
+        "artifacts": {
+          "commands.bin": {
+            "bytes": 5072,
+            "file": "kws-prefer16-prefetch.commands.bin",
+            "sha256": "c7ff74dbd02c1655450672c02b20d400b021301bb85b1bc47f7ba01dd60201c6"
+          },
+          "payload.bin": {
+            "bytes": 52960,
+            "file": "kws-prefer16-prefetch.payload.bin",
+            "sha256": "6bd9ee5d19311282b867fa85a030b88c1b5c957b41a4fd89e0b38831d92bf1fe"
+          },
+          "schedule.json": {
+            "bytes": 48574,
+            "file": "kws-prefer16-prefetch.schedule.json",
+            "sha256": "fe4d66eee6920f469c4d52d0324ab5380761009f84ec3f7e7c3d5b1fcc85d363"
+          }
+        },
+        "source_sha256": {
+          "work/phase4/kws-calibration-rebased.json": "96d7614d7c9404ea42178caf54a286fa04ee0d72b6c02a01e011895573df1997",
+          "work/phase4/kws-logits.onnx": "074aacbdd17f488e7717e5ab2add811341569e71023d9b778ce472e27991d8de",
+          "work/phase4/rtl-kws/expected.npz": "d038eb5d3c45e3374ca9352b382cb37d3a8a7af3f972a12d6142745db01677a1",
+          "work/phase4/rtl-kws/input.bin": "5f4ad0b2d11bf1cccab552fb5a4d95d082b70f2d1fe2459127673d270cb1cdf4",
+          "work/phase4/rtl-kws/manifest.json": "702422f42debf72524a7adce99debef55ea6e11538691cc4f250e363cbeede51"
+        },
+        "status": "not_run"
+      },
+      "prefer16-serial": {
+        "artifacts": {
+          "commands.bin": {
+            "bytes": 5072,
+            "file": "kws-prefer16-serial.commands.bin",
+            "sha256": "321cf57c9cc76a5e22147500980e6ed99175f0f9a49abfef6c9e5bde057dd034"
+          },
+          "payload.bin": {
+            "bytes": 52960,
+            "file": "kws-prefer16-serial.payload.bin",
+            "sha256": "6bd9ee5d19311282b867fa85a030b88c1b5c957b41a4fd89e0b38831d92bf1fe"
+          },
+          "schedule.json": {
+            "bytes": 48571,
+            "file": "kws-prefer16-serial.schedule.json",
+            "sha256": "38423e3057f45731a7076cca504be50764a2eace3a4787fd237c773b2413fad7"
+          }
+        },
+        "source_sha256": {
+          "work/phase4/kws-calibration-rebased.json": "96d7614d7c9404ea42178caf54a286fa04ee0d72b6c02a01e011895573df1997",
+          "work/phase4/kws-logits.onnx": "074aacbdd17f488e7717e5ab2add811341569e71023d9b778ce472e27991d8de",
+          "work/phase4/rtl-kws/expected.npz": "d038eb5d3c45e3374ca9352b382cb37d3a8a7af3f972a12d6142745db01677a1",
+          "work/phase4/rtl-kws/input.bin": "5f4ad0b2d11bf1cccab552fb5a4d95d082b70f2d1fe2459127673d270cb1cdf4",
+          "work/phase4/rtl-kws/manifest.json": "702422f42debf72524a7adce99debef55ea6e11538691cc4f250e363cbeede51"
+        },
+        "status": "not_run"
+      }
+    },
+    "vww": {
+      "dma-blind-serial": {
+        "artifacts": {
+          "commands.bin": {
+            "bytes": 13296,
+            "file": "vww-dma-blind-serial.commands.bin",
+            "sha256": "5974a335464991822a746729b63d8a09f54bf0d5c2d305bdf5da4e4ba058d2c8"
+          },
+          "payload.bin": {
+            "bytes": 344416,
+            "file": "vww-dma-blind-serial.payload.bin",
+            "sha256": "df45265dafc280b7f5c37d95802fe08921b81a599b22d5c17309f1b8c1a3a6d6"
+          },
+          "schedule.json": {
+            "bytes": 126234,
+            "file": "vww-dma-blind-serial.schedule.json",
+            "sha256": "a63a50b48a468af13204216b72016c2570829c8f4a039fa943d0b3862fb97afc"
+          }
+        },
+        "source_sha256": {
+          "work/phase4/rtl-vww/expected.npz": "f5fbc256593bf1381f6f81e5508702e7d492f432fb54d729ca1885877592ebe5",
+          "work/phase4/rtl-vww/input.bin": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+          "work/phase4/rtl-vww/manifest.json": "b55d9e1d99d326ad8209f26f341eb7048d90d6f5cee68dadf93d6c4d3e6fb0fe",
+          "work/phase4/vww-calibration-rebased.json": "03dcc62a292a0b98e490026e50c1002a4b287e2910a5c54d89c894c22d5015d5",
+          "work/phase4/vww-logits.onnx": "42090afcfdd84130b4e9c0b3fca8993b138f9509d620de2fe915c71adef893b7"
+        },
+        "status": "not_run"
+      },
+      "full32-serial": {
+        "artifacts": {
+          "commands.bin": {
+            "bytes": 13296,
+            "file": "vww-full32-serial.commands.bin",
+            "sha256": "5974a335464991822a746729b63d8a09f54bf0d5c2d305bdf5da4e4ba058d2c8"
+          },
+          "payload.bin": {
+            "bytes": 344416,
+            "file": "vww-full32-serial.payload.bin",
+            "sha256": "df45265dafc280b7f5c37d95802fe08921b81a599b22d5c17309f1b8c1a3a6d6"
+          },
+          "schedule.json": {
+            "bytes": 126234,
+            "file": "vww-full32-serial.schedule.json",
+            "sha256": "a63a50b48a468af13204216b72016c2570829c8f4a039fa943d0b3862fb97afc"
+          }
+        },
+        "source_sha256": {
+          "work/phase4/rtl-vww/expected.npz": "f5fbc256593bf1381f6f81e5508702e7d492f432fb54d729ca1885877592ebe5",
+          "work/phase4/rtl-vww/input.bin": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+          "work/phase4/rtl-vww/manifest.json": "b55d9e1d99d326ad8209f26f341eb7048d90d6f5cee68dadf93d6c4d3e6fb0fe",
+          "work/phase4/vww-calibration-rebased.json": "03dcc62a292a0b98e490026e50c1002a4b287e2910a5c54d89c894c22d5015d5",
+          "work/phase4/vww-logits.onnx": "42090afcfdd84130b4e9c0b3fca8993b138f9509d620de2fe915c71adef893b7"
+        },
+        "status": "not_run"
+      },
+      "mixed-prefetch": {
+        "artifacts": {
+          "commands.bin": {
+            "bytes": 13296,
+            "file": "vww-mixed-prefetch.commands.bin",
+            "sha256": "c2547fe0c0a3010fde4940ba5c05f3b85779f5a6c30bb2880570872d7596ac40"
+          },
+          "payload.bin": {
+            "bytes": 344416,
+            "file": "vww-mixed-prefetch.payload.bin",
+            "sha256": "df45265dafc280b7f5c37d95802fe08921b81a599b22d5c17309f1b8c1a3a6d6"
+          },
+          "schedule.json": {
+            "bytes": 126237,
+            "file": "vww-mixed-prefetch.schedule.json",
+            "sha256": "b8af11bef2d25e4d9bc41a74837378e1ba0739cb3ee0a903e4bf9c8adefc0570"
+          }
+        },
+        "source_sha256": {
+          "work/phase4/rtl-vww/expected.npz": "f5fbc256593bf1381f6f81e5508702e7d492f432fb54d729ca1885877592ebe5",
+          "work/phase4/rtl-vww/input.bin": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+          "work/phase4/rtl-vww/manifest.json": "b55d9e1d99d326ad8209f26f341eb7048d90d6f5cee68dadf93d6c4d3e6fb0fe",
+          "work/phase4/vww-calibration-rebased.json": "03dcc62a292a0b98e490026e50c1002a4b287e2910a5c54d89c894c22d5015d5",
+          "work/phase4/vww-logits.onnx": "42090afcfdd84130b4e9c0b3fca8993b138f9509d620de2fe915c71adef893b7"
+        },
+        "status": "not_run"
+      },
+      "mixed-serial": {
+        "artifacts": {
+          "commands.bin": {
+            "bytes": 13296,
+            "file": "vww-mixed-serial.commands.bin",
+            "sha256": "5974a335464991822a746729b63d8a09f54bf0d5c2d305bdf5da4e4ba058d2c8"
+          },
+          "payload.bin": {
+            "bytes": 344416,
+            "file": "vww-mixed-serial.payload.bin",
+            "sha256": "df45265dafc280b7f5c37d95802fe08921b81a599b22d5c17309f1b8c1a3a6d6"
+          },
+          "schedule.json": {
+            "bytes": 126234,
+            "file": "vww-mixed-serial.schedule.json",
+            "sha256": "a63a50b48a468af13204216b72016c2570829c8f4a039fa943d0b3862fb97afc"
+          }
+        },
+        "source_sha256": {
+          "work/phase4/rtl-vww/expected.npz": "f5fbc256593bf1381f6f81e5508702e7d492f432fb54d729ca1885877592ebe5",
+          "work/phase4/rtl-vww/input.bin": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+          "work/phase4/rtl-vww/manifest.json": "b55d9e1d99d326ad8209f26f341eb7048d90d6f5cee68dadf93d6c4d3e6fb0fe",
+          "work/phase4/vww-calibration-rebased.json": "03dcc62a292a0b98e490026e50c1002a4b287e2910a5c54d89c894c22d5015d5",
+          "work/phase4/vww-logits.onnx": "42090afcfdd84130b4e9c0b3fca8993b138f9509d620de2fe915c71adef893b7"
+        },
+        "status": "not_run"
+      },
+      "prefer16-prefetch": {
+        "artifacts": {
+          "commands.bin": {
+            "bytes": 19088,
+            "file": "vww-prefer16-prefetch.commands.bin",
+            "sha256": "58f3c622e420191097e8c0014d817905e3c3c018504b85e10a2e4922ec6a7181"
+          },
+          "payload.bin": {
+            "bytes": 348512,
+            "file": "vww-prefer16-prefetch.payload.bin",
+            "sha256": "25dadec0589a76868ee7f711e11fb695cf470cc7f70d48a8de65d1b24d7af32c"
+          },
+          "schedule.json": {
+            "bytes": 181921,
+            "file": "vww-prefer16-prefetch.schedule.json",
+            "sha256": "244d46397fd0b7f44eaa30bbfb8a04dbc1aeb9229de959cfc4635fb5ab447079"
+          }
+        },
+        "source_sha256": {
+          "work/phase4/rtl-vww/expected.npz": "f5fbc256593bf1381f6f81e5508702e7d492f432fb54d729ca1885877592ebe5",
+          "work/phase4/rtl-vww/input.bin": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+          "work/phase4/rtl-vww/manifest.json": "b55d9e1d99d326ad8209f26f341eb7048d90d6f5cee68dadf93d6c4d3e6fb0fe",
+          "work/phase4/vww-calibration-rebased.json": "03dcc62a292a0b98e490026e50c1002a4b287e2910a5c54d89c894c22d5015d5",
+          "work/phase4/vww-logits.onnx": "42090afcfdd84130b4e9c0b3fca8993b138f9509d620de2fe915c71adef893b7"
+        },
+        "status": "not_run"
+      },
+      "prefer16-serial": {
+        "artifacts": {
+          "commands.bin": {
+            "bytes": 19088,
+            "file": "vww-prefer16-serial.commands.bin",
+            "sha256": "5ae61faf53a5e3075f28755345d141ffd01ec1e69fc7582c014efd7ba170f2a5"
+          },
+          "payload.bin": {
+            "bytes": 348512,
+            "file": "vww-prefer16-serial.payload.bin",
+            "sha256": "25dadec0589a76868ee7f711e11fb695cf470cc7f70d48a8de65d1b24d7af32c"
+          },
+          "schedule.json": {
+            "bytes": 181917,
+            "file": "vww-prefer16-serial.schedule.json",
+            "sha256": "a6e84f61e468508b5af93b65eb6dec85d918bff57f45672200a5fdf322bb0a74"
+          }
+        },
+        "source_sha256": {
+          "work/phase4/rtl-vww/expected.npz": "f5fbc256593bf1381f6f81e5508702e7d492f432fb54d729ca1885877592ebe5",
+          "work/phase4/rtl-vww/input.bin": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+          "work/phase4/rtl-vww/manifest.json": "b55d9e1d99d326ad8209f26f341eb7048d90d6f5cee68dadf93d6c4d3e6fb0fe",
+          "work/phase4/vww-calibration-rebased.json": "03dcc62a292a0b98e490026e50c1002a4b287e2910a5c54d89c894c22d5015d5",
+          "work/phase4/vww-logits.onnx": "42090afcfdd84130b4e9c0b3fca8993b138f9509d620de2fe915c71adef893b7"
+        },
+        "status": "not_run"
+      }
+    }
+  },
+  "nominal_core_hz": 20250000,
+  "release_path": "hardware/releases/phase5/dual_resident_750k.fs",
+  "release_sha256": "9a0cf45477b8602b97a2ab81cbf5ae0e09a8c95bbfcd174cf1998a1b938e5ed1",
+  "remaining_research_controls": [
+    "fair B3 adaptation",
+    "fused/recompute hardware lowering and calibrated costs",
+    "matched placement/fusion/bank-awareness ablations"
+  ],
+  "requires_board": true,
+  "run_after": "Phase 5 campaigns release exclusive UART/JTAG ownership",
+  "schema": 1,
+  "scope": "single-model current-ABI baseline tuning and overlap ablation, not complete B4/B3 comparison",
+  "status": "prepared_not_run"
+}

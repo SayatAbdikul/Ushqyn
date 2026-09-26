@@ -1,0 +1,375 @@
+{
+  "boardless_report_sha256": "83a9075c0b9be6028fa2556f00299c47714298ddaf3467ce76f0dc184f3b7baa",
+  "frozen_manifest_sha256": "1105b8d47a68315910a94e0f6b37213c975511da94e08f2025d98bd4402d1718",
+  "frozen_phase5_files_verified": 109,
+  "host": {
+    "processor": "arm64",
+    "python": "3.13.7",
+    "system": "macOS-26.4-arm64-arm-64bit-Mach-O"
+  },
+  "models": {
+    "kws": {
+      "beam_gap_in_restricted_catalogue": 0.0,
+      "candidate_construction_and_search_seconds": 1.402785750105977,
+      "candidate_count": 30,
+      "negative_result": "restricted mixed search equals full32-serial; no new predicted gain in this catalogue",
+      "numerical_segment_cases": 40,
+      "spatial": [
+        {
+          "computed_macs": 4645632,
+          "mac_recomputation_factor": 1.7491084337349398,
+          "peak_retained_cache_bytes": 0,
+          "physical_sram_fit_proven": false,
+          "policy": "recompute",
+          "source_requested_bytes": 59468,
+          "tile": [
+            4,
+            4
+          ]
+        },
+        {
+          "computed_macs": 3190528,
+          "mac_recomputation_factor": 1.2012530120481928,
+          "peak_retained_cache_bytes": 4224,
+          "physical_sram_fit_proven": false,
+          "policy": "retain-last-region",
+          "source_requested_bytes": 40271,
+          "tile": [
+            4,
+            4
+          ]
+        },
+        {
+          "computed_macs": 3101440,
+          "mac_recomputation_factor": 1.167710843373494,
+          "peak_retained_cache_bytes": 0,
+          "physical_sram_fit_proven": false,
+          "policy": "recompute",
+          "source_requested_bytes": 38560,
+          "tile": [
+            8,
+            8
+          ]
+        },
+        {
+          "computed_macs": 2656000,
+          "mac_recomputation_factor": 1.0,
+          "peak_retained_cache_bytes": 8320,
+          "physical_sram_fit_proven": false,
+          "policy": "retain-last-region",
+          "source_requested_bytes": 32650,
+          "tile": [
+            8,
+            8
+          ]
+        }
+      ],
+      "spatial_barrier_layers": [
+        {
+          "index": 0,
+          "op": "Reshape"
+        },
+        {
+          "index": 19,
+          "op": "AveragePool"
+        },
+        {
+          "index": 20,
+          "op": "Reshape"
+        },
+        {
+          "index": 21,
+          "op": "Gemm"
+        }
+      ],
+      "spatial_covered_layers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "useful_conv_macs_in_spatial_scope": 2656000,
+      "variants": {
+        "dma-blind-serial": {
+          "component_cycles": 5725029,
+          "components": {
+            "dma_bytes": 324566,
+            "dma_fit_cycles": 339246,
+            "engine_cycles": 5385783,
+            "tiles": 20
+          },
+          "physical_status": "not_run",
+          "prefetch_bytes": 0,
+          "verification_cases": 2
+        },
+        "full32-serial": {
+          "component_cycles": 5725029,
+          "components": {
+            "dma_bytes": 324566,
+            "dma_fit_cycles": 339246,
+            "engine_cycles": 5385783,
+            "tiles": 20
+          },
+          "physical_status": "not_run",
+          "prefetch_bytes": 0,
+          "verification_cases": 2
+        },
+        "mixed-prefetch": {
+          "component_cycles": null,
+          "components": null,
+          "physical_status": "not_run",
+          "prefetch_bytes": 1376,
+          "verification_cases": 2
+        },
+        "mixed-serial": {
+          "component_cycles": 5725029,
+          "components": {
+            "dma_bytes": 324566,
+            "dma_fit_cycles": 339246,
+            "engine_cycles": 5385783,
+            "tiles": 20
+          },
+          "physical_status": "not_run",
+          "prefetch_bytes": 0,
+          "verification_cases": 2
+        },
+        "prefer16-prefetch": {
+          "component_cycles": null,
+          "components": null,
+          "physical_status": "not_run",
+          "prefetch_bytes": 69248,
+          "verification_cases": 2
+        },
+        "prefer16-serial": {
+          "component_cycles": 5760565,
+          "components": {
+            "dma_bytes": 357590,
+            "dma_fit_cycles": 374470,
+            "engine_cycles": 5386095,
+            "tiles": 28
+          },
+          "physical_status": "not_run",
+          "prefetch_bytes": 0,
+          "verification_cases": 2
+        }
+      }
+    },
+    "vww": {
+      "beam_gap_in_restricted_catalogue": 0.0,
+      "candidate_construction_and_search_seconds": 6.702168042073026,
+      "candidate_count": 84,
+      "negative_result": "restricted mixed search equals full32-serial; no new predicted gain in this catalogue",
+      "numerical_segment_cases": 112,
+      "spatial": [
+        {
+          "computed_macs": 10910048,
+          "mac_recomputation_factor": 1.456780153480661,
+          "peak_retained_cache_bytes": 0,
+          "physical_sram_fit_proven": false,
+          "policy": "recompute",
+          "source_requested_bytes": 194939,
+          "tile": [
+            4,
+            4
+          ]
+        },
+        {
+          "computed_macs": 8653184,
+          "mac_recomputation_factor": 1.1554290792869473,
+          "peak_retained_cache_bytes": 11392,
+          "physical_sram_fit_proven": false,
+          "policy": "retain-last-region",
+          "source_requested_bytes": 151319,
+          "tile": [
+            4,
+            4
+          ]
+        },
+        {
+          "computed_macs": 8006368,
+          "mac_recomputation_factor": 1.069062024645781,
+          "peak_retained_cache_bytes": 0,
+          "physical_sram_fit_proven": false,
+          "policy": "recompute",
+          "source_requested_bytes": 140755,
+          "tile": [
+            8,
+            8
+          ]
+        },
+        {
+          "computed_macs": 7718784,
+          "mac_recomputation_factor": 1.0306619494436753,
+          "peak_retained_cache_bytes": 20736,
+          "physical_sram_fit_proven": false,
+          "policy": "retain-last-region",
+          "source_requested_bytes": 129047,
+          "tile": [
+            8,
+            8
+          ]
+        }
+      ],
+      "spatial_barrier_layers": [
+        {
+          "index": 0,
+          "op": "Transpose"
+        },
+        {
+          "index": 55,
+          "op": "AveragePool"
+        },
+        {
+          "index": 56,
+          "op": "Reshape"
+        },
+        {
+          "index": 57,
+          "op": "Gemm"
+        }
+      ],
+      "spatial_covered_layers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54
+      ],
+      "useful_conv_macs_in_spatial_scope": 7489152,
+      "variants": {
+        "dma-blind-serial": {
+          "component_cycles": 18654475,
+          "components": {
+            "dma_bytes": 1369170,
+            "dma_fit_cycles": 1423491,
+            "engine_cycles": 17230984,
+            "tiles": 75
+          },
+          "physical_status": "not_run",
+          "prefetch_bytes": 0,
+          "verification_cases": 2
+        },
+        "full32-serial": {
+          "component_cycles": 18654475,
+          "components": {
+            "dma_bytes": 1369170,
+            "dma_fit_cycles": 1423491,
+            "engine_cycles": 17230984,
+            "tiles": 75
+          },
+          "physical_status": "not_run",
+          "prefetch_bytes": 0,
+          "verification_cases": 2
+        },
+        "mixed-prefetch": {
+          "component_cycles": null,
+          "components": null,
+          "physical_status": "not_run",
+          "prefetch_bytes": 35920,
+          "verification_cases": 2
+        },
+        "mixed-serial": {
+          "component_cycles": 18654475,
+          "components": {
+            "dma_bytes": 1369170,
+            "dma_fit_cycles": 1423491,
+            "engine_cycles": 17230984,
+            "tiles": 75
+          },
+          "physical_status": "not_run",
+          "prefetch_bytes": 0,
+          "verification_cases": 2
+        },
+        "prefer16-prefetch": {
+          "component_cycles": null,
+          "components": null,
+          "physical_status": "not_run",
+          "prefetch_bytes": 492672,
+          "verification_cases": 2
+        },
+        "prefer16-serial": {
+          "component_cycles": 18794264,
+          "components": {
+            "dma_bytes": 1448322,
+            "dma_fit_cycles": 1509018,
+            "engine_cycles": 17285246,
+            "tiles": 107
+          },
+          "physical_status": "not_run",
+          "prefetch_bytes": 0,
+          "verification_cases": 2
+        }
+      }
+    }
+  },
+  "phase6_gate_complete": false,
+  "physical_improvement_demonstrated": false,
+  "rtl_report_sha256": "33124cfbbbf25f9c93cfad3d74939d08a5523c2509d84caa0e69dfebc880755d",
+  "scope": "boardless semantics, command legality and restricted-catalogue optimization; no physical improvement claim",
+  "status": "passed",
+  "tests_junit_sha256": "9baa129862b8c671623bcdc01d91a06d2f1798ac0d2d7f7227ff33b2fc2dcf50",
+  "tests_passed": 112
+}

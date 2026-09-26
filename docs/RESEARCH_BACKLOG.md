@@ -111,11 +111,15 @@ measurements remain required for G5.
 
 **G6:** S01–S04 pass and the research claim survives B3. S05 is not required. New INT4/sparsity/16-lane work needs a measured bottleneck rationale and must not delay G7.
 
-**Current G6: open; boardless preparation started.** The [Phase 6 record](research/PHASE_6_STATUS.md)
-documents a fixed-task certificate contract, independent timeline/placement/resource
-checker and 20 synthetic regressions. S01 remains partial: real-model integration,
-halos, candidate generation and B3 compatibility are outstanding. This isolated
-work does not change the running Phase 5 release or satisfy physical comparisons.
+**Current G6: open; boardless search/semantics/integration milestone passes.**
+The [Phase 6 record](research/PHASE_6_STATUS.md) documents exact/beam search,
+halo/INT32/quantization semantics, 112 regressions, 24 KWS/VWW command replays,
+152 spatial segment checks and four distinct candidate RTL executions. S02's
+small declared search spaces are independently validated; S03 meets runtime/gap
+targets only in the restricted materialized full32/prefer16 catalogue. That
+catalogue yields no gain over full32. S01 still needs fused hardware lowering
+and B3-compatible candidates; S04 still needs matched physical comparisons.
+Further boardless design work remains. All 109 frozen Phase 5 files are intact.
 
 ## P7 — weeks 26–29: collect defensible research evidence
 
