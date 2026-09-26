@@ -111,6 +111,12 @@ measurements remain required for G5.
 
 **G6:** S01–S04 pass and the research claim survives B3. S05 is not required. New INT4/sparsity/16-lane work needs a measured bottleneck rationale and must not delay G7.
 
+**Current G6: open; boardless preparation started.** The [Phase 6 record](research/PHASE_6_STATUS.md)
+documents a fixed-task certificate contract, independent timeline/placement/resource
+checker and 20 synthetic regressions. S01 remains partial: real-model integration,
+halos, candidate generation and B3 compatibility are outstanding. This isolated
+work does not change the running Phase 5 release or satisfy physical comparisons.
+
 ## P7 — weeks 26–29: collect defensible research evidence
 
 - [ ] **E01 — Freeze experimental manifests and run the full matrix.** Run the roadmap's 32 primary and 16 secondary budget/baseline configurations, marking infeasible points. Include common-clock and independently timing-closed comparisons and actual physical builds for area/energy claims. **Done:** complete accuracy/latency/resource/traffic results trace to artifacts; no missing point silently disappears from summaries. **Depends:** G6, B02.

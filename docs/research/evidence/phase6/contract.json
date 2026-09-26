@@ -1,0 +1,386 @@
+{
+  "cycle_costs": "hand-chosen synthetic ticks; no latency prediction claim",
+  "examples": {
+    "disjoint_dma": {
+      "certificate": {
+        "offsets": {
+          "input": 0,
+          "output": 8,
+          "prefetch": 16,
+          "source": 0
+        },
+        "problem_sha256": "20595cde0a99e8ff33abc1317ec2f7f850619cfec8be39ddaf5281c4678906a8",
+        "starts": {
+          "compute": 0,
+          "load": 2
+        }
+      },
+      "problem": {
+        "buffers": [
+          {
+            "alignment": 8,
+            "initial": true,
+            "memory": "scratch",
+            "name": "input",
+            "retain": false,
+            "size": 8
+          },
+          {
+            "alignment": 8,
+            "initial": false,
+            "memory": "scratch",
+            "name": "output",
+            "retain": true,
+            "size": 8
+          },
+          {
+            "alignment": 8,
+            "initial": true,
+            "memory": "external",
+            "name": "source",
+            "retain": false,
+            "size": 8
+          },
+          {
+            "alignment": 8,
+            "initial": false,
+            "memory": "scratch",
+            "name": "prefetch",
+            "retain": true,
+            "size": 8
+          }
+        ],
+        "memories": [
+          {
+            "capacity": 32,
+            "name": "scratch"
+          },
+          {
+            "capacity": 16,
+            "name": "external"
+          }
+        ],
+        "resources": [
+          {
+            "capacity": 1,
+            "name": "engine"
+          },
+          {
+            "capacity": 1,
+            "name": "dma"
+          },
+          {
+            "capacity": 1,
+            "name": "sram_port"
+          }
+        ],
+        "schema": 1,
+        "tasks": [
+          {
+            "duration": 6,
+            "kind": "compute",
+            "name": "compute",
+            "reads": [
+              "input"
+            ],
+            "reservations": [
+              {
+                "begin": 0,
+                "end": 6,
+                "resource": "engine",
+                "units": 1
+              },
+              {
+                "begin": 0,
+                "end": 2,
+                "resource": "sram_port",
+                "units": 1
+              }
+            ],
+            "semantic_id": "example:compute-v1",
+            "writes": [
+              "output"
+            ]
+          },
+          {
+            "duration": 2,
+            "kind": "dma",
+            "name": "load",
+            "reads": [
+              "source"
+            ],
+            "reservations": [
+              {
+                "begin": 0,
+                "end": 2,
+                "resource": "dma",
+                "units": 1
+              },
+              {
+                "begin": 0,
+                "end": 2,
+                "resource": "sram_port",
+                "units": 1
+              }
+            ],
+            "semantic_id": "example:byte-copy-v1",
+            "writes": [
+              "prefetch"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "layout": [
+          {
+            "buffer": "input",
+            "first": 0,
+            "last": 6,
+            "memory": "scratch",
+            "offset": 0,
+            "size": 8
+          },
+          {
+            "buffer": "output",
+            "first": 0,
+            "last": 6,
+            "memory": "scratch",
+            "offset": 8,
+            "size": 8
+          },
+          {
+            "buffer": "source",
+            "first": 0,
+            "last": 4,
+            "memory": "external",
+            "offset": 0,
+            "size": 8
+          },
+          {
+            "buffer": "prefetch",
+            "first": 2,
+            "last": 6,
+            "memory": "scratch",
+            "offset": 16,
+            "size": 8
+          }
+        ],
+        "makespan_ticks": 6,
+        "peak_resource_demand": {
+          "dma": 1,
+          "engine": 1,
+          "sram_port": 1
+        },
+        "problem_sha256": "20595cde0a99e8ff33abc1317ec2f7f850619cfec8be39ddaf5281c4678906a8",
+        "scope": "fixed-task model legality; not numerical equivalence, RTL lowering, or measured latency",
+        "status": "passed",
+        "task_count": 2
+      }
+    },
+    "quantized_chain": {
+      "certificate": {
+        "offsets": {
+          "acc32": 8,
+          "input": 0,
+          "output": 8,
+          "q8": 0
+        },
+        "problem_sha256": "485a21b69edcd60563a98a8bc21f0497c218711edd6aa0ff65a2d6001f483754",
+        "starts": {
+          "mac": 0,
+          "next": 6,
+          "quant": 4
+        }
+      },
+      "problem": {
+        "buffers": [
+          {
+            "alignment": 8,
+            "initial": true,
+            "memory": "scratch",
+            "name": "input",
+            "retain": false,
+            "size": 8
+          },
+          {
+            "alignment": 8,
+            "initial": false,
+            "memory": "scratch",
+            "name": "acc32",
+            "retain": false,
+            "size": 32
+          },
+          {
+            "alignment": 8,
+            "initial": false,
+            "memory": "scratch",
+            "name": "q8",
+            "retain": false,
+            "size": 8
+          },
+          {
+            "alignment": 8,
+            "initial": false,
+            "memory": "scratch",
+            "name": "output",
+            "retain": true,
+            "size": 8
+          }
+        ],
+        "memories": [
+          {
+            "capacity": 64,
+            "name": "scratch"
+          }
+        ],
+        "resources": [
+          {
+            "capacity": 1,
+            "name": "engine"
+          },
+          {
+            "capacity": 1,
+            "name": "sram_port"
+          }
+        ],
+        "schema": 1,
+        "tasks": [
+          {
+            "duration": 4,
+            "kind": "compute",
+            "name": "mac",
+            "reads": [
+              "input"
+            ],
+            "reservations": [
+              {
+                "begin": 0,
+                "end": 4,
+                "resource": "engine",
+                "units": 1
+              },
+              {
+                "begin": 0,
+                "end": 4,
+                "resource": "sram_port",
+                "units": 1
+              }
+            ],
+            "semantic_id": "example:raw-int8-mac-int32-v1",
+            "writes": [
+              "acc32"
+            ]
+          },
+          {
+            "duration": 2,
+            "kind": "requantize",
+            "name": "quant",
+            "reads": [
+              "acc32"
+            ],
+            "reservations": [
+              {
+                "begin": 0,
+                "end": 2,
+                "resource": "engine",
+                "units": 1
+              },
+              {
+                "begin": 0,
+                "end": 2,
+                "resource": "sram_port",
+                "units": 1
+              }
+            ],
+            "semantic_id": "example:fixed-scale-round-saturate-v1",
+            "writes": [
+              "q8"
+            ]
+          },
+          {
+            "duration": 3,
+            "kind": "compute",
+            "name": "next",
+            "reads": [
+              "q8"
+            ],
+            "reservations": [
+              {
+                "begin": 0,
+                "end": 3,
+                "resource": "engine",
+                "units": 1
+              },
+              {
+                "begin": 0,
+                "end": 3,
+                "resource": "sram_port",
+                "units": 1
+              }
+            ],
+            "semantic_id": "example:next-fixed-int8-op-v1",
+            "writes": [
+              "output"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "layout": [
+          {
+            "buffer": "input",
+            "first": 0,
+            "last": 4,
+            "memory": "scratch",
+            "offset": 0,
+            "size": 8
+          },
+          {
+            "buffer": "acc32",
+            "first": 0,
+            "last": 6,
+            "memory": "scratch",
+            "offset": 8,
+            "size": 32
+          },
+          {
+            "buffer": "q8",
+            "first": 4,
+            "last": 9,
+            "memory": "scratch",
+            "offset": 0,
+            "size": 8
+          },
+          {
+            "buffer": "output",
+            "first": 6,
+            "last": 9,
+            "memory": "scratch",
+            "offset": 8,
+            "size": 8
+          }
+        ],
+        "makespan_ticks": 9,
+        "peak_resource_demand": {
+          "engine": 1,
+          "sram_port": 1
+        },
+        "problem_sha256": "485a21b69edcd60563a98a8bc21f0497c218711edd6aa0ff65a2d6001f483754",
+        "scope": "fixed-task model legality; not numerical equivalence, RTL lowering, or measured latency",
+        "status": "passed",
+        "task_count": 3
+      }
+    }
+  },
+  "hardware_executable": false,
+  "phase6_gate_complete": false,
+  "scope": "synthetic fixed-task contract tests only",
+  "source_sha256": {
+    "compiler/scheduler/contract.py": "14066d8f67f740bd0c2d98a21093411a82e3739918c56ab63f6e5a0358634004",
+    "compiler/scheduler/examples.py": "5a414424fe5b3f3971376731a92fc1db69bcdcccec4bafcd1d1a71c70a32a289",
+    "compiler/scheduler/verify.py": "41d85a9feb8c366401b7106804a3c2162e97d3eb8f7c92f347c187d1dfd5073e",
+    "compiler/test_scheduler_contract.py": "1e879423ec32d674b0b05ef37f9c80fcf551826c77f7e5a0138c1f715324ce13",
+    "tools/phase6/check_contract.py": "6193439854b0590f879b743f2c3113d2b911eb780c5447916c3aebbf20314960"
+  },
+  "status": "passed"
+}

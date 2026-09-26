@@ -41,6 +41,7 @@ help:
 	@echo "  p4-test        Run the reproducible Phase 4 simulation tier"
 	@echo "  p5-plan        Pin the balanced 10,000-job audio/vision switch plan"
 	@echo "  p5-audit       Inventory Phase 5 evidence and run its regressions"
+	@echo "  p6-check       Boardless experimental schedule-contract checks"
 	@echo "  heavy-test     Full MLP MNIST cocotb test (requires Verilator)"
 	@echo "                 Pass NUM_IMAGES=N to test N images (default: 2 here)."
 	@echo "  clean          Remove generated artifacts and caches"
@@ -71,6 +72,12 @@ test-compiler:
 
 check-isa:
 	$(PYTHON) tools/generate_i_decoder.py --check
+
+# Isolated research preparation; no board access or Phase 5 payload mutation.
+.PHONY: p6-check
+p6-check:
+	$(PYTHON) -m pytest compiler/test_scheduler_contract.py -q
+	$(PYTHON) tools/phase6/check_contract.py
 
 config:
 	$(PYTHON) generate_config.py
