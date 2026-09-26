@@ -5,7 +5,7 @@ reset-corrected target 8196 completed MLP → SmallCNN → MLP, with 1,000 exact
 inferences and full SRAM image readback at each stage, without reprogramming
 between stages. Both MLP stages had zero integer mismatches or protocol errors.
 See the [physical record](PHYSICAL_BOARD_STATUS.md) for raw evidence and the
-new routed release. G0's remaining research/data/lab items are still open;
+new routed release. [G0 is now closed](PHASE_0_CLOSURE.md) for its research-contract scope;
 board power and energy are unmeasured. The original Phase 2 simulation and
 route results below remain historical evidence for target 8194.
 

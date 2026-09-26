@@ -1,0 +1,18 @@
+{
+  "date": "2026-09-26",
+  "method": "source inspection, not execution",
+  "repository": "https://github.com/KULeuven-MICAS/DeFiNES",
+  "revision": "7097d6090dc22321e44ce91434e7cc23b065864f",
+  "files": [
+    {
+      "path": "classes/stages/DepthFirstStage.py",
+      "sha256": "ed309193187b16affa7ef2000cb3460b7141af90ca72079527e64f240062f715",
+      "url": "https://raw.githubusercontent.com/KULeuven-MICAS/DeFiNES/7097d6090dc22321e44ce91434e7cc23b065864f/classes/stages/DepthFirstStage.py"
+    },
+    {
+      "path": "classes/hardware/architecture/memory_level.py",
+      "sha256": "f2f969555379558fe45e6c23f4ff24980f2d3a0fc8281c3ac2b2603b15bf38c6",
+      "url": "https://raw.githubusercontent.com/KULeuven-MICAS/DeFiNES/7097d6090dc22321e44ce91434e7cc23b065864f/classes/hardware/architecture/memory_level.py"
+    }
+  ]
+}

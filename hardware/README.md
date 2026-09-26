@@ -1,11 +1,10 @@
-**Current physical implementation:** the reset-corrected
-[Phase 4 kernel hierarchy](PHASE_4.md) runs on Tang Nano 20K at the declared
-27-MHz clock. MLP → SmallCNN → MLP passed 1,000 exact jobs per stage, and
-all seven directed kernel cases pass on the board. SDRAM and DMA are not
-integrated. Use the [physical build/program/run workflow](PHYSICAL.md) and
-[results record](../docs/research/PHYSICAL_BOARD_STATUS.md).
-The original Phase 2–4 bitstreams remain historical artifacts with incorrect
-KEY1 polarity; use the new physical release for board execution.
+**Current physical implementation:** [Phase 4](../docs/research/PHASE_4_STATUS.md)
+passes complete KWS/VWW schedules using on-board SDRAM and DMA at a declared
+20.25-MHz core clock. [Phase 5](../docs/research/PHASE_5_STATUS.md) adds a
+750-kbaud dual-resident release; full campaigns and fair baselines have their own
+gate. Use the current phase-specific release instructions, not historical images.
+[Phase 0 is closed](../docs/research/PHASE_0_CLOSURE.md) for claim/data/lab planning;
+physical power is still unmeasured.
 
 # Historical Phase-0 Gowin and board checks
 
@@ -61,7 +60,7 @@ It is an **estimated FPGA power figure**, not board power or energy per inferenc
 Do not publish it as measured energy. The host/USB bridge, regulator losses,
 SDRAM activity and actual inference switching are not established by that report.
 
-## Physical completion procedure (pending)
+## Historical physical completion procedure (September 9)
 
 1. Record board PCB revision and serial adapter identity. Program the generated
    minimal bitstream using Gowin Programmer; record bitstream SHA256.
@@ -79,4 +78,5 @@ SDRAM activity and actual inference switching are not established by that report
 
 No Tang Nano UART device was identified in the serial-device enumeration used
 for this execution. No instrument availability or second FPGA access was supplied.
-R04 is therefore partial despite successful minimal place-and-route.
+At that time R04 was partial. The later minimal readback passed; the current
+[R04 plan and actual capabilities](../docs/research/LAB_MEASUREMENT_PLAN.md) supersede this historical access status.

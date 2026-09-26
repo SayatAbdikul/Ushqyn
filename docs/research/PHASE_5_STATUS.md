@@ -12,7 +12,7 @@ accuracy or the 10,000-job stability gate.
 materialized and hash-verified: 4,890 KWS samples and 10,961 VWW samples.
 The 10,000-job physical switch campaign has started, but its final result is
 not yet available. There is no complete primary board accuracy result, AD
-full-set result, or measured B1/B2/B3 comparison. The physical smoke proves
+INT8/board full-set result, or measured B1/B2/B3 comparison. The physical smoke proves
 programmable dual-model execution, not a Phase 5 or SOTA accelerator claim.
 
 ## Reproducible B01 switch workload
@@ -85,9 +85,11 @@ express DeFiNES's spatial cross-layer tiles or horizontal-overlap
 cache/recompute modes. A faithful B3 therefore requires compiler/RTL support
 or an explicit, justified restricted-policy comparison, not a relabeling of B2.
 
-AD remains a planned third workload. The frozen ToyCar model has a 640-element
-input and reconstruction output. Its model/data manifest says the referenced
-sample contents and full ROC-AUC are unavailable locally. B02 requires the
+AD remains a planned third FPGA workload. The frozen ToyCar model has a 640-element
+input and reconstruction output. [Phase 0 closure](PHASE_0_CLOSURE.md) now pins
+all 248 evaluation recordings and 112 calibration recordings, with source-float
+pooled ROC-AUC 0.880423 on the research reconstruction. This does not close B02's
+INT8/physical quality requirement. B02 requires the
 exact linear reconstruction output, the pinned anomaly score and scoring-time
 boundary, streamed weights, independent integer comparisons and complete-set
 ROC-AUC ≥0.85. Do not replace this with classification argmax or a synthetic

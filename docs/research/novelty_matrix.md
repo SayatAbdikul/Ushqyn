@@ -1,4 +1,4 @@
-# Candidate claim and baseline decision — 2026-09-08
+# Candidate claim and baseline decision — updated 2026-09-26
 
 This is a research decision record, not a novelty or SOTA certification. The
 search was expanded beyond the initial roadmap because close prior work already
@@ -14,7 +14,7 @@ co-optimizes memory and scheduling. A cheap FPGA port alone is not a contributio
 | [msf-CNN](https://arxiv.org/html/2505.11483v3), §§4–6 | Searches multiple fusion blocks using memory/MAC edge costs, horizontal caching and constrained graph search. | Our proposed graph-search mechanism substantially overlaps. Its published MCU formulation is not itself a Gowin bank allocation certificate. Backend extensions remain possible. |
 | [DeFiNES](https://arxiv.org/html/2212.05344v1), §§II–III and artifact | Tile size, fusion depth, overlap caching/recomputation, operand placement across memory levels, data copies, energy and latency. Code explicitly represents physical memory ports. | The useful question is whether executable BSRAM placement/quantization constraints change its best realizable result. “Joint memory and scheduling” and “port aware” are already insufficient claims. |
 | [COSMA](https://arxiv.org/html/2311.18246v1), §III | Joint operator schedule, memory address allocation and tensor replacement; ILP and scalable decomposition. Operators are atomic in the formulation. | Tile-level quantized live state/port timing could distinguish scope, but applying COSMA to a tile graph is a necessary counterargument. |
-| [Depth-First Fusion and Tiling, AccML 2026](https://accml.dcs.gla.ac.uk/papers/2026/8th_AccML_paper_9.pdf) | Recent work again targets CNN memory through fusion/tiling. | Must be included in the next reproduction audit; this search is not an exhaustive September-2026 SOTA review. |
+| [Depth-First Fusion and Tiling, AccML 2026](https://accml.dcs.gla.ac.uk/papers/2026/8th_AccML_paper_9.pdf) | Recent work again targets CNN memory through fusion/tiling. | September 26 method review confirms buffer-liveness/circular-window overlap; implementation reproduction is not claimed. |
 
 ## B3 selection and fair adaptation
 
@@ -70,8 +70,7 @@ If merely supplying accurate Gowin costs to existing algorithms explains the
 benefit, pivot to an implementation/methodology paper or develop a new mechanism;
 do not describe the cost-model port as a new scheduling algorithm.
 
-R01 is partially complete: decision, hypothesis, eligibility and closest baseline
-are frozen; exhaustive full-text and implementation reproduction are still open.
+R01 is complete as a claim/baseline decision gate; the [September 26 audit](PRIOR_WORK_AUDIT.md) refreshes the prior-work boundary and pins inspected source files. Baseline execution/tuning remains B03, and the final submission-time review remains E04. Neither a bounded literature review nor source inspection certifies SOTA.
 
 ## Phase-2 R05 decision — 2026-09-23
 
@@ -80,3 +79,5 @@ implementation constraint, but not a missing capability in DeFiNES. R05 chooses
 the explicit **pivot/continue-with-engineering** branch of its done criterion. A
 new scheduler claim remains provisional and must beat an adapted port-aware
 DeFiNES and tile-expanded COSMA; no SOTA outcome is inferred from phase-2 fit.
+
+The September 26 audit also includes [MATCHA](https://arxiv.org/html/2604.09124v1) and a [RISC-V depthwise accelerator](https://arxiv.org/html/2511.21232v1). Their heterogeneous-FP16 and layer-level execution boundaries make them contextual comparisons, not interchangeable Tang20K measurements.

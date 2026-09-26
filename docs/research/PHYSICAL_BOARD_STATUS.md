@@ -146,8 +146,9 @@ passes at the declared configuration; no frequency sweep or temperature/voltage
 qualification has been performed.
 
 H05/G2's on-chip physical execution/readback/counter/route requirements pass.
-G0 remains partial because instrument access, PCB/second-target details, AD
-provenance and research audit items remain open. C03's repeated-board and layer
+At this bring-up stage G0 remained partial. The [September 26 closure](PHASE_0_CLOSURE.md)
+now completes its data/claim/lab-plan contract; instrument and second-target access
+still remain later-phase dependencies, and the PCB silkscreen revision is unknown. C03's repeated-board and layer
 checks and complete 10,000-image board comparison pass. For this baseline,
 G3's C01/C02 architecture work (broader reuse, multi-tile accumulation and
 streaming line buffers) was unfinished in this baseline. The v5 line-buffer

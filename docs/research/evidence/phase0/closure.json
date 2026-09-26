@@ -1,0 +1,60 @@
+{
+  "status": "passed",
+  "date": "2026-09-26",
+  "g0_contract_complete": true,
+  "scope": "claim/data/provenance/lab-plan freeze; manual claim decisions in linked review; no SOTA or power certification",
+  "workloads": {
+    "kws": {
+      "source_files_verified": 36,
+      "manifest_sha256": "c05b02d7877f23a0034bdddb89a9c5225222936a9519ed3f25e19a628b0e03d4",
+      "data_manifest_sha256": "074cc6a727403f026803e67c49e050f3e3dce0df46343f61b24c138846e12e9e",
+      "canonical_inventory_sha256": "c66cff83065c39d176f2c289e3b707f258e3a30f6a8fad912e0e46d38675f0d1",
+      "calibration_vectors": 96,
+      "accuracy_vectors": 4890,
+      "macs_per_vector": 2656768
+    },
+    "vww": {
+      "source_files_verified": 27,
+      "manifest_sha256": "ddec336921cf35abf7e44d8345167753c2fcc6d6fbd4e687127f9e6513dcec0f",
+      "data_manifest_sha256": "3771b2689492a3e7b6b3a1a55619ef3d283005e89c5253280e82ee069e44372c",
+      "canonical_inventory_sha256": "43e05faf97353b47488b5b452697376e89a978f8c57b71d28874ad27d232a18d",
+      "calibration_vectors": 11,
+      "accuracy_vectors": 10961,
+      "macs_per_vector": 7489664
+    },
+    "ad": {
+      "source_files_verified": 39,
+      "manifest_sha256": "93d66ce890147ad34fb38f63ad333170b70f7e10c6ea217a9af42b1562c8431b",
+      "data_manifest_sha256": "dd7c6275ebf1e2678c07357b009464b47f5a127a4e0c8a790d95ff0a46969990",
+      "canonical_inventory_sha256": "afb462e2725cb739750a8016c699bbed76edca47c81c5d0afeaf35d35a4ef916",
+      "calibration_vectors": 21952,
+      "accuracy_vectors": 48608,
+      "macs_per_vector": 264192
+    }
+  },
+  "artifact_sha256": {
+    "docs/research/novelty_matrix.md": "a4eefe795205b2a9c8310fe5c2345b2bca9edb66fad447275ab767eb2a2dc359",
+    "docs/research/PRIOR_WORK_AUDIT.md": "c965208ac78a9c947d8ec20ba20dc132552f87e9247b79e0be25f2d6277d7b48",
+    "docs/research/LAB_MEASUREMENT_PLAN.md": "ce9353c8d7b88d3424c303f62470f451372278287c73b5bcdcb616b7ac9c1130",
+    "docs/research/PHASE_0_CLOSURE.md": "280bc716d8d7f6a387e9ad54529a35eef37ffbbc5b3f8f0c9e674960fe06e51e",
+    "docs/research/evidence/phase0/prior-code.json": "a1cb1934afcfacd96be0281ffcdb7c5b57e3bb653432bb2b8d167f2da6bdd8f0",
+    "docs/research/evidence/baseline.json": "47cee015c019d38bdeec4c0b64eaef56887311653205f44997be43dd7493c329",
+    "docs/research/evidence/physical/summary.json": "3184f868eaa28a8a5ec64e4013a89bc27b67b7033c0b765ebb5bfd2f54f1aa0e",
+    "docs/research/evidence/physical/uart-readback.json": "c5f4cb0913b352bbc98e2e159c1f2e2443bb5d86ef8896ac7d0c0157a8bab49c",
+    "tools/research/ad-preprocessing.lock.txt": "f5106bf71678fbd2bfb1cc4a3f652a2644bb7d0da0a0fa2004c91eac965cc2e1",
+    "tools/research/audit_phase0.py": "4814d8456a515e200a281b003b1ef5841826815b186d627d2c861724c56fe9b3"
+  },
+  "primary_calibration_payloads_recomputed_this_audit": false,
+  "primary_calibration_provenance": "frozen Phase1 per-record hashes and calibration reports; local accuracy payload hashes reverified",
+  "measured_energy_available": false,
+  "second_fpga_available": false,
+  "pcb_revision": null,
+  "official_mlperf_submission_certified": false,
+  "later_gates": [
+    "B02: AD INT8 and physical evaluation",
+    "B03: matched tuned B1/B2/B3",
+    "E02: obtain instrument and measure energy",
+    "E03: second-target validation",
+    "E04: independent reproduction and final prior-work refresh"
+  ]
+}

@@ -42,8 +42,9 @@ Those rejected routes are preserved under `docs/research/evidence/`. They were
 replaced by source-framework conversion, not by loosening tolerances.
 `*.canonical-inventory.json` describes these actual ONNX graphs separately from
 the published INT8 TFLite inventories; MAC counts agree for all three workloads.
-AD conversion/canonicalization passes, but its dataset/calibration and ROC-AUC
-remain unverified. That portion of R02 remains open.
+AD conversion/canonicalization passes. The September 26 freeze below completes
+its data/calibration provenance and source-float ROC-AUC. INT8/FPGA AD quality
+remains later-phase work.
 
 The accelerator boundary is **integer logits**, followed by host argmax (first
 index on ties); no probability output is promised. Explicit boundary records are
@@ -51,13 +52,14 @@ in `*.boundary.json`. Software v2 supports the complete KWS/VWW logits graphs.
 Independent centered-input integer arithmetic matches every intermediate layer
 on three selected real inputs per primary workload. This is a directed all-layer
 check, not a claim of independent-oracle evaluation of every accuracy sample.
-The current RTL cannot execute v2 images and requesting that target rejects.
+At the September 9 software gate, RTL execution of v2 images was unavailable;
+subsequent phase records document corrected physical execution.
 
 ## Evidence map
 
 * `{kws,vww,ad}.json`: immutable source files, evaluator and model hashes.
 * `dataset-archives.json`: exact archive URLs, sizes and SHA256 before extraction.
-* `{kws,vww}.data.json`: every calibration/accuracy sample ID, raw and feature
+* `{kws,vww,ad}.data.json`: every calibration/accuracy sample ID, raw and feature
   SHA256, label and preprocessing recipe; NPZ payload hashes.
 * `*.calibration.json`: every intermediate float range and calibration provenance.
 * `*.build.json`: source/logits/canonical graph, image, numerical code and
@@ -137,3 +139,59 @@ INT8 model and `inventory_onnx.py INPUT REPORT --classifier` on KWS/VWW converte
 ONNX (omit `--classifier` for AD). Every output tensor and required operator must
 remain accounted for. Do not use full-dataset accuracy as a substitute for exact
 integer implementation checks or physical board validation.
+
+## AD data freeze — September 26, 2026
+
+`ad.raw-data.json` and `ad.data.json` close the missing AD data provenance.
+All 248 evaluation recordings in the pinned CSV are present, producing 48,608
+five-frame inputs. Research calibration selects 16 evenly spaced recordings
+from each of seven IDs in the upstream list: 112 clips / 21,952 inputs. This
+prospective subset is not the full 1,400-clip upstream calibration set. Labels,
+selection, raw bytes, histogram/windows, preprocessing source and payloads are
+hash-pinned, and calibration/evaluation content is disjoint.
+
+Reconstruct from the public [development](https://doi.org/10.5281/zenodo.3678171)
+and [additional training](https://doi.org/10.5281/zenodo.3727685) ToyCar archives
+under CC-BY-NC-SA-4.0. The downloader only retrieves selected ZIP members,
+checks CRC and pins their SHA256. It records the publisher's whole-archive MD5
+without claiming to verify that digest through partial downloads. WAV/NPZ files
+stay in ignored `work/`; do not redistribute source audio as part of Git.
+
+Use Python 3.11 for the isolated legacy preprocessing environment:
+
+```sh
+python3.11 -m venv work/phase0-ad-venv
+work/phase0-ad-venv/bin/pip install -r tools/research/ad-preprocessing.lock.txt
+.venv/bin/python3 tools/research/fetch_artifacts.py benchmarks/manifests/ad.json work/upstream
+.venv/bin/python3 tools/research/fetch_ad_data.py --upstream work/upstream --output work/phase0-ad
+work/phase0-ad-venv/bin/python tools/research/prepare_ad_data.py --upstream work/upstream --data work/phase0-ad --output work/phase0-ad/features
+```
+
+The preprocessing script runs the two hash-checked upstream functions with
+librosa **0.6.0**, restoring removed NumPy/Numba/joblib API names for Python 3.11.
+It does not silently substitute modern librosa defaults. Check generated NPZ and
+content hashes against the committed manifest; rebuilding does not overwrite
+that manifest. Platform-induced numerical drift requires investigation and an
+explicit new manifest, not ignoring the mismatch.
+
+Input NPZ arrays have shape `(windows, 1, 640)` under `input_1`. `recording_index`
+groups 196 windows into each recording; `recording_labels` gives recording-level
+labels. AD quality averages squared reconstruction error over features and all
+windows before computing recording-level ROC-AUC. A 264,192-MAC inference is
+**one window**, not an entire recording. Report those throughput units clearly.
+
+The source-float model obtains pooled ROC-AUC 0.880423 (machine-ID macro 0.882275)
+on this reconstruction. Source→ONNX and canonical ONNX pass 32 additional real
+inputs at `atol=1e-5`, `rtol=1e-4`. This is not an INT8/FPGA result or proof of
+parity to the official preprocessed `.bin` files. Reproduce after setting up
+the conversion environment documented above:
+
+```sh
+work/phase4/convert-venv/bin/python tools/research/convert_keras.py work/upstream/benchmark/training/anomaly_detection/trained_models/ad01.h5 work/ad-float.onnx work/ad-current-parity.json
+work/phase4/convert-venv/bin/python tools/research/verify_ad_model.py --source work/upstream/benchmark/training/anomaly_detection/trained_models/ad01.h5 --onnx work/ad-float.onnx --data work/phase0-ad/features/ad.accuracy.npz --manifest benchmarks/manifests/ad.data.json --report work/ad-real-input-parity.json
+.venv/bin/python3 tools/research/audit_phase0.py --report work/phase0-audit.json
+```
+
+The final audit also needs the KWS/VWW source caches and accuracy archives from
+their reproduction recipes. See [Phase 0 closure](../docs/research/PHASE_0_CLOSURE.md)
+for evidence, acceptance scope and remaining later-phase dependencies.
