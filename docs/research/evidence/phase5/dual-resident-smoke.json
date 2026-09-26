@@ -1,0 +1,59 @@
+{
+  "baud": 750000,
+  "bitstream_sha256": "9a0cf45477b8602b97a2ab81cbf5ae0e09a8c95bbfcd174cf1998a1b938e5ed1",
+  "campaign": "switch",
+  "command_program_sha256": "f2f66838a275ceffb95664c27bd49a2e578c1643d98ad3bdfee85fb13c192681",
+  "external_locations": {
+    "kws": {
+      "entry": 0,
+      "external_base": 0
+    },
+    "vww": {
+      "entry": 317,
+      "external_base": 1048576
+    }
+  },
+  "full_campaign": false,
+  "job_plan_sha256": "6ad5398fd6983947fe8ef5e85e2a261bdd54195876a6e243e063446d86a64dbe",
+  "jobs_completed": 4,
+  "jobs_planned": 4,
+  "metrics": {
+    "kws": {
+      "accuracy": 1.0,
+      "correct": 2,
+      "jobs": 2,
+      "median_cycles": 5688374.0,
+      "median_wall_seconds": 0.3480783544946462
+    },
+    "vww": {
+      "accuracy": 1.0,
+      "correct": 2,
+      "jobs": 2,
+      "median_cycles": 18300955.5,
+      "median_wall_seconds": 3.517066020402126
+    }
+  },
+  "model_load_events": [
+    {
+      "bytes": 52960,
+      "image_sha256": "6bd9ee5d19311282b867fa85a030b88c1b5c957b41a4fd89e0b38831d92bf1fe",
+      "seconds": 9.941113792126998,
+      "workload": "kws"
+    },
+    {
+      "bytes": 348512,
+      "image_sha256": "25dadec0589a76868ee7f711e11fb695cf470cc7f70d48a8de65d1b24d7af32c",
+      "seconds": 66.29247887502424,
+      "workload": "vww"
+    }
+  ],
+  "output_mismatches": 0,
+  "physical_board": true,
+  "records_sha256": "ec8cce544c7a5f6be01ff386ab59dc13b50532fac5a9ef1c85b09eec64bfb584",
+  "reflash_events": 0,
+  "split_sha256": {
+    "kws": "66f6b5cd75410e7b7b5d483dab8e48c363256822a066689fe895041c7941b8ac",
+    "vww": "fc57a65876dae96143e22296c334e4a82cd3dba2b99b8299b28fc337d41fb2b0"
+  },
+  "status": "passed-probe"
+}

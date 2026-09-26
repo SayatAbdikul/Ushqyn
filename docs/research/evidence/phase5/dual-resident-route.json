@@ -1,0 +1,78 @@
+{
+  "bitstream_path": "hardware/releases/phase5/dual_resident_750k.fs",
+  "bitstream_sha256": "9a0cf45477b8602b97a2ab81cbf5ae0e09a8c95bbfcd174cf1998a1b938e5ed1",
+  "core_clock_mhz": 20.25,
+  "device": "GW2AR-LV18QN88C8/I7",
+  "generated_ip_path": "work/phase4/ip-generated/sdram_controller_hs.v",
+  "generated_ip_sha256": "3166bcfd473e7af6cbf80110ad952279c0209821dbbde4ee26d8a2d558dcee3d",
+  "physical_smoke_artifacts": {
+    "dual-resident-smoke.json": "12673f1cc49254bb11a98b4e6de64a214ccd6df53484ad1e9d4c3e86cb7d66c3",
+    "dual-resident-smoke.jsonl": "ec8cce544c7a5f6be01ff386ab59dc13b50532fac5a9ef1c85b09eec64bfb584"
+  },
+  "power_scope": "Gowin report is an estimate, not physical power or energy",
+  "program_log_archive": "dual-resident-program.txt.gz",
+  "program_log_archive_sha256": "54f1abbbb87baaf42a05e6c3452ef595e209708850fa698c4adb873cc5c0b059",
+  "program_log_sha256": "c1639cf3ead380d71c9125ac2dcbd45228893b80718924280d53cd7e4f125713",
+  "reports": {
+    "power_estimate": {
+      "archive": "dual-resident-power_estimate.txt.gz",
+      "archive_sha256": "e846e9301c72243592279aff5aa5a8f8887725ef0cf8038d339fffa2514c099e",
+      "raw_sha256": "4c64833b5947da95f4d5c2524e320480ab9c1c5d6e20a74e76d60cec4c64f916"
+    },
+    "route": {
+      "archive": "dual-resident-route.txt.gz",
+      "archive_sha256": "f5e5a068ce77f1d929d93ae5676228c5b1a397b48aa8d52941d75acd26978bd9",
+      "raw_sha256": "d4ae52d6c96459fbdbd09158d7e102dc418bed0451574b7568eac4f0d785b4ee"
+    },
+    "timing": {
+      "archive": "dual-resident-timing.txt.gz",
+      "archive_sha256": "1c062aa4b852623625b010fe36813a19a5f7fb91ad4fe82a783280120dab4300",
+      "raw_sha256": "84df8ea6de22efa21177ae5c7ed52b6fd0935bbbdb2a74dc30e98adad1876cc4"
+    }
+  },
+  "resources": {
+    "bsram": {
+      "available": 46,
+      "used": 34.0
+    },
+    "dsp": {
+      "available": 24,
+      "used": 19.75
+    },
+    "logic": {
+      "available": 20736,
+      "used": 14463.0
+    },
+    "register": {
+      "available": 15915,
+      "used": 4881.0
+    }
+  },
+  "routed_core_fmax_mhz": 22.668,
+  "schema": 1,
+  "scope": "physical 4-job alternating smoke; full Phase 5 accuracy and stability remain separate",
+  "setup_tns_ns": 0.0,
+  "source_sha256": {
+    "hardware/phase4_sdram/bist.sdc": "6d8bbb0169f52a717de400a89fb3046edcd07ee3c16a0e2997a2aec7a1e56f6b",
+    "hardware/phase4_sdram/pll_dma_20.v": "104341319eead08208f9da7849ba34c751098e0d4290d6819d4968294953114f",
+    "hardware/phase4_sdram/sdram_controller_hs.ipc": "17a51b5650496a041f86cf28477237ab9eacc88044e7ac26366285e0f2876288",
+    "hardware/phase4_sdram/tiled_host.cst": "c643c6e072d3ce570a8bb87637845b250594ce095b33ae27a273e6afb748445d",
+    "hardware/phase5/build_tiled_host.tcl": "333332b22d62e75a84ce188647e939d784803f0c13388e110ec5636d4b36f384",
+    "hardware/phase5/tiled_host.sv": "3b1b9d7ab457fc38fc62c5689a148c2d57913ded29391de424549bbe52530c51",
+    "rtl/v2/command.sv": "e574d1eec72d747931707a37ca79a45718dffb1ddae8cca88301a496c9ab67b7",
+    "rtl/v2/engine.sv": "4b8300050934959a627249fca9d7be74a594757abd162ab4710510aaa71cb122",
+    "rtl/v2/hs_sdram_burst_port.sv": "3eb45a79185c09d822e2cb8398ce4cc2413478daa232a3178baa8c7e05859dc0",
+    "rtl/v2/requantizer.sv": "e40913b484ad629d2445cdfb3edf16d6508f273ce0d4a5855d114780fe0a9e4b",
+    "rtl/v2/scratchpad.sv": "bfdab92e5f5f039e102b76fad82fe6a8df2d7f64d1b2cffd23cc677626654cd2",
+    "rtl/v2/sdram_refresh.sv": "9b9bfb8c05011ce2d84e9838697ab65ec587dfb3310684d4c37b853e8dcb21ec",
+    "rtl/v2/target_pkg.sv": "52e649f8911e92452cfef5cce9b1ad4e5dd75d20f4a725c67ee391fe75daae6e",
+    "rtl/v2/tile_dma.sv": "94e94a4a8c474fd2f0824dff3cc64bca921262cd9e0bf53064713376c1a09ab9",
+    "rtl/v2/tile_sequencer.sv": "defa57da3cd7748d28a628e8e09eb8a843d7a02aa29d9386b3e5d99dcb8e8f0e",
+    "rtl/v2/tiled_core.sv": "30b7ec281a044e10e50209204dbd4a99e56768edb422fe8e1fc22fde6e661068",
+    "rtl/v2/tiled_host_bridge.sv": "6ce7c9a03b5ec547fe509b296ea11631c1dafef06664e7bec37f72c60a1a9a9d",
+    "rtl/v2/uart_rx.sv": "4c5499b744202962204c4179b977e2e7fc6e4cc236250e12095d4c9d7681d337",
+    "rtl/v2/uart_tx.sv": "a3ace5523e30af83438478ad82f54a12fcd5aca07e38dbc4e3b46cc46f3af1f1"
+  },
+  "status": "passed-smoke",
+  "uart_baud": 750000
+}

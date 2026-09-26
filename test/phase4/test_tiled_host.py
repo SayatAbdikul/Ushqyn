@@ -248,6 +248,22 @@ async def uart_packet_tile_program_uses_sdram_window_and_dma(d):
             expected = all_outputs[program.layers[index].output].tobytes()
             assert await read(0x800000+region['ext'], region['bytes']) == expected
 
+    # Two resident schedules may start at different command records without
+    # rewriting the full command BSRAM between audio and vision jobs.
+    await write(0x500000 + 64 * 16, bytes(16))
+    await write(0x41001c, (64).to_bytes(2, 'little'))
+    assert await read(0x41001c, 2) == (64).to_bytes(2, 'little')
+    await write(0x410000, b'\x01')
+    for _ in range(1000):
+        if not int(d.seq_busy.value):
+            break
+        await step()
+    else:
+        raise AssertionError('nonzero entry schedule timeout')
+    registers = await read(0x410000, 32)
+    assert registers[1] == 0 and int.from_bytes(registers[24:28], 'little') == 64
+    await write(0x41001c, bytes(2))
+
     # Invalid autonomous memory ranges fail closed; RESET clears sequencer
     # errors without changing the existing host-command ABI.
     import struct

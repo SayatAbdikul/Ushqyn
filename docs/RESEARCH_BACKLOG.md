@@ -95,9 +95,11 @@ See [Phase 4 closure](research/PHASE_4_STATUS.md) and the
 
 **Current G5: open.** The [Phase 5 status](research/PHASE_5_STATUS.md)
 pins a deterministic 10,000-job audio/vision switch plan and a fail-closed
-readiness audit. G4 now passes, including autonomous complete-model board runs
-for one deterministic input per workload. Complete accuracy/stress campaigns
-and matched B1/B2/B3 measurements remain required for G5.
+readiness audit. G4 now passes, and the routed dual-resident Phase 5 image has
+passed four alternating, byte-exact physical jobs without reflashing. Both
+frozen accuracy payloads are materialized, and the full switch run is in
+progress. Complete accuracy/stress campaigns and matched B1/B2/B3
+measurements remain required for G5.
 
 ## P6 — weeks 21–25: prove the proposed mechanism matters
 

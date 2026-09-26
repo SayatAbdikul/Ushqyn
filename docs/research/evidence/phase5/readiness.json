@@ -6,6 +6,7 @@
   "physical_scope": "physical on-chip accelerator validation; no SDRAM or complete KWS/VWW",
   "schedule_sha256": "6ad5398fd6983947fe8ef5e85e2a261bdd54195876a6e243e063446d86a64dbe",
   "schedule_jobs": 10000,
+  "dual_resident_release_sha256": "9a0cf45477b8602b97a2ab81cbf5ae0e09a8c95bbfcd174cf1998a1b938e5ed1",
   "software_quality_only": {
     "kws": {
       "count": 4890,
@@ -26,29 +27,28 @@
   },
   "scratchpad_bytes": 32768,
   "checks": {
-    "integrated_sdram_controller": false,
-    "integrated_dma": false,
-    "complete_primary_model_rtl": false,
+    "integrated_sdram_controller": true,
+    "integrated_dma": true,
+    "complete_primary_model_rtl": true,
     "physical_board_programmed": true,
-    "kws_image_available": false,
-    "vww_image_available": false,
-    "kws_accuracy_payload_available": false,
-    "vww_accuracy_payload_available": false,
-    "primary_board_run_report_available": false,
+    "kws_image_available": true,
+    "vww_image_available": true,
+    "kws_accuracy_payload_available": true,
+    "vww_accuracy_payload_available": true,
+    "primary_board_run_report_available": true,
     "ad_full_set_report_available": false,
-    "matched_baseline_report_available": false
+    "matched_baseline_report_available": false,
+    "dual_resident_release_smoke": true,
+    "kws_complete_board_accuracy": false,
+    "vww_complete_board_accuracy": false,
+    "balanced_10000_board_jobs": false
   },
   "missing": [
-    "integrated_sdram_controller",
-    "integrated_dma",
-    "complete_primary_model_rtl",
-    "kws_image_available",
-    "vww_image_available",
-    "kws_accuracy_payload_available",
-    "vww_accuracy_payload_available",
-    "primary_board_run_report_available",
     "ad_full_set_report_available",
-    "matched_baseline_report_available"
+    "matched_baseline_report_available",
+    "kws_complete_board_accuracy",
+    "vww_complete_board_accuracy",
+    "balanced_10000_board_jobs"
   ],
   "g5_certified": false
 }

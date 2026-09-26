@@ -53,6 +53,7 @@ module v2_tiled_host_bridge #(
     logic [11:0] seq_index;
     logic [23:0] seq_pc, seq_dma_ext, seq_dma_sram;
     logic [31:0] seq_dma_length, seq_elapsed, seq_engine_cycles, seq_dma_cycles, seq_overlap;
+    logic [10:0] seq_entry_index;
     logic [63:0] seq_host_rdata, seq_reg_rdata;
     wire seq_program_region = command_addr>=24'h500000 && command_addr<24'h508000;
     wire seq_control_region = command_addr>=24'h410000 && command_addr<24'h410020;
@@ -119,7 +120,8 @@ module v2_tiled_host_bridge #(
     );
 
     v2_tile_sequencer sequencer (
-        .clk(clk), .rst_n(rst_n), .start(seq_start), .abort_run(abort_command),
+        .clk(clk), .rst_n(rst_n), .start(seq_start), .start_index(seq_entry_index),
+        .abort_run(abort_command),
         .busy(seq_busy), .abort_units(seq_abort), .error_code(seq_error),
         .elapsed(seq_elapsed), .engine_cycles(seq_engine_cycles),
         .dma_cycles(seq_dma_cycles), .overlap_cycles(seq_overlap), .command_index(seq_index),
@@ -132,18 +134,26 @@ module v2_tiled_host_bridge #(
         .dma_ext(seq_dma_ext), .dma_sram(seq_dma_sram), .dma_length(seq_dma_length),
         .dma_busy(dma_busy || dma_pending), .dma_error(dma_error)
     );
-    wire [255:0] seq_registers = {32'd0, 20'd0,seq_index, seq_overlap,
+    wire [255:0] seq_registers = {21'd0,seq_entry_index, 20'd0,seq_index, seq_overlap,
         seq_dma_cycles, seq_engine_cycles, seq_elapsed, 32'h34514553,
         16'd0, seq_error, 7'd0,seq_busy};
     always_ff @(posedge clk or negedge rst_n) begin
-        if (!rst_n) begin seq_start<=0;seq_reg_rvalid<=0;seq_reg_rdata<=0;end
+        if (!rst_n) begin
+            seq_start<=0;seq_entry_index<=0;seq_reg_rvalid<=0;seq_reg_rdata<=0;
+        end
         else begin
             seq_start<=0;
             seq_reg_rvalid<=command_req && seq_control_region && !command_wr;
             if (command_req && seq_control_region) begin
                 if (!command_wr) seq_reg_rdata<=seq_registers >> (command_addr[4:0]*8);
-                else if (command_addr[4:0]==0 && command_wstrb[0] && command_wdata[0])
-                    seq_start<=1;
+                else if (!seq_busy) begin
+                    if (command_addr[4:0]==0 && command_wstrb[0] && command_wdata[0])
+                        seq_start<=1;
+                    if (command_addr[4:0]==24) begin
+                        if (command_wstrb[4]) seq_entry_index[7:0]<=command_wdata[39:32];
+                        if (command_wstrb[5]) seq_entry_index[10:8]<=command_wdata[42:40];
+                    end
+                end
             end
         end
     end

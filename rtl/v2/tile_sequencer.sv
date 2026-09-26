@@ -4,6 +4,7 @@
 // 2 RUN (PC, {live_end16,live_base16}, 0); 3 WAIT (flags: engine=1,DMA=2).
 module v2_tile_sequencer (
     input logic clk, rst_n, start, abort_run,
+    input logic [10:0] start_index,
     output logic busy, abort_units,
     output logic [7:0] error_code,
     output logic [31:0] elapsed, engine_cycles, dma_cycles, overlap_cycles,
@@ -76,7 +77,7 @@ module v2_tile_sequencer (
             else case (state)
                 IDLE: if (start) begin
                     busy<=1;error_code<=0;elapsed<=0;engine_cycles<=0;
-                    dma_cycles<=0;overlap_cycles<=0;command_index<=0;
+                    dma_cycles<=0;overlap_cycles<=0;command_index<={1'b0,start_index};
                     state<=FETCH0;
                 end
                 FETCH0: if (memory_ready) state<=READ0;

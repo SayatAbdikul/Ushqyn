@@ -1,0 +1,90 @@
+{
+  "models": {
+    "kws": {
+      "B1": {
+        "calibration_sha256": "96d7614d7c9404ea42178caf54a286fa04ee0d72b6c02a01e011895573df1997",
+        "command_count": 221,
+        "commands_bytes": 3536,
+        "commands_sha256": "4ca2b7242654911a5c9eed8de6729ba65f9abd32160a24037f513018903213ca",
+        "dma_payload_bytes": 322006,
+        "final_output": {
+          "bytes": 12,
+          "ext": 0
+        },
+        "half_scratchpad_preference": false,
+        "max_live_scratch_bytes": 21248,
+        "overlap": false,
+        "payload_bytes": 51936,
+        "payload_sha256": "b5b67a01bb73eb7204a08cfbebd6b050fa2271b752a0a34058e1736a02efa05d",
+        "policy": "largest-fitting layer-wise tiles, serialized DMA",
+        "prefetch_payload_bytes": 0,
+        "source_onnx_sha256": "074aacbdd17f488e7717e5ab2add811341569e71023d9b778ce472e27991d8de",
+        "tile_count": 20
+      },
+      "B2": {
+        "calibration_sha256": "96d7614d7c9404ea42178caf54a286fa04ee0d72b6c02a01e011895573df1997",
+        "command_count": 317,
+        "commands_bytes": 5072,
+        "commands_sha256": "c7ff74dbd02c1655450672c02b20d400b021301bb85b1bc47f7ba01dd60201c6",
+        "dma_payload_bytes": 354006,
+        "final_output": {
+          "bytes": 12,
+          "ext": 0
+        },
+        "half_scratchpad_preference": true,
+        "max_live_scratch_bytes": 16328,
+        "overlap": true,
+        "payload_bytes": 52960,
+        "payload_sha256": "6bd9ee5d19311282b867fa85a030b88c1b5c957b41a4fd89e0b38831d92bf1fe",
+        "policy": "prefer 16-KiB alternate-bank regions with 32-KiB fallback and legal DMA prefetch",
+        "prefetch_payload_bytes": 69248,
+        "source_onnx_sha256": "074aacbdd17f488e7717e5ab2add811341569e71023d9b778ce472e27991d8de",
+        "tile_count": 28
+      }
+    },
+    "vww": {
+      "B1": {
+        "calibration_sha256": "03dcc62a292a0b98e490026e50c1002a4b287e2910a5c54d89c894c22d5015d5",
+        "command_count": 831,
+        "commands_bytes": 13296,
+        "commands_sha256": "5974a335464991822a746729b63d8a09f54bf0d5c2d305bdf5da4e4ba058d2c8",
+        "dma_payload_bytes": 1359570,
+        "final_output": {
+          "bytes": 2,
+          "ext": 0
+        },
+        "half_scratchpad_preference": false,
+        "max_live_scratch_bytes": 32768,
+        "overlap": false,
+        "payload_bytes": 344416,
+        "payload_sha256": "df45265dafc280b7f5c37d95802fe08921b81a599b22d5c17309f1b8c1a3a6d6",
+        "policy": "largest-fitting layer-wise tiles, serialized DMA",
+        "prefetch_payload_bytes": 0,
+        "source_onnx_sha256": "42090afcfdd84130b4e9c0b3fca8993b138f9509d620de2fe915c71adef893b7",
+        "tile_count": 75
+      },
+      "B2": {
+        "calibration_sha256": "03dcc62a292a0b98e490026e50c1002a4b287e2910a5c54d89c894c22d5015d5",
+        "command_count": 1193,
+        "commands_bytes": 19088,
+        "commands_sha256": "58f3c622e420191097e8c0014d817905e3c3c018504b85e10a2e4922ec6a7181",
+        "dma_payload_bytes": 1434626,
+        "final_output": {
+          "bytes": 2,
+          "ext": 0
+        },
+        "half_scratchpad_preference": true,
+        "max_live_scratch_bytes": 32528,
+        "overlap": true,
+        "payload_bytes": 348512,
+        "payload_sha256": "25dadec0589a76868ee7f711e11fb695cf470cc7f70d48a8de65d1b24d7af32c",
+        "policy": "prefer 16-KiB alternate-bank regions with 32-KiB fallback and legal DMA prefetch",
+        "prefetch_payload_bytes": 492672,
+        "source_onnx_sha256": "42090afcfdd84130b4e9c0b3fca8993b138f9509d620de2fe915c71adef893b7",
+        "tile_count": 107
+      }
+    }
+  },
+  "schema": 1,
+  "scope": "preliminary B1/B2 compilation; no baseline latency or B3 claim"
+}

@@ -6,11 +6,34 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from audit import audit
+from audit import audit, inspect_dual_release
 from schedule import ROOT, build_jobs, create_plan, draw_indices, load_split
 
 
 class Phase5Test(unittest.TestCase):
+    def test_dual_resident_archive_rejects_smoke_tampering(self):
+        source = ROOT / 'docs/research/evidence/phase5/dual-resident-route.json'
+        record = json.loads(source.read_text())
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            paths = [source.relative_to(ROOT), Path(record['bitstream_path'])]
+            folder = source.parent
+            paths += [(folder / entry['archive']).relative_to(ROOT)
+                      for entry in record['reports'].values()]
+            paths += [(folder / record['program_log_archive']).relative_to(ROOT)]
+            paths += [(folder / name).relative_to(ROOT)
+                      for name in record['physical_smoke_artifacts']]
+            for path in paths:
+                destination = root / path
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copyfile(ROOT / path, destination)
+            self.assertEqual(inspect_dual_release(root)['status'], 'passed-smoke')
+            rows = root / 'docs/research/evidence/phase5/dual-resident-smoke.jsonl'
+            with rows.open('ab') as stream:
+                stream.write(b'changed')
+            with self.assertRaisesRegex(ValueError, 'smoke hash mismatch'):
+                inspect_dual_release(root)
+
     def test_frozen_balanced_switch_plan(self):
         manifests = {
             name: load_split(ROOT / f'benchmarks/manifests/{name}.data.json')[0]
