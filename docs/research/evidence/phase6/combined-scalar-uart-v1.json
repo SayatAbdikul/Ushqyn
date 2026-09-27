@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "status": "passed-boardless-route",
+  "physical_board": false,
+  "candidate": {
+    "label": "combined-spec-scalar-uart-v1",
+    "engine": "work/phase6/experiments-v1/combined-spec-scalar-uart-v1/engine.sv",
+    "engine_sha256": "83fb17213cf3258a7b85bdfa663d43d54a5875a651393e909e88a4a64cc13939",
+    "identity": "work/phase6/experiments-v1/combined-spec-scalar-uart-v1/identity.json",
+    "identity_sha256": "498a239162263091921ae9a4ff8e73a49532771306f5572879d955db39fe236f",
+    "driver": "tools/phase6/combined_scalar_uart.py",
+    "parent_engine": "work/phase6/experiments-v1/combined-spec-scalar-v1/engine.sv",
+    "engine_byte_identical_to_parent": true,
+    "bridge": "rtl/phase6/uart_burst_bridge.sv"
+  },
+  "validation": {
+    "engine_cocotb": "3 of 3 passed",
+    "scalar_activation_edge_cocotb": "1 of 1 passed",
+    "native_full_models": "24 of 24 KWS/VWW pinned/stress, serial/overlap, fixed/stalled RAM cases passed",
+    "uart_burst_bridge_integration_cocotb": "2 of 2 passed, including tiled-host integration",
+    "reports": {
+      "engine": ["work/phase6/experiments-v1/combined-spec-scalar-uart-v1/engine/report.json", "051fea9513a9fdcd9d10bce289fd5c6035c7bd7de6f22b16f365863fed22c956"],
+      "edges": ["work/phase6/experiments-v1/combined-spec-scalar-uart-v1/edges/report.json", "80a11c784b3dab18420de7a38700f463187b669d8ca7c5cd079cfee4909e05d9"],
+      "native": ["work/phase6/experiments-v1/combined-spec-scalar-uart-v1/native/report.json", "8afaaba799bb53cd46b8cea206541909a4eba13960584d38e12bf93443948fae"],
+      "integration": ["work/phase6/experiments-v1/combined-spec-scalar-uart-v1/integration/report.json", "d3dd86a643b6ee41adcef8018702eeac3ae6215910c15a526a271ee2a0418d74"],
+      "route": ["work/phase6/experiments-v1/combined-spec-scalar-uart-v1/route/report.json", "895a736cd33150690ccab9b6700f8815f22941ccb01a9fe4e9cbe3659f61e651"]
+    }
+  },
+  "route": {
+    "target_clock_mhz": 22.5,
+    "routed_fmax_mhz": 24.319,
+    "setup_violated_endpoints": 0,
+    "hold_violated_endpoints": 0,
+    "resources": {"Logic": 18885, "Register": 5218, "BSRAM": 37, "DSP": 9.5, "CLS": 10096},
+    "available": {"Logic": 20736, "Register": 15915, "BSRAM": 46, "DSP": 24, "CLS": 10368},
+    "bitstream_sha256": "45b05afeb1351028ee81d0bb7e3b6c1ad049e0c5e8ee2b3fc04cb4c80f64c258"
+  },
+  "isolated_bridge_physical_screen": {
+    "report": "work/phase6/uart-burst/physical-transfer.json",
+    "report_sha256": "087a1b1b38f39e0162e1ed667f9273bb70459ec67a88ddc702bccbb2f7927166",
+    "status": "passed-short-transfer-screen",
+    "speedup": 4.018764757036317,
+    "scope": "Four 8 KiB readback-matched uploads on a separate isolated UART burst image"
+  },
+  "limits": "The integrated 22.5 MHz image has not yet been programmed on the board. Final-schedule native evidence and a short physical KWS/VWW inference plus burst upload screen remain before claiming integrated board performance."
+}

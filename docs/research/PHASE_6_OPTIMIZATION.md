@@ -1,5 +1,19 @@
 # Phase 6 — executable cache, spatial SIMD and retention milestone
 
+**Latest optimization work:** see the [short experiment campaign](PHASE_6_EXPERIMENT_LOG.md)
+for separately tested request overlap, scalar reuse, caching, compact arithmetic,
+exact activation LUTs, depthwise SIMD and SRAM-retention experiments. Long
+accuracy/stability verification remains deferred as requested.
+
+**Later physical work:** the [screening campaign](PHASE_6_SCREENING.md) has
+completed, and [independent confirmation plus full accuracy](PHASE_6_PRIORITY_TESTS.md)
+confirmed the spatial speedup and completed KWS accuracy. Full VWW accuracy
+is paused with 212 saved samples. The isolated
+[direct-writeback experiment](PHASE_6_WRITEBACK.md) subsequently passed its
+physical screen with another 10.1%/10.8% KWS/VWW latency reduction. The text below
+preserves the earlier boardless milestone; its statements about no physical
+Phase 6 tests describe that earlier point in time.
+
 The isolated engines and exact producer/activation retention compiler now
 run both primary models in RTL. Gowin fits both candidates at the existing
 20.25 MHz clock. **No Phase 6 image has been programmed onto the board. G6 is

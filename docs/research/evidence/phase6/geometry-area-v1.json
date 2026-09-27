@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "status": "passed-boardless",
+  "physical_board": false,
+  "baseline": {
+    "engine": "work/phase6/experiments-v1/all-exact/engine.sv",
+    "engine_sha256": "36465f2b3cd6609ac21ecd194d9c5796fc41c8c29562fcafecfe71c651d76e47",
+    "routed_fmax_mhz": 21.714,
+    "resources": {"Logic": 18645, "Register": 5224, "BSRAM": 36, "DSP": 14.5, "CLS": 10022}
+  },
+  "candidate": {
+    "engine": "rtl/phase6/geometry_engine.sv",
+    "engine_sha256": "6cd98e58476ddfce924f7c8f9bdf6c2de818c478faa8a007fa520765b696151f",
+    "patcher": "tools/phase6/geometry_variant.py",
+    "patcher_sha256": "6b500b6b050672a5ffbbce3b0b5be1d93f8de2d6d185be9cfc91570cf26b8c61",
+    "routed_fmax_mhz": 21.958,
+    "resources": {"Logic": 18131, "Register": 5213, "BSRAM": 36, "DSP": 9.5, "CLS": 9871},
+    "route_report": "work/phase6/geometry-area-v1/route/report.json",
+    "route_report_sha256": "c41c4ae1863796699b6f8171cda7e9b4a17c60d17016581b30492f66f3a63872",
+    "native_report": "work/phase6/geometry-area-v1/native/report.json",
+    "native_report_sha256": "d55f0a0aaa472d8a9c8fa4d934879b23e80e7df79c276bb01f7de6289c70b813"
+  },
+  "savings": {"Logic": 514, "Register": 11, "BSRAM": 0, "DSP": 5, "CLS": 151},
+  "clock_mhz": 20.25,
+  "route": {"setup_violated_endpoints": 0, "hold_violated_endpoints": 0},
+  "validation": {
+    "engine_cocotb": "3 of 3 passed: randomized engine, cache, direct writeback",
+    "invalid_descriptor_cocotb": "11 malformed geometry/stride boundaries rejected with error code 1",
+    "native_full_models": "24 of 24 passed across KWS/VWW, pinned/stress, serial/overlap, fixed/stalled RAM",
+    "native_cycle_difference_from_baseline": 0,
+    "patcher_pytest": "4 passed; golden all-exact reproduction, parameter independence, guard/site tamper rejection, immutable materialization"
+  },
+  "proof_scope": "The unchanged raw descriptor checks bound legal dimensions before execution; narrowed products retain all bits reachable from legal descriptors. No FSM state or output arithmetic changed. Each other generated engine snapshot still needs its own RTL regression and Gowin route."
+}

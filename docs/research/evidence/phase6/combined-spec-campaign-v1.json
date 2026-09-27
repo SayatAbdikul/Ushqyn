@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "status": "passed-boardless-with-one-rejected-clock",
+  "physical_board": false,
+  "change": "Allow the side-effect-free pointwise input prefetch on a MAC overflow edge and clear pending prefetch on failure. The 20.25 MHz vector and 22.5 MHz scalar candidates retain exact geometry narrowing, depthwise word reuse, and fast requantization.",
+  "focused_safety": "Cocotb passed overflow with stalled prefetch, overflow with accepted read and delayed response during immediate restart, and abort under prefetch backpressure; the subsequent full inference remained exact.",
+  "candidates": {
+    "vector_22_5": {
+      "label": "combined-spec-v1",
+      "engine_sha256": "3d4b3783a73eb6cf060cc04755266b7203fd5bd137a58f57c516020d650eed91",
+      "target_clock_mhz": 22.5,
+      "routed_fmax_mhz": 22.02,
+      "setup_violated_endpoints": 25,
+      "status": "rejected-timing",
+      "route_report": "work/phase6/experiments-v1/combined-spec-v1/route/report.json",
+      "route_report_sha256": "44cc434f6d106147caba4737858739bc00884f75cbb310450c5e18274381003c"
+    },
+    "scalar_22_5": {
+      "label": "combined-spec-scalar-v1",
+      "engine_sha256": "83fb17213cf3258a7b85bdfa663d43d54a5875a651393e909e88a4a64cc13939",
+      "target_clock_mhz": 22.5,
+      "routed_fmax_mhz": 22.974,
+      "setup_violated_endpoints": 0,
+      "hold_violated_endpoints": 0,
+      "resources": {"Logic": 18627, "Register": 5214, "BSRAM": 36, "DSP": 9.5, "CLS": 10014},
+      "bitstream_sha256": "15b77813fac7299254c1499dad716bad934c703ba0e848049647ab0ddfb2b531",
+      "timed_native_fixed_ram_cycles": {"kws": 1313903, "vww": 4509712},
+      "route_report": "work/phase6/experiments-v1/combined-spec-scalar-v1/route/report.json",
+      "route_report_sha256": "cdbb4f4315ea338ad991e6a56e87a771eab3f2e365046c05b3714e18add04b09",
+      "final_schedule_native_report": "work/phase6/constant-sibling-v1/native-combined-spec-scalar-v1/report.json",
+      "final_schedule_native_report_sha256": "c970b90fda5c165977b14caf5dc6feda83e6253852462606ed68f0642265dac3"
+    },
+    "vector_20_25": {
+      "label": "combined-spec-20-v1",
+      "engine_sha256": "3d4b3783a73eb6cf060cc04755266b7203fd5bd137a58f57c516020d650eed91",
+      "target_clock_mhz": 20.25,
+      "routed_fmax_mhz": 25.118,
+      "setup_violated_endpoints": 0,
+      "hold_violated_endpoints": 0,
+      "resources": {"Logic": 18622, "Register": 5215, "BSRAM": 44, "DSP": 9.5, "CLS": 9987},
+      "bitstream_sha256": "c38b7dbf83ac2c32e620529592b1203484d61ab1c6a54c67caedf2aef29afa54",
+      "timed_native_fixed_ram_cycles": {"kws": 1250903, "vww": 4307923},
+      "route_report": "work/phase6/experiments-v1/combined-spec-20-v1/route/report.json",
+      "route_report_sha256": "40925b88520188da49b3b98f6ea58fd9918c33524c6cbbf162c17bf901d9401a"
+    }
+  },
+  "validation": {
+    "each_candidate": "3 engine Cocotb suites, activation edge, malformed geometry descriptor, focused speculative safety, and 24/24 KWS/VWW native full-model cases passed",
+    "scalar_chain": "12/12 passed; 12/12 final constant+sibling schedule native cases passed",
+    "vector_chain": "12/12 passed in combined-spec-v1; combined-spec-20-v1 engine bytes are identical, and 24/24 full-model native cases were replayed in its own label",
+    "source_drivers": ["tools/phase6/combined_spec.py", "tools/phase6/combined_spec_scalar.py", "tools/phase6/combined_spec_20.py"],
+    "focused_test": "test/phase6/test_speculative_prefetch.py"
+  },
+  "limits": "The timing numbers are Gowin routes, and the cycle numbers are native RTL simulations. These candidate images require separate physical inference measurements. The rejected 22.5 MHz vector image is not board-eligible."
+}

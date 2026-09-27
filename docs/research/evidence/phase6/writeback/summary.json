@@ -1,0 +1,178 @@
+{
+  "archives": {
+    "engine-report.json.gz": {
+      "raw_sha256": "53409e41d0dd6f178c7ff41fb514041b81a1ba96f6651fe0ec779493dadd5d3f",
+      "sha256": "7f8741ce2db46c89c79e73f754a02b2d9ec94cc7b3ad20da562e05d65c96e555"
+    },
+    "engine-results.xml.gz": {
+      "raw_sha256": "f0610be22407b0801c1c3bb41937260920abb9230cdc8cdb8e54910726d9a614",
+      "sha256": "bc2217edfed034758c336a1695082680424c29b789f498e8c7165781d30a0282"
+    },
+    "native-report.json.gz": {
+      "raw_sha256": "923bdf90c4671ee5438e79e67f9bcd1ec01356514fbe1591b0f8e08f9609cb68",
+      "sha256": "e6d03c79402176f3ec042f765274973446558048110ddbbb1922998febb67fa7"
+    },
+    "physical-plan.json.gz": {
+      "raw_sha256": "c0080c46f1c9bede344231c2e4f3549b8f634d1e53cfb5c0ac29c5cecc9c8235",
+      "sha256": "c53147b1fd763b8bf221e79d039f933422eed96f78eea6a63ea95763aafccd8f"
+    },
+    "physical-records.jsonl.gz": {
+      "raw_sha256": "34e70a996d14da9496c4fdabd0c240be63709650a13fc800308a756a54e9ef58",
+      "sha256": "3e4fe44e818c9a091ac7df0df8a49655b7148af044b7798ee3844a1331195ec4"
+    },
+    "physical-report.json.gz": {
+      "raw_sha256": "15fe81ab9fa0538934a3b535917b6613a44014f8b6d9d6837444c7dd96f5e2fa",
+      "sha256": "fa4644b8618c52dd59de50decfbe2881c99a934d90f3ccb1b0fc91f3811729e5"
+    },
+    "route-report.json.gz": {
+      "raw_sha256": "6fe8730059513f802f05dbae7d938c3ab279ab5bf816cc8f851f52974caea2c9",
+      "sha256": "0bd6ce0699288b354b2c814eb0cd1f886c937fe2092427b22a64f4368c3a732d"
+    },
+    "route.txt.gz": {
+      "raw_sha256": "94de985e5eff242d2d2abeab8b3148e52f27af03f2512a7e9528783d05d7972d",
+      "sha256": "a83eb9086133922bc542bdf383feb9cf5fedb6795a187ac1d7af109efaff69ef"
+    },
+    "timing.html.gz": {
+      "raw_sha256": "bba8036e11f6ffc4baed12e1b210cc863d776b7ec33f64f3a00c4885377b4e6d",
+      "sha256": "3834405c9b0a2359d1e4b6ee7a707c935fe6f14578bbb193e397dee90f729173"
+    }
+  },
+  "compressed_candidate": {
+    "file": "hardware/releases/phase6/writeback_candidate_750k.fs.gz",
+    "sha256": "1ebb112733b3aa0e20e1bd7a40e0f11d65f72e483a1e6c0c375f32fdd143bd8a"
+  },
+  "core_clock_hz": 20250000,
+  "engine_regression_cases": 3,
+  "engine_sha256": "54b0f7df8bb9ab8903dfd8c14d750e96df3bbde4477fe8c4bfb2875f627d2214",
+  "frozen_phase5_files_verified": 109,
+  "image": {
+    "file": "work/phase6/writeback-v1/route/phase6_tiled_host/impl/pnr/phase6_tiled_host.fs",
+    "sha256": "1170b51dd41c6677a171a1fa4cc2623ea2052c5939499b9efb89c11096d1b682"
+  },
+  "native_full_model_runs": 24,
+  "native_tensor_checks": 632,
+  "not_claimed": [
+    "full accuracy on this new image",
+    "multi-session confirmation of this change",
+    "long-duration stability on this image",
+    "higher operating clock",
+    "measured energy",
+    "SOTA",
+    "G6 closure"
+  ],
+  "phase6_gate_complete": false,
+  "physical_board": true,
+  "physical_correctness_tensor_checks": 156,
+  "physical_runs": 48,
+  "physical_summary": {
+    "comparisons": {
+      "kws": {
+        "latency_reduction": 0.10120879859607412,
+        "speedup": 1.1126054621340133
+      },
+      "vww": {
+        "latency_reduction": 0.10827360541853337,
+        "speedup": 1.1214202092440606
+      }
+    },
+    "correctness_tensor_checks": 156,
+    "improves_both_models": true,
+    "stable": true,
+    "timings": {
+      "spatial": {
+        "kws": {
+          "median_cycles": 2826360.0,
+          "median_ms": 139.57333333333332,
+          "range_over_median": 0.00013763285639479755
+        },
+        "vww": {
+          "median_cycles": 8257585.0,
+          "median_ms": 407.78197530864196,
+          "range_over_median": 6.018708859793753e-05
+        }
+      },
+      "writeback": {
+        "kws": {
+          "median_cycles": 2540307.5,
+          "median_ms": 125.44728395061728,
+          "range_over_median": 9.56577107299018e-05
+        },
+        "vww": {
+          "median_cycles": 7363506.5,
+          "median_ms": 363.62995061728395,
+          "range_over_median": 4.6445263543937934e-05
+        }
+      }
+    }
+  },
+  "preserved_accuracy_samples": {
+    "kws": 4890,
+    "vww": 212
+  },
+  "route": {
+    "bitstream": "work/phase6/writeback-v1/route/phase6_tiled_host/impl/pnr/phase6_tiled_host.fs",
+    "bitstream_sha256": "1170b51dd41c6677a171a1fa4cc2623ea2052c5939499b9efb89c11096d1b682",
+    "build_seconds": 243.6014819170814,
+    "build_tcl_sha256": "76880b31f4ca482cd41899ca54b4c86dd259fdcdf62c73e97f2ec4261daf524c",
+    "core_clock_mhz": 20.25,
+    "engine_sha256": "54b0f7df8bb9ab8903dfd8c14d750e96df3bbde4477fe8c4bfb2875f627d2214",
+    "hold_violated_endpoints": 0,
+    "physical_board": false,
+    "resources": {
+      "BSRAM": {
+        "available": 46.0,
+        "used": 35.0
+      },
+      "CLS": {
+        "available": 10368.0,
+        "used": 9678.0
+      },
+      "DSP": {
+        "available": 24.0,
+        "used": 14.5
+      },
+      "Logic": {
+        "available": 20736.0,
+        "used": 17626.0
+      },
+      "Register": {
+        "available": 15915.0,
+        "used": 5451.0
+      }
+    },
+    "route_sha256": "94de985e5eff242d2d2abeab8b3148e52f27af03f2512a7e9528783d05d7972d",
+    "routed_core_fmax_mhz": 20.334,
+    "setup_violated_endpoints": 0,
+    "status": "passed-route",
+    "timing_sha256": "bba8036e11f6ffc4baed12e1b210cc863d776b7ec33f64f3a00c4885377b4e6d"
+  },
+  "schema": 1,
+  "scope": "one paired physical timing session; independent selected-input correctness",
+  "serial_cycle_savings": [
+    {
+      "fixture": "kws-pinned-resident-half-serial-check",
+      "saved_cycles": 288152
+    },
+    {
+      "fixture": "kws-pinned-resident-half-serial-timed",
+      "saved_cycles": 288152
+    },
+    {
+      "fixture": "kws-stress-resident-half-serial-check",
+      "saved_cycles": 288152
+    },
+    {
+      "fixture": "vww-pinned-resident-half-serial-check",
+      "saved_cycles": 926724
+    },
+    {
+      "fixture": "vww-pinned-resident-half-serial-timed",
+      "saved_cycles": 926724
+    },
+    {
+      "fixture": "vww-stress-resident-half-serial-check",
+      "saved_cycles": 926724
+    }
+  ],
+  "status": "passed-writeback-screen"
+}

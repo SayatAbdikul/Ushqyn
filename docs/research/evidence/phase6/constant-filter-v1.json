@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "status": "passed-boardless",
+  "physical_board": false,
+  "candidate": "exact constant-filter DMA on all-exact chain schedule",
+  "source": "tools/phase6/constant_filter.py",
+  "source_sha256": "a19ab85e3607c6c8177663487a6b4640079ca40e27319a2ed8ae68d8004d02f6",
+  "verifier": "compiler/scheduler/resident_verify.py",
+  "verifier_sha256": "23283404e6b24843934e8796cc1b7a41a21c2cde92802d4ab8300a8f1754b508",
+  "fixture_manifest": "work/phase6/constant-filter-v1/fixtures.json",
+  "fixture_manifest_sha256": "bf181e9a6f77a173bac6d59f8e479511d95405ebf22512f042f9cb68eceef41e",
+  "native_report": "work/phase6/constant-filter-v1/native-all-exact/report.json",
+  "native_report_sha256": "9ddfc8ec5d8829bf42df1806f81c759b47211a920d3e8d89d1b7d28fc0e7ffdf",
+  "vww": {
+    "all_zero_standard_conv_filters": 971,
+    "skipped_dense_macs": 3131136,
+    "constant_output_bytes": 23022,
+    "constant_runs": 182,
+    "ordinary_conv_runs": 179,
+    "split_tiles": 12,
+    "timed_commands": 1689,
+    "command_limit": 2048,
+    "native_timed_cycles": {
+      "baseline_fixed_ram": 4596880,
+      "candidate_fixed_ram": 3305923,
+      "baseline_stalled_ram": 4767068,
+      "candidate_stalled_ram": 3488913
+    },
+    "native_full_tensor_checks": "57 tensors per check fixture, pinned and seeded stress, fixed and stalled RAM"
+  },
+  "kws": {
+    "all_zero_standard_conv_filters": 0,
+    "compiler_fallback": "command and payload bytes identical to the chain baseline"
+  },
+  "verification": {
+    "independent_oracle": "all constant codes equal bias requantization and every expected channel on pinned and stress inputs",
+    "symbolic_replay": "six fixtures passed with activation provenance; corrupt constant payload and missing contract are rejected",
+    "rtl_native": "12 of 12 fixtures and RAM seeds passed on the selected all-exact engine",
+    "pytest": "29 passed in test/phase6/test_constant_filter.py and compiler/test_scheduler_resident.py"
+  },
+  "limitations": "Native memory simulation provides cycle evidence. The candidate has not yet been timed on the physical Tang Nano 20K."
+}

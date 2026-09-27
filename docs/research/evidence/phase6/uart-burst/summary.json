@@ -1,0 +1,52 @@
+{
+  "candidate": "uart-burst-blockram",
+  "scope": "isolated 256-byte CRC-checked SDRAM upload protocol, selected all-exact compute engine",
+  "physical_board": true,
+  "physical_transfer_status": "passed-short-transfer-screen",
+  "physical_transfer": {
+    "report": "work/phase6/uart-burst/physical-transfer.json",
+    "report_sha256": "087a1b1b38f39e0162e1ed667f9273bb70459ec67a88ddc702bccbb2f7927166",
+    "legacy_median_seconds": 0.7666680414695293,
+    "burst_median_seconds": 0.19077206251677126,
+    "speedup": 4.018764757036317,
+    "uploads": 4,
+    "bytes_per_upload": 8192,
+    "readbacks_matched": 4
+  },
+  "engine_sha256": "36465f2b3cd6609ac21ecd194d9c5796fc41c8c29562fcafecfe71c651d76e47",
+  "command_sha256": "17bcccbd0139c8c5f0472e20e345d9df79a20aed236b979e0cc1c3193261dd05",
+  "bridge_sha256": "a3abca85ee95c86c2a83916f9ce2508c79def04a3588b1525e8b29a63826d6af",
+  "top_sha256": "92c911663b43d8df9e48f3a052368adef0ad9107e7635ccf82b39497105b29fb",
+  "build_tcl_sha256": "80eed2d7c3078e5bec54e6bfb40e2ce985ce3cfdea4ae804c648ddd02a4f37fc",
+  "route": {
+    "status": "passed-route",
+    "bitstream": "work/phase6/uart-burst/route-blockram/phase6_uart_burst/impl/pnr/phase6_uart_burst.fs",
+    "bitstream_sha256": "9d8d711e9afecbb25c2672f95f668c954a99fb1dc1e4aada8b731d1a433c0f4d",
+    "report_sha256": "9dda035a3fdee9fb609e038e7ddf2e85ddeaadb6df98829372094f0aabe5a161",
+    "timing_sha256": "d96484a985fd9fc99437f8e13f1daa2dfcecef539553ab6fbd21e2ef1724da49",
+    "core_clock_mhz": 20.25,
+    "core_fmax_mhz": 22.649,
+    "setup_violated_endpoints": 0,
+    "hold_violated_endpoints": 0,
+    "resources": {
+      "logic": [18317, 20736],
+      "cls": [9908, 10368],
+      "register": [5228, 15915],
+      "bsram": [37, 46],
+      "dsp": [14.5, 24]
+    }
+  },
+  "tests": {
+    "parser_cocotb": {
+      "passed": 1,
+      "xml": "work/phase6/uart-burst/sim/results.xml",
+      "xml_sha256": "23333b74928124ee0faa7222e4f10870b25984eca6d212a77b1d1493c1670c1c"
+    },
+    "full_bridge_cocotb": {
+      "passed": 2,
+      "xml": "work/phase6/uart-burst/integration/results.xml",
+      "xml_sha256": "7e45ebad11219348927b8d4a7e87f007525f825ff56668ab9b27d98310b1133f"
+    },
+    "host_unit": {"passed": 3}
+  }
+}

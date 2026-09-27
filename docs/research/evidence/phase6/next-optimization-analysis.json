@@ -1,0 +1,134 @@
+{
+  "kws": {
+    "kinds": {
+      "conv": {
+        "outputs": 8000,
+        "macs": 320000,
+        "cycles": 216103,
+        "descriptors": 1
+      },
+      "relu": {
+        "outputs": 72000,
+        "macs": 0,
+        "cycles": 360697,
+        "descriptors": 17
+      },
+      "depthwise": {
+        "outputs": 32000,
+        "macs": 288000,
+        "cycles": 455032,
+        "descriptors": 8
+      },
+      "pointwise": {
+        "outputs": 32000,
+        "macs": 2048000,
+        "cycles": 1340984,
+        "descriptors": 8
+      },
+      "avgpool": {
+        "outputs": 64,
+        "macs": 0,
+        "cycles": 8250,
+        "descriptors": 1
+      },
+      "gemm": {
+        "outputs": 12,
+        "macs": 768,
+        "cycles": 600,
+        "descriptors": 1
+      }
+    },
+    "pointwise": {
+      "mac_steps": 262144,
+      "split_word_steps": 223232
+    },
+    "measured": {
+      "elapsed_cycles": 2540307.5,
+      "engine_cycles": 2385818.5,
+      "dma_cycles": 224952.0,
+      "overlap_cycles": 71284.0,
+      "device_latency_ms": 125.44728395061728,
+      "input_upload_seconds": 0.04663252108730376,
+      "input_run_readback_wall_seconds": 0.1906529370462522
+    },
+    "scheduled_macs": 2656768,
+    "peak_mac_per_second": 162000000,
+    "ideal_mac_ms": 16.3998024691358,
+    "scheduled_mac_per_lane_cycle": 0.13073063005167682,
+    "structural_opportunities": {
+      "pointwise_last_word_hits": 215040,
+      "pointwise_next_input_request_states": 258048,
+      "activation_redundant_word_reads": 63000,
+      "scalar_word_reuse_saved_cycles": 126000
+    }
+  },
+  "vww": {
+    "kinds": {
+      "conv": {
+        "outputs": 18432,
+        "macs": 497664,
+        "cycles": 581228,
+        "descriptors": 4
+      },
+      "relu": {
+        "outputs": 231552,
+        "macs": 0,
+        "cycles": 1160220,
+        "descriptors": 60
+      },
+      "depthwise": {
+        "outputs": 88704,
+        "macs": 798336,
+        "cycles": 1206626,
+        "descriptors": 22
+      },
+      "pointwise": {
+        "outputs": 124416,
+        "macs": 6193152,
+        "cycles": 3673198,
+        "descriptors": 34
+      },
+      "avgpool": {
+        "outputs": 256,
+        "macs": 0,
+        "cycles": 4010,
+        "descriptors": 1
+      },
+      "gemm": {
+        "outputs": 2,
+        "macs": 512,
+        "cycles": 370,
+        "descriptors": 1
+      }
+    },
+    "pointwise": {
+      "mac_steps": 905216,
+      "split_word_steps": 266240
+    },
+    "measured": {
+      "elapsed_cycles": 7363506.5,
+      "engine_cycles": 6644183.0,
+      "dma_cycles": 1025494.5,
+      "overlap_cycles": 309436.5,
+      "device_latency_ms": 363.62995061728395,
+      "input_upload_seconds": 2.595083708059974,
+      "input_run_readback_wall_seconds": 2.9790156250819564
+    },
+    "scheduled_macs": 7489664,
+    "peak_mac_per_second": 162000000,
+    "ideal_mac_ms": 46.23249382716049,
+    "scheduled_mac_per_lane_cycle": 0.1271416002688393,
+    "structural_opportunities": {
+      "pointwise_last_word_hits": 266240,
+      "pointwise_next_input_request_states": 888832,
+      "activation_redundant_word_reads": 202608,
+      "scalar_word_reuse_saved_cycles": 405216
+    }
+  },
+  "provenance": {
+    "docs/research/evidence/phase6/writeback/summary.json": "97962d96cc489c312ab21b09173d41f29a44d38da5d44f3b6506e1ad76e6b482",
+    "rtl/phase6/writeback_engine.sv": "54b0f7df8bb9ab8903dfd8c14d750e96df3bbde4477fe8c4bfb2875f627d2214",
+    "compiler/scheduler/engine_cost.py": "56cb690d858f3b965d8e83d56c97fece54b4776c1e43cf389c17e24a45b87e8d"
+  },
+  "scope": "Read-only brainstorm calculations; structural savings are not measured candidate gains and are not additive."
+}

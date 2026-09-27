@@ -1,0 +1,2806 @@
+{
+  "artifacts": {
+    "algorithms/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/algorithms/report.json.gz",
+      "gzip_sha256": "1a5b4801d9c2d8fd7b4b961ccb1d6146f498d1798f13b6de103ad08cf042e446",
+      "uncompressed_sha256": "318a2c62428a479644146c9f4484ef73cfbf67e0200c9e048d150c6935fab0e3"
+    },
+    "all-exact/edges/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/all-exact/edges/report.json.gz",
+      "gzip_sha256": "4ae820e6def76475d35ce09d7f7446be31ac0f47169037d60973a117342f5d27",
+      "uncompressed_sha256": "0a125714f1ddddf1ae2088332c31a07d9b255dc2396cd151e0c753fa43d819ef"
+    },
+    "all-exact/edges/results.xml": {
+      "file": "docs/research/evidence/phase6/experiments/all-exact/edges/results.xml.gz",
+      "gzip_sha256": "d856af327856fd4764d88552788414e7f2b7669d74fa6306a32b4ea6ae5fd288",
+      "uncompressed_sha256": "4f2956d120bc71c6022cd8d2c116de50ba56927ac7a5ce21d78fd2e3ebc8bd56"
+    },
+    "all-exact/engine.sv": {
+      "file": "docs/research/evidence/phase6/experiments/all-exact/engine.sv.gz",
+      "gzip_sha256": "19b4a704ac76bc2e98f59fb1220628d19806c26342b4d870a929e7e7445efb92",
+      "uncompressed_sha256": "36465f2b3cd6609ac21ecd194d9c5796fc41c8c29562fcafecfe71c651d76e47"
+    },
+    "all-exact/engine/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/all-exact/engine/report.json.gz",
+      "gzip_sha256": "bdd634bdc12af4e385463509a89b8579ed700b903a1b5ba7e832061e7dc570b6",
+      "uncompressed_sha256": "366a9c6ac9b8c68fe47c4a422aa92766adcc471ed0128091f437589cb970eaf0"
+    },
+    "all-exact/engine/results.xml": {
+      "file": "docs/research/evidence/phase6/experiments/all-exact/engine/results.xml.gz",
+      "gzip_sha256": "7496e5f1ef7799b84867b101dda8959724f5d0513f8fed15bfa45d8cbf457ec6",
+      "uncompressed_sha256": "b35b07d9892fe303cd8915be65e7832b5132ad9f19425005ed69588babaca8bb"
+    },
+    "all-exact/identity.json": {
+      "file": "docs/research/evidence/phase6/experiments/all-exact/identity.json.gz",
+      "gzip_sha256": "7cd5de19c1f6c6fe4162575979708c27cda1cc7375825b72dc657d8c2ca074b7",
+      "uncompressed_sha256": "dfc8a15857e9fedd73ad335e7d735214728776d46ca12eb1dd36490d16b335eb"
+    },
+    "all-exact/native/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/all-exact/native/report.json.gz",
+      "gzip_sha256": "e9dc81d430893409ce164c4feca3c5fa2e714dda7ef4332d89e05cd896d2f1e9",
+      "uncompressed_sha256": "e8f7b008e09aa95d2a54242acf611876b3863907cab99caa1a621dcb70e1374e"
+    },
+    "all-exact/route/build.log": {
+      "file": "docs/research/evidence/phase6/experiments/all-exact/route/build.log.gz",
+      "gzip_sha256": "328ac51f9b2a87936a8787a7683756e33f817c13f0f698ad260442dbf3a2b2ee",
+      "uncompressed_sha256": "9bca2f3a9ceb865f9993f52c1c66c38a71ab92df2ae4f1d965991ed344f7941a"
+    },
+    "all-exact/route/phase6_tiled_host/impl/pnr/phase6_tiled_host.rpt.txt": {
+      "file": "docs/research/evidence/phase6/experiments/all-exact/route/phase6_tiled_host/impl/pnr/phase6_tiled_host.rpt.txt.gz",
+      "gzip_sha256": "6b202fa891fd635959b582b527769d660306d641dda071f113be6c28820e7b68",
+      "uncompressed_sha256": "71c3215a23996c0dc2901a56951889f3a564ef5c10a1f05729554adf980d586e"
+    },
+    "all-exact/route/phase6_tiled_host/impl/pnr/phase6_tiled_host_tr_content.html": {
+      "file": "docs/research/evidence/phase6/experiments/all-exact/route/phase6_tiled_host/impl/pnr/phase6_tiled_host_tr_content.html.gz",
+      "gzip_sha256": "96b3259ad2b96b6d442b96a372967d59ce93871eb8e089c6cff0177e98c7af3d",
+      "uncompressed_sha256": "f1b289380de7d1fed235d4701675bc6c5a5fe454ef8da80c623bbf33c01ab85b"
+    },
+    "all-exact/route/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/all-exact/route/report.json.gz",
+      "gzip_sha256": "83349fbf84ba43029e9acd30583b6507e0bb8f5e0feece7fbcf374248350d0ae",
+      "uncompressed_sha256": "6835c4263cffbf5070d15fee9cbd5722b8e65b1e91dc072417a8977325379b7d"
+    },
+    "cache-bram/engine.sv": {
+      "file": "docs/research/evidence/phase6/experiments/cache-bram/engine.sv.gz",
+      "gzip_sha256": "0b64209d96986551254fa1e8dad4bedf19ccedce3d657a3373978a999649b42f",
+      "uncompressed_sha256": "148bf61e424955d1867b7914daedb7cda32ad900b94b8dc4ca12f3077729b114"
+    },
+    "cache-bram/engine/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/cache-bram/engine/report.json.gz",
+      "gzip_sha256": "5eaeb7ae95d6328cd8aa82388a3b81574c4ff21307652fba5043203abe519827",
+      "uncompressed_sha256": "a8d48e35b9d3231994d8a1ef01c5f6e6556ba20ac0a990860804e93b4ea02356"
+    },
+    "cache-bram/engine/results.xml": {
+      "file": "docs/research/evidence/phase6/experiments/cache-bram/engine/results.xml.gz",
+      "gzip_sha256": "2b281bcff9f15f824858661fb36af6c4a25b4af06dd62de664e877838bfd7782",
+      "uncompressed_sha256": "4d7801f45a376c3f95fd24a2557f3fe1e9bf3e4c2b58400d14710d2b9e6382e8"
+    },
+    "cache-bram/identity.json": {
+      "file": "docs/research/evidence/phase6/experiments/cache-bram/identity.json.gz",
+      "gzip_sha256": "c5d2f1e8b9b22aca75039a2e1b12cb648e90dc51a5c1efa68e81f4c04e09c0b6",
+      "uncompressed_sha256": "1ec87023356c9d2615e901adf3c00a24798ce55a100bf32d24df10c4b35b5aaf"
+    },
+    "cache-bram/native/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/cache-bram/native/report.json.gz",
+      "gzip_sha256": "17b35d3eebcf3847eb4a5a30ab8f2884cc56853feca2f7b579a4446a0d9f2966",
+      "uncompressed_sha256": "3b1e9cb9c5f8cc8bd1a97945a6da473f910d15c82a6fa25a654c4fddb4f6f5c5"
+    },
+    "cache-bram/route/build.log": {
+      "file": "docs/research/evidence/phase6/experiments/cache-bram/route/build.log.gz",
+      "gzip_sha256": "84e4b522eb1198efb706c97b705aacee69a1e5896cd2c7830026aea7a694fef5",
+      "uncompressed_sha256": "814cfa272a176628d0b9250f0f5c8a5f5624ee022c2931054cdd1217bce99bb3"
+    },
+    "cache-bram/route/phase6_tiled_host/impl/pnr/phase6_tiled_host.rpt.txt": {
+      "file": "docs/research/evidence/phase6/experiments/cache-bram/route/phase6_tiled_host/impl/pnr/phase6_tiled_host.rpt.txt.gz",
+      "gzip_sha256": "0a27eb1c6826e90421107aedfa1db18e878106c46b2d20412d5eac9e9189db85",
+      "uncompressed_sha256": "a950425559e06583dd604b77e94a4a6aa10ea58eac6a42bda6bd73eccced7445"
+    },
+    "cache-bram/route/phase6_tiled_host/impl/pnr/phase6_tiled_host_tr_content.html": {
+      "file": "docs/research/evidence/phase6/experiments/cache-bram/route/phase6_tiled_host/impl/pnr/phase6_tiled_host_tr_content.html.gz",
+      "gzip_sha256": "9b40b93c9601f36bf259a58338d229112b37b6a5444708d3dd520debf9795381",
+      "uncompressed_sha256": "dea8223044d78f7c143aa8d95ea7a71cb7e3354796cdc130fcea89edcba099eb"
+    },
+    "cache-bram/route/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/cache-bram/route/report.json.gz",
+      "gzip_sha256": "c6cfa688c67614fb90b4cdab5a7d37fc4798eedb5629a0c533d74efc348f6a03",
+      "uncompressed_sha256": "3db573142be86a5e7fd9af2e78a26d9263a729711724e99df22d3856826aef5f"
+    },
+    "cache/engine.sv": {
+      "file": "docs/research/evidence/phase6/experiments/cache/engine.sv.gz",
+      "gzip_sha256": "1c495d5ebea661715704b74d6633fbc8b3a0a4dac7b3ac4e9acf0ad26b933ae0",
+      "uncompressed_sha256": "52f1763f386b46ceab4c17f6dcda4d0dece55a843175696abdaeb6d071955360"
+    },
+    "cache/engine/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/cache/engine/report.json.gz",
+      "gzip_sha256": "aa7881ffb68932afbb00fa975580af5ffd73ba8321b20f592b9890da7f9c8d2c",
+      "uncompressed_sha256": "d271cf813e01df09af4d11c07bf49f110fddffe0ad44bc49299c2fca99a31bfd"
+    },
+    "cache/engine/results.xml": {
+      "file": "docs/research/evidence/phase6/experiments/cache/engine/results.xml.gz",
+      "gzip_sha256": "621e71f62d89fe3302d65db11d447a2d351e060f11ad3925d7efeb7246bb2f14",
+      "uncompressed_sha256": "046261491d7f39d844859cc1fd4f8656906b733766457de155bfa8eed4df7928"
+    },
+    "cache/identity.json": {
+      "file": "docs/research/evidence/phase6/experiments/cache/identity.json.gz",
+      "gzip_sha256": "6ef24fc807b7d8ec182f09647671daabbe41c7fc419ccea0b1659cbbad31d499",
+      "uncompressed_sha256": "0d02582e142dc6388983a49df8e3990ae2f0f4e2fd8c5bdbfaaf0997c530503d"
+    },
+    "cache/native/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/cache/native/report.json.gz",
+      "gzip_sha256": "7898b1df5c50dc69e22f750ea57b47602c92940b3d5fad4dea1c410f47cc2ce5",
+      "uncompressed_sha256": "248ba44205d677a251d9128ee482c12af99a52cd8763ad6a002ab96e4bf503b4"
+    },
+    "cache/route/build.log": {
+      "file": "docs/research/evidence/phase6/experiments/cache/route/build.log.gz",
+      "gzip_sha256": "02f95ce5ea23a5461ff7de0b463f87528ffab181d38a5d13c3582b36fa338241",
+      "uncompressed_sha256": "16158d8860bc4e835f273caed481d6f220ea93c3b6e1d3fff185fbabb7b1b5c7"
+    },
+    "chain/fixtures.json": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures.json.gz",
+      "gzip_sha256": "8a3a92dba9a8c8995f19153932213d505a3c0614fa4b692685526feeee7cb911",
+      "uncompressed_sha256": "905bfb5af35de0d07d40758baa77c8fb018d64e2b6434e357b3b86fe39c51885"
+    },
+    "chain/fixtures/kws-pinned-chain-check/checks.txt": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-pinned-chain-check/checks.txt.gz",
+      "gzip_sha256": "9a809d79851eb43601592019b999e415ee80f223f74537be80d743a64d2522eb",
+      "uncompressed_sha256": "04b3ef5fe5f946c200c27bab3d611cb73e27817b8bb6ed190be47f235c5fa6d9"
+    },
+    "chain/fixtures/kws-pinned-chain-check/commands.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-pinned-chain-check/commands.bin.gz",
+      "gzip_sha256": "851e1911a6d7c4698d88d7071ad3b7e1936c85ecf9be0472fad2d4ff3a94693b",
+      "uncompressed_sha256": "c22a7ba9d1d59ecdc01d27a3b7b2919478e7570f0219522507cc395db4638cb8"
+    },
+    "chain/fixtures/kws-pinned-chain-check/input.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-pinned-chain-check/input.bin.gz",
+      "gzip_sha256": "bfc8427b0bc424627f22828a961e354652ad4c8f8859f227b31ae88372c75602",
+      "uncompressed_sha256": "5f4ad0b2d11bf1cccab552fb5a4d95d082b70f2d1fe2459127673d270cb1cdf4"
+    },
+    "chain/fixtures/kws-pinned-chain-check/layer-1.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-pinned-chain-check/layer-1.bin.gz",
+      "gzip_sha256": "9cdc6b00594d5c6137c2c58a9b44a3265172d25cd4f6d98a5d5336acb3eebd8b",
+      "uncompressed_sha256": "c94f01e1c381d6d93c7f9fdce8ce1cfcace2d1413dde52aa6dabeb9a975f55b3"
+    },
+    "chain/fixtures/kws-pinned-chain-check/layer-10.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-pinned-chain-check/layer-10.bin.gz",
+      "gzip_sha256": "5cc65456da2bab021caf436bda6e0683d768899417f1a7a2640d5fd60957e064",
+      "uncompressed_sha256": "19733719e30130052f2ab4db3c6e89cd74d955e8aea7a20da4eedf42fa754efc"
+    },
+    "chain/fixtures/kws-pinned-chain-check/layer-11.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-pinned-chain-check/layer-11.bin.gz",
+      "gzip_sha256": "1736ea29ec011ab4b5b82025288752ee4eb1bc387e3191193fd7fc011711556e",
+      "uncompressed_sha256": "53166a9e34f1641a23cfee3dd1af3c44195a0615b20815565277dcc6e6b2badf"
+    },
+    "chain/fixtures/kws-pinned-chain-check/layer-12.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-pinned-chain-check/layer-12.bin.gz",
+      "gzip_sha256": "50754f4477c3dd63ec73f999badfd4c3592f0ebbf4a645719a2ba2fefebe1931",
+      "uncompressed_sha256": "3a5a90031e26deea03ab9091dd90d70f7de34469d660b0d2213474c923536ecd"
+    },
+    "chain/fixtures/kws-pinned-chain-check/layer-13.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-pinned-chain-check/layer-13.bin.gz",
+      "gzip_sha256": "1837fcbb10888a7a4ebdf06cac42c1b8ff7cc0620bbb88a9b1686b816d5a16fd",
+      "uncompressed_sha256": "8f3e310930da0d748b02a217a00cb2750eb9e02bb0287f71abd43018354e7999"
+    },
+    "chain/fixtures/kws-pinned-chain-check/layer-14.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-pinned-chain-check/layer-14.bin.gz",
+      "gzip_sha256": "34f8d21d94dd58ab6d4d7ee0b17768cafa66183f29a20792306c2a53ab144f66",
+      "uncompressed_sha256": "cf9cf4aba5059fc5241b49e0685e47bfaa8ac279b8b18b07b81bafe1244b1588"
+    },
+    "chain/fixtures/kws-pinned-chain-check/layer-15.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-pinned-chain-check/layer-15.bin.gz",
+      "gzip_sha256": "c840d226f5bcfbe484d73e90d35eb809d7d27806c4ecc8c025e6c06225e4c13e",
+      "uncompressed_sha256": "6d68704abc93f692834dab304838e0b07c11ca40bd3c42a9fbbef01e24455e83"
+    },
+    "chain/fixtures/kws-pinned-chain-check/layer-16.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-pinned-chain-check/layer-16.bin.gz",
+      "gzip_sha256": "abf3971312d396fd8b4bbadc7de91d2e7a6f7ec8192ab17f135313a84193f2f6",
+      "uncompressed_sha256": "9ff86b91cd54c69766edfef9bfa927d7ee9f706e03a9f99cc47084605ecbf400"
+    },
+    "chain/fixtures/kws-pinned-chain-check/layer-17.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-pinned-chain-check/layer-17.bin.gz",
+      "gzip_sha256": "3022e209580f9d63a4b425fddeeaca5cce253fd939c73ebb931bafe8e4be95d6",
+      "uncompressed_sha256": "e75754369c62a84f79b282a760022d3eb7ee21b784ca73c9adbc140e58a517ba"
+    },
+    "chain/fixtures/kws-pinned-chain-check/layer-18.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-pinned-chain-check/layer-18.bin.gz",
+      "gzip_sha256": "6cc9ce200d416f01a6a9907b0248a86ea5edbd0c2a7f31fbdbd2e264d35302d2",
+      "uncompressed_sha256": "3c66fd54582b325336e56e3b00f4aa9b8aded50e247d2700af1e46ced09480ce"
+    },
+    "chain/fixtures/kws-pinned-chain-check/layer-19.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-pinned-chain-check/layer-19.bin.gz",
+      "gzip_sha256": "2a01438d967150d8d35e9adfd9f9d90ce0a8cbe1d3014127201efdb1368ef726",
+      "uncompressed_sha256": "3fa70869e389352480248ab9a454ad7fa79767bbf8a154d56ba13decf646c042"
+    },
+    "chain/fixtures/kws-pinned-chain-check/layer-2.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-pinned-chain-check/layer-2.bin.gz",
+      "gzip_sha256": "a5ef92832c4fccfaafdef8040a86413e8dd0b19eb994ca5e99b68444e2216feb",
+      "uncompressed_sha256": "28e6b01d788fb4591fab9fe452f7010bce25c3b1027429b28ffe2f3a98cc308d"
+    },
+    "chain/fixtures/kws-pinned-chain-check/layer-21.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-pinned-chain-check/layer-21.bin.gz",
+      "gzip_sha256": "e601eaa038361f653e113dd99e4481edf7f9de260475a844745af58e8f1e013f",
+      "uncompressed_sha256": "ce178213db2ef2aa27d0b532e4a17851cfef1772ad74b2fc7a95311b4a6714a7"
+    },
+    "chain/fixtures/kws-pinned-chain-check/layer-3.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-pinned-chain-check/layer-3.bin.gz",
+      "gzip_sha256": "5d5f695f98cf3348e0b97414f160fcf8162c974d78c1536f81ba50bd73d79e3d",
+      "uncompressed_sha256": "852f889e8994de655066782ff3096620e431babea8d1f516854e2c5c94168531"
+    },
+    "chain/fixtures/kws-pinned-chain-check/layer-4.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-pinned-chain-check/layer-4.bin.gz",
+      "gzip_sha256": "847e76a020063727b7a821e527055c19f99d46bf4f6e8eeb665e3fc3866c0ddb",
+      "uncompressed_sha256": "4850b3ec9271b43fc3b802651f7135c84bbce68d041683e9bfbaba673cfcc2d9"
+    },
+    "chain/fixtures/kws-pinned-chain-check/layer-5.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-pinned-chain-check/layer-5.bin.gz",
+      "gzip_sha256": "50e84e02a4079b1aa4ba89b4a5890ac22de28350a3b5a74a3a91515701abe729",
+      "uncompressed_sha256": "602f3c44f0a50496470494f3f4ce34820fb9c0f546edbfe30fcc1f54643b411d"
+    },
+    "chain/fixtures/kws-pinned-chain-check/layer-6.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-pinned-chain-check/layer-6.bin.gz",
+      "gzip_sha256": "5f6d1df7e6b8568aeab92f28a72a2b5f12f713a4866a223aaa111b6424ab5ffc",
+      "uncompressed_sha256": "9733ada9d59c11c5e92f96a397cbc321a8c553ba2281d3b34f36ce22469a8205"
+    },
+    "chain/fixtures/kws-pinned-chain-check/layer-7.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-pinned-chain-check/layer-7.bin.gz",
+      "gzip_sha256": "2f5d24484cd3a2ede02d927b9df92d5033c6f8e8665e2a532b4d8a69b64ab3bf",
+      "uncompressed_sha256": "e58e0d481943d32eb4067bf481b5b40f99d024abf17ae9a8a009a882ba9bc4e1"
+    },
+    "chain/fixtures/kws-pinned-chain-check/layer-8.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-pinned-chain-check/layer-8.bin.gz",
+      "gzip_sha256": "eca813b058b52451e2c467eb2e87f4f87f4c87a59189d999f362092a42b13b87",
+      "uncompressed_sha256": "d32a295f2d3d018636c8f15c9705f6f2a9099401edbd5801c8d51379260a6307"
+    },
+    "chain/fixtures/kws-pinned-chain-check/layer-9.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-pinned-chain-check/layer-9.bin.gz",
+      "gzip_sha256": "44906d16f790311cc89a35466e32e17f42be0f3a2633627ef3964cb184d6b8a5",
+      "uncompressed_sha256": "8355a8fde2b7096543bfda10826ec2fa9c8400f04ce693c6e24a8232bbcfb48d"
+    },
+    "chain/fixtures/kws-pinned-chain-check/output.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-pinned-chain-check/output.bin.gz",
+      "gzip_sha256": "e601eaa038361f653e113dd99e4481edf7f9de260475a844745af58e8f1e013f",
+      "uncompressed_sha256": "ce178213db2ef2aa27d0b532e4a17851cfef1772ad74b2fc7a95311b4a6714a7"
+    },
+    "chain/fixtures/kws-pinned-chain-check/payload.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-pinned-chain-check/payload.bin.gz",
+      "gzip_sha256": "f05bc5f9f28d70c0bdadd4b227fea310875481cd3d03aef8fac0c9876702e5ce",
+      "uncompressed_sha256": "0e9319dea12c065a62c9c8727742dafa0bd7927a7978ef6c05a3e09a96d04c4c"
+    },
+    "chain/fixtures/kws-pinned-chain-check/schedule.json": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-pinned-chain-check/schedule.json.gz",
+      "gzip_sha256": "5cb5f8b07bb12697e3f420c60dc9908cf1610ddbb27a9f26dbecfd203969dc95",
+      "uncompressed_sha256": "194afe76d8d450e044bfead414a0dfc7c65963d2807d0f8e8542cd631279f54f"
+    },
+    "chain/fixtures/kws-pinned-chain-timed/checks.txt": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-pinned-chain-timed/checks.txt.gz",
+      "gzip_sha256": "8d1ea05f899bf44296c7d957c0cd7e295f39100829afaf0e8a2a536dfa2a6bc9",
+      "uncompressed_sha256": "0258c1889f1aa327b0b54f378d72d77fb1ca4c7d56dd168ad464a3ec0d7df35c"
+    },
+    "chain/fixtures/kws-pinned-chain-timed/commands.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-pinned-chain-timed/commands.bin.gz",
+      "gzip_sha256": "941eb4cc12221a7a93070139c969db8b0b6f6dbaf71790893f90ae7eee45af3d",
+      "uncompressed_sha256": "2589e1c0d2d7c3b91aecd3e3bc7e2d4dacec8dad3c4506001772dcd92282c1ef"
+    },
+    "chain/fixtures/kws-pinned-chain-timed/input.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-pinned-chain-timed/input.bin.gz",
+      "gzip_sha256": "bfc8427b0bc424627f22828a961e354652ad4c8f8859f227b31ae88372c75602",
+      "uncompressed_sha256": "5f4ad0b2d11bf1cccab552fb5a4d95d082b70f2d1fe2459127673d270cb1cdf4"
+    },
+    "chain/fixtures/kws-pinned-chain-timed/output.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-pinned-chain-timed/output.bin.gz",
+      "gzip_sha256": "e601eaa038361f653e113dd99e4481edf7f9de260475a844745af58e8f1e013f",
+      "uncompressed_sha256": "ce178213db2ef2aa27d0b532e4a17851cfef1772ad74b2fc7a95311b4a6714a7"
+    },
+    "chain/fixtures/kws-pinned-chain-timed/payload.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-pinned-chain-timed/payload.bin.gz",
+      "gzip_sha256": "a5f162922c07e4367587c677db9725a4bc0f79663af05dd3fa1a804ce72d7b06",
+      "uncompressed_sha256": "3b8dcf0ca4cd47afbc398b17924dc8604c4302dc84086dcd78bcfc90ef4a4c2d"
+    },
+    "chain/fixtures/kws-pinned-chain-timed/schedule.json": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-pinned-chain-timed/schedule.json.gz",
+      "gzip_sha256": "e7b208041caefb7e471d3c03cb8a5a5370b0d653f2f242d5b1c62d7755ffc7c1",
+      "uncompressed_sha256": "7f2fdb0397692245e55b5b25e99860644ff7cd5118b703b3fbdeb979b15f6568"
+    },
+    "chain/fixtures/kws-stress-chain-check/checks.txt": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-stress-chain-check/checks.txt.gz",
+      "gzip_sha256": "9a809d79851eb43601592019b999e415ee80f223f74537be80d743a64d2522eb",
+      "uncompressed_sha256": "04b3ef5fe5f946c200c27bab3d611cb73e27817b8bb6ed190be47f235c5fa6d9"
+    },
+    "chain/fixtures/kws-stress-chain-check/commands.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-stress-chain-check/commands.bin.gz",
+      "gzip_sha256": "851e1911a6d7c4698d88d7071ad3b7e1936c85ecf9be0472fad2d4ff3a94693b",
+      "uncompressed_sha256": "c22a7ba9d1d59ecdc01d27a3b7b2919478e7570f0219522507cc395db4638cb8"
+    },
+    "chain/fixtures/kws-stress-chain-check/input.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-stress-chain-check/input.bin.gz",
+      "gzip_sha256": "3134c1894f5f9de99a120c57156819d66c587f436154550edae8b159f65114d6",
+      "uncompressed_sha256": "9a85e16144df9fb21fadfc5367fcf4aa9af42d35f0ed41f78fe662e3c5685594"
+    },
+    "chain/fixtures/kws-stress-chain-check/layer-1.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-stress-chain-check/layer-1.bin.gz",
+      "gzip_sha256": "9702bf023832a209b58a25aa78de378a68317dcfb8970f78cec5a576a8ea2c9f",
+      "uncompressed_sha256": "09a2c7d5315ca363e178390e49c20fb9a5886b8633540f1a9f4833b41c4100ab"
+    },
+    "chain/fixtures/kws-stress-chain-check/layer-10.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-stress-chain-check/layer-10.bin.gz",
+      "gzip_sha256": "9d144da30d92516307f49ec36d7e1f967f248e1e1ee92798ba1f39b4d33d169c",
+      "uncompressed_sha256": "e1e4b9983fb86b39a160c19a045a952213bec9e36168c6e7022d7bfb590fecdd"
+    },
+    "chain/fixtures/kws-stress-chain-check/layer-11.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-stress-chain-check/layer-11.bin.gz",
+      "gzip_sha256": "785cfe71bceb53cbfd159928a38d4d6b9e2e0eda3c5945d6f203e7dd8e36744b",
+      "uncompressed_sha256": "cd4842a3748f700f1f10668b55dfa8188ebd4dbf6fd769411049e6940d8eb1f0"
+    },
+    "chain/fixtures/kws-stress-chain-check/layer-12.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-stress-chain-check/layer-12.bin.gz",
+      "gzip_sha256": "4544df12ea6e59e8ff9cab5c527ec4ce8152474bf9e646deb7320529196e2a85",
+      "uncompressed_sha256": "1b59c160c1faf56229abf62df5bf6cc7dd9928445ad859bb0de34512bfd46507"
+    },
+    "chain/fixtures/kws-stress-chain-check/layer-13.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-stress-chain-check/layer-13.bin.gz",
+      "gzip_sha256": "a40bffb8bbd9d0e81958081d4cc1ab29537bd1f2cb4ce68bb1846c1c34de3803",
+      "uncompressed_sha256": "1a5005da85ec3fea581541e802812961f986ed0a14dc2d15e123fbe217cf8a70"
+    },
+    "chain/fixtures/kws-stress-chain-check/layer-14.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-stress-chain-check/layer-14.bin.gz",
+      "gzip_sha256": "2062b9452c9875a05500ef5b55875dd9133f5fb01536cb2ac16b637d4b40d8a4",
+      "uncompressed_sha256": "f24b4463c693537d74abc7701c384fd63833b63fb06e38663408c51992f403d9"
+    },
+    "chain/fixtures/kws-stress-chain-check/layer-15.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-stress-chain-check/layer-15.bin.gz",
+      "gzip_sha256": "bd9d8b8a9bdec7391f3a2702a1d89dd5a0df2b1f7e30dcb437c6666eb88f2955",
+      "uncompressed_sha256": "a1b8ddd4c0aeaf2158b87be4418156c589564875b183306dfdf96ab9f5ccc490"
+    },
+    "chain/fixtures/kws-stress-chain-check/layer-16.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-stress-chain-check/layer-16.bin.gz",
+      "gzip_sha256": "081946f96da7d28cd611868e5c5b9e8d482c4a78c94a697f062dbb03f8fc91a1",
+      "uncompressed_sha256": "2beacc613c3ef50edfb83363ba5359ba8393e193081da60549c56d6415e395a2"
+    },
+    "chain/fixtures/kws-stress-chain-check/layer-17.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-stress-chain-check/layer-17.bin.gz",
+      "gzip_sha256": "54ea005e2ade702595206bda57cf63e0ff46d102ec1e6d0f972cb836866e235e",
+      "uncompressed_sha256": "3f4c6b67c4ff4dee28d83a18f60dd74ff28889bbe0e48c0c7ee0f883d62ae427"
+    },
+    "chain/fixtures/kws-stress-chain-check/layer-18.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-stress-chain-check/layer-18.bin.gz",
+      "gzip_sha256": "780ff193b836df60e20c9defd1ee6d1995e784dca632357ae0be355a92f56fa4",
+      "uncompressed_sha256": "c5e508ec60b52ad5cd27ee671bc19a94c3f9578c92eb14ea4b906f504c194c28"
+    },
+    "chain/fixtures/kws-stress-chain-check/layer-19.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-stress-chain-check/layer-19.bin.gz",
+      "gzip_sha256": "44a223abe12c63146a0261838c686d5739a262500d0069cacf0c299619d4a295",
+      "uncompressed_sha256": "55a37bc11f2b31e25f7fdc821f890ce7dd75eb73217aae4f9a7dd035782ffe19"
+    },
+    "chain/fixtures/kws-stress-chain-check/layer-2.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-stress-chain-check/layer-2.bin.gz",
+      "gzip_sha256": "60953730ce70f12e7295e2d6309835321f4928c06f1db3e0f3a094b453f12726",
+      "uncompressed_sha256": "24393bb0b18afffd9284cc5d26a438fbce92e5482c604c64a8f03533538824fe"
+    },
+    "chain/fixtures/kws-stress-chain-check/layer-21.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-stress-chain-check/layer-21.bin.gz",
+      "gzip_sha256": "7736a3498411d7df64e21a0272651751d5e77c97361c76e8b965a4f679e2c1b6",
+      "uncompressed_sha256": "c6f1ea0d7fa80122279b1caa5a3d46295de93963f2786c853fc24f98e2a27db5"
+    },
+    "chain/fixtures/kws-stress-chain-check/layer-3.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-stress-chain-check/layer-3.bin.gz",
+      "gzip_sha256": "709229c146b1176b4acd13d16225b2e69f1fce0e32caa922aa64e6b72c7fb70d",
+      "uncompressed_sha256": "9b483a1bbe092cec022cdc8e47510e3c5ab4155bd0dc9b9d5a0ba16615115da7"
+    },
+    "chain/fixtures/kws-stress-chain-check/layer-4.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-stress-chain-check/layer-4.bin.gz",
+      "gzip_sha256": "4cf61929b06b01d373413fb0fcb616ffd7aa5329b9a9229c957035d3162d1f5b",
+      "uncompressed_sha256": "87e77ba1fcd94cc327dba16dfc7e975bdfc5ad4411a5a89da06b98d059d1362c"
+    },
+    "chain/fixtures/kws-stress-chain-check/layer-5.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-stress-chain-check/layer-5.bin.gz",
+      "gzip_sha256": "b98185b9c2d94b631f067424909e3380f9e41fdf0ad6787e6c215e58b557cf23",
+      "uncompressed_sha256": "c20d4e4025b85e40d61bc584558edfd8c79d7a6d272875d7a88f64f30422770e"
+    },
+    "chain/fixtures/kws-stress-chain-check/layer-6.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-stress-chain-check/layer-6.bin.gz",
+      "gzip_sha256": "d1606c1225fececa6add2a1ffefa8fa2f9069de5a9c624f131d8ae93e0310035",
+      "uncompressed_sha256": "24c392ace85ac05aadcf2ca46cebab9814d2932badb8d5ed2929a936bdc40ab3"
+    },
+    "chain/fixtures/kws-stress-chain-check/layer-7.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-stress-chain-check/layer-7.bin.gz",
+      "gzip_sha256": "a32acf2c638182e85525e37ac604e7893ad95a12cd07ae4607f319f23facb97e",
+      "uncompressed_sha256": "f80b64177300efa9d6495e13d51a9646731e5baf83f628221430cba0ea2a3dca"
+    },
+    "chain/fixtures/kws-stress-chain-check/layer-8.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-stress-chain-check/layer-8.bin.gz",
+      "gzip_sha256": "e7e93f039d7de0f7a8283446dfa6d43fd88c9640c0006db20b1caf0a7f37ad45",
+      "uncompressed_sha256": "6bd4ea821411aff1f3fd16f850001e277ab89e79a1a817e823bd7fab97b6a780"
+    },
+    "chain/fixtures/kws-stress-chain-check/layer-9.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-stress-chain-check/layer-9.bin.gz",
+      "gzip_sha256": "b5192bd7943207d37d6867ceeaca9821c013968d77952847f970fc1e814e212b",
+      "uncompressed_sha256": "8758cb4268319f14131053cff9dc3eba050f054e2368e23abf94f29f832c0ea0"
+    },
+    "chain/fixtures/kws-stress-chain-check/output.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-stress-chain-check/output.bin.gz",
+      "gzip_sha256": "7736a3498411d7df64e21a0272651751d5e77c97361c76e8b965a4f679e2c1b6",
+      "uncompressed_sha256": "c6f1ea0d7fa80122279b1caa5a3d46295de93963f2786c853fc24f98e2a27db5"
+    },
+    "chain/fixtures/kws-stress-chain-check/payload.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-stress-chain-check/payload.bin.gz",
+      "gzip_sha256": "f05bc5f9f28d70c0bdadd4b227fea310875481cd3d03aef8fac0c9876702e5ce",
+      "uncompressed_sha256": "0e9319dea12c065a62c9c8727742dafa0bd7927a7978ef6c05a3e09a96d04c4c"
+    },
+    "chain/fixtures/kws-stress-chain-check/schedule.json": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/kws-stress-chain-check/schedule.json.gz",
+      "gzip_sha256": "5cb5f8b07bb12697e3f420c60dc9908cf1610ddbb27a9f26dbecfd203969dc95",
+      "uncompressed_sha256": "194afe76d8d450e044bfead414a0dfc7c65963d2807d0f8e8542cd631279f54f"
+    },
+    "chain/fixtures/vww-pinned-chain-check/checks.txt": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/checks.txt.gz",
+      "gzip_sha256": "a9e5d1aa670f63096f9fc2f5393c7fd5a1387f96c1817a3b8eaff87b010fb3b8",
+      "uncompressed_sha256": "5c65eadcaea6a4dc3a3caa4f9909ded8e02773d35e1d33f53bafaaf698eb1796"
+    },
+    "chain/fixtures/vww-pinned-chain-check/commands.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/commands.bin.gz",
+      "gzip_sha256": "746421ef159bfd0a253bbdfe7fe9ed7de7aa5c0b578e60a81be30ba74356d375",
+      "uncompressed_sha256": "846310384426b00845fda59661700a78fae4c0237b8d45cc725b1425a58ace9e"
+    },
+    "chain/fixtures/vww-pinned-chain-check/input.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/input.bin.gz",
+      "gzip_sha256": "fdf7583e5bc6bb50aa8cb651038e6023d281a40a0cfc5a0eb1ebe268de7685b6",
+      "uncompressed_sha256": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-1.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-1.bin.gz",
+      "gzip_sha256": "624b3994c15c944c1d904119628d40b7a05d83b11f5fbaf4bcb14ef9b0f7c122",
+      "uncompressed_sha256": "06984013846e2f05d0220e20d65566916ad137ac3cb63d2d30db06d0c1485145"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-10.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-10.bin.gz",
+      "gzip_sha256": "783c356fcaf8e752f3a38ee70cc0d58ba2743a59a55012abacd76316096513c6",
+      "uncompressed_sha256": "d7d0dbfd54b0cc3080bf8b70dad72fb5e8a267a201a92475c648c7fed6274eec"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-11.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-11.bin.gz",
+      "gzip_sha256": "abb2106c658973bd5170c6f88e59bc0a3b563144430dbd55f9a88e7a2d210bbb",
+      "uncompressed_sha256": "446ed3f4b1d2f17c8eb94ef475b58ec84d30672bbcc3dd9b641c41a79b32d48c"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-12.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-12.bin.gz",
+      "gzip_sha256": "0ce876addaf459bfad3db1d51ad48e234755b870bc3c4f75efad98294a401ad6",
+      "uncompressed_sha256": "6eb28e52e11e420d3b9a060ec1d5219ac3a256a566da5491aa827856d080a60c"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-13.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-13.bin.gz",
+      "gzip_sha256": "a51bb9ed01ced80d5b60252437f2da217f9da66be5ae5a2bb3d4666614ba5eac",
+      "uncompressed_sha256": "59d962f962a4b59907549d5856a5ae32b43a41ca01db7ae04f5ad0e35bd77189"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-14.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-14.bin.gz",
+      "gzip_sha256": "164784a2c4e60f112bddb8a89a48d8378ab89e8656067f958ae338fd572972ed",
+      "uncompressed_sha256": "b603387040561489782e1a77a666911711ae4cd72b2cea0a21907704a7769a8d"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-15.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-15.bin.gz",
+      "gzip_sha256": "593b6acbfc96a0c6d62439ff5ef5ea4ed39ad542cc4dc40a929b1c3c218bedbe",
+      "uncompressed_sha256": "501f53aa2fb0370f349d7e0db3069370c3995c43287e498b959e55a607b513bd"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-16.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-16.bin.gz",
+      "gzip_sha256": "af2391395dbefeadc6c1dda445ec239d93a526ab2aaaded8e23424e64e38d83f",
+      "uncompressed_sha256": "8f672022aa3ec547a2a74d0fc7902f00aca34623ee4c6ac0f13396cdc3189877"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-17.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-17.bin.gz",
+      "gzip_sha256": "b99787c10620cdc2995d65cef51132c4843e0d623224a9927bab8dff39a4ad0e",
+      "uncompressed_sha256": "532312ed7b3ac862d370e67cea749af066bf7d8be884e461ac6db8e712848596"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-18.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-18.bin.gz",
+      "gzip_sha256": "e388a1094c1970e785bbcb87afcff14ffe2ecd224a604e4b8f476e28b2b30f94",
+      "uncompressed_sha256": "58861e22c722a3e38bb24b38da8a58f80d6e8bca5041e02623e6a1a0a594ca1b"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-19.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-19.bin.gz",
+      "gzip_sha256": "2273c0e9fc793ec603fc25c133781205392d6397e74d80166d9a229c601fdeca",
+      "uncompressed_sha256": "3440c8923bb7f2ef646a4a6a92e1d3456424825589e6b69dc68d1cbc1207804c"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-2.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-2.bin.gz",
+      "gzip_sha256": "edd2386efb14459fe25c792f35e7465fe51099fba832f2cf0ec53e37d269d021",
+      "uncompressed_sha256": "d12555fad1310af0635639ef931480667e6acd3f1c9f83b705d6a77917637360"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-20.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-20.bin.gz",
+      "gzip_sha256": "dea2263e1e8eeec825df2f6153cd7bef4587a182263be058dde5643b660cb357",
+      "uncompressed_sha256": "1a5d161b06492b61cd996e53520415e6db095995153af3e0ce5e1111b66ba9e2"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-21.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-21.bin.gz",
+      "gzip_sha256": "2230b3605f4ebb4365ae347c7bdca049a89ce38f32ebeb12baf4e58f5edb4f97",
+      "uncompressed_sha256": "5336063325400ee1e852156f90d2869d83855e969d236e3ce79a521cdc7a082d"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-22.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-22.bin.gz",
+      "gzip_sha256": "a77a6229780e67fb29c5b992ca204ce63dd28748f42d8e8672f26fd0b0f51eff",
+      "uncompressed_sha256": "d99054d5617459f1ff8d2d8a30ee819d5fdd80c51bd312c50e418251acd8b24e"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-23.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-23.bin.gz",
+      "gzip_sha256": "f0563942545dbeb6ba82f33505d937dbc4cf3dad8c25765372b040f6aeb77bb4",
+      "uncompressed_sha256": "c6eb378dfec73611d8b0e935bf07fba85315feeca7a86c4efefb802abd44a551"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-24.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-24.bin.gz",
+      "gzip_sha256": "d9187d12a0d3160b03a54cbf7f0e4c46f20abc9fd6e0062c01ed7bc55e16dfdb",
+      "uncompressed_sha256": "537490fd58fc787e8dea2257eeb04429277c22f5174d80372ed6bbf095f128ce"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-25.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-25.bin.gz",
+      "gzip_sha256": "72cdcd5b43c02acd83ff998468bc21f903431d1629556fe379b8452fe9c8034f",
+      "uncompressed_sha256": "452cfc4bf8189f3367ffe930a2f178359c91d0ec947b606acd12e7e9cdc83caa"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-26.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-26.bin.gz",
+      "gzip_sha256": "9e1c24ce511c5baf935ea042b73f712c5740d01f6c75b10bfa08d98e1f4218bb",
+      "uncompressed_sha256": "5a97d91174d756422bbfcb0f530335d1c30a8fc53c0e5396cac7b52f4818395a"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-27.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-27.bin.gz",
+      "gzip_sha256": "99789840de0889aa50704a125803ed5d1a44d3195ca75b67104614735262a0cf",
+      "uncompressed_sha256": "f6951f64befd845a7d77fd78cb9a6cc1e6ad137f92122e7062ee9794f6e83900"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-28.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-28.bin.gz",
+      "gzip_sha256": "865b6e402ec3e13177917bb360975f6e9c1478dd3a359b57b0e7db299a6dfe06",
+      "uncompressed_sha256": "5c1325a40b5604b19786b42c72d782d121f8bdeee32c2aa23abe979d42e2f731"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-29.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-29.bin.gz",
+      "gzip_sha256": "d76e47fef381752d6ae10984fe8d6b16c85901c2a1fdbfb9466b4b940d4d934d",
+      "uncompressed_sha256": "e8a5aa48d6a1996fa66535e1f4eb1373eaaf7dfa53ed69568edc84e1d170208c"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-3.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-3.bin.gz",
+      "gzip_sha256": "1b92a3333b879f4ec718b5d5fe5f9488f1b88e7272451124f71e468eb6156f61",
+      "uncompressed_sha256": "9ca9d3b4cc5e82eb374108f7b4d159e5dcd312b81fad2472b468c4d5f32a2e03"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-30.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-30.bin.gz",
+      "gzip_sha256": "da088c9aa3612a287d38acbb196c4bae9cba17faa63bb85983cd406979b14d32",
+      "uncompressed_sha256": "19d73fc2070353fba0831070313a34d490e8e48f5a9e6603c5afa5b92db9c889"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-31.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-31.bin.gz",
+      "gzip_sha256": "9edceb5fbfd76fa06827e0d7a77fbd0631582b0affa8b0f2edecfa4ecce2a9a6",
+      "uncompressed_sha256": "8b320fde73604b9ab96af85b49738cbb8a83a727f06f1b7fe3c6de48a02f1c4a"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-32.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-32.bin.gz",
+      "gzip_sha256": "086e7bdc819c406d9bf79b5cc33cd2e4f984e7d75043bae303b48075433669f4",
+      "uncompressed_sha256": "356cde89b5d97512b47eb1b3d2c5a1c9fa4b1d1a0a151ed8544ce4a3bb2d0be6"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-33.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-33.bin.gz",
+      "gzip_sha256": "813d96f1f37654b35e3201d46a57b09f345fcbe516252ae1662cbe9ecacabefd",
+      "uncompressed_sha256": "290a8de65faaa7bd6bcffb0ce04909c9993bf0679fc39d2db5f1ae044edb9563"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-34.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-34.bin.gz",
+      "gzip_sha256": "8babde971d3d013455bd27d220f26eb21adcab0fedd9486db574dcfe05f4068d",
+      "uncompressed_sha256": "da8100eeb69fd92d1568d4745e80db7d8d397fd11189d6dd840c17c66f0ba048"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-35.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-35.bin.gz",
+      "gzip_sha256": "dba3a269aec176ecb5fcbaca50a2c771f20984dd2b583eea1a07659af012515b",
+      "uncompressed_sha256": "fc84ddffa1f14b14cf551795e4d1f3c689274a6b628d91306e3abe78e95119b1"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-36.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-36.bin.gz",
+      "gzip_sha256": "33292dd097e58d05581960fa164b843b80fffa6e30b4fcea4d641a47d656a6ba",
+      "uncompressed_sha256": "55c89c4108fae21da158ac916aa5d190e41c499290438fbc0c1d034e88a9aee9"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-37.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-37.bin.gz",
+      "gzip_sha256": "7c4bc135f0ab824998f5dcd59b55ab3093978c6af3655788b2e75973654fb6bf",
+      "uncompressed_sha256": "a50e19be104d2a650bb796f7b0d3736556ce08c7375a0d0bb4d6757c09684762"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-38.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-38.bin.gz",
+      "gzip_sha256": "b9c2a3c2ac4488f1da903a85415a720ff01a4ade7a6b3d61f5b2fd27566cfe5f",
+      "uncompressed_sha256": "34471bb21e8355c1a432a23fa4a49849eb59e753c27209b8fd384302ab7b125d"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-39.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-39.bin.gz",
+      "gzip_sha256": "b9e67fba4a9fa72c800eddd9512fad8ff4bb5b4f47a9105d0acbfaaeca87abf2",
+      "uncompressed_sha256": "6fb0b9cf8947fac55082b22dcdafc39ecff8870655ef078a4c431a9f2e59ee10"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-4.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-4.bin.gz",
+      "gzip_sha256": "099bb7cbfdcb7250f2000bf7befc2ac63c828728a5d0866fd8caf17e69cf59cf",
+      "uncompressed_sha256": "fd204131fb1338dc35ed6b9b7beab6f75db000504d1747e7d6746a96ec25d593"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-40.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-40.bin.gz",
+      "gzip_sha256": "c9414570a611a4a5bf56fb48f30e6833dd31a0a40dc45f26a3edf6923bb662c8",
+      "uncompressed_sha256": "e353c2d3c65f701ba5078ace01e90ebd570750ba0439e0331b3907e7ea11092d"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-41.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-41.bin.gz",
+      "gzip_sha256": "5bd1d98038e922053f393bef862952af7478918ae218abfb16575c0c7d620e62",
+      "uncompressed_sha256": "19e8c4ec74a081713760b06526da6a4afe8fe8e943255ac65f983289575fe510"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-42.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-42.bin.gz",
+      "gzip_sha256": "c0bfb9bbd93bac1678115556573f8f80c551f09e283e06b157f76503eb147476",
+      "uncompressed_sha256": "21fa6e7188f70f58577367c9d2738b7c552dcf963c1122b9304e8ce1a21bd282"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-43.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-43.bin.gz",
+      "gzip_sha256": "ea9b30b5a84bb7be833c874698b42c8ffb3010829598c1947937c30e4583f399",
+      "uncompressed_sha256": "daeff7a54092ee4b1c203735650cac08228d0cb8d4d9f8224647cfe9307fd29b"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-44.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-44.bin.gz",
+      "gzip_sha256": "bdca3bf6b2a7d3cfcd6aea57d3a1bea167d9ebf03b257b9dd42a03c07f8e28b0",
+      "uncompressed_sha256": "9378f5917ef2daaa4581be6d732593d07a3f495aebc70f95cefa82668b6b29b0"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-45.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-45.bin.gz",
+      "gzip_sha256": "23f94a693a34251b215f54d8f22417717a9f9a14836c6f5640b41f18b8a969cd",
+      "uncompressed_sha256": "fc35ee1cd9459f3403a3e03631476dbefc5d99d749412f130c255e7fe1dad421"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-46.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-46.bin.gz",
+      "gzip_sha256": "ad3cb215b12297a0d9fbf952a52f9d24f19f80826383123a8cd3ac7007859f54",
+      "uncompressed_sha256": "bf72edb96e44eb7c8dec06dd3844da36c8246884828dfe1a7f488f15a2d13e1e"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-47.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-47.bin.gz",
+      "gzip_sha256": "508497a94255023a1b2f7f9910b4143e6799a7aac1ed81a4c752a185affccb18",
+      "uncompressed_sha256": "c21111ff4c69f2332bfc839161cf37516c4895bf21187101105db25f99c8d771"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-48.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-48.bin.gz",
+      "gzip_sha256": "096782c7058be9af6d8ab343c882d0dfd354ab8a01e9257ab12c5818a9416135",
+      "uncompressed_sha256": "3d2717412c0256959bf603057a7a0efb15a105e51b0f20b79b3729bc01e32ed1"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-49.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-49.bin.gz",
+      "gzip_sha256": "850694fc49a150929f4c0bd0b254f7e84dfb391f5f002a1c6931fa0ea1fc8cb7",
+      "uncompressed_sha256": "350b10b17fd0dd7e74158eecde795f40e08c7f22b5ce3e88fe6111be534015fa"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-5.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-5.bin.gz",
+      "gzip_sha256": "11a1df822165a7e21f3f9cccf85eb575ad3762e775edd8b47b196d553fcb06fc",
+      "uncompressed_sha256": "7274726aa4546266926163d080b92c700c1736265984fe83e1cba24c362ae8ba"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-50.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-50.bin.gz",
+      "gzip_sha256": "6c7d86a5255fe24b2b73904c609e821affda0099eb8431cee4d67337c476daa9",
+      "uncompressed_sha256": "0616ec40f424df7c15d0244e78451891f1e9528c2580eb46b3304885a802283b"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-51.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-51.bin.gz",
+      "gzip_sha256": "c2bb27233f242d829eadd0dbdcc42273fb0b325260d1731ce3c3745eaa87187e",
+      "uncompressed_sha256": "c1eccf81b4df27ea0100bafb2a0253920a5f5a0d7c0995dce58364bc7c61970e"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-52.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-52.bin.gz",
+      "gzip_sha256": "22e4784e7fb1d534584b8073d2be2801dd29ff8d6d034a2dc74cac88f99e0faa",
+      "uncompressed_sha256": "51116090187d29277d2122319f19a4c37225963a759c661b810f9cb5df661c1c"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-53.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-53.bin.gz",
+      "gzip_sha256": "349af42bb2578e0a243e5af740fefd23a302ebaa5037e6c44be029231aef4ba5",
+      "uncompressed_sha256": "f3092b9d632920750c2ad5d9840e3a141f0ffed61f56dceeca18b6c342eb83c6"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-54.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-54.bin.gz",
+      "gzip_sha256": "8ca65e98c49c408cded773a4b1d596a90fd31277ec8d6d9e20ec52533961f8a7",
+      "uncompressed_sha256": "cdbc5cb7222d439bfc4ebc2bb0bee986d22528a1b71e22b15f4aa2e0a42b8b0c"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-55.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-55.bin.gz",
+      "gzip_sha256": "aed6bb2a91aacc778e36314fc465381813e3d951f434ebe413f2c74ba69b12e4",
+      "uncompressed_sha256": "7d1485634a8349ed6919deff2ee8943313133cd31af46e3dc970e250c7fe000b"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-57.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-57.bin.gz",
+      "gzip_sha256": "64799ac678c4cad2b7db76f43a800c6fd4599f11127389f3386edf5aedccf631",
+      "uncompressed_sha256": "6a0cfa0be8aa6d3a3137a6926b09aa569b91c44d1b845612779c2d55e019dbc2"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-6.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-6.bin.gz",
+      "gzip_sha256": "41a944b6280b02004839489ce04ed3941f9b945a31c04bf5e930b085281893d0",
+      "uncompressed_sha256": "b25d84633e309cf1811ee2b1759d7c12937115b89da9f184701c812432a61599"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-7.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-7.bin.gz",
+      "gzip_sha256": "308e695f015ae97d826318b9f3cebb74214a926a9423f4786e9acb340cad5fad",
+      "uncompressed_sha256": "e79fd2a949e43d03f3edaf24daad6a027bd0c34cf9ebe194a2708dc6a5aaed51"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-8.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-8.bin.gz",
+      "gzip_sha256": "d0b0322f2dee3d61c35097f5c7ff2bc4cf2fc91fe890860376be4d64cb9d013c",
+      "uncompressed_sha256": "1ae692bd5a132b317d7b167575b678bddf6bd0eddd37bc7c856dbf624900350a"
+    },
+    "chain/fixtures/vww-pinned-chain-check/layer-9.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/layer-9.bin.gz",
+      "gzip_sha256": "d3af1448af880322c4301723bfb1bfd47740f3b8eee34df235de0a82ac22b45e",
+      "uncompressed_sha256": "7a244d909e6ae36d02f39a1b60f250372eb03e71d0fe3fe34843639d08b08a5b"
+    },
+    "chain/fixtures/vww-pinned-chain-check/output.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/output.bin.gz",
+      "gzip_sha256": "64799ac678c4cad2b7db76f43a800c6fd4599f11127389f3386edf5aedccf631",
+      "uncompressed_sha256": "6a0cfa0be8aa6d3a3137a6926b09aa569b91c44d1b845612779c2d55e019dbc2"
+    },
+    "chain/fixtures/vww-pinned-chain-check/payload.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/payload.bin.gz",
+      "gzip_sha256": "bb90dccc0e7f08135e373f4fcd8d04f0efca134805beefc86f82a06e112c7df1",
+      "uncompressed_sha256": "9278f20abf82489ddf5e2614836a0cee7f7b7f3167251dda31e76160343ab4c8"
+    },
+    "chain/fixtures/vww-pinned-chain-check/schedule.json": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-check/schedule.json.gz",
+      "gzip_sha256": "53d1a066bee5fc00e12e7d82c42af8c1c6239ced018f27cf1d646378a74a9da4",
+      "uncompressed_sha256": "e767bfd6ddacbaa9f94f4b5340d21ded3e3040605bb1bebefa1ae2eb563950cd"
+    },
+    "chain/fixtures/vww-pinned-chain-timed/checks.txt": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-timed/checks.txt.gz",
+      "gzip_sha256": "c9b37cf3eda71c17431232384b8da717cb0fd083bf3f080b380ea73c615cf488",
+      "uncompressed_sha256": "7fe170b594022a583bc22e129db3badbcbc6a8ff868483c71a95b09793d668f2"
+    },
+    "chain/fixtures/vww-pinned-chain-timed/commands.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-timed/commands.bin.gz",
+      "gzip_sha256": "f30b27c8aee37ba19e26b7240aaeef0e4cdfb7b4102e808a8608b1941b0bb8e2",
+      "uncompressed_sha256": "fd0f3339969e2ede8e340531a6c6bc25b5baa0882d6c93da4048ddb9e8a94ae6"
+    },
+    "chain/fixtures/vww-pinned-chain-timed/input.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-timed/input.bin.gz",
+      "gzip_sha256": "fdf7583e5bc6bb50aa8cb651038e6023d281a40a0cfc5a0eb1ebe268de7685b6",
+      "uncompressed_sha256": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f"
+    },
+    "chain/fixtures/vww-pinned-chain-timed/output.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-timed/output.bin.gz",
+      "gzip_sha256": "64799ac678c4cad2b7db76f43a800c6fd4599f11127389f3386edf5aedccf631",
+      "uncompressed_sha256": "6a0cfa0be8aa6d3a3137a6926b09aa569b91c44d1b845612779c2d55e019dbc2"
+    },
+    "chain/fixtures/vww-pinned-chain-timed/payload.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-timed/payload.bin.gz",
+      "gzip_sha256": "f51bdf39d61eb544f169f08630c1d95e0da00d50c8c636ff09cc1e7125723ff2",
+      "uncompressed_sha256": "ed6404decf32e8cb683ba7a8daa73d377e8f9297c49697ee680d2b464c4c5832"
+    },
+    "chain/fixtures/vww-pinned-chain-timed/schedule.json": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-pinned-chain-timed/schedule.json.gz",
+      "gzip_sha256": "37cbb38e455d34a14dd402c97a04c08bbab372c3866512ba98112f82a894c367",
+      "uncompressed_sha256": "5a1523814a20955da658f1473d5cc4f50b9c162232433b453f48fbb6140c12dc"
+    },
+    "chain/fixtures/vww-stress-chain-check/checks.txt": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/checks.txt.gz",
+      "gzip_sha256": "a9e5d1aa670f63096f9fc2f5393c7fd5a1387f96c1817a3b8eaff87b010fb3b8",
+      "uncompressed_sha256": "5c65eadcaea6a4dc3a3caa4f9909ded8e02773d35e1d33f53bafaaf698eb1796"
+    },
+    "chain/fixtures/vww-stress-chain-check/commands.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/commands.bin.gz",
+      "gzip_sha256": "746421ef159bfd0a253bbdfe7fe9ed7de7aa5c0b578e60a81be30ba74356d375",
+      "uncompressed_sha256": "846310384426b00845fda59661700a78fae4c0237b8d45cc725b1425a58ace9e"
+    },
+    "chain/fixtures/vww-stress-chain-check/input.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/input.bin.gz",
+      "gzip_sha256": "a7fd9c5d84ea7c87e2d52ce170c71a725bb6375d1cce23ef9ef8d6f24f143f48",
+      "uncompressed_sha256": "f04b435c30d5c391fb76a2d964f0eee61276fd6b560e886828f8ef59801cffd5"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-1.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-1.bin.gz",
+      "gzip_sha256": "3625435721868e8a2441797189a4e812005b3a09a753a81cafd2b95b4bd90477",
+      "uncompressed_sha256": "0b7617dea2610ea8f9bd93747ee0b897621ec6dabfc690a4dcf0c29b8972031e"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-10.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-10.bin.gz",
+      "gzip_sha256": "e0533c21606e63a4e0229750723021cad61fec98708fa4f658623197f3cfc7aa",
+      "uncompressed_sha256": "3171d19c6ac94ce00287bfb5a4486b497827ed1973fa6b5351af87b02eed08f4"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-11.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-11.bin.gz",
+      "gzip_sha256": "9ef804b0b32155e0f95f5062bb23365b2aa723d00c33d2a2588ca39c17f65baa",
+      "uncompressed_sha256": "ed54746cd31f454fe5492d42fb5f23e8fb0073ede44f6e645fac17f6d11524d3"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-12.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-12.bin.gz",
+      "gzip_sha256": "910a42582767f5e1f93158e8ffb1e3a26d436a505e2ce5025f769aff3825af96",
+      "uncompressed_sha256": "959f849bab55e93cd9f22366f69be973e4e203da6c121747b44db1e740728d41"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-13.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-13.bin.gz",
+      "gzip_sha256": "966dc64f8fb2280323990183cd385bcd14a1f68b0f830eda3c53bd35a1ff5555",
+      "uncompressed_sha256": "0a429ad6d7b147dc33fe0728766e7d94ab87ae64d6b386b424c9f542bf6000a1"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-14.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-14.bin.gz",
+      "gzip_sha256": "d904030b11f5515fee3d24ac3ae83eecb67b7dc5483313ed081926b4991bc8af",
+      "uncompressed_sha256": "2ea90162814048a5824f08f5ea7dd5d965d661b910fbdf7c49e3e093233838a2"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-15.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-15.bin.gz",
+      "gzip_sha256": "916d740eb13cd87bf4e653a5f87c4612adf8c23fd86f114d204d85eac9bfe863",
+      "uncompressed_sha256": "6d6cc3dfd10069316aeaaf2d3a0ea70d8c41d18b3b72e503ee9c3dcaff5a4143"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-16.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-16.bin.gz",
+      "gzip_sha256": "166e680e502b57185981abe89450aa3dd041ba6e196ea4997057cd48d62d89f8",
+      "uncompressed_sha256": "bbf28f778afc28f5fe096f8d0fb79e81b6fb4ba862f2dd9d5ee2ff72363f8b92"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-17.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-17.bin.gz",
+      "gzip_sha256": "ddefa8c97b4a85aa1cc836f95c2168836065941eab2cf7e6eca39e0a18451be6",
+      "uncompressed_sha256": "0f74d847696ae7fc64dc673a649bb42dbe0802523ce276fd7aad2d1b7c540af4"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-18.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-18.bin.gz",
+      "gzip_sha256": "10897e30cdaf3973900775e311b17f489fa6e73edc48fb9c8cdd942ee4e3d36e",
+      "uncompressed_sha256": "78c8dafacb226cff677117e5be8dc28cc86c826eca8ad22d9652b092e937940d"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-19.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-19.bin.gz",
+      "gzip_sha256": "b658f1cae49366a3c6df9012c6a7644e45cdc5341f3176a627d74ec7be5a2905",
+      "uncompressed_sha256": "d370245e7e1029cfe0bc9a637386617e55024e025fd018b65511954b77eb113c"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-2.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-2.bin.gz",
+      "gzip_sha256": "2e75c3a1306e64b7f02634f069952f0eb75a7c7a49e7f2942ee9423d4da8f4a6",
+      "uncompressed_sha256": "5ea6f3330c9e239b73a340344c46f05d5624f6d61a8b524c2a89fb8f75e056e8"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-20.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-20.bin.gz",
+      "gzip_sha256": "5bf05a593af1255cc169c31977d55f9424b253b8a815299ac4022a9db1c91ce5",
+      "uncompressed_sha256": "3f5172fbde96de0322051798110012af14b95c85da68bec6909ac2150241e6a4"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-21.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-21.bin.gz",
+      "gzip_sha256": "1bb58e94e930301a9a29cf6726ff27f72dfa90c49be99ef679bf6bffd291a860",
+      "uncompressed_sha256": "a1db51ceeb5fab0893dbf16863ac046367df1847fb684690c65a45f11cae9d32"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-22.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-22.bin.gz",
+      "gzip_sha256": "701c2e4d419b4f634956f4ffbeb699c7722f08597c2aaf83bc39d68888c61099",
+      "uncompressed_sha256": "f62de2854c1bdb87434bdc03386802584dd60fba44447b2b5d41985fa4d8fd7e"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-23.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-23.bin.gz",
+      "gzip_sha256": "90dd0cd9fe11ea1f0432b41dde35c0096f6db131fead15df8c7ac268642f6014",
+      "uncompressed_sha256": "f1311297924fd7e40e773b6e175e2e729ea71450b089dce2c5b767c27a2f8a44"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-24.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-24.bin.gz",
+      "gzip_sha256": "23c1eaae5f61ae0a8e9f805763d254379b6e5dd98035ba786487bdb933d7b87f",
+      "uncompressed_sha256": "a524d4217003b79cbf5f61cb11b4ca1d2bfc5b7a7637ccdb456f7a2f747c8025"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-25.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-25.bin.gz",
+      "gzip_sha256": "ff2ebd0f40cf174d1f97bdd043e1357a9a52f13ae9be2a43794f90d287a2afaa",
+      "uncompressed_sha256": "6c0886f9eeae38256e2b8ec80289ee78a66216eaefcc0da221950c28c7f0b236"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-26.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-26.bin.gz",
+      "gzip_sha256": "5ff80a614bfaafa7214f10478ca54ab1169ae0b7c5bfbb390ca3966a96e57ce2",
+      "uncompressed_sha256": "1046ac841233cabb80947c4ce7b5ac8f509c068c9dbea6e3e13cfc7e73a86ff8"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-27.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-27.bin.gz",
+      "gzip_sha256": "d828ef526f85c6b81dcb8230c8690cef8991ddd5663edd133eac2ffddf51dd33",
+      "uncompressed_sha256": "5b513f894ec12d2b1aa4a3334d5f80ed9a04c4287d5a19b0a05f7ffb5c9de6c6"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-28.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-28.bin.gz",
+      "gzip_sha256": "26ccea32b2fd6e94669d0df4eacb6a3110aa3526819ba079296d55fd612cebe2",
+      "uncompressed_sha256": "de369199160c53b2feb36ace1fd5802558c34fbc9e91bd55de785457dae6b944"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-29.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-29.bin.gz",
+      "gzip_sha256": "c34fd9a545cfd95eeabe21652c1823eca329b5bcd35bae0d50b21e35af05c353",
+      "uncompressed_sha256": "56150e2f9917b8cfaa69db044d4d675b2d66b9146203f412ac45c5fe4a9c4da0"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-3.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-3.bin.gz",
+      "gzip_sha256": "dc42d70bd18397235fceda0d364719368031b9105508d36f150ced1cc58201be",
+      "uncompressed_sha256": "95e87b5158a931939892b63264811cdb65464cf8ee82011a5c946f1e27cd2177"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-30.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-30.bin.gz",
+      "gzip_sha256": "2e85e0c07c7bcdd63421c1b0a4a189bc9a7aa03726a5defbdf2d6b6635015b16",
+      "uncompressed_sha256": "02376168392c221cfda6f6d51cd279dbe935ceef4d78622b5dfb0475c9612a92"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-31.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-31.bin.gz",
+      "gzip_sha256": "6d569f3e51ef857cd4e1819fbe57643f97be7906e5f1f5cda98475610687ff80",
+      "uncompressed_sha256": "23da1e9dafb4104550d9cb2d860af2f53e998fe5bbd70bc61ae2dd7dc6ca1136"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-32.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-32.bin.gz",
+      "gzip_sha256": "90863fe6b4fd0d4d788ba3b6adeb315dd726fcddc550772524a185294deee175",
+      "uncompressed_sha256": "70abc4e824a61d627f27fee258af35b2075e51ba22c014865048fdcab246ef07"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-33.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-33.bin.gz",
+      "gzip_sha256": "85979e80d4a656071b1bb80d693c3fa4ef4725ae3162dedeb91282fd2e6d4403",
+      "uncompressed_sha256": "312476ad9bf40f0152e957f03652aa9ca14a99a0b2a3b49f1d9a09a30e7920d0"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-34.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-34.bin.gz",
+      "gzip_sha256": "bd6876960fba0f4960eb6e92f5697377657665cd4fa0b43cf31757c733161dbe",
+      "uncompressed_sha256": "cd887924f5e4fb56308cc533d58e12beeca9bcff7f830c2b894d5be1131e4a9d"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-35.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-35.bin.gz",
+      "gzip_sha256": "d5639e6337c44415536c5dab972c62d9ac2616ff53843899631d33e11034a9d8",
+      "uncompressed_sha256": "adca1d82877e7184185b1313dfa3f7e187768b2b8efd6ee502b576e00c5ae044"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-36.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-36.bin.gz",
+      "gzip_sha256": "9638634ce4710765f681b554032e536b0d4f0e4252b246b0c80f1751388d745c",
+      "uncompressed_sha256": "feab3fd56152602af0e40ed1a85f4e57e0b4b0525a04256c0dc899283e925dd8"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-37.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-37.bin.gz",
+      "gzip_sha256": "d6537d600fac7871bd7399597af2a8ee422b35fe0a19bdd2bdafbb97cfa4edd6",
+      "uncompressed_sha256": "977ee257b37a90e43e437db4489b07885ca06d4ad6b28aedde6d0617ecf195e6"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-38.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-38.bin.gz",
+      "gzip_sha256": "0bb4c4bc002f6b12b68d8cedf06199d39ec1623573ebd80940d34eb126d5d352",
+      "uncompressed_sha256": "ec48fc5dcfd2b9e125bdc7f8004e607d2311e54646c8ee29d0fc588669cd7f71"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-39.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-39.bin.gz",
+      "gzip_sha256": "eedb2308e5d5e2f7c1c2d586a3e8b64c9b7b4a20bc0a272a7867af6cf752e6d4",
+      "uncompressed_sha256": "eb09d5d3b8a1602c0ee7a9e8ed25826bfd7478bbc4932c6b0cf0596a6e623e29"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-4.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-4.bin.gz",
+      "gzip_sha256": "0d4958429f12d3ab4dbe1f3da383d9081e91c8339bfc73f69350a37957067180",
+      "uncompressed_sha256": "45bcb95487e4383ac6947c5499820226a888caaaed6e08f9ae17009344c3f153"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-40.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-40.bin.gz",
+      "gzip_sha256": "67847880cd21ced3286b3a4406b069e57c9cf6b1cc355adb5bde8e358f10636e",
+      "uncompressed_sha256": "1a9a8110ea9bf54717fc065fe12735061d2f61ed3e5edac5fd8ebacd8ae4c7c5"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-41.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-41.bin.gz",
+      "gzip_sha256": "a116ba8358d886d961e417dd2a6c171f53b01dbfb3657e4d909e8de423f2c074",
+      "uncompressed_sha256": "dbeb26ae824d8f8169b3609544a642b6927d44ea10b3cfd0a9e95f477ba4d645"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-42.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-42.bin.gz",
+      "gzip_sha256": "54312420b28dce94827c29f903197891ab5ca227fd15b31b178810fa88121a88",
+      "uncompressed_sha256": "c2eddec1b5237f0a61adb132c3b3041a77f42a1329e1fd48a4f6687271277ce7"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-43.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-43.bin.gz",
+      "gzip_sha256": "55e1df17099e04ea7044d1dd18b2d528c46822a2caa3127f972bb0d2f0b74e98",
+      "uncompressed_sha256": "087e2c01cfd09672cf02bae48a884f8e6a767498c10920b267bd3813e96f6aa6"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-44.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-44.bin.gz",
+      "gzip_sha256": "14eb8ac2bf8926c2be16d0e21f380f243ef77c5b71a849fb3ec21d781f7b1b00",
+      "uncompressed_sha256": "e37cb43165161baf4f897822f70e30fb6b2e688a06cecd22f5d52a45ea5d5bd6"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-45.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-45.bin.gz",
+      "gzip_sha256": "4ae204ac8c90303dfa2854630d5f49f8c29c736f0376b96496be2342e64f9412",
+      "uncompressed_sha256": "c986b219659ce5b351b01b1639d82a39075958272e556da2a13cfd670932b862"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-46.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-46.bin.gz",
+      "gzip_sha256": "13511a13a25522d9d2a2972ce8dc7dcdc6b9762ee553cc95fac7797897248cb6",
+      "uncompressed_sha256": "5dbfd0fac48181706d09d41c9492ae4f4105559ba096440704f4a550fa6d9e1e"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-47.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-47.bin.gz",
+      "gzip_sha256": "7a912935aac0ccc58b78369915267b47b4f425e3fd2651c152bfbc15106b192b",
+      "uncompressed_sha256": "4bd6da1349ff9b5ccce28a9d6e160523f32f7a39e640fa4393fc77a2cd34558c"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-48.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-48.bin.gz",
+      "gzip_sha256": "6b92754eff97b2fc688ac130434b66ce5cbd9db7ddd9ba7c1e6e9c2f01c419c0",
+      "uncompressed_sha256": "05beede43395336ae67406299f239552065ef1ce08de673b644d05d0dea7be24"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-49.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-49.bin.gz",
+      "gzip_sha256": "901bf37bf6ddc37eb374ba37c87d29d19413132967d17d568f84f7a6550968fa",
+      "uncompressed_sha256": "73c7aefc8178928601c5669faa522629352aacb929ff7a12090ff7cb93968b18"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-5.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-5.bin.gz",
+      "gzip_sha256": "0b29cf0897a87c938b3ee0b8e7fd3b9385bf3a0d747e75561cdefb1b97ed2068",
+      "uncompressed_sha256": "efeadf76c4bc6b1c656d6f0a799f547e6e3861ffd487d726e1909c923daac738"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-50.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-50.bin.gz",
+      "gzip_sha256": "3aa10e971e8191cb83560504f9535f3e8adbe7ab789837e8a5e44ebcd2b841dd",
+      "uncompressed_sha256": "2240758d1e376321dac45f2a5a5011c7247f2c7242f967f038da7a5dec664dc8"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-51.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-51.bin.gz",
+      "gzip_sha256": "93d74ee7bf29a8d8d12c464c6be02d9f55db019413a2bf02fcb380005bf8c280",
+      "uncompressed_sha256": "cd8b0b16b3624ac85f4d4ea312bd34dea331435e7d8b1830eda3cfb278102422"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-52.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-52.bin.gz",
+      "gzip_sha256": "61303462a2dc09b3e7db19294a66d9739accff0469c2123344d216aa8f5a7471",
+      "uncompressed_sha256": "819d3a3764bbc7b6222efb4570fe4446f3cd9cca45f28034e0cd551b7c3b9acd"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-53.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-53.bin.gz",
+      "gzip_sha256": "dbd0819a0159149aec6386e5de77b8775e8860f0fd85295384f5b717860b4c06",
+      "uncompressed_sha256": "949d218c24ff3dcd41a9455b6098467fbb6c152c5b75d9c30461c5e3fe417543"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-54.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-54.bin.gz",
+      "gzip_sha256": "b05a083176553f8868c6ffba72379a00b5302aea061c44d03912927768dab3af",
+      "uncompressed_sha256": "1804d98bb3caf5e0e187b7ff7aedfcb51d0fee8c5ce306fb4d124270da5985b5"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-55.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-55.bin.gz",
+      "gzip_sha256": "57c97eb0b4be361402cad938c2bc9eac706b9d31c4618b4c33d3cffe0cc93bdb",
+      "uncompressed_sha256": "137186f99c0056990da89434059eb275c25aebb8e5a666bc5190273bf8823bae"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-57.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-57.bin.gz",
+      "gzip_sha256": "05bf9c51a63ece7f973a04e35df0e576c8f8a11ea719c3d5262ba15523a5a8af",
+      "uncompressed_sha256": "3336b6a7d9c56f2069f8c47449ea114247c0aed53f5bcc3229d08285aab6f7cb"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-6.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-6.bin.gz",
+      "gzip_sha256": "7970c40c1fcc913d2b0e05222ecccdde772c46eaf6d36494ffc0d1b0983030ee",
+      "uncompressed_sha256": "a5c3d4138fc271d345addc00131adf93d1a1927f4a495050654fce227f6220c2"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-7.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-7.bin.gz",
+      "gzip_sha256": "ffc39e4350330a90a4f99eb21814f01250b9983d4301c4e17ead5de6f9c398bc",
+      "uncompressed_sha256": "93bd8bf1a5083bddadb44e81442c162fa54498dc773ed5ef1444bb98d95295e2"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-8.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-8.bin.gz",
+      "gzip_sha256": "94994137565c63119697ab39cdf1790e62e0f755699aa0f2dc8986b088f8a113",
+      "uncompressed_sha256": "25eaa22f09d118f2fd7c550b98854b9caa3cfca513239d86cb493087bef06941"
+    },
+    "chain/fixtures/vww-stress-chain-check/layer-9.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/layer-9.bin.gz",
+      "gzip_sha256": "829fafd5344bd9f7716e12483eb9c07034dab7e1cb678f909ee8510113452ce7",
+      "uncompressed_sha256": "08bdc921f1a26f825316e47085715f1e5f0c9161164e10596e9164ee7c8e9bf9"
+    },
+    "chain/fixtures/vww-stress-chain-check/output.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/output.bin.gz",
+      "gzip_sha256": "05bf9c51a63ece7f973a04e35df0e576c8f8a11ea719c3d5262ba15523a5a8af",
+      "uncompressed_sha256": "3336b6a7d9c56f2069f8c47449ea114247c0aed53f5bcc3229d08285aab6f7cb"
+    },
+    "chain/fixtures/vww-stress-chain-check/payload.bin": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/payload.bin.gz",
+      "gzip_sha256": "bb90dccc0e7f08135e373f4fcd8d04f0efca134805beefc86f82a06e112c7df1",
+      "uncompressed_sha256": "9278f20abf82489ddf5e2614836a0cee7f7b7f3167251dda31e76160343ab4c8"
+    },
+    "chain/fixtures/vww-stress-chain-check/schedule.json": {
+      "file": "docs/research/evidence/phase6/experiments/chain/fixtures/vww-stress-chain-check/schedule.json.gz",
+      "gzip_sha256": "53d1a066bee5fc00e12e7d82c42af8c1c6239ced018f27cf1d646378a74a9da4",
+      "uncompressed_sha256": "e767bfd6ddacbaa9f94f4b5340d21ded3e3040605bb1bebefa1ae2eb563950cd"
+    },
+    "chain/native-all-exact/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/chain/native-all-exact/report.json.gz",
+      "gzip_sha256": "69c53a40d087dc1d8a371d58043e2cf465999b2af7b266a48fae644bc2110dad",
+      "uncompressed_sha256": "f2abbfda69416f5478895acbad6ea55d10d40d95cfc6948e00570c7c79e80993"
+    },
+    "chain/native-combined/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/chain/native-combined/report.json.gz",
+      "gzip_sha256": "264888f42be2a354aec42acd7bfea7da5dde957fbb18425e70ee3d82411ba2dc",
+      "uncompressed_sha256": "e5ef04375292ddfabccf2ee1d36e217d04a935b831da1f38ea38fc97ea239975"
+    },
+    "chain/native-compact-cache/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/chain/native-compact-cache/report.json.gz",
+      "gzip_sha256": "f4c836993510cbaef4d124b283e1f22c84ca4ae044bf3c87a29ff9975585c333",
+      "uncompressed_sha256": "8dbc9e066a7244ababbe5c060cb03a39dc7cb8b1e196e5d4d273660f194f8cbd"
+    },
+    "clock-22p5/build.tcl": {
+      "file": "docs/research/evidence/phase6/experiments/clock-22p5/build.tcl.gz",
+      "gzip_sha256": "1d9b3f0278f214669a8670d2df03d52e5d34602904d5120e429f88c69f2a4db3",
+      "uncompressed_sha256": "a0853abcadf0d3b699c830e0142046dd9a70be30f7d4522bbaf0806dde6d44b4"
+    },
+    "clock-22p5/engine.sv": {
+      "file": "docs/research/evidence/phase6/experiments/clock-22p5/engine.sv.gz",
+      "gzip_sha256": "edc3a651f2f81ea27190696e4d574b2c36465f4492134a8ec8a13e6ad8f15396",
+      "uncompressed_sha256": "6d95d08fa0acab7c998b9842269793ee07212e3f6c11180a48d722469ddea3f2"
+    },
+    "clock-22p5/engine/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/clock-22p5/engine/report.json.gz",
+      "gzip_sha256": "45dd358c2d3a93b9cea35d52370b42115a9997c3a1dd22809c8dfe12c4993b8d",
+      "uncompressed_sha256": "8c64deb50b8ba35c239aebd227358e15981346f292d6215f8977e805f8a0d5d8"
+    },
+    "clock-22p5/engine/results.xml": {
+      "file": "docs/research/evidence/phase6/experiments/clock-22p5/engine/results.xml.gz",
+      "gzip_sha256": "fab1b77a437e45034d8a4839d2183990c6f77abd79e01fdee9be6e25dae6f2b5",
+      "uncompressed_sha256": "3ae15c4df2f022c2835c58eb61f2462889d355455b6ce1d062be47f0768b9429"
+    },
+    "clock-22p5/host.sv": {
+      "file": "docs/research/evidence/phase6/experiments/clock-22p5/host.sv.gz",
+      "gzip_sha256": "0e6fa1d5447622fca6a6e1f5b94a95e81980af7f1606322efc306b65379f0401",
+      "uncompressed_sha256": "764fc4c6a9b896d4736460e10ea4bb98a1cb15cbc1cccca2b8d9bae6a9650501"
+    },
+    "clock-22p5/native/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/clock-22p5/native/report.json.gz",
+      "gzip_sha256": "0bcf6db23bea1c28b148ae2a0b47689387a15b4592cb8565589a97ed9c7682b2",
+      "uncompressed_sha256": "403070669e970c009a33865f855f1b51740a3b660ef73632ac47be3b4123dadf"
+    },
+    "clock-22p5/pll.v": {
+      "file": "docs/research/evidence/phase6/experiments/clock-22p5/pll.v.gz",
+      "gzip_sha256": "a5b46e07efa907ec8f596be9c7ace791748814f6990978bf66f6e0090385448b",
+      "uncompressed_sha256": "e2ced8d28a6a5a9a8500d8e4c30500e51225d2519178d9f82e4daf601b953b17"
+    },
+    "clock-22p5/route/build.log": {
+      "file": "docs/research/evidence/phase6/experiments/clock-22p5/route/build.log.gz",
+      "gzip_sha256": "c8cca313966b15bac7927648b5a7c04f7d2756f9691f6664359108dded77548b",
+      "uncompressed_sha256": "e2746cd3f878e36d6290e9a41a838f3abc9a7af6d96e457452e648791b745923"
+    },
+    "clock-22p5/route/phase6_tiled_host/impl/pnr/phase6_tiled_host.rpt.txt": {
+      "file": "docs/research/evidence/phase6/experiments/clock-22p5/route/phase6_tiled_host/impl/pnr/phase6_tiled_host.rpt.txt.gz",
+      "gzip_sha256": "83f282d8d1208f18f783441ad351d028057b206c40e327181a6dd7bdb36e92a2",
+      "uncompressed_sha256": "d882ad1625f358ff4814605d2f4dc21180274aa26ea4460bb067555562e2c3fb"
+    },
+    "clock-22p5/route/phase6_tiled_host/impl/pnr/phase6_tiled_host_tr_content.html": {
+      "file": "docs/research/evidence/phase6/experiments/clock-22p5/route/phase6_tiled_host/impl/pnr/phase6_tiled_host_tr_content.html.gz",
+      "gzip_sha256": "b9597c86e91c6e790c6274ddfc8436cfa523ce0064c1cde28aa1110afe991813",
+      "uncompressed_sha256": "922b6e6ec34dfed245125c28edf21908766237a4ec8f8c008f841b14b0ec4ce9"
+    },
+    "clock-22p5/route/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/clock-22p5/route/report.json.gz",
+      "gzip_sha256": "a343f0e1c089e50471089709cf47ae23033e7d0213711dd3ca9981fdcfe044cf",
+      "uncompressed_sha256": "106f1b6d28329dc6776c39c50ab31b543a525cbca0c9e3355f2479cca070d892"
+    },
+    "clock-27/build.tcl": {
+      "file": "docs/research/evidence/phase6/experiments/clock-27/build.tcl.gz",
+      "gzip_sha256": "ed24552e38e52d4d7411937f271eb868da80db510320c66ea00b357c04826754",
+      "uncompressed_sha256": "f005ecab285ad6d2463090bd363cbf1b24530b76ef141868dc2c41d3a1ac4945"
+    },
+    "clock-27/engine.sv": {
+      "file": "docs/research/evidence/phase6/experiments/clock-27/engine.sv.gz",
+      "gzip_sha256": "edc3a651f2f81ea27190696e4d574b2c36465f4492134a8ec8a13e6ad8f15396",
+      "uncompressed_sha256": "6d95d08fa0acab7c998b9842269793ee07212e3f6c11180a48d722469ddea3f2"
+    },
+    "clock-27/engine/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/clock-27/engine/report.json.gz",
+      "gzip_sha256": "45dd358c2d3a93b9cea35d52370b42115a9997c3a1dd22809c8dfe12c4993b8d",
+      "uncompressed_sha256": "8c64deb50b8ba35c239aebd227358e15981346f292d6215f8977e805f8a0d5d8"
+    },
+    "clock-27/engine/results.xml": {
+      "file": "docs/research/evidence/phase6/experiments/clock-27/engine/results.xml.gz",
+      "gzip_sha256": "fab1b77a437e45034d8a4839d2183990c6f77abd79e01fdee9be6e25dae6f2b5",
+      "uncompressed_sha256": "3ae15c4df2f022c2835c58eb61f2462889d355455b6ce1d062be47f0768b9429"
+    },
+    "clock-27/host.sv": {
+      "file": "docs/research/evidence/phase6/experiments/clock-27/host.sv.gz",
+      "gzip_sha256": "9bf41dbdff18ffcbaa7e5dd994faccc5fc26228d7fdbccfcd0f8fed1c4581cbb",
+      "uncompressed_sha256": "0c73c802191c7635e7f49d4399f8d9087c36cb3fb6ffefc8cfb399e613c9b924"
+    },
+    "clock-27/native/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/clock-27/native/report.json.gz",
+      "gzip_sha256": "0bcf6db23bea1c28b148ae2a0b47689387a15b4592cb8565589a97ed9c7682b2",
+      "uncompressed_sha256": "403070669e970c009a33865f855f1b51740a3b660ef73632ac47be3b4123dadf"
+    },
+    "clock-27/pll.v": {
+      "file": "docs/research/evidence/phase6/experiments/clock-27/pll.v.gz",
+      "gzip_sha256": "3ffc9ac413e446c2cda08b5abee1875982cf767ab105dc02dd4ecb64812ccbb0",
+      "uncompressed_sha256": "87de7dae3af26398006f25f9a460d4403ae93f3e75fd74ab42675f4ee2d8cced"
+    },
+    "clock-27/route/build.log": {
+      "file": "docs/research/evidence/phase6/experiments/clock-27/route/build.log.gz",
+      "gzip_sha256": "2e3d42931d631aad6ca0e521b8c684cbbe432c254a8f95e389dd702bdec36097",
+      "uncompressed_sha256": "371479e180b6d1998725ccfcf724b88ad7865b260658a610fb91669a473519b2"
+    },
+    "clock-27/route/phase6_tiled_host/impl/pnr/phase6_tiled_host.rpt.txt": {
+      "file": "docs/research/evidence/phase6/experiments/clock-27/route/phase6_tiled_host/impl/pnr/phase6_tiled_host.rpt.txt.gz",
+      "gzip_sha256": "cb1c74d83910a35100abb45841a3af528a60d41622871e454377c0f7e800e8ab",
+      "uncompressed_sha256": "b7826dbcc8cd9d9bc3bbe65dba10abf3dc9a34e387c64e0b82e9cf61a085b4b6"
+    },
+    "clock-27/route/phase6_tiled_host/impl/pnr/phase6_tiled_host_tr_content.html": {
+      "file": "docs/research/evidence/phase6/experiments/clock-27/route/phase6_tiled_host/impl/pnr/phase6_tiled_host_tr_content.html.gz",
+      "gzip_sha256": "fe01f8de72e7a4201dbfadf2aaba566b61711aeb92c6cba150fbef502b9265f6",
+      "uncompressed_sha256": "08ccab321f164f46dc395e21416cb1e9a13b62803656aa35e93a99228449215a"
+    },
+    "clock-27/route/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/clock-27/route/report.json.gz",
+      "gzip_sha256": "3208b9e76d881ac6f6731be884e9bee7c44246045b6be91d774693be3103f66e",
+      "uncompressed_sha256": "5bc12e3ad041731804ec2549ac7d63721c542dbf88bad423dc47045137f7f2bb"
+    },
+    "combined-valid/edges/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/combined-valid/edges/report.json.gz",
+      "gzip_sha256": "e889c398d8ba7737b130091c7c4b7e356343a2873110cfafcec24b1e0a45e6be",
+      "uncompressed_sha256": "d4fb2c70f43cb728309de91bd2671c2936e8d6ad56404f1f60b33cb5ab1756ab"
+    },
+    "combined-valid/edges/results.xml": {
+      "file": "docs/research/evidence/phase6/experiments/combined-valid/edges/results.xml.gz",
+      "gzip_sha256": "adf53cd96f5700c9c7e83774d76d5b332a5d6fef370ab0e47288477fd85be4de",
+      "uncompressed_sha256": "e25012d815e9f5a43eae92667018b521a75de08caf804bf4fe745f1a5864a1fe"
+    },
+    "combined-valid/engine.sv": {
+      "file": "docs/research/evidence/phase6/experiments/combined-valid/engine.sv.gz",
+      "gzip_sha256": "904411be20b657d1dd360e8941bc481e8b37b43ec586e52b9f869bb2cac9fb7a",
+      "uncompressed_sha256": "7f47c10649bbbde0815346b8d1783ee2d6ef8ec69feef4961d021cbaccc15550"
+    },
+    "combined-valid/engine/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/combined-valid/engine/report.json.gz",
+      "gzip_sha256": "1830fdd7971fc43adb8108b0af09025da9c8381d2354782651f319c7d0cbb8b8",
+      "uncompressed_sha256": "a004f2fdd2533e45e8feee1c22ab9e38e8c87a84b1eba7d0dc7516207bb259b7"
+    },
+    "combined-valid/engine/results.xml": {
+      "file": "docs/research/evidence/phase6/experiments/combined-valid/engine/results.xml.gz",
+      "gzip_sha256": "3ac619c0027b5a5626bf56b42d6063c6d1e21ed1f0d11ecad786ebe0c43da867",
+      "uncompressed_sha256": "c73ba50a8f02981addf11334d81cc9b2a22df7a93d012b2b0108f386aba56064"
+    },
+    "combined-valid/identity.json": {
+      "file": "docs/research/evidence/phase6/experiments/combined-valid/identity.json.gz",
+      "gzip_sha256": "55068f963d9135fc42cb506d402e8672bd5cdf1ed7428d264a299b00d944a576",
+      "uncompressed_sha256": "07a000e7a39503319a2455523ad61bfed035cf1bf549ec03623127c1454ae79e"
+    },
+    "combined-valid/native/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/combined-valid/native/report.json.gz",
+      "gzip_sha256": "c23c286e4cf4891988cf30485da207ad04e4472e2e61a72eb02aae950ab4071a",
+      "uncompressed_sha256": "83186b1e8ac694d677bc72f20c65ab2ca0b344b4ad03884c7f00ced314ff4668"
+    },
+    "combined-valid/route/build.log": {
+      "file": "docs/research/evidence/phase6/experiments/combined-valid/route/build.log.gz",
+      "gzip_sha256": "2e4e7ab21f9469e57c0a6be498fb1c2a6f408ce6279ec2d6b77e0aa442531522",
+      "uncompressed_sha256": "73bc39eb165d204a3d3fbf737e8eac21b6f26a8f9a38df86241a6336b4bac84a"
+    },
+    "combined-valid/route/phase6_tiled_host/impl/pnr/phase6_tiled_host.rpt.txt": {
+      "file": "docs/research/evidence/phase6/experiments/combined-valid/route/phase6_tiled_host/impl/pnr/phase6_tiled_host.rpt.txt.gz",
+      "gzip_sha256": "0a1192c443703c495fc26bd47ff047055410a880a79c371e14c1b59b68857d92",
+      "uncompressed_sha256": "78ec5bcd2e6be2714c59d646384e354be2e466ec12eb44723e38608fb54881d4"
+    },
+    "combined-valid/route/phase6_tiled_host/impl/pnr/phase6_tiled_host_tr_content.html": {
+      "file": "docs/research/evidence/phase6/experiments/combined-valid/route/phase6_tiled_host/impl/pnr/phase6_tiled_host_tr_content.html.gz",
+      "gzip_sha256": "39d7ea60b840c7ef6b83da40a1c03835e43d0a4d728ababe68840840b61de3d7",
+      "uncompressed_sha256": "00d887b33f61e9fdf83c3c17138aab52503ffd941ed40a3337faf0ab443046fc"
+    },
+    "combined-valid/route/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/combined-valid/route/report.json.gz",
+      "gzip_sha256": "a80cf02f7af57c79cf982acbc0457943d5d06cdf82e1681f0432aa6ce9dd3ed4",
+      "uncompressed_sha256": "1566a4b0492ecb9e17dad98528956ec6ff0114c3835e43fce6bbbc13ddb71e30"
+    },
+    "combined/edges/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/combined/edges/report.json.gz",
+      "gzip_sha256": "3dda5f4fe625007e3f9812db5e9a214a98327f2b3d785d87b682f0bbf785ab5d",
+      "uncompressed_sha256": "bdd2b0e14c5026914e43be8cccb60a45d2cec52c5a9fcb047945db6eb533dd48"
+    },
+    "combined/edges/results.xml": {
+      "file": "docs/research/evidence/phase6/experiments/combined/edges/results.xml.gz",
+      "gzip_sha256": "2c0668dc4f032ea01674233eab8d53f7b7d23a9e07fba8ebb9007580e6079624",
+      "uncompressed_sha256": "e6a9064e2088547ddc6b2b701ff6d47715336a6984e1674d3d148cba11e614cc"
+    },
+    "combined/engine.sv": {
+      "file": "docs/research/evidence/phase6/experiments/combined/engine.sv.gz",
+      "gzip_sha256": "8fc4ab95087f995210ab6bc288d6fea5a264a879462d8f1afd15d79a125dc230",
+      "uncompressed_sha256": "a7b83bf256c642da9f318e086e402153ac065d7bda212bc57c5336409c564972"
+    },
+    "combined/engine/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/combined/engine/report.json.gz",
+      "gzip_sha256": "7bde2b6e8c74955e4781c78fcebddc34b901a355145afa200d4cfcb21c58de8a",
+      "uncompressed_sha256": "332f5ad2626efc3b917365d8cbf63889214772dbf773b29108aaea1471d85b3e"
+    },
+    "combined/engine/results.xml": {
+      "file": "docs/research/evidence/phase6/experiments/combined/engine/results.xml.gz",
+      "gzip_sha256": "63bf822b3501edaa0ac812af9bf1c3924cd9190a4573d90f46b0367ede7d0575",
+      "uncompressed_sha256": "1e9ed92774db7fa8618c9fb82de558bae438dfe3d0216cc6330a9287dfe0e2ae"
+    },
+    "combined/identity.json": {
+      "file": "docs/research/evidence/phase6/experiments/combined/identity.json.gz",
+      "gzip_sha256": "e4bca5e3dc659fd044dab0a4ee24a9b7d9025d7e4bf0deb92f87850649b63ee1",
+      "uncompressed_sha256": "dbe1b1db3eb144a2ca25ebf36c23b797ed2451fe44fc99573645a4f317a97031"
+    },
+    "combined/native/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/combined/native/report.json.gz",
+      "gzip_sha256": "da7a90a102853db3566fe471de60ce071e52bd54522b25875c55e90e2a0fc007",
+      "uncompressed_sha256": "9b500dbbde3ec8b36a3d94b7e8259b72d22ef58939fff641d14978cdcecc8734"
+    },
+    "combined/route/build.log": {
+      "file": "docs/research/evidence/phase6/experiments/combined/route/build.log.gz",
+      "gzip_sha256": "5d62868bcae700ae0137d5112327bf282127498203647274666ed3369910ac1a",
+      "uncompressed_sha256": "881852c8be36702db7273e6f4f598a4d70e091d94714c60ce00c90e89750ae3b"
+    },
+    "combined/route/phase6_tiled_host/impl/pnr/phase6_tiled_host.rpt.txt": {
+      "file": "docs/research/evidence/phase6/experiments/combined/route/phase6_tiled_host/impl/pnr/phase6_tiled_host.rpt.txt.gz",
+      "gzip_sha256": "cd94a6d17a5e4f45276906b84db7f8239a52f22a7e7eb38a95d35703eb70d7de",
+      "uncompressed_sha256": "aab1d4e2091b54601f2d4f23bc7a0a3fbcb370fd0fed9523cde70d0a5dfe219d"
+    },
+    "combined/route/phase6_tiled_host/impl/pnr/phase6_tiled_host_tr_content.html": {
+      "file": "docs/research/evidence/phase6/experiments/combined/route/phase6_tiled_host/impl/pnr/phase6_tiled_host_tr_content.html.gz",
+      "gzip_sha256": "8d36ed1523f1b13f4cced5f8f7026c91b6bc94cfe2ba7f671a4e41aa6cb864b7",
+      "uncompressed_sha256": "4e3062e51fb195b7fca920c93e7cb98d2845565cfdf57dd39d3a2b89a81d5372"
+    },
+    "combined/route/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/combined/route/report.json.gz",
+      "gzip_sha256": "ba93543126147baf78fa8002f79fbe4df0a1b5d51d4e3669ae879aa4f01a1db8",
+      "uncompressed_sha256": "31ce20679e5c90a0a31ce776be4201fc17d1108f971cf0a0c9c16ed80a723aef"
+    },
+    "compact-cache-22.5mhz/build.tcl": {
+      "file": "docs/research/evidence/phase6/experiments/compact-cache-22.5mhz/build.tcl.gz",
+      "gzip_sha256": "41e1d1e756275cee464c588bdb2009973fd66b1f74229c3d29e0d9a97eff7f93",
+      "uncompressed_sha256": "3895f8a0f10ef659f119ab1a7bba9e011120c899e6f21cb3d1f7bd97e2fbcfdd"
+    },
+    "compact-cache-22.5mhz/engine.sv": {
+      "file": "docs/research/evidence/phase6/experiments/compact-cache-22.5mhz/engine.sv.gz",
+      "gzip_sha256": "edc3a651f2f81ea27190696e4d574b2c36465f4492134a8ec8a13e6ad8f15396",
+      "uncompressed_sha256": "6d95d08fa0acab7c998b9842269793ee07212e3f6c11180a48d722469ddea3f2"
+    },
+    "compact-cache-22.5mhz/engine/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/compact-cache-22.5mhz/engine/report.json.gz",
+      "gzip_sha256": "45dd358c2d3a93b9cea35d52370b42115a9997c3a1dd22809c8dfe12c4993b8d",
+      "uncompressed_sha256": "8c64deb50b8ba35c239aebd227358e15981346f292d6215f8977e805f8a0d5d8"
+    },
+    "compact-cache-22.5mhz/engine/results.xml": {
+      "file": "docs/research/evidence/phase6/experiments/compact-cache-22.5mhz/engine/results.xml.gz",
+      "gzip_sha256": "fab1b77a437e45034d8a4839d2183990c6f77abd79e01fdee9be6e25dae6f2b5",
+      "uncompressed_sha256": "3ae15c4df2f022c2835c58eb61f2462889d355455b6ce1d062be47f0768b9429"
+    },
+    "compact-cache-22.5mhz/host.sv": {
+      "file": "docs/research/evidence/phase6/experiments/compact-cache-22.5mhz/host.sv.gz",
+      "gzip_sha256": "0e6fa1d5447622fca6a6e1f5b94a95e81980af7f1606322efc306b65379f0401",
+      "uncompressed_sha256": "764fc4c6a9b896d4736460e10ea4bb98a1cb15cbc1cccca2b8d9bae6a9650501"
+    },
+    "compact-cache-22.5mhz/native/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/compact-cache-22.5mhz/native/report.json.gz",
+      "gzip_sha256": "0bcf6db23bea1c28b148ae2a0b47689387a15b4592cb8565589a97ed9c7682b2",
+      "uncompressed_sha256": "403070669e970c009a33865f855f1b51740a3b660ef73632ac47be3b4123dadf"
+    },
+    "compact-cache-22.5mhz/pll.v": {
+      "file": "docs/research/evidence/phase6/experiments/compact-cache-22.5mhz/pll.v.gz",
+      "gzip_sha256": "a5b46e07efa907ec8f596be9c7ace791748814f6990978bf66f6e0090385448b",
+      "uncompressed_sha256": "e2ced8d28a6a5a9a8500d8e4c30500e51225d2519178d9f82e4daf601b953b17"
+    },
+    "compact-cache-22.5mhz/route/build.log": {
+      "file": "docs/research/evidence/phase6/experiments/compact-cache-22.5mhz/route/build.log.gz",
+      "gzip_sha256": "f65c1a91aec3d0398068de23663ea930a050ad9fb30196cfb6f2ebc7c1d721db",
+      "uncompressed_sha256": "60836ed21c56d05cbe73aa7cc90636652ad27048f9817ff3fb7449c98cacbcdc"
+    },
+    "compact-cache-22.5mhz/route/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/compact-cache-22.5mhz/route/report.json.gz",
+      "gzip_sha256": "b14c79781874a79754c0985eb3a6bc96b75d44d91b1b532d9263ae2d6c5c5d99",
+      "uncompressed_sha256": "c5067c87332687e3e27f27fb9c3da3e643e7220de247c36e040bde270e8484be"
+    },
+    "compact-cache-27mhz/build.tcl": {
+      "file": "docs/research/evidence/phase6/experiments/compact-cache-27mhz/build.tcl.gz",
+      "gzip_sha256": "10468c1fc67e8077b836e6b5cc58bccb20fd41537b5526c3c067409358ac2624",
+      "uncompressed_sha256": "83a500c70d55031534c8197f8fa8ab9889fa9632d6ff27d788be4942bf91ccd7"
+    },
+    "compact-cache-27mhz/engine.sv": {
+      "file": "docs/research/evidence/phase6/experiments/compact-cache-27mhz/engine.sv.gz",
+      "gzip_sha256": "edc3a651f2f81ea27190696e4d574b2c36465f4492134a8ec8a13e6ad8f15396",
+      "uncompressed_sha256": "6d95d08fa0acab7c998b9842269793ee07212e3f6c11180a48d722469ddea3f2"
+    },
+    "compact-cache-27mhz/engine/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/compact-cache-27mhz/engine/report.json.gz",
+      "gzip_sha256": "45dd358c2d3a93b9cea35d52370b42115a9997c3a1dd22809c8dfe12c4993b8d",
+      "uncompressed_sha256": "8c64deb50b8ba35c239aebd227358e15981346f292d6215f8977e805f8a0d5d8"
+    },
+    "compact-cache-27mhz/engine/results.xml": {
+      "file": "docs/research/evidence/phase6/experiments/compact-cache-27mhz/engine/results.xml.gz",
+      "gzip_sha256": "fab1b77a437e45034d8a4839d2183990c6f77abd79e01fdee9be6e25dae6f2b5",
+      "uncompressed_sha256": "3ae15c4df2f022c2835c58eb61f2462889d355455b6ce1d062be47f0768b9429"
+    },
+    "compact-cache-27mhz/host.sv": {
+      "file": "docs/research/evidence/phase6/experiments/compact-cache-27mhz/host.sv.gz",
+      "gzip_sha256": "9bf41dbdff18ffcbaa7e5dd994faccc5fc26228d7fdbccfcd0f8fed1c4581cbb",
+      "uncompressed_sha256": "0c73c802191c7635e7f49d4399f8d9087c36cb3fb6ffefc8cfb399e613c9b924"
+    },
+    "compact-cache-27mhz/native/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/compact-cache-27mhz/native/report.json.gz",
+      "gzip_sha256": "0bcf6db23bea1c28b148ae2a0b47689387a15b4592cb8565589a97ed9c7682b2",
+      "uncompressed_sha256": "403070669e970c009a33865f855f1b51740a3b660ef73632ac47be3b4123dadf"
+    },
+    "compact-cache-27mhz/pll.v": {
+      "file": "docs/research/evidence/phase6/experiments/compact-cache-27mhz/pll.v.gz",
+      "gzip_sha256": "3ffc9ac413e446c2cda08b5abee1875982cf767ab105dc02dd4ecb64812ccbb0",
+      "uncompressed_sha256": "87de7dae3af26398006f25f9a460d4403ae93f3e75fd74ab42675f4ee2d8cced"
+    },
+    "compact-cache-27mhz/route/build.log": {
+      "file": "docs/research/evidence/phase6/experiments/compact-cache-27mhz/route/build.log.gz",
+      "gzip_sha256": "a8ff6374c686935fb1af83273dd9e0e4c71b0c7d7ac2fff3968ca8c58e2b6bb9",
+      "uncompressed_sha256": "70cb958efdf7bfb5fc40a51ccb6f015ddd8695aa89c21ac1aabf987676492570"
+    },
+    "compact-cache-27mhz/route/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/compact-cache-27mhz/route/report.json.gz",
+      "gzip_sha256": "290bf4f7e55255450ed533210144de50673faf44a0e95093a08d7e2ab40a2623",
+      "uncompressed_sha256": "3163cbc9247fc953bb66080c30562c3e1bd95c989b11f3b31c8f4a3b0c72552e"
+    },
+    "compact-cache/engine.sv": {
+      "file": "docs/research/evidence/phase6/experiments/compact-cache/engine.sv.gz",
+      "gzip_sha256": "edc3a651f2f81ea27190696e4d574b2c36465f4492134a8ec8a13e6ad8f15396",
+      "uncompressed_sha256": "6d95d08fa0acab7c998b9842269793ee07212e3f6c11180a48d722469ddea3f2"
+    },
+    "compact-cache/engine/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/compact-cache/engine/report.json.gz",
+      "gzip_sha256": "45dd358c2d3a93b9cea35d52370b42115a9997c3a1dd22809c8dfe12c4993b8d",
+      "uncompressed_sha256": "8c64deb50b8ba35c239aebd227358e15981346f292d6215f8977e805f8a0d5d8"
+    },
+    "compact-cache/engine/results.xml": {
+      "file": "docs/research/evidence/phase6/experiments/compact-cache/engine/results.xml.gz",
+      "gzip_sha256": "fab1b77a437e45034d8a4839d2183990c6f77abd79e01fdee9be6e25dae6f2b5",
+      "uncompressed_sha256": "3ae15c4df2f022c2835c58eb61f2462889d355455b6ce1d062be47f0768b9429"
+    },
+    "compact-cache/identity.json": {
+      "file": "docs/research/evidence/phase6/experiments/compact-cache/identity.json.gz",
+      "gzip_sha256": "55d0df180d4041d66b36a38892807c04be2c9205f59407e19683e3ee1ee59be5",
+      "uncompressed_sha256": "874a1ede5009bf8b93a89a7eddf463d13a2cf9180f5ab89f4efb6f6001d7f575"
+    },
+    "compact-cache/native/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/compact-cache/native/report.json.gz",
+      "gzip_sha256": "0bcf6db23bea1c28b148ae2a0b47689387a15b4592cb8565589a97ed9c7682b2",
+      "uncompressed_sha256": "403070669e970c009a33865f855f1b51740a3b660ef73632ac47be3b4123dadf"
+    },
+    "compact-cache/route/build.log": {
+      "file": "docs/research/evidence/phase6/experiments/compact-cache/route/build.log.gz",
+      "gzip_sha256": "7166729887814fba8d46e9fd1bcc9cb4fdddd819696f31503e4a651bb5222bd5",
+      "uncompressed_sha256": "2b5354789924af9241de455fed325e7e5df55d06133d21e29dc66ab4261b4464"
+    },
+    "compact-cache/route/phase6_tiled_host/impl/pnr/phase6_tiled_host.rpt.txt": {
+      "file": "docs/research/evidence/phase6/experiments/compact-cache/route/phase6_tiled_host/impl/pnr/phase6_tiled_host.rpt.txt.gz",
+      "gzip_sha256": "1c9e00eb73e3bfb123a78d3ef1870ab9998656be0d66dc5cb6587f52cef25459",
+      "uncompressed_sha256": "d02f17e97fe735fca71049255ea5e93b500b67e9f9e8754a59dda6a75ef3d388"
+    },
+    "compact-cache/route/phase6_tiled_host/impl/pnr/phase6_tiled_host_tr_content.html": {
+      "file": "docs/research/evidence/phase6/experiments/compact-cache/route/phase6_tiled_host/impl/pnr/phase6_tiled_host_tr_content.html.gz",
+      "gzip_sha256": "3cf957fafd2e659265a03a91e7ec7414caa1f6f7eb60631fc300837a9721b0b0",
+      "uncompressed_sha256": "1d2d3d8b99fb2f1a26883a42fabaee7f3bb26ebd3f0b430ed1abd09faa79860c"
+    },
+    "compact-cache/route/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/compact-cache/route/report.json.gz",
+      "gzip_sha256": "2035b128630aa8e003fa1d49285e7c50e5a6b32827185efb127ccd9525c7d6b8",
+      "uncompressed_sha256": "1c3d87c3337c738ccd535b4cc2ce823b7a2fc79a78a0a3e5b9064e6c559b9cea"
+    },
+    "compact-lut/edges/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/compact-lut/edges/report.json.gz",
+      "gzip_sha256": "3848bea3918506d036507ff5bef2eaa62191db8daa5c44547e2172f92ca3745a",
+      "uncompressed_sha256": "2be278f006b1adbb0abf41168d8aee486f4fe6200b7955f7ac9fb8cb27cb12bc"
+    },
+    "compact-lut/edges/results.xml": {
+      "file": "docs/research/evidence/phase6/experiments/compact-lut/edges/results.xml.gz",
+      "gzip_sha256": "74bf19e1ce8045a7578cfd3bb5ae279e98a5df91a96256ad3449fe9cae278e8c",
+      "uncompressed_sha256": "68f433cddbf793423b7ea878aac7bfb7424118f23bf77f1e35d18c29035e718f"
+    },
+    "compact-lut/engine.sv": {
+      "file": "docs/research/evidence/phase6/experiments/compact-lut/engine.sv.gz",
+      "gzip_sha256": "66ad2d1a781c1b91a8ce98a3cd9523ef2ac8920c232de7f40da9a8be82d55616",
+      "uncompressed_sha256": "9de308edc5c94a5b50d7c253a8411efd2eb3b36b5433aca857adb7ed31ab5758"
+    },
+    "compact-lut/engine/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/compact-lut/engine/report.json.gz",
+      "gzip_sha256": "096832cfa9d9663a8c377524c58db2738f84ba99f6d5547b8880c162a25a7367",
+      "uncompressed_sha256": "969ccec3a03eb999f9cb9b6ffac0fd1d231df2f84f39b895af76a178490cfbfa"
+    },
+    "compact-lut/engine/results.xml": {
+      "file": "docs/research/evidence/phase6/experiments/compact-lut/engine/results.xml.gz",
+      "gzip_sha256": "b68fdc7101c75deeb75d46d496c089467f8c2edab455b9c506871401f065ea0f",
+      "uncompressed_sha256": "21455ca03bc61cd608973d0a437fa2dd1550168543920166d0fb3613db7396e6"
+    },
+    "compact-lut/identity.json": {
+      "file": "docs/research/evidence/phase6/experiments/compact-lut/identity.json.gz",
+      "gzip_sha256": "bd839c95df19e10a242b79877915ca6eb37009c12c0577b0541c46507c638fa6",
+      "uncompressed_sha256": "2179799c6ebfcbcf3ab2f56ab5ae502767d11ab4bccc05038fae00217890dc9d"
+    },
+    "compact-lut/native/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/compact-lut/native/report.json.gz",
+      "gzip_sha256": "64381b2813f63504616d115425bed308878d4d9657cfc96fe551464663cd5ea1",
+      "uncompressed_sha256": "aeba87489caacf53975029754de5d0ce4e1651eb4ece25c767164a3b4c29d02b"
+    },
+    "compact-lut/route/build.log": {
+      "file": "docs/research/evidence/phase6/experiments/compact-lut/route/build.log.gz",
+      "gzip_sha256": "1e1b5227d08cd0d6d23282f3bb8ff589569ae797e06eb25df10e2fbe2d00759e",
+      "uncompressed_sha256": "be2c4b05ebb7da469a9adbb6a025035d34f45b3ec61a6024c69e959233e81b2f"
+    },
+    "compact-lut/route/phase6_tiled_host/impl/pnr/phase6_tiled_host.rpt.txt": {
+      "file": "docs/research/evidence/phase6/experiments/compact-lut/route/phase6_tiled_host/impl/pnr/phase6_tiled_host.rpt.txt.gz",
+      "gzip_sha256": "5ed298166c6e932c1a575b1cac60040060b6c90670b8e7d793d37e7d3702cbbd",
+      "uncompressed_sha256": "5b9cc3b643279829ce8c5c43657429bb1b6995a9cb8dd1a5f77d086554ad85bb"
+    },
+    "compact-lut/route/phase6_tiled_host/impl/pnr/phase6_tiled_host_tr_content.html": {
+      "file": "docs/research/evidence/phase6/experiments/compact-lut/route/phase6_tiled_host/impl/pnr/phase6_tiled_host_tr_content.html.gz",
+      "gzip_sha256": "9a5b2e6c200e95fb390c505841ae736903f8e43f872e588127096358ca3b4be1",
+      "uncompressed_sha256": "5e5dffe85ef68f88f47e958dd26db7edd2f22327e8e54160e6a2187c6e0ba7e6"
+    },
+    "compact-lut/route/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/compact-lut/route/report.json.gz",
+      "gzip_sha256": "e43247698d368133d5dae4dc1d322d67e77bbd2997935dfc9cb5b68986e23577",
+      "uncompressed_sha256": "86b7a4b554d0cb1d92e26048b7105f7a38dee0c17bf429fc8f2031624f67c6e6"
+    },
+    "compact/engine.sv": {
+      "file": "docs/research/evidence/phase6/experiments/compact/engine.sv.gz",
+      "gzip_sha256": "f44ea1c133af30940dec675231a37b98c57bdbd2ce227633e3215ac56b71488c",
+      "uncompressed_sha256": "6d6c861871f56626dae7d5b421f56bb060e7b3eb07bd553e64494d8ec4684b88"
+    },
+    "compact/engine/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/compact/engine/report.json.gz",
+      "gzip_sha256": "7d2df6cf9603c6f483bffd949a3fb8094ee5049bdcd04ee0617e9cfc04b59bb6",
+      "uncompressed_sha256": "203db1a614db528b0a07a9b3d6f7cc47b78d5b1aeff6947d71e5449b31b69cd6"
+    },
+    "compact/engine/results.xml": {
+      "file": "docs/research/evidence/phase6/experiments/compact/engine/results.xml.gz",
+      "gzip_sha256": "ae0bb6593d99a4398d4a41484805bc85be2603c2972a67f7c4f5cb4e95eebfa3",
+      "uncompressed_sha256": "b1d3db431a30d9e0618a7003cf989685ac68dbaa2189907652a6e53e3aa919fc"
+    },
+    "compact/identity.json": {
+      "file": "docs/research/evidence/phase6/experiments/compact/identity.json.gz",
+      "gzip_sha256": "008fc7ba62f565facaa0cdb776c98feacc436bb84d3f8b55e5b1dbe56cd0fba4",
+      "uncompressed_sha256": "dedf4ee53016b5cabc93716d2ccbcaad8fde97b67a7fd89a3907f7522e50f17f"
+    },
+    "compact/native/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/compact/native/report.json.gz",
+      "gzip_sha256": "9acad442a2ca4d633b2678a7520c189c4504a14d1d57d9296d735f5a247cd9f6",
+      "uncompressed_sha256": "23da3603a4cd1ce1597b0c04776f08dfec90bf889be41648c8196d2365809808"
+    },
+    "compact/route/build.log": {
+      "file": "docs/research/evidence/phase6/experiments/compact/route/build.log.gz",
+      "gzip_sha256": "f5261a70a96ba3ee30d0347c89235be67eb527c7c4a31d3b8bc989d8a4cd2d81",
+      "uncompressed_sha256": "56cb09feb0e1419d2da3338d305af1b2a857fda3dc45766ab18b98ec00764f7b"
+    },
+    "compact/route/phase6_tiled_host/impl/pnr/phase6_tiled_host.rpt.txt": {
+      "file": "docs/research/evidence/phase6/experiments/compact/route/phase6_tiled_host/impl/pnr/phase6_tiled_host.rpt.txt.gz",
+      "gzip_sha256": "d1a601b3005254d3e61dd6c5350e6ffd5db791657c96528747c7c42ab4781856",
+      "uncompressed_sha256": "f4287214cbe824c034ff38050d9cfa0fdb134b2aa06746588350158653141bc8"
+    },
+    "compact/route/phase6_tiled_host/impl/pnr/phase6_tiled_host_tr_content.html": {
+      "file": "docs/research/evidence/phase6/experiments/compact/route/phase6_tiled_host/impl/pnr/phase6_tiled_host_tr_content.html.gz",
+      "gzip_sha256": "f69dfe3d047b29137e929993c77502d0175cbc2cc0f4f6f28b4923faad643680",
+      "uncompressed_sha256": "3c969d9133d244a0ddf70f0aa2dd751af42a91b5ad5b395952c3803d813ddf36"
+    },
+    "compact/route/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/compact/route/report.json.gz",
+      "gzip_sha256": "6c4759097751bbbb5fd6e7ee8d94c2e3c0fb667b070f5401636aa3ca771e183b",
+      "uncompressed_sha256": "51ae911c0b0989bc395baff98e2d362d16d28fc5a1e2bbbaaeb5fc34484cc8ae"
+    },
+    "depthwise/engine.sv": {
+      "file": "docs/research/evidence/phase6/experiments/depthwise/engine.sv.gz",
+      "gzip_sha256": "0f5af96b6c3da40ad6967721c921b15915fac4486031c45f0750d4a971ec47b9",
+      "uncompressed_sha256": "6ed5bde7ec7e17634aa5fcd53450f1497e422dcaca6aecc1e3c532f1e3aec28e"
+    },
+    "depthwise/engine/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/depthwise/engine/report.json.gz",
+      "gzip_sha256": "fd83bb3ce0e6dfa853248d829b3e8b5298b7048cb2bfae5241961fbba145975d",
+      "uncompressed_sha256": "ea370645bb5f873f19cd800977d632b007a80b98528705619ad1778f0cb0a6ff"
+    },
+    "depthwise/engine/results.xml": {
+      "file": "docs/research/evidence/phase6/experiments/depthwise/engine/results.xml.gz",
+      "gzip_sha256": "150e8d2d9c8b23eddb4c1db0a3173929cd789d1d62a8b54debd2ad7855bffef7",
+      "uncompressed_sha256": "c0b4ec84925553d01b12b8117dc3c3173fb1c4bce781f7c7ad3c4310e1e9161b"
+    },
+    "depthwise/identity.json": {
+      "file": "docs/research/evidence/phase6/experiments/depthwise/identity.json.gz",
+      "gzip_sha256": "3951166f3d470e074f7d355940c88811b7705bdb63c6001c0d7105f7b6aa8def",
+      "uncompressed_sha256": "c107acd4f72cda3da719051f9389e16394fbf698181095b9dfdd631063f6fbda"
+    },
+    "depthwise/native/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/depthwise/native/report.json.gz",
+      "gzip_sha256": "14a5a5f06200743f1d1e955061e05cd34af4e5003662fb01889d2d9c23b73830",
+      "uncompressed_sha256": "61102e521cbc5d0a8faf7fe69cf4916781e18dad1604ee6887313350e4e2f680"
+    },
+    "depthwise/route/build.log": {
+      "file": "docs/research/evidence/phase6/experiments/depthwise/route/build.log.gz",
+      "gzip_sha256": "ae488126b15cfdd49abf7a4b105e81978f082e84c7a3b624d68cabc47bc964b8",
+      "uncompressed_sha256": "bc7c36388ce0dd0db476071ef88cf7393a9b474729086a407a6875a75a6d4568"
+    },
+    "depthwise/route/phase6_tiled_host/impl/pnr/phase6_tiled_host.rpt.txt": {
+      "file": "docs/research/evidence/phase6/experiments/depthwise/route/phase6_tiled_host/impl/pnr/phase6_tiled_host.rpt.txt.gz",
+      "gzip_sha256": "d3ba2ac1bb8be8feb42ad0e04527550057a4aa063d62fef4be7e5424ff704514",
+      "uncompressed_sha256": "06a9ffc4f2db115a17ad970864dfca8fb41e84961cc91570d9b9ab5058434245"
+    },
+    "depthwise/route/phase6_tiled_host/impl/pnr/phase6_tiled_host_tr_content.html": {
+      "file": "docs/research/evidence/phase6/experiments/depthwise/route/phase6_tiled_host/impl/pnr/phase6_tiled_host_tr_content.html.gz",
+      "gzip_sha256": "d6c5e0a1e58cc02b8c14f31fe3ff764960840455b995c1db4097bb00959bbd6b",
+      "uncompressed_sha256": "f9f12563632c7fdb8d98089a16507ae5d85f97fa22fb76bb210cbc23d011d16d"
+    },
+    "depthwise/route/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/depthwise/route/report.json.gz",
+      "gzip_sha256": "2cc0cab1c83b8d58dd37dd91ee3c39275a399ae10d67b3c43ce655566100d4b6",
+      "uncompressed_sha256": "08b62aabc9873513aa6406ec9ef4c70524c0c8833cd1b1fb78c751f32cea975f"
+    },
+    "host-batch/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/host-batch/report.json.gz",
+      "gzip_sha256": "78e9c6b7d1c6b544cd5d90b6366c5f809e32572616aaa478b6ba730be330fd41",
+      "uncompressed_sha256": "342f196b20f54558448e124bfecdd0c4d5b9b773c087cc170b964f29d776c900"
+    },
+    "lut/edges/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/lut/edges/report.json.gz",
+      "gzip_sha256": "541960a87ea1943d46ac18b09fe570f48b99922add379d7211bbc3c626276b06",
+      "uncompressed_sha256": "d60a7df8430f3f00386457a4e7fa81182f441e5f6707f8b7eebfd25e86124171"
+    },
+    "lut/edges/results-first.xml": {
+      "file": "docs/research/evidence/phase6/experiments/lut/edges/results-first.xml.gz",
+      "gzip_sha256": "d1b208c5028f0745a59f4deea8784a3ccc26adfb73b29d23451acbda4bb66137",
+      "uncompressed_sha256": "95fa82ce2d4c8004812b31e929200a469e806ff5780e02201921150b14acae76"
+    },
+    "lut/edges/results.xml": {
+      "file": "docs/research/evidence/phase6/experiments/lut/edges/results.xml.gz",
+      "gzip_sha256": "c31dcdbda5b983f630ca8f9cc96653318ab177987c18171460d74c1004110ac3",
+      "uncompressed_sha256": "523d89ad075d1a46a1beef390e034565705771bc6c63df099672d136b404185c"
+    },
+    "lut/engine.sv": {
+      "file": "docs/research/evidence/phase6/experiments/lut/engine.sv.gz",
+      "gzip_sha256": "c534ad1c3ecdf9b1d77f8db43495e1daef4f597665be4a6def20cc5ebf9bcb71",
+      "uncompressed_sha256": "819020a5454d61506cc5291ecba35ce568cd47ceae7ffbe03835c66772e1f212"
+    },
+    "lut/engine/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/lut/engine/report.json.gz",
+      "gzip_sha256": "84cba937d0ecf00b223c8470dc73ec356f1fe1379c9eae8f782c1b153723a197",
+      "uncompressed_sha256": "f4aeeed151e2f71a2b41f50f1f05190e1606398d92f035aef8b5d28b83638d2d"
+    },
+    "lut/engine/results.xml": {
+      "file": "docs/research/evidence/phase6/experiments/lut/engine/results.xml.gz",
+      "gzip_sha256": "888ff86f7df7cb98569fe7e97cdc81d9cb59280446b17a27b75ec67bc1fa76af",
+      "uncompressed_sha256": "14211c73b8becb4e358c0ede835b52f5297f383cabc349a7d7b0afc8ddc0fd42"
+    },
+    "lut/identity.json": {
+      "file": "docs/research/evidence/phase6/experiments/lut/identity.json.gz",
+      "gzip_sha256": "1a1e44d9372c4d35a061dc89f045a6b9eff905424d4477b346decd4abf3d6901",
+      "uncompressed_sha256": "37e90048b50513b30e2e162bcda475e1e7f73909a52028afa342d76322880607"
+    },
+    "lut/native/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/lut/native/report.json.gz",
+      "gzip_sha256": "9176ac115f34948c29a94724daa47a50124c768f07cea5863d8a86b41805f461",
+      "uncompressed_sha256": "576948af001392cf5561480e21bc98d7af3fc19875cff8b9560003933ab94d1d"
+    },
+    "lut/route/build.log": {
+      "file": "docs/research/evidence/phase6/experiments/lut/route/build.log.gz",
+      "gzip_sha256": "d48fa0d600800b81d0992b3972ca5c68ab8cbc659cdc19cff6cb39e362a27c6f",
+      "uncompressed_sha256": "a4400acc2884cc49b90592c37e8e44d64d6abb3e63a39f21797f98daed6f3891"
+    },
+    "lut/route/phase6_tiled_host/impl/pnr/phase6_tiled_host.rpt.txt": {
+      "file": "docs/research/evidence/phase6/experiments/lut/route/phase6_tiled_host/impl/pnr/phase6_tiled_host.rpt.txt.gz",
+      "gzip_sha256": "845cf6d975ddf38d03ba7ad5361ed656e19dbb443a7e04f4e8e9b3a16aa43976",
+      "uncompressed_sha256": "b6e4a8f6f47d8927224f24aac238443a078b8902ce951513f468c98e98a0001f"
+    },
+    "lut/route/phase6_tiled_host/impl/pnr/phase6_tiled_host_tr_content.html": {
+      "file": "docs/research/evidence/phase6/experiments/lut/route/phase6_tiled_host/impl/pnr/phase6_tiled_host_tr_content.html.gz",
+      "gzip_sha256": "bd3b313e3044d3f77ea286b84b3465851777ee96683b33aee99a8ecac7614290",
+      "uncompressed_sha256": "012c2444a8f28d7bbeb581990d46a5f7363c271fc4870b516efbfa6ac85f9dcb"
+    },
+    "lut/route/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/lut/route/report.json.gz",
+      "gzip_sha256": "875434cd93436c6d6d9081fe37fc86de9648c7c0170745b0f3330ce1a4a1fad5",
+      "uncompressed_sha256": "fe2e5eb09d1798462108fc7d793cdc84e37486e5f53bec53faa822c2298c1387"
+    },
+    "params/engine.sv": {
+      "file": "docs/research/evidence/phase6/experiments/params/engine.sv.gz",
+      "gzip_sha256": "5be5fad13ba5c1bd507be6effc5a616e1f1704f2db3fb3cf6855d96cb5e36ea0",
+      "uncompressed_sha256": "9219b70ce35ebf6c18ff06ffd5fb92e5462d25da91d322e1089729b34d56107e"
+    },
+    "params/engine/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/params/engine/report.json.gz",
+      "gzip_sha256": "94c9faee2b693b71946b2d28cb4162df9ba2eb6617b992326ed60d7320787c49",
+      "uncompressed_sha256": "4674ee890a63fb784be4afad792d261de05a5b74b960dbdaf1722a670f05888f"
+    },
+    "params/engine/results.xml": {
+      "file": "docs/research/evidence/phase6/experiments/params/engine/results.xml.gz",
+      "gzip_sha256": "647911e23a6b242e5424b9ec3089d3856dd7c9e2d7942a806b040335a45f9247",
+      "uncompressed_sha256": "ed7c810f61fd6e917ff1482db65600e81bdc41f07c70bbfa3c86fdbcc2dff9ef"
+    },
+    "params/identity.json": {
+      "file": "docs/research/evidence/phase6/experiments/params/identity.json.gz",
+      "gzip_sha256": "4c2f0dea5876d7d2354827c7694a2847d6c8fb24fdfb01d80fead90ce486d89e",
+      "uncompressed_sha256": "772d341282f76f76ba7c7c137e0bf6a6386f02c62535034abda10988825a6e3e"
+    },
+    "params/native/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/params/native/report.json.gz",
+      "gzip_sha256": "75f7cc98aea05fce4beb0404b0fb7171b3ab1d79a46c9be6965d150d8d8192dc",
+      "uncompressed_sha256": "08852134777d5704b02b0f10e31de8c9d1735be761af9e421724830d7ebfa77b"
+    },
+    "params/route/build.log": {
+      "file": "docs/research/evidence/phase6/experiments/params/route/build.log.gz",
+      "gzip_sha256": "4fc65b7a05b6de573911ccfa7421a7729b2806e8dc55a46091b58f9327b6af6e",
+      "uncompressed_sha256": "0efa463acf9591a16c08af2166a12409f7c3562b7270a12675e5cb4b5ee66ce1"
+    },
+    "params/route/phase6_tiled_host/impl/pnr/phase6_tiled_host.rpt.txt": {
+      "file": "docs/research/evidence/phase6/experiments/params/route/phase6_tiled_host/impl/pnr/phase6_tiled_host.rpt.txt.gz",
+      "gzip_sha256": "bf4966d1bd9165ab75e8001df3a7350820dc39fc068a09005a70fcc7b460e83b",
+      "uncompressed_sha256": "5fd7cb643679ec87e134989829575ff300967ccc02ac95556fa79459854b501b"
+    },
+    "params/route/phase6_tiled_host/impl/pnr/phase6_tiled_host_tr_content.html": {
+      "file": "docs/research/evidence/phase6/experiments/params/route/phase6_tiled_host/impl/pnr/phase6_tiled_host_tr_content.html.gz",
+      "gzip_sha256": "b2d8221b25a46bd8e29ed630cb6396474d0c78146a7ea1388962fdbc6bf3fa47",
+      "uncompressed_sha256": "92d3af5aa4c3814259d7402fede28a7cab8eee76244273dc7146212ce882972d"
+    },
+    "params/route/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/params/route/report.json.gz",
+      "gzip_sha256": "76065005cbbcbdbf7ccc77166e84f237dd9a422cd401c453426c16c4138080dc",
+      "uncompressed_sha256": "543be846d59f3030bea67ebc8244d0d9bd9fd9be8c95ba11467abcabd3775147"
+    },
+    "prefetch/engine.sv": {
+      "file": "docs/research/evidence/phase6/experiments/prefetch/engine.sv.gz",
+      "gzip_sha256": "4232c89b83b8a0f35cdf48ed190c8d0b56fed424a21695cc1056818904e06fee",
+      "uncompressed_sha256": "38420e3d9f1b2ee4eeca84aa91dec84574c3939c739e8cd062a766a9857db781"
+    },
+    "prefetch/engine/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/prefetch/engine/report.json.gz",
+      "gzip_sha256": "42984b47e4bff0ff2bda3d16213cc505df7e6c2cb7910347492d52da2cd8335b",
+      "uncompressed_sha256": "1039cac545937437be3ce7594ff9a0fc19d947ba9f61777f2b4568fe8ca99e03"
+    },
+    "prefetch/engine/results.xml": {
+      "file": "docs/research/evidence/phase6/experiments/prefetch/engine/results.xml.gz",
+      "gzip_sha256": "5ecc73aa9aa5d1dbe9136a8d9cfee00cc531b169e38dd459130e7982aa04f63e",
+      "uncompressed_sha256": "f4d41af4cc1cb4488467c1ea4c731b13f6cc68dda1f015025d9ba47e16c1b3fd"
+    },
+    "prefetch/identity.json": {
+      "file": "docs/research/evidence/phase6/experiments/prefetch/identity.json.gz",
+      "gzip_sha256": "400539e619dd1703362abe48c9d3408eafcc0a4aec2c68a62faa9e5b2c724f5b",
+      "uncompressed_sha256": "4171361a70cf8ad8e6d3573f8b47927feaa1d161153fccebf67ae3ab87c68ac9"
+    },
+    "prefetch/native/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/prefetch/native/report.json.gz",
+      "gzip_sha256": "a1242c47552ad27f3fc5697170a472b4f151944e0ee1b2817a02a1a7f913f13a",
+      "uncompressed_sha256": "a9d5a3f9239ac32f23405e2cee13f7cde8605d28e47de94a5a68369af7fbc679"
+    },
+    "prefetch/route/build.log": {
+      "file": "docs/research/evidence/phase6/experiments/prefetch/route/build.log.gz",
+      "gzip_sha256": "8990fa3bc701c90e8f45311dfc3b7ff6170c11968c22728b24f58e228a52e6c2",
+      "uncompressed_sha256": "89411504a1477016e6bf89ef8b751b8679ee1453a78e406a6324d9237dd25cfd"
+    },
+    "prefetch/route/phase6_tiled_host/impl/pnr/phase6_tiled_host.rpt.txt": {
+      "file": "docs/research/evidence/phase6/experiments/prefetch/route/phase6_tiled_host/impl/pnr/phase6_tiled_host.rpt.txt.gz",
+      "gzip_sha256": "00fa436c4648dabc417dfd60fb804d07db0e054c08a12768864469981d5ac5ee",
+      "uncompressed_sha256": "ca44141f94e7927fd443e101a7ad991aa4452ea66f0225da449da76fa46465a5"
+    },
+    "prefetch/route/phase6_tiled_host/impl/pnr/phase6_tiled_host_tr_content.html": {
+      "file": "docs/research/evidence/phase6/experiments/prefetch/route/phase6_tiled_host/impl/pnr/phase6_tiled_host_tr_content.html.gz",
+      "gzip_sha256": "f6bc1602cd9f12059937c83bb6c6d0e69de361a69fcff9a4ca12df0524194ab2",
+      "uncompressed_sha256": "b209ce5d8001c44b233f674b52b79f42aec8ee10dbc9e6d297828cfdc4f81dbb"
+    },
+    "prefetch/route/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/prefetch/route/report.json.gz",
+      "gzip_sha256": "a2904430ab6471c210d28b6b9f403860968ebaf336813035b0b639580f33eaae",
+      "uncompressed_sha256": "4deb2232aa693d9fa3b68684a4121725295eed7a278dd7f9e06e5c6a9e062aaa"
+    },
+    "quick-a/plan.json": {
+      "file": "docs/research/evidence/phase6/experiments/quick-a/plan.json.gz",
+      "gzip_sha256": "b3ab7f4f1012b448066e5e9d034414fb18f77a60ac2d7b528c2edd5c9e4eaca1",
+      "uncompressed_sha256": "05d063752c38aaa7bb68591a8d362be5a0bae35dc9a40d9a539984c4cd9cca7e"
+    },
+    "quick-a/program-prefetch.log": {
+      "file": "docs/research/evidence/phase6/experiments/quick-a/program-prefetch.log.gz",
+      "gzip_sha256": "753e86322aa0f5c9706852b3c6c258e67d1503421c32b25907ed5dd9d89bd87e",
+      "uncompressed_sha256": "6c464e49edfa8f65fed34e91153530853ffae43c90645145a762e165018a0ed1"
+    },
+    "quick-a/program-scalar.log": {
+      "file": "docs/research/evidence/phase6/experiments/quick-a/program-scalar.log.gz",
+      "gzip_sha256": "9e06652317b9db5029c67658a9b26870e4c3ac0b720536bcae8433c10694482a",
+      "uncompressed_sha256": "c60b44c7cc90079fd195101e5a61ea28393c7d9f5fb7818088e59d7114d85d97"
+    },
+    "quick-a/program-weight.log": {
+      "file": "docs/research/evidence/phase6/experiments/quick-a/program-weight.log.gz",
+      "gzip_sha256": "567e6fd1202eb39597021f3e2dec53224fc02b1f61badbabfee96fb455cf097b",
+      "uncompressed_sha256": "8e479c1684104644135eb63e101e5962994cad991ac5ee07eb90c9e745c88d8e"
+    },
+    "quick-a/program-writeback.log": {
+      "file": "docs/research/evidence/phase6/experiments/quick-a/program-writeback.log.gz",
+      "gzip_sha256": "e46ebdaeca962dc1925ac0a1f2c394bd6f712794e2e8dde4b09654c8a30ab9e3",
+      "uncompressed_sha256": "dda86ec31afb03b8eb411a979bb0558967d6789acac102f132ad19d7d6244906"
+    },
+    "quick-a/records.jsonl": {
+      "file": "docs/research/evidence/phase6/experiments/quick-a/records.jsonl.gz",
+      "gzip_sha256": "5f4e4dd37fed39d1940802e90ebc32baf92967a3ae5000cf861b61863848e518",
+      "uncompressed_sha256": "ba9b91ebd1e56d344bd536e64a55b3ef8875060ac8ebc3f4dece7ee2c3630e80"
+    },
+    "quick-a/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/quick-a/report.json.gz",
+      "gzip_sha256": "44a8fcb968420d733dd0f2726993ce2f25b5be34550450e453062f7363d200f2",
+      "uncompressed_sha256": "358b99c6c2ed3fec3629585b1838b0039e31a294bec6f5ed6da98f18bce8f2d5"
+    },
+    "quick-b/plan.json": {
+      "file": "docs/research/evidence/phase6/experiments/quick-b/plan.json.gz",
+      "gzip_sha256": "798ffa7d9a113b478e70ef890b5e027a36ea1cdfa4ec8f5d70dc62cc08fd4b6c",
+      "uncompressed_sha256": "e36ff21df8e626c17e9b89f7a5512e64786e939a689d58a78b538939f7a79cc7"
+    },
+    "quick-b/program-cache-bram.log": {
+      "file": "docs/research/evidence/phase6/experiments/quick-b/program-cache-bram.log.gz",
+      "gzip_sha256": "32d36bfdf5d6dd4eea81ac341e76e367c05fa248793cd4913bb1f850ef519865",
+      "uncompressed_sha256": "8a27b65344fc125f6450ad0f00718e6ca1a6fd85d6410f4ed0c46624d5e4e872"
+    },
+    "quick-b/program-compact-cache.log": {
+      "file": "docs/research/evidence/phase6/experiments/quick-b/program-compact-cache.log.gz",
+      "gzip_sha256": "7f35e1d4f40e33c9d23495d26852978f05ac285fc838b79d10f25ec8818474a3",
+      "uncompressed_sha256": "e2d109aa12c9aaf599891bc1c1f5d36e716c7b4fe1dd4d385051f1c1e957fb84"
+    },
+    "quick-b/program-compact.log": {
+      "file": "docs/research/evidence/phase6/experiments/quick-b/program-compact.log.gz",
+      "gzip_sha256": "51ca8c642be12b45de5c83bff12b5eb4f0520dd1a6c3e0f64e52248ddb84bbd4",
+      "uncompressed_sha256": "341501f738625211f09568f80fb240825518fbae15b5fe51363b5387587e0e5b"
+    },
+    "quick-b/records.jsonl": {
+      "file": "docs/research/evidence/phase6/experiments/quick-b/records.jsonl.gz",
+      "gzip_sha256": "bf5531e9ddbc86e501014107c90294e515dc184b1315d0e5d415f502995139ce",
+      "uncompressed_sha256": "ba1c294a45234316f7a5d5a5166f1c214784e6a928e70e1551be821b39a69e4a"
+    },
+    "quick-b/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/quick-b/report.json.gz",
+      "gzip_sha256": "e8841a3f7185e7d9cb9a32c59f543212a521aed95e610748949e3c7dd1c16739",
+      "uncompressed_sha256": "221512fc5043dad5d0e750c5ac80c736032619a5916e1090bafcb3e5ad3096e3"
+    },
+    "quick-c/plan.json": {
+      "file": "docs/research/evidence/phase6/experiments/quick-c/plan.json.gz",
+      "gzip_sha256": "aec96936e567f213dc9152c05f5e1f7df676e607b60ffa2e7559adb117909fac",
+      "uncompressed_sha256": "bb8de6e08db3c565331b4eaea8e230dee76d85b211d74276e76a47812cb88abf"
+    },
+    "quick-c/program-compact-lut.log": {
+      "file": "docs/research/evidence/phase6/experiments/quick-c/program-compact-lut.log.gz",
+      "gzip_sha256": "b49c0fb86084d8c89c00b217e06c679cc8a762e9b63b8f7a8189f9b627cce1ad",
+      "uncompressed_sha256": "ded008d2263091be397a7403080531559e41d0f55f8c158c78be13f24c579156"
+    },
+    "quick-c/program-params.log": {
+      "file": "docs/research/evidence/phase6/experiments/quick-c/program-params.log.gz",
+      "gzip_sha256": "84ab401fe6a0c2f3828e7a2bca3c49a830f2ac46352dd82321a450741015f61b",
+      "uncompressed_sha256": "e1bca910f39da67f308887c82de21df70b6a009d94d5f9dc4ead0e518c742135"
+    },
+    "quick-c/records.jsonl": {
+      "file": "docs/research/evidence/phase6/experiments/quick-c/records.jsonl.gz",
+      "gzip_sha256": "d8ae4f9c946700041fae8e22ca4d0000d15ab3f9e7898ab7bf712faa4d7171eb",
+      "uncompressed_sha256": "24d40bde6e83acff1f1ac166f5b9af973efa8bc97b38f8a85e446f11129083f9"
+    },
+    "quick-c/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/quick-c/report.json.gz",
+      "gzip_sha256": "e37740d81ff0929f12045701426f9d04fd2c75e00abe0cdc099f86e97db78ed7",
+      "uncompressed_sha256": "72c74c145ac01438af19e841dd228413a9a73fe9cd1a9c14654dd8314293863d"
+    },
+    "quick-chain/plan.json": {
+      "file": "docs/research/evidence/phase6/experiments/quick-chain/plan.json.gz",
+      "gzip_sha256": "77f8d7afff1bae0ac42893c1f433deb4a504583ce6ef9091d69736fd535ac2d6",
+      "uncompressed_sha256": "46aee318db46b10a3085e6f7367245eac08f2b9a55d454bb8d09ee05ebba360d"
+    },
+    "quick-chain/program-all-exact.log": {
+      "file": "docs/research/evidence/phase6/experiments/quick-chain/program-all-exact.log.gz",
+      "gzip_sha256": "1e1e2460b03776950d2d594a686c743e555014cc69b064372633f927599f85a5",
+      "uncompressed_sha256": "1f4fd43607923298b4ff8786e8ae91988bce0890659ae29761c8a22da1e3f42f"
+    },
+    "quick-chain/records.jsonl": {
+      "file": "docs/research/evidence/phase6/experiments/quick-chain/records.jsonl.gz",
+      "gzip_sha256": "f72c0f912fa3dd8475427b206a4d68890b0962f27cb1541b219635d3d7195a0d",
+      "uncompressed_sha256": "10a9bf9bd3c84fd1c706f921e342ef83e25f73ba1f33ab092bd7f908ff5a99a1"
+    },
+    "quick-chain/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/quick-chain/report.json.gz",
+      "gzip_sha256": "0d3c4fbfc0efb16375177fdf18059d7662bd06178a5f297877bdd634bed4c8da",
+      "uncompressed_sha256": "80863aa777af05a505d80ed9ff243a959e3e00609b633960b3c40e3ae1c65488"
+    },
+    "quick-d/plan.json": {
+      "file": "docs/research/evidence/phase6/experiments/quick-d/plan.json.gz",
+      "gzip_sha256": "fd25020137dd323d4be6f21fbadd990236b7508a732148e27c9829c5e4af1486",
+      "uncompressed_sha256": "fafd185ae6a72aa6968d79253da2b6f1b895699a5088e290d79c7e4cedbd40d5"
+    },
+    "quick-d/program-clock-22p5.log": {
+      "file": "docs/research/evidence/phase6/experiments/quick-d/program-clock-22p5.log.gz",
+      "gzip_sha256": "4396c0b3cc838d0d9a81699773f7082811b399494b38ecb39b6fb473014b6a6a",
+      "uncompressed_sha256": "26b3d8509ceb2408778fa1e7bcbec3ee36ae4800aedaa41984a6c5795b488072"
+    },
+    "quick-d/program-combined.log": {
+      "file": "docs/research/evidence/phase6/experiments/quick-d/program-combined.log.gz",
+      "gzip_sha256": "075e8b4d316cbbd924d9c310e130f4d58f70847368228db9e65852318fcd6211",
+      "uncompressed_sha256": "0961de1f6d4c9f7eb0dd639d727366469f9235495fed3f8c4f8c2c4fab846791"
+    },
+    "quick-d/records.jsonl": {
+      "file": "docs/research/evidence/phase6/experiments/quick-d/records.jsonl.gz",
+      "gzip_sha256": "cd45c1cfe14f6d22937e3e4b106b72e29bbfa5d58665e14d3da86b11369932ee",
+      "uncompressed_sha256": "f439de74cbe953ee7444620db30566b709710ebe22194b921dc6fe137fa096f0"
+    },
+    "quick-d/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/quick-d/report.json.gz",
+      "gzip_sha256": "44de7339f269b1945e552bc47fa84d3ae80b62fc4dcf345391bfb8f633532c4d",
+      "uncompressed_sha256": "c8bab580d1c51eed7bd5b7b1f93c2f14d25781525cbdabc05196e42d408ab2ea"
+    },
+    "quick-e/plan.json": {
+      "file": "docs/research/evidence/phase6/experiments/quick-e/plan.json.gz",
+      "gzip_sha256": "0474fe286557316331f4c083bdb2926179af17f68b5b86283202321097a7b41c",
+      "uncompressed_sha256": "9299393aba7fda748ad9ecd37a2f2366b915893b37291688a51dd0ca7c49a0bb"
+    },
+    "quick-e/program-combined-valid.log": {
+      "file": "docs/research/evidence/phase6/experiments/quick-e/program-combined-valid.log.gz",
+      "gzip_sha256": "55efa40c941e03bdb94ff2634cba414596337945643dec5d6d034aeb25771c09",
+      "uncompressed_sha256": "4f8037dab6b04f57385dfde232aae435971cf0b9b58695b72c0bde8fef317db8"
+    },
+    "quick-e/program-depthwise.log": {
+      "file": "docs/research/evidence/phase6/experiments/quick-e/program-depthwise.log.gz",
+      "gzip_sha256": "95f3a949f3f382313ded9820462892bd02d10c80a8c7b5e96cbc10e43ab3045b",
+      "uncompressed_sha256": "021219915d7ec816c8a81b95988c88ffdb995aaab8396834a022da8bd18f9604"
+    },
+    "quick-e/records.jsonl": {
+      "file": "docs/research/evidence/phase6/experiments/quick-e/records.jsonl.gz",
+      "gzip_sha256": "8f6d4d9c2407a60c2b31f71ecc0962151d272b39222064a802582a26cbbb2d71",
+      "uncompressed_sha256": "e57330877790d6b1adc018f4d5368eef96f6dcf0fc6b5ce86faf8beae726233c"
+    },
+    "quick-e/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/quick-e/report.json.gz",
+      "gzip_sha256": "1376df13dc637c950dffcf32b132de593c6dd1a1fc7b6a403739dcc27821c846",
+      "uncompressed_sha256": "82658ca85e45f5198c8a2cab7f1f0487939759d473a0723f988dfa3fd523cce7"
+    },
+    "quick-f/plan.json": {
+      "file": "docs/research/evidence/phase6/experiments/quick-f/plan.json.gz",
+      "gzip_sha256": "cf42d1505d42e9f25d14f5d6d85680bce614a7b76bf6c56bfc7e81a986cc31c6",
+      "uncompressed_sha256": "fe573cf1ba25e6c34456c681fe7f97224d1ec9c98c2fcf6ba20da9c04726d5e8"
+    },
+    "quick-f/program-all-exact.log": {
+      "file": "docs/research/evidence/phase6/experiments/quick-f/program-all-exact.log.gz",
+      "gzip_sha256": "eb35fe2a2f3115b18b8de29ea9109390b75428ca11bd88201fa560dec4de911a",
+      "uncompressed_sha256": "a108c9b0362e5fd21024ddbd07312e3e2a87e86c8b1c79b30eeb71b5d01d1e4c"
+    },
+    "quick-f/records.jsonl": {
+      "file": "docs/research/evidence/phase6/experiments/quick-f/records.jsonl.gz",
+      "gzip_sha256": "5f97a834c944e35efeb03216db0208e5d30f3a2af8229fce94833fa9ae496b12",
+      "uncompressed_sha256": "763c3aa9a412ec311b9f739b012dad7c1e3ba4ca811185738259556f0a626cca"
+    },
+    "quick-f/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/quick-f/report.json.gz",
+      "gzip_sha256": "ed40b8a8d2cddd1a5efbbbe057d86871108f89856a3c8783d1cac38c3593f4ee",
+      "uncompressed_sha256": "f53ab574abe787bb94949aade9aefa4d509e76faa70bb93bf026df0854153c72"
+    },
+    "runner-snapshots/913c86d5e631324907c449bb76b5cb80147bc9f438b939dd2781c4eaff9d6345.py": {
+      "file": "docs/research/evidence/phase6/experiments/runner-snapshots/913c86d5e631324907c449bb76b5cb80147bc9f438b939dd2781c4eaff9d6345.py.gz",
+      "gzip_sha256": "769ad18611ee4b34fe1f9835ec51400025549228ed6ce0d60521c6bb90c8fe65",
+      "uncompressed_sha256": "913c86d5e631324907c449bb76b5cb80147bc9f438b939dd2781c4eaff9d6345"
+    },
+    "runner-snapshots/ca8bf2d15143a4dd852d0ed9a057f7cf0f735151016911fa80a3773ad2b64e87.py": {
+      "file": "docs/research/evidence/phase6/experiments/runner-snapshots/ca8bf2d15143a4dd852d0ed9a057f7cf0f735151016911fa80a3773ad2b64e87.py.gz",
+      "gzip_sha256": "0da496f12c2405a0dce12e3a66c9a23c3682ab6316e88a3a9aa96ea31bf87467",
+      "uncompressed_sha256": "ca8bf2d15143a4dd852d0ed9a057f7cf0f735151016911fa80a3773ad2b64e87"
+    },
+    "scalar/engine.sv": {
+      "file": "docs/research/evidence/phase6/experiments/scalar/engine.sv.gz",
+      "gzip_sha256": "39f24f789236db282ebbeb132ad7c23189c974e97c666eddf404ce7c48fc27b6",
+      "uncompressed_sha256": "ecdb0c53430515d8fc693db6f6b2e414bc349db5d19cc372f6cf01186acd1a93"
+    },
+    "scalar/engine/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/scalar/engine/report.json.gz",
+      "gzip_sha256": "857b293bf3f04ea289c73a1e1a4e788092d69a56e99b03ab9f03aaaca22d5607",
+      "uncompressed_sha256": "af77af5c1da32c8b6d6a11fb7b4edf24cb62c2cdb31af1f7ff2318ba9bb8c934"
+    },
+    "scalar/engine/results.xml": {
+      "file": "docs/research/evidence/phase6/experiments/scalar/engine/results.xml.gz",
+      "gzip_sha256": "23e36ea94046cab30a55b947e0414528f14d71b4c991ecaa79aab866a224a2ce",
+      "uncompressed_sha256": "e4e3fc078dccfa716b34ef17c436d752f79bb519e15038fab989b2567af60851"
+    },
+    "scalar/identity.json": {
+      "file": "docs/research/evidence/phase6/experiments/scalar/identity.json.gz",
+      "gzip_sha256": "7e4d12954c079515c207c4b3541fcec5ae9bd85daa92610d8b18dce76627c9bd",
+      "uncompressed_sha256": "8aabb90ab414a215f0285e78618108dfcd16c95776ad924b6ff2c53f6d8e738e"
+    },
+    "scalar/native/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/scalar/native/report.json.gz",
+      "gzip_sha256": "66d0a618ccfa6163cfe69891c8dd17274ea3d56a97a07e5f84dbe07307bbaaa8",
+      "uncompressed_sha256": "2b9a20f3317d9399d60ef64b5adb7b18dbb95c0f0e1c1e998f28326e70cb0f58"
+    },
+    "scalar/route/build.log": {
+      "file": "docs/research/evidence/phase6/experiments/scalar/route/build.log.gz",
+      "gzip_sha256": "5593fded27ea2466bb53b5dd3a03fa454f8963d9fd1b74d6f12825226af52ef4",
+      "uncompressed_sha256": "2408ef01d3de0ed930dd8d3ab9827d6a05304518a318690a8ef3927f43adb5d1"
+    },
+    "scalar/route/phase6_tiled_host/impl/pnr/phase6_tiled_host.rpt.txt": {
+      "file": "docs/research/evidence/phase6/experiments/scalar/route/phase6_tiled_host/impl/pnr/phase6_tiled_host.rpt.txt.gz",
+      "gzip_sha256": "1a98a089970d8c72b961f0dba05f22f3a8c5e5524a445c849056df4ac05a2c66",
+      "uncompressed_sha256": "3beac22db503d6cab27c8b63840eba4c72f1e8817d2968cd09b0ccfbbd81951b"
+    },
+    "scalar/route/phase6_tiled_host/impl/pnr/phase6_tiled_host_tr_content.html": {
+      "file": "docs/research/evidence/phase6/experiments/scalar/route/phase6_tiled_host/impl/pnr/phase6_tiled_host_tr_content.html.gz",
+      "gzip_sha256": "3e53c910a513f82268d898f11258fc478fd50ff33305651510823be33081c0d3",
+      "uncompressed_sha256": "0297f3be0827c1885ff49c3d8816b0a963597461581b0ba7569b3be103001c0f"
+    },
+    "scalar/route/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/scalar/route/report.json.gz",
+      "gzip_sha256": "c9fe35b7124d7fcfd9b0e894dbd19714297ac991655e06c8f97daa6d51c54e77",
+      "uncompressed_sha256": "8967301d4769bfafb2bf1b432d5ecd78e4bb9dfb9a8748b06f805bae429d6691"
+    },
+    "weight/engine.sv": {
+      "file": "docs/research/evidence/phase6/experiments/weight/engine.sv.gz",
+      "gzip_sha256": "19cf10665366c016c4b60a25cccbe007e75266aab70fa13fd991dbd6b4f59629",
+      "uncompressed_sha256": "62aa2829edbbf72c6688e4550f9db8473e69e5abda847bbfa6aaaea83c307fe6"
+    },
+    "weight/engine/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/weight/engine/report.json.gz",
+      "gzip_sha256": "8139c900c05b2d253263c23436b57de133b3ad80ccaf715b1100000aa35a9a1b",
+      "uncompressed_sha256": "3db797d8db1fed4aaaddb69cf06c70c2008d5773cfa52274f1722553c73d5cf4"
+    },
+    "weight/engine/results.xml": {
+      "file": "docs/research/evidence/phase6/experiments/weight/engine/results.xml.gz",
+      "gzip_sha256": "33dd8d64ff919c3944d9915ee8f9f1c0decc528de5b2d5b04f914061fd89a930",
+      "uncompressed_sha256": "1791931284012c6035f8ea300fdf5652ae3de657ae9a71291ee22226ff4616de"
+    },
+    "weight/identity.json": {
+      "file": "docs/research/evidence/phase6/experiments/weight/identity.json.gz",
+      "gzip_sha256": "704ff8b15e6ab2063c7b6b86a7904572fb4a8a6dbe377cb57eeb8f414117c558",
+      "uncompressed_sha256": "516b2b06362e54ef2798be289a961f2439a7fc8ecc14d000da7cfb45d5983570"
+    },
+    "weight/native/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/weight/native/report.json.gz",
+      "gzip_sha256": "56612bca13c75287c5d3b5fe9fe6c8910e5b6e61a9396c2d6142bf44ca80103b",
+      "uncompressed_sha256": "3712639a8b6e5c5243dee64162ec73ccc412ad5f50e49042f67e138ac45c62a5"
+    },
+    "weight/route/build.log": {
+      "file": "docs/research/evidence/phase6/experiments/weight/route/build.log.gz",
+      "gzip_sha256": "5ccd95f54f36dc6cedb60aab5f5094d8be3badcf8cd392981e6960be9c5c1a54",
+      "uncompressed_sha256": "f4c95a488d666ae74a0750f8b38716fda67f4bc54514266c2391f5c643dad968"
+    },
+    "weight/route/phase6_tiled_host/impl/pnr/phase6_tiled_host.rpt.txt": {
+      "file": "docs/research/evidence/phase6/experiments/weight/route/phase6_tiled_host/impl/pnr/phase6_tiled_host.rpt.txt.gz",
+      "gzip_sha256": "3d6345173d30d40446255fd4e529690d7ffce3a3449605e89676fb3922a16348",
+      "uncompressed_sha256": "e957323480479a1d23633bd84f3ff121afe01aea1f8c4b60c78da4b27b425766"
+    },
+    "weight/route/phase6_tiled_host/impl/pnr/phase6_tiled_host_tr_content.html": {
+      "file": "docs/research/evidence/phase6/experiments/weight/route/phase6_tiled_host/impl/pnr/phase6_tiled_host_tr_content.html.gz",
+      "gzip_sha256": "9ef7e37da8990d4d7013250bf45a3a9154ac4968686325a453f99af5cb832397",
+      "uncompressed_sha256": "ded711ea7a5935b8a4fd683ee788a9eaec5ed61b05e07887bc678597dbbff489"
+    },
+    "weight/route/report.json": {
+      "file": "docs/research/evidence/phase6/experiments/weight/route/report.json.gz",
+      "gzip_sha256": "da2a918aa9f0887239c9e070e389ccbb8d33914d6fec1046bf60c4e90f60cea5",
+      "uncompressed_sha256": "dbaa9a7275edaaf2bc8d273cd93920a07e46d4ffb63566c0f925a82f01b5fe1f"
+    }
+  },
+  "candidate_image": {
+    "gzip_sha256": "e94a20a07121b3fb6f9df8c853d7a87b5d3f9306e6af1f38afa7a6971a4825fc",
+    "path": "hardware/releases/phase6/experimental_all-exact.fs.gz",
+    "uncompressed_sha256": "99c16079df4aa4946f4e9549253804353fd634f8c4362c7d51186740c1a9ae96"
+  },
+  "candidates": {
+    "all-exact": {
+      "clock_mhz": 20.25,
+      "edges": "passed",
+      "engine": "passed",
+      "engine_sha256": "36465f2b3cd6609ac21ecd194d9c5796fc41c8c29562fcafecfe71c651d76e47",
+      "fmax_mhz": 21.714,
+      "native": "passed",
+      "resources": {
+        "BSRAM": {
+          "available": 46.0,
+          "used": 36.0
+        },
+        "CLS": {
+          "available": 10368.0,
+          "used": 10022.0
+        },
+        "DSP": {
+          "available": 24.0,
+          "used": 14.5
+        },
+        "Logic": {
+          "available": 20736.0,
+          "used": 18645.0
+        },
+        "Register": {
+          "available": 15915.0,
+          "used": 5224.0
+        }
+      },
+      "route": "passed-route"
+    },
+    "cache": {
+      "engine": "passed",
+      "engine_sha256": "52f1763f386b46ceab4c17f6dcda4d0dece55a843175696abdaeb6d071955360",
+      "native": "passed",
+      "route": "failed-synthesis"
+    },
+    "cache-bram": {
+      "clock_mhz": 20.25,
+      "engine": "passed",
+      "engine_sha256": "148bf61e424955d1867b7914daedb7cda32ad900b94b8dc4ca12f3077729b114",
+      "fmax_mhz": 20.278,
+      "native": "passed",
+      "resources": {
+        "BSRAM": {
+          "available": 46.0,
+          "used": 35.0
+        },
+        "CLS": {
+          "available": 10368.0,
+          "used": 10107.0
+        },
+        "DSP": {
+          "available": 24.0,
+          "used": 14.5
+        },
+        "Logic": {
+          "available": 20736.0,
+          "used": 19056.0
+        },
+        "Register": {
+          "available": 15915.0,
+          "used": 5469.0
+        }
+      },
+      "route": "passed-route"
+    },
+    "clock-22p5": {
+      "clock_mhz": 22.5,
+      "engine": "passed",
+      "engine_sha256": "6d95d08fa0acab7c998b9842269793ee07212e3f6c11180a48d722469ddea3f2",
+      "fmax_mhz": 22.505,
+      "native": "passed",
+      "resources": {
+        "BSRAM": {
+          "available": 46.0,
+          "used": 35.0
+        },
+        "CLS": {
+          "available": 10368.0,
+          "used": 10073.0
+        },
+        "DSP": {
+          "available": 24.0,
+          "used": 14.5
+        },
+        "Logic": {
+          "available": 20736.0,
+          "used": 18910.0
+        },
+        "Register": {
+          "available": 15915.0,
+          "used": 5445.0
+        }
+      },
+      "route": "passed-route"
+    },
+    "clock-27": {
+      "clock_mhz": 27.0,
+      "engine": "passed",
+      "engine_sha256": "6d95d08fa0acab7c998b9842269793ee07212e3f6c11180a48d722469ddea3f2",
+      "fmax_mhz": 23.24,
+      "native": "passed",
+      "resources": {
+        "BSRAM": {
+          "available": 46.0,
+          "used": 35.0
+        },
+        "CLS": {
+          "available": 10368.0,
+          "used": 10117.0
+        },
+        "DSP": {
+          "available": 24.0,
+          "used": 14.5
+        },
+        "Logic": {
+          "available": 20736.0,
+          "used": 19146.0
+        },
+        "Register": {
+          "available": 15915.0,
+          "used": 5447.0
+        }
+      },
+      "route": "failed-timing"
+    },
+    "combined": {
+      "clock_mhz": 20.25,
+      "edges": "passed",
+      "engine": "passed",
+      "engine_sha256": "a7b83bf256c642da9f318e086e402153ac065d7bda212bc57c5336409c564972",
+      "fmax_mhz": 20.262,
+      "native": "passed",
+      "resources": {
+        "BSRAM": {
+          "available": 46.0,
+          "used": 36.0
+        },
+        "CLS": {
+          "available": 10368.0,
+          "used": 10352.0
+        },
+        "DSP": {
+          "available": 24.0,
+          "used": 14.5
+        },
+        "Logic": {
+          "available": 20736.0,
+          "used": 20566.0
+        },
+        "Register": {
+          "available": 15915.0,
+          "used": 5454.0
+        }
+      },
+      "route": "passed-route"
+    },
+    "combined-valid": {
+      "clock_mhz": 20.25,
+      "edges": "passed",
+      "engine": "passed",
+      "engine_sha256": "7f47c10649bbbde0815346b8d1783ee2d6ef8ec69feef4961d021cbaccc15550",
+      "fmax_mhz": 23.049,
+      "native": "passed",
+      "resources": {
+        "BSRAM": {
+          "available": 46.0,
+          "used": 36.0
+        },
+        "CLS": {
+          "available": 10368.0,
+          "used": 9889.0
+        },
+        "DSP": {
+          "available": 24.0,
+          "used": 14.5
+        },
+        "Logic": {
+          "available": 20736.0,
+          "used": 18370.0
+        },
+        "Register": {
+          "available": 15915.0,
+          "used": 5207.0
+        }
+      },
+      "route": "passed-route"
+    },
+    "compact": {
+      "clock_mhz": 20.25,
+      "engine": "passed",
+      "engine_sha256": "6d6c861871f56626dae7d5b421f56bb060e7b3eb07bd553e64494d8ec4684b88",
+      "fmax_mhz": 21.634,
+      "native": "passed",
+      "resources": {
+        "BSRAM": {
+          "available": 46.0,
+          "used": 35.0
+        },
+        "CLS": {
+          "available": 10368.0,
+          "used": 9689.0
+        },
+        "DSP": {
+          "available": 24.0,
+          "used": 14.5
+        },
+        "Logic": {
+          "available": 20736.0,
+          "used": 17446.0
+        },
+        "Register": {
+          "available": 15915.0,
+          "used": 5436.0
+        }
+      },
+      "route": "passed-route"
+    },
+    "compact-cache": {
+      "clock_mhz": 20.25,
+      "engine": "passed",
+      "engine_sha256": "6d95d08fa0acab7c998b9842269793ee07212e3f6c11180a48d722469ddea3f2",
+      "fmax_mhz": 22.46,
+      "native": "passed",
+      "resources": {
+        "BSRAM": {
+          "available": 46.0,
+          "used": 35.0
+        },
+        "CLS": {
+          "available": 10368.0,
+          "used": 10091.0
+        },
+        "DSP": {
+          "available": 24.0,
+          "used": 14.5
+        },
+        "Logic": {
+          "available": 20736.0,
+          "used": 18892.0
+        },
+        "Register": {
+          "available": 15915.0,
+          "used": 5445.0
+        }
+      },
+      "route": "passed-route"
+    },
+    "compact-cache-22.5mhz": {
+      "engine": "passed",
+      "engine_sha256": "6d95d08fa0acab7c998b9842269793ee07212e3f6c11180a48d722469ddea3f2",
+      "native": "passed",
+      "route": "failed-build"
+    },
+    "compact-cache-27mhz": {
+      "engine": "passed",
+      "engine_sha256": "6d95d08fa0acab7c998b9842269793ee07212e3f6c11180a48d722469ddea3f2",
+      "native": "passed",
+      "route": "failed-build"
+    },
+    "compact-lut": {
+      "clock_mhz": 20.25,
+      "edges": "passed",
+      "engine": "passed",
+      "engine_sha256": "9de308edc5c94a5b50d7c253a8411efd2eb3b36b5433aca857adb7ed31ab5758",
+      "fmax_mhz": 23.682,
+      "native": "passed",
+      "resources": {
+        "BSRAM": {
+          "available": 46.0,
+          "used": 36.0
+        },
+        "CLS": {
+          "available": 10368.0,
+          "used": 9793.0
+        },
+        "DSP": {
+          "available": 24.0,
+          "used": 14.5
+        },
+        "Logic": {
+          "available": 20736.0,
+          "used": 17752.0
+        },
+        "Register": {
+          "available": 15915.0,
+          "used": 5445.0
+        }
+      },
+      "route": "passed-route"
+    },
+    "depthwise": {
+      "clock_mhz": 20.25,
+      "engine": "passed",
+      "engine_sha256": "6ed5bde7ec7e17634aa5fcd53450f1497e422dcaca6aecc1e3c532f1e3aec28e",
+      "fmax_mhz": 22.054,
+      "native": "passed",
+      "resources": {
+        "BSRAM": {
+          "available": 46.0,
+          "used": 35.0
+        },
+        "CLS": {
+          "available": 10368.0,
+          "used": 9880.0
+        },
+        "DSP": {
+          "available": 24.0,
+          "used": 14.5
+        },
+        "Logic": {
+          "available": 20736.0,
+          "used": 18127.0
+        },
+        "Register": {
+          "available": 15915.0,
+          "used": 5461.0
+        }
+      },
+      "route": "passed-route"
+    },
+    "lut": {
+      "clock_mhz": 20.25,
+      "edges": "passed",
+      "engine": "passed",
+      "engine_sha256": "819020a5454d61506cc5291ecba35ce568cd47ceae7ffbe03835c66772e1f212",
+      "fmax_mhz": 19.145,
+      "native": "passed",
+      "resources": {
+        "BSRAM": {
+          "available": 46.0,
+          "used": 36.0
+        },
+        "CLS": {
+          "available": 10368.0,
+          "used": 9863.0
+        },
+        "DSP": {
+          "available": 24.0,
+          "used": 14.5
+        },
+        "Logic": {
+          "available": 20736.0,
+          "used": 17988.0
+        },
+        "Register": {
+          "available": 15915.0,
+          "used": 5469.0
+        }
+      },
+      "route": "failed-timing"
+    },
+    "params": {
+      "clock_mhz": 20.25,
+      "engine": "passed",
+      "engine_sha256": "9219b70ce35ebf6c18ff06ffd5fb92e5462d25da91d322e1089729b34d56107e",
+      "fmax_mhz": 20.292,
+      "native": "passed",
+      "resources": {
+        "BSRAM": {
+          "available": 46.0,
+          "used": 35.0
+        },
+        "CLS": {
+          "available": 10368.0,
+          "used": 10076.0
+        },
+        "DSP": {
+          "available": 24.0,
+          "used": 14.5
+        },
+        "Logic": {
+          "available": 20736.0,
+          "used": 18918.0
+        },
+        "Register": {
+          "available": 15915.0,
+          "used": 5468.0
+        }
+      },
+      "route": "passed-route"
+    },
+    "prefetch": {
+      "clock_mhz": 20.25,
+      "engine": "passed",
+      "engine_sha256": "38420e3d9f1b2ee4eeca84aa91dec84574c3939c739e8cd062a766a9857db781",
+      "fmax_mhz": 20.927,
+      "native": "passed",
+      "resources": {
+        "BSRAM": {
+          "available": 46.0,
+          "used": 35.0
+        },
+        "CLS": {
+          "available": 10368.0,
+          "used": 9655.0
+        },
+        "DSP": {
+          "available": 24.0,
+          "used": 14.5
+        },
+        "Logic": {
+          "available": 20736.0,
+          "used": 17421.0
+        },
+        "Register": {
+          "available": 15915.0,
+          "used": 5459.0
+        }
+      },
+      "route": "passed-route"
+    },
+    "scalar": {
+      "clock_mhz": 20.25,
+      "engine": "passed",
+      "engine_sha256": "ecdb0c53430515d8fc693db6f6b2e414bc349db5d19cc372f6cf01186acd1a93",
+      "fmax_mhz": 20.386,
+      "native": "passed",
+      "resources": {
+        "BSRAM": {
+          "available": 46.0,
+          "used": 35.0
+        },
+        "CLS": {
+          "available": 10368.0,
+          "used": 9664.0
+        },
+        "DSP": {
+          "available": 24.0,
+          "used": 14.5
+        },
+        "Logic": {
+          "available": 20736.0,
+          "used": 17507.0
+        },
+        "Register": {
+          "available": 15915.0,
+          "used": 5460.0
+        }
+      },
+      "route": "passed-route"
+    },
+    "weight": {
+      "clock_mhz": 20.25,
+      "engine": "passed",
+      "engine_sha256": "62aa2829edbbf72c6688e4550f9db8473e69e5abda847bbfa6aaaea83c307fe6",
+      "fmax_mhz": 20.478,
+      "native": "passed",
+      "resources": {
+        "BSRAM": {
+          "available": 46.0,
+          "used": 35.0
+        },
+        "CLS": {
+          "available": 10368.0,
+          "used": 9701.0
+        },
+        "DSP": {
+          "available": 24.0,
+          "used": 14.5
+        },
+        "Logic": {
+          "available": 20736.0,
+          "used": 17542.0
+        },
+        "Register": {
+          "available": 15915.0,
+          "used": 5459.0
+        }
+      },
+      "route": "passed-route"
+    }
+  },
+  "comparisons": {
+    "quick-chain": {
+      "geometric_mean_speedup": 1.6248724325545314,
+      "models": {
+        "kws": {
+          "inferences_per_second": 14.526458958628645,
+          "latency_reduction_percent": 45.1238662179499,
+          "median_cycles": 1394008,
+          "median_ms": 68.8399012345679,
+          "range_over_median": 2.8694239918278806e-06,
+          "speedup_vs_writeback": 1.8222858118461303
+        },
+        "vww": {
+          "inferences_per_second": 3.984454919680276,
+          "latency_reduction_percent": 30.97952357852275,
+          "median_cycles": 5082251,
+          "median_ms": 250.97535802469133,
+          "range_over_median": 1.869250456146302e-05,
+          "speedup_vs_writeback": 1.4488454033458797
+        }
+      },
+      "schedule": "chain"
+    },
+    "quick-f": {
+      "geometric_mean_speedup": 1.5318226029960158,
+      "models": {
+        "kws": {
+          "inferences_per_second": 13.170517552560119,
+          "latency_reduction_percent": 39.47421564779644,
+          "median_cycles": 1537525,
+          "median_ms": 75.92716049382717,
+          "range_over_median": 4.227573535389668e-05,
+          "speedup_vs_writeback": 1.6521884197004926
+        },
+        "vww": {
+          "inferences_per_second": 3.9057482198467564,
+          "latency_reduction_percent": 29.588657190242117,
+          "median_cycles": 5184666,
+          "median_ms": 256.03288888888886,
+          "range_over_median": 0.00015584417588326808,
+          "speedup_vs_writeback": 1.4202257194581098
+        }
+      },
+      "schedule": "original"
+    }
+  },
+  "full_verification_complete": false,
+  "physical": {
+    "quick-a": {
+      "inferences": 40,
+      "schedule": "original",
+      "summary": {
+        "prefetch": {
+          "kws": {
+            "median_cycles": 2282404,
+            "median_ms": 112.71130864197531,
+            "range_over_median": 9.113198189277621e-05
+          },
+          "vww": {
+            "median_cycles": 6474554,
+            "median_ms": 319.73106172839505,
+            "range_over_median": 1.1583809479386533e-05
+          }
+        },
+        "scalar": {
+          "kws": {
+            "median_cycles": 2154028,
+            "median_ms": 106.37175308641976,
+            "range_over_median": 0.00010724094580014744
+          },
+          "vww": {
+            "median_cycles": 6100555,
+            "median_ms": 301.261975308642,
+            "range_over_median": 4.8356256111124315e-05
+          }
+        },
+        "weight": {
+          "kws": {
+            "median_cycles": 2540423,
+            "median_ms": 125.45298765432098,
+            "range_over_median": 8.541884560169704e-05
+          },
+          "vww": {
+            "median_cycles": 7363455,
+            "median_ms": 363.6274074074074,
+            "range_over_median": 3.082791977407345e-05
+          }
+        },
+        "writeback": {
+          "kws": {
+            "median_cycles": 2540281,
+            "median_ms": 125.44597530864199,
+            "range_over_median": 8.463630598347191e-05
+          },
+          "vww": {
+            "median_cycles": 7363396,
+            "median_ms": 363.6244938271605,
+            "range_over_median": 1.4395531626982984e-05
+          }
+        }
+      }
+    },
+    "quick-b": {
+      "inferences": 30,
+      "schedule": "original",
+      "summary": {
+        "cache-bram": {
+          "kws": {
+            "median_cycles": 1736175,
+            "median_ms": 85.73703703703704,
+            "range_over_median": 5.52939651820813e-05
+          },
+          "vww": {
+            "median_cycles": 5830345,
+            "median_ms": 287.9182716049383,
+            "range_over_median": 0.0001313815906262837
+          }
+        },
+        "compact": {
+          "kws": {
+            "median_cycles": 2154117,
+            "median_ms": 106.37614814814815,
+            "range_over_median": 5.013655247138386e-05
+          },
+          "vww": {
+            "median_cycles": 6100587,
+            "median_ms": 301.26355555555557,
+            "range_over_median": 7.5566498764791e-05
+          }
+        },
+        "compact-cache": {
+          "kws": {
+            "median_cycles": 1736193,
+            "median_ms": 85.73792592592592,
+            "range_over_median": 0.0001583925289411949
+          },
+          "vww": {
+            "median_cycles": 5830536,
+            "median_ms": 287.9277037037037,
+            "range_over_median": 2.3496982095642664e-05
+          }
+        }
+      }
+    },
+    "quick-c": {
+      "inferences": 20,
+      "schedule": "original",
+      "summary": {
+        "compact-lut": {
+          "kws": {
+            "median_cycles": 2040797,
+            "median_ms": 100.7800987654321,
+            "range_over_median": 6.027057076230512e-05
+          },
+          "vww": {
+            "median_cycles": 5758033,
+            "median_ms": 284.3473086419753,
+            "range_over_median": 1.5109326396705264e-05
+          }
+        },
+        "params": {
+          "kws": {
+            "median_cycles": 2110428,
+            "median_ms": 104.21866666666666,
+            "range_over_median": 9.429366934100572e-05
+          },
+          "vww": {
+            "median_cycles": 5979877,
+            "median_ms": 295.30256790123457,
+            "range_over_median": 7.090446843639091e-05
+          }
+        }
+      }
+    },
+    "quick-chain": {
+      "inferences": 10,
+      "schedule": "chain",
+      "summary": {
+        "all-exact": {
+          "kws": {
+            "median_cycles": 1394008,
+            "median_ms": 68.8399012345679,
+            "range_over_median": 2.8694239918278806e-06
+          },
+          "vww": {
+            "median_cycles": 5082251,
+            "median_ms": 250.97535802469133,
+            "range_over_median": 1.869250456146302e-05
+          }
+        }
+      }
+    },
+    "quick-d": {
+      "inferences": 20,
+      "schedule": "original",
+      "summary": {
+        "clock-22p5": {
+          "kws": {
+            "median_cycles": 1735178,
+            "median_ms": 77.11902222222223,
+            "range_over_median": 8.759908205382963e-05
+          },
+          "vww": {
+            "median_cycles": 5825990,
+            "median_ms": 258.9328888888889,
+            "range_over_median": 7.792666997368688e-05
+          }
+        },
+        "combined": {
+          "kws": {
+            "median_cycles": 1622742,
+            "median_ms": 80.1354074074074,
+            "range_over_median": 5.361295880676041e-05
+          },
+          "vww": {
+            "median_cycles": 5487611,
+            "median_ms": 270.99313580246917,
+            "range_over_median": 7.708272324696485e-05
+          }
+        }
+      }
+    },
+    "quick-e": {
+      "inferences": 20,
+      "schedule": "original",
+      "summary": {
+        "combined-valid": {
+          "kws": {
+            "median_cycles": 1627619,
+            "median_ms": 80.37624691358025,
+            "range_over_median": 0.00011120538651858942
+          },
+          "vww": {
+            "median_cycles": 5503426,
+            "median_ms": 271.77412345679016,
+            "range_over_median": 1.6171744655056687e-05
+          }
+        },
+        "depthwise": {
+          "kws": {
+            "median_cycles": 2064344,
+            "median_ms": 101.94291358024691,
+            "range_over_median": 8.622593908767143e-05
+          },
+          "vww": {
+            "median_cycles": 5781952,
+            "median_ms": 285.5284938271605,
+            "range_over_median": 0.00011017040611890241
+          }
+        }
+      }
+    },
+    "quick-f": {
+      "inferences": 10,
+      "schedule": "original",
+      "summary": {
+        "all-exact": {
+          "kws": {
+            "median_cycles": 1537525,
+            "median_ms": 75.92716049382717,
+            "range_over_median": 4.227573535389668e-05
+          },
+          "vww": {
+            "median_cycles": 5184666,
+            "median_ms": 256.03288888888886,
+            "range_over_median": 0.00015584417588326808
+          }
+        }
+      }
+    }
+  },
+  "preserved_accuracy_status": "interrupted",
+  "recommended_schedule_campaigns": {
+    "kws": "quick-chain",
+    "vww": "quick-chain"
+  },
+  "schema": 1,
+  "scope": "Short optimization screens and architecture prototypes; no full accuracy, long stress, energy or SOTA claim.",
+  "selected_candidate": "all-exact",
+  "source_sha256": {
+    "rtl/phase6/experimental_engine.sv": "5f4a16f2cf267f3c63180d22f80dcc90c93d95aec5db4bd5acfd41e7706282d9",
+    "test/phase6/test_experiment_edges.py": "fb1a095477cccff1d3b24a48ee571ba3125fb88e44b6f3d18ea2c4e9568a9242",
+    "test/phase6/test_experiment_runners.py": "fe2360edb2692a471cccadb7873511d46d21f3d94037e59aa0ed924c2b3d2b1d",
+    "tools/phase6/algorithm_experiments.py": "88447f373584eddeb9d37b570b9c3495e182f84b260159ada85db3c155611728",
+    "tools/phase6/archive_experiments.py": "a0f04aaab0e99d7a5188aa961691743bd9b3a746930317214fa1f14c6b75a2d4",
+    "tools/phase6/chain_resident.py": "934afcfdb9a44902150aaaac47fc70465c767f0a17c844cd34607e8d5610e6fe",
+    "tools/phase6/clock_experiment.py": "91cc168c130662d5058ddeba13e6f6a12e0f2d1d2884bfceec14efe53b919972",
+    "tools/phase6/experiments.py": "0ad014278587c97c91bab026c2ac33ec0bf78e5977dada054f50311c93e9e8bb",
+    "tools/phase6/host_batch_experiment.py": "ed1b295613fe984c727c4fd37a7cb3379062ed6880538dcdd9648f1790056ef6",
+    "tools/phase6/quick_experiments.py": "913c86d5e631324907c449bb76b5cb80147bc9f438b939dd2781c4eaff9d6345"
+  },
+  "status": "short-screens-complete"
+}

@@ -13,12 +13,13 @@ import struct
 import numpy as np
 
 from hardware_v2 import Descriptor
-from integer_reference import coefficients, evaluate
+from integer_reference import coefficients, evaluate, rounded
 from .contract import require
 
 
 def replay_resident(program, commands, payload, inputs, *, run_contracts, final_output,
-                    snapshot_regions=None, oracle=None):
+                    snapshot_regions=None, oracle=None, constant_contracts=None,
+                    pack_contracts=None):
     require(len(commands) % 16 == 0 and 0 < len(commands) <= 32768 and len(payload) <= 8*1024*1024,
             'command/payload capacity')
     require(len(program.inputs) == len(program.outputs) == 1 and not program.constants, 'unsupported graph boundary')
@@ -57,6 +58,11 @@ def replay_resident(program, commands, payload, inputs, *, run_contracts, final_
     require(all(max(a['ext'],b['ext'])>=min(a['ext']+a['bytes'],b['ext']+b['bytes'])
                 for i,a in snapshot_regions.items() for j,b in snapshot_regions.items() if i<j),'overlapping snapshots')
     seen_contracts=set()
+    constant_contracts={} if constant_contracts is None else constant_contracts
+    seen_constant_contracts=set()
+    pack_contracts={} if pack_contracts is None else pack_contracts
+    seen_pack_contracts=set()
+    pack_runs=0
     pending_engine, pending_dma = None, None
     runs, dma_bytes = 0, {'to_sram': 0, 'from_sram': 0}
 
@@ -70,10 +76,46 @@ def replay_resident(program, commands, payload, inputs, *, run_contracts, final_
     def finish_dma():
         nonlocal pending_dma
         if pending_dma is not None:
-            direction, a, b, c = pending_dma
+            direction, a, b, c, constant = pending_dma
             if direction:
                 sram[b:b+c] = ext[a:a+c]; ready[b:b+c] = versions[a:a+c]
                 origins[b:b+c] = positions[a:a+c]
+                if constant is not None:
+                    layer_index=constant['layer']; layer=program.layers[layer_index]
+                    first=constant['first_element']; size=constant['bytes']
+                    tile_first=constant['tile_first_element']; tile_sram=constant['tile_output_sram']
+                    plane=math.prod(program.tensors[layer.output].shape[2:])
+                    weights=layer.parameters['weight']
+                    params=layer.parameters
+                    zero=np.all(weights == 0,axis=tuple(range(1,weights.ndim)))
+                    output_zp=program.tensors[layer.output].quantization.zero_point
+                    offset=first-tile_first-constant['dma_first']
+                    require(0<=offset and offset+size<=c and
+                            b+offset==tile_sram+first-tile_first and
+                            first%plane==size%plane==0 and
+                            constant['channel_first']==first//plane and
+                            constant['channels']==size//plane and
+                            np.all(zero[first//plane:(first+size)//plane]),
+                            'invalid constant-filter coordinate')
+                    require(not np.any(coverage[layer_index][first:first+size]),
+                            'duplicate constant-filter coverage')
+                    coverage[layer_index][first:first+size]=True
+                    # Aligned DMA may also touch a neighboring zero channel.
+                    # Restore its provenance as well, while a touched live
+                    # channel remains unproduced until its Conv descriptor.
+                    for index in range(c):
+                        position=tile_first+constant['dma_first']+index
+                        channel=position//plane
+                        if zero[channel]:
+                            value=rounded(np.asarray([int(params['bias'][channel]) *
+                                int(params['multiplier'][channel])],dtype=np.int64),
+                                params['shift'][channel],output_zp)[0]
+                            require(sram[b+index]==(int(value)&255),
+                                    'incorrect bias-derived constant byte')
+                            ready[b+index]=layer_index+1; origins[b+index]=position
+                    require(sram[b+offset:b+offset+size] ==
+                            oracle[layer.output].reshape(-1)[first:first+size].tobytes(),
+                            'constant output differs from independent oracle')
             else:
                 require(a+c <= 2*slot_bytes or any(r['ext']<=a and a+c<=r['ext']+r['bytes']
                         for r in snapshot_regions.values()), 'store overwrites immutable payload')
@@ -87,8 +129,17 @@ def replay_resident(program, commands, payload, inputs, *, run_contracts, final_
         if pending_engine is not None:
             low, high, address, output, version, first_element = pending_engine
             sram[address:address+len(output)] = output
-            ready[address:address+len(output)] = version
-            origins[address:address+len(output)] = np.arange(first_element, first_element+len(output))
+            if first_element == -1:
+                logical, physical, channels = version
+                ready[address:address+len(output)] = -3
+                origins[address:address+len(output)] = -1
+                for ch in range(channels):
+                    base=address+ch*physical
+                    ready[base:base+logical]=pack_input_version
+                    origins[base:base+logical]=np.arange(ch*logical,(ch+1)*logical)
+            else:
+                ready[address:address+len(output)] = version
+                origins[address:address+len(output)] = np.arange(first_element, first_element+len(output))
             pending_engine = None
 
     for command_index in range(len(commands)//16):
@@ -97,16 +148,22 @@ def replay_resident(program, commands, payload, inputs, *, run_contracts, final_
         if op == 0:
             require(not any((flags, a, b, c)) and command_index == len(commands)//16-1 and
                     pending_engine is None and pending_dma is None, 'invalid/premature HALT')
-            require(set(run_contracts)==seen_contracts and all(np.all(v) for v in coverage.values()),'missing compute/output or unused contracts')
+            require(set(run_contracts)==seen_contracts and
+                    set(constant_contracts)==seen_constant_contracts and
+                    set(pack_contracts)==seen_pack_contracts and
+                    all(np.all(v) for v in coverage.values()),
+                    'missing compute/output or unused contracts')
             for name,version,address,size in [(program.outputs[0],tensor_versions[program.outputs[0]],final_output['ext'],final_output['bytes'])]+[
                     (program.layers[i].output,i+1,r['ext'],r['bytes']) for i,r in snapshot_regions.items()]:
                 expected=oracle[name].tobytes()
                 require(0<=address and address+size<=len(ext) and size==len(expected) and
                         ext[address:address+size]==expected and np.all(versions[address:address+size]==version) and
                         np.array_equal(positions[address:address+size],np.arange(size)),'missing or stale final/snapshot tensor')
-            return {'status': 'passed', 'engine_runs': runs, 'dma_bytes': dma_bytes,
+            result={'status': 'passed', 'engine_runs': runs, 'dma_bytes': dma_bytes,
                     'final_output_bytes': oracle[program.outputs[0]].size,
                     'scope': 'symbolic command replay with independent integer oracle; no RTL timing proof'}
+            if pack_contracts: result['pack_runs']=pack_runs
+            return result
         if op == 3:
             require(flags in (1, 2, 3) and not any((a, b, c)), 'invalid wait')
             if flags & 1:
@@ -119,22 +176,79 @@ def replay_resident(program, commands, payload, inputs, *, run_contracts, final_
                     0 < c <= 32768 and a+c <= len(ext) and b+c <= 32768, 'illegal DMA')
             if pending_engine:
                 require(b+c <= pending_engine[0] or b >= pending_engine[1], 'DMA intersects live engine region')
-            pending_dma = flags, a, b, c
+            constant=constant_contracts.get(str(command_index))
+            if constant is not None:
+                require(flags==1 and isinstance(constant,dict) and
+                        set(constant)=={'layer','first_element','bytes','dma_first','dma_bytes',
+                                        'channel_first','channels','tile_first_element',
+                                        'tile_output_sram','tile_output_bytes'} and
+                        c==constant['dma_bytes'] and b==constant['tile_output_sram']+constant['dma_first'] and
+                        0<=constant['dma_first'] and
+                        constant['dma_first']+c<=constant['tile_output_bytes'] and
+                        np.all(versions[a:a+c]==-2) and
+                        constant['layer'] in coverage and
+                        program.layers[constant['layer']].op=='Conv' and
+                        program.layers[constant['layer']].attributes.get('group',1)==1,
+                        'invalid constant-filter DMA contract')
+                seen_constant_contracts.add(str(command_index))
+            pending_dma = flags, a, b, c, constant
             dma_bytes['to_sram' if flags else 'from_sram'] += c
             continue
         require(op == 2 and flags == c == 0 and pending_engine is None, 'invalid engine dispatch')
-        key=str(command_index);contract=run_contracts.get(key)
+        key=str(command_index)
+        low, high = b & 65535, b >> 16
+        require(0 <= low < high <= 32768 and a % 64 == 0, 'invalid live region/PC')
+        if pending_dma:
+            _, _, base, length, _ = pending_dma
+            require(base+length <= low or base >= high, 'engine intersects pending DMA')
+        require(low <= a and a+128 <= high and np.all(ready[a:a+128] == -2), 'unready descriptor')
+        raw_descriptor=bytes(sram[a:a+64])
+        if key in pack_contracts:
+            contract=pack_contracts[key]
+            require(isinstance(contract,dict) and set(contract)=={'layer','first_element'} and
+                    type(contract['layer']) is int and contract['layer'] in coverage and
+                    contract['first_element']>=0, 'invalid PACK contract')
+            fields=struct.unpack('<IBBBB8I12H',raw_descriptor)
+            magic,version,opcode,flags,reserved=fields[:5]
+            input_base,output_base,weight,params,count,physical,row_stride,next_pc=fields[5:13]
+            kh,kw,sh,sw,pt,pb,pl,pr,ih,iw,ic,oc=fields[13:]
+            require((magic,version,opcode,flags,reserved)==(0x32445355,2,9,0,0) and
+                    input_base==output_base and input_base%8==0 and
+                    (weight,params,row_stride,next_pc)==(0,0,0,a+64) and
+                    (kh,kw,sh,sw,pt,pb,pl,pr)==(1,1,1,1,0,0,0,0) and
+                    min(ih,iw,ic)>0 and max(ih,iw)<=255 and ic<=1024 and oc==ic and
+                    count==ih*iw and physical==(count+7)//8*8 and count!=physical and
+                    input_base+ic*physical<=high and input_base>=low and
+                    Descriptor.decode(bytes(sram[a+64:a+128])).opcode==0,
+                    'invalid PACK descriptor')
+            layer=program.layers[contract['layer']]
+            x=oracle[layer.inputs[0]]
+            output_plane=math.prod(program.tensors[layer.output].shape[2:])
+            require(tuple(x.shape[1:])==(ic,ih,iw) and
+                    contract['first_element']%output_plane==0 and
+                    contract['first_element']<oracle[layer.output].size,
+                    'PACK graph geometry mismatch')
+            input_version=tensor_versions[layer.inputs[0]]
+            read(input_base,x.size,x.tobytes(),input_version)
+            require(np.array_equal(origins[input_base:input_base+x.size],np.arange(x.size)),
+                    'PACK input provenance mismatch')
+            packed=b''.join(x.reshape(ic,count)[ch].tobytes()+bytes(physical-count)
+                            for ch in range(ic))
+            pack_input_version=input_version
+            pending_engine=low,high,input_base,packed,(count,physical,ic),-1
+            ready[input_base:input_base+len(packed)]=-1
+            seen_pack_contracts.add(key);pack_runs+=1;runs+=1
+            continue
+        contract=run_contracts.get(key)
         require(isinstance(contract,dict) and set(contract)=={'layer','first_element'},'missing/invalid run contract')
         layer_index,consumed=contract['layer'],contract['first_element']
         require(type(layer_index) is int and layer_index in coverage and type(consumed) is int and consumed>=0,'invalid logical operation')
         seen_contracts.add(key)
-        low, high = b & 65535, b >> 16
-        require(0 <= low < high <= 32768 and a % 64 == 0, 'invalid live region/PC')
-        if pending_dma:
-            _, _, base, length = pending_dma
-            require(base+length <= low or base >= high, 'engine intersects pending DMA')
-        require(low <= a and a+128 <= high and np.all(ready[a:a+128] == -2), 'unready descriptor')
-        d = Descriptor.decode(bytes(sram[a:a+64])); d.validate()
+        flags=raw_descriptor[6]
+        require(flags in (0,1), 'invalid descriptor layout flag')
+        if flags:
+            raw_descriptor=raw_descriptor[:6]+b'\0'+raw_descriptor[7:]
+        d = Descriptor.decode(raw_descriptor); d.validate()
         require(d.next_pc == a+64 and Descriptor.decode(bytes(sram[a+64:a+128])).opcode == 0, 'invalid descriptor chain')
         layer = program.layers[layer_index]; attrs, p = layer.attributes, layer.parameters
         input_version=tensor_versions[layer.inputs[0]]
@@ -164,11 +278,30 @@ def replay_resident(program, commands, payload, inputs, *, run_contracts, final_
             operand = x if opcode == 4 else x[:, first:first+count]
         else:
             operand = x if opcode == 1 else x.reshape(-1)[consumed:consumed+d.outputs]
-        read(d.input, operand.size, operand.tobytes(), input_version)
+        if flags:
+            require(opcode==4 and (d.kernel_h,d.kernel_w,d.stride_h,d.stride_w)==(1,1,1,1) and
+                    not any((d.pad_top,d.pad_bottom,d.pad_left,d.pad_right)) and
+                    d.count==d.input_c and operand.size==d.input_c*d.input_h*d.input_w,
+                    'invalid padded pointwise layout')
+            logical=d.input_h*d.input_w;physical=(logical+7)//8*8
+            require(logical!=physical and d.input+d.input_c*physical<=high,
+                    'invalid padded input extent')
+            for ch in range(d.input_c):
+                read(d.input+ch*physical,logical,
+                     operand.reshape(d.input_c,logical)[ch].tobytes(),input_version)
+                require(np.array_equal(origins[d.input+ch*physical:d.input+ch*physical+logical],
+                                       np.arange(ch*logical,(ch+1)*logical)),
+                        'incorrect padded channel provenance')
+                require(sram[d.input+ch*physical+logical:d.input+(ch+1)*physical]==
+                        bytes(physical-logical), 'nonzero padded channel tail')
+        else:
+            read(d.input, operand.size, operand.tobytes(), input_version)
         input_first = first*math.prod(x.shape[2:]) if spatial and opcode != 4 else consumed if opcode in (2, 8) else 0
-        require(np.array_equal(origins[d.input:d.input+operand.size], np.arange(input_first, input_first+operand.size)),
-                'incorrect tensor coordinate provenance')
-        regions = [(a, a+128), (d.input, d.input+operand.size), (d.output, d.output+d.outputs)]
+        if not flags:
+            require(np.array_equal(origins[d.input:d.input+operand.size], np.arange(input_first, input_first+operand.size)),
+                    'incorrect tensor coordinate provenance')
+        regions = [(a, a+128), (d.input, d.input+(d.input_c*physical if flags else operand.size)),
+                   (d.output, d.output+d.outputs)]
         if opcode in (1, 4, 6):
             weight = p['weight'][first:first+count].reshape(count, -1)
             require(d.count == weight.shape[1] and d.row_stride >= weight.shape[1], 'wrong reduction')

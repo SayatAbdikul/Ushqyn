@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "status": "passed-boardless-route",
+  "physical_board": false,
+  "candidate": {
+    "engine": "work/phase6/experiments-v1/combined-next-v1/engine.sv",
+    "engine_sha256": "710f0d1a0a2053c90ab0c18c9137d321b09148753a39ea0b079f3ce41d25d87a",
+    "identity": "work/phase6/experiments-v1/combined-next-v1/identity.json",
+    "identity_sha256": "2dece515fe85a099dacc9ca7494231843e03740da05525f4dfb3eb7643e1842c",
+    "driver": "tools/phase6/combined_next.py",
+    "enabled": ["DW_WORD_REUSE", "VECTOR_LUT", "RQ_FAST", "geometry_narrowing"],
+    "disabled": ["PW_HIT_BYPASS"]
+  },
+  "validation": {
+    "engine_cocotb": "3 of 3 passed: randomized engine, cache, direct writeback",
+    "vector_edges_cocotb": "passed",
+    "fast_requant_signed_cocotb": "passed",
+    "invalid_descriptor_cocotb": "11 malformed geometry/stride boundaries rejected",
+    "native_full_models": "24 of 24 passed across KWS/VWW, pinned/stress, serial/overlap, fixed/stalled RAM",
+    "native_chain": "12 of 12 passed across KWS/VWW, pinned/stress, fixed/stalled RAM; all checked tensors exact",
+    "reports": {
+      "engine": ["work/phase6/experiments-v1/combined-next-v1/engine/report.json", "fe30d38fc1191181c6571a9e372ab039a25c9864f2d6dfb3915b08fd7495890d"],
+      "edges_preflight": ["work/phase6/experiments-v1/combined-next-v1/edges/report.json", "b3ee8f8d9a1b091729e3cf89e4b59200ca4076f7e992bf7f3a71c381490222d6"],
+      "vector_edges": ["work/phase6/experiments-v1/combined-next-v1/vector-edges/report.json", "01f7d0b96e6a9d515c077f6c2e34e41eaeea73399ba6c89b811b760bced3d6bc"],
+      "fast_requant": ["work/phase6/experiments-v1/combined-next-v1/requant-proof/report.json", "3678ac005f3ae8bd1b15975a8a514c3516a0deba85b8ffd5d4cfc03e4a9af98e"],
+      "invalid_descriptor": ["work/phase6/experiments-v1/combined-next-v1/geometry-rejection/report.json", "c8b005105cd8a4b215f095bd5fa4b1746ec39c97de1b319191c38e73edb19a51"],
+      "native_full_models": ["work/phase6/experiments-v1/combined-next-v1/native/report.json", "9675f2c9b0746506bf484e26ddad7635a014a78c2f8cedecec24f2fed1b927d6"],
+      "native_chain": ["work/phase6/experiments-v1/chain/native-combined-next-v1/report.json", "e45f4fdedb453b3d6efe1a3df07eee69fc3e1a474633218ce140600401242a40"],
+      "route": ["work/phase6/experiments-v1/combined-next-v1/route/report.json", "34c090e5837e91a45aa71e93a37751362b24fae092e9f0663e8b01e1b4706c2d"]
+    }
+  },
+  "chain_timed_native_fixed_ram": {
+    "kws": {"all_exact_cycles": 1369167, "combined_cycles": 1250903, "speedup": 1.0945429022074453},
+    "vww": {"all_exact_cycles": 4596880, "combined_cycles": 4307923, "speedup": 1.0670757114275256}
+  },
+  "route": {
+    "target_clock_mhz": 20.25,
+    "routed_fmax_mhz": 20.278,
+    "setup_violated_endpoints": 0,
+    "hold_violated_endpoints": 0,
+    "resources": {"Logic": 18534, "Register": 5215, "BSRAM": 44, "DSP": 9.5, "CLS": 9962},
+    "available": {"Logic": 20736, "Register": 15915, "BSRAM": 46, "DSP": 24, "CLS": 10368},
+    "bitstream_sha256": "05f04f9f3bc8fffb3dd93fedabde8a94e07bd03b27fe76a53448dc494b383930"
+  },
+  "baseline_all_exact_route": {
+    "routed_fmax_mhz": 21.714,
+    "resources": {"Logic": 18645, "Register": 5224, "BSRAM": 36, "DSP": 14.5, "CLS": 10022}
+  },
+  "limits": "Gowin margin is 0.028 MHz at 20.25 MHz and only two BSRAM blocks remain. Native cycles are simulations, not board measurements. This candidate has not been programmed on hardware by this screen."
+}
