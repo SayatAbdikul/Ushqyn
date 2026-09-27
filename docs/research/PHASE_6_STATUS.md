@@ -1,6 +1,14 @@
 # Phase 6 — boardless milestone, 2026-09-26
 
-**Current board result (2026-09-27):** the [second optimization campaign](PHASE_6_FINAL_CAMPAIGN_V2.md)
+**Latest short-screen result (2026-09-27):** the
+[five follow-up experiments](PHASE_6_FIVE_EXPERIMENTS_V1.md) yield an exact
+27 MHz pooled core plus compiler channel compaction. The combined Tang Nano
+20K image passes two 10/10 short board screens with grouped and compacted
+schedules and
+measures **44.513 ms KWS** and **94.932 ms VWW** device latency (22.47/s and
+10.53 FPS). This is a short-screen performance milestone; **G6 remains open**.
+
+**Earlier selected board result (2026-09-27):** the [second optimization campaign](PHASE_6_FINAL_CAMPAIGN_V2.md)
 selects the exact fused engine with the existing 256-byte UART bridge at 24 MHz.
 Its ten-case short screen measures 50.080 ms KWS and 128.586 ms VWW device
 latency. The milestone below is retained as the earlier boardless record.

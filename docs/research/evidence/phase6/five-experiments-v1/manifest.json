@@ -1,0 +1,644 @@
+{
+  "artifacts": {
+    "tools/phase6/archive_five_experiments.py": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/tools/phase6/archive_five_experiments.py.gz",
+      "archive_sha256": "ac5bbbb6339d20259a0dc63da3653aaadca5612c6936d27f46ed5e3c8ca2cbe6",
+      "bytes": 20244,
+      "sha256": "76b9596e29b21ed75c0fc31b5b21476a28ca0767cd551a9a079cfbc5d85a6c98"
+    },
+    "tools/phase6/channel_compaction.py": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/tools/phase6/channel_compaction.py.gz",
+      "archive_sha256": "040325082a883e5c87e8df8945e1398e93e75317fecb752c02af0a317b171045",
+      "bytes": 22797,
+      "sha256": "08f36f1e7ddf32fbe4429ffe388ef66fdfbe17066837ebb619cc2552fc18b9e8"
+    },
+    "tools/phase6/cross_layer_compaction_screen.py": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/tools/phase6/cross_layer_compaction_screen.py.gz",
+      "archive_sha256": "5a570f27bd782672dd5a7fce69a1e2b07cce1da5c739f9f7b202972c4ae971c3",
+      "bytes": 8060,
+      "sha256": "844f7de6e725a64e5f724b7f05d814ebbf10e3351168ef8056b526a8d5a1ed4e"
+    },
+    "tools/phase6/cross_layer_screen.py": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/tools/phase6/cross_layer_screen.py.gz",
+      "archive_sha256": "fd2cae0265c0ebdaf7ae5d8bccd1d5c7a48182bcdc35590fbc03ef8ec10b3be9",
+      "bytes": 9146,
+      "sha256": "6f5e5d7fcd713fa99202fb2c00aca977276818ca1e69984dbbe3b0aa70995dbc"
+    },
+    "tools/phase6/joint_selection_screen.py": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/tools/phase6/joint_selection_screen.py.gz",
+      "archive_sha256": "f4afef779fdfdef48432e42bf38a6457b950af324397724a927728ace998f53d",
+      "bytes": 11099,
+      "sha256": "27045f718dd64ff63bfca03de98e2418116f1cbeffa068200cd974e763277335"
+    },
+    "tools/phase6/pool_timing.py": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/tools/phase6/pool_timing.py.gz",
+      "archive_sha256": "6acda0a6528dc0f1dcee620cf2c442c0fb0e53a45639e8087d30103ce6dbe4e7",
+      "bytes": 18045,
+      "sha256": "c2d4dfe798a208150d378ffef90967e2559c69c0568f665d887f5d3a25ee87d5"
+    },
+    "tools/phase6/screen_channel_compaction.py": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/tools/phase6/screen_channel_compaction.py.gz",
+      "archive_sha256": "26a72adc64957e7e4427932977d2764bd23e51b3462f581f73e9c454531680db",
+      "bytes": 11080,
+      "sha256": "bd036a32e9eb64722e872ccd9ed4f5a965d3dba7734057cd33d9543d6d09812c"
+    },
+    "tools/phase6/screen_pool27.py": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/tools/phase6/screen_pool27.py.gz",
+      "archive_sha256": "f1e2fc4926a16936dea45588786c25a5b4c2bd220408de7df168fa02e8fe6f8d",
+      "bytes": 13921,
+      "sha256": "62824395e0568e5862c915ac15ee4169a39286dd573afda0a69376cbf6e0c67c"
+    },
+    "work/phase6/channel-compaction-protect29-v1/fused/report.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/channel-compaction-protect29-v1/fused/report.json.gz",
+      "archive_sha256": "e185ea6833388967f9577daadcbfac2fe5819f4963cb65b2f95c94586dcd652f",
+      "bytes": 23542,
+      "sha256": "b449ad2ce164a9877da7722a24112f45298a5eea775332ca012e5ff7b1643f32"
+    },
+    "work/phase6/channel-compaction-protect29-v1/report.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/channel-compaction-protect29-v1/report.json.gz",
+      "archive_sha256": "53f853f1a11ec963b710bf72204e92f47c31c6048ce5bd402d1828fb309a3965",
+      "bytes": 30784,
+      "sha256": "e5cf8ef3a8cf1135edfb8e6ca3adcaa4ddd752651c8ae4a22af46b317934a8c3"
+    },
+    "work/phase6/channel-compaction-v1/fused/report.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/channel-compaction-v1/fused/report.json.gz",
+      "archive_sha256": "e30b9395ecba10c9323b9acfccb1ad885438e5dce131e945927bc08821056341",
+      "bytes": 23536,
+      "sha256": "eda570d9624df3113ef28a60834e7b09bea09abe8a288e2eeb71a7ea0a9022ca"
+    },
+    "work/phase6/channel-compaction-v1/physical-screen-v1/plan.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/channel-compaction-v1/physical-screen-v1/plan.json.gz",
+      "archive_sha256": "b21488f536d56bfbe5e4c0f191a8922a709508b27eb7c0394ba39ec92327aa88",
+      "bytes": 30391,
+      "sha256": "0fa543456e8b79e3e48d302513ff0fc1f5737f2748c76fc8758af4d99d8b7498"
+    },
+    "work/phase6/channel-compaction-v1/physical-screen-v1/program.log": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/channel-compaction-v1/physical-screen-v1/program.log.gz",
+      "archive_sha256": "6c118e7262699c65fcde0d3aaaf989ab1c26ed1e60e88dd88d6a928029cc627c",
+      "bytes": 1394,
+      "sha256": "6d20a559ab0df03cb4b68fa8dc8230bdaadcd6396369c0814c34e8bf29e80fef"
+    },
+    "work/phase6/channel-compaction-v1/physical-screen-v1/records.jsonl": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/channel-compaction-v1/physical-screen-v1/records.jsonl.gz",
+      "archive_sha256": "b037d9e96f4003ff0c814d1e6a2d54d7fe9a3724dc2ed575fcfd3a05d25d377a",
+      "bytes": 8845,
+      "sha256": "ac227ffda4cbb9df4e0a92bb7a3f8a5f7d715a740af7e974140605d622b35e0d"
+    },
+    "work/phase6/channel-compaction-v1/physical-screen-v1/report.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/channel-compaction-v1/physical-screen-v1/report.json.gz",
+      "archive_sha256": "f831cd6c824cc0d28af7c2a4f584b50bcf87dd437dc1fdcd068249b00fa436ec",
+      "bytes": 1219,
+      "sha256": "f1d962329ff352a7b6329aa6dd141f587d52af2cb3b62681c7a70ac93dd28f4a"
+    },
+    "work/phase6/channel-compaction-v1/physical-screen-v1/seal.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/channel-compaction-v1/physical-screen-v1/seal.json.gz",
+      "archive_sha256": "5b55cea7b3b9b20b1d847958e684e8f728de3748857193a7a77bda463c3482d6",
+      "bytes": 350,
+      "sha256": "0ee57886a5e6a6d082cc3dba41b1a125cd394f6cba91f2ec775f8d58c48ec09b"
+    },
+    "work/phase6/channel-compaction-v1/report.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/channel-compaction-v1/report.json.gz",
+      "archive_sha256": "2a8999084988f96fff2a17580af0dd2502da33505bf5f13c70ee33551c6a288d",
+      "bytes": 31393,
+      "sha256": "a45f19f7c1ae85afac863434af25759d1fe812148a66062561b65f06a36da644"
+    },
+    "work/phase6/cross-layer-compaction-v1/report.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/cross-layer-compaction-v1/report.json.gz",
+      "archive_sha256": "c1d0d245c67b2538052f5b9d061b7e88ab7019750011344ba3836602ca734e8a",
+      "bytes": 50686,
+      "sha256": "2ecc49e1f122ccc41e012b40c2f2c761f8e932c22fed12d4b019b614bc81c21e"
+    },
+    "work/phase6/cross-layer-screen-v1/report.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/cross-layer-screen-v1/report.json.gz",
+      "archive_sha256": "5aab2ea3e1ea4052bf910f218e94963b2ce46e148326e1462a10a82ae2ff5a89",
+      "bytes": 26595,
+      "sha256": "50cd43c9afb3d9f752a7dff90540e2f91169a7f4d1dcb7fcf5bf440a7a8ea7a2"
+    },
+    "work/phase6/experiments-v1/fused-activation-v1/route24/report.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/experiments-v1/fused-activation-v1/route24/report.json.gz",
+      "archive_sha256": "b03edde48685d61b40b85f63353d5cd74d7a86d6f88ae235f7f754e083aa84b2",
+      "bytes": 1648,
+      "sha256": "2733a53b9c746a672a32497373baafcc09f93ac50f53a2cb852057dd32718255"
+    },
+    "work/phase6/fused-activation-uart256-24-screen-v1/plan.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/fused-activation-uart256-24-screen-v1/plan.json.gz",
+      "archive_sha256": "ece06c55d32af310ae9bc57d0273cc5cff333ecc0374ae45407eb365aaaa9a21",
+      "bytes": 24311,
+      "sha256": "7308d209f6b8ccb13b6ef29988b635041dc989711ff32a25bf0b7ad0398c3eaf"
+    },
+    "work/phase6/fused-activation-uart256-24-screen-v1/program.log": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/fused-activation-uart256-24-screen-v1/program.log.gz",
+      "archive_sha256": "6c118e7262699c65fcde0d3aaaf989ab1c26ed1e60e88dd88d6a928029cc627c",
+      "bytes": 1394,
+      "sha256": "6d20a559ab0df03cb4b68fa8dc8230bdaadcd6396369c0814c34e8bf29e80fef"
+    },
+    "work/phase6/fused-activation-uart256-24-screen-v1/records.jsonl": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/fused-activation-uart256-24-screen-v1/records.jsonl.gz",
+      "archive_sha256": "d2c395093ad74fbeb0e95d315987ab23d98a0b6df3907f6ac59875fb3f714d4a",
+      "bytes": 8720,
+      "sha256": "b8844f964becdbd04e95dc24366f38dd838310c6f78a31b73d451b586ea885d1"
+    },
+    "work/phase6/fused-activation-uart256-24-screen-v1/report.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/fused-activation-uart256-24-screen-v1/report.json.gz",
+      "archive_sha256": "79f2928c4f54ea619dc1f77427b4b1e2b9fe131da15ce74e1007810d397d725d",
+      "bytes": 1391,
+      "sha256": "403fedb01d43c05f9be2f7f14bd6a0fee165f5685abfb1e9ada8db0d52fd0148"
+    },
+    "work/phase6/fused-activation-uart256-24-screen-v1/seal.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/fused-activation-uart256-24-screen-v1/seal.json.gz",
+      "archive_sha256": "a53d12c188bdbb338b3fe48adbb22d90f458efded24730fdc4e42dec954f4d7d",
+      "bytes": 350,
+      "sha256": "ee643c7da17199a0199578e155113df6a75364a0150f9dfc1b35da9c993b1092"
+    },
+    "work/phase6/joint-selection-v2/plan.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/joint-selection-v2/plan.json.gz",
+      "archive_sha256": "f8730159f072fb3763d82259b58f51cdad8a5d22b9af160d6d2f68c7a863b656",
+      "bytes": 8600,
+      "sha256": "cb0fc562ac162ddd850828c7c627f09e97c5dd43c150d0f5cb2fa2ad5740e065"
+    },
+    "work/phase6/joint-selection-v2/report.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/joint-selection-v2/report.json.gz",
+      "archive_sha256": "ae7cf1efc046abcf45179cc75fa5a57a3ce3b6c96be4ca6927c5ed172ba1f5d2",
+      "bytes": 12473,
+      "sha256": "22d0d78eb8e7794d40ecd674b0a488fd4cc8b70cfa3d10362c3b67d7c77393d7"
+    },
+    "work/phase6/joint-selection-v2/runs/kws-00-s0.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/joint-selection-v2/runs/kws-00-s0.json.gz",
+      "archive_sha256": "eaa5c0de631112c5281883990217370d303bba6548a893a447a88d97602a64c7",
+      "bytes": 196,
+      "sha256": "82c7ade391129b2aaf16729eb9c1457ee134f4dc0842618a1a0f21a1e9dfc364"
+    },
+    "work/phase6/joint-selection-v2/runs/kws-00-s6063.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/joint-selection-v2/runs/kws-00-s6063.json.gz",
+      "archive_sha256": "777bf058b7170ae34dfc383bf31ee40d653b78adc9b61ef99067e203bb443ba2",
+      "bytes": 199,
+      "sha256": "60b7bc6377372ff785e70b19046e05d0d3a1e1b6e0a02e40be0b9d279e872ac3"
+    },
+    "work/phase6/joint-selection-v2/runs/kws-01-s0.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/joint-selection-v2/runs/kws-01-s0.json.gz",
+      "archive_sha256": "5cba1848397eb4ac2b2284fc0442362306dd55d6940098543d828edf53c3298a",
+      "bytes": 199,
+      "sha256": "768f58d51e06d51994c1b18a9e469c9efff17a36462729a52404106b11b9797e"
+    },
+    "work/phase6/joint-selection-v2/runs/kws-01-s6063.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/joint-selection-v2/runs/kws-01-s6063.json.gz",
+      "archive_sha256": "060ec8902e17f2bd1f14da50c7a69e9f39415a65d26b1a75a88604b1199280f2",
+      "bytes": 202,
+      "sha256": "1389c074de5932e31ca1db9e61cb0c23ea722a1ebabffd22d506f0671e639041"
+    },
+    "work/phase6/joint-selection-v2/runs/kws-10-s0.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/joint-selection-v2/runs/kws-10-s0.json.gz",
+      "archive_sha256": "eaa5c0de631112c5281883990217370d303bba6548a893a447a88d97602a64c7",
+      "bytes": 196,
+      "sha256": "82c7ade391129b2aaf16729eb9c1457ee134f4dc0842618a1a0f21a1e9dfc364"
+    },
+    "work/phase6/joint-selection-v2/runs/kws-10-s6063.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/joint-selection-v2/runs/kws-10-s6063.json.gz",
+      "archive_sha256": "777bf058b7170ae34dfc383bf31ee40d653b78adc9b61ef99067e203bb443ba2",
+      "bytes": 199,
+      "sha256": "60b7bc6377372ff785e70b19046e05d0d3a1e1b6e0a02e40be0b9d279e872ac3"
+    },
+    "work/phase6/joint-selection-v2/runs/kws-11-s0.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/joint-selection-v2/runs/kws-11-s0.json.gz",
+      "archive_sha256": "5cba1848397eb4ac2b2284fc0442362306dd55d6940098543d828edf53c3298a",
+      "bytes": 199,
+      "sha256": "768f58d51e06d51994c1b18a9e469c9efff17a36462729a52404106b11b9797e"
+    },
+    "work/phase6/joint-selection-v2/runs/kws-11-s6063.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/joint-selection-v2/runs/kws-11-s6063.json.gz",
+      "archive_sha256": "060ec8902e17f2bd1f14da50c7a69e9f39415a65d26b1a75a88604b1199280f2",
+      "bytes": 202,
+      "sha256": "1389c074de5932e31ca1db9e61cb0c23ea722a1ebabffd22d506f0671e639041"
+    },
+    "work/phase6/joint-selection-v2/runs/vww-00-s0.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/joint-selection-v2/runs/vww-00-s0.json.gz",
+      "archive_sha256": "9f6278c0a6cfe614bc30ce1ac03d41fca31994be107be9feae088c006de6c2e0",
+      "bytes": 197,
+      "sha256": "b0ff1ccff19baa44fa1777913dfb126a3f47951ab8784a1582a3ff2a9e4d6415"
+    },
+    "work/phase6/joint-selection-v2/runs/vww-00-s6063.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/joint-selection-v2/runs/vww-00-s6063.json.gz",
+      "archive_sha256": "168e3c1584ebdd51592b55b9cdfee953376490fab2dbc7f233d2485dc311720d",
+      "bytes": 200,
+      "sha256": "9fc853bb331ae9fed3672675fd3990de774d20507a1fd7b1e4a9f1c2c65dd89f"
+    },
+    "work/phase6/joint-selection-v2/runs/vww-01-s0.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/joint-selection-v2/runs/vww-01-s0.json.gz",
+      "archive_sha256": "89a31eda205139400d6e70dbfd68c1816783421fe29f7da87a8cc20585c06873",
+      "bytes": 200,
+      "sha256": "4a31fbf817258c1d3b2e0c55f18739d951875983c9908e547ff1839767906cbb"
+    },
+    "work/phase6/joint-selection-v2/runs/vww-01-s6063.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/joint-selection-v2/runs/vww-01-s6063.json.gz",
+      "archive_sha256": "d1c51f8c9c0b0aa230035f52ee11637b333d75f1af8dbc4656923e34adfbcded",
+      "bytes": 204,
+      "sha256": "bfc3bfce844a05ebd11044c228234a1ffff03ad52e5de382b6f698aded11a3ae"
+    },
+    "work/phase6/joint-selection-v2/runs/vww-10-s0.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/joint-selection-v2/runs/vww-10-s0.json.gz",
+      "archive_sha256": "a9a5746aad502cc41d4fd7a9a9018fa45dfefc8beaf3cdbc77709430939d8eb2",
+      "bytes": 197,
+      "sha256": "90ecb6063cdad9872172411f03a468db0376affec19327eba7d6dddf0530238a"
+    },
+    "work/phase6/joint-selection-v2/runs/vww-10-s6063.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/joint-selection-v2/runs/vww-10-s6063.json.gz",
+      "archive_sha256": "edec49ca8d7d72aa64d22994625c5bd8c37646b698294d5d9e69494841fe54fc",
+      "bytes": 200,
+      "sha256": "43aab4ba005c3bcaec57cb5547dcd6430515e6a352937ba64f7f2988570b07e9"
+    },
+    "work/phase6/joint-selection-v2/runs/vww-11-s0.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/joint-selection-v2/runs/vww-11-s0.json.gz",
+      "archive_sha256": "bdff3edd413d5400e026ce4c7c905a3bf82739f81953455b5139f71d1a81917b",
+      "bytes": 200,
+      "sha256": "dd210876c45ddd24bd9f989a39c69caf2e110ff3179799512e85656d3376ccaa"
+    },
+    "work/phase6/joint-selection-v2/runs/vww-11-s6063.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/joint-selection-v2/runs/vww-11-s6063.json.gz",
+      "archive_sha256": "6a4b2e9ae7c7885b74baf7f821416cefd43329ceb71593736fc034880c24bc03",
+      "bytes": 203,
+      "sha256": "b26f170f040ba52583c6bc64487f7dcce6665ecb50fcc84c0b982082c05ea07c"
+    },
+    "work/phase6/narrow-accum-v1/check_schedule.py": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/narrow-accum-v1/check_schedule.py.gz",
+      "archive_sha256": "318d1d22816278eb6697ae6a84b01c17ad068d0ec284a41e3496f299caa88608",
+      "bytes": 3741,
+      "sha256": "c727695121c25250057d708281cebb90734f94dfcfeba89b9ef933edb79c4ee4"
+    },
+    "work/phase6/narrow-accum-v1/comparison.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/narrow-accum-v1/comparison.json.gz",
+      "archive_sha256": "bc4e6d33cb44973cbd52df6bb2954de51f77cefc4a844b3e386dd608d220deca",
+      "bytes": 1236,
+      "sha256": "60511598d033dbb2808890c1f306cb1745d67124735844321681177055122f81"
+    },
+    "work/phase6/narrow-accum-v1/engine.sv": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/narrow-accum-v1/engine.sv.gz",
+      "archive_sha256": "da24e7fc91348aefe85aa8f440f64187f87a820a927421d56dee5e03c39a9f55",
+      "bytes": 55638,
+      "sha256": "87ec758a4fe5a835ac317b07b76d2d1301d08880442c278366d7950949b2651a"
+    },
+    "work/phase6/narrow-accum-v1/experiment.py": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/narrow-accum-v1/experiment.py.gz",
+      "archive_sha256": "4a07c5ffc5b707e7e76ed1ec2600e9a861338bffe9b57800e14d7303ffd6302c",
+      "bytes": 6400,
+      "sha256": "e0b3eccb7a516a931fbdacbfaca471208e9263d3aa01ca2f877a5c64143b8046"
+    },
+    "work/phase6/narrow-accum-v1/fixtures.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/narrow-accum-v1/fixtures.json.gz",
+      "archive_sha256": "91c8b1acb8216787108272085187efb9de3ae75b9e250a442e19adcd879d283e",
+      "bytes": 18142,
+      "sha256": "3d50a672a6b5e3b5bef84899980cf677e040f87fa0dc158d0a67480adb92891e"
+    },
+    "work/phase6/narrow-accum-v1/identity.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/narrow-accum-v1/identity.json.gz",
+      "archive_sha256": "2ce55499cd1356c6b0a02aab6863955d7ef8bb0faced5f1d0be2645f7aa83b15",
+      "bytes": 516,
+      "sha256": "5b1bfffaa9fafc569d33668332d1018fe705a000d83a9b98622e479c894a1484"
+    },
+    "work/phase6/narrow-accum-v1/integration/report.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/narrow-accum-v1/integration/report.json.gz",
+      "archive_sha256": "70da3d4c048d33e31476445a01892121e590cbf04bef1c971fea5f321074efdc",
+      "bytes": 1299,
+      "sha256": "01959a2b8788f7b60cd1f1f22747a90aa08400bbe43e44c1fcb51551ff69f641"
+    },
+    "work/phase6/narrow-accum-v1/integration/results.xml": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/narrow-accum-v1/integration/results.xml.gz",
+      "archive_sha256": "1cf1e5af2dc8109fbf94e8c41817aac6a645d7abb1e22b95fda394d97a8e036b",
+      "bytes": 733,
+      "sha256": "9328f0ab04b81b281eb3e32053aaa4bbd3e396c97a8cf154ccf1a08e40356905"
+    },
+    "work/phase6/narrow-accum-v1/native/report.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/narrow-accum-v1/native/report.json.gz",
+      "archive_sha256": "b3f7fc700900dbc0e3e57623f02e7a82815abd2dd06cd5b73a22d7b895bba32d",
+      "bytes": 26937,
+      "sha256": "aeddbe5932d4be422565d9a0d06a1f4d828dff9ce725293324666994d61188f4"
+    },
+    "work/phase6/narrow-accum-v1/proof.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/narrow-accum-v1/proof.json.gz",
+      "archive_sha256": "bf12f7a8ee122af5505d68586fd84f83fd9971746517739da7dc499f17e2d260",
+      "bytes": 727940,
+      "sha256": "a1f1513955bc96b9b676feed1ba831c90045de54c1161dc1febb61f166c9b246"
+    },
+    "work/phase6/narrow-accum-v1/proof.py": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/narrow-accum-v1/proof.py.gz",
+      "archive_sha256": "965467ec2ecfc13456c339fb4b5c00446ba605d05b13da7ef80b3401a3af5c53",
+      "bytes": 3683,
+      "sha256": "2ac6d040422b38a3c6e79ea000af90900a07f233c064e8ce4a786c9dbabd3b92"
+    },
+    "work/phase6/narrow-accum-v1/route24/phase6_uart_burst/impl/pnr/phase6_uart_burst.rpt.txt": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/narrow-accum-v1/route24/phase6_uart_burst/impl/pnr/phase6_uart_burst.rpt.txt.gz",
+      "archive_sha256": "1cdb2364529e9d6937f4077a749170ffe46d94bd8b3fcf3b3bcf8a05e66d7f00",
+      "bytes": 45091,
+      "sha256": "8d0fe39a8eb49b3315a24dc9ad04e0e8baa0eeadb753001a93ee6d6daf618349"
+    },
+    "work/phase6/narrow-accum-v1/route24/phase6_uart_burst/impl/pnr/phase6_uart_burst_tr_content.html": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/narrow-accum-v1/route24/phase6_uart_burst/impl/pnr/phase6_uart_burst_tr_content.html.gz",
+      "archive_sha256": "864776d6f2f0ac6f0d7a341903899988dd03e4a2aa210c1af6668108c0d5fb01",
+      "bytes": 549181,
+      "sha256": "ca3a284498c8d3975a38b00543b912cd2b036c8133876b032357f5c4e987a211"
+    },
+    "work/phase6/narrow-accum-v1/route24/report.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/narrow-accum-v1/route24/report.json.gz",
+      "archive_sha256": "1cc106a4a5de4ff1533565d2eae47857a9692153dc8bda41759306ee6c543e37",
+      "bytes": 1552,
+      "sha256": "7c5a7673937d5436f257d7858005dd97ad70aeb6fd733d4bf3966f926c16c7f9"
+    },
+    "work/phase6/narrow-accum-v1/schedule-proof.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/narrow-accum-v1/schedule-proof.json.gz",
+      "archive_sha256": "016acff9d75458cb382e1e8376ece63d53c3aac75e9ad39379157849481b46ca",
+      "bytes": 1285,
+      "sha256": "4d9e6eec5e428c29a27059036004c54afb33cd8324e45892c09771b991a0cffd"
+    },
+    "work/phase6/pool-timing-v1/build27.tcl": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pool-timing-v1/build27.tcl.gz",
+      "archive_sha256": "361db41f1b08efb1824ed58af84b3b8b29c6712e9c0cc121e5aa478b8edb7f8b",
+      "bytes": 1345,
+      "sha256": "1ddea2f28a4c7ad31b0786b946d320d5f2229939043bd95150452b72a2ceaa83"
+    },
+    "work/phase6/pool-timing-v1/compact-native/report.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pool-timing-v1/compact-native/report.json.gz",
+      "archive_sha256": "1c7c5e0859778b63723de929dff3c38145a8f2be9a58998e81a7c731f90838cb",
+      "bytes": 26012,
+      "sha256": "11c1dff6030ac4932544dddfc8410de0973ff319935e4e4d4b3c5193026aeb41"
+    },
+    "work/phase6/pool-timing-v1/comparison.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pool-timing-v1/comparison.json.gz",
+      "archive_sha256": "509d82b5734a648c9cadfa0078bc4f9fb0fb5726c72c1fad03ba90dbeface3fe",
+      "bytes": 5690,
+      "sha256": "6ff1ac517fc645d8faa7d902a2d65b8e755c8551b00f57172fb02c274effd109"
+    },
+    "work/phase6/pool-timing-v1/edges/report.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pool-timing-v1/edges/report.json.gz",
+      "archive_sha256": "ca81c6aa8ef357aedee547b180fe739c2a4d695d4512f181ba8ce49f93a8948f",
+      "bytes": 585,
+      "sha256": "97baf09af458d16921cdee104f670b3e2c79a1fb0e4fd50917c943dd6fa7cb9e"
+    },
+    "work/phase6/pool-timing-v1/edges/results.xml": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pool-timing-v1/edges/results.xml.gz",
+      "archive_sha256": "71c9320a2ae2bd3ac666a787d9fdb76c92a8f58529af95a9575c4270972d4f1e",
+      "bytes": 418,
+      "sha256": "b1bda0831bb164563a3a4edc0ea07d027dee4fbf1e93e7ababa2b036cf3a34cf"
+    },
+    "work/phase6/pool-timing-v1/engine.sv": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pool-timing-v1/engine.sv.gz",
+      "archive_sha256": "01a6603f66303947d8f1b66257f0750cf712238ceb48eacacf792b2e410040ae",
+      "bytes": 56132,
+      "sha256": "c347336ec58503f26abc47094289bd7926fcc5ed2515eca758a4b7dbc7f6d48a"
+    },
+    "work/phase6/pool-timing-v1/engine/report.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pool-timing-v1/engine/report.json.gz",
+      "archive_sha256": "9118c08f4c8cbb70b85ddd79653cff127f464cb8f2d47a86c0cbbf62b2a8779f",
+      "bytes": 759,
+      "sha256": "97d99136cbd316c1717d0967e2d1bc77a7ec649f0f1fd2ffed2c147c88aa4b3a"
+    },
+    "work/phase6/pool-timing-v1/engine/results.xml": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pool-timing-v1/engine/results.xml.gz",
+      "archive_sha256": "d5a13f5d798be24f9e45c01791d5b1b5546bb37978229c21a4fc94b3761a9eaa",
+      "bytes": 952,
+      "sha256": "77a9bf3c6710b1687171b3e8d3e3ced862f82ab2ec95766e1c5b5957d3d8713c"
+    },
+    "work/phase6/pool-timing-v1/host27.sv": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pool-timing-v1/host27.sv.gz",
+      "archive_sha256": "58fc382cd4b1cf4ada53c3c59b6d8d8ac48fb10672aa47be520a5cc641d6de86",
+      "bytes": 2962,
+      "sha256": "ea71d3e96a519d97727a5c96c5542e5e4cf56ce0e0ac29cbc7f632e5bdea30ac"
+    },
+    "work/phase6/pool-timing-v1/identity.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pool-timing-v1/identity.json.gz",
+      "archive_sha256": "44ce1b9c9b0a9be51fa5c9802001f626f5b04882065acce0290fb1ff07b8dc3d",
+      "bytes": 889,
+      "sha256": "862063447f48a72831fab789782b360e1d7c3e57e08d68f3d42da93bbf4beff0"
+    },
+    "work/phase6/pool-timing-v1/integration/report.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pool-timing-v1/integration/report.json.gz",
+      "archive_sha256": "faecb3e062f921d7631912c13819785770739207aab3a6f50cc4a6d1eaf2e6e9",
+      "bytes": 1298,
+      "sha256": "a35ab8077d093f559f0490ae44dccb2c07447ce48924e736401b896961ef6c1c"
+    },
+    "work/phase6/pool-timing-v1/integration/results.xml": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pool-timing-v1/integration/results.xml.gz",
+      "archive_sha256": "7b04dc82c8bd958f2e32efc32b92f67ece5bdd7dd702fbeb425d7e982ef07b0e",
+      "bytes": 732,
+      "sha256": "efc15414996ff64f7d7099d1e294e0cef69f748235f06db9802a922b18a5c8df"
+    },
+    "work/phase6/pool-timing-v1/native/report.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pool-timing-v1/native/report.json.gz",
+      "archive_sha256": "0f319a31aca37d72ff757155c53860d64d3fd22fde8e78052663cd1a2405e48b",
+      "bytes": 26906,
+      "sha256": "80272e1f0e0e2272aba230db4245447f4967c76e95c0b76e7d896157ac0c6cfc"
+    },
+    "work/phase6/pool-timing-v1/physical-compacted27-v1/plan.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pool-timing-v1/physical-compacted27-v1/plan.json.gz",
+      "archive_sha256": "603c7578dda32d0a00381580f6311e39a7195656fdd9ce00ce374b33ab5d5466",
+      "bytes": 36644,
+      "sha256": "72658e41f506fab38799dd3f2898c2e726aad4d7d6ac6abc98298f4198eddf50"
+    },
+    "work/phase6/pool-timing-v1/physical-compacted27-v1/program.log": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pool-timing-v1/physical-compacted27-v1/program.log.gz",
+      "archive_sha256": "ef2336b84a1003f53a1a2f8c227ba7a08f881d65557b33a1e9b4a9ba7d111b29",
+      "bytes": 1374,
+      "sha256": "79cf784ab417464aefdddd3e2975678ff7ed8d70146ddd59467ea10b48313404"
+    },
+    "work/phase6/pool-timing-v1/physical-compacted27-v1/records.jsonl": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pool-timing-v1/physical-compacted27-v1/records.jsonl.gz",
+      "archive_sha256": "245c33fb22b47f68df28c2fc5023d85d8ced4fa2f00d420edb24341e8dfcbb07",
+      "bytes": 8781,
+      "sha256": "48ee1067bad517a4c31060cc0e86b5851bb129018f3395bae0f38a3973bbb47b"
+    },
+    "work/phase6/pool-timing-v1/physical-compacted27-v1/report.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pool-timing-v1/physical-compacted27-v1/report.json.gz",
+      "archive_sha256": "99cb7ab8bcd33ca386c8a0a45515f95b00d9632dac4effa46c5a726d30e588c7",
+      "bytes": 1211,
+      "sha256": "a7d05a5188a93b57907a1fa203a38a34f9c1712d26c3f4c6771285998c101bd9"
+    },
+    "work/phase6/pool-timing-v1/physical-compacted27-v1/seal.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pool-timing-v1/physical-compacted27-v1/seal.json.gz",
+      "archive_sha256": "84c549a7dcfe60afa58023cec20f42d7f5b374c75b7c61d4ffcd957c5bfe8c24",
+      "bytes": 350,
+      "sha256": "d2c558047a57784bf3c67f6869d67786963a96b15cca1d75465aa000f9b60a3d"
+    },
+    "work/phase6/pool-timing-v1/physical-grouped27-v2/plan.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pool-timing-v1/physical-grouped27-v2/plan.json.gz",
+      "archive_sha256": "247febe80b58c6faad729f91e7aa82415334ba4810e2ac924d89e9e9d6bd134a",
+      "bytes": 30715,
+      "sha256": "7013d9088e2d27352ae7f2a535691b79fd970ddc1fcdcd50eda8d798e3034030"
+    },
+    "work/phase6/pool-timing-v1/physical-grouped27-v2/program.log": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pool-timing-v1/physical-grouped27-v2/program.log.gz",
+      "archive_sha256": "ef2336b84a1003f53a1a2f8c227ba7a08f881d65557b33a1e9b4a9ba7d111b29",
+      "bytes": 1374,
+      "sha256": "79cf784ab417464aefdddd3e2975678ff7ed8d70146ddd59467ea10b48313404"
+    },
+    "work/phase6/pool-timing-v1/physical-grouped27-v2/records.jsonl": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pool-timing-v1/physical-grouped27-v2/records.jsonl.gz",
+      "archive_sha256": "71b6f41c1f27599d737ea73b63fcd10fdbc045d07e8bed782c94843c2a68db24",
+      "bytes": 8753,
+      "sha256": "2e8e3b96b6e5998ddd0af31326c0b4ab1834395d6ab8b8726af722fe258a1381"
+    },
+    "work/phase6/pool-timing-v1/physical-grouped27-v2/report.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pool-timing-v1/physical-grouped27-v2/report.json.gz",
+      "archive_sha256": "a3e6390041a22c362d54fcbe707a78eab7d41e7e21338ab6ee8a6589c6542f38",
+      "bytes": 1403,
+      "sha256": "ea0bee06dd3d64484e809192c17a17716dc00c9d255ce5c76cc2923340c9df58"
+    },
+    "work/phase6/pool-timing-v1/physical-grouped27-v2/seal.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pool-timing-v1/physical-grouped27-v2/seal.json.gz",
+      "archive_sha256": "2e53d0919de0c60450afd0bdca4c6250b04dabb1afd1b0785bec4726c0ec567a",
+      "bytes": 350,
+      "sha256": "424dbac824e054a58a22ef855f715e032ae5948d670bcb125ca7b2453bbb8c44"
+    },
+    "work/phase6/pool-timing-v1/pll27.v": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pool-timing-v1/pll27.v.gz",
+      "archive_sha256": "4fb65723a11556d5d37d9bf823b3688fab3fa55d6297079310a65fdeeca189a3",
+      "bytes": 645,
+      "sha256": "eb0ed32f570e9665f25ce9903cad408058d1ab9824b840ca20cb8a715c9339b3"
+    },
+    "work/phase6/pool-timing-v1/route24/report.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pool-timing-v1/route24/report.json.gz",
+      "archive_sha256": "9acaef1fe89c42eb5a2293d0690d2e62a567c7a6bfd4a8bd5ec487d900c9801b",
+      "bytes": 1548,
+      "sha256": "72a71260f76a6553d91fb38d5cb24f2cdc17f45f43f610fde326a59cdea8705b"
+    },
+    "work/phase6/pool-timing-v1/route27/phase6_uart_burst/impl/pnr/phase6_uart_burst.rpt.txt": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pool-timing-v1/route27/phase6_uart_burst/impl/pnr/phase6_uart_burst.rpt.txt.gz",
+      "archive_sha256": "e4a12d774e661846bd8ad6ca254679fa1deba2938a80e87214720eeaf8cb5883",
+      "bytes": 45052,
+      "sha256": "59620a8af67a84d1b0884fb9198056cd0180b9c28869daf8228400d6f5d8c262"
+    },
+    "work/phase6/pool-timing-v1/route27/phase6_uart_burst/impl/pnr/phase6_uart_burst_tr_content.html": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pool-timing-v1/route27/phase6_uart_burst/impl/pnr/phase6_uart_burst_tr_content.html.gz",
+      "archive_sha256": "077e9a7ca168c228dac4bdb05ea21bd7b1a9f36b347f24c727d8feb5f6bfb141",
+      "bytes": 569394,
+      "sha256": "96ac00f5e12a6aa1518a742457aaae1f6b3f1917f7e090adab0b3f6144e91fb1"
+    },
+    "work/phase6/pool-timing-v1/route27/report.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pool-timing-v1/route27/report.json.gz",
+      "archive_sha256": "769faed9418e7ff22ab2065b504680303e0850457bee05657263ff13a29788c4",
+      "bytes": 1548,
+      "sha256": "ee18f7f5345ade774622d4ce5dafcbf692b5eaa12b371b45e0163b8c8927865b"
+    },
+    "work/phase6/pool-timing-v1/uart27/report.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pool-timing-v1/uart27/report.json.gz",
+      "archive_sha256": "96bde99e685c6f46802f6c7d2d08bab18b0625b8dac96aaaf3f2cb53550837f4",
+      "bytes": 634,
+      "sha256": "570a9af4164993fcd454b95f3640a34292489d2828c7e67ba0928748252a9c68"
+    },
+    "work/phase6/pool-timing-v1/uart27/results.xml": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pool-timing-v1/uart27/results.xml.gz",
+      "archive_sha256": "e67a1528b75158bbd0e84dd9cb024a69f186d0b57809bb530a10c39f4b2cc679",
+      "bytes": 404,
+      "sha256": "90c5f1f9ef7844a22be83e32a665553076c2a0d4543c38235ca7c52ca9ff5a37"
+    }
+  },
+  "bitstreams_archived": false,
+  "groups": {
+    "channel_compaction": [
+      "work/phase6/channel-compaction-v1/report.json",
+      "work/phase6/channel-compaction-v1/fused/report.json",
+      "work/phase6/channel-compaction-protect29-v1/report.json",
+      "work/phase6/channel-compaction-protect29-v1/fused/report.json"
+    ],
+    "cross_layer_fusion_screen": [
+      "work/phase6/cross-layer-screen-v1/report.json",
+      "work/phase6/cross-layer-compaction-v1/report.json"
+    ],
+    "joint_selection": [
+      "work/phase6/joint-selection-v2/plan.json",
+      "work/phase6/joint-selection-v2/report.json",
+      "work/phase6/joint-selection-v2/runs/kws-00-s0.json",
+      "work/phase6/joint-selection-v2/runs/kws-00-s6063.json",
+      "work/phase6/joint-selection-v2/runs/kws-01-s0.json",
+      "work/phase6/joint-selection-v2/runs/kws-01-s6063.json",
+      "work/phase6/joint-selection-v2/runs/kws-10-s0.json",
+      "work/phase6/joint-selection-v2/runs/kws-10-s6063.json",
+      "work/phase6/joint-selection-v2/runs/kws-11-s0.json",
+      "work/phase6/joint-selection-v2/runs/kws-11-s6063.json",
+      "work/phase6/joint-selection-v2/runs/vww-00-s0.json",
+      "work/phase6/joint-selection-v2/runs/vww-00-s6063.json",
+      "work/phase6/joint-selection-v2/runs/vww-01-s0.json",
+      "work/phase6/joint-selection-v2/runs/vww-01-s6063.json",
+      "work/phase6/joint-selection-v2/runs/vww-10-s0.json",
+      "work/phase6/joint-selection-v2/runs/vww-10-s6063.json",
+      "work/phase6/joint-selection-v2/runs/vww-11-s0.json",
+      "work/phase6/joint-selection-v2/runs/vww-11-s6063.json"
+    ],
+    "methods": [
+      "tools/phase6/archive_five_experiments.py",
+      "tools/phase6/channel_compaction.py",
+      "tools/phase6/screen_channel_compaction.py",
+      "tools/phase6/pool_timing.py",
+      "tools/phase6/screen_pool27.py",
+      "tools/phase6/cross_layer_screen.py",
+      "tools/phase6/cross_layer_compaction_screen.py",
+      "tools/phase6/joint_selection_screen.py",
+      "work/phase6/narrow-accum-v1/experiment.py",
+      "work/phase6/narrow-accum-v1/proof.py",
+      "work/phase6/narrow-accum-v1/check_schedule.py"
+    ],
+    "narrow_accumulator": [
+      "work/phase6/narrow-accum-v1/engine.sv",
+      "work/phase6/narrow-accum-v1/identity.json",
+      "work/phase6/narrow-accum-v1/proof.json",
+      "work/phase6/narrow-accum-v1/schedule-proof.json",
+      "work/phase6/narrow-accum-v1/fixtures.json",
+      "work/phase6/narrow-accum-v1/comparison.json",
+      "work/phase6/narrow-accum-v1/native/report.json",
+      "work/phase6/narrow-accum-v1/integration/report.json",
+      "work/phase6/narrow-accum-v1/integration/results.xml",
+      "work/phase6/narrow-accum-v1/route24/report.json",
+      "work/phase6/narrow-accum-v1/route24/phase6_uart_burst/impl/pnr/phase6_uart_burst.rpt.txt",
+      "work/phase6/narrow-accum-v1/route24/phase6_uart_burst/impl/pnr/phase6_uart_burst_tr_content.html"
+    ],
+    "physical": [
+      "work/phase6/fused-activation-uart256-24-screen-v1/plan.json",
+      "work/phase6/fused-activation-uart256-24-screen-v1/report.json",
+      "work/phase6/fused-activation-uart256-24-screen-v1/records.jsonl",
+      "work/phase6/fused-activation-uart256-24-screen-v1/seal.json",
+      "work/phase6/fused-activation-uart256-24-screen-v1/program.log",
+      "work/phase6/channel-compaction-v1/physical-screen-v1/plan.json",
+      "work/phase6/channel-compaction-v1/physical-screen-v1/report.json",
+      "work/phase6/channel-compaction-v1/physical-screen-v1/records.jsonl",
+      "work/phase6/channel-compaction-v1/physical-screen-v1/seal.json",
+      "work/phase6/channel-compaction-v1/physical-screen-v1/program.log",
+      "work/phase6/pool-timing-v1/physical-grouped27-v2/plan.json",
+      "work/phase6/pool-timing-v1/physical-grouped27-v2/report.json",
+      "work/phase6/pool-timing-v1/physical-grouped27-v2/records.jsonl",
+      "work/phase6/pool-timing-v1/physical-grouped27-v2/seal.json",
+      "work/phase6/pool-timing-v1/physical-grouped27-v2/program.log",
+      "work/phase6/pool-timing-v1/physical-compacted27-v1/plan.json",
+      "work/phase6/pool-timing-v1/physical-compacted27-v1/report.json",
+      "work/phase6/pool-timing-v1/physical-compacted27-v1/records.jsonl",
+      "work/phase6/pool-timing-v1/physical-compacted27-v1/seal.json",
+      "work/phase6/pool-timing-v1/physical-compacted27-v1/program.log"
+    ],
+    "pool_timing": [
+      "work/phase6/pool-timing-v1/engine.sv",
+      "work/phase6/pool-timing-v1/identity.json",
+      "work/phase6/pool-timing-v1/host27.sv",
+      "work/phase6/pool-timing-v1/pll27.v",
+      "work/phase6/pool-timing-v1/build27.tcl",
+      "work/phase6/pool-timing-v1/comparison.json",
+      "work/phase6/pool-timing-v1/engine/report.json",
+      "work/phase6/pool-timing-v1/engine/results.xml",
+      "work/phase6/pool-timing-v1/edges/report.json",
+      "work/phase6/pool-timing-v1/edges/results.xml",
+      "work/phase6/pool-timing-v1/native/report.json",
+      "work/phase6/pool-timing-v1/compact-native/report.json",
+      "work/phase6/pool-timing-v1/integration/report.json",
+      "work/phase6/pool-timing-v1/integration/results.xml",
+      "work/phase6/pool-timing-v1/uart27/report.json",
+      "work/phase6/pool-timing-v1/uart27/results.xml",
+      "work/phase6/pool-timing-v1/route24/report.json",
+      "work/phase6/pool-timing-v1/route27/report.json",
+      "work/phase6/pool-timing-v1/route27/phase6_uart_burst/impl/pnr/phase6_uart_burst.rpt.txt",
+      "work/phase6/pool-timing-v1/route27/phase6_uart_burst/impl/pnr/phase6_uart_burst_tr_content.html",
+      "work/phase6/experiments-v1/fused-activation-v1/route24/report.json"
+    ]
+  },
+  "matched_comparison": {
+    "path": "docs/research/evidence/phase6/five-experiments-v1/matched-comparison.json",
+    "sha256": "8caeff86a494d1cd9d053ef8a3d1a8d40c67c3d1e0fd3600408adaa4de1975de"
+  },
+  "schema": 1,
+  "scope": "Five Phase 6 follow-on experiments; 24 and 27 MHz KWS/VWW short board screens",
+  "status": "complete-short-screen-archive"
+}
