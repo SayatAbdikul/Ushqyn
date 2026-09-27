@@ -27,6 +27,7 @@ from host import STATUS, decode_status
 
 IMAGE_LABEL = 'all-exact'
 IMAGE_ROOT = ROOT / 'work/phase6/experiments-v1/all-exact'
+ROUTE_REPORT = IMAGE_ROOT / 'route/report.json'
 
 
 def _fixture_names(records):
@@ -49,7 +50,7 @@ def _selected_image():
     engine = json.loads((IMAGE_ROOT/'engine/report.json').read_text())
     native = json.loads((IMAGE_ROOT/'native/report.json').read_text())
     edge = json.loads((IMAGE_ROOT/'edges/report.json').read_text())
-    route = json.loads((IMAGE_ROOT/'route/report.json').read_text())
+    route = json.loads(ROUTE_REPORT.read_text())
     identity = json.loads((IMAGE_ROOT/'identity.json').read_text())
     source_key = next(k for k in engine['sources'] if k.endswith('/engine.sv'))
     engine_file = ROOT/source_key
@@ -72,6 +73,31 @@ def _selected_image():
         if (screening.sha(edge_xml) != edge['results_sha256'] or len(edge_cases) != 1
                 or any(c.find('failure') is not None or c.find('error') is not None for c in edge_cases)):
             raise ValueError('selected activation edge tests failed')
+    if IMAGE_LABEL.startswith(('stream-mask-', 'fused-activation-')):
+        stream_dir = IMAGE_ROOT/'stream-edges'
+        stream = json.loads((stream_dir/'report.json').read_text())
+        stream_xml = stream_dir/'results.xml'
+        stream_cases = ET.parse(stream_xml).findall('.//testcase')
+        if (stream.get('status') != 'passed' or stream.get('tests') != 1
+                or stream['sources'].get(source_key) != engine_sha
+                or screening.sha(stream_xml) != stream['results_sha256']
+                or len(stream_cases) != 1
+                or any(c.find('failure') is not None or c.find('error') is not None
+                       for c in stream_cases)):
+            raise ValueError('selected output-stream edge tests failed')
+        screening.verify_files(ROOT, stream['sources'])
+        integration_dir = IMAGE_ROOT/'integration'
+        integration = json.loads((integration_dir/'report.json').read_text())
+        integration_xml = integration_dir/'results.xml'
+        integration_cases = ET.parse(integration_xml).findall('.//testcase')
+        if (integration.get('status') != 'passed' or integration.get('tests') != 2
+                or integration['sources'].get(source_key) != engine_sha
+                or screening.sha(integration_xml) != integration['results_sha256']
+                or len(integration_cases) != 2
+                or any(c.find('failure') is not None or c.find('error') is not None
+                       for c in integration_cases)):
+            raise ValueError('selected host integration tests failed')
+        screening.verify_files(ROOT, integration['sources'])
     if (route['status'] != 'passed-route' or route['setup_violated_endpoints']
             or route['hold_violated_endpoints'] or route['routed_core_fmax_mhz'] < route['core_clock_mhz']
             or any(r['used'] > r['available'] for r in route['resources'].values())):
@@ -81,7 +107,10 @@ def _selected_image():
     screening.verify_files(ROOT,{route['bitstream']:route['bitstream_sha256']})
     return dict(file=route['bitstream'],sha256=route['bitstream_sha256'],
         clock_hz=round(route['core_clock_mhz']*1_000_000),
-        evidence={s:screening.sha(IMAGE_ROOT/s/'report.json') for s in ('engine','native','edges','route')})
+        evidence={s:screening.sha(ROUTE_REPORT if s=='route' else IMAGE_ROOT/s/'report.json')
+                  for s in ('engine','native','edges','route')
+                  + (('stream-edges','integration') if IMAGE_LABEL.startswith((
+                          'stream-mask-', 'fused-activation-')) else ())})
 
 
 def prepare(fixtures_root, manifest_path=None, native_path=None, variant=None):
@@ -96,7 +125,7 @@ def prepare(fixtures_root, manifest_path=None, native_path=None, variant=None):
         raise ValueError('independent fixture replay missing')
     records = {}
     for row in manifest['fixtures']:
-        name = row['name']
+        name = row.get('name', row.get('label'))
         if (name in records or Path(name).name != name or row.get('model') not in ('kws', 'vww')
                 or row.get('verification', {}).get('status') != 'passed'):
             raise ValueError('invalid or duplicate fixture record')
@@ -110,10 +139,10 @@ def prepare(fixtures_root, manifest_path=None, native_path=None, variant=None):
                 or screening.sha(directory/'payload.bin') != schedule['image_sha256']
                 or (directory/'commands.bin').stat().st_size != 16*schedule['command_count']):
             raise ValueError(f'{name} schedule identity mismatch')
-        records[name] = row
+        records[name] = dict(row, name=name)
     names = _fixture_names(records)
     image = _selected_image()
-    route = json.loads((IMAGE_ROOT/'route/report.json').read_text())
+    route = json.loads(ROUTE_REPORT.read_text())
     native = json.loads(native_path.read_text())
     if (native.get('status') != 'passed' or native.get('label') != route.get('source_label',IMAGE_LABEL)
             or native.get('fixture_manifest_sha256') != screening.sha(manifest_path)
@@ -181,10 +210,14 @@ def execute_verified_sample(client, schedule, data, expected, timeout=30):
 
 
 def main():
-    global IMAGE_LABEL, IMAGE_ROOT
+    global IMAGE_LABEL, IMAGE_ROOT, ROUTE_REPORT
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--image-label', required=True,
                         help='routed engine candidate under work/phase6/experiments-v1/')
+    parser.add_argument('--image-root', type=Path,
+                        help='explicit candidate root for an isolated follow-on experiment')
+    parser.add_argument('--route-report', type=Path,
+                        help='explicit routed timing report for an alternative clock')
     parser.add_argument('--fixtures-root', type=Path, required=True,
                         help='directory containing fixtures.json and fixtures/')
     parser.add_argument('--manifest', type=Path)
@@ -197,7 +230,12 @@ def main():
     if Path(args.image_label).name != args.image_label or args.image_label in ('.','..'):
         raise ValueError('invalid engine label')
     IMAGE_LABEL = args.image_label
-    IMAGE_ROOT = ROOT / 'work/phase6/experiments-v1' / IMAGE_LABEL
+    IMAGE_ROOT = (args.image_root.resolve() if args.image_root else
+                  ROOT / 'work/phase6/experiments-v1' / IMAGE_LABEL)
+    if IMAGE_ROOT.name != IMAGE_LABEL:
+        raise ValueError('candidate root must end with the image label')
+    ROUTE_REPORT = (args.route_report.resolve() if args.route_report else
+                    IMAGE_ROOT / 'route/report.json')
     plan = prepare(args.fixtures_root, args.manifest, args.native_report, args.variant)
     if not args.run:
         print(json.dumps(dict(status='preflight-passed', variant=plan['variant'],

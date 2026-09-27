@@ -1,5 +1,10 @@
 # Phase 6 — boardless milestone, 2026-09-26
 
+**Current board result (2026-09-27):** the [second optimization campaign](PHASE_6_FINAL_CAMPAIGN_V2.md)
+selects the exact fused engine with the existing 256-byte UART bridge at 24 MHz.
+Its ten-case short screen measures 50.080 ms KWS and 128.586 ms VWW device
+latency. The milestone below is retained as the earlier boardless record.
+
 **Later milestone:** the [cache, spatial SIMD and retention implementation](PHASE_6_OPTIMIZATION.md)
 adds routed cache/parameter-reuse and spatial pointwise hardware, executable exact activation retention,
 full-model RTL checks, overlap-aware bounded search and an upstream DeFiNES
