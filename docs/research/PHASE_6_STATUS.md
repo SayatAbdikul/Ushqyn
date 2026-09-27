@@ -2,11 +2,11 @@
 
 **Latest short-screen result (2026-09-27):** the
 [five follow-up experiments](PHASE_6_FIVE_EXPERIMENTS_V1.md) yield an exact
-27 MHz pooled core plus compiler channel compaction. The combined Tang Nano
-20K image passes two 10/10 short board screens with grouped and compacted
-schedules and
-measures **44.513 ms KWS** and **94.932 ms VWW** device latency (22.47/s and
-10.53 FPS). This is a short-screen performance milestone; **G6 remains open**.
+27 MHz pooled core, compiler channel compaction, and an executable
+cross-layer strip schedule for three VWW pairs. The selected Tang Nano 20K image and schedule
+pass **10/10 exact board checks** and measure **44.513 ms KWS** and
+**90.430 ms VWW** device latency (22.47/s and 11.06 FPS). This is a
+short-screen performance milestone; **G6 remains open**.
 
 **Earlier selected board result (2026-09-27):** the [second optimization campaign](PHASE_6_FINAL_CAMPAIGN_V2.md)
 selects the exact fused engine with the existing 256-byte UART bridge at 24 MHz.

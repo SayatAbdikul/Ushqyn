@@ -2,9 +2,9 @@
   "artifacts": {
     "tools/phase6/archive_five_experiments.py": {
       "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/tools/phase6/archive_five_experiments.py.gz",
-      "archive_sha256": "ac5bbbb6339d20259a0dc63da3653aaadca5612c6936d27f46ed5e3c8ca2cbe6",
-      "bytes": 20244,
-      "sha256": "76b9596e29b21ed75c0fc31b5b21476a28ca0767cd551a9a079cfbc5d85a6c98"
+      "archive_sha256": "c4ba1108bb4f212b763dd8c7f68805e0aeae1058ccdcf5a7daf42e68f76fcbb0",
+      "bytes": 24111,
+      "sha256": "d797ef46d21592b481bdf74bde843a3b2ecc183ea083677db4eea58d73b3676a"
     },
     "tools/phase6/channel_compaction.py": {
       "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/tools/phase6/channel_compaction.py.gz",
@@ -42,11 +42,47 @@
       "bytes": 11080,
       "sha256": "bd036a32e9eb64722e872ccd9ed4f5a965d3dba7734057cd33d9543d6d09812c"
     },
+    "tools/phase6/screen_pair11_fusion.py": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/tools/phase6/screen_pair11_fusion.py.gz",
+      "archive_sha256": "6cbe1ce8bf78b5d86af4f1fd06e6b844a2b0de2414a5735de3816ce4e8246ba5",
+      "bytes": 12893,
+      "sha256": "81d5be15a4cf62b03d3b2d06052bab311d566ff49f571f0ff29bd9e65095d7fc"
+    },
+    "tools/phase6/screen_pair7_fusion.py": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/tools/phase6/screen_pair7_fusion.py.gz",
+      "archive_sha256": "6920f0f2b580e2d36f2d1acd57fb8cef06897aefaf1ec28244a8a5b6f15dd0c6",
+      "bytes": 13009,
+      "sha256": "86c697b854999eecf0856c701e2e89b36ec4c8035bf7f910621c6c7d2dbfef58"
+    },
     "tools/phase6/screen_pool27.py": {
       "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/tools/phase6/screen_pool27.py.gz",
       "archive_sha256": "f1e2fc4926a16936dea45588786c25a5b4c2bd220408de7df168fa02e8fe6f8d",
       "bytes": 13921,
       "sha256": "62824395e0568e5862c915ac15ee4169a39286dd573afda0a69376cbf6e0c67c"
+    },
+    "tools/phase6/screen_strip_fusion.py": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/tools/phase6/screen_strip_fusion.py.gz",
+      "archive_sha256": "0f5f54e838bc5448d7f0d607c466915ee4a0a7429ef91a7ed8cdc038ae1fd779",
+      "bytes": 11800,
+      "sha256": "97c506a356ba48e69285f1cbf8d819a85d8ab6743d5970811eee5e4643db6fba"
+    },
+    "tools/phase6/strip_fusion_pair11.py": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/tools/phase6/strip_fusion_pair11.py.gz",
+      "archive_sha256": "0b277d71776e527d824555a28fbe312cec9875f62cf7a8f02371cfac4056b9e7",
+      "bytes": 19076,
+      "sha256": "23b28801c17eca49d1a9a74dbc5cbebb10478f3578f8340a2f7d78b5c47ddbef"
+    },
+    "tools/phase6/strip_fusion_pair7.py": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/tools/phase6/strip_fusion_pair7.py.gz",
+      "archive_sha256": "aad1b704221333ba48c7cbf27e3e09c6635ebe657c98b1363cf4c2e530f7c0c5",
+      "bytes": 19742,
+      "sha256": "0a0557e9c876af2fa0dc9e5bdb6543197497adca61f0f3ecda306cb7089e13a5"
+    },
+    "tools/phase6/strip_fusion_vww.py": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/tools/phase6/strip_fusion_vww.py.gz",
+      "archive_sha256": "51a21945abd601f8416b75240b2720e735bc92c8a2e895d236f308b338273b50",
+      "bytes": 28308,
+      "sha256": "94cd9ca8edffb61413b88d14a7ab26b792fcd8d7cfa83c1d3bfbc23cf24cda1f"
     },
     "work/phase6/channel-compaction-protect29-v1/fused/report.json": {
       "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/channel-compaction-protect29-v1/fused/report.json.gz",
@@ -348,6 +384,90 @@
       "bytes": 1285,
       "sha256": "4d9e6eec5e428c29a27059036004c54afb33cd8324e45892c09771b991a0cffd"
     },
+    "work/phase6/pair11-fusion-board-v1/physical-short-v1/pair11-comparison.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pair11-fusion-board-v1/physical-short-v1/pair11-comparison.json.gz",
+      "archive_sha256": "0416a06b28361587e7ae8a50523da32401740cd086f1fad5dd99ec1e11bbb6cf",
+      "bytes": 1145,
+      "sha256": "36bc82e3f462a64bc7249789d07cce6b5cf717c79df5fb6ac56d661e704e21bb"
+    },
+    "work/phase6/pair11-fusion-board-v1/physical-short-v1/pair11-seal.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pair11-fusion-board-v1/physical-short-v1/pair11-seal.json.gz",
+      "archive_sha256": "576e3fdda083e7194aaeeea7fe73162a0fc39e148b46dc01e885da9705f4b262",
+      "bytes": 620,
+      "sha256": "afeda869b56fa6e5f3346b42d31f81c4c074417603c07639ad74e114eafb4a55"
+    },
+    "work/phase6/pair11-fusion-board-v1/physical-short-v1/plan.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pair11-fusion-board-v1/physical-short-v1/plan.json.gz",
+      "archive_sha256": "efa462d9fa57212d438152663a295a815d578232a0908545b1fb67ea6b00727a",
+      "bytes": 31795,
+      "sha256": "a342f7f0e7561fd0ad769b1031edc42143c3ba06d65673f1029f220db45afc68"
+    },
+    "work/phase6/pair11-fusion-board-v1/physical-short-v1/program.log": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pair11-fusion-board-v1/physical-short-v1/program.log.gz",
+      "archive_sha256": "ef2336b84a1003f53a1a2f8c227ba7a08f881d65557b33a1e9b4a9ba7d111b29",
+      "bytes": 1374,
+      "sha256": "79cf784ab417464aefdddd3e2975678ff7ed8d70146ddd59467ea10b48313404"
+    },
+    "work/phase6/pair11-fusion-board-v1/physical-short-v1/records.jsonl": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pair11-fusion-board-v1/physical-short-v1/records.jsonl.gz",
+      "archive_sha256": "308d77193563491146a9d69e469ee8887685717cff392fef4c838f08cef839aa",
+      "bytes": 8877,
+      "sha256": "431e5db8e3608b94484dff3495270d3f2e36ddf350b75e968806a66288a8accb"
+    },
+    "work/phase6/pair11-fusion-board-v1/physical-short-v1/report.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pair11-fusion-board-v1/physical-short-v1/report.json.gz",
+      "archive_sha256": "b2ca0abfd3437f9de3d2d890e978756ef5cb8befb6bf8419c880599f5ad06306",
+      "bytes": 1217,
+      "sha256": "1458ff91b1aedf81ce967b845e1d09dfa488ac41dd57cc51b3f3eaa42e0aae60"
+    },
+    "work/phase6/pair11-fusion-board-v1/physical-short-v1/seal.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pair11-fusion-board-v1/physical-short-v1/seal.json.gz",
+      "archive_sha256": "4e17e58afe35302acc7a1efc2199f10e1b8e31664abecf480fdf930e4ea7f3aa",
+      "bytes": 350,
+      "sha256": "dca915f5d6e77a06d0138e8e0bafa7bf694a3cf0a5074d60d2e8a9c4be6cc724"
+    },
+    "work/phase6/pair7-fusion-board-v1/physical-short-v1/pair7-comparison.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pair7-fusion-board-v1/physical-short-v1/pair7-comparison.json.gz",
+      "archive_sha256": "6cb5bfe2cbd396d10156112a1399af7b750cda7aee49c3eeba9b6388dcf3034d",
+      "bytes": 1163,
+      "sha256": "ba2529a74ed695f6b3331c47c6dff54a6cdf148d0c8f44683f21509a5865f48a"
+    },
+    "work/phase6/pair7-fusion-board-v1/physical-short-v1/pair7-seal.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pair7-fusion-board-v1/physical-short-v1/pair7-seal.json.gz",
+      "archive_sha256": "4dc08ac64754b186a7329e39ae330d0f8666bcba94804adf9edec008edf10c85",
+      "bytes": 620,
+      "sha256": "03c4eb85073a745b0b59488d9feee1d8e3817dd781ff91f9583e156112a6806d"
+    },
+    "work/phase6/pair7-fusion-board-v1/physical-short-v1/plan.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pair7-fusion-board-v1/physical-short-v1/plan.json.gz",
+      "archive_sha256": "c08a316e30d9f36a59ec7a8873d90d326c1e1573aa7160c5d430a071969e7223",
+      "bytes": 34626,
+      "sha256": "ad699b64407b0bf2dccf4cff8fc031d9c28126d521f72145772019568944a7b7"
+    },
+    "work/phase6/pair7-fusion-board-v1/physical-short-v1/program.log": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pair7-fusion-board-v1/physical-short-v1/program.log.gz",
+      "archive_sha256": "ef2336b84a1003f53a1a2f8c227ba7a08f881d65557b33a1e9b4a9ba7d111b29",
+      "bytes": 1374,
+      "sha256": "79cf784ab417464aefdddd3e2975678ff7ed8d70146ddd59467ea10b48313404"
+    },
+    "work/phase6/pair7-fusion-board-v1/physical-short-v1/records.jsonl": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pair7-fusion-board-v1/physical-short-v1/records.jsonl.gz",
+      "archive_sha256": "9868105ec6e78a6b63e785b9b5500a9704c89889e4c0c53df082e3cd44571bfa",
+      "bytes": 8914,
+      "sha256": "fe94b05a48ad7a2174ddc5f491ae2cb4261b8b16af6065e63fa02b828ad37fcf"
+    },
+    "work/phase6/pair7-fusion-board-v1/physical-short-v1/report.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pair7-fusion-board-v1/physical-short-v1/report.json.gz",
+      "archive_sha256": "8839face1d7f88299c97178f78dea744dd1109f68b000e3c40323151a307ad4a",
+      "bytes": 1222,
+      "sha256": "37577dbd03c603d9947c9068998f3c6e95272b2c549f5c76ce1348dcb0e9a1d7"
+    },
+    "work/phase6/pair7-fusion-board-v1/physical-short-v1/seal.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pair7-fusion-board-v1/physical-short-v1/seal.json.gz",
+      "archive_sha256": "3fd48e53c657a588ed1e6c2afd863eb706c16b4a1f6069c2df43e08c13a2e5f8",
+      "bytes": 350,
+      "sha256": "7b4760e2972746879c562a361c693a8318a26ec3812c2edb9b839796d537566f"
+    },
     "work/phase6/pool-timing-v1/build27.tcl": {
       "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/pool-timing-v1/build27.tcl.gz",
       "archive_sha256": "361db41f1b08efb1824ed58af84b3b8b29c6712e9c0cc121e5aa478b8edb7f8b",
@@ -527,6 +647,72 @@
       "archive_sha256": "e67a1528b75158bbd0e84dd9cb024a69f186d0b57809bb530a10c39f4b2cc679",
       "bytes": 404,
       "sha256": "90c5f1f9ef7844a22be83e32a665553076c2a0d4543c38235ca7c52ca9ff5a37"
+    },
+    "work/phase6/strip-fusion-board-v1/physical-short-v1/plan.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/strip-fusion-board-v1/physical-short-v1/plan.json.gz",
+      "archive_sha256": "a2ea1c5837299b0ef2f3bda09dd395b4c7d728059c60f220a2d6e053b597de28",
+      "bytes": 28576,
+      "sha256": "35afc9118af634067bcc97e2d8edcbf7e254a682924ba26a599f15d74f2ef53e"
+    },
+    "work/phase6/strip-fusion-board-v1/physical-short-v1/program.log": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/strip-fusion-board-v1/physical-short-v1/program.log.gz",
+      "archive_sha256": "2344cc40df28c2e417b9b58119fc1b154d6e53fd83b7eab09f372c699bba2b8b",
+      "bytes": 1374,
+      "sha256": "be0ed3bbfdb5b6917d6f85abd4a65e2d09331afa1402af987fc95b05d5dbd446"
+    },
+    "work/phase6/strip-fusion-board-v1/physical-short-v1/records.jsonl": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/strip-fusion-board-v1/physical-short-v1/records.jsonl.gz",
+      "archive_sha256": "e134cc9ca26d9efc6c948487c7965ebbd45f1afaf9f892b1b12c3b89b50d8014",
+      "bytes": 8885,
+      "sha256": "129c65fa25402210d9a0dbf8cd8f12dac0d7cf2b65a97b0bf57655465296baec"
+    },
+    "work/phase6/strip-fusion-board-v1/physical-short-v1/report.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/strip-fusion-board-v1/physical-short-v1/report.json.gz",
+      "archive_sha256": "37a72a32bd0d144aa39d79bdfc23740d62f6f26b452f6828e6ff2fa01ac74c0d",
+      "bytes": 1219,
+      "sha256": "952c56ff97c9df1ca870dd68864f32ef568e76c61a0bc78869da8a53601dd27a"
+    },
+    "work/phase6/strip-fusion-board-v1/physical-short-v1/seal.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/strip-fusion-board-v1/physical-short-v1/seal.json.gz",
+      "archive_sha256": "1f474d361a34077f949f3bce1725d3899ad81c384304e6a91bff438569fedab8",
+      "bytes": 350,
+      "sha256": "6c41c42c4ae075c5d83a38f6d14cbaa0feee6734b6dc8d6c2c03d2e8deea4328"
+    },
+    "work/phase6/strip-fusion-board-v1/physical-short-v1/strip-comparison.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/strip-fusion-board-v1/physical-short-v1/strip-comparison.json.gz",
+      "archive_sha256": "3975b441a1b2d70cbd9c3a3ce561da1a658842126d8acd73219b946b1b72e657",
+      "bytes": 1164,
+      "sha256": "4c510bacd50994e06fe1c69e96eda6505b6bbab6b85ae85ace2ace9dba4ead41"
+    },
+    "work/phase6/strip-fusion-board-v1/physical-short-v1/strip-seal.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/strip-fusion-board-v1/physical-short-v1/strip-seal.json.gz",
+      "archive_sha256": "ba000a4dc1e75dea63a57ac975e6c12fba1f7a87ef59a7e7193a220a070f7eed",
+      "bytes": 620,
+      "sha256": "b7f7cd478af6f948697fb2ae06e23af719395a43bc4cbbdf1bccb91d73d3ac55"
+    },
+    "work/phase6/strip-fusion-pair11-v1/full/report.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/strip-fusion-pair11-v1/full/report.json.gz",
+      "archive_sha256": "a3e340c71729a613acbf6bb779497efda0ec937b61a1838f6dacfaa417547e9f",
+      "bytes": 53583,
+      "sha256": "f4dce1400ac68191d7f87cd34f2724e5c8abb92e30dc6c34d432d3c795db19e1"
+    },
+    "work/phase6/strip-fusion-pair7-v1/full/report.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/strip-fusion-pair7-v1/full/report.json.gz",
+      "archive_sha256": "8c9dd0b84b6e7aca07a7b3c0596b283bada87d8e794aeae0f9c30967a80d2c58",
+      "bytes": 44092,
+      "sha256": "50a80f10f9260c211ccdd81c95deb7427d9f981c8087355ea7ea5048fdce4fb2"
+    },
+    "work/phase6/strip-fusion-vww-v1/full/report.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/strip-fusion-vww-v1/full/report.json.gz",
+      "archive_sha256": "d3345c6a07879123aa10eb41e7b4ecc19df01aa57f73c47b9395ac9ae9e9e36a",
+      "bytes": 15467,
+      "sha256": "17ea80ba02e9bb57693882f05b65eff760c97d472caa1760d252987f249feabd"
+    },
+    "work/phase6/strip-fusion-vww-v1/report.json": {
+      "archive": "docs/research/evidence/phase6/five-experiments-v1/artifacts/work/phase6/strip-fusion-vww-v1/report.json.gz",
+      "archive_sha256": "d5fbecea78af9a9d1cc5d9de3603ce978082c94c3f74b8db8403674aec2246e4",
+      "bytes": 24360,
+      "sha256": "30ca4b86e835c411a4988b7f76243287fc6f53fe86d5d6adc7d39d67895e34cf"
     }
   },
   "bitstreams_archived": false,
@@ -540,6 +726,18 @@
     "cross_layer_fusion_screen": [
       "work/phase6/cross-layer-screen-v1/report.json",
       "work/phase6/cross-layer-compaction-v1/report.json"
+    ],
+    "cross_layer_hardware": [
+      "work/phase6/strip-fusion-vww-v1/report.json",
+      "work/phase6/strip-fusion-vww-v1/full/report.json",
+      "work/phase6/strip-fusion-pair11-v1/full/report.json",
+      "work/phase6/strip-fusion-pair7-v1/full/report.json",
+      "work/phase6/strip-fusion-board-v1/physical-short-v1/strip-comparison.json",
+      "work/phase6/strip-fusion-board-v1/physical-short-v1/strip-seal.json",
+      "work/phase6/pair11-fusion-board-v1/physical-short-v1/pair11-comparison.json",
+      "work/phase6/pair11-fusion-board-v1/physical-short-v1/pair11-seal.json",
+      "work/phase6/pair7-fusion-board-v1/physical-short-v1/pair7-comparison.json",
+      "work/phase6/pair7-fusion-board-v1/physical-short-v1/pair7-seal.json"
     ],
     "joint_selection": [
       "work/phase6/joint-selection-v2/plan.json",
@@ -570,6 +768,12 @@
       "tools/phase6/cross_layer_screen.py",
       "tools/phase6/cross_layer_compaction_screen.py",
       "tools/phase6/joint_selection_screen.py",
+      "tools/phase6/strip_fusion_vww.py",
+      "tools/phase6/strip_fusion_pair11.py",
+      "tools/phase6/strip_fusion_pair7.py",
+      "tools/phase6/screen_strip_fusion.py",
+      "tools/phase6/screen_pair11_fusion.py",
+      "tools/phase6/screen_pair7_fusion.py",
       "work/phase6/narrow-accum-v1/experiment.py",
       "work/phase6/narrow-accum-v1/proof.py",
       "work/phase6/narrow-accum-v1/check_schedule.py"
@@ -608,7 +812,22 @@
       "work/phase6/pool-timing-v1/physical-compacted27-v1/report.json",
       "work/phase6/pool-timing-v1/physical-compacted27-v1/records.jsonl",
       "work/phase6/pool-timing-v1/physical-compacted27-v1/seal.json",
-      "work/phase6/pool-timing-v1/physical-compacted27-v1/program.log"
+      "work/phase6/pool-timing-v1/physical-compacted27-v1/program.log",
+      "work/phase6/strip-fusion-board-v1/physical-short-v1/plan.json",
+      "work/phase6/strip-fusion-board-v1/physical-short-v1/report.json",
+      "work/phase6/strip-fusion-board-v1/physical-short-v1/records.jsonl",
+      "work/phase6/strip-fusion-board-v1/physical-short-v1/seal.json",
+      "work/phase6/strip-fusion-board-v1/physical-short-v1/program.log",
+      "work/phase6/pair11-fusion-board-v1/physical-short-v1/plan.json",
+      "work/phase6/pair11-fusion-board-v1/physical-short-v1/report.json",
+      "work/phase6/pair11-fusion-board-v1/physical-short-v1/records.jsonl",
+      "work/phase6/pair11-fusion-board-v1/physical-short-v1/seal.json",
+      "work/phase6/pair11-fusion-board-v1/physical-short-v1/program.log",
+      "work/phase6/pair7-fusion-board-v1/physical-short-v1/plan.json",
+      "work/phase6/pair7-fusion-board-v1/physical-short-v1/report.json",
+      "work/phase6/pair7-fusion-board-v1/physical-short-v1/records.jsonl",
+      "work/phase6/pair7-fusion-board-v1/physical-short-v1/seal.json",
+      "work/phase6/pair7-fusion-board-v1/physical-short-v1/program.log"
     ],
     "pool_timing": [
       "work/phase6/pool-timing-v1/engine.sv",
@@ -636,7 +855,7 @@
   },
   "matched_comparison": {
     "path": "docs/research/evidence/phase6/five-experiments-v1/matched-comparison.json",
-    "sha256": "8caeff86a494d1cd9d053ef8a3d1a8d40c67c3d1e0fd3600408adaa4de1975de"
+    "sha256": "e7f7de398ce2911d0de45566fbfdcbf1abf8d1bc9c177259d208d05b156694c9"
   },
   "schema": 1,
   "scope": "Five Phase 6 follow-on experiments; 24 and 27 MHz KWS/VWW short board screens",

@@ -113,9 +113,9 @@ measurements remain required for G5.
 
 **Current G6: open.** The latest
 [five follow-up experiments](research/PHASE_6_FIVE_EXPERIMENTS_V1.md)
-measure a 27 MHz pooled core plus exact channel compaction at **44.513 ms KWS**
-and **94.932 ms VWW** device latency in 10/10 exact Tang Nano 20K short
-screens. They improve practical performance but do not establish the proposed
+measure a 27 MHz pooled core, exact channel compaction, and three executable
+cross-layer strip pairs at **44.513 ms KWS** and **90.430 ms VWW** device latency in
+10/10 exact Tang Nano 20K short screens. They improve practical performance but do not establish the proposed
 cross-layer/search contribution, full accuracy, energy, or a B3 comparison.
 The earlier boardless search/semantics/integration milestone passes.
 The later [cache/spatial/retention milestone](research/PHASE_6_OPTIMIZATION.md) adds

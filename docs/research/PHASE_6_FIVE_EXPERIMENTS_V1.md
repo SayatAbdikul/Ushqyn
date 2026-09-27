@@ -15,12 +15,13 @@ are in [the preceding campaign](PHASE_6_FINAL_CAMPAIGN_V2.md).
 | Exact channel compaction | VWW 128.586→107.091 ms at 24 MHz, 10/10 exact | Keep |
 | Balanced pooling and 27 MHz clock | Grouped VWW 128.586→114.031 ms, 10/10 exact | Keep provisionally |
 | Narrow accumulators | 10,137→10,141 CLS; Fmax 26.285→25.570 MHz | Reject |
-| Cross-layer spatial fusion | Exact software tiles; two newly fitting VWW blocks after compaction | Hardware experiment still open |
+| Cross-layer spatial fusion | Three full-width VWW pairs: 94.932→90.430 ms, each 10/10 exact | Keep bounded prototype |
 | Restricted joint selection | 16 exact native cases; both greedy orders have zero regret | No scheduler novelty shown |
 
-Combining the two accepted changes yields **44.513 ms KWS and 94.932 ms
-VWW** on the board, a **1.23447×** dual-workload geometric-mean device
-throughput gain over the original selected image.
+Combining compaction and the 27 MHz core yields **44.513 ms KWS and
+94.932 ms VWW** on the board. Adding three strip-fused VWW pairs reduces
+VWW to **90.430 ms** with KWS unchanged, for a **1.26482×** dual-workload
+geometric-mean device throughput gain over the original selected image.
 
 ## 1. Exact internal channel compaction
 
@@ -116,11 +117,57 @@ calculation using historical DMA fit gives 1.01715× dual-workload throughput
 if all fitted bridge time vanished with no added work; this is **not a bound**
 on an implemented fusion architecture.
 
-There is currently **no fused RTL lowering, route, SRAM address/port timing
-certificate, or board measurement** for this mechanism. The exact software
-tiles and scratch byte counts establish semantic feasibility and interesting
-post-compaction tile candidates, not a hardware speedup. This remains an
-open architecture experiment rather than an accepted accelerator change.
+The 8×8/16×16 demand-driven software tiles still have **no direct FPGA
+lowering or address/port timing certificate**. A separate **executable
+full-width strip** candidate now tests one of these pairs with the existing
+hardware ABI. For VWW layers 3–6, two 24-row strips retain the depthwise
+activation in SRAM, feed the pointwise layer, and store the original NCHW
+output. Before the first output overwrites the external source slot, the
+second strip's source is loaded into freed SRAM. The four original INT8
+requantization/activation boundaries remain exact; the selected 27 MHz
+bitstream is unchanged. The standalone block uses 137 commands and has a
+28,416-byte SRAM high-water mark. Native RTL checks pass pinned and stress
+inputs with both memory-stall seeds; the full-model timed seed-0 cycles fall
+from **2,321,487 to 2,257,570**. Check and stress fixtures verify 30
+intermediate tensors at each seed.
+
+The strip schedule passed a **10/10 exact short board screen**. VWW median
+falls from **2,563,167 cycles / 94.932111 ms / 10.53384 FPS** to
+**2,478,506 cycles / 91.796519 ms / 10.89366 FPS** on the same image, a
+**1.03416×** VWW device throughput improvement. KWS control remains
+**1,201,840 cycles / 44.512593 ms**. The paired dual-workload geometric
+mean improves **1.01694×**, below the 1.03× mechanism-expansion gate.
+This is a real measured cross-layer gain for one VWW pair, not proof that
+arbitrary 8×8 fusion or the full joint search is physically implemented.
+
+A second 12-row-strip schedule for VWW layers 11–14 composes with the first.
+Full-model native pinned and stress checks again pass both memory seeds with
+30 intermediate tensors checked. The combined schedule passes **10/10 exact
+board inferences** on the same bitstream, with VWW **2,451,737 cycles /
+90.805074 ms / 11.01260 FPS** and KWS **1,201,840 cycles / 44.512593 ms**.
+Relative to the one-pair physical result, the second pair adds a **1.01092×**
+VWW gain. Together, the two pairs improve dual-workload geometric-mean
+throughput **1.02248×** against the compacted 27 MHz schedule, still below
+the 1.03× expansion gate. The mechanism is physically promising but the
+current scope does not establish a general fused-tile architecture.
+
+A third pair, VWW layers 7–10, uses two 12-row full-width strips with
+asymmetric bottom/right padding. Its independent local INT8 oracle, command
+replay, and full-model native RTL checks pass pinned and stress inputs at two
+memory-stall seeds. The timed seed-0 native schedule improves from
+**2,247,781 to 2,244,277 cycles**; 30 intermediate tensors are exact in
+each check run. The short board screen then passes **10/10 exact** on the
+same 27 MHz image. VWW median improves from **2,451,737 cycles /
+90.805074 ms / 11.01260 FPS** to **2,441,608 cycles / 90.429926 ms /
+11.05829 FPS**. KWS is **1,201,854 cycles / 44.513111 ms**. The third
+pair adds only a **1.00415×** VWW speedup. All three pairs together improve
+VWW device throughput **1.04979×**, and dual-workload geometric-mean
+throughput **1.02459×**, against compacted 27 MHz. Against the original
+24 MHz selected image, the gains are **1.12506× KWS**, **1.42194× VWW**,
+and **1.26482× geometric mean**. This remains below the 1.03×
+mechanism-expansion gate when evaluated incrementally against the compacted
+27 MHz schedule. A larger or more general fused architecture remains
+unproven.
 
 ## 5. Restricted joint selection
 
@@ -145,15 +192,17 @@ search. Evidence is under `work/phase6/joint-selection-v2/`.
 ## Research decision
 
 Compaction is a measured compiler win, and the narrowed pooling datapath
-has a timing-closed, board-verified higher-clock implementation. Neither is sufficient evidence for a
-top-tier architecture contribution by itself. Narrow accumulation is a
+has a timing-closed, board-verified higher-clock implementation. A restricted
+cross-layer strip schedule is also exact and physically faster. These results
+are not yet sufficient evidence for a top-tier architecture contribution.
+Narrow accumulation is a
 negative result. The restricted joint catalogue does not beat simple choices.
-The cross-layer candidate still needs an executable physical implementation,
-matched baseline comparisons, held-out cost prediction, full accuracy,
+The broader cross-layer candidate still needs a general physical lowering,
+matched B1/B2/B3 comparisons, held-out cost prediction, full accuracy,
 power/energy measurement, and causal ablations before G6 can close.
 
 The [evidence manifest](evidence/phase6/five-experiments-v1/manifest.json)
-pins 88 compressed source, simulation, route, and physical artifacts by SHA-256;
+pins 119 compressed source, simulation, route, and physical artifacts by SHA-256;
 the [matched physical comparison](evidence/phase6/five-experiments-v1/matched-comparison.json)
 recomputes medians and speedups from signed records with identical timed inputs
 and outputs. The archive excludes bitstreams and executables, but validates

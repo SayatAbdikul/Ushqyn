@@ -30,6 +30,12 @@ ARTIFACTS = {
         "tools/phase6/cross_layer_screen.py",
         "tools/phase6/cross_layer_compaction_screen.py",
         "tools/phase6/joint_selection_screen.py",
+        "tools/phase6/strip_fusion_vww.py",
+        "tools/phase6/strip_fusion_pair11.py",
+        "tools/phase6/strip_fusion_pair7.py",
+        "tools/phase6/screen_strip_fusion.py",
+        "tools/phase6/screen_pair11_fusion.py",
+        "tools/phase6/screen_pair7_fusion.py",
         "work/phase6/narrow-accum-v1/experiment.py",
         "work/phase6/narrow-accum-v1/proof.py",
         "work/phase6/narrow-accum-v1/check_schedule.py",
@@ -91,6 +97,18 @@ ARTIFACTS = {
             for seed in (0, 6063)
         ],
     ],
+    "cross_layer_hardware": [
+        "work/phase6/strip-fusion-vww-v1/report.json",
+        "work/phase6/strip-fusion-vww-v1/full/report.json",
+        "work/phase6/strip-fusion-pair11-v1/full/report.json",
+        "work/phase6/strip-fusion-pair7-v1/full/report.json",
+        "work/phase6/strip-fusion-board-v1/physical-short-v1/strip-comparison.json",
+        "work/phase6/strip-fusion-board-v1/physical-short-v1/strip-seal.json",
+        "work/phase6/pair11-fusion-board-v1/physical-short-v1/pair11-comparison.json",
+        "work/phase6/pair11-fusion-board-v1/physical-short-v1/pair11-seal.json",
+        "work/phase6/pair7-fusion-board-v1/physical-short-v1/pair7-comparison.json",
+        "work/phase6/pair7-fusion-board-v1/physical-short-v1/pair7-seal.json",
+    ],
 }
 
 SCREENS = {
@@ -98,6 +116,9 @@ SCREENS = {
     "compacted24": "work/phase6/channel-compaction-v1/physical-screen-v1",
     "grouped27": "work/phase6/pool-timing-v1/physical-grouped27-v2",
     "compacted27": "work/phase6/pool-timing-v1/physical-compacted27-v1",
+    "strip_pair3": "work/phase6/strip-fusion-board-v1/physical-short-v1",
+    "strip_pair3_11": "work/phase6/pair11-fusion-board-v1/physical-short-v1",
+    "strip_pair3_7_11": "work/phase6/pair7-fusion-board-v1/physical-short-v1",
 }
 for _folder in SCREENS.values():
     ARTIFACTS.setdefault("physical", []).extend(
@@ -126,6 +147,10 @@ REQUIRED_STATUS = {
     "work/phase6/cross-layer-screen-v1/report.json": "screened-boardless",
     "work/phase6/cross-layer-compaction-v1/report.json": "passed-software-screen",
     "work/phase6/joint-selection-v2/report.json": "passed",
+    "work/phase6/strip-fusion-vww-v1/report.json": "passed-native",
+    "work/phase6/strip-fusion-vww-v1/full/report.json": "passed-native",
+    "work/phase6/strip-fusion-pair11-v1/full/report.json": "passed-native",
+    "work/phase6/strip-fusion-pair7-v1/full/report.json": "passed-native",
     **{f"{folder}/report.json": "passed-short-screen" for folder in SCREENS.values()},
 }
 
@@ -164,6 +189,8 @@ def check_sources(relative: str, document: dict) -> None:
         expect_hash("tools/phase6/channel_compaction.py", document["source_sha256"])
     if relative == "work/phase6/joint-selection-v2/report.json":
         expect_hash("work/phase6/joint-selection-v2/plan.json", document["plan_sha256"])
+    if relative == "work/phase6/strip-fusion-vww-v1/report.json":
+        expect_hash("tools/phase6/strip_fusion_vww.py", document["script_sha256"])
     if "results_sha256" in document:
         expect_hash(str(Path(relative).parent / "results.xml"), document["results_sha256"])
 
@@ -307,6 +334,29 @@ def check_screen(label: str, folder: str, expected_image: str) -> dict:
     }
 
 
+def check_strip_extension(label: str, stem: str, runner: str, source: str,
+                          full_report: str) -> None:
+    folder = SCREENS[label]
+    seal = read_json(f"{folder}/{stem}-seal.json")
+    compare = read_json(f"{folder}/{stem}-comparison.json")
+    if compare.get("status") != "passed-matched-short-comparison":
+        raise ValueError(f"{label}: incomplete strip comparison")
+    expected = {
+        "runner_sha256": runner,
+        "source_sha256": source,
+        "full_report_sha256": full_report,
+        "plan_sha256": f"{folder}/plan.json",
+        "report_sha256": f"{folder}/report.json",
+        "records_sha256": f"{folder}/records.jsonl",
+        "comparison_sha256": f"{folder}/{stem}-comparison.json",
+    }
+    for field, path in expected.items():
+        expect_hash(path, seal[field])
+    if compare.get("report_sha256") != seal["report_sha256"] or \
+            compare.get("records_sha256") != seal["records_sha256"]:
+        raise ValueError(f"{label}: strip comparison does not match signed records")
+
+
 def comparison(screens: dict) -> dict:
     reference = screens["grouped24"]["timed_identity"]
     if any(row["timed_identity"] != reference for row in screens.values()):
@@ -317,6 +367,12 @@ def comparison(screens: dict) -> dict:
         "pool_clock_grouped": ("grouped24", "grouped27"),
         "pool_clock_compacted": ("compacted24", "compacted27"),
         "joint_vs_original": ("grouped24", "compacted27"),
+        "strip_pair3_vs_compacted27": ("compacted27", "strip_pair3"),
+        "strip_pair11_incremental": ("strip_pair3", "strip_pair3_11"),
+        "strip_pair3_vs_original": ("grouped24", "strip_pair3"),
+        "strip_pair3_11_vs_original": ("grouped24", "strip_pair3_11"),
+        "strip_pair7_incremental": ("strip_pair3_11", "strip_pair3_7_11"),
+        "strip_pair3_7_11_vs_original": ("grouped24", "strip_pair3_7_11"),
     }
     rows = {}
     for key, (before, after) in pairs.items():
@@ -397,6 +453,24 @@ def build(run: bool) -> dict:
         name: check_screen(name, folder, old_image if name.endswith("24") else new_image)
         for name, folder in SCREENS.items()
     }
+    check_strip_extension(
+        "strip_pair3", "strip",
+        "tools/phase6/screen_strip_fusion.py",
+        "tools/phase6/strip_fusion_vww.py",
+        "work/phase6/strip-fusion-vww-v1/full/report.json",
+    )
+    check_strip_extension(
+        "strip_pair3_11", "pair11",
+        "tools/phase6/screen_pair11_fusion.py",
+        "tools/phase6/strip_fusion_pair11.py",
+        "work/phase6/strip-fusion-pair11-v1/full/report.json",
+    )
+    check_strip_extension(
+        "strip_pair3_7_11", "pair7",
+        "tools/phase6/screen_pair7_fusion.py",
+        "tools/phase6/strip_fusion_pair7.py",
+        "work/phase6/strip-fusion-pair7-v1/full/report.json",
+    )
     comparison_doc = comparison(screens)
     if not run:
         return {"status": "preflight-passed", "files": len(paths),
