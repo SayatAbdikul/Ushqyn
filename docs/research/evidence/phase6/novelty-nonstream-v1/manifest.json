@@ -1,0 +1,716 @@
+{
+  "artifacts": {
+    "docs/research/PHASE_6_NONSTREAM_NOVELTY_V1.md": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/docs/research/PHASE_6_NONSTREAM_NOVELTY_V1.md.gz",
+      "archive_sha256": "e6eb70c2d8dceaa7a11ff1b9202c168905696a85ee91f4f39bfe61fae406b1f1",
+      "bytes": 8906,
+      "sha256": "4c8820f53fe02948358a508875c42cb7d10bc3f63af28b8bd2d0749e011383c1"
+    },
+    "docs/research/PHASE_6_ZERO_BLOCK_SCREEN_V1.md": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/docs/research/PHASE_6_ZERO_BLOCK_SCREEN_V1.md.gz",
+      "archive_sha256": "891ecd5dd450eb76950d22631fe8129b45b859030c3e3d8e52b686d5c886834d",
+      "bytes": 6227,
+      "sha256": "d5e742e91b9d512094154f4ced56a2703d4b3a733a6a9e688f21c361e9f56dc6"
+    },
+    "hardware/phase4_sdram/bist.sdc": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/hardware/phase4_sdram/bist.sdc.gz",
+      "archive_sha256": "7c2ed569ec324e913644cf6bc6e7189f2e3ad5213fa7c0350e13a98be54465e6",
+      "bytes": 215,
+      "sha256": "6d8bbb0169f52a717de400a89fb3046edcd07ee3c16a0e2997a2aec7a1e56f6b"
+    },
+    "hardware/phase4_sdram/tiled_host.cst": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/hardware/phase4_sdram/tiled_host.cst.gz",
+      "archive_sha256": "aa883c7e3a55d43731583e4894b1e7fc8b59415c08b29db7fa893828cd7a93c3",
+      "bytes": 667,
+      "sha256": "c643c6e072d3ce570a8bb87637845b250594ce095b33ae27a273e6afb748445d"
+    },
+    "rtl/phase6/uart_burst_bridge.sv": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/rtl/phase6/uart_burst_bridge.sv.gz",
+      "archive_sha256": "5d505360be8a71788875978abee19193c6deee59fd6a1eae33d0a6095903c87e",
+      "bytes": 14178,
+      "sha256": "a3abca85ee95c86c2a83916f9ce2508c79def04a3588b1525e8b29a63826d6af"
+    },
+    "rtl/phase6/uart_burst_command.sv": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/rtl/phase6/uart_burst_command.sv.gz",
+      "archive_sha256": "df0a335733ee722570d466df6759f02d7ad523ce4a67aea6e36fcd631c74f06f",
+      "bytes": 11398,
+      "sha256": "17bcccbd0139c8c5f0472e20e345d9df79a20aed236b979e0cc1c3193261dd05"
+    },
+    "rtl/v2/hs_sdram_burst_port.sv": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/rtl/v2/hs_sdram_burst_port.sv.gz",
+      "archive_sha256": "59068888915998f95bafc4f909874c348a3861f113adadbc4ddf653ede837367",
+      "bytes": 7664,
+      "sha256": "3eb45a79185c09d822e2cb8398ce4cc2413478daa232a3178baa8c7e05859dc0"
+    },
+    "rtl/v2/requantizer.sv": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/rtl/v2/requantizer.sv.gz",
+      "archive_sha256": "ef8106eba346af5db3c12ae72152a7d0141459043747681078049a0694411864",
+      "bytes": 1384,
+      "sha256": "e40913b484ad629d2445cdfb3edf16d6508f273ce0d4a5855d114780fe0a9e4b"
+    },
+    "rtl/v2/scratchpad.sv": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/rtl/v2/scratchpad.sv.gz",
+      "archive_sha256": "0572b9d34e69d8c60edab4908fd0878b1495f8a8376efb2a24c19a1ed495ec28",
+      "bytes": 1368,
+      "sha256": "bfdab92e5f5f039e102b76fad82fe6a8df2d7f64d1b2cffd23cc677626654cd2"
+    },
+    "rtl/v2/sdram_refresh.sv": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/rtl/v2/sdram_refresh.sv.gz",
+      "archive_sha256": "385642402f116b2a8d0f18a332de469cb86c4d5befdb503091271c838c14d4fc",
+      "bytes": 2169,
+      "sha256": "9b9bfb8c05011ce2d84e9838697ab65ec587dfb3310684d4c37b853e8dcb21ec"
+    },
+    "rtl/v2/target_pkg.sv": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/rtl/v2/target_pkg.sv.gz",
+      "archive_sha256": "74f5f0303a4d088fb38b582530f6deb6b3e64886622a1bf427a6a56f2a3a3515",
+      "bytes": 1047,
+      "sha256": "52e649f8911e92452cfef5cce9b1ad4e5dd75d20f4a725c67ee391fe75daae6e"
+    },
+    "rtl/v2/tile_dma.sv": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/rtl/v2/tile_dma.sv.gz",
+      "archive_sha256": "b27c054e388dfd7a98fb394c5debe493e4fd9d318d5ac325f51f488ac57504fb",
+      "bytes": 4360,
+      "sha256": "94e94a4a8c474fd2f0824dff3cc64bca921262cd9e0bf53064713376c1a09ab9"
+    },
+    "rtl/v2/tile_sequencer.sv": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/rtl/v2/tile_sequencer.sv.gz",
+      "archive_sha256": "1d677d4bd7048563a1b4d7e9316bf82a6311a3ae9aa8e9a2d92430bce2cc567c",
+      "bytes": 6510,
+      "sha256": "defa57da3cd7748d28a628e8e09eb8a843d7a02aa29d9386b3e5d99dcb8e8f0e"
+    },
+    "rtl/v2/tiled_core.sv": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/rtl/v2/tiled_core.sv.gz",
+      "archive_sha256": "56000177217946bea17b1cc2124008f8e591a25a2b62bd7792e2beac3efec923",
+      "bytes": 4878,
+      "sha256": "30b7ec281a044e10e50209204dbd4a99e56768edb422fe8e1fc22fde6e661068"
+    },
+    "rtl/v2/uart_rx.sv": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/rtl/v2/uart_rx.sv.gz",
+      "archive_sha256": "7d8ca860a6759bd3326fb2d8e1f2c73db65a256907ecaf7f6cf70ac1cad93fe4",
+      "bytes": 3013,
+      "sha256": "4c5499b744202962204c4179b977e2e7fc6e4cc236250e12095d4c9d7681d337"
+    },
+    "rtl/v2/uart_tx.sv": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/rtl/v2/uart_tx.sv.gz",
+      "archive_sha256": "bc48774427f73a404bae6f8345a1def80cb8984b022f8530d93f9ea2651ec2f9",
+      "bytes": 3449,
+      "sha256": "a3ace5523e30af83438478ad82f54a12fcd5aca07e38dbc4e3b46cc46f3af1f1"
+    },
+    "test/phase6/native.cpp": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/test/phase6/native.cpp.gz",
+      "archive_sha256": "e0321861d6206d4e052340293060a35206a7d69f643fa5acc5622393964996ca",
+      "bytes": 5582,
+      "sha256": "dd95ac7b71aa6679d23ff22542c6f54af88b7c2275a6a04936550c8f43529c46"
+    },
+    "tools/phase6/archive_novelty_nonstream.py": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/tools/phase6/archive_novelty_nonstream.py.gz",
+      "archive_sha256": "2a59fd465ca13c34a2ab4946921d59bd9b09b690f12cfe17698412ce0e9b9994",
+      "bytes": 18777,
+      "sha256": "a63711f58c48e596de95167af1e385d1f51d705b619c060bcd5e94841f9fc6f8"
+    },
+    "tools/phase6/novelty_constants.py": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/tools/phase6/novelty_constants.py.gz",
+      "archive_sha256": "14df9ff624d13fc293f89ea1cd40506dc58a62241800bf6be86dcbb8c01f3e7a",
+      "bytes": 17558,
+      "sha256": "407cdfa017c6e12c41f1ab6b2bc25b52b181a9b36342dc82396adadaadec35f5"
+    },
+    "tools/phase6/novelty_constants_decision.py": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/tools/phase6/novelty_constants_decision.py.gz",
+      "archive_sha256": "a594ad92ab382a65d3b89d8843b60bc56e214d4ada7eb4e9895ac6ce0d8d8193",
+      "bytes": 6500,
+      "sha256": "0f2f326c4e2c00228b652f6786adafbe611f9dc08cae1735a338f6da21bf0013"
+    },
+    "tools/phase6/novelty_constants_threepair.py": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/tools/phase6/novelty_constants_threepair.py.gz",
+      "archive_sha256": "14e5b5b77c035e91e77737d53074ac7f5d47a6bac6d9dfd8c779837851214a92",
+      "bytes": 8072,
+      "sha256": "664cff4afdcfe6eebbe0110c9a2fde68759441e3aeefb985f3070a6bcca82bb3"
+    },
+    "tools/phase6/novelty_contract.py": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/tools/phase6/novelty_contract.py.gz",
+      "archive_sha256": "133398c3222e5c831957f88c2fb4cfa74ec92c7a91dd3e3b6f07d37309900202",
+      "bytes": 21259,
+      "sha256": "811154b8289a972f56b7be3d342ddb5e66ca9b4ad83e63d801aec8b6d81cea46"
+    },
+    "tools/phase6/novelty_contract_edges.py": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/tools/phase6/novelty_contract_edges.py.gz",
+      "archive_sha256": "fb43ac0b24585ddcdc4917d4cf69808a0a25257b150d8ace0af904168047ba86",
+      "bytes": 3671,
+      "sha256": "29043e5889620547411ee56a053cbdbcc051dc5d505ff2ad41d2c4755f693c32"
+    },
+    "tools/phase6/novelty_zero_block.py": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/tools/phase6/novelty_zero_block.py.gz",
+      "archive_sha256": "baba4d3dec362143bbba179182efcde53598b6ff752b26ed935acffc810308c8",
+      "bytes": 12471,
+      "sha256": "828a6c3c7d2eb8d3d34fb84c88d62473a89086ab3016395d5ddd1e497fb8b887"
+    },
+    "tools/phase6/novelty_zero_block_profile.py": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/tools/phase6/novelty_zero_block_profile.py.gz",
+      "archive_sha256": "ece4af8a29c0f32cb5ba8e3406a267716f93f6e77b8cb822fee3e7e7ccf8d3d2",
+      "bytes": 10684,
+      "sha256": "c3601501e9a2319e78cf5517c6f45e0680d042c7f2f82a20de04d5f10018c6aa"
+    },
+    "tools/phase6/novelty_zero_bypass.py": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/tools/phase6/novelty_zero_bypass.py.gz",
+      "archive_sha256": "505d29d1de43725e6a0713a031faef763320c9ca80866b3c88a4ec2cfe42cf4c",
+      "bytes": 8354,
+      "sha256": "1ad89beb046601f18d948932ccb77296c2c7775d609f310e5f3116c60643716d"
+    },
+    "tools/phase6/strip_fusion_pair11.py": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/tools/phase6/strip_fusion_pair11.py.gz",
+      "archive_sha256": "0b277d71776e527d824555a28fbe312cec9875f62cf7a8f02371cfac4056b9e7",
+      "bytes": 19076,
+      "sha256": "23b28801c17eca49d1a9a74dbc5cbebb10478f3578f8340a2f7d78b5c47ddbef"
+    },
+    "tools/phase6/strip_fusion_pair7.py": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/tools/phase6/strip_fusion_pair7.py.gz",
+      "archive_sha256": "aad1b704221333ba48c7cbf27e3e09c6635ebe657c98b1363cf4c2e530f7c0c5",
+      "bytes": 19742,
+      "sha256": "0a0557e9c876af2fa0dc9e5bdb6543197497adca61f0f3ecda306cb7089e13a5"
+    },
+    "tools/phase6/strip_fusion_vww.py": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/tools/phase6/strip_fusion_vww.py.gz",
+      "archive_sha256": "51a21945abd601f8416b75240b2720e735bc92c8a2e895d236f308b338273b50",
+      "bytes": 28308,
+      "sha256": "94cd9ca8edffb61413b88d14a7ab26b792fcd8d7cfa83c1d3bfbc23cf24cda1f"
+    },
+    "work/phase4/ip-generated/sdram_controller_hs.v": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase4/ip-generated/sdram_controller_hs.v.gz",
+      "archive_sha256": "99ca5a8785a60af15278d194ac609079f0f362833a546f6156cd2c235604890c",
+      "bytes": 104499,
+      "sha256": "3166bcfd473e7af6cbf80110ad952279c0209821dbbde4ee26d8a2d558dcee3d"
+    },
+    "work/phase6/novelty-constants-v1/certificate.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-constants-v1/certificate.json.gz",
+      "archive_sha256": "334f8698bfc2bdf174483662903ac3e6d826105795a6b0671ce8cb20e958b59e",
+      "bytes": 43246,
+      "sha256": "ebda3d9b17d7bcdc2d689d06dd64f28873536837e08cf5db1feefbf7493343ef"
+    },
+    "work/phase6/novelty-constants-v1/decision.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-constants-v1/decision.json.gz",
+      "archive_sha256": "4c682fdc24f03276070283ce722a74806e5b8d79a74fb41c0047e7a66477dcf3",
+      "bytes": 5998,
+      "sha256": "2d1ab0bef4211222deacd122097e89ea5419996b9814bfb2b6039d19aa0dcf56"
+    },
+    "work/phase6/novelty-constants-v1/fused/report.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-constants-v1/fused/report.json.gz",
+      "archive_sha256": "f77da032c0e86d112c026591fbb4d46241918651331707a46758b9105cb6a070",
+      "bytes": 14382,
+      "sha256": "3ff9c6744629fb2c31578c9b24ade66bd8ad56b98449ce1f0ec64cf70df378fe"
+    },
+    "work/phase6/novelty-constants-v1/fused/vww-pinned-known-compacted-fused-check-s0.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-constants-v1/fused/vww-pinned-known-compacted-fused-check-s0.json.gz",
+      "archive_sha256": "ea55d5a922f922c62c972c53b95fdfd171e2c727dc4e2da96b90adf04cfb5752",
+      "bytes": 201,
+      "sha256": "cb70b82a82738345bb333421774ce27390a1e9381ff0c0d2a25cf9b2adc47e74"
+    },
+    "work/phase6/novelty-constants-v1/fused/vww-pinned-known-compacted-fused-check-s6063.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-constants-v1/fused/vww-pinned-known-compacted-fused-check-s6063.json.gz",
+      "archive_sha256": "7074e5f62db377e8f9a0cb246243a9ec050be1e6b3cd5f2fd802f1c07c97dae3",
+      "bytes": 204,
+      "sha256": "60d69015faeb4c3ccb641956c31a2beeafa2f4a4bce5066c1c381235481381dc"
+    },
+    "work/phase6/novelty-constants-v1/fused/vww-pinned-known-compacted-fused-timed-s0.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-constants-v1/fused/vww-pinned-known-compacted-fused-timed-s0.json.gz",
+      "archive_sha256": "35f4fdc2ea4d23de3859d67e340bdd0c492cfe7590b7849eda73891adf48198f",
+      "bytes": 200,
+      "sha256": "a3f5e18b47d6a84056b15c071fd2359395c4d47efd5e227cdb36816c795fc6bb"
+    },
+    "work/phase6/novelty-constants-v1/fused/vww-pinned-known-compacted-fused-timed-s6063.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-constants-v1/fused/vww-pinned-known-compacted-fused-timed-s6063.json.gz",
+      "archive_sha256": "39edb7c16bba6a22b7064a3a6514cdc9d0e07010647d6c7a0a8dace9e748aaaa",
+      "bytes": 203,
+      "sha256": "2879bf5d327e2feaecf9e9e4d4389a332a3abfd548c93c881d892c46ae2bc9ab"
+    },
+    "work/phase6/novelty-constants-v1/fused/vww-stress-known-compacted-fused-check-s0.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-constants-v1/fused/vww-stress-known-compacted-fused-check-s0.json.gz",
+      "archive_sha256": "ea55d5a922f922c62c972c53b95fdfd171e2c727dc4e2da96b90adf04cfb5752",
+      "bytes": 201,
+      "sha256": "cb70b82a82738345bb333421774ce27390a1e9381ff0c0d2a25cf9b2adc47e74"
+    },
+    "work/phase6/novelty-constants-v1/fused/vww-stress-known-compacted-fused-check-s6063.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-constants-v1/fused/vww-stress-known-compacted-fused-check-s6063.json.gz",
+      "archive_sha256": "7074e5f62db377e8f9a0cb246243a9ec050be1e6b3cd5f2fd802f1c07c97dae3",
+      "bytes": 204,
+      "sha256": "60d69015faeb4c3ccb641956c31a2beeafa2f4a4bce5066c1c381235481381dc"
+    },
+    "work/phase6/novelty-constants-v1/report.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-constants-v1/report.json.gz",
+      "archive_sha256": "3a9cf7b7520cb2181d191e8abf1f110906df5fb91f0ee353d8525c20c4c22d61",
+      "bytes": 21921,
+      "sha256": "4dfb17d78df8cee5c2168abda772436d596c3f6510f3d2aedae1c87dcac8ef14"
+    },
+    "work/phase6/novelty-constants-v1/threepair/fixtures/vww-pinned-known-compacted-strip3-7-11-check/schedule.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-constants-v1/threepair/fixtures/vww-pinned-known-compacted-strip3-7-11-check/schedule.json.gz",
+      "archive_sha256": "26d202e169d64a6b039a2357e6c2f5cb8901a255b16254b6403866604bcd52c4",
+      "bytes": 40823,
+      "sha256": "41acb21b539352a79c60bd1296c95f34ca07e1e4c57b0337da9bd5157501a52c"
+    },
+    "work/phase6/novelty-constants-v1/threepair/fixtures/vww-pinned-known-compacted-strip3-7-11-timed/schedule.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-constants-v1/threepair/fixtures/vww-pinned-known-compacted-strip3-7-11-timed/schedule.json.gz",
+      "archive_sha256": "d92390a54058f8f7d92a24f8c89bb3b4fdaf9971de8c1a512d49596c1a8e2395",
+      "bytes": 39068,
+      "sha256": "f7b09cca1be20f03bf9d01573dbfdeb3b1194f056027605d768967c1426c8588"
+    },
+    "work/phase6/novelty-constants-v1/threepair/fixtures/vww-stress-known-compacted-strip3-7-11-check/schedule.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-constants-v1/threepair/fixtures/vww-stress-known-compacted-strip3-7-11-check/schedule.json.gz",
+      "archive_sha256": "20dbc809b344ad217225fb8de3b88843c59fa66e54045b04e3415030f52c666a",
+      "bytes": 40823,
+      "sha256": "957500ab20930fb42745372094d289aacae9b6bc7e2e9cd7a814c9a95130a18d"
+    },
+    "work/phase6/novelty-constants-v1/threepair/report.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-constants-v1/threepair/report.json.gz",
+      "archive_sha256": "db6e079bb7c869a74463436b6b1bb348b081b602f14f053a4f6c8dfb7815daa2",
+      "bytes": 19090,
+      "sha256": "56b2c0918332f4a2d1c0ed6bc2383c935c5ec876f86dc0e67c1bea7bdc9b39d3"
+    },
+    "work/phase6/novelty-constants-v1/threepair/vww-pinned-known-compacted-strip3-7-11-check-s0.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-constants-v1/threepair/vww-pinned-known-compacted-strip3-7-11-check-s0.json.gz",
+      "archive_sha256": "c23d11e1782cbccf442b144909ad76e4df68219b5de46cd268f2cb061a151bf8",
+      "bytes": 201,
+      "sha256": "717ab7b1aca0da030e407819a1598b1678d5ec38ab110717ec9aaea9fecef5fa"
+    },
+    "work/phase6/novelty-constants-v1/threepair/vww-pinned-known-compacted-strip3-7-11-check-s6063.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-constants-v1/threepair/vww-pinned-known-compacted-strip3-7-11-check-s6063.json.gz",
+      "archive_sha256": "2799b02a594f7d707a5fd765fec4f2446bb7d138ea29b413367b5633b6bbb4bd",
+      "bytes": 204,
+      "sha256": "5427d95df7aab74239e6ac5bfbb587f5c3e70680844ded4529887baa220e0746"
+    },
+    "work/phase6/novelty-constants-v1/threepair/vww-pinned-known-compacted-strip3-7-11-timed-s0.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-constants-v1/threepair/vww-pinned-known-compacted-strip3-7-11-timed-s0.json.gz",
+      "archive_sha256": "28e62ca9eb0d4c13c7f7fd795e831fe727b707b350da132e3fea0a9d5b46debe",
+      "bytes": 200,
+      "sha256": "953b4272007c4b90286acedb960da9da40859a800b9dc3f23cc2dd771cd1eef5"
+    },
+    "work/phase6/novelty-constants-v1/threepair/vww-pinned-known-compacted-strip3-7-11-timed-s6063.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-constants-v1/threepair/vww-pinned-known-compacted-strip3-7-11-timed-s6063.json.gz",
+      "archive_sha256": "a2c9f4cebdc06605e863c32326b2d74140594b89e0efc05ce20d972d9db927cb",
+      "bytes": 203,
+      "sha256": "0ef5e4240c7f582f10f296d86d00af5597ed47d4c8258085f1ec09a5b9b4d944"
+    },
+    "work/phase6/novelty-constants-v1/threepair/vww-stress-known-compacted-strip3-7-11-check-s0.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-constants-v1/threepair/vww-stress-known-compacted-strip3-7-11-check-s0.json.gz",
+      "archive_sha256": "c23d11e1782cbccf442b144909ad76e4df68219b5de46cd268f2cb061a151bf8",
+      "bytes": 201,
+      "sha256": "717ab7b1aca0da030e407819a1598b1678d5ec38ab110717ec9aaea9fecef5fa"
+    },
+    "work/phase6/novelty-constants-v1/threepair/vww-stress-known-compacted-strip3-7-11-check-s6063.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-constants-v1/threepair/vww-stress-known-compacted-strip3-7-11-check-s6063.json.gz",
+      "archive_sha256": "2799b02a594f7d707a5fd765fec4f2446bb7d138ea29b413367b5633b6bbb4bd",
+      "bytes": 204,
+      "sha256": "5427d95df7aab74239e6ac5bfbb587f5c3e70680844ded4529887baa220e0746"
+    },
+    "work/phase6/novelty-contracts-v1/decision.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-contracts-v1/decision.json.gz",
+      "archive_sha256": "5e855e6db385f91109f415e0e57e52f41df1c5b2b413049246538f26cc5c53a4",
+      "bytes": 2868,
+      "sha256": "0ea41944ee8ece68db3897c8c2b0ea634deb82a85fb8ebc77931aabf6e72b010"
+    },
+    "work/phase6/novelty-contracts-v1/edges/report.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-contracts-v1/edges/report.json.gz",
+      "archive_sha256": "58e040e4e1a0883b20e418c4a074b197d4a29491a3b98e684a0890e3781e3253",
+      "bytes": 326,
+      "sha256": "80f36003936d0d0997d093252ebf8617934516abcf23cbead4db2bd77a32a614"
+    },
+    "work/phase6/novelty-contracts-v1/edges/results.xml": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-contracts-v1/edges/results.xml.gz",
+      "archive_sha256": "896a90d8b51b8259516c6a917797803fd24f1fa6d3960baffe0b28486fc095e7",
+      "bytes": 451,
+      "sha256": "46352284c73008b949d40de15adf3d2d2edb606cededbf7a814759ee050c776e"
+    },
+    "work/phase6/novelty-contracts-v1/engine.sv": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-contracts-v1/engine.sv.gz",
+      "archive_sha256": "4407e81747c61a11ec9e8e0081429dc03e8d80c1c1233e9643e6a88fca885379",
+      "bytes": 56693,
+      "sha256": "b1d43101879cb173257425d5c0bcebf13077b84cee3a9e4892b8b02b240d4b56"
+    },
+    "work/phase6/novelty-contracts-v1/native/kws-pinned-compacted-fused-check-s0.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-contracts-v1/native/kws-pinned-compacted-fused-check-s0.json.gz",
+      "archive_sha256": "e77a5e248ab83a00741d400a0c7f09a42adea72531f602676abf6018ec9e6a73",
+      "bytes": 200,
+      "sha256": "30f18c9f78572e60149e7d65c2184d2a3f70f89be9d3198a126783408a349ce9"
+    },
+    "work/phase6/novelty-contracts-v1/native/kws-pinned-compacted-fused-check-s6063.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-contracts-v1/native/kws-pinned-compacted-fused-check-s6063.json.gz",
+      "archive_sha256": "32c3228959851df3995972562e8c483744b5377849110a42d1afe369f80e08a9",
+      "bytes": 203,
+      "sha256": "a684e7d236ff5c3c39f7bd755d13dc48fe3ac1b71965ee61c3fe3d3ada586e9d"
+    },
+    "work/phase6/novelty-contracts-v1/native/kws-pinned-compacted-fused-timed-s0.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-contracts-v1/native/kws-pinned-compacted-fused-timed-s0.json.gz",
+      "archive_sha256": "5cba1848397eb4ac2b2284fc0442362306dd55d6940098543d828edf53c3298a",
+      "bytes": 199,
+      "sha256": "768f58d51e06d51994c1b18a9e469c9efff17a36462729a52404106b11b9797e"
+    },
+    "work/phase6/novelty-contracts-v1/native/kws-stress-compacted-fused-check-s0.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-contracts-v1/native/kws-stress-compacted-fused-check-s0.json.gz",
+      "archive_sha256": "e77a5e248ab83a00741d400a0c7f09a42adea72531f602676abf6018ec9e6a73",
+      "bytes": 200,
+      "sha256": "30f18c9f78572e60149e7d65c2184d2a3f70f89be9d3198a126783408a349ce9"
+    },
+    "work/phase6/novelty-contracts-v1/native/kws-stress-compacted-fused-check-s6063.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-contracts-v1/native/kws-stress-compacted-fused-check-s6063.json.gz",
+      "archive_sha256": "32c3228959851df3995972562e8c483744b5377849110a42d1afe369f80e08a9",
+      "bytes": 203,
+      "sha256": "a684e7d236ff5c3c39f7bd755d13dc48fe3ac1b71965ee61c3fe3d3ada586e9d"
+    },
+    "work/phase6/novelty-contracts-v1/native/original-replay.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-contracts-v1/native/original-replay.json.gz",
+      "archive_sha256": "bdff3edd413d5400e026ce4c7c905a3bf82739f81953455b5139f71d1a81917b",
+      "bytes": 200,
+      "sha256": "dd210876c45ddd24bd9f989a39c69caf2e110ff3179799512e85656d3376ccaa"
+    },
+    "work/phase6/novelty-contracts-v1/native/vww-pinned-compacted-fused-check-s0.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-contracts-v1/native/vww-pinned-compacted-fused-check-s0.json.gz",
+      "archive_sha256": "1fb70f915caa15ae5cfa79cf2d9f38b7beb2bcd4a9cb0b48730cc56a5cfe52d3",
+      "bytes": 201,
+      "sha256": "5edc2a09313c3d9d7dd630c95061cd81e2926a90e5bcae202348e6ebd797221a"
+    },
+    "work/phase6/novelty-contracts-v1/native/vww-pinned-compacted-fused-check-s6063.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-contracts-v1/native/vww-pinned-compacted-fused-check-s6063.json.gz",
+      "archive_sha256": "6e7c4018087adfa25d810568469d7293c0833accca1693aeb8d7cb8fcf6b7b8b",
+      "bytes": 204,
+      "sha256": "544b232fddc1b5bc528c0bea6eaaca321f5b8290f105be3987520d0a874f59cc"
+    },
+    "work/phase6/novelty-contracts-v1/native/vww-pinned-compacted-fused-timed-s0.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-contracts-v1/native/vww-pinned-compacted-fused-timed-s0.json.gz",
+      "archive_sha256": "bdff3edd413d5400e026ce4c7c905a3bf82739f81953455b5139f71d1a81917b",
+      "bytes": 200,
+      "sha256": "dd210876c45ddd24bd9f989a39c69caf2e110ff3179799512e85656d3376ccaa"
+    },
+    "work/phase6/novelty-contracts-v1/native/vww-stress-compacted-fused-check-s0.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-contracts-v1/native/vww-stress-compacted-fused-check-s0.json.gz",
+      "archive_sha256": "1fb70f915caa15ae5cfa79cf2d9f38b7beb2bcd4a9cb0b48730cc56a5cfe52d3",
+      "bytes": 201,
+      "sha256": "5edc2a09313c3d9d7dd630c95061cd81e2926a90e5bcae202348e6ebd797221a"
+    },
+    "work/phase6/novelty-contracts-v1/native/vww-stress-compacted-fused-check-s6063.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-contracts-v1/native/vww-stress-compacted-fused-check-s6063.json.gz",
+      "archive_sha256": "6e7c4018087adfa25d810568469d7293c0833accca1693aeb8d7cb8fcf6b7b8b",
+      "bytes": 204,
+      "sha256": "544b232fddc1b5bc528c0bea6eaaca321f5b8290f105be3987520d0a874f59cc"
+    },
+    "work/phase6/novelty-contracts-v1/report.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-contracts-v1/report.json.gz",
+      "archive_sha256": "222fcbddc0b8ec843ccc11a9a921b1a3942463b15619049266d5f656ddf3c03b",
+      "bytes": 68038,
+      "sha256": "b5142a42f9ad7b39223553768772b8becea6b189cad3e4986d5ff0965dc2ac09"
+    },
+    "work/phase6/novelty-contracts-v1/route27/phase6_uart_burst/impl/pnr/phase6_uart_burst.rpt.txt": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-contracts-v1/route27/phase6_uart_burst/impl/pnr/phase6_uart_burst.rpt.txt.gz",
+      "archive_sha256": "776ed937704c7d960b0d22f3a6fc05c3b5acbd7705ec9072f88ec892e97ca7c9",
+      "bytes": 45096,
+      "sha256": "91c92743aa42dea8943b469206c4cb1fa6e095fe31ad5a45d6349564e7ca1eb2"
+    },
+    "work/phase6/novelty-contracts-v1/route27/phase6_uart_burst/impl/pnr/phase6_uart_burst_tr_content.html": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-contracts-v1/route27/phase6_uart_burst/impl/pnr/phase6_uart_burst_tr_content.html.gz",
+      "archive_sha256": "7e9d1738fac6028ab2eb1a63584219ec2b173207d8262974ed6d302e680137c1",
+      "bytes": 623035,
+      "sha256": "abf0739f4f9264ea6d01bd9192d47a679dd6be908bf734506273d0bb9ad737b1"
+    },
+    "work/phase6/novelty-contracts-v1/route27/phase6_uart_burst/phase6_uart_burst.gprj": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-contracts-v1/route27/phase6_uart_burst/phase6_uart_burst.gprj.gz",
+      "archive_sha256": "0425509be41748eb911d12a1b8b8d99f4d049be061fa83820d13ba4e55f0f560",
+      "bytes": 2610,
+      "sha256": "9fb284bba16705b07d9d682e783e18332b95daa9dd0f011f1a8d49456ef50629"
+    },
+    "work/phase6/novelty-contracts-v1/route27/report.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-contracts-v1/route27/report.json.gz",
+      "archive_sha256": "f0d61dbeccb1bf3623779b2e1d874ee9cce45be314a28cb96a091e9bf3868be2",
+      "bytes": 1119,
+      "sha256": "9cf448fb660936b756b78529617485cb5c36aa483abe03b590117c1daf480a9b"
+    },
+    "work/phase6/novelty-zero-block-v1/native-profile/kws-s0.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-zero-block-v1/native-profile/kws-s0.json.gz",
+      "archive_sha256": "4228dc70f2d7385e68df60c458ebcf08f81815b0cef48b03083f4a84e88d6cd6",
+      "bytes": 615,
+      "sha256": "b1c5cafe8dc81ba61999bdd0ae46831b95c3d28353d6cacb5f6e6fcfcc0c539e"
+    },
+    "work/phase6/novelty-zero-block-v1/native-profile/kws-s6063.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-zero-block-v1/native-profile/kws-s6063.json.gz",
+      "archive_sha256": "407b36ad5313a72900bb978c661ed53cc85fc5f5a308e90bf1a5aa9a659e338c",
+      "bytes": 618,
+      "sha256": "551e513dbad2d2ea6ed074bf11d3b011db1e1fc3fb78953cbc0970cea1a2ce53"
+    },
+    "work/phase6/novelty-zero-block-v1/native-profile/native_profile.cpp": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-zero-block-v1/native-profile/native_profile.cpp.gz",
+      "archive_sha256": "58cfd83a7c0913241505e1a9e19f857a263925d76fb390ebc85b1142ff5e5c4c",
+      "bytes": 11363,
+      "sha256": "f04a7d6b25344dc453672be0cf998a53de4e6bdf8a465dbd09fd5ab1d170dd43"
+    },
+    "work/phase6/novelty-zero-block-v1/native-profile/report.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-zero-block-v1/native-profile/report.json.gz",
+      "archive_sha256": "64211570584c14d490aefced4a26ee386466d1a3c2aae73f6e081db7053115fa",
+      "bytes": 9371,
+      "sha256": "46083e0502d0d1d0bf4f7d15a622db4223167798d371ef18798eb65f0351cc4d"
+    },
+    "work/phase6/novelty-zero-block-v1/native-profile/vww-s0.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-zero-block-v1/native-profile/vww-s0.json.gz",
+      "archive_sha256": "ae717dd1f98f8b20626a204bafd4dcd348faaaccef2fcd20fabaa247875fe4c2",
+      "bytes": 772,
+      "sha256": "d0c77e36e97686ea3e23d95f1b121c526071bc9e6a7b815d150dd22640717ef4"
+    },
+    "work/phase6/novelty-zero-block-v1/native-profile/vww-s6063.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-zero-block-v1/native-profile/vww-s6063.json.gz",
+      "archive_sha256": "57ee43364cc66bb7d9686d8e038f180df2a63aba97ac10e38dbbbb15a26fb33b",
+      "bytes": 775,
+      "sha256": "ff61a5a609f042aab7414ba639abecf2593d0b470cbc308991e31f9a2f7f928d"
+    },
+    "work/phase6/novelty-zero-block-v1/report.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-zero-block-v1/report.json.gz",
+      "archive_sha256": "f2faf52bf9a0f4eb320b738414cdbaf3f2c1b627c896e2c09fc7abec9c47a783",
+      "bytes": 55174,
+      "sha256": "120f51ca8453d7ac64437f7aa8205535d2b6f3857ec5d30aeb68c3b9308f0be4"
+    },
+    "work/phase6/novelty-zero-bypass-v1/report.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/novelty-zero-bypass-v1/report.json.gz",
+      "archive_sha256": "4972b76c0f3901a335bbd70e4b2b27839eec4b13a38b5e4b636ac202cd325a41",
+      "bytes": 6502,
+      "sha256": "e50e704d3b759d7b4018608c518574cd5e7ecbd12a56b93d2e1497b597923038"
+    },
+    "work/phase6/pair7-fusion-board-v1/physical-short-v1/pair7-comparison.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/pair7-fusion-board-v1/physical-short-v1/pair7-comparison.json.gz",
+      "archive_sha256": "6cb5bfe2cbd396d10156112a1399af7b750cda7aee49c3eeba9b6388dcf3034d",
+      "bytes": 1163,
+      "sha256": "ba2529a74ed695f6b3331c47c6dff54a6cdf148d0c8f44683f21509a5865f48a"
+    },
+    "work/phase6/pair7-fusion-board-v1/physical-short-v1/pair7-seal.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/pair7-fusion-board-v1/physical-short-v1/pair7-seal.json.gz",
+      "archive_sha256": "4dc08ac64754b186a7329e39ae330d0f8666bcba94804adf9edec008edf10c85",
+      "bytes": 620,
+      "sha256": "03c4eb85073a745b0b59488d9feee1d8e3817dd781ff91f9583e156112a6806d"
+    },
+    "work/phase6/pair7-fusion-board-v1/physical-short-v1/plan.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/pair7-fusion-board-v1/physical-short-v1/plan.json.gz",
+      "archive_sha256": "c08a316e30d9f36a59ec7a8873d90d326c1e1573aa7160c5d430a071969e7223",
+      "bytes": 34626,
+      "sha256": "ad699b64407b0bf2dccf4cff8fc031d9c28126d521f72145772019568944a7b7"
+    },
+    "work/phase6/pair7-fusion-board-v1/physical-short-v1/program.log": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/pair7-fusion-board-v1/physical-short-v1/program.log.gz",
+      "archive_sha256": "ef2336b84a1003f53a1a2f8c227ba7a08f881d65557b33a1e9b4a9ba7d111b29",
+      "bytes": 1374,
+      "sha256": "79cf784ab417464aefdddd3e2975678ff7ed8d70146ddd59467ea10b48313404"
+    },
+    "work/phase6/pair7-fusion-board-v1/physical-short-v1/records.jsonl": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/pair7-fusion-board-v1/physical-short-v1/records.jsonl.gz",
+      "archive_sha256": "9868105ec6e78a6b63e785b9b5500a9704c89889e4c0c53df082e3cd44571bfa",
+      "bytes": 8914,
+      "sha256": "fe94b05a48ad7a2174ddc5f491ae2cb4261b8b16af6065e63fa02b828ad37fcf"
+    },
+    "work/phase6/pair7-fusion-board-v1/physical-short-v1/report.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/pair7-fusion-board-v1/physical-short-v1/report.json.gz",
+      "archive_sha256": "8839face1d7f88299c97178f78dea744dd1109f68b000e3c40323151a307ad4a",
+      "bytes": 1222,
+      "sha256": "37577dbd03c603d9947c9068998f3c6e95272b2c549f5c76ce1348dcb0e9a1d7"
+    },
+    "work/phase6/pair7-fusion-board-v1/physical-short-v1/seal.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/pair7-fusion-board-v1/physical-short-v1/seal.json.gz",
+      "archive_sha256": "3fd48e53c657a588ed1e6c2afd863eb706c16b4a1f6069c2df43e08c13a2e5f8",
+      "bytes": 350,
+      "sha256": "7b4760e2972746879c562a361c693a8318a26ec3812c2edb9b839796d537566f"
+    },
+    "work/phase6/pool-timing-v1/build27.tcl": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/pool-timing-v1/build27.tcl.gz",
+      "archive_sha256": "361db41f1b08efb1824ed58af84b3b8b29c6712e9c0cc121e5aa478b8edb7f8b",
+      "bytes": 1345,
+      "sha256": "1ddea2f28a4c7ad31b0786b946d320d5f2229939043bd95150452b72a2ceaa83"
+    },
+    "work/phase6/pool-timing-v1/engine.sv": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/pool-timing-v1/engine.sv.gz",
+      "archive_sha256": "01a6603f66303947d8f1b66257f0750cf712238ceb48eacacf792b2e410040ae",
+      "bytes": 56132,
+      "sha256": "c347336ec58503f26abc47094289bd7926fcc5ed2515eca758a4b7dbc7f6d48a"
+    },
+    "work/phase6/pool-timing-v1/host27.sv": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/pool-timing-v1/host27.sv.gz",
+      "archive_sha256": "58fc382cd4b1cf4ada53c3c59b6d8d8ac48fb10672aa47be520a5cc641d6de86",
+      "bytes": 2962,
+      "sha256": "ea71d3e96a519d97727a5c96c5542e5e4cf56ce0e0ac29cbc7f632e5bdea30ac"
+    },
+    "work/phase6/pool-timing-v1/pll27.v": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/pool-timing-v1/pll27.v.gz",
+      "archive_sha256": "4fb65723a11556d5d37d9bf823b3688fab3fa55d6297079310a65fdeeca189a3",
+      "bytes": 645,
+      "sha256": "eb0ed32f570e9665f25ce9903cad408058d1ab9824b840ca20cb8a715c9339b3"
+    },
+    "work/phase6/pool-timing-v1/route27/phase6_uart_burst/impl/pnr/phase6_uart_burst.rpt.txt": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/pool-timing-v1/route27/phase6_uart_burst/impl/pnr/phase6_uart_burst.rpt.txt.gz",
+      "archive_sha256": "e4a12d774e661846bd8ad6ca254679fa1deba2938a80e87214720eeaf8cb5883",
+      "bytes": 45052,
+      "sha256": "59620a8af67a84d1b0884fb9198056cd0180b9c28869daf8228400d6f5d8c262"
+    },
+    "work/phase6/pool-timing-v1/route27/phase6_uart_burst/impl/pnr/phase6_uart_burst_tr_content.html": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/pool-timing-v1/route27/phase6_uart_burst/impl/pnr/phase6_uart_burst_tr_content.html.gz",
+      "archive_sha256": "077e9a7ca168c228dac4bdb05ea21bd7b1a9f36b347f24c727d8feb5f6bfb141",
+      "bytes": 569394,
+      "sha256": "96ac00f5e12a6aa1518a742457aaae1f6b3f1917f7e090adab0b3f6144e91fb1"
+    },
+    "work/phase6/pool-timing-v1/route27/phase6_uart_burst/phase6_uart_burst.gprj": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/pool-timing-v1/route27/phase6_uart_burst/phase6_uart_burst.gprj.gz",
+      "archive_sha256": "99943b89cb85e1ebb1dbf19eed18e4a39fe13c43edb02788736de9a06c684c36",
+      "bytes": 2604,
+      "sha256": "c08840cc9da6a18c359e0f372408defe13de71a4f31117efe1962b2ae1d353fb"
+    },
+    "work/phase6/pool-timing-v1/route27/report.json": {
+      "archive": "docs/research/evidence/phase6/novelty-nonstream-v1/artifacts/work/phase6/pool-timing-v1/route27/report.json.gz",
+      "archive_sha256": "769faed9418e7ff22ab2065b504680303e0850457bee05657263ff13a29788c4",
+      "bytes": 1548,
+      "sha256": "ee18f7f5345ade774622d4ce5dafcbf692b5eaa12b371b45e0163b8c8927865b"
+    }
+  },
+  "checks": {
+    "physical": {
+      "bitstream_sha256": "3e943639382e4efea62d4d2072c016fa40eacc7a97ef6bad7f5bfdc69d8dafce",
+      "clock_hz": 27000000,
+      "exact_records": 10,
+      "median_cycles": {
+        "kws": 1201854,
+        "vww": 2441608
+      }
+    },
+    "route": {
+      "baseline_engine_sha256": "c347336ec58503f26abc47094289bd7926fcc5ed2515eca758a4b7dbc7f6d48a",
+      "baseline_project_sha256": "c08840cc9da6a18c359e0f372408defe13de71a4f31117efe1962b2ae1d353fb",
+      "candidate_engine_sha256": "b1d43101879cb173257425d5c0bcebf13077b84cee3a9e4892b8b02b240d4b56",
+      "candidate_project_sha256": "9fb284bba16705b07d9d682e783e18332b95daa9dd0f011f1a8d49456ef50629",
+      "changed_sources": {
+        "work/phase6/pool-timing-v1/engine.sv": "work/phase6/novelty-contracts-v1/engine.sv"
+      },
+      "project_source_count": 18
+    }
+  },
+  "excluded_generated_files": {
+    "work/phase6/channel-compaction-v1/fused/fixtures/kws-pinned-compacted-fused-timed/commands.bin": "6f4499cd0b5f87cc49230c0afe4ffec07806741978660762cd7a5e5ffda3fe31",
+    "work/phase6/channel-compaction-v1/fused/fixtures/kws-pinned-compacted-fused-timed/payload.bin": "04cd8f5e9023b178962b74e18e27aeb85ce91a8b8fce9b05f0f2085ef9d120be",
+    "work/phase6/channel-compaction-v1/fused/fixtures/kws-pinned-compacted-fused-timed/schedule.json": "ad07b5876083b88d09bb20bfb2a5a695c2bb1c33c371b280c870b59c4560deca",
+    "work/phase6/novelty-constants-v1/threepair/fixtures/vww-pinned-known-compacted-strip3-7-11-timed/commands.bin": "d54d9d97179cc9112f3321239a4d731ca4451d21b28bb9efaa3a21d348ca805d",
+    "work/phase6/novelty-constants-v1/threepair/fixtures/vww-pinned-known-compacted-strip3-7-11-timed/payload.bin": "061a1b3357a5983fb6e27529a0e8e1bd5e4f8fdc6bb382b30d2a9657d3bf0685",
+    "work/phase6/novelty-contracts-v1/fixtures/kws-pinned-compacted-fused-check/payload.bin": "cc723327028261f26a7dd9e3ff13983890277f81a13dacff823179e92cdcc48c",
+    "work/phase6/novelty-contracts-v1/fixtures/kws-pinned-compacted-fused-timed/payload.bin": "fd34682a7f5b8b62a73470c9bc6b49ad3a0e1c3ac1da34fd4a436efc07a30869",
+    "work/phase6/novelty-contracts-v1/fixtures/kws-stress-compacted-fused-check/payload.bin": "cc723327028261f26a7dd9e3ff13983890277f81a13dacff823179e92cdcc48c",
+    "work/phase6/novelty-contracts-v1/fixtures/vww-pinned-compacted-fused-check/payload.bin": "cee7625aa70c4c7dcfe3ac097b90c16f1112efb70af474ee6ffbe3a773b73ed4",
+    "work/phase6/novelty-contracts-v1/fixtures/vww-pinned-compacted-fused-timed/payload.bin": "b8d65bf909e3983f78911aaa44d5c44f4c6dd600a6e13acb911bed00a7271916",
+    "work/phase6/novelty-contracts-v1/fixtures/vww-stress-compacted-fused-check/payload.bin": "cee7625aa70c4c7dcfe3ac097b90c16f1112efb70af474ee6ffbe3a773b73ed4",
+    "work/phase6/novelty-contracts-v1/route27/phase6_uart_burst/impl/pnr/phase6_uart_burst.fs": "8869910f6f79d76da2a3e3378a4d829beef39e03142d420f805fc42cd3947d23",
+    "work/phase6/pool-timing-v1/route27/phase6_uart_burst/impl/pnr/phase6_uart_burst.fs": "3e943639382e4efea62d4d2072c016fa40eacc7a97ef6bad7f5bfdc69d8dafce",
+    "work/phase6/strip-fusion-pair7-v1/full/fixtures/vww-pinned-compacted-strip3-7-11-timed/commands.bin": "637af9c45f7e25a785d7d96ef01cb946483e3612ed95e26c7156e1fdac23680e",
+    "work/phase6/strip-fusion-pair7-v1/full/fixtures/vww-pinned-compacted-strip3-7-11-timed/payload.bin": "b8703e64eef8160898002fa687558ab419f920413868f9b01aa7e45de1121bf7",
+    "work/phase6/strip-fusion-pair7-v1/full/fixtures/vww-pinned-compacted-strip3-7-11-timed/schedule.json": "85ca19e549338a5199cd29f2948d0824da38f41ed15b78375027dc88ffdb105f",
+    "work/phase6/strip-fusion-pair7-v1/full/report.json": "50a80f10f9260c211ccdd81c95deb7427d9f981c8087355ea7ea5048fdce4fb2"
+  },
+  "groups": {
+    "methods": [
+      "tools/phase6/archive_novelty_nonstream.py",
+      "tools/phase6/novelty_zero_block.py",
+      "tools/phase6/novelty_zero_block_profile.py",
+      "tools/phase6/novelty_zero_bypass.py",
+      "tools/phase6/novelty_contract.py",
+      "tools/phase6/novelty_contract_edges.py",
+      "tools/phase6/novelty_constants.py",
+      "tools/phase6/novelty_constants_threepair.py",
+      "tools/phase6/novelty_constants_decision.py",
+      "tools/phase6/strip_fusion_vww.py",
+      "tools/phase6/strip_fusion_pair11.py",
+      "tools/phase6/strip_fusion_pair7.py",
+      "test/phase6/native.cpp",
+      "work/phase6/novelty-zero-block-v1/native-profile/native_profile.cpp",
+      "docs/research/PHASE_6_ZERO_BLOCK_SCREEN_V1.md",
+      "docs/research/PHASE_6_NONSTREAM_NOVELTY_V1.md"
+    ],
+    "novelty_evidence": [
+      "work/phase6/novelty-zero-block-v1/report.json",
+      "work/phase6/novelty-zero-block-v1/native-profile/report.json",
+      "work/phase6/novelty-zero-block-v1/native-profile/kws-s0.json",
+      "work/phase6/novelty-zero-block-v1/native-profile/kws-s6063.json",
+      "work/phase6/novelty-zero-block-v1/native-profile/vww-s0.json",
+      "work/phase6/novelty-zero-block-v1/native-profile/vww-s6063.json",
+      "work/phase6/novelty-zero-bypass-v1/report.json",
+      "work/phase6/novelty-contracts-v1/report.json",
+      "work/phase6/novelty-contracts-v1/edges/report.json",
+      "work/phase6/novelty-contracts-v1/edges/results.xml",
+      "work/phase6/novelty-contracts-v1/decision.json",
+      "work/phase6/novelty-contracts-v1/engine.sv",
+      "work/phase6/novelty-contracts-v1/native/kws-pinned-compacted-fused-check-s0.json",
+      "work/phase6/novelty-contracts-v1/native/kws-pinned-compacted-fused-check-s6063.json",
+      "work/phase6/novelty-contracts-v1/native/kws-pinned-compacted-fused-timed-s0.json",
+      "work/phase6/novelty-contracts-v1/native/kws-stress-compacted-fused-check-s0.json",
+      "work/phase6/novelty-contracts-v1/native/kws-stress-compacted-fused-check-s6063.json",
+      "work/phase6/novelty-contracts-v1/native/original-replay.json",
+      "work/phase6/novelty-contracts-v1/native/vww-pinned-compacted-fused-check-s0.json",
+      "work/phase6/novelty-contracts-v1/native/vww-pinned-compacted-fused-check-s6063.json",
+      "work/phase6/novelty-contracts-v1/native/vww-pinned-compacted-fused-timed-s0.json",
+      "work/phase6/novelty-contracts-v1/native/vww-stress-compacted-fused-check-s0.json",
+      "work/phase6/novelty-contracts-v1/native/vww-stress-compacted-fused-check-s6063.json",
+      "work/phase6/novelty-constants-v1/report.json",
+      "work/phase6/novelty-constants-v1/certificate.json",
+      "work/phase6/novelty-constants-v1/fused/report.json",
+      "work/phase6/novelty-constants-v1/threepair/report.json",
+      "work/phase6/novelty-constants-v1/decision.json",
+      "work/phase6/novelty-constants-v1/fused/vww-pinned-known-compacted-fused-check-s0.json",
+      "work/phase6/novelty-constants-v1/fused/vww-pinned-known-compacted-fused-check-s6063.json",
+      "work/phase6/novelty-constants-v1/fused/vww-pinned-known-compacted-fused-timed-s0.json",
+      "work/phase6/novelty-constants-v1/fused/vww-pinned-known-compacted-fused-timed-s6063.json",
+      "work/phase6/novelty-constants-v1/fused/vww-stress-known-compacted-fused-check-s0.json",
+      "work/phase6/novelty-constants-v1/fused/vww-stress-known-compacted-fused-check-s6063.json",
+      "work/phase6/novelty-constants-v1/threepair/vww-pinned-known-compacted-strip3-7-11-check-s0.json",
+      "work/phase6/novelty-constants-v1/threepair/vww-pinned-known-compacted-strip3-7-11-check-s6063.json",
+      "work/phase6/novelty-constants-v1/threepair/vww-pinned-known-compacted-strip3-7-11-timed-s0.json",
+      "work/phase6/novelty-constants-v1/threepair/vww-pinned-known-compacted-strip3-7-11-timed-s6063.json",
+      "work/phase6/novelty-constants-v1/threepair/vww-stress-known-compacted-strip3-7-11-check-s0.json",
+      "work/phase6/novelty-constants-v1/threepair/vww-stress-known-compacted-strip3-7-11-check-s6063.json",
+      "work/phase6/novelty-constants-v1/threepair/fixtures/vww-pinned-known-compacted-strip3-7-11-check/schedule.json",
+      "work/phase6/novelty-constants-v1/threepair/fixtures/vww-pinned-known-compacted-strip3-7-11-timed/schedule.json",
+      "work/phase6/novelty-constants-v1/threepair/fixtures/vww-stress-known-compacted-strip3-7-11-check/schedule.json"
+    ],
+    "physical_baseline": [
+      "work/phase6/pair7-fusion-board-v1/physical-short-v1/plan.json",
+      "work/phase6/pair7-fusion-board-v1/physical-short-v1/report.json",
+      "work/phase6/pair7-fusion-board-v1/physical-short-v1/records.jsonl",
+      "work/phase6/pair7-fusion-board-v1/physical-short-v1/seal.json",
+      "work/phase6/pair7-fusion-board-v1/physical-short-v1/program.log",
+      "work/phase6/pair7-fusion-board-v1/physical-short-v1/pair7-comparison.json",
+      "work/phase6/pair7-fusion-board-v1/physical-short-v1/pair7-seal.json"
+    ],
+    "route_sources": [
+      "hardware/phase4_sdram/bist.sdc",
+      "hardware/phase4_sdram/tiled_host.cst",
+      "rtl/phase6/uart_burst_bridge.sv",
+      "rtl/phase6/uart_burst_command.sv",
+      "rtl/v2/hs_sdram_burst_port.sv",
+      "rtl/v2/requantizer.sv",
+      "rtl/v2/scratchpad.sv",
+      "rtl/v2/sdram_refresh.sv",
+      "rtl/v2/target_pkg.sv",
+      "rtl/v2/tile_dma.sv",
+      "rtl/v2/tile_sequencer.sv",
+      "rtl/v2/tiled_core.sv",
+      "rtl/v2/uart_rx.sv",
+      "rtl/v2/uart_tx.sv",
+      "work/phase4/ip-generated/sdram_controller_hs.v",
+      "work/phase6/pool-timing-v1/host27.sv",
+      "work/phase6/pool-timing-v1/pll27.v"
+    ],
+    "routes": [
+      "work/phase6/pool-timing-v1/engine.sv",
+      "work/phase6/pool-timing-v1/build27.tcl",
+      "work/phase6/pool-timing-v1/route27/report.json",
+      "work/phase6/pool-timing-v1/route27/phase6_uart_burst/phase6_uart_burst.gprj",
+      "work/phase6/pool-timing-v1/route27/phase6_uart_burst/impl/pnr/phase6_uart_burst.rpt.txt",
+      "work/phase6/pool-timing-v1/route27/phase6_uart_burst/impl/pnr/phase6_uart_burst_tr_content.html",
+      "work/phase6/novelty-contracts-v1/route27/report.json",
+      "work/phase6/novelty-contracts-v1/route27/phase6_uart_burst/phase6_uart_burst.gprj",
+      "work/phase6/novelty-contracts-v1/route27/phase6_uart_burst/impl/pnr/phase6_uart_burst.rpt.txt",
+      "work/phase6/novelty-contracts-v1/route27/phase6_uart_burst/impl/pnr/phase6_uart_burst_tr_content.html"
+    ]
+  },
+  "limitations": [
+    "No physical candidate speedup measured",
+    "No zero-block RTL candidate or routed result",
+    "Only the prior selected baseline has physical board evidence"
+  ],
+  "original_root": "/Users/sayat/Documents/GitHub/tinyML_accelerator",
+  "schema": 1,
+  "scope": "Phase 6 experiments 1, 2, 4; experiment 3 excluded by user",
+  "status": "sealed-nonstream-screen-archive"
+}
