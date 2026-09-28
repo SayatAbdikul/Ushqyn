@@ -1,5 +1,18 @@
 # Phase 6 — boardless milestone, 2026-09-26
 
+**Matched baseline update (2026-09-28):** the
+[B1/B2/B4 campaign](PHASE_6_MATCHED_BASELINES_V1.md) passes 30/30 exact
+executions on one 27 MHz image. Native-tuned B1 and B2 receive the common graph,
+arithmetic, engine and eligible prefetch optimizations. B4 measures 44.513 ms
+KWS and 90.429 ms VWW; its two-model geometric-mean speedup is 1.116× over
+B1 and only 1.025× over B2. B2's KWS program is byte-identical to B4. A
+restricted DeFiNES-derived eight-cut catalogue selects the byte-identical B4
+VWW schedule. A six-tile 8×16/8×8 two-dimensional VWW schedule now composes
+on the same image and passes exact full-model native RTL, but is slower than
+the selected full-width strips. Pinned/stress intermediate checks pass in
+native RTL; its physical comparison remains pending.
+**B03 and G6 remain open.**
+
 **Latest short-screen result (2026-09-27):** the
 [five follow-up experiments](PHASE_6_FIVE_EXPERIMENTS_V1.md) yield an exact
 27 MHz pooled core, compiler channel compaction, and an executable
@@ -39,7 +52,7 @@ image changed, or Phase 5 job interrupted.
 | S01 | Independent timing/placement/resource certificates; halo and INT32 reduction contracts; quantization-preserving segment executor; real-model candidates and independent command replay | Bind fused live buffers, port traces and transfers to actual lowering; agree fair B3 candidates; prove complete physical SRAM fit |
 | S02 | Exact integer-time/address enumeration and catalogue DP; independent exhaustive timing/address and path oracles | Extend the declared catalogue to the final fused/B3-compatible implementation |
 | S03 | Bounded beam search, valid catalogue bounds, feasible fallback, measured DMA cost integration; KWS/VWW runtime and exact-gap checks | Optimize the actual fusion/recompute/placement space; calibrate new costs and evaluate held-out prediction errors |
-| S04 | DMA-cost ablation, paired serialized/prefetch artifacts, cache/recompute semantic sweeps, pending physical matrix, negative result recorded | Matched B1/B2/B3/B4 measurements and causal fusion/placement/bank/overlap ablations; an explained physical benefit |
+| S04 | DMA-cost ablation, paired serialized/prefetch artifacts, cache/recompute semantic sweeps, 30-run matched B1/B2/B4 physical screen, negative result recorded | Full B3-compatible physical comparison and causal fusion/placement/bank/overlap ablations; an explained physical benefit |
 | S05 | Optional dynamic-quantization experiment deferred | Consider only after the main mechanism demonstrates a benefit |
 
 B03's dependency has not been waived. `retain-last-region` is a restricted

@@ -101,6 +101,15 @@ frozen accuracy payloads are materialized, and the full switch run is in
 progress. Complete accuracy/stress campaigns and matched B1/B2/B3
 measurements remain required for G5.
 
+**B03 update, 2026-09-28:** [matched B1/B2/B4 tuning and 30 exact board
+runs](research/PHASE_6_MATCHED_BASELINES_V1.md) now use one pinned 27 MHz
+image and common KWS/VWW arithmetic and host boundary. The restricted
+DeFiNES-derived full-width catalogue ties B4 on VWW. A full-model six-tile
+8×16/8×8 candidate is exact in native RTL on the same image but slower in the
+two tested stall seeds; pinned/stress intermediate checks pass, while the board comparison and broader
+published search space remain open. The restricted tie is not a full B3
+reproduction.
+
 ## P6 — weeks 21–25: prove the proposed mechanism matters
 
 - [ ] **S01 — Build legal schedule candidates and certificates.** Add `compiler/scheduler/` with fixed-quantized-IR candidates, halos, tensor live ranges, partial sums, quantization barriers, banks/ports and transfer edges. Start with layer-wise and a bounded fused-segment catalog. **Done:** independent checker accepts every emitted schedule; hand-derived and enumerated cases validate legality; no arithmetic transform silently changes rounding/scales. **Depends:** R05, M01, B03.

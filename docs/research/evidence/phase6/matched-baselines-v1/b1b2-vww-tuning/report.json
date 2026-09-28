@@ -1,0 +1,279 @@
+{
+  "alternatives": {
+    "B1_full_prefetch": {
+      "half": false,
+      "pinned_candidate_files": {
+        "checks.txt": "7fe170b594022a583bc22e129db3badbcbc6a8ff868483c71a95b09793d668f2",
+        "commands.bin": "f30ab03e17e94b35fd0101e5be9b19f21a92fd84ff07aed39f1cd8bec49c7c8e",
+        "input.bin": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+        "output.bin": "6a0cfa0be8aa6d3a3137a6926b09aa569b91c44d1b845612779c2d55e019dbc2",
+        "payload.bin": "ebafcf7e33d523d3f4f28c3fcabc685e1ea5350748b1d416e421dfc48a236c67",
+        "schedule.json": "8c410e135299e9a10e3aa90c2bd67b865e33e5f84ca02901bc523eaac19c46a2"
+      },
+      "policy": "B1",
+      "prefetch": true,
+      "stress_check": {
+        "command_stats": {
+          "commands": 617,
+          "dma_load_bytes": 436997,
+          "dma_load_commands": 191,
+          "dma_store_bytes": 385806,
+          "dma_store_commands": 76,
+          "engine_runs": 41
+        },
+        "directory": "work/phase6/matched-baselines-v1/b1b2-vww-tuning/fixtures/b1_full_prefetch-stress_check",
+        "eligible_next_input_bytes": 0,
+        "eligible_next_input_transfers": 0,
+        "eligible_prefetch_bytes": 58240,
+        "files": {
+          "checks.txt": "c0c51c18f44becdee4da3246c1c25bb44666a00fad5893b6ae63d39169d49644",
+          "commands.bin": "56e8461959b5b7d7250a5e612b236bb80980dba77891e934403faf127b2ecc83",
+          "input.bin": "6bc2750f0f7644d3fdbade499feb315094ee9ca51e868f14c3d897d96fe13988",
+          "layer-10.bin": "bf9e0fb99ef2ae15eec295a4cdf49df7cb176ebcb5c922bfc13568e2c9ee9497",
+          "layer-12.bin": "bf5fec26d6c7f993a4819f9cf1156a94e8a34c0f15232deeb90701286e13ebd9",
+          "layer-14.bin": "cb3063807da5c845c7fe9d8a52bab79126c4b0a1260e7c6e7f1c3fec0d6e5493",
+          "layer-16.bin": "2ffac882d4fc1e8fcd435aa469c55280c4a88f12030f9de1d07dfbbdc4992b70",
+          "layer-18.bin": "705900d084c03c572b55f0d7e1a452c3ad40e41c8193803bb07e7c317fd24439",
+          "layer-2.bin": "2c636d036840a776b5d80fd40488846e9495f704a51cf7dd8ba53bb6ab4329c4",
+          "layer-20.bin": "001dcfa0aaac55c1bcf7b339962de71bb32c515abb26a8288aa35ebd9206d61d",
+          "layer-22.bin": "3f2bcb088c0cbb741fbc9a29376af737925535070dc5435c579a59e74e67de19",
+          "layer-24.bin": "016abc2917afcdadf21966bdc9f981da995dc6f72222cd382f03318e4ee5bf5a",
+          "layer-26.bin": "d7898437c308bb8bf62d8fa5cff3755d343be60bcef310c083924050699337bd",
+          "layer-28.bin": "01edda43f2ca1443ef9d904c71c1a66f5c841492583c3617c5528bd4f585c4e5",
+          "layer-30.bin": "07a8e44c9a1f5a2a637d9b7f9b90492e4378962b7dc55f34c988f87fef7a9afb",
+          "layer-32.bin": "f3378c014ded18a5c9c9a309e6e0e597e547fa20fb2ccec16d3cad50d2739d7d",
+          "layer-34.bin": "410de0285796aabb80a7493a9e190b7de9cafe91ee56794a863d6ae463985a75",
+          "layer-36.bin": "095e87ea56b267d0649aaa760cade1091c024798f7d478be5d671f0a82d0cf5c",
+          "layer-38.bin": "f0afd094cc018ad81ee1a01342d305232ac50a3a8599c6861e01db7b87d1a92e",
+          "layer-4.bin": "4f06dc1e1cee9026fe30e9fe1f770faf5993b5685fbe2d68afb63020ecc87f41",
+          "layer-40.bin": "e76fa78e6eb4027a14e8e372e9d04b9018b22adee2ce74049aa9c0d77ad855eb",
+          "layer-42.bin": "c84971511c2611c4e1e9c7d9a6776b8488eab846b4247bf01a54860932416e59",
+          "layer-44.bin": "c6df6b32f142b717fbf748f700cfe26f69bb15b1fd4a529a678153253fed0fc7",
+          "layer-46.bin": "50c70adaf1dcb1b0132f47f2dd524ad2f891e3170dae2fa16699c5c5ac9d371a",
+          "layer-48.bin": "0a75d1903b6fbc1ee7af90f0399b9a8c9a4989e60e5a2dc08718ddf29684e65a",
+          "layer-50.bin": "f6e3b9d69f92b18d45b2d330b45bf3a540cd9a99f5000b02945ed3850e13bcc8",
+          "layer-52.bin": "d36bba949333034ea838987cc444cc57cb9f3dc84be0f76af4f8ae5e406cea63",
+          "layer-54.bin": "199c520ddfa126571a41c55c2c95ea7f98b40bdd649c13b8f9fdf37a0aa2afd0",
+          "layer-55.bin": "661b6cbe9b7c2188b354676cce5e8b5675ed31d9cf25c83c22455bf001708305",
+          "layer-57.bin": "e8023ba9eb60c761f277a6b45509ba8a62045a9dc67ccc1b29626ced54fe4ffb",
+          "layer-6.bin": "8df03b710a020075c4253b34447be79eb00579a543aada829b4b42c21cefe098",
+          "layer-8.bin": "9b4e1a3066f6cf7087173f6c26749fcaecf4c10598767f4b07bafbf62bfee551",
+          "output.bin": "e8023ba9eb60c761f277a6b45509ba8a62045a9dc67ccc1b29626ced54fe4ffb",
+          "payload.bin": "2a99799908c9e204063a3052cd23bc47ff596a622d7de027133a9c1273f2e51d",
+          "schedule.json": "d8b4bd954cbd97fcccce90236618b27ac67075eae9402a8cebb42062c018adc8"
+        },
+        "half": false,
+        "lifetime": {
+          "fused_runs": 33,
+          "scope": "immutable LUT readiness and full RUN/DMA live-region exclusion",
+          "status": "passed"
+        },
+        "model_input_sha256": "b1b8f03a9bda3fdc8208bfb72cc52c9054fbd8a85a1af18cd57fb1c822056bc1",
+        "native": [
+          {
+            "dma_cycles": 309629,
+            "elapsed_cycles": 2473148,
+            "engine_cycles": 2183884,
+            "overlap_cycles": 22176,
+            "physical_board": false,
+            "report": "work/phase6/matched-baselines-v1/b1b2-vww-tuning/fixtures/b1_full_prefetch-stress_check-native-s0.json",
+            "report_sha256": "67445ca8b8798c4524aaa2fabaaa9b7e1987cfdb3da5057d696a0d4635da2a4b",
+            "stall_seed": 0,
+            "status": "passed",
+            "tensor_checks": 30,
+            "total_simulated_cycles": 2498972
+          },
+          {
+            "dma_cycles": 443998,
+            "elapsed_cycles": 2595187,
+            "engine_cycles": 2183919,
+            "overlap_cycles": 34549,
+            "physical_board": false,
+            "report": "work/phase6/matched-baselines-v1/b1b2-vww-tuning/fixtures/b1_full_prefetch-stress_check-native-s6063.json",
+            "report_sha256": "23832b40b03b00bec8bf99607243e2e9ed6c76f9e8b3added3481c6b3ec2c45e",
+            "stall_seed": 6063,
+            "status": "passed",
+            "tensor_checks": 30,
+            "total_simulated_cycles": 2621011
+          }
+        ],
+        "output_sha256": "e8023ba9eb60c761f277a6b45509ba8a62045a9dc67ccc1b29626ced54fe4ffb",
+        "policy": "B1",
+        "prefetch": true,
+        "prefetch_bytes": 58240,
+        "replay": {
+          "dma_bytes": {
+            "from_sram": 385806,
+            "to_sram": 436997
+          },
+          "engine_runs": 41,
+          "final_output_bytes": 2,
+          "scope": "symbolic command replay with independent integer oracle; no RTL timing proof",
+          "status": "passed"
+        },
+        "same_layer_adjacencies": 6,
+        "sample": "stress",
+        "seed_replay": {
+          "dma_bytes": {
+            "from_sram": 578451,
+            "to_sram": 433301
+          },
+          "engine_runs": 74,
+          "final_output_bytes": 2,
+          "scope": "symbolic command replay with independent integer oracle; no RTL timing proof",
+          "status": "passed"
+        },
+        "selected_b4_identity": {
+          "directory": "work/phase6/strip-fusion-pair7-v1/full/fixtures/vww-stress-compacted-strip3-7-11-check",
+          "files_sha256": {
+            "input.bin": "6bc2750f0f7644d3fdbade499feb315094ee9ca51e868f14c3d897d96fe13988",
+            "output.bin": "e8023ba9eb60c761f277a6b45509ba8a62045a9dc67ccc1b29626ced54fe4ffb"
+          }
+        },
+        "snapshots": true
+      }
+    },
+    "B2_half_prefetch": {
+      "half": true,
+      "pinned_candidate_files": {
+        "checks.txt": "7fe170b594022a583bc22e129db3badbcbc6a8ff868483c71a95b09793d668f2",
+        "commands.bin": "8f0417eb1001b415e843a0fcf774eff31e48df628e7f48370dd6b8855dba4912",
+        "input.bin": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+        "output.bin": "6a0cfa0be8aa6d3a3137a6926b09aa569b91c44d1b845612779c2d55e019dbc2",
+        "payload.bin": "62a6c61e1efe38721d317a33e87e7c3355047e3a9ab844ada4496e833cdea099",
+        "schedule.json": "bc05974d8ed1a5daf1f52129404bb3c95fb8c62fa0edd87e13ff57934a116928"
+      },
+      "policy": "B2",
+      "prefetch": true,
+      "stress_check": {
+        "command_stats": {
+          "commands": 685,
+          "dma_load_bytes": 279728,
+          "dma_load_commands": 213,
+          "dma_store_bytes": 362825,
+          "dma_store_commands": 79,
+          "engine_runs": 50
+        },
+        "directory": "work/phase6/matched-baselines-v1/b1b2-vww-tuning/fixtures/b2_half_prefetch-stress_check",
+        "eligible_next_input_bytes": 0,
+        "eligible_next_input_transfers": 0,
+        "eligible_prefetch_bytes": 23800,
+        "files": {
+          "checks.txt": "6a080932f61ef2e55bf02847c79706ccfd703e2e8877f1d9a6ea915bb18bec52",
+          "commands.bin": "c2ae68b74580d210a7532de84eafc939b7da587f14997eaf297746c7650933ec",
+          "input.bin": "6bc2750f0f7644d3fdbade499feb315094ee9ca51e868f14c3d897d96fe13988",
+          "layer-10.bin": "bf9e0fb99ef2ae15eec295a4cdf49df7cb176ebcb5c922bfc13568e2c9ee9497",
+          "layer-12.bin": "bf5fec26d6c7f993a4819f9cf1156a94e8a34c0f15232deeb90701286e13ebd9",
+          "layer-14.bin": "cb3063807da5c845c7fe9d8a52bab79126c4b0a1260e7c6e7f1c3fec0d6e5493",
+          "layer-16.bin": "2ffac882d4fc1e8fcd435aa469c55280c4a88f12030f9de1d07dfbbdc4992b70",
+          "layer-18.bin": "705900d084c03c572b55f0d7e1a452c3ad40e41c8193803bb07e7c317fd24439",
+          "layer-2.bin": "2c636d036840a776b5d80fd40488846e9495f704a51cf7dd8ba53bb6ab4329c4",
+          "layer-20.bin": "001dcfa0aaac55c1bcf7b339962de71bb32c515abb26a8288aa35ebd9206d61d",
+          "layer-22.bin": "3f2bcb088c0cbb741fbc9a29376af737925535070dc5435c579a59e74e67de19",
+          "layer-24.bin": "016abc2917afcdadf21966bdc9f981da995dc6f72222cd382f03318e4ee5bf5a",
+          "layer-26.bin": "d7898437c308bb8bf62d8fa5cff3755d343be60bcef310c083924050699337bd",
+          "layer-28.bin": "01edda43f2ca1443ef9d904c71c1a66f5c841492583c3617c5528bd4f585c4e5",
+          "layer-30.bin": "07a8e44c9a1f5a2a637d9b7f9b90492e4378962b7dc55f34c988f87fef7a9afb",
+          "layer-32.bin": "f3378c014ded18a5c9c9a309e6e0e597e547fa20fb2ccec16d3cad50d2739d7d",
+          "layer-34.bin": "410de0285796aabb80a7493a9e190b7de9cafe91ee56794a863d6ae463985a75",
+          "layer-36.bin": "095e87ea56b267d0649aaa760cade1091c024798f7d478be5d671f0a82d0cf5c",
+          "layer-38.bin": "f0afd094cc018ad81ee1a01342d305232ac50a3a8599c6861e01db7b87d1a92e",
+          "layer-4.bin": "4f06dc1e1cee9026fe30e9fe1f770faf5993b5685fbe2d68afb63020ecc87f41",
+          "layer-40.bin": "e76fa78e6eb4027a14e8e372e9d04b9018b22adee2ce74049aa9c0d77ad855eb",
+          "layer-42.bin": "c84971511c2611c4e1e9c7d9a6776b8488eab846b4247bf01a54860932416e59",
+          "layer-44.bin": "c6df6b32f142b717fbf748f700cfe26f69bb15b1fd4a529a678153253fed0fc7",
+          "layer-46.bin": "50c70adaf1dcb1b0132f47f2dd524ad2f891e3170dae2fa16699c5c5ac9d371a",
+          "layer-48.bin": "0a75d1903b6fbc1ee7af90f0399b9a8c9a4989e60e5a2dc08718ddf29684e65a",
+          "layer-50.bin": "f6e3b9d69f92b18d45b2d330b45bf3a540cd9a99f5000b02945ed3850e13bcc8",
+          "layer-52.bin": "d36bba949333034ea838987cc444cc57cb9f3dc84be0f76af4f8ae5e406cea63",
+          "layer-54.bin": "199c520ddfa126571a41c55c2c95ea7f98b40bdd649c13b8f9fdf37a0aa2afd0",
+          "layer-55.bin": "661b6cbe9b7c2188b354676cce5e8b5675ed31d9cf25c83c22455bf001708305",
+          "layer-57.bin": "e8023ba9eb60c761f277a6b45509ba8a62045a9dc67ccc1b29626ced54fe4ffb",
+          "layer-6.bin": "8df03b710a020075c4253b34447be79eb00579a543aada829b4b42c21cefe098",
+          "layer-8.bin": "9b4e1a3066f6cf7087173f6c26749fcaecf4c10598767f4b07bafbf62bfee551",
+          "output.bin": "e8023ba9eb60c761f277a6b45509ba8a62045a9dc67ccc1b29626ced54fe4ffb",
+          "payload.bin": "c036768ac89a2de260db0b515747114bac1a111da01bc6fda6fbea8050b3721b",
+          "schedule.json": "ec47f6d01f88dff2a4f9aaf480ce1ab941946fd43a5a7ea79e9dcb18940e0d37"
+        },
+        "half": true,
+        "lifetime": {
+          "fused_runs": 44,
+          "scope": "immutable LUT readiness and full RUN/DMA live-region exclusion",
+          "status": "passed"
+        },
+        "model_input_sha256": "b1b8f03a9bda3fdc8208bfb72cc52c9054fbd8a85a1af18cd57fb1c822056bc1",
+        "native": [
+          {
+            "dma_cycles": 241567,
+            "elapsed_cycles": 2406188,
+            "engine_cycles": 2170810,
+            "overlap_cycles": 8736,
+            "physical_board": false,
+            "report": "work/phase6/matched-baselines-v1/b1b2-vww-tuning/fixtures/b2_half_prefetch-stress_check-native-s0.json",
+            "report_sha256": "46293fca4d1c31dead835f7884bb32d3419d940a6b685e5007950232c08787e6",
+            "stall_seed": 0,
+            "status": "passed",
+            "tensor_checks": 30,
+            "total_simulated_cycles": 2434834
+          },
+          {
+            "dma_cycles": 331507,
+            "elapsed_cycles": 2493027,
+            "engine_cycles": 2170773,
+            "overlap_cycles": 11808,
+            "physical_board": false,
+            "report": "work/phase6/matched-baselines-v1/b1b2-vww-tuning/fixtures/b2_half_prefetch-stress_check-native-s6063.json",
+            "report_sha256": "3a20b48763e8c2b958621d8a31647756d8e4b2f745a85f9c7ec376c482335b00",
+            "stall_seed": 6063,
+            "status": "passed",
+            "tensor_checks": 30,
+            "total_simulated_cycles": 2521673
+          }
+        ],
+        "output_sha256": "e8023ba9eb60c761f277a6b45509ba8a62045a9dc67ccc1b29626ced54fe4ffb",
+        "policy": "B2",
+        "prefetch": true,
+        "prefetch_bytes": 23800,
+        "replay": {
+          "dma_bytes": {
+            "from_sram": 362825,
+            "to_sram": 279728
+          },
+          "engine_runs": 50,
+          "final_output_bytes": 2,
+          "scope": "symbolic command replay with independent integer oracle; no RTL timing proof",
+          "status": "passed"
+        },
+        "same_layer_adjacencies": 17,
+        "sample": "stress",
+        "seed_replay": {
+          "dma_bytes": {
+            "from_sram": 555470,
+            "to_sram": 274800
+          },
+          "engine_runs": 94,
+          "final_output_bytes": 2,
+          "scope": "symbolic command replay with independent integer oracle; no RTL timing proof",
+          "status": "passed"
+        },
+        "selected_b4_identity": {
+          "directory": "work/phase6/strip-fusion-pair7-v1/full/fixtures/vww-stress-compacted-strip3-7-11-check",
+          "files_sha256": {
+            "input.bin": "6bc2750f0f7644d3fdbade499feb315094ee9ca51e868f14c3d897d96fe13988",
+            "output.bin": "e8023ba9eb60c761f277a6b45509ba8a62045a9dc67ccc1b29626ced54fe4ffb"
+          }
+        },
+        "snapshots": true
+      }
+    }
+  },
+  "baseline_report_sha256": "69ac8cd64a57463abbb0951e919144b0ed0a576c2c54c11880261b0aa65e3d18",
+  "image_bitstream_sha256": "3e943639382e4efea62d4d2072c016fa40eacc7a97ef6bad7f5bfdc69d8dafce",
+  "native_executable_sha256": "b97fbf944827a5345670f3603e7f10368a897e6bcb19d16cc56905d8e06d16ec",
+  "physical_board": false,
+  "schema": 1,
+  "source_sha256": {
+    "tools/phase6/screen_b1b2_vww_tuning.py": "864987e42af5968a74dea1b4eb876cd82ecf58f27b498d2dc62679e1db3780c4"
+  },
+  "status": "passed-native"
+}

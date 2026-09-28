@@ -1,0 +1,6181 @@
+{
+  "fixtures": {
+    "pinned_check": {
+      "directory": "work/phase6/matched-baselines-v1/b3-x-diagnostics-v1/fixtures/pinned_check",
+      "files": {
+        "checks.txt": "cd8f34f37c6bd49f75b50b0445c16154007421ac31e008e180b2a9f49b511258",
+        "commands.bin": "3dd203c4660a44411adb5c64c46a73c0c12acd8c3ed5bf763b0e557c942b8c26",
+        "input.bin": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+        "layer12-y0-x0.bin": "61af9b35ae2f4ddfb512a807bd09061cf245486f0746a1f046098c1b216a1166",
+        "layer12-y0-x16.bin": "4bbdfe37996b773a25553a4e37c36fd8d1fc08ecdcc5f6b1fc18cea7e58dad75",
+        "layer12-y16-x0.bin": "47b79f2d3d83d92de1938aee6d02172a4510c988785e2668b20e05f8e15ca5cf",
+        "layer12-y16-x16.bin": "b1a0a05804b578d226fa118793fb1eccd32d30470b7bd742748957dfae8fba15",
+        "layer12-y8-x0.bin": "597a035c28009ae09b563d5c02219cb1b9dba49c3f4e4b68a132f25f7a411f02",
+        "layer12-y8-x16.bin": "ed88abb4dd1a5140c3395b13084824606fd362445e0824d964bd4e67e8317478",
+        "layer14-full.bin": "b603387040561489782e1a77a666911711ae4cd72b2cea0a21907704a7769a8d",
+        "output.bin": "6a0cfa0be8aa6d3a3137a6926b09aa569b91c44d1b845612779c2d55e019dbc2",
+        "payload.bin": "8570fb1edae9c87d709faeebeccc095a2a5ba31e106f20920462c0e41335d1c2",
+        "schedule.json": "686ec25e61b4c2d56b15a3f9b2530dd5c9c375bb5bb1374572e67e888124ee4c"
+      },
+      "native": [
+        {
+          "dma_cycles": 228238,
+          "elapsed_cycles": 2589943,
+          "engine_cycles": 2361182,
+          "overlap_cycles": 5344,
+          "physical_board": false,
+          "report": "work/phase6/matched-baselines-v1/b3-x-diagnostics-v1/pinned_check-native-s0.json",
+          "report_sha256": "02622c472bcbc9c9ace6e399313a9c3e966ab6e515ba1c10e8e66bac4a106232",
+          "stall_seed": 0,
+          "status": "passed",
+          "tensor_checks": 8,
+          "total_simulated_cycles": 2651687
+        },
+        {
+          "dma_cycles": 366232,
+          "elapsed_cycles": 2727264,
+          "engine_cycles": 2361122,
+          "overlap_cycles": 5965,
+          "physical_board": false,
+          "report": "work/phase6/matched-baselines-v1/b3-x-diagnostics-v1/pinned_check-native-s6063.json",
+          "report_sha256": "086e4f37efdb6e51c443b294c263fe5941aa77d90bf110796de6a916270de28c",
+          "stall_seed": 6063,
+          "status": "passed",
+          "tensor_checks": 8,
+          "total_simulated_cycles": 2789008
+        }
+      ],
+      "reference_input_sha256": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+      "reference_output_sha256": "6a0cfa0be8aa6d3a3137a6926b09aa569b91c44d1b845612779c2d55e019dbc2",
+      "replay": {
+        "segment": {
+          "counts": {
+            "depthwise": 12,
+            "pack": 12,
+            "pointwise": 6,
+            "scatter": 6
+          },
+          "external_temp_bytes": 18432,
+          "output_sha256": "b603387040561489782e1a77a666911711ae4cd72b2cea0a21907704a7769a8d",
+          "prefix_preserved": true,
+          "status": "passed"
+        },
+        "source": {
+          "dma_bytes": {
+            "from_sram": 285065,
+            "to_sram": 206160
+          },
+          "engine_runs": 38,
+          "final_output_bytes": 2,
+          "scope": "symbolic full-model command replay with independent integer oracle, strip coordinates, and SRAM COPY provenance; no RTL timing proof",
+          "status": "passed"
+        },
+        "status": "passed"
+      },
+      "splice": {
+        "command_count": 1483,
+        "payload_sha256": "8570fb1edae9c87d709faeebeccc095a2a5ba31e106f20920462c0e41335d1c2",
+        "program_sha256": "3dd203c4660a44411adb5c64c46a73c0c12acd8c3ed5bf763b0e557c942b8c26",
+        "run_contracts_shifted": 548,
+        "source_commands_sha256": "637af9c45f7e25a785d7d96ef01cb946483e3612ed95e26c7156e1fdac23680e"
+      }
+    },
+    "stress_check": {
+      "directory": "work/phase6/matched-baselines-v1/b3-x-diagnostics-v1/fixtures/stress_check",
+      "files": {
+        "checks.txt": "cd8f34f37c6bd49f75b50b0445c16154007421ac31e008e180b2a9f49b511258",
+        "commands.bin": "3dd203c4660a44411adb5c64c46a73c0c12acd8c3ed5bf763b0e557c942b8c26",
+        "input.bin": "6bc2750f0f7644d3fdbade499feb315094ee9ca51e868f14c3d897d96fe13988",
+        "layer12-y0-x0.bin": "cf94ace9e57776ae83dcec8ecfa0592c1203805593fc82412f38d418aeeea804",
+        "layer12-y0-x16.bin": "c9e005f7cf2ad9542ccba0e4cda0fd9ef59c4eb2f2d563342d54554a7eb85c87",
+        "layer12-y16-x0.bin": "d81f37fd61f940612eae380ae70692fa12c9f5b136e845e48d8a955f506c8604",
+        "layer12-y16-x16.bin": "b6623dfd9800fc8a10d69aa58919d01f87e6016f06ecb44382e8a85e81aa7b3b",
+        "layer12-y8-x0.bin": "212117100a303a7dc8cf697ec28dd67a9eae607ea7375ddd2901233dc7440593",
+        "layer12-y8-x16.bin": "997b968d67b5ace7ecbb91b29dfe58daae574fb52fdaa5ca93b334d0e842927e",
+        "layer14-full.bin": "cb3063807da5c845c7fe9d8a52bab79126c4b0a1260e7c6e7f1c3fec0d6e5493",
+        "output.bin": "e8023ba9eb60c761f277a6b45509ba8a62045a9dc67ccc1b29626ced54fe4ffb",
+        "payload.bin": "8570fb1edae9c87d709faeebeccc095a2a5ba31e106f20920462c0e41335d1c2",
+        "schedule.json": "686ec25e61b4c2d56b15a3f9b2530dd5c9c375bb5bb1374572e67e888124ee4c"
+      },
+      "native": [
+        {
+          "dma_cycles": 228238,
+          "elapsed_cycles": 2589943,
+          "engine_cycles": 2361182,
+          "overlap_cycles": 5344,
+          "physical_board": false,
+          "report": "work/phase6/matched-baselines-v1/b3-x-diagnostics-v1/stress_check-native-s0.json",
+          "report_sha256": "02622c472bcbc9c9ace6e399313a9c3e966ab6e515ba1c10e8e66bac4a106232",
+          "stall_seed": 0,
+          "status": "passed",
+          "tensor_checks": 8,
+          "total_simulated_cycles": 2651687
+        },
+        {
+          "dma_cycles": 366232,
+          "elapsed_cycles": 2727264,
+          "engine_cycles": 2361122,
+          "overlap_cycles": 5965,
+          "physical_board": false,
+          "report": "work/phase6/matched-baselines-v1/b3-x-diagnostics-v1/stress_check-native-s6063.json",
+          "report_sha256": "086e4f37efdb6e51c443b294c263fe5941aa77d90bf110796de6a916270de28c",
+          "stall_seed": 6063,
+          "status": "passed",
+          "tensor_checks": 8,
+          "total_simulated_cycles": 2789008
+        }
+      ],
+      "reference_input_sha256": "6bc2750f0f7644d3fdbade499feb315094ee9ca51e868f14c3d897d96fe13988",
+      "reference_output_sha256": "e8023ba9eb60c761f277a6b45509ba8a62045a9dc67ccc1b29626ced54fe4ffb",
+      "replay": {
+        "segment": {
+          "counts": {
+            "depthwise": 12,
+            "pack": 12,
+            "pointwise": 6,
+            "scatter": 6
+          },
+          "external_temp_bytes": 18432,
+          "output_sha256": "cb3063807da5c845c7fe9d8a52bab79126c4b0a1260e7c6e7f1c3fec0d6e5493",
+          "prefix_preserved": true,
+          "status": "passed"
+        },
+        "source": {
+          "dma_bytes": {
+            "from_sram": 285065,
+            "to_sram": 206160
+          },
+          "engine_runs": 38,
+          "final_output_bytes": 2,
+          "scope": "symbolic full-model command replay with independent integer oracle, strip coordinates, and SRAM COPY provenance; no RTL timing proof",
+          "status": "passed"
+        },
+        "status": "passed"
+      },
+      "splice": {
+        "command_count": 1483,
+        "payload_sha256": "8570fb1edae9c87d709faeebeccc095a2a5ba31e106f20920462c0e41335d1c2",
+        "program_sha256": "3dd203c4660a44411adb5c64c46a73c0c12acd8c3ed5bf763b0e557c942b8c26",
+        "run_contracts_shifted": 548,
+        "source_commands_sha256": "637af9c45f7e25a785d7d96ef01cb946483e3612ed95e26c7156e1fdac23680e"
+      }
+    }
+  },
+  "model_source_sha256": {
+    "work/phase4/rtl-vww/expected.npz": "f5fbc256593bf1381f6f81e5508702e7d492f432fb54d729ca1885877592ebe5",
+    "work/phase4/rtl-vww/input.bin": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+    "work/phase4/rtl-vww/manifest.json": "b55d9e1d99d326ad8209f26f341eb7048d90d6f5cee68dadf93d6c4d3e6fb0fe",
+    "work/phase4/vww-calibration-rebased.json": "03dcc62a292a0b98e490026e50c1002a4b287e2910a5c54d89c894c22d5015d5",
+    "work/phase4/vww-logits.onnx": "42090afcfdd84130b4e9c0b3fca8993b138f9509d620de2fe915c71adef893b7"
+  },
+  "physical_board": false,
+  "schema": 1,
+  "scope": "pinned/stress full-model x-tile diagnostics, six layer12 tiles and full layer14",
+  "segment": {
+    "code_sha256": "690aeed735bb266d9ad10641c9fe85bce0b58d2b03e646e09af748e259c9044b",
+    "commands": 844,
+    "diagnostic_layer12_tiles": {
+      "y0-x0": {
+        "bytes": 4096,
+        "ext": 435680
+      },
+      "y0-x16": {
+        "bytes": 2048,
+        "ext": 439776
+      },
+      "y16-x0": {
+        "bytes": 4096,
+        "ext": 447968
+      },
+      "y16-x16": {
+        "bytes": 2048,
+        "ext": 452064
+      },
+      "y8-x0": {
+        "bytes": 4096,
+        "ext": 441824
+      },
+      "y8-x16": {
+        "bytes": 2048,
+        "ext": 445920
+      }
+    },
+    "max_copy_chain_descriptors": 256,
+    "output_temp_ext": 180832,
+    "payload_bytes": 435680,
+    "payload_sha256": "8570fb1edae9c87d709faeebeccc095a2a5ba31e106f20920462c0e41335d1c2",
+    "policy": "three 8-row bands; 16+8 x tiles",
+    "runs": [
+      {
+        "channels": 24,
+        "command": 50,
+        "copy_descriptors": 216,
+        "first_channel": 0,
+        "input_h": 9,
+        "input_w": 17,
+        "kind": "pack",
+        "packed_sram": 6288,
+        "pc": 17152,
+        "source_x_offset": 0,
+        "table_sha256": "528bbc8d61dddf6eabec30113f94c99cbecc9ffb25d6712e7027430e7a6668fe",
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "channels": 24,
+        "command": 60,
+        "descriptor_hex": "5553443202064b1590180000203f0000085200009853000009000000000c00001000000040000000030003000100010001000000010000000900110018001800",
+        "first_channel": 0,
+        "kind": "depthwise",
+        "pc": 0,
+        "table_sha256": "0c870b8a15877acace1d8d3c7a4d24e79fa143ba0811e5972a2cbd3976ac3297",
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "channels": 8,
+        "command": 80,
+        "copy_descriptors": 72,
+        "first_channel": 24,
+        "input_h": 9,
+        "input_w": 17,
+        "kind": "pack",
+        "packed_sram": 6288,
+        "pc": 20480,
+        "source_x_offset": 0,
+        "table_sha256": "5f1e65a6cd46fd02b20d549678760e3e7cfaf28d15341b3d0833e0fc90decfde",
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "channels": 8,
+        "command": 90,
+        "descriptor_hex": "5553443202064b1590180000204b0000085200009853000009000000000400001000000040000000030003000100010001000000010000000900110008000800",
+        "first_channel": 24,
+        "kind": "depthwise",
+        "pc": 0,
+        "table_sha256": "0c870b8a15877acace1d8d3c7a4d24e79fa143ba0811e5972a2cbd3976ac3297",
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "command": 102,
+        "descriptor_hex": "5553443202040316203f000090180000085200000856000020000000001000002000000040000000010001000100010000000000000000000800100020002000",
+        "kind": "pointwise",
+        "pc": 0,
+        "table_sha256": "2d7839292d209157723e00acd98ae236f983234f8123336bc79fc657f2c5b9c7",
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "command": 106,
+        "copy_descriptors": 256,
+        "kind": "scatter",
+        "pc": 10432,
+        "table_sha256": "cbb413f928332c3dfe532f30721c5899890ad63d1903729d3b0abac935b1b953",
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "channels": 24,
+        "command": 158,
+        "copy_descriptors": 216,
+        "first_channel": 0,
+        "input_h": 9,
+        "input_w": 9,
+        "kind": "pack",
+        "packed_sram": 6288,
+        "pc": 17152,
+        "source_x_offset": 15,
+        "table_sha256": "0a7d854cabbb67bc565fcee1ce2b15aa1e6c0de2acc1e928d98a09f6690e67bc",
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "channels": 24,
+        "command": 168,
+        "descriptor_hex": "5553443202064b1590180000203f0000085200009853000009000000000600001000000040000000030003000100010001000000000001000900090018001800",
+        "first_channel": 0,
+        "kind": "depthwise",
+        "pc": 0,
+        "table_sha256": "0c870b8a15877acace1d8d3c7a4d24e79fa143ba0811e5972a2cbd3976ac3297",
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "channels": 8,
+        "command": 188,
+        "copy_descriptors": 72,
+        "first_channel": 24,
+        "input_h": 9,
+        "input_w": 9,
+        "kind": "pack",
+        "packed_sram": 6288,
+        "pc": 20480,
+        "source_x_offset": 15,
+        "table_sha256": "2181330d00b3e4052bf145b0b66b22ae2de06205467630a64c45173b4cafc4df",
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "channels": 8,
+        "command": 198,
+        "descriptor_hex": "5553443202064b159018000020450000085200009853000009000000000200001000000040000000030003000100010001000000000001000900090008000800",
+        "first_channel": 24,
+        "kind": "depthwise",
+        "pc": 0,
+        "table_sha256": "0c870b8a15877acace1d8d3c7a4d24e79fa143ba0811e5972a2cbd3976ac3297",
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "command": 210,
+        "descriptor_hex": "5553443202040316203f000090180000085200000856000020000000000800002000000040000000010001000100010000000000000000000800080020002000",
+        "kind": "pointwise",
+        "pc": 0,
+        "table_sha256": "2d7839292d209157723e00acd98ae236f983234f8123336bc79fc657f2c5b9c7",
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "command": 214,
+        "copy_descriptors": 256,
+        "kind": "scatter",
+        "pc": 10432,
+        "table_sha256": "4ea5a98834fe6e25c634cd499d733fe31b809a3c23515164dc59d9bae7b26f55",
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "channels": 24,
+        "command": 330,
+        "copy_descriptors": 240,
+        "first_channel": 0,
+        "input_h": 10,
+        "input_w": 17,
+        "kind": "pack",
+        "packed_sram": 6288,
+        "pc": 17152,
+        "source_x_offset": 0,
+        "table_sha256": "24950ce3ecf6a02b08a717a4dd01d474e88cd233cb2911a369506ac90dd1fb88",
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "channels": 24,
+        "command": 340,
+        "descriptor_hex": "5553443202064b1590180000203f0000085200009853000009000000000c00001000000040000000030003000100010000000000010000000a00110018001800",
+        "first_channel": 0,
+        "kind": "depthwise",
+        "pc": 0,
+        "table_sha256": "0c870b8a15877acace1d8d3c7a4d24e79fa143ba0811e5972a2cbd3976ac3297",
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "channels": 8,
+        "command": 360,
+        "copy_descriptors": 80,
+        "first_channel": 24,
+        "input_h": 10,
+        "input_w": 17,
+        "kind": "pack",
+        "packed_sram": 6288,
+        "pc": 20480,
+        "source_x_offset": 0,
+        "table_sha256": "69118e90eea5a67a33fcc5dd8461ccf61b326eaaf74e1b4280e7fc45cf13de79",
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "channels": 8,
+        "command": 370,
+        "descriptor_hex": "5553443202064b1590180000204b0000085200009853000009000000000400001000000040000000030003000100010000000000010000000a00110008000800",
+        "first_channel": 24,
+        "kind": "depthwise",
+        "pc": 0,
+        "table_sha256": "0c870b8a15877acace1d8d3c7a4d24e79fa143ba0811e5972a2cbd3976ac3297",
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "command": 382,
+        "descriptor_hex": "5553443202040316203f000090180000085200000856000020000000001000002000000040000000010001000100010000000000000000000800100020002000",
+        "kind": "pointwise",
+        "pc": 0,
+        "table_sha256": "2d7839292d209157723e00acd98ae236f983234f8123336bc79fc657f2c5b9c7",
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "command": 386,
+        "copy_descriptors": 256,
+        "kind": "scatter",
+        "pc": 10432,
+        "table_sha256": "cbb413f928332c3dfe532f30721c5899890ad63d1903729d3b0abac935b1b953",
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "channels": 24,
+        "command": 438,
+        "copy_descriptors": 240,
+        "first_channel": 0,
+        "input_h": 10,
+        "input_w": 9,
+        "kind": "pack",
+        "packed_sram": 6288,
+        "pc": 17152,
+        "source_x_offset": 15,
+        "table_sha256": "32e0fcbed5a037c8ef6fa3449dafdf7fcbb24ff61408ba0ab2c96392b7937715",
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "channels": 24,
+        "command": 448,
+        "descriptor_hex": "5553443202064b1590180000203f0000085200009853000009000000000600001000000040000000030003000100010000000000000001000a00090018001800",
+        "first_channel": 0,
+        "kind": "depthwise",
+        "pc": 0,
+        "table_sha256": "0c870b8a15877acace1d8d3c7a4d24e79fa143ba0811e5972a2cbd3976ac3297",
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "channels": 8,
+        "command": 468,
+        "copy_descriptors": 80,
+        "first_channel": 24,
+        "input_h": 10,
+        "input_w": 9,
+        "kind": "pack",
+        "packed_sram": 6288,
+        "pc": 20480,
+        "source_x_offset": 15,
+        "table_sha256": "4835407480060fe1ffcf30cceb1907e82a1960def608186625a409d72b7aba73",
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "channels": 8,
+        "command": 478,
+        "descriptor_hex": "5553443202064b159018000020450000085200009853000009000000000200001000000040000000030003000100010000000000000001000a00090008000800",
+        "first_channel": 24,
+        "kind": "depthwise",
+        "pc": 0,
+        "table_sha256": "0c870b8a15877acace1d8d3c7a4d24e79fa143ba0811e5972a2cbd3976ac3297",
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "command": 490,
+        "descriptor_hex": "5553443202040316203f000090180000085200000856000020000000000800002000000040000000010001000100010000000000000000000800080020002000",
+        "kind": "pointwise",
+        "pc": 0,
+        "table_sha256": "2d7839292d209157723e00acd98ae236f983234f8123336bc79fc657f2c5b9c7",
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "command": 494,
+        "copy_descriptors": 256,
+        "kind": "scatter",
+        "pc": 10432,
+        "table_sha256": "4ea5a98834fe6e25c634cd499d733fe31b809a3c23515164dc59d9bae7b26f55",
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "channels": 24,
+        "command": 610,
+        "copy_descriptors": 216,
+        "first_channel": 0,
+        "input_h": 9,
+        "input_w": 17,
+        "kind": "pack",
+        "packed_sram": 6288,
+        "pc": 17152,
+        "source_x_offset": 0,
+        "table_sha256": "528bbc8d61dddf6eabec30113f94c99cbecc9ffb25d6712e7027430e7a6668fe",
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "channels": 24,
+        "command": 620,
+        "descriptor_hex": "5553443202064b1590180000203f0000085200009853000009000000000c00001000000040000000030003000100010000000100010000000900110018001800",
+        "first_channel": 0,
+        "kind": "depthwise",
+        "pc": 0,
+        "table_sha256": "0c870b8a15877acace1d8d3c7a4d24e79fa143ba0811e5972a2cbd3976ac3297",
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "channels": 8,
+        "command": 640,
+        "copy_descriptors": 72,
+        "first_channel": 24,
+        "input_h": 9,
+        "input_w": 17,
+        "kind": "pack",
+        "packed_sram": 6288,
+        "pc": 20480,
+        "source_x_offset": 0,
+        "table_sha256": "5f1e65a6cd46fd02b20d549678760e3e7cfaf28d15341b3d0833e0fc90decfde",
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "channels": 8,
+        "command": 650,
+        "descriptor_hex": "5553443202064b1590180000204b0000085200009853000009000000000400001000000040000000030003000100010000000100010000000900110008000800",
+        "first_channel": 24,
+        "kind": "depthwise",
+        "pc": 0,
+        "table_sha256": "0c870b8a15877acace1d8d3c7a4d24e79fa143ba0811e5972a2cbd3976ac3297",
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "command": 662,
+        "descriptor_hex": "5553443202040316203f000090180000085200000856000020000000001000002000000040000000010001000100010000000000000000000800100020002000",
+        "kind": "pointwise",
+        "pc": 0,
+        "table_sha256": "2d7839292d209157723e00acd98ae236f983234f8123336bc79fc657f2c5b9c7",
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "command": 666,
+        "copy_descriptors": 256,
+        "kind": "scatter",
+        "pc": 10432,
+        "table_sha256": "cbb413f928332c3dfe532f30721c5899890ad63d1903729d3b0abac935b1b953",
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "channels": 24,
+        "command": 718,
+        "copy_descriptors": 216,
+        "first_channel": 0,
+        "input_h": 9,
+        "input_w": 9,
+        "kind": "pack",
+        "packed_sram": 6288,
+        "pc": 17152,
+        "source_x_offset": 15,
+        "table_sha256": "0a7d854cabbb67bc565fcee1ce2b15aa1e6c0de2acc1e928d98a09f6690e67bc",
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "channels": 24,
+        "command": 728,
+        "descriptor_hex": "5553443202064b1590180000203f0000085200009853000009000000000600001000000040000000030003000100010000000100000001000900090018001800",
+        "first_channel": 0,
+        "kind": "depthwise",
+        "pc": 0,
+        "table_sha256": "0c870b8a15877acace1d8d3c7a4d24e79fa143ba0811e5972a2cbd3976ac3297",
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "channels": 8,
+        "command": 748,
+        "copy_descriptors": 72,
+        "first_channel": 24,
+        "input_h": 9,
+        "input_w": 9,
+        "kind": "pack",
+        "packed_sram": 6288,
+        "pc": 20480,
+        "source_x_offset": 15,
+        "table_sha256": "2181330d00b3e4052bf145b0b66b22ae2de06205467630a64c45173b4cafc4df",
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "channels": 8,
+        "command": 758,
+        "descriptor_hex": "5553443202064b159018000020450000085200009853000009000000000200001000000040000000030003000100010000000100000001000900090008000800",
+        "first_channel": 24,
+        "kind": "depthwise",
+        "pc": 0,
+        "table_sha256": "0c870b8a15877acace1d8d3c7a4d24e79fa143ba0811e5972a2cbd3976ac3297",
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "command": 770,
+        "descriptor_hex": "5553443202040316203f000090180000085200000856000020000000000800002000000040000000010001000100010000000000000000000800080020002000",
+        "kind": "pointwise",
+        "pc": 0,
+        "table_sha256": "2d7839292d209157723e00acd98ae236f983234f8123336bc79fc657f2c5b9c7",
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "command": 774,
+        "copy_descriptors": 256,
+        "kind": "scatter",
+        "pc": 10432,
+        "table_sha256": "4ea5a98834fe6e25c634cd499d733fe31b809a3c23515164dc59d9bae7b26f55",
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      }
+    ],
+    "schema": 1,
+    "status": "lowered",
+    "transfers": [
+      {
+        "bytes": 216,
+        "command": 0,
+        "direction": "to_sram",
+        "ext": 36864,
+        "role": "aligned_source",
+        "sram": 10384,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 2,
+        "direction": "to_sram",
+        "ext": 37440,
+        "role": "aligned_source",
+        "sram": 10600,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 4,
+        "direction": "to_sram",
+        "ext": 38016,
+        "role": "aligned_source",
+        "sram": 10816,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 6,
+        "direction": "to_sram",
+        "ext": 38592,
+        "role": "aligned_source",
+        "sram": 11032,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 8,
+        "direction": "to_sram",
+        "ext": 39168,
+        "role": "aligned_source",
+        "sram": 11248,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 10,
+        "direction": "to_sram",
+        "ext": 39744,
+        "role": "aligned_source",
+        "sram": 11464,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 12,
+        "direction": "to_sram",
+        "ext": 40320,
+        "role": "aligned_source",
+        "sram": 11680,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 14,
+        "direction": "to_sram",
+        "ext": 40896,
+        "role": "aligned_source",
+        "sram": 11896,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 16,
+        "direction": "to_sram",
+        "ext": 41472,
+        "role": "aligned_source",
+        "sram": 12112,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 18,
+        "direction": "to_sram",
+        "ext": 42048,
+        "role": "aligned_source",
+        "sram": 12328,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 20,
+        "direction": "to_sram",
+        "ext": 42624,
+        "role": "aligned_source",
+        "sram": 12544,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 22,
+        "direction": "to_sram",
+        "ext": 43200,
+        "role": "aligned_source",
+        "sram": 12760,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 24,
+        "direction": "to_sram",
+        "ext": 43776,
+        "role": "aligned_source",
+        "sram": 12976,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 26,
+        "direction": "to_sram",
+        "ext": 44352,
+        "role": "aligned_source",
+        "sram": 13192,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 28,
+        "direction": "to_sram",
+        "ext": 44928,
+        "role": "aligned_source",
+        "sram": 13408,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 30,
+        "direction": "to_sram",
+        "ext": 45504,
+        "role": "aligned_source",
+        "sram": 13624,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 32,
+        "direction": "to_sram",
+        "ext": 46080,
+        "role": "aligned_source",
+        "sram": 13840,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 34,
+        "direction": "to_sram",
+        "ext": 46656,
+        "role": "aligned_source",
+        "sram": 14056,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 36,
+        "direction": "to_sram",
+        "ext": 47232,
+        "role": "aligned_source",
+        "sram": 14272,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 38,
+        "direction": "to_sram",
+        "ext": 47808,
+        "role": "aligned_source",
+        "sram": 14488,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 40,
+        "direction": "to_sram",
+        "ext": 48384,
+        "role": "aligned_source",
+        "sram": 14704,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 42,
+        "direction": "to_sram",
+        "ext": 48960,
+        "role": "aligned_source",
+        "sram": 14920,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 44,
+        "direction": "to_sram",
+        "ext": 49536,
+        "role": "aligned_source",
+        "sram": 15136,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 46,
+        "direction": "to_sram",
+        "ext": 50112,
+        "role": "aligned_source",
+        "sram": 15352,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 13888,
+        "command": 48,
+        "direction": "to_sram",
+        "ext": 199264,
+        "role": "pack_chain",
+        "sram": 17152,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 128,
+        "command": 52,
+        "direction": "to_sram",
+        "ext": 213152,
+        "role": "dw_descriptor",
+        "sram": 0,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 384,
+        "command": 54,
+        "direction": "to_sram",
+        "ext": 213280,
+        "role": "dw_weight",
+        "sram": 21000,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 384,
+        "command": 56,
+        "direction": "to_sram",
+        "ext": 213664,
+        "role": "dw_params",
+        "sram": 21400,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 256,
+        "command": 58,
+        "direction": "to_sram",
+        "ext": 214048,
+        "role": "dw_table",
+        "sram": 21800,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 62,
+        "direction": "to_sram",
+        "ext": 50688,
+        "role": "aligned_source",
+        "sram": 10384,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 64,
+        "direction": "to_sram",
+        "ext": 51264,
+        "role": "aligned_source",
+        "sram": 10600,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 66,
+        "direction": "to_sram",
+        "ext": 51840,
+        "role": "aligned_source",
+        "sram": 10816,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 68,
+        "direction": "to_sram",
+        "ext": 52416,
+        "role": "aligned_source",
+        "sram": 11032,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 70,
+        "direction": "to_sram",
+        "ext": 52992,
+        "role": "aligned_source",
+        "sram": 11248,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 72,
+        "direction": "to_sram",
+        "ext": 53568,
+        "role": "aligned_source",
+        "sram": 11464,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 74,
+        "direction": "to_sram",
+        "ext": 54144,
+        "role": "aligned_source",
+        "sram": 11680,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 76,
+        "direction": "to_sram",
+        "ext": 54720,
+        "role": "aligned_source",
+        "sram": 11896,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 4672,
+        "command": 78,
+        "direction": "to_sram",
+        "ext": 214304,
+        "role": "pack_chain",
+        "sram": 20480,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 128,
+        "command": 82,
+        "direction": "to_sram",
+        "ext": 218976,
+        "role": "dw_descriptor",
+        "sram": 0,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 128,
+        "command": 84,
+        "direction": "to_sram",
+        "ext": 219104,
+        "role": "dw_weight",
+        "sram": 21000,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 128,
+        "command": 86,
+        "direction": "to_sram",
+        "ext": 219232,
+        "role": "dw_params",
+        "sram": 21400,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 256,
+        "command": 88,
+        "direction": "to_sram",
+        "ext": 219360,
+        "role": "dw_table",
+        "sram": 21800,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 4096,
+        "command": 92,
+        "direction": "from_sram",
+        "ext": 435680,
+        "role": "layer12_tile_snapshot",
+        "sram": 16160,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 128,
+        "command": 94,
+        "direction": "to_sram",
+        "ext": 219616,
+        "role": "pw_descriptor",
+        "sram": 0,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 1024,
+        "command": 96,
+        "direction": "to_sram",
+        "ext": 219744,
+        "role": "pw_weight",
+        "sram": 21000,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 512,
+        "command": 98,
+        "direction": "to_sram",
+        "ext": 220768,
+        "role": "pw_params",
+        "sram": 22024,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 256,
+        "command": 100,
+        "direction": "to_sram",
+        "ext": 221280,
+        "role": "pw_table",
+        "sram": 22536,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 16448,
+        "command": 104,
+        "direction": "to_sram",
+        "ext": 221536,
+        "role": "scatter_chain",
+        "sram": 10432,
+        "tile": [
+          0,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 108,
+        "direction": "to_sram",
+        "ext": 36864,
+        "role": "aligned_source",
+        "sram": 10384,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 110,
+        "direction": "to_sram",
+        "ext": 37440,
+        "role": "aligned_source",
+        "sram": 10600,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 112,
+        "direction": "to_sram",
+        "ext": 38016,
+        "role": "aligned_source",
+        "sram": 10816,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 114,
+        "direction": "to_sram",
+        "ext": 38592,
+        "role": "aligned_source",
+        "sram": 11032,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 116,
+        "direction": "to_sram",
+        "ext": 39168,
+        "role": "aligned_source",
+        "sram": 11248,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 118,
+        "direction": "to_sram",
+        "ext": 39744,
+        "role": "aligned_source",
+        "sram": 11464,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 120,
+        "direction": "to_sram",
+        "ext": 40320,
+        "role": "aligned_source",
+        "sram": 11680,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 122,
+        "direction": "to_sram",
+        "ext": 40896,
+        "role": "aligned_source",
+        "sram": 11896,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 124,
+        "direction": "to_sram",
+        "ext": 41472,
+        "role": "aligned_source",
+        "sram": 12112,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 126,
+        "direction": "to_sram",
+        "ext": 42048,
+        "role": "aligned_source",
+        "sram": 12328,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 128,
+        "direction": "to_sram",
+        "ext": 42624,
+        "role": "aligned_source",
+        "sram": 12544,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 130,
+        "direction": "to_sram",
+        "ext": 43200,
+        "role": "aligned_source",
+        "sram": 12760,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 132,
+        "direction": "to_sram",
+        "ext": 43776,
+        "role": "aligned_source",
+        "sram": 12976,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 134,
+        "direction": "to_sram",
+        "ext": 44352,
+        "role": "aligned_source",
+        "sram": 13192,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 136,
+        "direction": "to_sram",
+        "ext": 44928,
+        "role": "aligned_source",
+        "sram": 13408,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 138,
+        "direction": "to_sram",
+        "ext": 45504,
+        "role": "aligned_source",
+        "sram": 13624,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 140,
+        "direction": "to_sram",
+        "ext": 46080,
+        "role": "aligned_source",
+        "sram": 13840,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 142,
+        "direction": "to_sram",
+        "ext": 46656,
+        "role": "aligned_source",
+        "sram": 14056,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 144,
+        "direction": "to_sram",
+        "ext": 47232,
+        "role": "aligned_source",
+        "sram": 14272,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 146,
+        "direction": "to_sram",
+        "ext": 47808,
+        "role": "aligned_source",
+        "sram": 14488,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 148,
+        "direction": "to_sram",
+        "ext": 48384,
+        "role": "aligned_source",
+        "sram": 14704,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 150,
+        "direction": "to_sram",
+        "ext": 48960,
+        "role": "aligned_source",
+        "sram": 14920,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 152,
+        "direction": "to_sram",
+        "ext": 49536,
+        "role": "aligned_source",
+        "sram": 15136,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 154,
+        "direction": "to_sram",
+        "ext": 50112,
+        "role": "aligned_source",
+        "sram": 15352,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 13888,
+        "command": 156,
+        "direction": "to_sram",
+        "ext": 237984,
+        "role": "pack_chain",
+        "sram": 17152,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 128,
+        "command": 160,
+        "direction": "to_sram",
+        "ext": 251872,
+        "role": "dw_descriptor",
+        "sram": 0,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 384,
+        "command": 162,
+        "direction": "to_sram",
+        "ext": 252000,
+        "role": "dw_weight",
+        "sram": 21000,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 384,
+        "command": 164,
+        "direction": "to_sram",
+        "ext": 252384,
+        "role": "dw_params",
+        "sram": 21400,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 256,
+        "command": 166,
+        "direction": "to_sram",
+        "ext": 252768,
+        "role": "dw_table",
+        "sram": 21800,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 170,
+        "direction": "to_sram",
+        "ext": 50688,
+        "role": "aligned_source",
+        "sram": 10384,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 172,
+        "direction": "to_sram",
+        "ext": 51264,
+        "role": "aligned_source",
+        "sram": 10600,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 174,
+        "direction": "to_sram",
+        "ext": 51840,
+        "role": "aligned_source",
+        "sram": 10816,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 176,
+        "direction": "to_sram",
+        "ext": 52416,
+        "role": "aligned_source",
+        "sram": 11032,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 178,
+        "direction": "to_sram",
+        "ext": 52992,
+        "role": "aligned_source",
+        "sram": 11248,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 180,
+        "direction": "to_sram",
+        "ext": 53568,
+        "role": "aligned_source",
+        "sram": 11464,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 182,
+        "direction": "to_sram",
+        "ext": 54144,
+        "role": "aligned_source",
+        "sram": 11680,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 184,
+        "direction": "to_sram",
+        "ext": 54720,
+        "role": "aligned_source",
+        "sram": 11896,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 4672,
+        "command": 186,
+        "direction": "to_sram",
+        "ext": 253024,
+        "role": "pack_chain",
+        "sram": 20480,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 128,
+        "command": 190,
+        "direction": "to_sram",
+        "ext": 257696,
+        "role": "dw_descriptor",
+        "sram": 0,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 128,
+        "command": 192,
+        "direction": "to_sram",
+        "ext": 257824,
+        "role": "dw_weight",
+        "sram": 21000,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 128,
+        "command": 194,
+        "direction": "to_sram",
+        "ext": 257952,
+        "role": "dw_params",
+        "sram": 21400,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 256,
+        "command": 196,
+        "direction": "to_sram",
+        "ext": 258080,
+        "role": "dw_table",
+        "sram": 21800,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 2048,
+        "command": 200,
+        "direction": "from_sram",
+        "ext": 439776,
+        "role": "layer12_tile_snapshot",
+        "sram": 16160,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 128,
+        "command": 202,
+        "direction": "to_sram",
+        "ext": 258336,
+        "role": "pw_descriptor",
+        "sram": 0,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 1024,
+        "command": 204,
+        "direction": "to_sram",
+        "ext": 258464,
+        "role": "pw_weight",
+        "sram": 21000,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 512,
+        "command": 206,
+        "direction": "to_sram",
+        "ext": 259488,
+        "role": "pw_params",
+        "sram": 22024,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 256,
+        "command": 208,
+        "direction": "to_sram",
+        "ext": 260000,
+        "role": "pw_table",
+        "sram": 22536,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 16448,
+        "command": 212,
+        "direction": "to_sram",
+        "ext": 260256,
+        "role": "scatter_chain",
+        "sram": 10432,
+        "tile": [
+          0,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 216,
+        "direction": "from_sram",
+        "ext": 180832,
+        "role": "output_band",
+        "sram": 128,
+        "tile": [
+          0,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 218,
+        "direction": "from_sram",
+        "ext": 181408,
+        "role": "output_band",
+        "sram": 320,
+        "tile": [
+          0,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 220,
+        "direction": "from_sram",
+        "ext": 181984,
+        "role": "output_band",
+        "sram": 512,
+        "tile": [
+          0,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 222,
+        "direction": "from_sram",
+        "ext": 182560,
+        "role": "output_band",
+        "sram": 704,
+        "tile": [
+          0,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 224,
+        "direction": "from_sram",
+        "ext": 183136,
+        "role": "output_band",
+        "sram": 896,
+        "tile": [
+          0,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 226,
+        "direction": "from_sram",
+        "ext": 183712,
+        "role": "output_band",
+        "sram": 1088,
+        "tile": [
+          0,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 228,
+        "direction": "from_sram",
+        "ext": 184288,
+        "role": "output_band",
+        "sram": 1280,
+        "tile": [
+          0,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 230,
+        "direction": "from_sram",
+        "ext": 184864,
+        "role": "output_band",
+        "sram": 1472,
+        "tile": [
+          0,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 232,
+        "direction": "from_sram",
+        "ext": 185440,
+        "role": "output_band",
+        "sram": 1664,
+        "tile": [
+          0,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 234,
+        "direction": "from_sram",
+        "ext": 186016,
+        "role": "output_band",
+        "sram": 1856,
+        "tile": [
+          0,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 236,
+        "direction": "from_sram",
+        "ext": 186592,
+        "role": "output_band",
+        "sram": 2048,
+        "tile": [
+          0,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 238,
+        "direction": "from_sram",
+        "ext": 187168,
+        "role": "output_band",
+        "sram": 2240,
+        "tile": [
+          0,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 240,
+        "direction": "from_sram",
+        "ext": 187744,
+        "role": "output_band",
+        "sram": 2432,
+        "tile": [
+          0,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 242,
+        "direction": "from_sram",
+        "ext": 188320,
+        "role": "output_band",
+        "sram": 2624,
+        "tile": [
+          0,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 244,
+        "direction": "from_sram",
+        "ext": 188896,
+        "role": "output_band",
+        "sram": 2816,
+        "tile": [
+          0,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 246,
+        "direction": "from_sram",
+        "ext": 189472,
+        "role": "output_band",
+        "sram": 3008,
+        "tile": [
+          0,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 248,
+        "direction": "from_sram",
+        "ext": 190048,
+        "role": "output_band",
+        "sram": 3200,
+        "tile": [
+          0,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 250,
+        "direction": "from_sram",
+        "ext": 190624,
+        "role": "output_band",
+        "sram": 3392,
+        "tile": [
+          0,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 252,
+        "direction": "from_sram",
+        "ext": 191200,
+        "role": "output_band",
+        "sram": 3584,
+        "tile": [
+          0,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 254,
+        "direction": "from_sram",
+        "ext": 191776,
+        "role": "output_band",
+        "sram": 3776,
+        "tile": [
+          0,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 256,
+        "direction": "from_sram",
+        "ext": 192352,
+        "role": "output_band",
+        "sram": 3968,
+        "tile": [
+          0,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 258,
+        "direction": "from_sram",
+        "ext": 192928,
+        "role": "output_band",
+        "sram": 4160,
+        "tile": [
+          0,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 260,
+        "direction": "from_sram",
+        "ext": 193504,
+        "role": "output_band",
+        "sram": 4352,
+        "tile": [
+          0,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 262,
+        "direction": "from_sram",
+        "ext": 194080,
+        "role": "output_band",
+        "sram": 4544,
+        "tile": [
+          0,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 264,
+        "direction": "from_sram",
+        "ext": 194656,
+        "role": "output_band",
+        "sram": 4736,
+        "tile": [
+          0,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 266,
+        "direction": "from_sram",
+        "ext": 195232,
+        "role": "output_band",
+        "sram": 4928,
+        "tile": [
+          0,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 268,
+        "direction": "from_sram",
+        "ext": 195808,
+        "role": "output_band",
+        "sram": 5120,
+        "tile": [
+          0,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 270,
+        "direction": "from_sram",
+        "ext": 196384,
+        "role": "output_band",
+        "sram": 5312,
+        "tile": [
+          0,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 272,
+        "direction": "from_sram",
+        "ext": 196960,
+        "role": "output_band",
+        "sram": 5504,
+        "tile": [
+          0,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 274,
+        "direction": "from_sram",
+        "ext": 197536,
+        "role": "output_band",
+        "sram": 5696,
+        "tile": [
+          0,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 276,
+        "direction": "from_sram",
+        "ext": 198112,
+        "role": "output_band",
+        "sram": 5888,
+        "tile": [
+          0,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 278,
+        "direction": "from_sram",
+        "ext": 198688,
+        "role": "output_band",
+        "sram": 6080,
+        "tile": [
+          0,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 280,
+        "direction": "to_sram",
+        "ext": 37032,
+        "role": "aligned_source",
+        "sram": 10384,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 282,
+        "direction": "to_sram",
+        "ext": 37608,
+        "role": "aligned_source",
+        "sram": 10624,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 284,
+        "direction": "to_sram",
+        "ext": 38184,
+        "role": "aligned_source",
+        "sram": 10864,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 286,
+        "direction": "to_sram",
+        "ext": 38760,
+        "role": "aligned_source",
+        "sram": 11104,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 288,
+        "direction": "to_sram",
+        "ext": 39336,
+        "role": "aligned_source",
+        "sram": 11344,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 290,
+        "direction": "to_sram",
+        "ext": 39912,
+        "role": "aligned_source",
+        "sram": 11584,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 292,
+        "direction": "to_sram",
+        "ext": 40488,
+        "role": "aligned_source",
+        "sram": 11824,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 294,
+        "direction": "to_sram",
+        "ext": 41064,
+        "role": "aligned_source",
+        "sram": 12064,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 296,
+        "direction": "to_sram",
+        "ext": 41640,
+        "role": "aligned_source",
+        "sram": 12304,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 298,
+        "direction": "to_sram",
+        "ext": 42216,
+        "role": "aligned_source",
+        "sram": 12544,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 300,
+        "direction": "to_sram",
+        "ext": 42792,
+        "role": "aligned_source",
+        "sram": 12784,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 302,
+        "direction": "to_sram",
+        "ext": 43368,
+        "role": "aligned_source",
+        "sram": 13024,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 304,
+        "direction": "to_sram",
+        "ext": 43944,
+        "role": "aligned_source",
+        "sram": 13264,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 306,
+        "direction": "to_sram",
+        "ext": 44520,
+        "role": "aligned_source",
+        "sram": 13504,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 308,
+        "direction": "to_sram",
+        "ext": 45096,
+        "role": "aligned_source",
+        "sram": 13744,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 310,
+        "direction": "to_sram",
+        "ext": 45672,
+        "role": "aligned_source",
+        "sram": 13984,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 312,
+        "direction": "to_sram",
+        "ext": 46248,
+        "role": "aligned_source",
+        "sram": 14224,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 314,
+        "direction": "to_sram",
+        "ext": 46824,
+        "role": "aligned_source",
+        "sram": 14464,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 316,
+        "direction": "to_sram",
+        "ext": 47400,
+        "role": "aligned_source",
+        "sram": 14704,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 318,
+        "direction": "to_sram",
+        "ext": 47976,
+        "role": "aligned_source",
+        "sram": 14944,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 320,
+        "direction": "to_sram",
+        "ext": 48552,
+        "role": "aligned_source",
+        "sram": 15184,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 322,
+        "direction": "to_sram",
+        "ext": 49128,
+        "role": "aligned_source",
+        "sram": 15424,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 324,
+        "direction": "to_sram",
+        "ext": 49704,
+        "role": "aligned_source",
+        "sram": 15664,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 326,
+        "direction": "to_sram",
+        "ext": 50280,
+        "role": "aligned_source",
+        "sram": 15904,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 15424,
+        "command": 328,
+        "direction": "to_sram",
+        "ext": 276704,
+        "role": "pack_chain",
+        "sram": 17152,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 128,
+        "command": 332,
+        "direction": "to_sram",
+        "ext": 292128,
+        "role": "dw_descriptor",
+        "sram": 0,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 384,
+        "command": 334,
+        "direction": "to_sram",
+        "ext": 292256,
+        "role": "dw_weight",
+        "sram": 21000,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 384,
+        "command": 336,
+        "direction": "to_sram",
+        "ext": 292640,
+        "role": "dw_params",
+        "sram": 21400,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 256,
+        "command": 338,
+        "direction": "to_sram",
+        "ext": 293024,
+        "role": "dw_table",
+        "sram": 21800,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 342,
+        "direction": "to_sram",
+        "ext": 50856,
+        "role": "aligned_source",
+        "sram": 10384,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 344,
+        "direction": "to_sram",
+        "ext": 51432,
+        "role": "aligned_source",
+        "sram": 10624,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 346,
+        "direction": "to_sram",
+        "ext": 52008,
+        "role": "aligned_source",
+        "sram": 10864,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 348,
+        "direction": "to_sram",
+        "ext": 52584,
+        "role": "aligned_source",
+        "sram": 11104,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 350,
+        "direction": "to_sram",
+        "ext": 53160,
+        "role": "aligned_source",
+        "sram": 11344,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 352,
+        "direction": "to_sram",
+        "ext": 53736,
+        "role": "aligned_source",
+        "sram": 11584,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 354,
+        "direction": "to_sram",
+        "ext": 54312,
+        "role": "aligned_source",
+        "sram": 11824,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 356,
+        "direction": "to_sram",
+        "ext": 54888,
+        "role": "aligned_source",
+        "sram": 12064,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 5184,
+        "command": 358,
+        "direction": "to_sram",
+        "ext": 293280,
+        "role": "pack_chain",
+        "sram": 20480,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 128,
+        "command": 362,
+        "direction": "to_sram",
+        "ext": 298464,
+        "role": "dw_descriptor",
+        "sram": 0,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 128,
+        "command": 364,
+        "direction": "to_sram",
+        "ext": 298592,
+        "role": "dw_weight",
+        "sram": 21000,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 128,
+        "command": 366,
+        "direction": "to_sram",
+        "ext": 298720,
+        "role": "dw_params",
+        "sram": 21400,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 256,
+        "command": 368,
+        "direction": "to_sram",
+        "ext": 298848,
+        "role": "dw_table",
+        "sram": 21800,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 4096,
+        "command": 372,
+        "direction": "from_sram",
+        "ext": 441824,
+        "role": "layer12_tile_snapshot",
+        "sram": 16160,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 128,
+        "command": 374,
+        "direction": "to_sram",
+        "ext": 299104,
+        "role": "pw_descriptor",
+        "sram": 0,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 1024,
+        "command": 376,
+        "direction": "to_sram",
+        "ext": 299232,
+        "role": "pw_weight",
+        "sram": 21000,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 512,
+        "command": 378,
+        "direction": "to_sram",
+        "ext": 300256,
+        "role": "pw_params",
+        "sram": 22024,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 256,
+        "command": 380,
+        "direction": "to_sram",
+        "ext": 300768,
+        "role": "pw_table",
+        "sram": 22536,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 16448,
+        "command": 384,
+        "direction": "to_sram",
+        "ext": 301024,
+        "role": "scatter_chain",
+        "sram": 10432,
+        "tile": [
+          8,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 388,
+        "direction": "to_sram",
+        "ext": 37032,
+        "role": "aligned_source",
+        "sram": 10384,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 390,
+        "direction": "to_sram",
+        "ext": 37608,
+        "role": "aligned_source",
+        "sram": 10624,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 392,
+        "direction": "to_sram",
+        "ext": 38184,
+        "role": "aligned_source",
+        "sram": 10864,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 394,
+        "direction": "to_sram",
+        "ext": 38760,
+        "role": "aligned_source",
+        "sram": 11104,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 396,
+        "direction": "to_sram",
+        "ext": 39336,
+        "role": "aligned_source",
+        "sram": 11344,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 398,
+        "direction": "to_sram",
+        "ext": 39912,
+        "role": "aligned_source",
+        "sram": 11584,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 400,
+        "direction": "to_sram",
+        "ext": 40488,
+        "role": "aligned_source",
+        "sram": 11824,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 402,
+        "direction": "to_sram",
+        "ext": 41064,
+        "role": "aligned_source",
+        "sram": 12064,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 404,
+        "direction": "to_sram",
+        "ext": 41640,
+        "role": "aligned_source",
+        "sram": 12304,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 406,
+        "direction": "to_sram",
+        "ext": 42216,
+        "role": "aligned_source",
+        "sram": 12544,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 408,
+        "direction": "to_sram",
+        "ext": 42792,
+        "role": "aligned_source",
+        "sram": 12784,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 410,
+        "direction": "to_sram",
+        "ext": 43368,
+        "role": "aligned_source",
+        "sram": 13024,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 412,
+        "direction": "to_sram",
+        "ext": 43944,
+        "role": "aligned_source",
+        "sram": 13264,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 414,
+        "direction": "to_sram",
+        "ext": 44520,
+        "role": "aligned_source",
+        "sram": 13504,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 416,
+        "direction": "to_sram",
+        "ext": 45096,
+        "role": "aligned_source",
+        "sram": 13744,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 418,
+        "direction": "to_sram",
+        "ext": 45672,
+        "role": "aligned_source",
+        "sram": 13984,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 420,
+        "direction": "to_sram",
+        "ext": 46248,
+        "role": "aligned_source",
+        "sram": 14224,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 422,
+        "direction": "to_sram",
+        "ext": 46824,
+        "role": "aligned_source",
+        "sram": 14464,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 424,
+        "direction": "to_sram",
+        "ext": 47400,
+        "role": "aligned_source",
+        "sram": 14704,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 426,
+        "direction": "to_sram",
+        "ext": 47976,
+        "role": "aligned_source",
+        "sram": 14944,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 428,
+        "direction": "to_sram",
+        "ext": 48552,
+        "role": "aligned_source",
+        "sram": 15184,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 430,
+        "direction": "to_sram",
+        "ext": 49128,
+        "role": "aligned_source",
+        "sram": 15424,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 432,
+        "direction": "to_sram",
+        "ext": 49704,
+        "role": "aligned_source",
+        "sram": 15664,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 434,
+        "direction": "to_sram",
+        "ext": 50280,
+        "role": "aligned_source",
+        "sram": 15904,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 15424,
+        "command": 436,
+        "direction": "to_sram",
+        "ext": 317472,
+        "role": "pack_chain",
+        "sram": 17152,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 128,
+        "command": 440,
+        "direction": "to_sram",
+        "ext": 332896,
+        "role": "dw_descriptor",
+        "sram": 0,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 384,
+        "command": 442,
+        "direction": "to_sram",
+        "ext": 333024,
+        "role": "dw_weight",
+        "sram": 21000,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 384,
+        "command": 444,
+        "direction": "to_sram",
+        "ext": 333408,
+        "role": "dw_params",
+        "sram": 21400,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 256,
+        "command": 446,
+        "direction": "to_sram",
+        "ext": 333792,
+        "role": "dw_table",
+        "sram": 21800,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 450,
+        "direction": "to_sram",
+        "ext": 50856,
+        "role": "aligned_source",
+        "sram": 10384,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 452,
+        "direction": "to_sram",
+        "ext": 51432,
+        "role": "aligned_source",
+        "sram": 10624,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 454,
+        "direction": "to_sram",
+        "ext": 52008,
+        "role": "aligned_source",
+        "sram": 10864,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 456,
+        "direction": "to_sram",
+        "ext": 52584,
+        "role": "aligned_source",
+        "sram": 11104,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 458,
+        "direction": "to_sram",
+        "ext": 53160,
+        "role": "aligned_source",
+        "sram": 11344,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 460,
+        "direction": "to_sram",
+        "ext": 53736,
+        "role": "aligned_source",
+        "sram": 11584,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 462,
+        "direction": "to_sram",
+        "ext": 54312,
+        "role": "aligned_source",
+        "sram": 11824,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 240,
+        "command": 464,
+        "direction": "to_sram",
+        "ext": 54888,
+        "role": "aligned_source",
+        "sram": 12064,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 5184,
+        "command": 466,
+        "direction": "to_sram",
+        "ext": 334048,
+        "role": "pack_chain",
+        "sram": 20480,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 128,
+        "command": 470,
+        "direction": "to_sram",
+        "ext": 339232,
+        "role": "dw_descriptor",
+        "sram": 0,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 128,
+        "command": 472,
+        "direction": "to_sram",
+        "ext": 339360,
+        "role": "dw_weight",
+        "sram": 21000,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 128,
+        "command": 474,
+        "direction": "to_sram",
+        "ext": 339488,
+        "role": "dw_params",
+        "sram": 21400,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 256,
+        "command": 476,
+        "direction": "to_sram",
+        "ext": 339616,
+        "role": "dw_table",
+        "sram": 21800,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 2048,
+        "command": 480,
+        "direction": "from_sram",
+        "ext": 445920,
+        "role": "layer12_tile_snapshot",
+        "sram": 16160,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 128,
+        "command": 482,
+        "direction": "to_sram",
+        "ext": 339872,
+        "role": "pw_descriptor",
+        "sram": 0,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 1024,
+        "command": 484,
+        "direction": "to_sram",
+        "ext": 340000,
+        "role": "pw_weight",
+        "sram": 21000,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 512,
+        "command": 486,
+        "direction": "to_sram",
+        "ext": 341024,
+        "role": "pw_params",
+        "sram": 22024,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 256,
+        "command": 488,
+        "direction": "to_sram",
+        "ext": 341536,
+        "role": "pw_table",
+        "sram": 22536,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 16448,
+        "command": 492,
+        "direction": "to_sram",
+        "ext": 341792,
+        "role": "scatter_chain",
+        "sram": 10432,
+        "tile": [
+          8,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 496,
+        "direction": "from_sram",
+        "ext": 181024,
+        "role": "output_band",
+        "sram": 128,
+        "tile": [
+          8,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 498,
+        "direction": "from_sram",
+        "ext": 181600,
+        "role": "output_band",
+        "sram": 320,
+        "tile": [
+          8,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 500,
+        "direction": "from_sram",
+        "ext": 182176,
+        "role": "output_band",
+        "sram": 512,
+        "tile": [
+          8,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 502,
+        "direction": "from_sram",
+        "ext": 182752,
+        "role": "output_band",
+        "sram": 704,
+        "tile": [
+          8,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 504,
+        "direction": "from_sram",
+        "ext": 183328,
+        "role": "output_band",
+        "sram": 896,
+        "tile": [
+          8,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 506,
+        "direction": "from_sram",
+        "ext": 183904,
+        "role": "output_band",
+        "sram": 1088,
+        "tile": [
+          8,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 508,
+        "direction": "from_sram",
+        "ext": 184480,
+        "role": "output_band",
+        "sram": 1280,
+        "tile": [
+          8,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 510,
+        "direction": "from_sram",
+        "ext": 185056,
+        "role": "output_band",
+        "sram": 1472,
+        "tile": [
+          8,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 512,
+        "direction": "from_sram",
+        "ext": 185632,
+        "role": "output_band",
+        "sram": 1664,
+        "tile": [
+          8,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 514,
+        "direction": "from_sram",
+        "ext": 186208,
+        "role": "output_band",
+        "sram": 1856,
+        "tile": [
+          8,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 516,
+        "direction": "from_sram",
+        "ext": 186784,
+        "role": "output_band",
+        "sram": 2048,
+        "tile": [
+          8,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 518,
+        "direction": "from_sram",
+        "ext": 187360,
+        "role": "output_band",
+        "sram": 2240,
+        "tile": [
+          8,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 520,
+        "direction": "from_sram",
+        "ext": 187936,
+        "role": "output_band",
+        "sram": 2432,
+        "tile": [
+          8,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 522,
+        "direction": "from_sram",
+        "ext": 188512,
+        "role": "output_band",
+        "sram": 2624,
+        "tile": [
+          8,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 524,
+        "direction": "from_sram",
+        "ext": 189088,
+        "role": "output_band",
+        "sram": 2816,
+        "tile": [
+          8,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 526,
+        "direction": "from_sram",
+        "ext": 189664,
+        "role": "output_band",
+        "sram": 3008,
+        "tile": [
+          8,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 528,
+        "direction": "from_sram",
+        "ext": 190240,
+        "role": "output_band",
+        "sram": 3200,
+        "tile": [
+          8,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 530,
+        "direction": "from_sram",
+        "ext": 190816,
+        "role": "output_band",
+        "sram": 3392,
+        "tile": [
+          8,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 532,
+        "direction": "from_sram",
+        "ext": 191392,
+        "role": "output_band",
+        "sram": 3584,
+        "tile": [
+          8,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 534,
+        "direction": "from_sram",
+        "ext": 191968,
+        "role": "output_band",
+        "sram": 3776,
+        "tile": [
+          8,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 536,
+        "direction": "from_sram",
+        "ext": 192544,
+        "role": "output_band",
+        "sram": 3968,
+        "tile": [
+          8,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 538,
+        "direction": "from_sram",
+        "ext": 193120,
+        "role": "output_band",
+        "sram": 4160,
+        "tile": [
+          8,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 540,
+        "direction": "from_sram",
+        "ext": 193696,
+        "role": "output_band",
+        "sram": 4352,
+        "tile": [
+          8,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 542,
+        "direction": "from_sram",
+        "ext": 194272,
+        "role": "output_band",
+        "sram": 4544,
+        "tile": [
+          8,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 544,
+        "direction": "from_sram",
+        "ext": 194848,
+        "role": "output_band",
+        "sram": 4736,
+        "tile": [
+          8,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 546,
+        "direction": "from_sram",
+        "ext": 195424,
+        "role": "output_band",
+        "sram": 4928,
+        "tile": [
+          8,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 548,
+        "direction": "from_sram",
+        "ext": 196000,
+        "role": "output_band",
+        "sram": 5120,
+        "tile": [
+          8,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 550,
+        "direction": "from_sram",
+        "ext": 196576,
+        "role": "output_band",
+        "sram": 5312,
+        "tile": [
+          8,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 552,
+        "direction": "from_sram",
+        "ext": 197152,
+        "role": "output_band",
+        "sram": 5504,
+        "tile": [
+          8,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 554,
+        "direction": "from_sram",
+        "ext": 197728,
+        "role": "output_band",
+        "sram": 5696,
+        "tile": [
+          8,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 556,
+        "direction": "from_sram",
+        "ext": 198304,
+        "role": "output_band",
+        "sram": 5888,
+        "tile": [
+          8,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 558,
+        "direction": "from_sram",
+        "ext": 198880,
+        "role": "output_band",
+        "sram": 6080,
+        "tile": [
+          8,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 560,
+        "direction": "to_sram",
+        "ext": 37224,
+        "role": "aligned_source",
+        "sram": 10384,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 562,
+        "direction": "to_sram",
+        "ext": 37800,
+        "role": "aligned_source",
+        "sram": 10600,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 564,
+        "direction": "to_sram",
+        "ext": 38376,
+        "role": "aligned_source",
+        "sram": 10816,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 566,
+        "direction": "to_sram",
+        "ext": 38952,
+        "role": "aligned_source",
+        "sram": 11032,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 568,
+        "direction": "to_sram",
+        "ext": 39528,
+        "role": "aligned_source",
+        "sram": 11248,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 570,
+        "direction": "to_sram",
+        "ext": 40104,
+        "role": "aligned_source",
+        "sram": 11464,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 572,
+        "direction": "to_sram",
+        "ext": 40680,
+        "role": "aligned_source",
+        "sram": 11680,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 574,
+        "direction": "to_sram",
+        "ext": 41256,
+        "role": "aligned_source",
+        "sram": 11896,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 576,
+        "direction": "to_sram",
+        "ext": 41832,
+        "role": "aligned_source",
+        "sram": 12112,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 578,
+        "direction": "to_sram",
+        "ext": 42408,
+        "role": "aligned_source",
+        "sram": 12328,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 580,
+        "direction": "to_sram",
+        "ext": 42984,
+        "role": "aligned_source",
+        "sram": 12544,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 582,
+        "direction": "to_sram",
+        "ext": 43560,
+        "role": "aligned_source",
+        "sram": 12760,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 584,
+        "direction": "to_sram",
+        "ext": 44136,
+        "role": "aligned_source",
+        "sram": 12976,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 586,
+        "direction": "to_sram",
+        "ext": 44712,
+        "role": "aligned_source",
+        "sram": 13192,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 588,
+        "direction": "to_sram",
+        "ext": 45288,
+        "role": "aligned_source",
+        "sram": 13408,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 590,
+        "direction": "to_sram",
+        "ext": 45864,
+        "role": "aligned_source",
+        "sram": 13624,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 592,
+        "direction": "to_sram",
+        "ext": 46440,
+        "role": "aligned_source",
+        "sram": 13840,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 594,
+        "direction": "to_sram",
+        "ext": 47016,
+        "role": "aligned_source",
+        "sram": 14056,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 596,
+        "direction": "to_sram",
+        "ext": 47592,
+        "role": "aligned_source",
+        "sram": 14272,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 598,
+        "direction": "to_sram",
+        "ext": 48168,
+        "role": "aligned_source",
+        "sram": 14488,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 600,
+        "direction": "to_sram",
+        "ext": 48744,
+        "role": "aligned_source",
+        "sram": 14704,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 602,
+        "direction": "to_sram",
+        "ext": 49320,
+        "role": "aligned_source",
+        "sram": 14920,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 604,
+        "direction": "to_sram",
+        "ext": 49896,
+        "role": "aligned_source",
+        "sram": 15136,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 606,
+        "direction": "to_sram",
+        "ext": 50472,
+        "role": "aligned_source",
+        "sram": 15352,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 13888,
+        "command": 608,
+        "direction": "to_sram",
+        "ext": 358240,
+        "role": "pack_chain",
+        "sram": 17152,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 128,
+        "command": 612,
+        "direction": "to_sram",
+        "ext": 372128,
+        "role": "dw_descriptor",
+        "sram": 0,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 384,
+        "command": 614,
+        "direction": "to_sram",
+        "ext": 372256,
+        "role": "dw_weight",
+        "sram": 21000,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 384,
+        "command": 616,
+        "direction": "to_sram",
+        "ext": 372640,
+        "role": "dw_params",
+        "sram": 21400,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 256,
+        "command": 618,
+        "direction": "to_sram",
+        "ext": 373024,
+        "role": "dw_table",
+        "sram": 21800,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 622,
+        "direction": "to_sram",
+        "ext": 51048,
+        "role": "aligned_source",
+        "sram": 10384,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 624,
+        "direction": "to_sram",
+        "ext": 51624,
+        "role": "aligned_source",
+        "sram": 10600,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 626,
+        "direction": "to_sram",
+        "ext": 52200,
+        "role": "aligned_source",
+        "sram": 10816,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 628,
+        "direction": "to_sram",
+        "ext": 52776,
+        "role": "aligned_source",
+        "sram": 11032,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 630,
+        "direction": "to_sram",
+        "ext": 53352,
+        "role": "aligned_source",
+        "sram": 11248,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 632,
+        "direction": "to_sram",
+        "ext": 53928,
+        "role": "aligned_source",
+        "sram": 11464,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 634,
+        "direction": "to_sram",
+        "ext": 54504,
+        "role": "aligned_source",
+        "sram": 11680,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 636,
+        "direction": "to_sram",
+        "ext": 55080,
+        "role": "aligned_source",
+        "sram": 11896,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 4672,
+        "command": 638,
+        "direction": "to_sram",
+        "ext": 373280,
+        "role": "pack_chain",
+        "sram": 20480,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 128,
+        "command": 642,
+        "direction": "to_sram",
+        "ext": 377952,
+        "role": "dw_descriptor",
+        "sram": 0,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 128,
+        "command": 644,
+        "direction": "to_sram",
+        "ext": 378080,
+        "role": "dw_weight",
+        "sram": 21000,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 128,
+        "command": 646,
+        "direction": "to_sram",
+        "ext": 378208,
+        "role": "dw_params",
+        "sram": 21400,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 256,
+        "command": 648,
+        "direction": "to_sram",
+        "ext": 378336,
+        "role": "dw_table",
+        "sram": 21800,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 4096,
+        "command": 652,
+        "direction": "from_sram",
+        "ext": 447968,
+        "role": "layer12_tile_snapshot",
+        "sram": 16160,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 128,
+        "command": 654,
+        "direction": "to_sram",
+        "ext": 378592,
+        "role": "pw_descriptor",
+        "sram": 0,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 1024,
+        "command": 656,
+        "direction": "to_sram",
+        "ext": 378720,
+        "role": "pw_weight",
+        "sram": 21000,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 512,
+        "command": 658,
+        "direction": "to_sram",
+        "ext": 379744,
+        "role": "pw_params",
+        "sram": 22024,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 256,
+        "command": 660,
+        "direction": "to_sram",
+        "ext": 380256,
+        "role": "pw_table",
+        "sram": 22536,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 16448,
+        "command": 664,
+        "direction": "to_sram",
+        "ext": 380512,
+        "role": "scatter_chain",
+        "sram": 10432,
+        "tile": [
+          16,
+          0,
+          8,
+          16
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 668,
+        "direction": "to_sram",
+        "ext": 37224,
+        "role": "aligned_source",
+        "sram": 10384,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 670,
+        "direction": "to_sram",
+        "ext": 37800,
+        "role": "aligned_source",
+        "sram": 10600,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 672,
+        "direction": "to_sram",
+        "ext": 38376,
+        "role": "aligned_source",
+        "sram": 10816,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 674,
+        "direction": "to_sram",
+        "ext": 38952,
+        "role": "aligned_source",
+        "sram": 11032,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 676,
+        "direction": "to_sram",
+        "ext": 39528,
+        "role": "aligned_source",
+        "sram": 11248,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 678,
+        "direction": "to_sram",
+        "ext": 40104,
+        "role": "aligned_source",
+        "sram": 11464,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 680,
+        "direction": "to_sram",
+        "ext": 40680,
+        "role": "aligned_source",
+        "sram": 11680,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 682,
+        "direction": "to_sram",
+        "ext": 41256,
+        "role": "aligned_source",
+        "sram": 11896,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 684,
+        "direction": "to_sram",
+        "ext": 41832,
+        "role": "aligned_source",
+        "sram": 12112,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 686,
+        "direction": "to_sram",
+        "ext": 42408,
+        "role": "aligned_source",
+        "sram": 12328,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 688,
+        "direction": "to_sram",
+        "ext": 42984,
+        "role": "aligned_source",
+        "sram": 12544,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 690,
+        "direction": "to_sram",
+        "ext": 43560,
+        "role": "aligned_source",
+        "sram": 12760,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 692,
+        "direction": "to_sram",
+        "ext": 44136,
+        "role": "aligned_source",
+        "sram": 12976,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 694,
+        "direction": "to_sram",
+        "ext": 44712,
+        "role": "aligned_source",
+        "sram": 13192,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 696,
+        "direction": "to_sram",
+        "ext": 45288,
+        "role": "aligned_source",
+        "sram": 13408,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 698,
+        "direction": "to_sram",
+        "ext": 45864,
+        "role": "aligned_source",
+        "sram": 13624,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 700,
+        "direction": "to_sram",
+        "ext": 46440,
+        "role": "aligned_source",
+        "sram": 13840,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 702,
+        "direction": "to_sram",
+        "ext": 47016,
+        "role": "aligned_source",
+        "sram": 14056,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 704,
+        "direction": "to_sram",
+        "ext": 47592,
+        "role": "aligned_source",
+        "sram": 14272,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 706,
+        "direction": "to_sram",
+        "ext": 48168,
+        "role": "aligned_source",
+        "sram": 14488,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 708,
+        "direction": "to_sram",
+        "ext": 48744,
+        "role": "aligned_source",
+        "sram": 14704,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 710,
+        "direction": "to_sram",
+        "ext": 49320,
+        "role": "aligned_source",
+        "sram": 14920,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 712,
+        "direction": "to_sram",
+        "ext": 49896,
+        "role": "aligned_source",
+        "sram": 15136,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 714,
+        "direction": "to_sram",
+        "ext": 50472,
+        "role": "aligned_source",
+        "sram": 15352,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 13888,
+        "command": 716,
+        "direction": "to_sram",
+        "ext": 396960,
+        "role": "pack_chain",
+        "sram": 17152,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 128,
+        "command": 720,
+        "direction": "to_sram",
+        "ext": 410848,
+        "role": "dw_descriptor",
+        "sram": 0,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 384,
+        "command": 722,
+        "direction": "to_sram",
+        "ext": 410976,
+        "role": "dw_weight",
+        "sram": 21000,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 384,
+        "command": 724,
+        "direction": "to_sram",
+        "ext": 411360,
+        "role": "dw_params",
+        "sram": 21400,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 256,
+        "command": 726,
+        "direction": "to_sram",
+        "ext": 411744,
+        "role": "dw_table",
+        "sram": 21800,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 730,
+        "direction": "to_sram",
+        "ext": 51048,
+        "role": "aligned_source",
+        "sram": 10384,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 732,
+        "direction": "to_sram",
+        "ext": 51624,
+        "role": "aligned_source",
+        "sram": 10600,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 734,
+        "direction": "to_sram",
+        "ext": 52200,
+        "role": "aligned_source",
+        "sram": 10816,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 736,
+        "direction": "to_sram",
+        "ext": 52776,
+        "role": "aligned_source",
+        "sram": 11032,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 738,
+        "direction": "to_sram",
+        "ext": 53352,
+        "role": "aligned_source",
+        "sram": 11248,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 740,
+        "direction": "to_sram",
+        "ext": 53928,
+        "role": "aligned_source",
+        "sram": 11464,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 742,
+        "direction": "to_sram",
+        "ext": 54504,
+        "role": "aligned_source",
+        "sram": 11680,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 216,
+        "command": 744,
+        "direction": "to_sram",
+        "ext": 55080,
+        "role": "aligned_source",
+        "sram": 11896,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 4672,
+        "command": 746,
+        "direction": "to_sram",
+        "ext": 412000,
+        "role": "pack_chain",
+        "sram": 20480,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 128,
+        "command": 750,
+        "direction": "to_sram",
+        "ext": 416672,
+        "role": "dw_descriptor",
+        "sram": 0,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 128,
+        "command": 752,
+        "direction": "to_sram",
+        "ext": 416800,
+        "role": "dw_weight",
+        "sram": 21000,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 128,
+        "command": 754,
+        "direction": "to_sram",
+        "ext": 416928,
+        "role": "dw_params",
+        "sram": 21400,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 256,
+        "command": 756,
+        "direction": "to_sram",
+        "ext": 417056,
+        "role": "dw_table",
+        "sram": 21800,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 2048,
+        "command": 760,
+        "direction": "from_sram",
+        "ext": 452064,
+        "role": "layer12_tile_snapshot",
+        "sram": 16160,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 128,
+        "command": 762,
+        "direction": "to_sram",
+        "ext": 417312,
+        "role": "pw_descriptor",
+        "sram": 0,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 1024,
+        "command": 764,
+        "direction": "to_sram",
+        "ext": 417440,
+        "role": "pw_weight",
+        "sram": 21000,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 512,
+        "command": 766,
+        "direction": "to_sram",
+        "ext": 418464,
+        "role": "pw_params",
+        "sram": 22024,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 256,
+        "command": 768,
+        "direction": "to_sram",
+        "ext": 418976,
+        "role": "pw_table",
+        "sram": 22536,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 16448,
+        "command": 772,
+        "direction": "to_sram",
+        "ext": 419232,
+        "role": "scatter_chain",
+        "sram": 10432,
+        "tile": [
+          16,
+          16,
+          8,
+          8
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 776,
+        "direction": "from_sram",
+        "ext": 181216,
+        "role": "output_band",
+        "sram": 128,
+        "tile": [
+          16,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 778,
+        "direction": "from_sram",
+        "ext": 181792,
+        "role": "output_band",
+        "sram": 320,
+        "tile": [
+          16,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 780,
+        "direction": "from_sram",
+        "ext": 182368,
+        "role": "output_band",
+        "sram": 512,
+        "tile": [
+          16,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 782,
+        "direction": "from_sram",
+        "ext": 182944,
+        "role": "output_band",
+        "sram": 704,
+        "tile": [
+          16,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 784,
+        "direction": "from_sram",
+        "ext": 183520,
+        "role": "output_band",
+        "sram": 896,
+        "tile": [
+          16,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 786,
+        "direction": "from_sram",
+        "ext": 184096,
+        "role": "output_band",
+        "sram": 1088,
+        "tile": [
+          16,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 788,
+        "direction": "from_sram",
+        "ext": 184672,
+        "role": "output_band",
+        "sram": 1280,
+        "tile": [
+          16,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 790,
+        "direction": "from_sram",
+        "ext": 185248,
+        "role": "output_band",
+        "sram": 1472,
+        "tile": [
+          16,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 792,
+        "direction": "from_sram",
+        "ext": 185824,
+        "role": "output_band",
+        "sram": 1664,
+        "tile": [
+          16,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 794,
+        "direction": "from_sram",
+        "ext": 186400,
+        "role": "output_band",
+        "sram": 1856,
+        "tile": [
+          16,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 796,
+        "direction": "from_sram",
+        "ext": 186976,
+        "role": "output_band",
+        "sram": 2048,
+        "tile": [
+          16,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 798,
+        "direction": "from_sram",
+        "ext": 187552,
+        "role": "output_band",
+        "sram": 2240,
+        "tile": [
+          16,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 800,
+        "direction": "from_sram",
+        "ext": 188128,
+        "role": "output_band",
+        "sram": 2432,
+        "tile": [
+          16,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 802,
+        "direction": "from_sram",
+        "ext": 188704,
+        "role": "output_band",
+        "sram": 2624,
+        "tile": [
+          16,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 804,
+        "direction": "from_sram",
+        "ext": 189280,
+        "role": "output_band",
+        "sram": 2816,
+        "tile": [
+          16,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 806,
+        "direction": "from_sram",
+        "ext": 189856,
+        "role": "output_band",
+        "sram": 3008,
+        "tile": [
+          16,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 808,
+        "direction": "from_sram",
+        "ext": 190432,
+        "role": "output_band",
+        "sram": 3200,
+        "tile": [
+          16,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 810,
+        "direction": "from_sram",
+        "ext": 191008,
+        "role": "output_band",
+        "sram": 3392,
+        "tile": [
+          16,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 812,
+        "direction": "from_sram",
+        "ext": 191584,
+        "role": "output_band",
+        "sram": 3584,
+        "tile": [
+          16,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 814,
+        "direction": "from_sram",
+        "ext": 192160,
+        "role": "output_band",
+        "sram": 3776,
+        "tile": [
+          16,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 816,
+        "direction": "from_sram",
+        "ext": 192736,
+        "role": "output_band",
+        "sram": 3968,
+        "tile": [
+          16,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 818,
+        "direction": "from_sram",
+        "ext": 193312,
+        "role": "output_band",
+        "sram": 4160,
+        "tile": [
+          16,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 820,
+        "direction": "from_sram",
+        "ext": 193888,
+        "role": "output_band",
+        "sram": 4352,
+        "tile": [
+          16,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 822,
+        "direction": "from_sram",
+        "ext": 194464,
+        "role": "output_band",
+        "sram": 4544,
+        "tile": [
+          16,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 824,
+        "direction": "from_sram",
+        "ext": 195040,
+        "role": "output_band",
+        "sram": 4736,
+        "tile": [
+          16,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 826,
+        "direction": "from_sram",
+        "ext": 195616,
+        "role": "output_band",
+        "sram": 4928,
+        "tile": [
+          16,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 828,
+        "direction": "from_sram",
+        "ext": 196192,
+        "role": "output_band",
+        "sram": 5120,
+        "tile": [
+          16,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 830,
+        "direction": "from_sram",
+        "ext": 196768,
+        "role": "output_band",
+        "sram": 5312,
+        "tile": [
+          16,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 832,
+        "direction": "from_sram",
+        "ext": 197344,
+        "role": "output_band",
+        "sram": 5504,
+        "tile": [
+          16,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 834,
+        "direction": "from_sram",
+        "ext": 197920,
+        "role": "output_band",
+        "sram": 5696,
+        "tile": [
+          16,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 836,
+        "direction": "from_sram",
+        "ext": 198496,
+        "role": "output_band",
+        "sram": 5888,
+        "tile": [
+          16,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 192,
+        "command": 838,
+        "direction": "from_sram",
+        "ext": 199072,
+        "role": "output_band",
+        "sram": 6080,
+        "tile": [
+          16,
+          0,
+          8,
+          24
+        ]
+      },
+      {
+        "bytes": 18432,
+        "command": 840,
+        "direction": "to_sram",
+        "ext": 180832,
+        "role": "final_output_reload",
+        "sram": 128,
+        "tile": null
+      },
+      {
+        "bytes": 18432,
+        "command": 842,
+        "direction": "from_sram",
+        "ext": 36864,
+        "role": "final_output_store",
+        "sram": 128,
+        "tile": null
+      }
+    ]
+  },
+  "selected_native_executable_sha256": "b97fbf944827a5345670f3603e7f10368a897e6bcb19d16cc56905d8e06d16ec",
+  "source_sha256": {
+    "tools/phase6/matched_defines_x_diagnostics.py": "570e2248b20e9a02f40147905782417336100262ab2ec3dab5ec9805641826a7",
+    "tools/phase6/matched_defines_x_tiles.py": "a9199a089d1e31bff7c5f3fa045e8d5daf47003f5283fe6c93ac4e0c260d63a1"
+  },
+  "status": "passed-native",
+  "timed_report": "work/phase6/matched-baselines-v1/b3-x-tiles-v2/report.json",
+  "timed_report_sha256": "3658b6a7bafd3bc7c60e0322ee0e078f24ff42c9d1fa398c9c8e82e2d8cf94dd"
+}

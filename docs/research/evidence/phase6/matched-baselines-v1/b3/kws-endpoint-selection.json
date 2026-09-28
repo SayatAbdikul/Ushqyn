@@ -1,0 +1,96 @@
+{
+  "baseline_report": "work/phase6/matched-baselines-v1/b1b2/report.json",
+  "baseline_report_sha256": "69ac8cd64a57463abbb0951e919144b0ed0a576c2c54c11880261b0aa65e3d18",
+  "schema": 1,
+  "scope": "KWS full-layer legal LBL endpoints inherited from B1/B2 on matched engine and backend",
+  "selection": "B2",
+  "selection_rule": "minimum worst native elapsed_cycles over seeds 0 and 6063; tie by policy name",
+  "status": "passed-native",
+  "variants": {
+    "B1": {
+      "directory": "work/phase6/matched-baselines-v1/b1b2/fixtures/b1-kws-pinned_timed",
+      "files": {
+        "checks.txt": "0258c1889f1aa327b0b54f378d72d77fb1ca4c7d56dd168ad464a3ec0d7df35c",
+        "commands.bin": "4b29e436cca55a8ef2eabf0a0b2b173f9afabebc9f9463174ec824b0d0134e53",
+        "input.bin": "5f4ad0b2d11bf1cccab552fb5a4d95d082b70f2d1fe2459127673d270cb1cdf4",
+        "output.bin": "ce178213db2ef2aa27d0b532e4a17851cfef1772ad74b2fc7a95311b4a6714a7",
+        "payload.bin": "9fab76c1452ee393955bd414160497defb48229c0c3fa5b64e87b2ef6180770c",
+        "schedule.json": "29fe40f93ba6295349c6af13a4dbec15e80d174e8efa986f912b08c6dcd57121"
+      },
+      "native": [
+        {
+          "dma_cycles": 68320,
+          "elapsed_cycles": 1235655,
+          "engine_cycles": 1170219,
+          "report": "work/phase6/matched-baselines-v1/b3/native/kws-endpoint-b1-s0.json",
+          "report_sha256": "c3938d10f1ddea0d0c4835e386e67dca76f8c03042039d970d7f1abc5025fa4d",
+          "stall_seed": 0,
+          "status": "passed",
+          "tensor_checks": 1
+        },
+        {
+          "dma_cycles": 101407,
+          "elapsed_cycles": 1266467,
+          "engine_cycles": 1170257,
+          "report": "work/phase6/matched-baselines-v1/b3/native/kws-endpoint-b1-s6063.json",
+          "report_sha256": "e1e4916ec8dcbb2617a17c5b25c70ea64f17fc54c9621e20af97ad59a7dd1ca3",
+          "stall_seed": 6063,
+          "status": "passed",
+          "tensor_checks": 1
+        }
+      ],
+      "replay": {
+        "engine_runs": 11,
+        "report": "work/phase6/matched-baselines-v1/b3/replay/kws-endpoint-b1.json",
+        "report_sha256": "0e3c5e33c979c1d3f43ca7f838fc68166d7595fe7a7ef81e68dfca0a9733cd4b",
+        "scope": "symbolic full-model command replay with independent integer oracle, strip coordinates, and SRAM COPY provenance; no RTL timing proof",
+        "status": "passed"
+      },
+      "source_policy": "B1",
+      "worst_seed_cycles": 1266467
+    },
+    "B2": {
+      "directory": "work/phase6/matched-baselines-v1/b1b2/fixtures/b2-kws-pinned_timed",
+      "files": {
+        "checks.txt": "0258c1889f1aa327b0b54f378d72d77fb1ca4c7d56dd168ad464a3ec0d7df35c",
+        "commands.bin": "6f4499cd0b5f87cc49230c0afe4ffec07806741978660762cd7a5e5ffda3fe31",
+        "input.bin": "5f4ad0b2d11bf1cccab552fb5a4d95d082b70f2d1fe2459127673d270cb1cdf4",
+        "output.bin": "ce178213db2ef2aa27d0b532e4a17851cfef1772ad74b2fc7a95311b4a6714a7",
+        "payload.bin": "04cd8f5e9023b178962b74e18e27aeb85ce91a8b8fce9b05f0f2085ef9d120be",
+        "schedule.json": "c875dd4f99c10b588e434b9c280f3e3228683293028ccf6cc09562799bfc4b92"
+      },
+      "native": [
+        {
+          "dma_cycles": 14239,
+          "elapsed_cycles": 1181858,
+          "engine_cycles": 1170215,
+          "report": "work/phase6/matched-baselines-v1/b3/native/kws-endpoint-b2-s0.json",
+          "report_sha256": "768f58d51e06d51994c1b18a9e469c9efff17a36462729a52404106b11b9797e",
+          "stall_seed": 0,
+          "status": "passed",
+          "tensor_checks": 1
+        },
+        {
+          "dma_cycles": 24724,
+          "elapsed_cycles": 1190362,
+          "engine_cycles": 1170226,
+          "report": "work/phase6/matched-baselines-v1/b3/native/kws-endpoint-b2-s6063.json",
+          "report_sha256": "1389c074de5932e31ca1db9e61cb0c23ea722a1ebabffd22d506f0671e639041",
+          "stall_seed": 6063,
+          "status": "passed",
+          "tensor_checks": 1
+        }
+      ],
+      "replay": {
+        "engine_runs": 11,
+        "report": "work/phase6/matched-baselines-v1/b3/replay/kws-endpoint-b2.json",
+        "report_sha256": "d0e1bbe80e71a1bb2bfe0312de82217bdeeb2f629d59063f537653898302f48c",
+        "scope": "symbolic full-model command replay with independent integer oracle, strip coordinates, and SRAM COPY provenance; no RTL timing proof",
+        "status": "passed"
+      },
+      "source_policy": "B2",
+      "worst_seed_cycles": 1190362
+    }
+  },
+  "winner_worst_seed_cycles": 1190362
+}

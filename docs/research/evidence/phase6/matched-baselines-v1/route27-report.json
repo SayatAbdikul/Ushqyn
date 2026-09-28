@@ -1,0 +1,44 @@
+{
+  "bitstream": "work/phase6/pool-timing-v1/route27/phase6_uart_burst/impl/pnr/phase6_uart_burst.fs",
+  "bitstream_sha256": "3e943639382e4efea62d4d2072c016fa40eacc7a97ef6bad7f5bfdc69d8dafce",
+  "build_seconds": 212.97534975013696,
+  "core_clock_mhz": 27,
+  "engine_sha256": "c347336ec58503f26abc47094289bd7926fcc5ed2515eca758a4b7dbc7f6d48a",
+  "hold_violated_endpoints": 0,
+  "physical_board": false,
+  "pll_vco_mhz": 864,
+  "resources": {
+    "BSRAM": {
+      "available": 46.0,
+      "used": 38.0
+    },
+    "CLS": {
+      "available": 10368.0,
+      "used": 10095.0
+    },
+    "DSP": {
+      "available": 24.0,
+      "used": 9.5
+    },
+    "Logic": {
+      "available": 20736.0,
+      "used": 18882.0
+    },
+    "Register": {
+      "available": 15915.0,
+      "used": 5230.0
+    }
+  },
+  "route_sha256": "59620a8af67a84d1b0884fb9198056cd0180b9c28869daf8228400d6f5d8c262",
+  "routed_core_fmax_mhz": 27.613,
+  "setup_violated_endpoints": 0,
+  "sources": {
+    "work/phase6/pool-timing-v1/build27.tcl": "1ddea2f28a4c7ad31b0786b946d320d5f2229939043bd95150452b72a2ceaa83",
+    "work/phase6/pool-timing-v1/engine.sv": "c347336ec58503f26abc47094289bd7926fcc5ed2515eca758a4b7dbc7f6d48a",
+    "work/phase6/pool-timing-v1/host27.sv": "ea71d3e96a519d97727a5c96c5542e5e4cf56ce0e0ac29cbc7f632e5bdea30ac",
+    "work/phase6/pool-timing-v1/pll27.v": "eb0ed32f570e9665f25ce9903cad408058d1ab9824b840ca20cb8a715c9339b3"
+  },
+  "status": "passed-route",
+  "timing_sha256": "96ac00f5e12a6aa1518a742457aaae1f6b3f1917f7e090adab0b3f6144e91fb1",
+  "uart_divider": 36
+}

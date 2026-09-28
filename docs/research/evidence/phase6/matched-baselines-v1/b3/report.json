@@ -1,0 +1,729 @@
+{
+  "engine_sha256": "c347336ec58503f26abc47094289bd7926fcc5ed2515eca758a4b7dbc7f6d48a",
+  "limitations": [
+    "the selected VWW recompute command stream is byte-identical to B4 and is a valid tie only in the restricted catalogue",
+    "KWS B2 endpoint wins the restricted LBL selection and is byte-identical to B4; no separate KWS strip mode is lowerable",
+    "arbitrary tile widths/heights and deeper fuse depths could dominate this subset and remain untested"
+  ],
+  "model_source_sha256": {
+    "work/phase4/kws-calibration-rebased.json": "96d7614d7c9404ea42178caf54a286fa04ee0d72b6c02a01e011895573df1997",
+    "work/phase4/kws-logits.onnx": "074aacbdd17f488e7717e5ab2add811341569e71023d9b778ce472e27991d8de",
+    "work/phase4/rtl-kws/expected.npz": "d038eb5d3c45e3374ca9352b382cb37d3a8a7af3f972a12d6142745db01677a1",
+    "work/phase4/rtl-kws/input.bin": "5f4ad0b2d11bf1cccab552fb5a4d95d082b70f2d1fe2459127673d270cb1cdf4",
+    "work/phase4/rtl-kws/manifest.json": "702422f42debf72524a7adce99debef55ea6e11538691cc4f250e363cbeede51",
+    "work/phase4/rtl-vww/expected.npz": "f5fbc256593bf1381f6f81e5508702e7d492f432fb54d729ca1885877592ebe5",
+    "work/phase4/rtl-vww/input.bin": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+    "work/phase4/rtl-vww/manifest.json": "b55d9e1d99d326ad8209f26f341eb7048d90d6f5cee68dadf93d6c4d3e6fb0fe",
+    "work/phase4/vww-calibration-rebased.json": "03dcc62a292a0b98e490026e50c1002a4b287e2910a5c54d89c894c22d5015d5",
+    "work/phase4/vww-logits.onnx": "42090afcfdd84130b4e9c0b3fca8993b138f9509d620de2fe915c71adef893b7"
+  },
+  "modes": {
+    "full_cache": "tested via legal SRAM COPY descriptors; per-channel halo retained across output overwrite",
+    "fully_recompute": "executable via selected strip pair schedules; source halo refetched from SDRAM",
+    "horizontal_cache_vertical_recompute": "horizontal cache is vacuous for full-width strips"
+  },
+  "native_executable_sha256": "b97fbf944827a5345670f3603e7f10368a897e6bcb19d16cc56905d8e06d16ec",
+  "omitted_resource_feasible_point": {
+    "capacity_limit_bytes": 32768,
+    "estimated_horizontal_halo_bytes": 640,
+    "estimated_sram_bytes_with_descriptors_weights_params": 16896,
+    "estimated_vertical_halo_bytes": 1152,
+    "layers": [
+      11,
+      14
+    ],
+    "lowering_blocker": "aligned contiguous DMA/COPY cannot row-pack 18-wide interior input from a 24-wide plane; naive six-tile output scatter uses 1536 DMA plus 1536 WAIT commands, exceeding the 2048-command store",
+    "output_tile": [
+      8,
+      16
+    ],
+    "status": "geometry/resource feasibility only; no compiled executable or timing result",
+    "upstream_input_tile_no_cache": [
+      10,
+      18
+    ]
+  },
+  "physical_board": false,
+  "policies": {
+    "B3_restricted": {
+      "description": "fixed full-width DeFiNES-style depth-first cut catalogue on inherited eight-lane backend",
+      "fixed_fallback_models": [
+        "kws"
+      ],
+      "fully_eligible_b3": false,
+      "independent_policy_generation": true,
+      "kws_endpoint_selection_report": "work/phase6/matched-baselines-v1/b3/kws-endpoint-selection.json",
+      "kws_endpoint_selection_report_sha256": "c16710b97a81e741e655da44cf934bc41bfb00bb7517c9584928eb5e45fce346",
+      "models": {
+        "kws": {
+          "fixtures": {
+            "pinned_check": {
+              "directory": "work/phase6/matched-baselines-v1/b3/fixtures/kws-pinned-check",
+              "files": {
+                "checks.txt": "2d18470a57e89a802f01f54f1b0d4b3a631de84b21924811bee2f7061c9e3731",
+                "commands.bin": "bc063586dfac0d09b4646efe921a584b05ccb7acf14dcf220ea9f2350e82cfcf",
+                "input.bin": "5f4ad0b2d11bf1cccab552fb5a4d95d082b70f2d1fe2459127673d270cb1cdf4",
+                "layer-10.bin": "19733719e30130052f2ab4db3c6e89cd74d955e8aea7a20da4eedf42fa754efc",
+                "layer-12.bin": "3a5a90031e26deea03ab9091dd90d70f7de34469d660b0d2213474c923536ecd",
+                "layer-14.bin": "cf9cf4aba5059fc5241b49e0685e47bfaa8ac279b8b18b07b81bafe1244b1588",
+                "layer-16.bin": "9ff86b91cd54c69766edfef9bfa927d7ee9f706e03a9f99cc47084605ecbf400",
+                "layer-18.bin": "3c66fd54582b325336e56e3b00f4aa9b8aded50e247d2700af1e46ced09480ce",
+                "layer-19.bin": "3fa70869e389352480248ab9a454ad7fa79767bbf8a154d56ba13decf646c042",
+                "layer-2.bin": "28e6b01d788fb4591fab9fe452f7010bce25c3b1027429b28ffe2f3a98cc308d",
+                "layer-21.bin": "ce178213db2ef2aa27d0b532e4a17851cfef1772ad74b2fc7a95311b4a6714a7",
+                "layer-4.bin": "4850b3ec9271b43fc3b802651f7135c84bbce68d041683e9bfbaba673cfcc2d9",
+                "layer-6.bin": "9733ada9d59c11c5e92f96a397cbc321a8c553ba2281d3b34f36ce22469a8205",
+                "layer-8.bin": "d32a295f2d3d018636c8f15c9705f6f2a9099401edbd5801c8d51379260a6307",
+                "output.bin": "ce178213db2ef2aa27d0b532e4a17851cfef1772ad74b2fc7a95311b4a6714a7",
+                "payload.bin": "f6209271176798d3ba44ddd8df1c2fc029329c0b497c19c1e4a3a12473f53bbd",
+                "schedule.json": "525ca9f98984792ff11d63ed957b98e7e8d7a5f58a5668958ee6d324fa36eb03"
+              },
+              "native": [
+                {
+                  "dma_cycles": 41280,
+                  "elapsed_cycles": 1208987,
+                  "engine_cycles": 1170215,
+                  "report": "work/phase6/matched-baselines-v1/b3/native/kws-pinned-check-s0.json",
+                  "report_sha256": "30f18c9f78572e60149e7d65c2184d2a3f70f89be9d3198a126783408a349ce9",
+                  "stall_seed": 0,
+                  "status": "passed",
+                  "tensor_checks": 12
+                },
+                {
+                  "dma_cycles": 54061,
+                  "elapsed_cycles": 1219853,
+                  "engine_cycles": 1170232,
+                  "report": "work/phase6/matched-baselines-v1/b3/native/kws-pinned-check-s6063.json",
+                  "report_sha256": "a684e7d236ff5c3c39f7bd755d13dc48fe3ac1b71965ee61c3fe3d3ada586e9d",
+                  "stall_seed": 6063,
+                  "status": "passed",
+                  "tensor_checks": 12
+                }
+              ],
+              "replay": {
+                "engine_runs": 11,
+                "report": "work/phase6/matched-baselines-v1/b3/replay/kws-pinned-check.json",
+                "report_sha256": "5c6699d4e6e229cbf00f1013a3ba8441b5e945bcb0558d5c48c50c3f7820ca97",
+                "scope": "symbolic full-model command replay with independent integer oracle, strip coordinates, and SRAM COPY provenance; no RTL timing proof",
+                "status": "passed"
+              },
+              "source_directory": "work/phase6/channel-compaction-v1/fused/fixtures/kws-pinned-compacted-fused-check"
+            },
+            "pinned_timed": {
+              "directory": "work/phase6/matched-baselines-v1/b3/fixtures/kws-pinned-timed",
+              "files": {
+                "checks.txt": "0258c1889f1aa327b0b54f378d72d77fb1ca4c7d56dd168ad464a3ec0d7df35c",
+                "commands.bin": "6f4499cd0b5f87cc49230c0afe4ffec07806741978660762cd7a5e5ffda3fe31",
+                "input.bin": "5f4ad0b2d11bf1cccab552fb5a4d95d082b70f2d1fe2459127673d270cb1cdf4",
+                "output.bin": "ce178213db2ef2aa27d0b532e4a17851cfef1772ad74b2fc7a95311b4a6714a7",
+                "payload.bin": "04cd8f5e9023b178962b74e18e27aeb85ce91a8b8fce9b05f0f2085ef9d120be",
+                "schedule.json": "ad07b5876083b88d09bb20bfb2a5a695c2bb1c33c371b280c870b59c4560deca"
+              },
+              "native": [
+                {
+                  "dma_cycles": 14239,
+                  "elapsed_cycles": 1181858,
+                  "engine_cycles": 1170215,
+                  "report": "work/phase6/matched-baselines-v1/b3/native/kws-pinned-timed-s0.json",
+                  "report_sha256": "768f58d51e06d51994c1b18a9e469c9efff17a36462729a52404106b11b9797e",
+                  "stall_seed": 0,
+                  "status": "passed",
+                  "tensor_checks": 1
+                },
+                {
+                  "dma_cycles": 24724,
+                  "elapsed_cycles": 1190362,
+                  "engine_cycles": 1170226,
+                  "report": "work/phase6/matched-baselines-v1/b3/native/kws-pinned-timed-s6063.json",
+                  "report_sha256": "1389c074de5932e31ca1db9e61cb0c23ea722a1ebabffd22d506f0671e639041",
+                  "stall_seed": 6063,
+                  "status": "passed",
+                  "tensor_checks": 1
+                }
+              ],
+              "replay": {
+                "engine_runs": 11,
+                "report": "work/phase6/matched-baselines-v1/b3/replay/kws-pinned-timed.json",
+                "report_sha256": "cfe7d35e7327c2519b6ffbeab860216639824fee1524a98a04f264647659e20b",
+                "scope": "symbolic full-model command replay with independent integer oracle, strip coordinates, and SRAM COPY provenance; no RTL timing proof",
+                "status": "passed"
+              },
+              "source_directory": "work/phase6/strip-fusion-pair7-v1/full/fixtures/kws-pinned-compacted-fused-timed"
+            },
+            "stress_check": {
+              "directory": "work/phase6/matched-baselines-v1/b3/fixtures/kws-stress-check",
+              "files": {
+                "checks.txt": "2d18470a57e89a802f01f54f1b0d4b3a631de84b21924811bee2f7061c9e3731",
+                "commands.bin": "bc063586dfac0d09b4646efe921a584b05ccb7acf14dcf220ea9f2350e82cfcf",
+                "input.bin": "f5a39d28d31a28fb07370194433bdc062491431bc7f44f6506f61c80d754d14b",
+                "layer-10.bin": "4981413095f737e799b712b7f0fead325e82ffa833300227f70f678418d6e839",
+                "layer-12.bin": "2a625897110d333c304063a2ff9abf911307fe4361579f8336d28bb9e50f2560",
+                "layer-14.bin": "4b13174d73756c5db379b393a41170eadfdf5ffbe73639460879c0166257fcaa",
+                "layer-16.bin": "f86a2ebd9c8f52b07794b86d5c2faf467f3f559673cff9e53324d7ba5c1f33c7",
+                "layer-18.bin": "9cfa22658feb32e676bdd08b95769b9a2638adf74f5bea32f9453f5d2343dc03",
+                "layer-19.bin": "123cfb6e6cbdfe561a5f5373fc5613c65d3d320c8556921cb19a652e19655c26",
+                "layer-2.bin": "c5b0bf2801da4d630c2758b7fb4a9308b2f78705679e686afe23b3fa8829a1fb",
+                "layer-21.bin": "a2a31ffdb59a4e5f17533f482eaee838b12c814427ec4671a7f10cb89c09114d",
+                "layer-4.bin": "61f0781511619ccd1982bd2a32895fc8ab8dda71325e88790d8d413dfd6e566e",
+                "layer-6.bin": "83335e5e14abb75203c23e48266a9dfa06c81a0efdcb29239ab6e1f899d8ae0c",
+                "layer-8.bin": "e0bb120602114506a6e9767f578baf0380e0a008063bc63e53fd6d16ff1c03a8",
+                "output.bin": "a2a31ffdb59a4e5f17533f482eaee838b12c814427ec4671a7f10cb89c09114d",
+                "payload.bin": "f6209271176798d3ba44ddd8df1c2fc029329c0b497c19c1e4a3a12473f53bbd",
+                "schedule.json": "525ca9f98984792ff11d63ed957b98e7e8d7a5f58a5668958ee6d324fa36eb03"
+              },
+              "native": [
+                {
+                  "dma_cycles": 41280,
+                  "elapsed_cycles": 1208987,
+                  "engine_cycles": 1170215,
+                  "report": "work/phase6/matched-baselines-v1/b3/native/kws-stress-check-s0.json",
+                  "report_sha256": "30f18c9f78572e60149e7d65c2184d2a3f70f89be9d3198a126783408a349ce9",
+                  "stall_seed": 0,
+                  "status": "passed",
+                  "tensor_checks": 12
+                },
+                {
+                  "dma_cycles": 54061,
+                  "elapsed_cycles": 1219853,
+                  "engine_cycles": 1170232,
+                  "report": "work/phase6/matched-baselines-v1/b3/native/kws-stress-check-s6063.json",
+                  "report_sha256": "a684e7d236ff5c3c39f7bd755d13dc48fe3ac1b71965ee61c3fe3d3ada586e9d",
+                  "stall_seed": 6063,
+                  "status": "passed",
+                  "tensor_checks": 12
+                }
+              ],
+              "replay": {
+                "engine_runs": 11,
+                "report": "work/phase6/matched-baselines-v1/b3/replay/kws-stress-check.json",
+                "report_sha256": "0f8d8de0fc1418b89e2630effb2f8beeddb7fca360e65abbf336bcf7d21c6210",
+                "scope": "symbolic full-model command replay with independent integer oracle, strip coordinates, and SRAM COPY provenance; no RTL timing proof",
+                "status": "passed"
+              },
+              "source_directory": "work/phase6/strip-fusion-pair7-v1/full/fixtures/kws-stress-compacted-fused-check"
+            }
+          }
+        },
+        "vww": {
+          "fixtures": {
+            "pinned_check": {
+              "directory": "work/phase6/matched-baselines-v1/b3/fixtures/vww-pinned-check",
+              "files": {
+                "checks.txt": "c0c51c18f44becdee4da3246c1c25bb44666a00fad5893b6ae63d39169d49644",
+                "commands.bin": "e49ca21fad960872a2e4c031bf25178f43936d28aa2e74a56b0ef3ac3a019a8e",
+                "input.bin": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+                "layer-10.bin": "d7d0dbfd54b0cc3080bf8b70dad72fb5e8a267a201a92475c648c7fed6274eec",
+                "layer-12.bin": "6eb28e52e11e420d3b9a060ec1d5219ac3a256a566da5491aa827856d080a60c",
+                "layer-14.bin": "b603387040561489782e1a77a666911711ae4cd72b2cea0a21907704a7769a8d",
+                "layer-16.bin": "8f672022aa3ec547a2a74d0fc7902f00aca34623ee4c6ac0f13396cdc3189877",
+                "layer-18.bin": "58861e22c722a3e38bb24b38da8a58f80d6e8bca5041e02623e6a1a0a594ca1b",
+                "layer-2.bin": "d12555fad1310af0635639ef931480667e6acd3f1c9f83b705d6a77917637360",
+                "layer-20.bin": "1a5d161b06492b61cd996e53520415e6db095995153af3e0ce5e1111b66ba9e2",
+                "layer-22.bin": "21c0714cae97e4ce0a4c3c12ea1300ec12d1ffb6b8cdf9f8ae8f727a442f3843",
+                "layer-24.bin": "fe18d7701f8414994a3578826ef77aae4086a3a49c4ec304e79e6d9c7ebd9c67",
+                "layer-26.bin": "dbdcfe5a0adef358bc5a109fef10d363fbc1852a85431551baa5d0c57cb2c37a",
+                "layer-28.bin": "c719fb6841ee75109f62a56ec0a78cb2477f8e970f9a9689205d341d2d2a4713",
+                "layer-30.bin": "628ca29427edfc16cfa2f971ffc97ee6b0a5bcff5daf908f70b5889aa9156899",
+                "layer-32.bin": "21d9b5f4b3e40107f98b1a3b6ae40d215fb25276dd4ea2de89a08548c0ffa7f0",
+                "layer-34.bin": "6b6b4fae10f226e983abf354155d28a917d1553cb9047aceefd685b85c4bad04",
+                "layer-36.bin": "2c770f7f1b124127da533f46583a42462e3d7a50022c37522e62e4a212958e06",
+                "layer-38.bin": "ecae9e039942a948eaa1dcda91b8824fdb554ec396291da1923b44202bfd10ce",
+                "layer-4.bin": "fd204131fb1338dc35ed6b9b7beab6f75db000504d1747e7d6746a96ec25d593",
+                "layer-40.bin": "b11297521b02ec4f9e6b351d6ed21cab6c6a502ebd575e84d6e8d132150dd248",
+                "layer-42.bin": "30c480247ec78ecd8f46670b49ddbe30e27e7d8da434b6a50b9d0dc9f8198a0a",
+                "layer-44.bin": "440efe32c02efa8e0f59c392815858f5f0e7d086e28906446a58b9c993fbfb45",
+                "layer-46.bin": "cbea2b3eeb5825eec868d5ecdf2cd145a2648e09e4ddb8da0be8a3520dda169b",
+                "layer-48.bin": "5f694e491ee34c93ed92845b06b659c23415e89a6ab38f528f166b8add721dcf",
+                "layer-50.bin": "2cb9eaa94c1ce952e942748aa7fecab8c11aa03f1131cc6767fddf0d52f7a899",
+                "layer-52.bin": "768c1c72196ce8f2ce22ea6dc88e713539dc9fd73fb53343d450c9c3e194e5ac",
+                "layer-54.bin": "f0ebad60b75a83b0fc0ff7bd96aabc8ac25164aa8194063c00e5cc6ce30344f2",
+                "layer-55.bin": "a2a816f0a1e4a556d785020e0e468eb39214aa1325171881f7df8f9316816354",
+                "layer-57.bin": "6a0cfa0be8aa6d3a3137a6926b09aa569b91c44d1b845612779c2d55e019dbc2",
+                "layer-6.bin": "b25d84633e309cf1811ee2b1759d7c12937115b89da9f184701c812432a61599",
+                "layer-8.bin": "1ae692bd5a132b317d7b167575b678bddf6bd0eddd37bc7c856dbf624900350a",
+                "output.bin": "6a0cfa0be8aa6d3a3137a6926b09aa569b91c44d1b845612779c2d55e019dbc2",
+                "payload.bin": "26657624edbfb19ae731ba8c29c8f4f66e5466b3dd09d0bc7f2cbb97b71e615a",
+                "schedule.json": "0f7b40bad62a6165a73e9a1d0475a094c43b484b6c8b6110ba3b97aa67ed4322"
+              },
+              "native": [
+                {
+                  "dma_cycles": 185112,
+                  "elapsed_cycles": 2319313,
+                  "engine_cycles": 2133486,
+                  "report": "work/phase6/matched-baselines-v1/b3/native/vww-pinned-check-s0.json",
+                  "report_sha256": "2eee71d8d5929931179fe878ea66946357bfb1eb9ff3e8ed66da0577e31398d0",
+                  "stall_seed": 0,
+                  "status": "passed",
+                  "tensor_checks": 30
+                },
+                {
+                  "dma_cycles": 252072,
+                  "elapsed_cycles": 2385641,
+                  "engine_cycles": 2133415,
+                  "report": "work/phase6/matched-baselines-v1/b3/native/vww-pinned-check-s6063.json",
+                  "report_sha256": "3780f3a1dd0db387da13fc5c773582088a5e0d1e41b4d001b01b149ae03bc6e4",
+                  "stall_seed": 6063,
+                  "status": "passed",
+                  "tensor_checks": 30
+                }
+              ],
+              "replay": {
+                "engine_runs": 38,
+                "report": "work/phase6/matched-baselines-v1/b3/replay/vww-pinned-check.json",
+                "report_sha256": "8c870075e48dcf364b80efecdd1546f1cd24ccca69d188dd6727014e82f887a5",
+                "scope": "symbolic full-model command replay with independent integer oracle, strip coordinates, and SRAM COPY provenance; no RTL timing proof",
+                "status": "passed"
+              },
+              "source_directory": "work/phase6/strip-fusion-pair7-v1/full/fixtures/vww-pinned-compacted-strip3-7-11-check"
+            },
+            "pinned_timed": {
+              "directory": "work/phase6/matched-baselines-v1/b3/fixtures/vww-pinned-timed",
+              "files": {
+                "checks.txt": "7fe170b594022a583bc22e129db3badbcbc6a8ff868483c71a95b09793d668f2",
+                "commands.bin": "637af9c45f7e25a785d7d96ef01cb946483e3612ed95e26c7156e1fdac23680e",
+                "input.bin": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+                "output.bin": "6a0cfa0be8aa6d3a3137a6926b09aa569b91c44d1b845612779c2d55e019dbc2",
+                "payload.bin": "b8703e64eef8160898002fa687558ab419f920413868f9b01aa7e45de1121bf7",
+                "schedule.json": "85ca19e549338a5199cd29f2948d0824da38f41ed15b78375027dc88ffdb105f"
+              },
+              "native": [
+                {
+                  "dma_cycles": 112460,
+                  "elapsed_cycles": 2244277,
+                  "engine_cycles": 2133486,
+                  "report": "work/phase6/matched-baselines-v1/b3/native/vww-pinned-timed-s0.json",
+                  "report_sha256": "261b2ff8718fccf39b38e5b28a9d0d6ebbb819869f1077264c4d80401ea3e785",
+                  "stall_seed": 0,
+                  "status": "passed",
+                  "tensor_checks": 1
+                },
+                {
+                  "dma_cycles": 172924,
+                  "elapsed_cycles": 2304047,
+                  "engine_cycles": 2133433,
+                  "report": "work/phase6/matched-baselines-v1/b3/native/vww-pinned-timed-s6063.json",
+                  "report_sha256": "7013542103bee4fb2e245a454576097d2bd3348ca2892f267a49068f7dd32338",
+                  "stall_seed": 6063,
+                  "status": "passed",
+                  "tensor_checks": 1
+                }
+              ],
+              "replay": {
+                "engine_runs": 38,
+                "report": "work/phase6/matched-baselines-v1/b3/replay/vww-pinned-timed.json",
+                "report_sha256": "185866966d143c54baaad8fa15e433fd7a74a26b5355db036da6aff94451298b",
+                "scope": "symbolic full-model command replay with independent integer oracle, strip coordinates, and SRAM COPY provenance; no RTL timing proof",
+                "status": "passed"
+              },
+              "source_directory": "work/phase6/strip-fusion-pair7-v1/full/fixtures/vww-pinned-compacted-strip3-7-11-timed"
+            },
+            "stress_check": {
+              "directory": "work/phase6/matched-baselines-v1/b3/fixtures/vww-stress-check",
+              "files": {
+                "checks.txt": "c0c51c18f44becdee4da3246c1c25bb44666a00fad5893b6ae63d39169d49644",
+                "commands.bin": "e49ca21fad960872a2e4c031bf25178f43936d28aa2e74a56b0ef3ac3a019a8e",
+                "input.bin": "6bc2750f0f7644d3fdbade499feb315094ee9ca51e868f14c3d897d96fe13988",
+                "layer-10.bin": "bf9e0fb99ef2ae15eec295a4cdf49df7cb176ebcb5c922bfc13568e2c9ee9497",
+                "layer-12.bin": "bf5fec26d6c7f993a4819f9cf1156a94e8a34c0f15232deeb90701286e13ebd9",
+                "layer-14.bin": "cb3063807da5c845c7fe9d8a52bab79126c4b0a1260e7c6e7f1c3fec0d6e5493",
+                "layer-16.bin": "2ffac882d4fc1e8fcd435aa469c55280c4a88f12030f9de1d07dfbbdc4992b70",
+                "layer-18.bin": "705900d084c03c572b55f0d7e1a452c3ad40e41c8193803bb07e7c317fd24439",
+                "layer-2.bin": "2c636d036840a776b5d80fd40488846e9495f704a51cf7dd8ba53bb6ab4329c4",
+                "layer-20.bin": "001dcfa0aaac55c1bcf7b339962de71bb32c515abb26a8288aa35ebd9206d61d",
+                "layer-22.bin": "3f2bcb088c0cbb741fbc9a29376af737925535070dc5435c579a59e74e67de19",
+                "layer-24.bin": "016abc2917afcdadf21966bdc9f981da995dc6f72222cd382f03318e4ee5bf5a",
+                "layer-26.bin": "d7898437c308bb8bf62d8fa5cff3755d343be60bcef310c083924050699337bd",
+                "layer-28.bin": "01edda43f2ca1443ef9d904c71c1a66f5c841492583c3617c5528bd4f585c4e5",
+                "layer-30.bin": "07a8e44c9a1f5a2a637d9b7f9b90492e4378962b7dc55f34c988f87fef7a9afb",
+                "layer-32.bin": "f3378c014ded18a5c9c9a309e6e0e597e547fa20fb2ccec16d3cad50d2739d7d",
+                "layer-34.bin": "410de0285796aabb80a7493a9e190b7de9cafe91ee56794a863d6ae463985a75",
+                "layer-36.bin": "095e87ea56b267d0649aaa760cade1091c024798f7d478be5d671f0a82d0cf5c",
+                "layer-38.bin": "f0afd094cc018ad81ee1a01342d305232ac50a3a8599c6861e01db7b87d1a92e",
+                "layer-4.bin": "4f06dc1e1cee9026fe30e9fe1f770faf5993b5685fbe2d68afb63020ecc87f41",
+                "layer-40.bin": "e76fa78e6eb4027a14e8e372e9d04b9018b22adee2ce74049aa9c0d77ad855eb",
+                "layer-42.bin": "c84971511c2611c4e1e9c7d9a6776b8488eab846b4247bf01a54860932416e59",
+                "layer-44.bin": "c6df6b32f142b717fbf748f700cfe26f69bb15b1fd4a529a678153253fed0fc7",
+                "layer-46.bin": "50c70adaf1dcb1b0132f47f2dd524ad2f891e3170dae2fa16699c5c5ac9d371a",
+                "layer-48.bin": "0a75d1903b6fbc1ee7af90f0399b9a8c9a4989e60e5a2dc08718ddf29684e65a",
+                "layer-50.bin": "f6e3b9d69f92b18d45b2d330b45bf3a540cd9a99f5000b02945ed3850e13bcc8",
+                "layer-52.bin": "d36bba949333034ea838987cc444cc57cb9f3dc84be0f76af4f8ae5e406cea63",
+                "layer-54.bin": "199c520ddfa126571a41c55c2c95ea7f98b40bdd649c13b8f9fdf37a0aa2afd0",
+                "layer-55.bin": "661b6cbe9b7c2188b354676cce5e8b5675ed31d9cf25c83c22455bf001708305",
+                "layer-57.bin": "e8023ba9eb60c761f277a6b45509ba8a62045a9dc67ccc1b29626ced54fe4ffb",
+                "layer-6.bin": "8df03b710a020075c4253b34447be79eb00579a543aada829b4b42c21cefe098",
+                "layer-8.bin": "9b4e1a3066f6cf7087173f6c26749fcaecf4c10598767f4b07bafbf62bfee551",
+                "output.bin": "e8023ba9eb60c761f277a6b45509ba8a62045a9dc67ccc1b29626ced54fe4ffb",
+                "payload.bin": "26657624edbfb19ae731ba8c29c8f4f66e5466b3dd09d0bc7f2cbb97b71e615a",
+                "schedule.json": "260273d8f0fca5746cffdf7041ee9b6220710eb9a56da4b2385737a16c1c7eac"
+              },
+              "native": [
+                {
+                  "dma_cycles": 185112,
+                  "elapsed_cycles": 2319313,
+                  "engine_cycles": 2133486,
+                  "report": "work/phase6/matched-baselines-v1/b3/native/vww-stress-check-s0.json",
+                  "report_sha256": "2eee71d8d5929931179fe878ea66946357bfb1eb9ff3e8ed66da0577e31398d0",
+                  "stall_seed": 0,
+                  "status": "passed",
+                  "tensor_checks": 30
+                },
+                {
+                  "dma_cycles": 252072,
+                  "elapsed_cycles": 2385641,
+                  "engine_cycles": 2133415,
+                  "report": "work/phase6/matched-baselines-v1/b3/native/vww-stress-check-s6063.json",
+                  "report_sha256": "3780f3a1dd0db387da13fc5c773582088a5e0d1e41b4d001b01b149ae03bc6e4",
+                  "stall_seed": 6063,
+                  "status": "passed",
+                  "tensor_checks": 30
+                }
+              ],
+              "replay": {
+                "engine_runs": 38,
+                "report": "work/phase6/matched-baselines-v1/b3/replay/vww-stress-check.json",
+                "report_sha256": "8f205da218d628b3bee57ebc7464c2707ee73e2696b9c3276a13fa8ed9873026",
+                "scope": "symbolic full-model command replay with independent integer oracle, strip coordinates, and SRAM COPY provenance; no RTL timing proof",
+                "status": "passed"
+              },
+              "source_directory": "work/phase6/strip-fusion-pair7-v1/full/fixtures/vww-stress-compacted-strip3-7-11-check"
+            }
+          }
+        }
+      },
+      "selection_report": "work/phase6/matched-baselines-v1/b3/catalogue-selection.json",
+      "selection_report_sha256": "4946de43ce90f6e8519475c1c00c876fb824a689ebc47e974b69acab707bb4ed"
+    }
+  },
+  "schema": 1,
+  "scope": "restricted executable DeFiNES adaptation; all tiles full-width and three fixed VWW 4-layer depth-first blocks",
+  "source_sha256": {
+    "compiler/canonicalize.py": "0ada3515d0e0af4d41aedc320628a21e32e50814e53c176a17a71a938ab47e5d",
+    "compiler/hardware_v2.py": "c97d197fbc03efbfa5c827197e04623fad7c6591ec7bd0a8298ef0374fcb0295",
+    "compiler/integer_reference.py": "b42d259a19c1a9c4da19a057d12b863e85076e2b07ffac94f844f585f09d273e",
+    "compiler/phase4_compile.py": "176bb43f97d6742d4bd89df8251936355c92ccdac52e211025995ec1fe9e7842",
+    "compiler/phase4_tiling.py": "9268eb0c0b21b239796f549960f2b50c08f72bcc7138981bb4c40b583703bf35",
+    "compiler/quantization.py": "2541fd1c2e902c2a328e27a4b949df52b85bf47ab5f4f60ccf49ba9370ea590e",
+    "compiler/scheduler/contract.py": "14066d8f67f740bd0c2d98a21093411a82e3739918c56ab63f6e5a0358634004",
+    "compiler/scheduler/defines_adapter.py": "c028e2fbba978c69c29283f8652ef4ca18a5c81ac4c8277435f255917a2b31dc",
+    "compiler/scheduler/defines_verify.py": "ddf919b05fd7a949717405796cbf6a376677981bedf61dde26f16165a5ccfd16",
+    "compiler/scheduler/fused_verify.py": "4ad40483f79ce4f1c9dde4d8417c8d4deb07d0bad35154ca6002dfc8a1715f53",
+    "compiler/scheduler/resident.py": "f8e6c6bf2aeb89316ee9f0c7eb567b8619121a561710edb15e151193943f5412",
+    "compiler/static_pipeline.py": "f6f4c5617e4b2ecaf536fdc9db457bfa4aa94192705031ad0f5126964c653b84",
+    "tools/phase6/channel_compaction.py": "08f36f1e7ddf32fbe4429ffe388ef66fdfbe17066837ebb619cc2552fc18b9e8",
+    "tools/phase6/followup_graph.py": "df453314ec2362eaaf74b16311e806bf0730fb0fd939aa33ba39431ee5c048c4",
+    "tools/phase6/fused_activation.py": "7e48bfdabde042b09c7a79ffc48a7408dca6389b7946b60fa9195a9c7f2735a5",
+    "tools/phase6/matched_defines_adapt.py": "d7edb4be16b59c47550081a524f18ec8605a004f83c9d137549be42ceb9eb1a4",
+    "tools/phase6/output_pipeline_fusion.py": "61c5a7e64cae8ffad2ebeee04a78dde124883708d64460400dbd8e618792251a",
+    "tools/phase6/run_boardless.py": "55ccca1655e8aeb15177c9ce623408c2bc5088e63dc04ea053c131ef923e05e3",
+    "tools/phase6/strip_fusion_pair11.py": "23b28801c17eca49d1a9a74dbc5cbebb10478f3578f8340a2f7d78b5c47ddbef",
+    "tools/phase6/strip_fusion_pair7.py": "0a0557e9c876af2fa0dc9e5bdb6543197497adca61f0f3ecda306cb7089e13a5",
+    "tools/phase6/strip_fusion_vww.py": "94cd9ca8edffb61413b88d14a7ab26b792fcd8d7cfa83c1d3bfbc23cf24cda1f",
+    "work/phase6/channel-compaction-v1/fused/report.json": "eda570d9624df3113ef28a60834e7b09bea09abe8a288e2eeb71a7ea0a9022ca",
+    "work/phase6/defines-source.tar.gz": "d8ca92f96cc243573595e60445be95f43d17cb19fa7a3f522b4f6ee87b79de95",
+    "work/phase6/defines-source/DeFiNES-7097d6090dc22321e44ce91434e7cc23b065864f/classes/hardware/architecture/memory_level.py": "f2f969555379558fe45e6c23f4ff24980f2d3a0fc8281c3ac2b2603b15bf38c6",
+    "work/phase6/defines-source/DeFiNES-7097d6090dc22321e44ce91434e7cc23b065864f/classes/stages/DepthFirstStage.py": "ed309193187b16affa7ef2000cb3460b7141af90ca72079527e64f240062f715",
+    "work/phase6/defines-source/DeFiNES-7097d6090dc22321e44ce91434e7cc23b065864f/classes/workload/dnn_workload.py": "19a8ebc9201d9c49e23c55d6664709be5c2cdfe89fc7e8f25e3ab4bf113da37f",
+    "work/phase6/matched-baselines-v1/b1b2/report.json": "69ac8cd64a57463abbb0951e919144b0ed0a576c2c54c11880261b0aa65e3d18",
+    "work/phase6/strip-fusion-pair11-v1/full/report.json": "f4dce1400ac68191d7f87cd34f2724e5c8abb92e30dc6c34d432d3c795db19e1",
+    "work/phase6/strip-fusion-pair7-v1/full/report.json": "50a80f10f9260c211ccdd81c95deb7427d9f981c8087355ea7ea5048fdce4fb2",
+    "work/phase6/strip-fusion-vww-v1/full/report.json": "17ea80ba02e9bb57693882f05b65eff760c97d472caa1760d252987f249feabd"
+  },
+  "status": "passed-native",
+  "unsupported": [
+    "arbitrary x/y tile sizes",
+    "arbitrary fusion depths and stack cuts",
+    "on-chip horizontal overlap when tile width is below full width; the interior 8x16 layer11-14 tile fits SRAM but needs row gather/scatter support",
+    "cross-layer cache placement beyond these three fixed blocks",
+    "upstream ideal-array energy/latency model is not the Tang Nano backend"
+  ],
+  "upstream": {
+    "adapter_sha256": "c028e2fbba978c69c29283f8652ef4ca18a5c81ac4c8277435f255917a2b31dc",
+    "depth_first_stage_sha256": "ed309193187b16affa7ef2000cb3460b7141af90ca72079527e64f240062f715",
+    "prior_code_pin_sha256": "a1cb1934afcfacd96be0281ffcdb7c5b57e3bb653432bb2b8d167f2da6bdd8f0",
+    "revision": "7097d6090dc22321e44ce91434e7cc23b065864f",
+    "source_tar_sha256": "d8ca92f96cc243573595e60445be95f43d17cb19fa7a3f522b4f6ee87b79de95"
+  },
+  "upstream_geometry_report": "work/phase6/matched-baselines-v1/b3/upstream-geometry.json",
+  "vertical_cache_candidate": {
+    "command_count": 1383,
+    "fixture": {
+      "directory": "work/phase6/matched-baselines-v1/b3/candidates/vww-pinned-vertical-cache",
+      "files": {
+        "checks.txt": "7fe170b594022a583bc22e129db3badbcbc6a8ff868483c71a95b09793d668f2",
+        "commands.bin": "5f7e3842d0242604e5389321d75798e9fd573924d2fc597393d73d5e9bf1bcab",
+        "input.bin": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+        "output.bin": "6a0cfa0be8aa6d3a3137a6926b09aa569b91c44d1b845612779c2d55e019dbc2",
+        "payload.bin": "0ba6b4bf9b3e7fd566e851248553be815aee6234e6f800471c6e9e6a760308d5",
+        "schedule.json": "fbf2902936d27510999d9fa797352ca14a5573484e87440baf3103b4b06e714e"
+      },
+      "native": [
+        {
+          "dma_cycles": 116796,
+          "elapsed_cycles": 2268261,
+          "engine_cycles": 2151342,
+          "report": "work/phase6/matched-baselines-v1/b3/native/vww-pinned-vertical-cache-s0.json",
+          "report_sha256": "efe1806483e78e2e501c635cf4e8622e8317d60d9c77d5ceff07eb7e67b046a4",
+          "stall_seed": 0,
+          "status": "passed",
+          "tensor_checks": 1
+        },
+        {
+          "dma_cycles": 180790,
+          "elapsed_cycles": 2331540,
+          "engine_cycles": 2151275,
+          "report": "work/phase6/matched-baselines-v1/b3/native/vww-pinned-vertical-cache-s6063.json",
+          "report_sha256": "dac2311cd54c4975c240d55df5b487e3bca16c4871394e014c8c21b49b990c42",
+          "stall_seed": 6063,
+          "status": "passed",
+          "tensor_checks": 1
+        }
+      ],
+      "replay": {
+        "engine_runs": 150,
+        "report": "work/phase6/matched-baselines-v1/b3/replay/vww-pinned-vertical-cache.json",
+        "report_sha256": "8b8477d49071ae5d741b292ceb1740dc5d8712660de55d1bd5336d7f71bfc971",
+        "scope": "symbolic full-model command replay with independent integer oracle, strip coordinates, and SRAM COPY provenance; no RTL timing proof",
+        "status": "passed"
+      }
+    },
+    "fixtures": {
+      "pinned_timed": {
+        "directory": "work/phase6/matched-baselines-v1/b3/candidates/vww-pinned-vertical-cache",
+        "files": {
+          "checks.txt": "7fe170b594022a583bc22e129db3badbcbc6a8ff868483c71a95b09793d668f2",
+          "commands.bin": "5f7e3842d0242604e5389321d75798e9fd573924d2fc597393d73d5e9bf1bcab",
+          "input.bin": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+          "output.bin": "6a0cfa0be8aa6d3a3137a6926b09aa569b91c44d1b845612779c2d55e019dbc2",
+          "payload.bin": "0ba6b4bf9b3e7fd566e851248553be815aee6234e6f800471c6e9e6a760308d5",
+          "schedule.json": "fbf2902936d27510999d9fa797352ca14a5573484e87440baf3103b4b06e714e"
+        },
+        "native": [
+          {
+            "dma_cycles": 116796,
+            "elapsed_cycles": 2268261,
+            "engine_cycles": 2151342,
+            "report": "work/phase6/matched-baselines-v1/b3/native/vww-pinned-vertical-cache-s0.json",
+            "report_sha256": "efe1806483e78e2e501c635cf4e8622e8317d60d9c77d5ceff07eb7e67b046a4",
+            "stall_seed": 0,
+            "status": "passed",
+            "tensor_checks": 1
+          },
+          {
+            "dma_cycles": 180790,
+            "elapsed_cycles": 2331540,
+            "engine_cycles": 2151275,
+            "report": "work/phase6/matched-baselines-v1/b3/native/vww-pinned-vertical-cache-s6063.json",
+            "report_sha256": "dac2311cd54c4975c240d55df5b487e3bca16c4871394e014c8c21b49b990c42",
+            "stall_seed": 6063,
+            "status": "passed",
+            "tensor_checks": 1
+          }
+        ],
+        "replay": {
+          "engine_runs": 150,
+          "report": "work/phase6/matched-baselines-v1/b3/replay/vww-pinned-vertical-cache.json",
+          "report_sha256": "8b8477d49071ae5d741b292ceb1740dc5d8712660de55d1bd5336d7f71bfc971",
+          "scope": "symbolic full-model command replay with independent integer oracle, strip coordinates, and SRAM COPY provenance; no RTL timing proof",
+          "status": "passed"
+        }
+      },
+      "stress_check": {
+        "directory": "work/phase6/matched-baselines-v1/b3/candidates/vww-stress-vertical-cache",
+        "files": {
+          "checks.txt": "c0c51c18f44becdee4da3246c1c25bb44666a00fad5893b6ae63d39169d49644",
+          "commands.bin": "07a38c010e0c665e0926eea090bb4979aa38a2c29921e03be0620a17b2b114ed",
+          "input.bin": "6bc2750f0f7644d3fdbade499feb315094ee9ca51e868f14c3d897d96fe13988",
+          "layer-10.bin": "bf9e0fb99ef2ae15eec295a4cdf49df7cb176ebcb5c922bfc13568e2c9ee9497",
+          "layer-12.bin": "bf5fec26d6c7f993a4819f9cf1156a94e8a34c0f15232deeb90701286e13ebd9",
+          "layer-14.bin": "cb3063807da5c845c7fe9d8a52bab79126c4b0a1260e7c6e7f1c3fec0d6e5493",
+          "layer-16.bin": "2ffac882d4fc1e8fcd435aa469c55280c4a88f12030f9de1d07dfbbdc4992b70",
+          "layer-18.bin": "705900d084c03c572b55f0d7e1a452c3ad40e41c8193803bb07e7c317fd24439",
+          "layer-2.bin": "2c636d036840a776b5d80fd40488846e9495f704a51cf7dd8ba53bb6ab4329c4",
+          "layer-20.bin": "001dcfa0aaac55c1bcf7b339962de71bb32c515abb26a8288aa35ebd9206d61d",
+          "layer-22.bin": "3f2bcb088c0cbb741fbc9a29376af737925535070dc5435c579a59e74e67de19",
+          "layer-24.bin": "016abc2917afcdadf21966bdc9f981da995dc6f72222cd382f03318e4ee5bf5a",
+          "layer-26.bin": "d7898437c308bb8bf62d8fa5cff3755d343be60bcef310c083924050699337bd",
+          "layer-28.bin": "01edda43f2ca1443ef9d904c71c1a66f5c841492583c3617c5528bd4f585c4e5",
+          "layer-30.bin": "07a8e44c9a1f5a2a637d9b7f9b90492e4378962b7dc55f34c988f87fef7a9afb",
+          "layer-32.bin": "f3378c014ded18a5c9c9a309e6e0e597e547fa20fb2ccec16d3cad50d2739d7d",
+          "layer-34.bin": "410de0285796aabb80a7493a9e190b7de9cafe91ee56794a863d6ae463985a75",
+          "layer-36.bin": "095e87ea56b267d0649aaa760cade1091c024798f7d478be5d671f0a82d0cf5c",
+          "layer-38.bin": "f0afd094cc018ad81ee1a01342d305232ac50a3a8599c6861e01db7b87d1a92e",
+          "layer-4.bin": "4f06dc1e1cee9026fe30e9fe1f770faf5993b5685fbe2d68afb63020ecc87f41",
+          "layer-40.bin": "e76fa78e6eb4027a14e8e372e9d04b9018b22adee2ce74049aa9c0d77ad855eb",
+          "layer-42.bin": "c84971511c2611c4e1e9c7d9a6776b8488eab846b4247bf01a54860932416e59",
+          "layer-44.bin": "c6df6b32f142b717fbf748f700cfe26f69bb15b1fd4a529a678153253fed0fc7",
+          "layer-46.bin": "50c70adaf1dcb1b0132f47f2dd524ad2f891e3170dae2fa16699c5c5ac9d371a",
+          "layer-48.bin": "0a75d1903b6fbc1ee7af90f0399b9a8c9a4989e60e5a2dc08718ddf29684e65a",
+          "layer-50.bin": "f6e3b9d69f92b18d45b2d330b45bf3a540cd9a99f5000b02945ed3850e13bcc8",
+          "layer-52.bin": "d36bba949333034ea838987cc444cc57cb9f3dc84be0f76af4f8ae5e406cea63",
+          "layer-54.bin": "199c520ddfa126571a41c55c2c95ea7f98b40bdd649c13b8f9fdf37a0aa2afd0",
+          "layer-55.bin": "661b6cbe9b7c2188b354676cce5e8b5675ed31d9cf25c83c22455bf001708305",
+          "layer-57.bin": "e8023ba9eb60c761f277a6b45509ba8a62045a9dc67ccc1b29626ced54fe4ffb",
+          "layer-6.bin": "8df03b710a020075c4253b34447be79eb00579a543aada829b4b42c21cefe098",
+          "layer-8.bin": "9b4e1a3066f6cf7087173f6c26749fcaecf4c10598767f4b07bafbf62bfee551",
+          "output.bin": "e8023ba9eb60c761f277a6b45509ba8a62045a9dc67ccc1b29626ced54fe4ffb",
+          "payload.bin": "96158b2ea1da6a83f7abbea855279fe6e8b07fc3fc23c2161d84c140372f9d67",
+          "schedule.json": "6a56b1844b0ed12a6563f868a37b4e956a87a011634a35dde592ea64dffba82c"
+        },
+        "native": [
+          {
+            "dma_cycles": 189448,
+            "elapsed_cycles": 2343297,
+            "engine_cycles": 2151342,
+            "report": "work/phase6/matched-baselines-v1/b3/native/vww-stress-vertical-cache-s0.json",
+            "report_sha256": "6ce6120766525c74b226facd7e3574df3b8cce5a5e2b861f1e4a816caf0046a6",
+            "stall_seed": 0,
+            "status": "passed",
+            "tensor_checks": 30
+          },
+          {
+            "dma_cycles": 259592,
+            "elapsed_cycles": 2412777,
+            "engine_cycles": 2151288,
+            "report": "work/phase6/matched-baselines-v1/b3/native/vww-stress-vertical-cache-s6063.json",
+            "report_sha256": "2e88b36344aa24ae6ee93ee6994ce979437b6a754f1c2e0004e96ca68ad84ab1",
+            "stall_seed": 6063,
+            "status": "passed",
+            "tensor_checks": 30
+          }
+        ],
+        "replay": {
+          "engine_runs": 150,
+          "report": "work/phase6/matched-baselines-v1/b3/replay/vww-stress-vertical-cache.json",
+          "report_sha256": "9f8eceed0e3a4414ab71adacfd9155988ad6eea0cc0d86f828dc0ce0e2491ce0",
+          "scope": "symbolic full-model command replay with independent integer oracle, strip coordinates, and SRAM COPY provenance; no RTL timing proof",
+          "status": "passed"
+        }
+      }
+    },
+    "image_sha256": "0ba6b4bf9b3e7fd566e851248553be815aee6234e6f800471c6e9e6a760308d5",
+    "native": [
+      {
+        "dma_cycles": 116796,
+        "elapsed_cycles": 2268261,
+        "engine_cycles": 2151342,
+        "report": "work/phase6/matched-baselines-v1/b3/native/vww-pinned-vertical-cache-s0.json",
+        "report_sha256": "efe1806483e78e2e501c635cf4e8622e8317d60d9c77d5ceff07eb7e67b046a4",
+        "stall_seed": 0,
+        "status": "passed",
+        "tensor_checks": 1
+      },
+      {
+        "dma_cycles": 180790,
+        "elapsed_cycles": 2331540,
+        "engine_cycles": 2151275,
+        "report": "work/phase6/matched-baselines-v1/b3/native/vww-pinned-vertical-cache-s6063.json",
+        "report_sha256": "dac2311cd54c4975c240d55df5b487e3bca16c4871394e014c8c21b49b990c42",
+        "stall_seed": 6063,
+        "status": "passed",
+        "tensor_checks": 1
+      }
+    ],
+    "new_copy_descriptors": 112,
+    "patches": 56,
+    "program_sha256": "5f7e3842d0242604e5389321d75798e9fd573924d2fc597393d73d5e9bf1bcab",
+    "saved_external_bytes": 3072,
+    "status": "lowered"
+  },
+  "vertical_cache_stress": {
+    "command_count": 1979,
+    "fixture": {
+      "directory": "work/phase6/matched-baselines-v1/b3/candidates/vww-stress-vertical-cache",
+      "files": {
+        "checks.txt": "c0c51c18f44becdee4da3246c1c25bb44666a00fad5893b6ae63d39169d49644",
+        "commands.bin": "07a38c010e0c665e0926eea090bb4979aa38a2c29921e03be0620a17b2b114ed",
+        "input.bin": "6bc2750f0f7644d3fdbade499feb315094ee9ca51e868f14c3d897d96fe13988",
+        "layer-10.bin": "bf9e0fb99ef2ae15eec295a4cdf49df7cb176ebcb5c922bfc13568e2c9ee9497",
+        "layer-12.bin": "bf5fec26d6c7f993a4819f9cf1156a94e8a34c0f15232deeb90701286e13ebd9",
+        "layer-14.bin": "cb3063807da5c845c7fe9d8a52bab79126c4b0a1260e7c6e7f1c3fec0d6e5493",
+        "layer-16.bin": "2ffac882d4fc1e8fcd435aa469c55280c4a88f12030f9de1d07dfbbdc4992b70",
+        "layer-18.bin": "705900d084c03c572b55f0d7e1a452c3ad40e41c8193803bb07e7c317fd24439",
+        "layer-2.bin": "2c636d036840a776b5d80fd40488846e9495f704a51cf7dd8ba53bb6ab4329c4",
+        "layer-20.bin": "001dcfa0aaac55c1bcf7b339962de71bb32c515abb26a8288aa35ebd9206d61d",
+        "layer-22.bin": "3f2bcb088c0cbb741fbc9a29376af737925535070dc5435c579a59e74e67de19",
+        "layer-24.bin": "016abc2917afcdadf21966bdc9f981da995dc6f72222cd382f03318e4ee5bf5a",
+        "layer-26.bin": "d7898437c308bb8bf62d8fa5cff3755d343be60bcef310c083924050699337bd",
+        "layer-28.bin": "01edda43f2ca1443ef9d904c71c1a66f5c841492583c3617c5528bd4f585c4e5",
+        "layer-30.bin": "07a8e44c9a1f5a2a637d9b7f9b90492e4378962b7dc55f34c988f87fef7a9afb",
+        "layer-32.bin": "f3378c014ded18a5c9c9a309e6e0e597e547fa20fb2ccec16d3cad50d2739d7d",
+        "layer-34.bin": "410de0285796aabb80a7493a9e190b7de9cafe91ee56794a863d6ae463985a75",
+        "layer-36.bin": "095e87ea56b267d0649aaa760cade1091c024798f7d478be5d671f0a82d0cf5c",
+        "layer-38.bin": "f0afd094cc018ad81ee1a01342d305232ac50a3a8599c6861e01db7b87d1a92e",
+        "layer-4.bin": "4f06dc1e1cee9026fe30e9fe1f770faf5993b5685fbe2d68afb63020ecc87f41",
+        "layer-40.bin": "e76fa78e6eb4027a14e8e372e9d04b9018b22adee2ce74049aa9c0d77ad855eb",
+        "layer-42.bin": "c84971511c2611c4e1e9c7d9a6776b8488eab846b4247bf01a54860932416e59",
+        "layer-44.bin": "c6df6b32f142b717fbf748f700cfe26f69bb15b1fd4a529a678153253fed0fc7",
+        "layer-46.bin": "50c70adaf1dcb1b0132f47f2dd524ad2f891e3170dae2fa16699c5c5ac9d371a",
+        "layer-48.bin": "0a75d1903b6fbc1ee7af90f0399b9a8c9a4989e60e5a2dc08718ddf29684e65a",
+        "layer-50.bin": "f6e3b9d69f92b18d45b2d330b45bf3a540cd9a99f5000b02945ed3850e13bcc8",
+        "layer-52.bin": "d36bba949333034ea838987cc444cc57cb9f3dc84be0f76af4f8ae5e406cea63",
+        "layer-54.bin": "199c520ddfa126571a41c55c2c95ea7f98b40bdd649c13b8f9fdf37a0aa2afd0",
+        "layer-55.bin": "661b6cbe9b7c2188b354676cce5e8b5675ed31d9cf25c83c22455bf001708305",
+        "layer-57.bin": "e8023ba9eb60c761f277a6b45509ba8a62045a9dc67ccc1b29626ced54fe4ffb",
+        "layer-6.bin": "8df03b710a020075c4253b34447be79eb00579a543aada829b4b42c21cefe098",
+        "layer-8.bin": "9b4e1a3066f6cf7087173f6c26749fcaecf4c10598767f4b07bafbf62bfee551",
+        "output.bin": "e8023ba9eb60c761f277a6b45509ba8a62045a9dc67ccc1b29626ced54fe4ffb",
+        "payload.bin": "96158b2ea1da6a83f7abbea855279fe6e8b07fc3fc23c2161d84c140372f9d67",
+        "schedule.json": "6a56b1844b0ed12a6563f868a37b4e956a87a011634a35dde592ea64dffba82c"
+      },
+      "native": [
+        {
+          "dma_cycles": 189448,
+          "elapsed_cycles": 2343297,
+          "engine_cycles": 2151342,
+          "report": "work/phase6/matched-baselines-v1/b3/native/vww-stress-vertical-cache-s0.json",
+          "report_sha256": "6ce6120766525c74b226facd7e3574df3b8cce5a5e2b861f1e4a816caf0046a6",
+          "stall_seed": 0,
+          "status": "passed",
+          "tensor_checks": 30
+        },
+        {
+          "dma_cycles": 259592,
+          "elapsed_cycles": 2412777,
+          "engine_cycles": 2151288,
+          "report": "work/phase6/matched-baselines-v1/b3/native/vww-stress-vertical-cache-s6063.json",
+          "report_sha256": "2e88b36344aa24ae6ee93ee6994ce979437b6a754f1c2e0004e96ca68ad84ab1",
+          "stall_seed": 6063,
+          "status": "passed",
+          "tensor_checks": 30
+        }
+      ],
+      "replay": {
+        "engine_runs": 150,
+        "report": "work/phase6/matched-baselines-v1/b3/replay/vww-stress-vertical-cache.json",
+        "report_sha256": "9f8eceed0e3a4414ab71adacfd9155988ad6eea0cc0d86f828dc0ce0e2491ce0",
+        "scope": "symbolic full-model command replay with independent integer oracle, strip coordinates, and SRAM COPY provenance; no RTL timing proof",
+        "status": "passed"
+      }
+    },
+    "image_sha256": "96158b2ea1da6a83f7abbea855279fe6e8b07fc3fc23c2161d84c140372f9d67",
+    "native": [
+      {
+        "dma_cycles": 189448,
+        "elapsed_cycles": 2343297,
+        "engine_cycles": 2151342,
+        "report": "work/phase6/matched-baselines-v1/b3/native/vww-stress-vertical-cache-s0.json",
+        "report_sha256": "6ce6120766525c74b226facd7e3574df3b8cce5a5e2b861f1e4a816caf0046a6",
+        "stall_seed": 0,
+        "status": "passed",
+        "tensor_checks": 30
+      },
+      {
+        "dma_cycles": 259592,
+        "elapsed_cycles": 2412777,
+        "engine_cycles": 2151288,
+        "report": "work/phase6/matched-baselines-v1/b3/native/vww-stress-vertical-cache-s6063.json",
+        "report_sha256": "2e88b36344aa24ae6ee93ee6994ce979437b6a754f1c2e0004e96ca68ad84ab1",
+        "stall_seed": 6063,
+        "status": "passed",
+        "tensor_checks": 30
+      }
+    ],
+    "new_copy_descriptors": 112,
+    "patches": 56,
+    "program_sha256": "07a38c010e0c665e0926eea090bb4979aa38a2c29921e03be0620a17b2b114ed",
+    "saved_external_bytes": 3072,
+    "status": "lowered"
+  }
+}

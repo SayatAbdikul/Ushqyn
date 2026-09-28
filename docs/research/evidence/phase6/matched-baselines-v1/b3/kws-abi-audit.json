@@ -1,0 +1,393 @@
+{
+  "all_aligned_partition_impossible": "every positive strip height must be divisible by 8 but total height is 25",
+  "compact_channel_plane_bytes": 125,
+  "decision": "retain full-tensor layerwise/liveness KWS endpoint; it already eliminates all intermediate external traffic and uses one RUN per fused Conv+activation",
+  "direct_per_channel_aligned_heights": [
+    8,
+    16,
+    24
+  ],
+  "exact_two_partitions_with_aligned_channel_sources": [],
+  "existing_intermediate_activation_reloads": 0,
+  "existing_intermediate_external_stores": 0,
+  "existing_max_live_sram_exclusive": 22000,
+  "existing_resident_outputs": [
+    {
+      "activation_loads": [
+        {
+          "bytes": 490,
+          "direction": "to_sram",
+          "ext": 0,
+          "role": "input",
+          "sram": 128
+        }
+      ],
+      "layer": 1,
+      "live": [
+        0,
+        12464
+      ],
+      "output_bytes": 8000,
+      "output_sram": 624
+    },
+    {
+      "activation_loads": [],
+      "layer": 3,
+      "live": [
+        0,
+        18928
+      ],
+      "output_bytes": 8000,
+      "output_sram": 8624
+    },
+    {
+      "activation_loads": [],
+      "layer": 5,
+      "live": [
+        0,
+        22000
+      ],
+      "output_bytes": 8000,
+      "output_sram": 128
+    },
+    {
+      "activation_loads": [],
+      "layer": 7,
+      "live": [
+        0,
+        18432
+      ],
+      "output_bytes": 8000,
+      "output_sram": 8128
+    },
+    {
+      "activation_loads": [],
+      "layer": 9,
+      "live": [
+        0,
+        21504
+      ],
+      "output_bytes": 8000,
+      "output_sram": 128
+    },
+    {
+      "activation_loads": [],
+      "layer": 11,
+      "live": [
+        0,
+        18432
+      ],
+      "output_bytes": 8000,
+      "output_sram": 8128
+    },
+    {
+      "activation_loads": [],
+      "layer": 13,
+      "live": [
+        0,
+        21504
+      ],
+      "output_bytes": 8000,
+      "output_sram": 128
+    },
+    {
+      "activation_loads": [],
+      "layer": 15,
+      "live": [
+        0,
+        18432
+      ],
+      "output_bytes": 8000,
+      "output_sram": 8128
+    },
+    {
+      "activation_loads": [],
+      "layer": 17,
+      "live": [
+        0,
+        21504
+      ],
+      "output_bytes": 8000,
+      "output_sram": 128
+    }
+  ],
+  "fixture": "work/phase6/matched-baselines-v1/b3/fixtures/kws-pinned-timed",
+  "fixture_files_sha256": {
+    "commands.bin": "6f4499cd0b5f87cc49230c0afe4ffec07806741978660762cd7a5e5ffda3fe31",
+    "input.bin": "5f4ad0b2d11bf1cccab552fb5a4d95d082b70f2d1fe2459127673d270cb1cdf4",
+    "output.bin": "ce178213db2ef2aa27d0b532e4a17851cfef1772ad74b2fc7a95311b4a6714a7",
+    "payload.bin": "04cd8f5e9023b178962b74e18e27aeb85ce91a8b8fce9b05f0f2085ef9d120be",
+    "schedule.json": "ad07b5876083b88d09bb20bfb2a5a695c2bb1c33c371b280c870b59c4560deca"
+  },
+  "graph_layers": [
+    {
+      "input_shape": [
+        1,
+        64,
+        25,
+        5
+      ],
+      "layer": 3,
+      "op": "depthwise",
+      "output_shape": [
+        1,
+        64,
+        25,
+        5
+      ]
+    },
+    {
+      "input_shape": [
+        1,
+        64,
+        25,
+        5
+      ],
+      "layer": 5,
+      "op": "pointwise",
+      "output_shape": [
+        1,
+        64,
+        25,
+        5
+      ]
+    },
+    {
+      "input_shape": [
+        1,
+        64,
+        25,
+        5
+      ],
+      "layer": 7,
+      "op": "depthwise",
+      "output_shape": [
+        1,
+        64,
+        25,
+        5
+      ]
+    },
+    {
+      "input_shape": [
+        1,
+        64,
+        25,
+        5
+      ],
+      "layer": 9,
+      "op": "pointwise",
+      "output_shape": [
+        1,
+        64,
+        25,
+        5
+      ]
+    },
+    {
+      "input_shape": [
+        1,
+        64,
+        25,
+        5
+      ],
+      "layer": 11,
+      "op": "depthwise",
+      "output_shape": [
+        1,
+        64,
+        25,
+        5
+      ]
+    },
+    {
+      "input_shape": [
+        1,
+        64,
+        25,
+        5
+      ],
+      "layer": 13,
+      "op": "pointwise",
+      "output_shape": [
+        1,
+        64,
+        25,
+        5
+      ]
+    },
+    {
+      "input_shape": [
+        1,
+        64,
+        25,
+        5
+      ],
+      "layer": 15,
+      "op": "depthwise",
+      "output_shape": [
+        1,
+        64,
+        25,
+        5
+      ]
+    },
+    {
+      "input_shape": [
+        1,
+        64,
+        25,
+        5
+      ],
+      "layer": 17,
+      "op": "pointwise",
+      "output_shape": [
+        1,
+        64,
+        25,
+        5
+      ]
+    }
+  ],
+  "lowering_barrier": "current DMA/COPY requires aligned read bases; compact NCHW strip channel stride is 5*h; no descriptor output channel stride or byte-shift gather exists",
+  "model_source_sha256": {
+    "work/phase4/kws-calibration-rebased.json": "96d7614d7c9404ea42178caf54a286fa04ee0d72b6c02a01e011895573df1997",
+    "work/phase4/kws-logits.onnx": "074aacbdd17f488e7717e5ab2add811341569e71023d9b778ce472e27991d8de",
+    "work/phase4/rtl-kws/expected.npz": "d038eb5d3c45e3374ca9352b382cb37d3a8a7af3f972a12d6142745db01677a1",
+    "work/phase4/rtl-kws/input.bin": "5f4ad0b2d11bf1cccab552fb5a4d95d082b70f2d1fe2459127673d270cb1cdf4",
+    "work/phase4/rtl-kws/manifest.json": "702422f42debf72524a7adce99debef55ea6e11538691cc4f250e363cbeede51"
+  },
+  "physical_board": false,
+  "qualification": "this excludes the current direct per-channel strip composer, not every conceivable multi-pass repacking algorithm or a changed RTL ABI",
+  "schema": 1,
+  "scope": "KWS current direct per-channel compact-strip lowering on 27 MHz eight-lane ABI",
+  "source_sha256": {
+    "compiler/hardware_v2.py": "c97d197fbc03efbfa5c827197e04623fad7c6591ec7bd0a8298ef0374fcb0295",
+    "compiler/scheduler/defines_verify.py": "ddf919b05fd7a949717405796cbf6a376677981bedf61dde26f16165a5ccfd16",
+    "tools/phase6/matched_defines_adapt.py": "d7edb4be16b59c47550081a524f18ec8605a004f83c9d137549be42ceb9eb1a4",
+    "tools/phase6/matched_defines_kws_audit.py": "335ada633d59145f5076cf01530ff3a37d2869227416a9a689f6c0d394290d7e"
+  },
+  "status": "bounded-abi-barrier",
+  "strip_candidates": [
+    {
+      "channel_bytes": 5,
+      "channel_source_aligned": false,
+      "height": 1
+    },
+    {
+      "channel_bytes": 10,
+      "channel_source_aligned": false,
+      "height": 2
+    },
+    {
+      "channel_bytes": 15,
+      "channel_source_aligned": false,
+      "height": 3
+    },
+    {
+      "channel_bytes": 20,
+      "channel_source_aligned": false,
+      "height": 4
+    },
+    {
+      "channel_bytes": 25,
+      "channel_source_aligned": false,
+      "height": 5
+    },
+    {
+      "channel_bytes": 30,
+      "channel_source_aligned": false,
+      "height": 6
+    },
+    {
+      "channel_bytes": 35,
+      "channel_source_aligned": false,
+      "height": 7
+    },
+    {
+      "channel_bytes": 40,
+      "channel_source_aligned": true,
+      "height": 8
+    },
+    {
+      "channel_bytes": 45,
+      "channel_source_aligned": false,
+      "height": 9
+    },
+    {
+      "channel_bytes": 50,
+      "channel_source_aligned": false,
+      "height": 10
+    },
+    {
+      "channel_bytes": 55,
+      "channel_source_aligned": false,
+      "height": 11
+    },
+    {
+      "channel_bytes": 60,
+      "channel_source_aligned": false,
+      "height": 12
+    },
+    {
+      "channel_bytes": 65,
+      "channel_source_aligned": false,
+      "height": 13
+    },
+    {
+      "channel_bytes": 70,
+      "channel_source_aligned": false,
+      "height": 14
+    },
+    {
+      "channel_bytes": 75,
+      "channel_source_aligned": false,
+      "height": 15
+    },
+    {
+      "channel_bytes": 80,
+      "channel_source_aligned": true,
+      "height": 16
+    },
+    {
+      "channel_bytes": 85,
+      "channel_source_aligned": false,
+      "height": 17
+    },
+    {
+      "channel_bytes": 90,
+      "channel_source_aligned": false,
+      "height": 18
+    },
+    {
+      "channel_bytes": 95,
+      "channel_source_aligned": false,
+      "height": 19
+    },
+    {
+      "channel_bytes": 100,
+      "channel_source_aligned": false,
+      "height": 20
+    },
+    {
+      "channel_bytes": 105,
+      "channel_source_aligned": false,
+      "height": 21
+    },
+    {
+      "channel_bytes": 110,
+      "channel_source_aligned": false,
+      "height": 22
+    },
+    {
+      "channel_bytes": 115,
+      "channel_source_aligned": false,
+      "height": 23
+    },
+    {
+      "channel_bytes": 120,
+      "channel_source_aligned": true,
+      "height": 24
+    }
+  ]
+}

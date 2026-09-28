@@ -1,0 +1,269 @@
+{
+  "cases": [
+    {
+      "in_regime_input_tile": [
+        26,
+        50
+      ],
+      "input_overlap_columns": 2,
+      "input_overlap_rows": 2,
+      "layers": [
+        3,
+        6
+      ],
+      "lowering": "supported full-width strip endpoint",
+      "mode": {
+        "horizontal_cache": false,
+        "vertical_cache": false
+      },
+      "source": "upstream backpropagate_tilesize; border pads checked in existing exact strip oracle",
+      "tile": [
+        24,
+        48
+      ]
+    },
+    {
+      "in_regime_input_tile": [
+        26,
+        48
+      ],
+      "input_overlap_columns": 2,
+      "input_overlap_rows": 2,
+      "layers": [
+        3,
+        6
+      ],
+      "lowering": "supported full-width strip endpoint",
+      "mode": {
+        "horizontal_cache": true,
+        "vertical_cache": false
+      },
+      "source": "upstream backpropagate_tilesize; border pads checked in existing exact strip oracle",
+      "tile": [
+        24,
+        48
+      ]
+    },
+    {
+      "in_regime_input_tile": [
+        24,
+        48
+      ],
+      "input_overlap_columns": 2,
+      "input_overlap_rows": 2,
+      "layers": [
+        3,
+        6
+      ],
+      "lowering": "supported full-width strip endpoint",
+      "mode": {
+        "horizontal_cache": true,
+        "vertical_cache": true
+      },
+      "source": "upstream backpropagate_tilesize; border pads checked in existing exact strip oracle",
+      "tile": [
+        24,
+        48
+      ]
+    },
+    {
+      "in_regime_input_tile": [
+        25,
+        49
+      ],
+      "input_overlap_columns": 1,
+      "input_overlap_rows": 1,
+      "layers": [
+        7,
+        10
+      ],
+      "lowering": "supported full-width strip endpoint",
+      "mode": {
+        "horizontal_cache": false,
+        "vertical_cache": false
+      },
+      "source": "upstream backpropagate_tilesize; border pads checked in existing exact strip oracle",
+      "tile": [
+        12,
+        24
+      ]
+    },
+    {
+      "in_regime_input_tile": [
+        25,
+        48
+      ],
+      "input_overlap_columns": 1,
+      "input_overlap_rows": 1,
+      "layers": [
+        7,
+        10
+      ],
+      "lowering": "supported full-width strip endpoint",
+      "mode": {
+        "horizontal_cache": true,
+        "vertical_cache": false
+      },
+      "source": "upstream backpropagate_tilesize; border pads checked in existing exact strip oracle",
+      "tile": [
+        12,
+        24
+      ]
+    },
+    {
+      "in_regime_input_tile": [
+        24,
+        48
+      ],
+      "input_overlap_columns": 1,
+      "input_overlap_rows": 1,
+      "layers": [
+        7,
+        10
+      ],
+      "lowering": "supported full-width strip endpoint",
+      "mode": {
+        "horizontal_cache": true,
+        "vertical_cache": true
+      },
+      "source": "upstream backpropagate_tilesize; border pads checked in existing exact strip oracle",
+      "tile": [
+        12,
+        24
+      ]
+    },
+    {
+      "in_regime_input_tile": [
+        14,
+        26
+      ],
+      "input_overlap_columns": 2,
+      "input_overlap_rows": 2,
+      "layers": [
+        11,
+        14
+      ],
+      "lowering": "supported full-width strip endpoint",
+      "mode": {
+        "horizontal_cache": false,
+        "vertical_cache": false
+      },
+      "source": "upstream backpropagate_tilesize; border pads checked in existing exact strip oracle",
+      "tile": [
+        12,
+        24
+      ]
+    },
+    {
+      "in_regime_input_tile": [
+        14,
+        24
+      ],
+      "input_overlap_columns": 2,
+      "input_overlap_rows": 2,
+      "layers": [
+        11,
+        14
+      ],
+      "lowering": "supported full-width strip endpoint",
+      "mode": {
+        "horizontal_cache": true,
+        "vertical_cache": false
+      },
+      "source": "upstream backpropagate_tilesize; border pads checked in existing exact strip oracle",
+      "tile": [
+        12,
+        24
+      ]
+    },
+    {
+      "in_regime_input_tile": [
+        12,
+        24
+      ],
+      "input_overlap_columns": 2,
+      "input_overlap_rows": 2,
+      "layers": [
+        11,
+        14
+      ],
+      "lowering": "supported full-width strip endpoint",
+      "mode": {
+        "horizontal_cache": true,
+        "vertical_cache": true
+      },
+      "source": "upstream backpropagate_tilesize; border pads checked in existing exact strip oracle",
+      "tile": [
+        12,
+        24
+      ]
+    },
+    {
+      "in_regime_input_tile": [
+        10,
+        18
+      ],
+      "input_overlap_columns": 2,
+      "input_overlap_rows": 2,
+      "layers": [
+        11,
+        14
+      ],
+      "lowering": "not lowered: contiguous aligned DMA/COPY cannot gather interior 18-wide rows from 24-wide source or scatter 16-wide output rows",
+      "mode": {
+        "horizontal_cache": false,
+        "vertical_cache": false
+      },
+      "source": "upstream backpropagate_tilesize; border pads checked in existing exact strip oracle",
+      "tile": [
+        8,
+        16
+      ]
+    },
+    {
+      "in_regime_input_tile": [
+        10,
+        16
+      ],
+      "input_overlap_columns": 2,
+      "input_overlap_rows": 2,
+      "layers": [
+        11,
+        14
+      ],
+      "lowering": "not lowered: contiguous aligned DMA/COPY cannot gather interior 18-wide rows from 24-wide source or scatter 16-wide output rows",
+      "mode": {
+        "horizontal_cache": true,
+        "vertical_cache": false
+      },
+      "source": "upstream backpropagate_tilesize; border pads checked in existing exact strip oracle",
+      "tile": [
+        8,
+        16
+      ]
+    },
+    {
+      "in_regime_input_tile": [
+        8,
+        16
+      ],
+      "input_overlap_columns": 2,
+      "input_overlap_rows": 2,
+      "layers": [
+        11,
+        14
+      ],
+      "lowering": "not lowered: contiguous aligned DMA/COPY cannot gather interior 18-wide rows from 24-wide source or scatter 16-wide output rows",
+      "mode": {
+        "horizontal_cache": true,
+        "vertical_cache": true
+      },
+      "source": "upstream backpropagate_tilesize; border pads checked in existing exact strip oracle",
+      "tile": [
+        8,
+        16
+      ]
+    }
+  ],
+  "status": "passed"
+}

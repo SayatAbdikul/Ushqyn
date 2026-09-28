@@ -1,0 +1,497 @@
+{
+  "fixture_files_sha256": {
+    "checks.txt": "7fe170b594022a583bc22e129db3badbcbc6a8ff868483c71a95b09793d668f2",
+    "commands.bin": "10dcfa5a712fc354510209e75dc2aee0f7037359cb8719be0be51fc865109fa4",
+    "input.bin": "d7d0dbfd54b0cc3080bf8b70dad72fb5e8a267a201a92475c648c7fed6274eec",
+    "output.bin": "0e67ea3b554c1654fe07dae3687deaa32adaa9a2a699a3b3dc65354463ae1371",
+    "payload.bin": "bcd8e03f833bc8de1972300552829848e36b3ffc2ffec7276c2e0a323f0de372",
+    "schedule.json": "5e4d166d36100079eb2f68727f3986cf24cc2e4769e589d068a6eafd43b858e3"
+  },
+  "model_source_sha256": {
+    "work/phase4/rtl-vww/expected.npz": "f5fbc256593bf1381f6f81e5508702e7d492f432fb54d729ca1885877592ebe5",
+    "work/phase4/rtl-vww/input.bin": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+    "work/phase4/rtl-vww/manifest.json": "b55d9e1d99d326ad8209f26f341eb7048d90d6f5cee68dadf93d6c4d3e6fb0fe",
+    "work/phase4/vww-calibration-rebased.json": "03dcc62a292a0b98e490026e50c1002a4b287e2910a5c54d89c894c22d5015d5",
+    "work/phase4/vww-logits.onnx": "42090afcfdd84130b4e9c0b3fca8993b138f9509d620de2fe915c71adef893b7"
+  },
+  "native": [
+    {
+      "dma_cycles": 13583,
+      "elapsed_cycles": 110059,
+      "engine_cycles": 96055,
+      "overlap_cycles": 0,
+      "physical_board": false,
+      "stall_seed": 0,
+      "status": "passed",
+      "tensor_checks": 1,
+      "total_simulated_cycles": 114635
+    },
+    {
+      "dma_cycles": 22782,
+      "elapsed_cycles": 119258,
+      "engine_cycles": 96055,
+      "overlap_cycles": 0,
+      "physical_board": false,
+      "stall_seed": 6063,
+      "status": "passed",
+      "tensor_checks": 1,
+      "total_simulated_cycles": 123834
+    }
+  ],
+  "native_executable_sha256": "b97fbf944827a5345670f3603e7f10368a897e6bcb19d16cc56905d8e06d16ec",
+  "physical_board": false,
+  "record": {
+    "command_count": 105,
+    "commands_sha256": "10dcfa5a712fc354510209e75dc2aee0f7037359cb8719be0be51fc865109fa4",
+    "max_copy_chain_descriptors": 240,
+    "max_sram_address_exclusive": 30784,
+    "payload_bytes": 65280,
+    "payload_sha256": "bcd8e03f833bc8de1972300552829848e36b3ffc2ffec7276c2e0a323f0de372",
+    "runs": [
+      {
+        "channels": 24,
+        "command": 50,
+        "copy_descriptors": 240,
+        "copy_table_sha256": "32bc05b77a26fd76d67eb0904bae00ceff859ae7192f8cc6282e930e1b4b6631",
+        "first_channel": 0,
+        "kind": "pack",
+        "packed_bytes": 4080,
+        "packed_sram": 256,
+        "pc": 15360
+      },
+      {
+        "channels": 24,
+        "command": 60,
+        "descriptor_hex": "5553443202067b0d0001000080110000c83200005834000009000000000c00001000000040000000030003000100010000000000000001000a00110018001800",
+        "first_channel": 0,
+        "kind": "depthwise",
+        "pc": 0,
+        "table_sha256": "0c870b8a15877acace1d8d3c7a4d24e79fa143ba0811e5972a2cbd3976ac3297"
+      },
+      {
+        "channels": 8,
+        "command": 80,
+        "copy_descriptors": 80,
+        "copy_table_sha256": "b60c0221960b541f7308c26f42dce34672498072fa126850e441ffb698487670",
+        "first_channel": 24,
+        "kind": "pack",
+        "packed_bytes": 1360,
+        "packed_sram": 9000,
+        "pc": 15360
+      },
+      {
+        "channels": 8,
+        "command": 90,
+        "descriptor_hex": "5553443202067b0d28230000801d0000c83200005834000009000000000400001000000040000000030003000100010000000000000001000a00110008000800",
+        "first_channel": 24,
+        "kind": "depthwise",
+        "pc": 0,
+        "table_sha256": "0c870b8a15877acace1d8d3c7a4d24e79fa143ba0811e5972a2cbd3976ac3297"
+      },
+      {
+        "command": 100,
+        "descriptor_hex": "5553443202042d0f8011000028230000b0360000b03a000020000000001000002000000040000000010001000100010000000000000000000800100020002000",
+        "kind": "pointwise",
+        "pc": 0,
+        "table_sha256": "2d7839292d209157723e00acd98ae236f983234f8123336bc79fc657f2c5b9c7"
+      }
+    ],
+    "schema": 1,
+    "source_halo": [
+      7,
+      7,
+      10,
+      17
+    ],
+    "source_overfetch_per_row": 7,
+    "status": "lowered",
+    "tile": [
+      8,
+      8,
+      8,
+      16
+    ],
+    "transfers": [
+      {
+        "bytes": 240,
+        "command": 0,
+        "direction": "to_sram",
+        "ext": 168,
+        "role": "aligned_source_strip",
+        "sram": 7808
+      },
+      {
+        "bytes": 240,
+        "command": 2,
+        "direction": "to_sram",
+        "ext": 744,
+        "role": "aligned_source_strip",
+        "sram": 8048
+      },
+      {
+        "bytes": 240,
+        "command": 4,
+        "direction": "to_sram",
+        "ext": 1320,
+        "role": "aligned_source_strip",
+        "sram": 8288
+      },
+      {
+        "bytes": 240,
+        "command": 6,
+        "direction": "to_sram",
+        "ext": 1896,
+        "role": "aligned_source_strip",
+        "sram": 8528
+      },
+      {
+        "bytes": 240,
+        "command": 8,
+        "direction": "to_sram",
+        "ext": 2472,
+        "role": "aligned_source_strip",
+        "sram": 8768
+      },
+      {
+        "bytes": 240,
+        "command": 10,
+        "direction": "to_sram",
+        "ext": 3048,
+        "role": "aligned_source_strip",
+        "sram": 9008
+      },
+      {
+        "bytes": 240,
+        "command": 12,
+        "direction": "to_sram",
+        "ext": 3624,
+        "role": "aligned_source_strip",
+        "sram": 9248
+      },
+      {
+        "bytes": 240,
+        "command": 14,
+        "direction": "to_sram",
+        "ext": 4200,
+        "role": "aligned_source_strip",
+        "sram": 9488
+      },
+      {
+        "bytes": 240,
+        "command": 16,
+        "direction": "to_sram",
+        "ext": 4776,
+        "role": "aligned_source_strip",
+        "sram": 9728
+      },
+      {
+        "bytes": 240,
+        "command": 18,
+        "direction": "to_sram",
+        "ext": 5352,
+        "role": "aligned_source_strip",
+        "sram": 9968
+      },
+      {
+        "bytes": 240,
+        "command": 20,
+        "direction": "to_sram",
+        "ext": 5928,
+        "role": "aligned_source_strip",
+        "sram": 10208
+      },
+      {
+        "bytes": 240,
+        "command": 22,
+        "direction": "to_sram",
+        "ext": 6504,
+        "role": "aligned_source_strip",
+        "sram": 10448
+      },
+      {
+        "bytes": 240,
+        "command": 24,
+        "direction": "to_sram",
+        "ext": 7080,
+        "role": "aligned_source_strip",
+        "sram": 10688
+      },
+      {
+        "bytes": 240,
+        "command": 26,
+        "direction": "to_sram",
+        "ext": 7656,
+        "role": "aligned_source_strip",
+        "sram": 10928
+      },
+      {
+        "bytes": 240,
+        "command": 28,
+        "direction": "to_sram",
+        "ext": 8232,
+        "role": "aligned_source_strip",
+        "sram": 11168
+      },
+      {
+        "bytes": 240,
+        "command": 30,
+        "direction": "to_sram",
+        "ext": 8808,
+        "role": "aligned_source_strip",
+        "sram": 11408
+      },
+      {
+        "bytes": 240,
+        "command": 32,
+        "direction": "to_sram",
+        "ext": 9384,
+        "role": "aligned_source_strip",
+        "sram": 11648
+      },
+      {
+        "bytes": 240,
+        "command": 34,
+        "direction": "to_sram",
+        "ext": 9960,
+        "role": "aligned_source_strip",
+        "sram": 11888
+      },
+      {
+        "bytes": 240,
+        "command": 36,
+        "direction": "to_sram",
+        "ext": 10536,
+        "role": "aligned_source_strip",
+        "sram": 12128
+      },
+      {
+        "bytes": 240,
+        "command": 38,
+        "direction": "to_sram",
+        "ext": 11112,
+        "role": "aligned_source_strip",
+        "sram": 12368
+      },
+      {
+        "bytes": 240,
+        "command": 40,
+        "direction": "to_sram",
+        "ext": 11688,
+        "role": "aligned_source_strip",
+        "sram": 12608
+      },
+      {
+        "bytes": 240,
+        "command": 42,
+        "direction": "to_sram",
+        "ext": 12264,
+        "role": "aligned_source_strip",
+        "sram": 12848
+      },
+      {
+        "bytes": 240,
+        "command": 44,
+        "direction": "to_sram",
+        "ext": 12840,
+        "role": "aligned_source_strip",
+        "sram": 13088
+      },
+      {
+        "bytes": 240,
+        "command": 46,
+        "direction": "to_sram",
+        "ext": 13416,
+        "role": "aligned_source_strip",
+        "sram": 13328
+      },
+      {
+        "bytes": 15424,
+        "command": 48,
+        "direction": "to_sram",
+        "ext": 40960,
+        "role": "copy_chain",
+        "sram": 15360
+      },
+      {
+        "bytes": 128,
+        "command": 52,
+        "direction": "to_sram",
+        "ext": 56384,
+        "role": "dw_descriptor",
+        "sram": 0
+      },
+      {
+        "bytes": 384,
+        "command": 54,
+        "direction": "to_sram",
+        "ext": 56512,
+        "role": "dw_weights",
+        "sram": 13000
+      },
+      {
+        "bytes": 384,
+        "command": 56,
+        "direction": "to_sram",
+        "ext": 56896,
+        "role": "dw_params",
+        "sram": 13400
+      },
+      {
+        "bytes": 256,
+        "command": 58,
+        "direction": "to_sram",
+        "ext": 57280,
+        "role": "dw_activation_table",
+        "sram": 13800
+      },
+      {
+        "bytes": 240,
+        "command": 62,
+        "direction": "to_sram",
+        "ext": 13992,
+        "role": "aligned_source_strip",
+        "sram": 11000
+      },
+      {
+        "bytes": 240,
+        "command": 64,
+        "direction": "to_sram",
+        "ext": 14568,
+        "role": "aligned_source_strip",
+        "sram": 11240
+      },
+      {
+        "bytes": 240,
+        "command": 66,
+        "direction": "to_sram",
+        "ext": 15144,
+        "role": "aligned_source_strip",
+        "sram": 11480
+      },
+      {
+        "bytes": 240,
+        "command": 68,
+        "direction": "to_sram",
+        "ext": 15720,
+        "role": "aligned_source_strip",
+        "sram": 11720
+      },
+      {
+        "bytes": 240,
+        "command": 70,
+        "direction": "to_sram",
+        "ext": 16296,
+        "role": "aligned_source_strip",
+        "sram": 11960
+      },
+      {
+        "bytes": 240,
+        "command": 72,
+        "direction": "to_sram",
+        "ext": 16872,
+        "role": "aligned_source_strip",
+        "sram": 12200
+      },
+      {
+        "bytes": 240,
+        "command": 74,
+        "direction": "to_sram",
+        "ext": 17448,
+        "role": "aligned_source_strip",
+        "sram": 12440
+      },
+      {
+        "bytes": 240,
+        "command": 76,
+        "direction": "to_sram",
+        "ext": 18024,
+        "role": "aligned_source_strip",
+        "sram": 12680
+      },
+      {
+        "bytes": 5184,
+        "command": 78,
+        "direction": "to_sram",
+        "ext": 57536,
+        "role": "copy_chain",
+        "sram": 15360
+      },
+      {
+        "bytes": 128,
+        "command": 82,
+        "direction": "to_sram",
+        "ext": 62720,
+        "role": "dw_descriptor",
+        "sram": 0
+      },
+      {
+        "bytes": 128,
+        "command": 84,
+        "direction": "to_sram",
+        "ext": 62848,
+        "role": "dw_weights",
+        "sram": 13000
+      },
+      {
+        "bytes": 128,
+        "command": 86,
+        "direction": "to_sram",
+        "ext": 62976,
+        "role": "dw_params",
+        "sram": 13400
+      },
+      {
+        "bytes": 256,
+        "command": 88,
+        "direction": "to_sram",
+        "ext": 63104,
+        "role": "dw_activation_table",
+        "sram": 13800
+      },
+      {
+        "bytes": 128,
+        "command": 92,
+        "direction": "to_sram",
+        "ext": 63360,
+        "role": "pw_descriptor",
+        "sram": 0
+      },
+      {
+        "bytes": 1024,
+        "command": 94,
+        "direction": "to_sram",
+        "ext": 63488,
+        "role": "pw_weights",
+        "sram": 14000
+      },
+      {
+        "bytes": 512,
+        "command": 96,
+        "direction": "to_sram",
+        "ext": 64512,
+        "role": "pw_params",
+        "sram": 15024
+      },
+      {
+        "bytes": 256,
+        "command": 98,
+        "direction": "to_sram",
+        "ext": 65024,
+        "role": "pw_activation_table",
+        "sram": 15536
+      },
+      {
+        "bytes": 4096,
+        "command": 102,
+        "direction": "from_sram",
+        "ext": 36864,
+        "role": "output_tile",
+        "sram": 9000
+      }
+    ]
+  },
+  "schema": 1,
+  "scope": "isolated VWW 11\u201314 8x16 interior tile; not a full-model schedule",
+  "source_sha256": "8b657568b815ef3878e2160aead27f40c557a96926b1e9f561b8fc70e9da43a2",
+  "status": "passed-native"
+}
