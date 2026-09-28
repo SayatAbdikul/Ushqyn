@@ -4,7 +4,8 @@ This record compares executable policies on the **same** Tang Nano 20K
 accelerator, rather than comparing different FPGA builds. It is a short
 full-model policy screen. It does not certify B03 or G6 while the published
 DeFiNES policy space remains only partly executable. The complete B1/B2 tuning
-record and signed 30-run physical campaign are archived under
+record and signed 30-run primary and 45-run finalist physical campaigns are
+archived under
 [`evidence/phase6/matched-baselines-v1`](evidence/phase6/matched-baselines-v1).
 
 ## Frozen comparison contract
@@ -95,8 +96,8 @@ tiles covering the complete layer-12 tensor, the assembled layer-14 tensor,
 and final logits. The symbolic proof is compositional: it replays the frozen
 full-model source and every new x-tile segment independently, then checks the
 splice; a single transformed-program replay in the general verifier remains
-open. Its physical comparison remains pending. Other tile shapes, stack cuts and cross-layer
-placement remain untested; the restricted B3 row cannot close B03.
+open. Its physical comparison appears below. Other tile shapes, stack cuts and
+cross-layer placement remain untested; the restricted B3 row cannot close B03.
 
 An [additional exact VWW screen](evidence/phase6/matched-baselines-v1/b3-spatial/report.json)
 changes the layer-11–14 full-width strip height to 12, 8, 6 or 4 rows while
@@ -105,8 +106,9 @@ optimizations. Every candidate passes independent full-model replay and native
 RTL at both stall seeds. Their worst-seed cycles are 2,305,104, 2,310,567,
 2,316,558 and 2,327,174, respectively, versus 2,304,047 for selected B4.
 Thus this additional tile-height search does not improve on B4 in simulation;
-a 15-run physical h12/h8/B4 finalist screen is prepared to test whether SDRAM
-changes the close ranking. For KWS, a [bounded ABI audit](evidence/phase6/matched-baselines-v1/b3/kws-abi-audit.json)
+the matched physical h12/h8/B4 screen below preserves that ranking, although
+h12 is close. For KWS, a
+[bounded ABI audit](evidence/phase6/matched-baselines-v1/b3/kws-abi-audit.json)
 finds the existing selected schedule already retains all relevant 64×25×5
 intermediates in SRAM with no intermediate external stores or reloads. The
 direct compact per-channel strip recipe requires each height to be divisible
@@ -149,22 +151,53 @@ VWW B4 is 1.050× faster than B2. The largest within-cell spread of the three
 timed cycles is below 0.03%; these short runs establish repeatable device
 cycles for the pinned inputs, not a full-dataset latency distribution.
 
-The closest alternate VWW tile settings have complete native and stress
-evidence, but have not yet been ranked on physical SDRAM. The
-[one-flash finalist preflight](evidence/phase6/matched-baselines-v1/combined-finalists-preflight.json)
-combines those B1/B2 settings, the DeFiNES tile heights, the 2D candidate and
-the halo-cache ablation on the same image. It plans 45 exact executions for
-nine distinct VWW command streams; byte-identical controls are run once. Its
-read-only gate passes with plan SHA-256
+The [one-flash finalist preflight](evidence/phase6/matched-baselines-v1/combined-finalists-preflight.json)
+combines the closest B1/B2 settings, the DeFiNES-derived strip heights, the 2D
+candidate and the halo-cache ablation on the same image. Its read-only gate
+passes with canonical plan SHA-256
 `12732ec1388f76317243002cb00f78c2bbf1ca3a871ab3cae8ccb32c65c00aa2`.
-Three earlier cache-only board starts each programmed the FPGA successfully
-but timed out on the UART capability exchange **before any inference**;
-[their failed records](evidence/phase6/matched-baselines-v1/b3-cache-failed-attempts)
-are preserved. S1 reset did not restore UART. The combined physical campaign
-awaits a USB power cycle and a responsive capability check.
+The [physical finalist report](evidence/phase6/matched-baselines-v1/combined-finalists-board-x-after-reconnect/report.json)
+and [seal](evidence/phase6/matched-baselines-v1/combined-finalists-board-x-after-reconnect/seal.json)
+pass **45/45 exact executions** with no output mismatches, one programming
+operation and one UART session. Nine distinct VWW command streams each received
+one stress check, one pinned warmup and three pinned timed runs. Byte-identical
+`recompute` and `full_width` controls alias B4 and were run only once. Per-row
+signatures and the plan/report/record/runner SHA-256 seal verify; the saved
+plan-file hash differs from the canonical preflight hash because of JSON
+serialization. Median device cycles exclude UART loading and host transfer.
 
-The measured B4/B2 result does **not** meet the prospective 15% geometric-mean
-improvement threshold. Physical finalist tuning could strengthen B2 further;
-the current 1.025× ratio is not a certified optimum-baseline ratio. A complete B3
-adaptation, complete accuracy/energy studies and the remaining G6 causal
-ablations are still needed for a publication claim.
+| VWW schedule | Median cycles | Device ms | FPS |
+| --- | ---: | ---: | ---: |
+| B4 selected; recompute/full-width controls | 2,441,449 | 90.424 | 11.059 |
+| DeFiNES-derived strip height 12 | 2,442,659 | 90.469 | 11.054 |
+| DeFiNES-derived strip height 8 | 2,451,104 | 90.782 | 11.015 |
+| Vertical-halo cache | 2,478,740 | 91.805 | 10.893 |
+| B2 selected physical liveness | 2,563,037 | 94.927 | 10.534 |
+| B2 half-tile plus prefetch | 2,620,613 | 97.060 | 10.303 |
+| B1 selected layer-wise | 2,711,238 | 100.416 | 9.959 |
+| B1 full-tile plus prefetch | 2,777,283 | 102.862 | 9.722 |
+| Six-tile 2D spatial schedule | 2,973,809 | 110.141 | 9.079 |
+
+B4 is the fastest of these nine. The selected B1/B2 settings beat their
+measured alternate tile/prefetch settings. B4 is 1.050× faster than B2 for VWW, but
+the KWS B2/B4 programs are byte-identical. Combining the KWS primary campaign
+with this VWW finalist screen gives a 1.025× two-model geometric-mean B4/B2
+speedup, still below the prospective 15% threshold. The 2D schedule takes
+1.218× B4's cycles; this tests one feasible spatial tile, not every published
+DeFiNES policy. Each timed cell has only three pinned repetitions, so this is
+a repeatable short-screen ranking, not a full-dataset latency distribution or
+a certified global policy optimum.
+
+Three earlier cache-only starts programmed the FPGA successfully but timed out
+at the UART capability exchange **before any inference**; [their failed
+records](evidence/phase6/matched-baselines-v1/b3-cache-failed-attempts) are
+preserved. A [failed combined start](evidence/phase6/matched-baselines-v1/combined-finalists-failed-attempt/report.json)
+likewise completed zero inferences. The [minimal UART loopback diagnostic](evidence/phase6/matched-baselines-v1/uart-diagnostic/report.json)
+failed before the USB reconnection and [passed afterward](evidence/phase6/matched-baselines-v1/uart-diagnostic/after-reconnect-report.json)
+following a USB reconnection and S1 reset. The successful 45-case campaign
+then ran without UART errors.
+
+The restricted adaptation does **not** certify B03 or a full DeFiNES
+comparison. A complete published-policy backend, complete accuracy/energy
+studies and the remaining G6 causal ablations are still needed for a
+publication claim.

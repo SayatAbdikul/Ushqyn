@@ -1,4 +1,4 @@
-# Phase 6 — boardless milestone, 2026-09-26
+# Phase 6 — search and matched-baseline status
 
 **Matched baseline update (2026-09-28):** the
 [B1/B2/B4 campaign](PHASE_6_MATCHED_BASELINES_V1.md) passes 30/30 exact
@@ -7,13 +7,17 @@ arithmetic, engine and eligible prefetch optimizations. B4 measures 44.513 ms
 KWS and 90.429 ms VWW; its two-model geometric-mean speedup is 1.116× over
 B1 and only 1.025× over B2. B2's KWS program is byte-identical to B4. A
 restricted DeFiNES-derived eight-cut catalogue selects the byte-identical B4
-VWW schedule. A six-tile 8×16/8×8 two-dimensional VWW schedule now composes
-on the same image and passes exact full-model native RTL, but is slower than
-the selected full-width strips. Pinned/stress intermediate checks pass in
-native RTL; its physical comparison remains pending.
+VWW schedule. The subsequent [45-run VWW finalist screen](evidence/phase6/matched-baselines-v1/combined-finalists-board-x-after-reconnect/report.json)
+passes with exact outputs on the same image and confirms the selected B1/B2
+tile settings. B4 is fastest at **2,441,449 cycles (90.424 ms, 11.059 FPS)**;
+B2 takes 2,563,037 cycles, the closest 12-row DeFiNES-derived strip takes
+2,442,659 cycles, the vertical-halo cache takes 2,478,740 cycles, and the
+six-tile 8×16/8×8 two-dimensional schedule takes 2,973,809 cycles. The 2D
+schedule also passes pinned/stress intermediate checks in native RTL. This is
+an executable bounded adaptation, **not a full DeFiNES reproduction**.
 **B03 and G6 remain open.**
 
-**Latest short-screen result (2026-09-27):** the
+**Earlier short-screen result (2026-09-27):** the
 [five follow-up experiments](PHASE_6_FIVE_EXPERIMENTS_V1.md) yield an exact
 27 MHz pooled core, compiler channel compaction, and an executable
 cross-layer strip schedule for three VWW pairs. The selected Tang Nano 20K image and schedule
@@ -33,12 +37,12 @@ geometry cross-check. It produces a substantial simulated hardware gain; the
 new search nearly ties a simple retention baseline. Full B3 adaptation and G6
 remain open. The rest of this file preserves the earlier foundation milestone.
 
-**The boardless search/semantics/integration milestone passes; G6 remains open.**
-This is implementation and verification, not evidence of a new state-of-the-art
-accelerator. The restricted real-model search found **no gain over its
-largest-tile serialized baseline**. Spatial halo caching has useful software
-tradeoffs, but has not been lowered to a physically feasible fused schedule or
-measured on the FPGA.
+**The earlier boardless search/semantics/integration milestone passed; G6 remains open.**
+That milestone was implementation and verification, not evidence of a new
+state-of-the-art accelerator. Its restricted real-model search found **no gain
+over its largest-tile serialized baseline**. Spatial halo caching then had
+software tradeoffs but no physical FPGA result; the current-image cache
+comparison is recorded above.
 
 New work is isolated in `compiler/scheduler/`, `tools/phase6/`, `test/phase6/`
 and `work/phase6/`. SHA256 checks confirm preservation of 109 pre-existing
@@ -52,7 +56,7 @@ image changed, or Phase 5 job interrupted.
 | S01 | Independent timing/placement/resource certificates; halo and INT32 reduction contracts; quantization-preserving segment executor; real-model candidates and independent command replay | Bind fused live buffers, port traces and transfers to actual lowering; agree fair B3 candidates; prove complete physical SRAM fit |
 | S02 | Exact integer-time/address enumeration and catalogue DP; independent exhaustive timing/address and path oracles | Extend the declared catalogue to the final fused/B3-compatible implementation |
 | S03 | Bounded beam search, valid catalogue bounds, feasible fallback, measured DMA cost integration; KWS/VWW runtime and exact-gap checks | Optimize the actual fusion/recompute/placement space; calibrate new costs and evaluate held-out prediction errors |
-| S04 | DMA-cost ablation, paired serialized/prefetch artifacts, cache/recompute semantic sweeps, 30-run matched B1/B2/B4 physical screen, negative result recorded | Full B3-compatible physical comparison and causal fusion/placement/bank/overlap ablations; an explained physical benefit |
+| S04 | DMA-cost ablation, paired serialized/prefetch artifacts, cache/recompute semantic sweeps, 30-run matched B1/B2/B4 physical screen and 45-run VWW finalist screen, negative result recorded | Full B3-compatible physical comparison and causal fusion/placement/bank/overlap ablations; an explained physical benefit |
 | S05 | Optional dynamic-quantization experiment deferred | Consider only after the main mechanism demonstrates a benefit |
 
 B03's dependency has not been waived. `retain-last-region` is a restricted
@@ -194,8 +198,9 @@ design tasks; the software cache is not automatically executable by the
 current ABI. Certificates, oracles and search infrastructure are now available
 to check those changes.
 
-After Phase 5 releases the board, run the prepared current-ABI comparisons and
-calibrate new hardware modes. Full B4 evaluation needs matched B1/B2/B3,
+The current-ABI B1/B2 and bounded DeFiNES-derived VWW comparisons have now run
+on the board; new hardware modes still need calibration. Full B4 evaluation
+needs a complete B3 adaptation alongside the matched B1/B2 evidence,
 held-out cost errors, causal ablations, correctness/quality constraints and an
 explained measured gain. **A board connection alone cannot close G6, and this
 milestone is not a SOTA claim.**

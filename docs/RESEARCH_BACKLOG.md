@@ -98,17 +98,22 @@ pins a deterministic 10,000-job audio/vision switch plan and a fail-closed
 readiness audit. G4 now passes, and the routed dual-resident Phase 5 image has
 passed four alternating, byte-exact physical jobs without reflashing. Both
 frozen accuracy payloads are materialized, and the full switch run is in
-progress. Complete accuracy/stress campaigns and matched B1/B2/B3
-measurements remain required for G5.
+progress. Complete accuracy/stress campaigns and the full B3 published-policy
+comparison remain required for G5; matched B1/B2 measurements are recorded
+below.
 
 **B03 update, 2026-09-28:** [matched B1/B2/B4 tuning and 30 exact board
-runs](research/PHASE_6_MATCHED_BASELINES_V1.md) now use one pinned 27 MHz
-image and common KWS/VWW arithmetic and host boundary. The restricted
-DeFiNES-derived full-width catalogue ties B4 on VWW. A full-model six-tile
-8×16/8×8 candidate is exact in native RTL on the same image but slower in the
-two tested stall seeds; pinned/stress intermediate checks pass, while the board comparison and broader
-published search space remain open. The restricted tie is not a full B3
-reproduction.
+runs](research/PHASE_6_MATCHED_BASELINES_V1.md) use one pinned 27 MHz image
+and common KWS/VWW arithmetic and host boundary. A subsequent
+[45-run exact VWW finalist screen](research/evidence/phase6/matched-baselines-v1/combined-finalists-board-x-after-reconnect/report.json)
+confirms the selected B1 and B2 tile settings: B1 takes 2,711,238 cycles,
+B2 takes 2,563,037 cycles, and B4 is fastest at 2,441,449 cycles. The
+restricted DeFiNES-derived eight-cut catalogue ties B4; its closest 12-row
+strip takes 2,442,659 cycles, a vertical-halo cache takes 2,478,740 cycles,
+and an exact full-model six-tile 8×16/8×8 schedule takes 2,973,809 cycles
+on the board. The 2D candidate also passes pinned/stress intermediate checks
+in native RTL. This is an executable **bounded adaptation**, not a full B3
+reproduction; other spatial shapes, fusion cuts and placements remain open.
 
 ## P6 — weeks 21–25: prove the proposed mechanism matters
 
@@ -121,26 +126,33 @@ reproduction.
 **G6:** S01–S04 pass and the research claim survives B3. S05 is not required. New INT4/sparsity/16-lane work needs a measured bottleneck rationale and must not delay G7.
 
 **Current G6: open.** The latest
-[five follow-up experiments](research/PHASE_6_FIVE_EXPERIMENTS_V1.md)
-measure a 27 MHz pooled core, exact channel compaction, and three executable
-cross-layer strip pairs at **44.513 ms KWS** and **90.430 ms VWW** device latency in
-10/10 exact Tang Nano 20K short screens. They improve practical performance but do not establish the proposed
-cross-layer/search contribution, full accuracy, energy, or a B3 comparison.
+[matched baseline campaign](research/PHASE_6_MATCHED_BASELINES_V1.md)
+measures **44.513 ms KWS** and **90.429 ms VWW** on the selected 27 MHz image,
+with 30/30 exact B1/B2/B4 board executions. Its 45/45 exact VWW finalist
+screen confirms B4 as fastest among nine distinct tested command streams at
+**90.424 ms (11.059 FPS)**. The restricted published-policy adaptation ties
+B4 at its best executable point; other tested strip heights, halo cache and
+2D tiling lose. B4's two-model geometric-mean speedup over tuned B2 is only
+1.025×, below the planned material-effect target. These short screens do not
+establish the proposed cross-layer/search contribution, full accuracy, energy,
+or a complete B3 comparison.
 The earlier boardless search/semantics/integration milestone passes.
 The later [cache/spatial/retention milestone](research/PHASE_6_OPTIMIZATION.md) adds
 timing-closed experimental engines, executable producer/activation retention,
 independent lifetime/provenance checks, full-model RTL ablations and an actual
 overlap-aware search. The measured-DMA-fit projections improve substantially
 over the original hardware, but search gains over a simple retained baseline
-remain negligible. Those search experiments are boardless; full B3/backend work and the
-physical G6 comparison have not been marked complete.
+remain negligible. Those search experiments are boardless; the subsequent
+current-image finalist screen is physical but does not complete the B3/backend
+work or physical G6 claim.
 The [Phase 6 record](research/PHASE_6_STATUS.md) documents exact/beam search,
 halo/INT32/quantization semantics, 112 regressions, 24 KWS/VWW command replays,
 152 spatial segment checks and four distinct candidate RTL executions. S02's
 small declared search spaces are independently validated; S03 meets runtime/gap
 targets only in the restricted materialized full32/prefer16 catalogue. That
 catalogue yields no gain over full32. S01 still needs fused hardware lowering
-and B3-compatible candidates; S04 still needs matched physical comparisons.
+and B3-compatible candidates; S04 still needs the complete B3 comparison and
+causal physical ablations despite the matched screens above.
 Further boardless design work remains. All 109 frozen Phase 5 files are intact.
 
 ## P7 — weeks 26–29: collect defensible research evidence

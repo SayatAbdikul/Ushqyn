@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "date": "2026-09-28",
+  "physical_board": true,
+  "status": "failed-uart-loopback",
+  "scope": "Previously passing Phase 0 minimal UART image diagnostic; no accelerator inference",
+  "bitstream": "hardware/releases/physical/uart_loopback.fs",
+  "bitstream_sha256": "2f7c180dc84e75361dd532afca40a1ec4f691d6e51e350f3fbf9c0d893cc337f",
+  "program_log_sha256": "413e390676b644ace9dedc973d50f665dc0fb17363a20fd36efc71bfaad592ff",
+  "jtag_program_exit_code": 0,
+  "jtag_idcode": "0x81b",
+  "port": "/dev/cu.usbserial-20250303171",
+  "baud": 115200,
+  "stop_and_wait_probe_bytes_hex": ["55", "aa", "01"],
+  "echoes_hex": ["", "", ""],
+  "read_timeout_seconds_per_byte": 1,
+  "accelerator_inferences": 0
+}

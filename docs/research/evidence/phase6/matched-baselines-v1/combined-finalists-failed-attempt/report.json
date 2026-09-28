@@ -1,0 +1,15 @@
+{
+  "completed": 0,
+  "failure": "TimeoutError('truncated response header; do not automatically repeat RUN')",
+  "output_mismatches": 0,
+  "physical_board": true,
+  "plan_sha256": "a9928313ce4ecc7b2e575143a5edd88b1e3bbf92abc01c0482f01ebe78df511f",
+  "planned": 45,
+  "program_log_sha256": "72517e1aceb20f1e3fdff614338a4895dd2dc90b7867afc545095af37bd9120e",
+  "programming_operations": 1,
+  "schema": 1,
+  "started_at": "2026-09-28T11:13:05+05:00",
+  "status": "failed",
+  "uart_sessions": 1,
+  "updated_at": "2026-09-28T11:13:15+05:00"
+}

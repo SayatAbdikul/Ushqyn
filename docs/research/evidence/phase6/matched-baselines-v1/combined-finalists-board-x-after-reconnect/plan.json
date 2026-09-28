@@ -1,0 +1,1563 @@
+{
+  "aliases": {
+    "B1_full_prefetch": "B1_full_prefetch",
+    "B1_selected": "B1_selected",
+    "B2_half_prefetch": "B2_half_prefetch",
+    "B2_selected": "B2_selected",
+    "B4": "B4",
+    "full_width": "B4",
+    "h12": "h12",
+    "h8": "h8",
+    "recompute": "B4",
+    "vertical_cache": "vertical_cache",
+    "x_tiles": "x_tiles"
+  },
+  "baud": 750000,
+  "block_order": [
+    "B2_half_prefetch",
+    "B2_selected",
+    "vertical_cache",
+    "h12",
+    "B1_full_prefetch",
+    "B1_selected",
+    "h8",
+    "B4",
+    "x_tiles"
+  ],
+  "burst_bytes": 256,
+  "clock_hz": 27000000,
+  "engine_sha256": "c347336ec58503f26abc47094289bd7926fcc5ed2515eca758a4b7dbc7f6d48a",
+  "image": {
+    "clock_hz": 27000000,
+    "evidence": {
+      "edges": "97baf09af458d16921cdee104f670b3e2c79a1fb0e4fd50917c943dd6fa7cb9e",
+      "engine": "97d99136cbd316c1717d0967e2d1bc77a7ec649f0f1fd2ffed2c147c88aa4b3a",
+      "integration": "a35ab8077d093f559f0490ae44dccb2c07447ce48924e736401b896961ef6c1c",
+      "native": "80272e1f0e0e2272aba230db4245447f4967c76e95c0b76e7d896157ac0c6cfc",
+      "route": "ee18f7f5345ade774622d4ce5dafcbf692b5eaa12b371b45e0163b8c8927865b",
+      "uart27": "570a9af4164993fcd454b95f3640a34292489d2828c7e67ba0928748252a9c68"
+    },
+    "file": "work/phase6/pool-timing-v1/route27/phase6_uart_burst/impl/pnr/phase6_uart_burst.fs",
+    "sha256": "3e943639382e4efea62d4d2072c016fa40eacc7a97ef6bad7f5bfdc69d8dafce"
+  },
+  "native_executable_sha256": "b97fbf944827a5345670f3603e7f10368a897e6bcb19d16cc56905d8e06d16ec",
+  "not_claimed": [
+    "full DeFiNES reproduction",
+    "B03 closure",
+    "G6 closure",
+    "complete-set accuracy",
+    "energy",
+    "SOTA"
+  ],
+  "physical_board": false,
+  "planned": 45,
+  "programming_operations": 1,
+  "runner_sources": {
+    "tools/phase2/host.py": "5cf32bd1d5d69b5489aac7ebadd67297c801cfe9a3d848d8f82d666faf191d2d",
+    "tools/phase4/tiled_host.py": "7c8011c03d76be0d6a70a6c5ef034a21780d3dd8b93b34b98594724f993826a4",
+    "tools/phase6/matched_baselines_board.py": "6383ddf05fac1377fe7ddcd32c86de3f800a4625cc3c2b6625e0b0c45cffa818",
+    "tools/phase6/run_priority.py": "23d4fec3ccf63a407c6a62693b761fd60c0371a5f79799a7ed06fe211c1da669",
+    "tools/phase6/run_screening.py": "52254041414304ac1fb8acfc95c9c4367116d5ba0657da4b1dff0e6d6e9f0b7f",
+    "tools/phase6/screen_b1b2_vww_tuning.py": "864987e42af5968a74dea1b4eb876cd82ecf58f27b498d2dc62679e1db3780c4",
+    "tools/phase6/screen_b3_cache.py": "83573aa487c0ceb44d863eaf3766b7edd77147cb1ecdec1d0df6345032f7943d",
+    "tools/phase6/screen_b3_spatial.py": "2f53c423cee899511eef81befe943d224334f99398897184e5afcbad5af6316d",
+    "tools/phase6/screen_b3_x_tiles.py": "d54690dc98af72711fe09a401158253448954ccd45ae4bd8abb41e9bff2c0421",
+    "tools/phase6/screen_engine_schedule.py": "9f1d8b3d30b1dd613429454f7722e03f4622548af68c02bc270122ed4e7bf681",
+    "tools/phase6/screen_matched_finalists.py": "3d581ee9c3d5c7105b1860d644d63aa2ac61a2c0f27aa8560fa52c4f2243e5d7",
+    "tools/phase6/uart_burst.py": "e00535c4b8deee5cb2569736ccecb846837e9f2edad2663d4d19c13acf051c5d"
+  },
+  "schema": 1,
+  "scope": "one-flash exact VWW finalist comparison across 4 frozen plans",
+  "seed": 20260928,
+  "source_manifests": {
+    "b1b2_tuning": {
+      "path": "work/phase6/matched-baselines-v1/b1b2-vww-tuning/report.json",
+      "sha256": "31e706bb5c65d9f04a024fc6ce41e1dd340e17435abaa805434a95f8fc8918ca"
+    },
+    "b3_cache": {
+      "path": "work/phase6/matched-baselines-v1/b3/report.json",
+      "sha256": "13a436d332cf7ea96b1f6e1fc83e6775ce500b82fd4c3381c373c1794c1a470f"
+    },
+    "b3_spatial": {
+      "path": "work/phase6/matched-baselines-v1/b3-spatial-v1/report.json",
+      "sha256": "a98895bdcafd70e1a2be572664c7a01c30eb9cc296529cc34ad69de7b9699eda"
+    },
+    "b3_x_tiles": {
+      "path": "work/phase6/matched-baselines-v1/b3-x-tiles-v2/report.json",
+      "sha256": "3658b6a7bafd3bc7c60e0322ee0e078f24ff42c9d1fa398c9c8e82e2d8cf94dd"
+    }
+  },
+  "source_plan_sha256": {
+    "b1b2_tuning": "2d4633afed64c92a67371e289a383c0e5b434227223198e38238fcc7b5d011a6",
+    "b3_cache": "2fa5621e3a93339e80a571ebb88f41ea1b62538d3607bc58043fc40811420e32",
+    "b3_spatial": "42f015af6f88e8c96cebb83c12e938ae7f92b24039d0791f5ca1f5c78c2852a6",
+    "b3_x_tiles": "8215a35b67316f587c9e51e806d5c737af837ffaf181f6342bae19c544b6de45"
+  },
+  "status": "passed-preflight",
+  "uart_sessions": 1,
+  "variants": {
+    "B1_full_prefetch": {
+      "fixtures": {
+        "pinned_timed": {
+          "command_count": 541,
+          "directory": "work/phase6/matched-baselines-v1/b1b2/tuning/b1-vww-pinned-timed-half0-prefetch1",
+          "files": {
+            "checks.txt": "7fe170b594022a583bc22e129db3badbcbc6a8ff868483c71a95b09793d668f2",
+            "commands.bin": "f30ab03e17e94b35fd0101e5be9b19f21a92fd84ff07aed39f1cd8bec49c7c8e",
+            "input.bin": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+            "output.bin": "6a0cfa0be8aa6d3a3137a6926b09aa569b91c44d1b845612779c2d55e019dbc2",
+            "payload.bin": "ebafcf7e33d523d3f4f28c3fcabc685e1ea5350748b1d416e421dfc48a236c67",
+            "schedule.json": "8c410e135299e9a10e3aa90c2bd67b865e33e5f84ca02901bc523eaac19c46a2"
+          },
+          "final_output": {
+            "bytes": 2,
+            "ext": 36864
+          },
+          "native": [
+            {
+              "dma_cycles": 237237,
+              "elapsed_cycles": 2400452,
+              "engine_cycles": 2183884,
+              "overlap_cycles": 22176,
+              "physical_board": false,
+              "report": "work/phase6/matched-baselines-v1/b1b2/tuning/b1-vww-pinned-timed-half0-prefetch1-native-s0.json",
+              "report_sha256": "2c9bbdce458f713bce75a46bc254a4aa537b08a31f8bc4b260e4a0776cbe9c45",
+              "stall_seed": 0,
+              "status": "passed",
+              "tensor_checks": 1,
+              "total_simulated_cycles": 2423122
+            },
+            {
+              "dma_cycles": 366046,
+              "elapsed_cycles": 2516983,
+              "engine_cycles": 2183936,
+              "overlap_cycles": 34514,
+              "physical_board": false,
+              "report": "work/phase6/matched-baselines-v1/b1b2/tuning/b1-vww-pinned-timed-half0-prefetch1-native-s6063.json",
+              "report_sha256": "aa95950103cd62408b1d1405765e39ed00c424d2d89e4152654c21889972e135",
+              "stall_seed": 6063,
+              "status": "passed",
+              "tensor_checks": 1,
+              "total_simulated_cycles": 2539653
+            }
+          ],
+          "native_evidence": {
+            "work/phase6/matched-baselines-v1/b1b2/tuning/b1-vww-pinned-timed-half0-prefetch1-native-s0.json": "2c9bbdce458f713bce75a46bc254a4aa537b08a31f8bc4b260e4a0776cbe9c45",
+            "work/phase6/matched-baselines-v1/b1b2/tuning/b1-vww-pinned-timed-half0-prefetch1-native-s6063.json": "aa95950103cd62408b1d1405765e39ed00c424d2d89e4152654c21889972e135"
+          },
+          "replay": {
+            "dma_bytes": {
+              "from_sram": 192903,
+              "to_sram": 436997
+            },
+            "engine_runs": 41,
+            "final_output_bytes": 2,
+            "scope": "symbolic command replay with independent integer oracle; no RTL timing proof",
+            "status": "passed"
+          }
+        },
+        "stress_check": {
+          "command_count": 617,
+          "directory": "work/phase6/matched-baselines-v1/b1b2-vww-tuning/fixtures/b1_full_prefetch-stress_check",
+          "files": {
+            "checks.txt": "c0c51c18f44becdee4da3246c1c25bb44666a00fad5893b6ae63d39169d49644",
+            "commands.bin": "56e8461959b5b7d7250a5e612b236bb80980dba77891e934403faf127b2ecc83",
+            "input.bin": "6bc2750f0f7644d3fdbade499feb315094ee9ca51e868f14c3d897d96fe13988",
+            "layer-10.bin": "bf9e0fb99ef2ae15eec295a4cdf49df7cb176ebcb5c922bfc13568e2c9ee9497",
+            "layer-12.bin": "bf5fec26d6c7f993a4819f9cf1156a94e8a34c0f15232deeb90701286e13ebd9",
+            "layer-14.bin": "cb3063807da5c845c7fe9d8a52bab79126c4b0a1260e7c6e7f1c3fec0d6e5493",
+            "layer-16.bin": "2ffac882d4fc1e8fcd435aa469c55280c4a88f12030f9de1d07dfbbdc4992b70",
+            "layer-18.bin": "705900d084c03c572b55f0d7e1a452c3ad40e41c8193803bb07e7c317fd24439",
+            "layer-2.bin": "2c636d036840a776b5d80fd40488846e9495f704a51cf7dd8ba53bb6ab4329c4",
+            "layer-20.bin": "001dcfa0aaac55c1bcf7b339962de71bb32c515abb26a8288aa35ebd9206d61d",
+            "layer-22.bin": "3f2bcb088c0cbb741fbc9a29376af737925535070dc5435c579a59e74e67de19",
+            "layer-24.bin": "016abc2917afcdadf21966bdc9f981da995dc6f72222cd382f03318e4ee5bf5a",
+            "layer-26.bin": "d7898437c308bb8bf62d8fa5cff3755d343be60bcef310c083924050699337bd",
+            "layer-28.bin": "01edda43f2ca1443ef9d904c71c1a66f5c841492583c3617c5528bd4f585c4e5",
+            "layer-30.bin": "07a8e44c9a1f5a2a637d9b7f9b90492e4378962b7dc55f34c988f87fef7a9afb",
+            "layer-32.bin": "f3378c014ded18a5c9c9a309e6e0e597e547fa20fb2ccec16d3cad50d2739d7d",
+            "layer-34.bin": "410de0285796aabb80a7493a9e190b7de9cafe91ee56794a863d6ae463985a75",
+            "layer-36.bin": "095e87ea56b267d0649aaa760cade1091c024798f7d478be5d671f0a82d0cf5c",
+            "layer-38.bin": "f0afd094cc018ad81ee1a01342d305232ac50a3a8599c6861e01db7b87d1a92e",
+            "layer-4.bin": "4f06dc1e1cee9026fe30e9fe1f770faf5993b5685fbe2d68afb63020ecc87f41",
+            "layer-40.bin": "e76fa78e6eb4027a14e8e372e9d04b9018b22adee2ce74049aa9c0d77ad855eb",
+            "layer-42.bin": "c84971511c2611c4e1e9c7d9a6776b8488eab846b4247bf01a54860932416e59",
+            "layer-44.bin": "c6df6b32f142b717fbf748f700cfe26f69bb15b1fd4a529a678153253fed0fc7",
+            "layer-46.bin": "50c70adaf1dcb1b0132f47f2dd524ad2f891e3170dae2fa16699c5c5ac9d371a",
+            "layer-48.bin": "0a75d1903b6fbc1ee7af90f0399b9a8c9a4989e60e5a2dc08718ddf29684e65a",
+            "layer-50.bin": "f6e3b9d69f92b18d45b2d330b45bf3a540cd9a99f5000b02945ed3850e13bcc8",
+            "layer-52.bin": "d36bba949333034ea838987cc444cc57cb9f3dc84be0f76af4f8ae5e406cea63",
+            "layer-54.bin": "199c520ddfa126571a41c55c2c95ea7f98b40bdd649c13b8f9fdf37a0aa2afd0",
+            "layer-55.bin": "661b6cbe9b7c2188b354676cce5e8b5675ed31d9cf25c83c22455bf001708305",
+            "layer-57.bin": "e8023ba9eb60c761f277a6b45509ba8a62045a9dc67ccc1b29626ced54fe4ffb",
+            "layer-6.bin": "8df03b710a020075c4253b34447be79eb00579a543aada829b4b42c21cefe098",
+            "layer-8.bin": "9b4e1a3066f6cf7087173f6c26749fcaecf4c10598767f4b07bafbf62bfee551",
+            "output.bin": "e8023ba9eb60c761f277a6b45509ba8a62045a9dc67ccc1b29626ced54fe4ffb",
+            "payload.bin": "2a99799908c9e204063a3052cd23bc47ff596a622d7de027133a9c1273f2e51d",
+            "schedule.json": "d8b4bd954cbd97fcccce90236618b27ac67075eae9402a8cebb42062c018adc8"
+          },
+          "final_output": {
+            "bytes": 2,
+            "ext": 36864
+          },
+          "native": [
+            {
+              "dma_cycles": 309629,
+              "elapsed_cycles": 2473148,
+              "engine_cycles": 2183884,
+              "overlap_cycles": 22176,
+              "physical_board": false,
+              "report": "work/phase6/matched-baselines-v1/b1b2-vww-tuning/fixtures/b1_full_prefetch-stress_check-native-s0.json",
+              "report_sha256": "67445ca8b8798c4524aaa2fabaaa9b7e1987cfdb3da5057d696a0d4635da2a4b",
+              "stall_seed": 0,
+              "status": "passed",
+              "tensor_checks": 30,
+              "total_simulated_cycles": 2498972
+            },
+            {
+              "dma_cycles": 443998,
+              "elapsed_cycles": 2595187,
+              "engine_cycles": 2183919,
+              "overlap_cycles": 34549,
+              "physical_board": false,
+              "report": "work/phase6/matched-baselines-v1/b1b2-vww-tuning/fixtures/b1_full_prefetch-stress_check-native-s6063.json",
+              "report_sha256": "23832b40b03b00bec8bf99607243e2e9ed6c76f9e8b3added3481c6b3ec2c45e",
+              "stall_seed": 6063,
+              "status": "passed",
+              "tensor_checks": 30,
+              "total_simulated_cycles": 2621011
+            }
+          ],
+          "native_evidence": {
+            "work/phase6/matched-baselines-v1/b1b2-vww-tuning/fixtures/b1_full_prefetch-stress_check-native-s0.json": "67445ca8b8798c4524aaa2fabaaa9b7e1987cfdb3da5057d696a0d4635da2a4b",
+            "work/phase6/matched-baselines-v1/b1b2-vww-tuning/fixtures/b1_full_prefetch-stress_check-native-s6063.json": "23832b40b03b00bec8bf99607243e2e9ed6c76f9e8b3added3481c6b3ec2c45e"
+          },
+          "replay": {
+            "dma_bytes": {
+              "from_sram": 385806,
+              "to_sram": 436997
+            },
+            "engine_runs": 41,
+            "final_output_bytes": 2,
+            "scope": "symbolic command replay with independent integer oracle; no RTL timing proof",
+            "status": "passed"
+          }
+        }
+      },
+      "signature_sha256": "ba19e607b350c2f3c175c9b28c008d06af0a3278ad104fc4732f3c34e3812fb1",
+      "source_labels": [
+        "B1_full_prefetch"
+      ],
+      "source_plans": [
+        "b1b2_tuning"
+      ]
+    },
+    "B1_selected": {
+      "fixtures": {
+        "pinned_timed": {
+          "command_count": 677,
+          "directory": "work/phase6/matched-baselines-v1/b1b2/fixtures/b1-vww-pinned_timed",
+          "duplicate_commands_of_B4": false,
+          "duplicate_program_and_payload_of_B4": false,
+          "files": {
+            "checks.txt": "7fe170b594022a583bc22e129db3badbcbc6a8ff868483c71a95b09793d668f2",
+            "commands.bin": "bfb59ff812683017e35bbf2cb5e17650a4572a42e2d739cae190635d3085444a",
+            "input.bin": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+            "output.bin": "6a0cfa0be8aa6d3a3137a6926b09aa569b91c44d1b845612779c2d55e019dbc2",
+            "payload.bin": "9c7be704abea5118a367e999ca548302deef2181a7a32b428e474a1235b5c125",
+            "schedule.json": "a9c3bce3ace63244f9070d1ebfd5434bf10fb0244be2ee83b514f803f1f77d55"
+          },
+          "final_output": {
+            "bytes": 2,
+            "ext": 36864
+          },
+          "native": [
+            {
+              "dma_cycles": 252252,
+              "elapsed_cycles": 2369080,
+              "engine_cycles": 2174250,
+              "overlap_cycles": 58905,
+              "physical_board": false,
+              "report": "work/phase6/matched-baselines-v1/b1b2/fixtures/b1-vww-pinned_timed-native-s0.json",
+              "report_sha256": "1142bff2149fb32d4435567daff095ec46378813386c5c68b4fa432dd930003a",
+              "stall_seed": 0,
+              "status": "passed",
+              "tensor_checks": 1,
+              "total_simulated_cycles": 2397394
+            },
+            {
+              "dma_cycles": 390657,
+              "elapsed_cycles": 2468323,
+              "engine_cycles": 2173767,
+              "overlap_cycles": 97592,
+              "physical_board": false,
+              "report": "work/phase6/matched-baselines-v1/b1b2/fixtures/b1-vww-pinned_timed-native-s6063.json",
+              "report_sha256": "ab411476dc70d64f8b4c88007befd656b4c562aa35c4ad66a3d437222a5d9932",
+              "stall_seed": 6063,
+              "status": "passed",
+              "tensor_checks": 1,
+              "total_simulated_cycles": 2496637
+            }
+          ],
+          "native_evidence": {
+            "work/phase6/matched-baselines-v1/b1b2/fixtures/b1-vww-pinned_timed-native-s0.json": "1142bff2149fb32d4435567daff095ec46378813386c5c68b4fa432dd930003a",
+            "work/phase6/matched-baselines-v1/b1b2/fixtures/b1-vww-pinned_timed-native-s6063.json": "ab411476dc70d64f8b4c88007befd656b4c562aa35c4ad66a3d437222a5d9932"
+          },
+          "replay": {
+            "dma_bytes": {
+              "from_sram": 192903,
+              "to_sram": 473205
+            },
+            "engine_runs": 50,
+            "final_output_bytes": 2,
+            "scope": "symbolic command replay with independent integer oracle; no RTL timing proof",
+            "status": "passed"
+          }
+        },
+        "stress_check": {
+          "command_count": 773,
+          "directory": "work/phase6/matched-baselines-v1/b1b2/fixtures/b1-vww-stress_check",
+          "duplicate_commands_of_B4": false,
+          "duplicate_program_and_payload_of_B4": false,
+          "files": {
+            "checks.txt": "6a080932f61ef2e55bf02847c79706ccfd703e2e8877f1d9a6ea915bb18bec52",
+            "commands.bin": "f21aff7363f6a1ddccf0c35aee75b2991147e93e35c47030735d0b342aa60e92",
+            "input.bin": "6bc2750f0f7644d3fdbade499feb315094ee9ca51e868f14c3d897d96fe13988",
+            "layer-10.bin": "bf9e0fb99ef2ae15eec295a4cdf49df7cb176ebcb5c922bfc13568e2c9ee9497",
+            "layer-12.bin": "bf5fec26d6c7f993a4819f9cf1156a94e8a34c0f15232deeb90701286e13ebd9",
+            "layer-14.bin": "cb3063807da5c845c7fe9d8a52bab79126c4b0a1260e7c6e7f1c3fec0d6e5493",
+            "layer-16.bin": "2ffac882d4fc1e8fcd435aa469c55280c4a88f12030f9de1d07dfbbdc4992b70",
+            "layer-18.bin": "705900d084c03c572b55f0d7e1a452c3ad40e41c8193803bb07e7c317fd24439",
+            "layer-2.bin": "2c636d036840a776b5d80fd40488846e9495f704a51cf7dd8ba53bb6ab4329c4",
+            "layer-20.bin": "001dcfa0aaac55c1bcf7b339962de71bb32c515abb26a8288aa35ebd9206d61d",
+            "layer-22.bin": "3f2bcb088c0cbb741fbc9a29376af737925535070dc5435c579a59e74e67de19",
+            "layer-24.bin": "016abc2917afcdadf21966bdc9f981da995dc6f72222cd382f03318e4ee5bf5a",
+            "layer-26.bin": "d7898437c308bb8bf62d8fa5cff3755d343be60bcef310c083924050699337bd",
+            "layer-28.bin": "01edda43f2ca1443ef9d904c71c1a66f5c841492583c3617c5528bd4f585c4e5",
+            "layer-30.bin": "07a8e44c9a1f5a2a637d9b7f9b90492e4378962b7dc55f34c988f87fef7a9afb",
+            "layer-32.bin": "f3378c014ded18a5c9c9a309e6e0e597e547fa20fb2ccec16d3cad50d2739d7d",
+            "layer-34.bin": "410de0285796aabb80a7493a9e190b7de9cafe91ee56794a863d6ae463985a75",
+            "layer-36.bin": "095e87ea56b267d0649aaa760cade1091c024798f7d478be5d671f0a82d0cf5c",
+            "layer-38.bin": "f0afd094cc018ad81ee1a01342d305232ac50a3a8599c6861e01db7b87d1a92e",
+            "layer-4.bin": "4f06dc1e1cee9026fe30e9fe1f770faf5993b5685fbe2d68afb63020ecc87f41",
+            "layer-40.bin": "e76fa78e6eb4027a14e8e372e9d04b9018b22adee2ce74049aa9c0d77ad855eb",
+            "layer-42.bin": "c84971511c2611c4e1e9c7d9a6776b8488eab846b4247bf01a54860932416e59",
+            "layer-44.bin": "c6df6b32f142b717fbf748f700cfe26f69bb15b1fd4a529a678153253fed0fc7",
+            "layer-46.bin": "50c70adaf1dcb1b0132f47f2dd524ad2f891e3170dae2fa16699c5c5ac9d371a",
+            "layer-48.bin": "0a75d1903b6fbc1ee7af90f0399b9a8c9a4989e60e5a2dc08718ddf29684e65a",
+            "layer-50.bin": "f6e3b9d69f92b18d45b2d330b45bf3a540cd9a99f5000b02945ed3850e13bcc8",
+            "layer-52.bin": "d36bba949333034ea838987cc444cc57cb9f3dc84be0f76af4f8ae5e406cea63",
+            "layer-54.bin": "199c520ddfa126571a41c55c2c95ea7f98b40bdd649c13b8f9fdf37a0aa2afd0",
+            "layer-55.bin": "661b6cbe9b7c2188b354676cce5e8b5675ed31d9cf25c83c22455bf001708305",
+            "layer-57.bin": "e8023ba9eb60c761f277a6b45509ba8a62045a9dc67ccc1b29626ced54fe4ffb",
+            "layer-6.bin": "8df03b710a020075c4253b34447be79eb00579a543aada829b4b42c21cefe098",
+            "layer-8.bin": "9b4e1a3066f6cf7087173f6c26749fcaecf4c10598767f4b07bafbf62bfee551",
+            "output.bin": "e8023ba9eb60c761f277a6b45509ba8a62045a9dc67ccc1b29626ced54fe4ffb",
+            "payload.bin": "0f158870804657b31e4ca388e07b3c304ebf94182ccf1fa4810844912c42cd6f",
+            "schedule.json": "23ad14a90dd9fbffe32eeab9d78c7b84c9888f0f051f4c7d1147b71b4da97baf"
+          },
+          "final_output": {
+            "bytes": 2,
+            "ext": 36864
+          },
+          "native": [
+            {
+              "dma_cycles": 324654,
+              "elapsed_cycles": 2441866,
+              "engine_cycles": 2174250,
+              "overlap_cycles": 58905,
+              "physical_board": false,
+              "report": "work/phase6/matched-baselines-v1/b1b2/fixtures/b1-vww-stress_check-native-s0.json",
+              "report_sha256": "6052fbcc7914fabe6fca08858c974b3060bc0b8ac554bf6c2dcd8de7fe92e0f9",
+              "stall_seed": 0,
+              "status": "passed",
+              "tensor_checks": 30,
+              "total_simulated_cycles": 2474164
+            },
+            {
+              "dma_cycles": 468710,
+              "elapsed_cycles": 2547127,
+              "engine_cycles": 2173805,
+              "overlap_cycles": 97263,
+              "physical_board": false,
+              "report": "work/phase6/matched-baselines-v1/b1b2/fixtures/b1-vww-stress_check-native-s6063.json",
+              "report_sha256": "aa764382f939c0dd70e53866fe886ebc5698b94af64665497033294991b69019",
+              "stall_seed": 6063,
+              "status": "passed",
+              "tensor_checks": 30,
+              "total_simulated_cycles": 2579425
+            }
+          ],
+          "native_evidence": {
+            "work/phase6/matched-baselines-v1/b1b2/fixtures/b1-vww-stress_check-native-s0.json": "6052fbcc7914fabe6fca08858c974b3060bc0b8ac554bf6c2dcd8de7fe92e0f9",
+            "work/phase6/matched-baselines-v1/b1b2/fixtures/b1-vww-stress_check-native-s6063.json": "aa764382f939c0dd70e53866fe886ebc5698b94af64665497033294991b69019"
+          },
+          "replay": {
+            "dma_bytes": {
+              "from_sram": 385806,
+              "to_sram": 473205
+            },
+            "engine_runs": 50,
+            "final_output_bytes": 2,
+            "scope": "symbolic command replay with independent integer oracle; no RTL timing proof",
+            "status": "passed"
+          }
+        }
+      },
+      "signature_sha256": "5e48be67445064bfb6a8920b948f18227c2804615f7cb77de5bcf1df113b4986",
+      "source_labels": [
+        "B1_selected"
+      ],
+      "source_plans": [
+        "b1b2_tuning"
+      ]
+    },
+    "B2_half_prefetch": {
+      "fixtures": {
+        "pinned_timed": {
+          "command_count": 589,
+          "directory": "work/phase6/matched-baselines-v1/b1b2/tuning/b2-vww-pinned-timed-half1-prefetch1",
+          "files": {
+            "checks.txt": "7fe170b594022a583bc22e129db3badbcbc6a8ff868483c71a95b09793d668f2",
+            "commands.bin": "8f0417eb1001b415e843a0fcf774eff31e48df628e7f48370dd6b8855dba4912",
+            "input.bin": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+            "output.bin": "6a0cfa0be8aa6d3a3137a6926b09aa569b91c44d1b845612779c2d55e019dbc2",
+            "payload.bin": "62a6c61e1efe38721d317a33e87e7c3355047e3a9ab844ada4496e833cdea099",
+            "schedule.json": "bc05974d8ed1a5daf1f52129404bb3c95fb8c62fa0edd87e13ff57934a116928"
+          },
+          "final_output": {
+            "bytes": 2,
+            "ext": 36864
+          },
+          "native": [
+            {
+              "dma_cycles": 169165,
+              "elapsed_cycles": 2333402,
+              "engine_cycles": 2170810,
+              "overlap_cycles": 8736,
+              "physical_board": false,
+              "report": "work/phase6/matched-baselines-v1/b1b2/tuning/b2-vww-pinned-timed-half1-prefetch1-native-s0.json",
+              "report_sha256": "7890fe261d19ebc0580f18164671117eec2098f255b6c9e87f40e82166f8f4db",
+              "stall_seed": 0,
+              "status": "passed",
+              "tensor_checks": 1,
+              "total_simulated_cycles": 2358064
+            },
+            {
+              "dma_cycles": 253307,
+              "elapsed_cycles": 2414494,
+              "engine_cycles": 2170765,
+              "overlap_cycles": 11749,
+              "physical_board": false,
+              "report": "work/phase6/matched-baselines-v1/b1b2/tuning/b2-vww-pinned-timed-half1-prefetch1-native-s6063.json",
+              "report_sha256": "d365dca206048e243ad33a4b0ad158a2924e221fdefc0e9db29a0028b56e93f3",
+              "stall_seed": 6063,
+              "status": "passed",
+              "tensor_checks": 1,
+              "total_simulated_cycles": 2439156
+            }
+          ],
+          "native_evidence": {
+            "work/phase6/matched-baselines-v1/b1b2/tuning/b2-vww-pinned-timed-half1-prefetch1-native-s0.json": "7890fe261d19ebc0580f18164671117eec2098f255b6c9e87f40e82166f8f4db",
+            "work/phase6/matched-baselines-v1/b1b2/tuning/b2-vww-pinned-timed-half1-prefetch1-native-s6063.json": "d365dca206048e243ad33a4b0ad158a2924e221fdefc0e9db29a0028b56e93f3"
+          },
+          "replay": {
+            "dma_bytes": {
+              "from_sram": 169922,
+              "to_sram": 279728
+            },
+            "engine_runs": 50,
+            "final_output_bytes": 2,
+            "scope": "symbolic command replay with independent integer oracle; no RTL timing proof",
+            "status": "passed"
+          }
+        },
+        "stress_check": {
+          "command_count": 685,
+          "directory": "work/phase6/matched-baselines-v1/b1b2-vww-tuning/fixtures/b2_half_prefetch-stress_check",
+          "files": {
+            "checks.txt": "6a080932f61ef2e55bf02847c79706ccfd703e2e8877f1d9a6ea915bb18bec52",
+            "commands.bin": "c2ae68b74580d210a7532de84eafc939b7da587f14997eaf297746c7650933ec",
+            "input.bin": "6bc2750f0f7644d3fdbade499feb315094ee9ca51e868f14c3d897d96fe13988",
+            "layer-10.bin": "bf9e0fb99ef2ae15eec295a4cdf49df7cb176ebcb5c922bfc13568e2c9ee9497",
+            "layer-12.bin": "bf5fec26d6c7f993a4819f9cf1156a94e8a34c0f15232deeb90701286e13ebd9",
+            "layer-14.bin": "cb3063807da5c845c7fe9d8a52bab79126c4b0a1260e7c6e7f1c3fec0d6e5493",
+            "layer-16.bin": "2ffac882d4fc1e8fcd435aa469c55280c4a88f12030f9de1d07dfbbdc4992b70",
+            "layer-18.bin": "705900d084c03c572b55f0d7e1a452c3ad40e41c8193803bb07e7c317fd24439",
+            "layer-2.bin": "2c636d036840a776b5d80fd40488846e9495f704a51cf7dd8ba53bb6ab4329c4",
+            "layer-20.bin": "001dcfa0aaac55c1bcf7b339962de71bb32c515abb26a8288aa35ebd9206d61d",
+            "layer-22.bin": "3f2bcb088c0cbb741fbc9a29376af737925535070dc5435c579a59e74e67de19",
+            "layer-24.bin": "016abc2917afcdadf21966bdc9f981da995dc6f72222cd382f03318e4ee5bf5a",
+            "layer-26.bin": "d7898437c308bb8bf62d8fa5cff3755d343be60bcef310c083924050699337bd",
+            "layer-28.bin": "01edda43f2ca1443ef9d904c71c1a66f5c841492583c3617c5528bd4f585c4e5",
+            "layer-30.bin": "07a8e44c9a1f5a2a637d9b7f9b90492e4378962b7dc55f34c988f87fef7a9afb",
+            "layer-32.bin": "f3378c014ded18a5c9c9a309e6e0e597e547fa20fb2ccec16d3cad50d2739d7d",
+            "layer-34.bin": "410de0285796aabb80a7493a9e190b7de9cafe91ee56794a863d6ae463985a75",
+            "layer-36.bin": "095e87ea56b267d0649aaa760cade1091c024798f7d478be5d671f0a82d0cf5c",
+            "layer-38.bin": "f0afd094cc018ad81ee1a01342d305232ac50a3a8599c6861e01db7b87d1a92e",
+            "layer-4.bin": "4f06dc1e1cee9026fe30e9fe1f770faf5993b5685fbe2d68afb63020ecc87f41",
+            "layer-40.bin": "e76fa78e6eb4027a14e8e372e9d04b9018b22adee2ce74049aa9c0d77ad855eb",
+            "layer-42.bin": "c84971511c2611c4e1e9c7d9a6776b8488eab846b4247bf01a54860932416e59",
+            "layer-44.bin": "c6df6b32f142b717fbf748f700cfe26f69bb15b1fd4a529a678153253fed0fc7",
+            "layer-46.bin": "50c70adaf1dcb1b0132f47f2dd524ad2f891e3170dae2fa16699c5c5ac9d371a",
+            "layer-48.bin": "0a75d1903b6fbc1ee7af90f0399b9a8c9a4989e60e5a2dc08718ddf29684e65a",
+            "layer-50.bin": "f6e3b9d69f92b18d45b2d330b45bf3a540cd9a99f5000b02945ed3850e13bcc8",
+            "layer-52.bin": "d36bba949333034ea838987cc444cc57cb9f3dc84be0f76af4f8ae5e406cea63",
+            "layer-54.bin": "199c520ddfa126571a41c55c2c95ea7f98b40bdd649c13b8f9fdf37a0aa2afd0",
+            "layer-55.bin": "661b6cbe9b7c2188b354676cce5e8b5675ed31d9cf25c83c22455bf001708305",
+            "layer-57.bin": "e8023ba9eb60c761f277a6b45509ba8a62045a9dc67ccc1b29626ced54fe4ffb",
+            "layer-6.bin": "8df03b710a020075c4253b34447be79eb00579a543aada829b4b42c21cefe098",
+            "layer-8.bin": "9b4e1a3066f6cf7087173f6c26749fcaecf4c10598767f4b07bafbf62bfee551",
+            "output.bin": "e8023ba9eb60c761f277a6b45509ba8a62045a9dc67ccc1b29626ced54fe4ffb",
+            "payload.bin": "c036768ac89a2de260db0b515747114bac1a111da01bc6fda6fbea8050b3721b",
+            "schedule.json": "ec47f6d01f88dff2a4f9aaf480ce1ab941946fd43a5a7ea79e9dcb18940e0d37"
+          },
+          "final_output": {
+            "bytes": 2,
+            "ext": 36864
+          },
+          "native": [
+            {
+              "dma_cycles": 241567,
+              "elapsed_cycles": 2406188,
+              "engine_cycles": 2170810,
+              "overlap_cycles": 8736,
+              "physical_board": false,
+              "report": "work/phase6/matched-baselines-v1/b1b2-vww-tuning/fixtures/b2_half_prefetch-stress_check-native-s0.json",
+              "report_sha256": "46293fca4d1c31dead835f7884bb32d3419d940a6b685e5007950232c08787e6",
+              "stall_seed": 0,
+              "status": "passed",
+              "tensor_checks": 30,
+              "total_simulated_cycles": 2434834
+            },
+            {
+              "dma_cycles": 331507,
+              "elapsed_cycles": 2493027,
+              "engine_cycles": 2170773,
+              "overlap_cycles": 11808,
+              "physical_board": false,
+              "report": "work/phase6/matched-baselines-v1/b1b2-vww-tuning/fixtures/b2_half_prefetch-stress_check-native-s6063.json",
+              "report_sha256": "3a20b48763e8c2b958621d8a31647756d8e4b2f745a85f9c7ec376c482335b00",
+              "stall_seed": 6063,
+              "status": "passed",
+              "tensor_checks": 30,
+              "total_simulated_cycles": 2521673
+            }
+          ],
+          "native_evidence": {
+            "work/phase6/matched-baselines-v1/b1b2-vww-tuning/fixtures/b2_half_prefetch-stress_check-native-s0.json": "46293fca4d1c31dead835f7884bb32d3419d940a6b685e5007950232c08787e6",
+            "work/phase6/matched-baselines-v1/b1b2-vww-tuning/fixtures/b2_half_prefetch-stress_check-native-s6063.json": "3a20b48763e8c2b958621d8a31647756d8e4b2f745a85f9c7ec376c482335b00"
+          },
+          "replay": {
+            "dma_bytes": {
+              "from_sram": 362825,
+              "to_sram": 279728
+            },
+            "engine_runs": 50,
+            "final_output_bytes": 2,
+            "scope": "symbolic command replay with independent integer oracle; no RTL timing proof",
+            "status": "passed"
+          }
+        }
+      },
+      "signature_sha256": "591484ee0313d43672f1187d84a8c04f3e6d499c64a2d16c8849f646af7d0ed8",
+      "source_labels": [
+        "B2_half_prefetch"
+      ],
+      "source_plans": [
+        "b1b2_tuning"
+      ]
+    },
+    "B2_selected": {
+      "fixtures": {
+        "pinned_timed": {
+          "command_count": 445,
+          "directory": "work/phase6/matched-baselines-v1/b1b2/fixtures/b2-vww-pinned_timed",
+          "duplicate_commands_of_B4": false,
+          "duplicate_program_and_payload_of_B4": false,
+          "files": {
+            "checks.txt": "7fe170b594022a583bc22e129db3badbcbc6a8ff868483c71a95b09793d668f2",
+            "commands.bin": "c0074a16faac838ebd873ddc8b251dfd000d3864d8b8a9747f9c8eb37f6c1d84",
+            "input.bin": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+            "output.bin": "6a0cfa0be8aa6d3a3137a6926b09aa569b91c44d1b845612779c2d55e019dbc2",
+            "payload.bin": "eb98b0b4e0ee55fc39655ed479dd23c0fd502b20f12592247221843a583e0ad1",
+            "schedule.json": "ad91bb58af34693af8c8b8465cb558a7c87eb4151ca9f1c95780f163fc59c6f0"
+          },
+          "final_output": {
+            "bytes": 2,
+            "ext": 36864
+          },
+          "native": [
+            {
+              "dma_cycles": 143816,
+              "elapsed_cycles": 2321487,
+              "engine_cycles": 2183225,
+              "overlap_cycles": 7149,
+              "physical_board": false,
+              "report": "work/phase6/matched-baselines-v1/b1b2/fixtures/b2-vww-pinned_timed-native-s0.json",
+              "report_sha256": "dd210876c45ddd24bd9f989a39c69caf2e110ff3179799512e85656d3376ccaa",
+              "stall_seed": 0,
+              "status": "passed",
+              "tensor_checks": 1,
+              "total_simulated_cycles": 2340173
+            },
+            {
+              "dma_cycles": 216913,
+              "elapsed_cycles": 2392682,
+              "engine_cycles": 2183172,
+              "overlap_cycles": 9006,
+              "physical_board": false,
+              "report": "work/phase6/matched-baselines-v1/b1b2/fixtures/b2-vww-pinned_timed-native-s6063.json",
+              "report_sha256": "b26f170f040ba52583c6bc64487f7dcce6665ecb50fcc84c0b982082c05ea07c",
+              "stall_seed": 6063,
+              "status": "passed",
+              "tensor_checks": 1,
+              "total_simulated_cycles": 2411368
+            }
+          ],
+          "native_evidence": {
+            "work/phase6/matched-baselines-v1/b1b2/fixtures/b2-vww-pinned_timed-native-s0.json": "dd210876c45ddd24bd9f989a39c69caf2e110ff3179799512e85656d3376ccaa",
+            "work/phase6/matched-baselines-v1/b1b2/fixtures/b2-vww-pinned_timed-native-s6063.json": "b26f170f040ba52583c6bc64487f7dcce6665ecb50fcc84c0b982082c05ea07c"
+          },
+          "replay": {
+            "dma_bytes": {
+              "from_sram": 138242,
+              "to_sram": 244096
+            },
+            "engine_runs": 41,
+            "final_output_bytes": 2,
+            "scope": "symbolic command replay with independent integer oracle; no RTL timing proof",
+            "status": "passed"
+          }
+        },
+        "stress_check": {
+          "command_count": 521,
+          "directory": "work/phase6/matched-baselines-v1/b1b2/fixtures/b2-vww-stress_check",
+          "duplicate_commands_of_B4": false,
+          "duplicate_program_and_payload_of_B4": false,
+          "files": {
+            "checks.txt": "c0c51c18f44becdee4da3246c1c25bb44666a00fad5893b6ae63d39169d49644",
+            "commands.bin": "5ac45467bdcf80c3dea9fbdc40b8be40236509cec9aae304bf30438d45272c77",
+            "input.bin": "6bc2750f0f7644d3fdbade499feb315094ee9ca51e868f14c3d897d96fe13988",
+            "layer-10.bin": "bf9e0fb99ef2ae15eec295a4cdf49df7cb176ebcb5c922bfc13568e2c9ee9497",
+            "layer-12.bin": "bf5fec26d6c7f993a4819f9cf1156a94e8a34c0f15232deeb90701286e13ebd9",
+            "layer-14.bin": "cb3063807da5c845c7fe9d8a52bab79126c4b0a1260e7c6e7f1c3fec0d6e5493",
+            "layer-16.bin": "2ffac882d4fc1e8fcd435aa469c55280c4a88f12030f9de1d07dfbbdc4992b70",
+            "layer-18.bin": "705900d084c03c572b55f0d7e1a452c3ad40e41c8193803bb07e7c317fd24439",
+            "layer-2.bin": "2c636d036840a776b5d80fd40488846e9495f704a51cf7dd8ba53bb6ab4329c4",
+            "layer-20.bin": "001dcfa0aaac55c1bcf7b339962de71bb32c515abb26a8288aa35ebd9206d61d",
+            "layer-22.bin": "3f2bcb088c0cbb741fbc9a29376af737925535070dc5435c579a59e74e67de19",
+            "layer-24.bin": "016abc2917afcdadf21966bdc9f981da995dc6f72222cd382f03318e4ee5bf5a",
+            "layer-26.bin": "d7898437c308bb8bf62d8fa5cff3755d343be60bcef310c083924050699337bd",
+            "layer-28.bin": "01edda43f2ca1443ef9d904c71c1a66f5c841492583c3617c5528bd4f585c4e5",
+            "layer-30.bin": "07a8e44c9a1f5a2a637d9b7f9b90492e4378962b7dc55f34c988f87fef7a9afb",
+            "layer-32.bin": "f3378c014ded18a5c9c9a309e6e0e597e547fa20fb2ccec16d3cad50d2739d7d",
+            "layer-34.bin": "410de0285796aabb80a7493a9e190b7de9cafe91ee56794a863d6ae463985a75",
+            "layer-36.bin": "095e87ea56b267d0649aaa760cade1091c024798f7d478be5d671f0a82d0cf5c",
+            "layer-38.bin": "f0afd094cc018ad81ee1a01342d305232ac50a3a8599c6861e01db7b87d1a92e",
+            "layer-4.bin": "4f06dc1e1cee9026fe30e9fe1f770faf5993b5685fbe2d68afb63020ecc87f41",
+            "layer-40.bin": "e76fa78e6eb4027a14e8e372e9d04b9018b22adee2ce74049aa9c0d77ad855eb",
+            "layer-42.bin": "c84971511c2611c4e1e9c7d9a6776b8488eab846b4247bf01a54860932416e59",
+            "layer-44.bin": "c6df6b32f142b717fbf748f700cfe26f69bb15b1fd4a529a678153253fed0fc7",
+            "layer-46.bin": "50c70adaf1dcb1b0132f47f2dd524ad2f891e3170dae2fa16699c5c5ac9d371a",
+            "layer-48.bin": "0a75d1903b6fbc1ee7af90f0399b9a8c9a4989e60e5a2dc08718ddf29684e65a",
+            "layer-50.bin": "f6e3b9d69f92b18d45b2d330b45bf3a540cd9a99f5000b02945ed3850e13bcc8",
+            "layer-52.bin": "d36bba949333034ea838987cc444cc57cb9f3dc84be0f76af4f8ae5e406cea63",
+            "layer-54.bin": "199c520ddfa126571a41c55c2c95ea7f98b40bdd649c13b8f9fdf37a0aa2afd0",
+            "layer-55.bin": "661b6cbe9b7c2188b354676cce5e8b5675ed31d9cf25c83c22455bf001708305",
+            "layer-57.bin": "e8023ba9eb60c761f277a6b45509ba8a62045a9dc67ccc1b29626ced54fe4ffb",
+            "layer-6.bin": "8df03b710a020075c4253b34447be79eb00579a543aada829b4b42c21cefe098",
+            "layer-8.bin": "9b4e1a3066f6cf7087173f6c26749fcaecf4c10598767f4b07bafbf62bfee551",
+            "output.bin": "e8023ba9eb60c761f277a6b45509ba8a62045a9dc67ccc1b29626ced54fe4ffb",
+            "payload.bin": "c553401b420a2da2b36a7de297ebddc1f1998585d40b1e86ff02b37889b543a1",
+            "schedule.json": "3efe0d0fd741b55b9ee9bb32ec483a3ff7ced7f1b39bdbd1160a5bdfa06b2b1c"
+          },
+          "final_output": {
+            "bytes": 2,
+            "ext": 36864
+          },
+          "native": [
+            {
+              "dma_cycles": 216208,
+              "elapsed_cycles": 2394183,
+              "engine_cycles": 2183225,
+              "overlap_cycles": 7149,
+              "physical_board": false,
+              "report": "work/phase6/matched-baselines-v1/b1b2/fixtures/b2-vww-stress_check-native-s0.json",
+              "report_sha256": "5edc2a09313c3d9d7dd630c95061cd81e2926a90e5bcae202348e6ebd797221a",
+              "stall_seed": 0,
+              "status": "passed",
+              "tensor_checks": 30,
+              "total_simulated_cycles": 2416023
+            },
+            {
+              "dma_cycles": 295503,
+              "elapsed_cycles": 2471575,
+              "engine_cycles": 2183181,
+              "overlap_cycles": 9016,
+              "physical_board": false,
+              "report": "work/phase6/matched-baselines-v1/b1b2/fixtures/b2-vww-stress_check-native-s6063.json",
+              "report_sha256": "544b232fddc1b5bc528c0bea6eaaca321f5b8290f105be3987520d0a874f59cc",
+              "stall_seed": 6063,
+              "status": "passed",
+              "tensor_checks": 30,
+              "total_simulated_cycles": 2493415
+            }
+          ],
+          "native_evidence": {
+            "work/phase6/matched-baselines-v1/b1b2/fixtures/b2-vww-stress_check-native-s0.json": "5edc2a09313c3d9d7dd630c95061cd81e2926a90e5bcae202348e6ebd797221a",
+            "work/phase6/matched-baselines-v1/b1b2/fixtures/b2-vww-stress_check-native-s6063.json": "544b232fddc1b5bc528c0bea6eaaca321f5b8290f105be3987520d0a874f59cc"
+          },
+          "replay": {
+            "dma_bytes": {
+              "from_sram": 331145,
+              "to_sram": 244096
+            },
+            "engine_runs": 41,
+            "final_output_bytes": 2,
+            "scope": "symbolic command replay with independent integer oracle; no RTL timing proof",
+            "status": "passed"
+          }
+        }
+      },
+      "signature_sha256": "bfe3c7e4121e3cca66bdfa3c6c99b15fc297c4177b159c7c4ea05b52b39efd3e",
+      "source_labels": [
+        "B2_selected"
+      ],
+      "source_plans": [
+        "b1b2_tuning"
+      ]
+    },
+    "B4": {
+      "fixtures": {
+        "pinned_timed": {
+          "command_count": 935,
+          "directory": "work/phase6/strip-fusion-pair7-v1/full/fixtures/vww-pinned-compacted-strip3-7-11-timed",
+          "files": {
+            "checks.txt": "7fe170b594022a583bc22e129db3badbcbc6a8ff868483c71a95b09793d668f2",
+            "commands.bin": "637af9c45f7e25a785d7d96ef01cb946483e3612ed95e26c7156e1fdac23680e",
+            "input.bin": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+            "output.bin": "6a0cfa0be8aa6d3a3137a6926b09aa569b91c44d1b845612779c2d55e019dbc2",
+            "payload.bin": "b8703e64eef8160898002fa687558ab419f920413868f9b01aa7e45de1121bf7",
+            "schedule.json": "85ca19e549338a5199cd29f2948d0824da38f41ed15b78375027dc88ffdb105f"
+          },
+          "final_output": {
+            "bytes": 2,
+            "ext": 36864
+          },
+          "native": [
+            {
+              "dma_cycles": 112460,
+              "elapsed_cycles": 2244277,
+              "engine_cycles": 2133486,
+              "overlap_cycles": 5344,
+              "physical_board": false,
+              "report": "work/phase6/strip-fusion-pair7-v1/full/vww-pinned-compacted-strip3-7-11-timed-seed0.json",
+              "report_sha256": "261b2ff8718fccf39b38e5b28a9d0d6ebbb819869f1077264c4d80401ea3e785",
+              "stall_seed": 0,
+              "status": "passed",
+              "tensor_checks": 1,
+              "total_simulated_cycles": 2283279
+            },
+            {
+              "dma_cycles": 172924,
+              "elapsed_cycles": 2304047,
+              "engine_cycles": 2133433,
+              "overlap_cycles": 5993,
+              "physical_board": false,
+              "report": "work/phase6/strip-fusion-pair7-v1/full/vww-pinned-compacted-strip3-7-11-timed-seed6063.json",
+              "report_sha256": "7013542103bee4fb2e245a454576097d2bd3348ca2892f267a49068f7dd32338",
+              "stall_seed": 6063,
+              "status": "passed",
+              "tensor_checks": 1,
+              "total_simulated_cycles": 2343049
+            }
+          ],
+          "native_evidence": {
+            "work/phase6/strip-fusion-pair7-v1/full/vww-pinned-compacted-strip3-7-11-timed-seed0.json": "261b2ff8718fccf39b38e5b28a9d0d6ebbb819869f1077264c4d80401ea3e785",
+            "work/phase6/strip-fusion-pair7-v1/full/vww-pinned-compacted-strip3-7-11-timed-seed6063.json": "7013542103bee4fb2e245a454576097d2bd3348ca2892f267a49068f7dd32338"
+          },
+          "replay": {
+            "block_replay": {
+              "final_output_sha256": "d7d0dbfd54b0cc3080bf8b70dad72fb5e8a267a201a92475c648c7fed6274eec",
+              "runs": 4,
+              "status": "passed"
+            },
+            "scope": "independent INT8 strip oracle, serialized command replay and full-model native tensor checks",
+            "status": "passed"
+          }
+        },
+        "stress_check": {
+          "command_count": 1531,
+          "directory": "work/phase6/strip-fusion-pair7-v1/full/fixtures/vww-stress-compacted-strip3-7-11-check",
+          "files": {
+            "checks.txt": "c0c51c18f44becdee4da3246c1c25bb44666a00fad5893b6ae63d39169d49644",
+            "commands.bin": "e49ca21fad960872a2e4c031bf25178f43936d28aa2e74a56b0ef3ac3a019a8e",
+            "input.bin": "6bc2750f0f7644d3fdbade499feb315094ee9ca51e868f14c3d897d96fe13988",
+            "layer-10.bin": "bf9e0fb99ef2ae15eec295a4cdf49df7cb176ebcb5c922bfc13568e2c9ee9497",
+            "layer-12.bin": "bf5fec26d6c7f993a4819f9cf1156a94e8a34c0f15232deeb90701286e13ebd9",
+            "layer-14.bin": "cb3063807da5c845c7fe9d8a52bab79126c4b0a1260e7c6e7f1c3fec0d6e5493",
+            "layer-16.bin": "2ffac882d4fc1e8fcd435aa469c55280c4a88f12030f9de1d07dfbbdc4992b70",
+            "layer-18.bin": "705900d084c03c572b55f0d7e1a452c3ad40e41c8193803bb07e7c317fd24439",
+            "layer-2.bin": "2c636d036840a776b5d80fd40488846e9495f704a51cf7dd8ba53bb6ab4329c4",
+            "layer-20.bin": "001dcfa0aaac55c1bcf7b339962de71bb32c515abb26a8288aa35ebd9206d61d",
+            "layer-22.bin": "3f2bcb088c0cbb741fbc9a29376af737925535070dc5435c579a59e74e67de19",
+            "layer-24.bin": "016abc2917afcdadf21966bdc9f981da995dc6f72222cd382f03318e4ee5bf5a",
+            "layer-26.bin": "d7898437c308bb8bf62d8fa5cff3755d343be60bcef310c083924050699337bd",
+            "layer-28.bin": "01edda43f2ca1443ef9d904c71c1a66f5c841492583c3617c5528bd4f585c4e5",
+            "layer-30.bin": "07a8e44c9a1f5a2a637d9b7f9b90492e4378962b7dc55f34c988f87fef7a9afb",
+            "layer-32.bin": "f3378c014ded18a5c9c9a309e6e0e597e547fa20fb2ccec16d3cad50d2739d7d",
+            "layer-34.bin": "410de0285796aabb80a7493a9e190b7de9cafe91ee56794a863d6ae463985a75",
+            "layer-36.bin": "095e87ea56b267d0649aaa760cade1091c024798f7d478be5d671f0a82d0cf5c",
+            "layer-38.bin": "f0afd094cc018ad81ee1a01342d305232ac50a3a8599c6861e01db7b87d1a92e",
+            "layer-4.bin": "4f06dc1e1cee9026fe30e9fe1f770faf5993b5685fbe2d68afb63020ecc87f41",
+            "layer-40.bin": "e76fa78e6eb4027a14e8e372e9d04b9018b22adee2ce74049aa9c0d77ad855eb",
+            "layer-42.bin": "c84971511c2611c4e1e9c7d9a6776b8488eab846b4247bf01a54860932416e59",
+            "layer-44.bin": "c6df6b32f142b717fbf748f700cfe26f69bb15b1fd4a529a678153253fed0fc7",
+            "layer-46.bin": "50c70adaf1dcb1b0132f47f2dd524ad2f891e3170dae2fa16699c5c5ac9d371a",
+            "layer-48.bin": "0a75d1903b6fbc1ee7af90f0399b9a8c9a4989e60e5a2dc08718ddf29684e65a",
+            "layer-50.bin": "f6e3b9d69f92b18d45b2d330b45bf3a540cd9a99f5000b02945ed3850e13bcc8",
+            "layer-52.bin": "d36bba949333034ea838987cc444cc57cb9f3dc84be0f76af4f8ae5e406cea63",
+            "layer-54.bin": "199c520ddfa126571a41c55c2c95ea7f98b40bdd649c13b8f9fdf37a0aa2afd0",
+            "layer-55.bin": "661b6cbe9b7c2188b354676cce5e8b5675ed31d9cf25c83c22455bf001708305",
+            "layer-57.bin": "e8023ba9eb60c761f277a6b45509ba8a62045a9dc67ccc1b29626ced54fe4ffb",
+            "layer-6.bin": "8df03b710a020075c4253b34447be79eb00579a543aada829b4b42c21cefe098",
+            "layer-8.bin": "9b4e1a3066f6cf7087173f6c26749fcaecf4c10598767f4b07bafbf62bfee551",
+            "output.bin": "e8023ba9eb60c761f277a6b45509ba8a62045a9dc67ccc1b29626ced54fe4ffb",
+            "payload.bin": "26657624edbfb19ae731ba8c29c8f4f66e5466b3dd09d0bc7f2cbb97b71e615a",
+            "schedule.json": "260273d8f0fca5746cffdf7041ee9b6220710eb9a56da4b2385737a16c1c7eac"
+          },
+          "final_output": {
+            "bytes": 2,
+            "ext": 36864
+          },
+          "native": [
+            {
+              "dma_cycles": 185112,
+              "elapsed_cycles": 2319313,
+              "engine_cycles": 2133486,
+              "overlap_cycles": 5344,
+              "physical_board": false,
+              "report": "work/phase6/strip-fusion-pair7-v1/full/vww-stress-compacted-strip3-7-11-check-seed0.json",
+              "report_sha256": "2eee71d8d5929931179fe878ea66946357bfb1eb9ff3e8ed66da0577e31398d0",
+              "stall_seed": 0,
+              "status": "passed",
+              "tensor_checks": 30,
+              "total_simulated_cycles": 2383049
+            },
+            {
+              "dma_cycles": 252072,
+              "elapsed_cycles": 2385641,
+              "engine_cycles": 2133415,
+              "overlap_cycles": 5913,
+              "physical_board": false,
+              "report": "work/phase6/strip-fusion-pair7-v1/full/vww-stress-compacted-strip3-7-11-check-seed6063.json",
+              "report_sha256": "3780f3a1dd0db387da13fc5c773582088a5e0d1e41b4d001b01b149ae03bc6e4",
+              "stall_seed": 6063,
+              "status": "passed",
+              "tensor_checks": 30,
+              "total_simulated_cycles": 2449377
+            }
+          ],
+          "native_evidence": {
+            "work/phase6/strip-fusion-pair7-v1/full/vww-stress-compacted-strip3-7-11-check-seed0.json": "2eee71d8d5929931179fe878ea66946357bfb1eb9ff3e8ed66da0577e31398d0",
+            "work/phase6/strip-fusion-pair7-v1/full/vww-stress-compacted-strip3-7-11-check-seed6063.json": "3780f3a1dd0db387da13fc5c773582088a5e0d1e41b4d001b01b149ae03bc6e4"
+          },
+          "replay": {
+            "block_replay": {
+              "final_output_sha256": "bf9e0fb99ef2ae15eec295a4cdf49df7cb176ebcb5c922bfc13568e2c9ee9497",
+              "runs": 4,
+              "status": "passed"
+            },
+            "scope": "independent INT8 strip oracle, serialized command replay and full-model native tensor checks",
+            "status": "passed"
+          }
+        }
+      },
+      "signature_sha256": "80d4468b2c9cc117a2d3e4a0470739d7baee08f33f45d7d456e2c348c4136395",
+      "source_labels": [
+        "B4",
+        "recompute",
+        "full_width"
+      ],
+      "source_plans": [
+        "b3_spatial",
+        "b3_cache",
+        "b3_x_tiles"
+      ]
+    },
+    "h12": {
+      "fixtures": {
+        "pinned_timed": {
+          "command_count": 941,
+          "directory": "work/phase6/matched-baselines-v1/b3-spatial-v1/fixtures/vww-h12-pinned-timed",
+          "files": {
+            "checks.txt": "7fe170b594022a583bc22e129db3badbcbc6a8ff868483c71a95b09793d668f2",
+            "commands.bin": "b24b9e9d15be47b2e1e77f8316d56c803e642b71ec458c796e51d2ba9d3dce4e",
+            "input.bin": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+            "output.bin": "6a0cfa0be8aa6d3a3137a6926b09aa569b91c44d1b845612779c2d55e019dbc2",
+            "payload.bin": "75f93961a4948a30758a0ff2502e727068f32df75645102e068c65c7804c64bd",
+            "schedule.json": "ad1f2449fc2ac1d707c3fa0d6d5d119daccf94b5589e96edc0c2646f662213ec"
+          },
+          "final_output": {
+            "bytes": 2,
+            "ext": 36864
+          },
+          "native": [
+            {
+              "dma_cycles": 112883,
+              "elapsed_cycles": 2244724,
+              "engine_cycles": 2133486,
+              "report": "work/phase6/matched-baselines-v1/b3-spatial-v1/native/vww-h12-pinned-timed-s0.json",
+              "report_sha256": "ff6037926ed4f8b2ed1fcbb20053c2e3b15e279a0c98dd400de77eabc9fadbbb",
+              "stall_seed": 0,
+              "status": "passed",
+              "tensor_checks": 1
+            },
+            {
+              "dma_cycles": 173965,
+              "elapsed_cycles": 2305104,
+              "engine_cycles": 2133414,
+              "report": "work/phase6/matched-baselines-v1/b3-spatial-v1/native/vww-h12-pinned-timed-s6063.json",
+              "report_sha256": "44f614d9619825839bd5cdb3d8119ea02689f491ea51790bb554c1ad26dd5101",
+              "stall_seed": 6063,
+              "status": "passed",
+              "tensor_checks": 1
+            }
+          ],
+          "native_evidence": {
+            "work/phase6/matched-baselines-v1/b3-spatial-v1/native/vww-h12-pinned-timed-s0.json": "ff6037926ed4f8b2ed1fcbb20053c2e3b15e279a0c98dd400de77eabc9fadbbb",
+            "work/phase6/matched-baselines-v1/b3-spatial-v1/native/vww-h12-pinned-timed-s6063.json": "44f614d9619825839bd5cdb3d8119ea02689f491ea51790bb554c1ad26dd5101"
+          },
+          "replay": {
+            "dma_bytes": {
+              "from_sram": 92162,
+              "to_sram": 207280
+            },
+            "engine_runs": 38,
+            "report": "work/phase6/matched-baselines-v1/b3-spatial-v1/replay/vww-h12-pinned-timed.json",
+            "report_sha256": "d82468f8f3563ae13c89d808191b4b5aa714f7b357a32783eac8c85991308baf",
+            "status": "passed"
+          },
+          "symbolic_evidence": {
+            "report": "work/phase6/matched-baselines-v1/b3-spatial-v1/replay/vww-h12-pinned-timed.json",
+            "report_sha256": "d82468f8f3563ae13c89d808191b4b5aa714f7b357a32783eac8c85991308baf"
+          }
+        },
+        "stress_check": {
+          "command_count": 1537,
+          "directory": "work/phase6/matched-baselines-v1/b3-spatial-v1/fixtures/vww-h12-stress-check",
+          "files": {
+            "checks.txt": "c0c51c18f44becdee4da3246c1c25bb44666a00fad5893b6ae63d39169d49644",
+            "commands.bin": "cc43ed1d46239ec1f97e168e26eba13889d5bf27d361d9ac15fefb7d5c05242a",
+            "input.bin": "6bc2750f0f7644d3fdbade499feb315094ee9ca51e868f14c3d897d96fe13988",
+            "layer-10.bin": "bf9e0fb99ef2ae15eec295a4cdf49df7cb176ebcb5c922bfc13568e2c9ee9497",
+            "layer-12.bin": "bf5fec26d6c7f993a4819f9cf1156a94e8a34c0f15232deeb90701286e13ebd9",
+            "layer-14.bin": "cb3063807da5c845c7fe9d8a52bab79126c4b0a1260e7c6e7f1c3fec0d6e5493",
+            "layer-16.bin": "2ffac882d4fc1e8fcd435aa469c55280c4a88f12030f9de1d07dfbbdc4992b70",
+            "layer-18.bin": "705900d084c03c572b55f0d7e1a452c3ad40e41c8193803bb07e7c317fd24439",
+            "layer-2.bin": "2c636d036840a776b5d80fd40488846e9495f704a51cf7dd8ba53bb6ab4329c4",
+            "layer-20.bin": "001dcfa0aaac55c1bcf7b339962de71bb32c515abb26a8288aa35ebd9206d61d",
+            "layer-22.bin": "3f2bcb088c0cbb741fbc9a29376af737925535070dc5435c579a59e74e67de19",
+            "layer-24.bin": "016abc2917afcdadf21966bdc9f981da995dc6f72222cd382f03318e4ee5bf5a",
+            "layer-26.bin": "d7898437c308bb8bf62d8fa5cff3755d343be60bcef310c083924050699337bd",
+            "layer-28.bin": "01edda43f2ca1443ef9d904c71c1a66f5c841492583c3617c5528bd4f585c4e5",
+            "layer-30.bin": "07a8e44c9a1f5a2a637d9b7f9b90492e4378962b7dc55f34c988f87fef7a9afb",
+            "layer-32.bin": "f3378c014ded18a5c9c9a309e6e0e597e547fa20fb2ccec16d3cad50d2739d7d",
+            "layer-34.bin": "410de0285796aabb80a7493a9e190b7de9cafe91ee56794a863d6ae463985a75",
+            "layer-36.bin": "095e87ea56b267d0649aaa760cade1091c024798f7d478be5d671f0a82d0cf5c",
+            "layer-38.bin": "f0afd094cc018ad81ee1a01342d305232ac50a3a8599c6861e01db7b87d1a92e",
+            "layer-4.bin": "4f06dc1e1cee9026fe30e9fe1f770faf5993b5685fbe2d68afb63020ecc87f41",
+            "layer-40.bin": "e76fa78e6eb4027a14e8e372e9d04b9018b22adee2ce74049aa9c0d77ad855eb",
+            "layer-42.bin": "c84971511c2611c4e1e9c7d9a6776b8488eab846b4247bf01a54860932416e59",
+            "layer-44.bin": "c6df6b32f142b717fbf748f700cfe26f69bb15b1fd4a529a678153253fed0fc7",
+            "layer-46.bin": "50c70adaf1dcb1b0132f47f2dd524ad2f891e3170dae2fa16699c5c5ac9d371a",
+            "layer-48.bin": "0a75d1903b6fbc1ee7af90f0399b9a8c9a4989e60e5a2dc08718ddf29684e65a",
+            "layer-50.bin": "f6e3b9d69f92b18d45b2d330b45bf3a540cd9a99f5000b02945ed3850e13bcc8",
+            "layer-52.bin": "d36bba949333034ea838987cc444cc57cb9f3dc84be0f76af4f8ae5e406cea63",
+            "layer-54.bin": "199c520ddfa126571a41c55c2c95ea7f98b40bdd649c13b8f9fdf37a0aa2afd0",
+            "layer-55.bin": "661b6cbe9b7c2188b354676cce5e8b5675ed31d9cf25c83c22455bf001708305",
+            "layer-57.bin": "e8023ba9eb60c761f277a6b45509ba8a62045a9dc67ccc1b29626ced54fe4ffb",
+            "layer-6.bin": "8df03b710a020075c4253b34447be79eb00579a543aada829b4b42c21cefe098",
+            "layer-8.bin": "9b4e1a3066f6cf7087173f6c26749fcaecf4c10598767f4b07bafbf62bfee551",
+            "output.bin": "e8023ba9eb60c761f277a6b45509ba8a62045a9dc67ccc1b29626ced54fe4ffb",
+            "payload.bin": "02d50d2fb40c7a5dd8df4ab522c390c56033c2c3e4b1bc9f9cae1dd14ccb04bc",
+            "schedule.json": "732cbe722bbd8c0fda6ae4266b57558fcc08ea4220230b6761d088a5da3ab85f"
+          },
+          "final_output": {
+            "bytes": 2,
+            "ext": 36864
+          },
+          "native": [
+            {
+              "dma_cycles": 185535,
+              "elapsed_cycles": 2319760,
+              "engine_cycles": 2133486,
+              "report": "work/phase6/matched-baselines-v1/b3-spatial-v1/native/vww-h12-stress_check-s0.json",
+              "report_sha256": "6061743f2a12633c1488b1014fe71b289d024e4dd4bc1948f631d216537cd055",
+              "stall_seed": 0,
+              "status": "passed",
+              "tensor_checks": 30
+            },
+            {
+              "dma_cycles": 252574,
+              "elapsed_cycles": 2386096,
+              "engine_cycles": 2133408,
+              "report": "work/phase6/matched-baselines-v1/b3-spatial-v1/native/vww-h12-stress_check-s6063.json",
+              "report_sha256": "25be0c44a092438348782de7b95491601ce500349a0521e7f8147cc448582a4c",
+              "stall_seed": 6063,
+              "status": "passed",
+              "tensor_checks": 30
+            }
+          ],
+          "native_evidence": {
+            "work/phase6/matched-baselines-v1/b3-spatial-v1/native/vww-h12-stress_check-s0.json": "6061743f2a12633c1488b1014fe71b289d024e4dd4bc1948f631d216537cd055",
+            "work/phase6/matched-baselines-v1/b3-spatial-v1/native/vww-h12-stress_check-s6063.json": "25be0c44a092438348782de7b95491601ce500349a0521e7f8147cc448582a4c"
+          },
+          "replay": {
+            "dma_bytes": {
+              "from_sram": 285065,
+              "to_sram": 207280
+            },
+            "engine_runs": 38,
+            "report": "work/phase6/matched-baselines-v1/b3-spatial-v1/replay/vww-h12-stress_check.json",
+            "report_sha256": "93b740fc4c1aa98385bf93e0becfca1a237181e9a4a100599e499f4251fd0267",
+            "status": "passed"
+          },
+          "symbolic_evidence": {
+            "report": "work/phase6/matched-baselines-v1/b3-spatial-v1/replay/vww-h12-stress_check.json",
+            "report_sha256": "93b740fc4c1aa98385bf93e0becfca1a237181e9a4a100599e499f4251fd0267"
+          }
+        }
+      },
+      "signature_sha256": "6ba770c9388801d2ffa7972f3b376bb94e7ad9588d4e7063a2c89f5a81f6f63f",
+      "source_labels": [
+        "h12"
+      ],
+      "source_plans": [
+        "b3_spatial"
+      ]
+    },
+    "h8": {
+      "fixtures": {
+        "pinned_timed": {
+          "command_count": 1089,
+          "directory": "work/phase6/matched-baselines-v1/b3-spatial-v1/fixtures/vww-h8-pinned-timed",
+          "files": {
+            "checks.txt": "7fe170b594022a583bc22e129db3badbcbc6a8ff868483c71a95b09793d668f2",
+            "commands.bin": "0e5381e4fcab76bc354b2d603b9b25bd6d5df3eb4f9c9242b9f37f56bf8b1e82",
+            "input.bin": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+            "output.bin": "6a0cfa0be8aa6d3a3137a6926b09aa569b91c44d1b845612779c2d55e019dbc2",
+            "payload.bin": "c8836a034be41c37717c9fe6aaceca50565e92d6b80d5a846502ac76df597e71",
+            "schedule.json": "e3beb4b8d3d7b73b7d06ccde06a2b6794efb5b0f7b1baa9b5e8464571d36a6e5"
+          },
+          "final_output": {
+            "bytes": 2,
+            "ext": 36864
+          },
+          "native": [
+            {
+              "dma_cycles": 114779,
+              "elapsed_cycles": 2248890,
+              "engine_cycles": 2135164,
+              "report": "work/phase6/matched-baselines-v1/b3-spatial-v1/native/vww-h8-pinned-timed-s0.json",
+              "report_sha256": "c9160c06e2deb737a9ee103edec25a0ad3d8e9cfe66780475c3090f2a9b0cb51",
+              "stall_seed": 0,
+              "status": "passed",
+              "tensor_checks": 1
+            },
+            {
+              "dma_cycles": 177181,
+              "elapsed_cycles": 2310567,
+              "engine_cycles": 2135098,
+              "report": "work/phase6/matched-baselines-v1/b3-spatial-v1/native/vww-h8-pinned-timed-s6063.json",
+              "report_sha256": "ace187c0195ca61913e537c5d815b30fdac344e2c81db8493d4f2afcef63bf5b",
+              "stall_seed": 6063,
+              "status": "passed",
+              "tensor_checks": 1
+            }
+          ],
+          "native_evidence": {
+            "work/phase6/matched-baselines-v1/b3-spatial-v1/native/vww-h8-pinned-timed-s0.json": "c9160c06e2deb737a9ee103edec25a0ad3d8e9cfe66780475c3090f2a9b0cb51",
+            "work/phase6/matched-baselines-v1/b3-spatial-v1/native/vww-h8-pinned-timed-s6063.json": "ace187c0195ca61913e537c5d815b30fdac344e2c81db8493d4f2afcef63bf5b"
+          },
+          "replay": {
+            "dma_bytes": {
+              "from_sram": 92162,
+              "to_sram": 212144
+            },
+            "engine_runs": 40,
+            "report": "work/phase6/matched-baselines-v1/b3-spatial-v1/replay/vww-h8-pinned-timed.json",
+            "report_sha256": "5cc7660b0ef5e8eb461507fb2e5152dc67a8fb2f108da2f4c2a2b6b5f58c63ce",
+            "status": "passed"
+          },
+          "symbolic_evidence": {
+            "report": "work/phase6/matched-baselines-v1/b3-spatial-v1/replay/vww-h8-pinned-timed.json",
+            "report_sha256": "5cc7660b0ef5e8eb461507fb2e5152dc67a8fb2f108da2f4c2a2b6b5f58c63ce"
+          }
+        },
+        "stress_check": {
+          "command_count": 1813,
+          "directory": "work/phase6/matched-baselines-v1/b3-spatial-v1/fixtures/vww-h8-stress-check",
+          "files": {
+            "checks.txt": "c0c51c18f44becdee4da3246c1c25bb44666a00fad5893b6ae63d39169d49644",
+            "commands.bin": "920c2e809397766eea61638cecfc3f98114e808db692f48bfaf3a4b31ad2b182",
+            "input.bin": "6bc2750f0f7644d3fdbade499feb315094ee9ca51e868f14c3d897d96fe13988",
+            "layer-10.bin": "bf9e0fb99ef2ae15eec295a4cdf49df7cb176ebcb5c922bfc13568e2c9ee9497",
+            "layer-12.bin": "bf5fec26d6c7f993a4819f9cf1156a94e8a34c0f15232deeb90701286e13ebd9",
+            "layer-14.bin": "cb3063807da5c845c7fe9d8a52bab79126c4b0a1260e7c6e7f1c3fec0d6e5493",
+            "layer-16.bin": "2ffac882d4fc1e8fcd435aa469c55280c4a88f12030f9de1d07dfbbdc4992b70",
+            "layer-18.bin": "705900d084c03c572b55f0d7e1a452c3ad40e41c8193803bb07e7c317fd24439",
+            "layer-2.bin": "2c636d036840a776b5d80fd40488846e9495f704a51cf7dd8ba53bb6ab4329c4",
+            "layer-20.bin": "001dcfa0aaac55c1bcf7b339962de71bb32c515abb26a8288aa35ebd9206d61d",
+            "layer-22.bin": "3f2bcb088c0cbb741fbc9a29376af737925535070dc5435c579a59e74e67de19",
+            "layer-24.bin": "016abc2917afcdadf21966bdc9f981da995dc6f72222cd382f03318e4ee5bf5a",
+            "layer-26.bin": "d7898437c308bb8bf62d8fa5cff3755d343be60bcef310c083924050699337bd",
+            "layer-28.bin": "01edda43f2ca1443ef9d904c71c1a66f5c841492583c3617c5528bd4f585c4e5",
+            "layer-30.bin": "07a8e44c9a1f5a2a637d9b7f9b90492e4378962b7dc55f34c988f87fef7a9afb",
+            "layer-32.bin": "f3378c014ded18a5c9c9a309e6e0e597e547fa20fb2ccec16d3cad50d2739d7d",
+            "layer-34.bin": "410de0285796aabb80a7493a9e190b7de9cafe91ee56794a863d6ae463985a75",
+            "layer-36.bin": "095e87ea56b267d0649aaa760cade1091c024798f7d478be5d671f0a82d0cf5c",
+            "layer-38.bin": "f0afd094cc018ad81ee1a01342d305232ac50a3a8599c6861e01db7b87d1a92e",
+            "layer-4.bin": "4f06dc1e1cee9026fe30e9fe1f770faf5993b5685fbe2d68afb63020ecc87f41",
+            "layer-40.bin": "e76fa78e6eb4027a14e8e372e9d04b9018b22adee2ce74049aa9c0d77ad855eb",
+            "layer-42.bin": "c84971511c2611c4e1e9c7d9a6776b8488eab846b4247bf01a54860932416e59",
+            "layer-44.bin": "c6df6b32f142b717fbf748f700cfe26f69bb15b1fd4a529a678153253fed0fc7",
+            "layer-46.bin": "50c70adaf1dcb1b0132f47f2dd524ad2f891e3170dae2fa16699c5c5ac9d371a",
+            "layer-48.bin": "0a75d1903b6fbc1ee7af90f0399b9a8c9a4989e60e5a2dc08718ddf29684e65a",
+            "layer-50.bin": "f6e3b9d69f92b18d45b2d330b45bf3a540cd9a99f5000b02945ed3850e13bcc8",
+            "layer-52.bin": "d36bba949333034ea838987cc444cc57cb9f3dc84be0f76af4f8ae5e406cea63",
+            "layer-54.bin": "199c520ddfa126571a41c55c2c95ea7f98b40bdd649c13b8f9fdf37a0aa2afd0",
+            "layer-55.bin": "661b6cbe9b7c2188b354676cce5e8b5675ed31d9cf25c83c22455bf001708305",
+            "layer-57.bin": "e8023ba9eb60c761f277a6b45509ba8a62045a9dc67ccc1b29626ced54fe4ffb",
+            "layer-6.bin": "8df03b710a020075c4253b34447be79eb00579a543aada829b4b42c21cefe098",
+            "layer-8.bin": "9b4e1a3066f6cf7087173f6c26749fcaecf4c10598767f4b07bafbf62bfee551",
+            "output.bin": "e8023ba9eb60c761f277a6b45509ba8a62045a9dc67ccc1b29626ced54fe4ffb",
+            "payload.bin": "6f81ceba5b4c35e38a72927ac7531de320eaf5bd4d550c3d5dfa7389bb98e65b",
+            "schedule.json": "19a395a3a963b366c4a502aaa2c30aaca1bd42e48b102674241d8b7b55e8305f"
+          },
+          "final_output": {
+            "bytes": 2,
+            "ext": 36864
+          },
+          "native": [
+            {
+              "dma_cycles": 187495,
+              "elapsed_cycles": 2324502,
+              "engine_cycles": 2135164,
+              "report": "work/phase6/matched-baselines-v1/b3-spatial-v1/native/vww-h8-stress_check-s0.json",
+              "report_sha256": "a17966cdb0f198fef21a4315f9cf51ca324bcf61f0ccf096c645b19402578672",
+              "stall_seed": 0,
+              "status": "passed",
+              "tensor_checks": 30
+            },
+            {
+              "dma_cycles": 255884,
+              "elapsed_cycles": 2392242,
+              "engine_cycles": 2135102,
+              "report": "work/phase6/matched-baselines-v1/b3-spatial-v1/native/vww-h8-stress_check-s6063.json",
+              "report_sha256": "6d29a94f7713b64c9cdd48443422ccd14394911ea92f4d8f59dd9575929b16db",
+              "stall_seed": 6063,
+              "status": "passed",
+              "tensor_checks": 30
+            }
+          ],
+          "native_evidence": {
+            "work/phase6/matched-baselines-v1/b3-spatial-v1/native/vww-h8-stress_check-s0.json": "a17966cdb0f198fef21a4315f9cf51ca324bcf61f0ccf096c645b19402578672",
+            "work/phase6/matched-baselines-v1/b3-spatial-v1/native/vww-h8-stress_check-s6063.json": "6d29a94f7713b64c9cdd48443422ccd14394911ea92f4d8f59dd9575929b16db"
+          },
+          "replay": {
+            "dma_bytes": {
+              "from_sram": 285065,
+              "to_sram": 212144
+            },
+            "engine_runs": 40,
+            "report": "work/phase6/matched-baselines-v1/b3-spatial-v1/replay/vww-h8-stress_check.json",
+            "report_sha256": "e01af0fb2e0393a40081adcbd783cee8758b3ec1c78597dd3f5479e3502ec5ca",
+            "status": "passed"
+          },
+          "symbolic_evidence": {
+            "report": "work/phase6/matched-baselines-v1/b3-spatial-v1/replay/vww-h8-stress_check.json",
+            "report_sha256": "e01af0fb2e0393a40081adcbd783cee8758b3ec1c78597dd3f5479e3502ec5ca"
+          }
+        }
+      },
+      "signature_sha256": "8ea84dc43486e0af13171f55dd126124189f4f6265238caa1d19a04cc22031a8",
+      "source_labels": [
+        "h8"
+      ],
+      "source_plans": [
+        "b3_spatial"
+      ]
+    },
+    "vertical_cache": {
+      "fixtures": {
+        "pinned_timed": {
+          "command_count": 1383,
+          "directory": "work/phase6/matched-baselines-v1/b3/candidates/vww-pinned-vertical-cache",
+          "files": {
+            "checks.txt": "7fe170b594022a583bc22e129db3badbcbc6a8ff868483c71a95b09793d668f2",
+            "commands.bin": "5f7e3842d0242604e5389321d75798e9fd573924d2fc597393d73d5e9bf1bcab",
+            "input.bin": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+            "output.bin": "6a0cfa0be8aa6d3a3137a6926b09aa569b91c44d1b845612779c2d55e019dbc2",
+            "payload.bin": "0ba6b4bf9b3e7fd566e851248553be815aee6234e6f800471c6e9e6a760308d5",
+            "schedule.json": "fbf2902936d27510999d9fa797352ca14a5573484e87440baf3103b4b06e714e"
+          },
+          "final_output": {
+            "bytes": 2,
+            "ext": 36864
+          },
+          "native": [
+            {
+              "dma_cycles": 116796,
+              "elapsed_cycles": 2268261,
+              "engine_cycles": 2151342,
+              "report": "work/phase6/matched-baselines-v1/b3/native/vww-pinned-vertical-cache-s0.json",
+              "report_sha256": "efe1806483e78e2e501c635cf4e8622e8317d60d9c77d5ceff07eb7e67b046a4",
+              "stall_seed": 0,
+              "status": "passed",
+              "tensor_checks": 1
+            },
+            {
+              "dma_cycles": 180790,
+              "elapsed_cycles": 2331540,
+              "engine_cycles": 2151275,
+              "report": "work/phase6/matched-baselines-v1/b3/native/vww-pinned-vertical-cache-s6063.json",
+              "report_sha256": "dac2311cd54c4975c240d55df5b487e3bca16c4871394e014c8c21b49b990c42",
+              "stall_seed": 6063,
+              "status": "passed",
+              "tensor_checks": 1
+            }
+          ],
+          "native_evidence": {
+            "work/phase6/matched-baselines-v1/b3/native/vww-pinned-vertical-cache-s0.json": "efe1806483e78e2e501c635cf4e8622e8317d60d9c77d5ceff07eb7e67b046a4",
+            "work/phase6/matched-baselines-v1/b3/native/vww-pinned-vertical-cache-s6063.json": "dac2311cd54c4975c240d55df5b487e3bca16c4871394e014c8c21b49b990c42"
+          },
+          "replay": {
+            "engine_runs": 150,
+            "report": "work/phase6/matched-baselines-v1/b3/replay/vww-pinned-vertical-cache.json",
+            "report_sha256": "8b8477d49071ae5d741b292ceb1740dc5d8712660de55d1bd5336d7f71bfc971",
+            "scope": "symbolic full-model command replay with independent integer oracle, strip coordinates, and SRAM COPY provenance; no RTL timing proof",
+            "status": "passed"
+          },
+          "symbolic_evidence": {
+            "report": "work/phase6/matched-baselines-v1/b3/replay/vww-pinned-vertical-cache.json",
+            "report_sha256": "8b8477d49071ae5d741b292ceb1740dc5d8712660de55d1bd5336d7f71bfc971"
+          }
+        },
+        "stress_check": {
+          "command_count": 1979,
+          "directory": "work/phase6/matched-baselines-v1/b3/candidates/vww-stress-vertical-cache",
+          "files": {
+            "checks.txt": "c0c51c18f44becdee4da3246c1c25bb44666a00fad5893b6ae63d39169d49644",
+            "commands.bin": "07a38c010e0c665e0926eea090bb4979aa38a2c29921e03be0620a17b2b114ed",
+            "input.bin": "6bc2750f0f7644d3fdbade499feb315094ee9ca51e868f14c3d897d96fe13988",
+            "layer-10.bin": "bf9e0fb99ef2ae15eec295a4cdf49df7cb176ebcb5c922bfc13568e2c9ee9497",
+            "layer-12.bin": "bf5fec26d6c7f993a4819f9cf1156a94e8a34c0f15232deeb90701286e13ebd9",
+            "layer-14.bin": "cb3063807da5c845c7fe9d8a52bab79126c4b0a1260e7c6e7f1c3fec0d6e5493",
+            "layer-16.bin": "2ffac882d4fc1e8fcd435aa469c55280c4a88f12030f9de1d07dfbbdc4992b70",
+            "layer-18.bin": "705900d084c03c572b55f0d7e1a452c3ad40e41c8193803bb07e7c317fd24439",
+            "layer-2.bin": "2c636d036840a776b5d80fd40488846e9495f704a51cf7dd8ba53bb6ab4329c4",
+            "layer-20.bin": "001dcfa0aaac55c1bcf7b339962de71bb32c515abb26a8288aa35ebd9206d61d",
+            "layer-22.bin": "3f2bcb088c0cbb741fbc9a29376af737925535070dc5435c579a59e74e67de19",
+            "layer-24.bin": "016abc2917afcdadf21966bdc9f981da995dc6f72222cd382f03318e4ee5bf5a",
+            "layer-26.bin": "d7898437c308bb8bf62d8fa5cff3755d343be60bcef310c083924050699337bd",
+            "layer-28.bin": "01edda43f2ca1443ef9d904c71c1a66f5c841492583c3617c5528bd4f585c4e5",
+            "layer-30.bin": "07a8e44c9a1f5a2a637d9b7f9b90492e4378962b7dc55f34c988f87fef7a9afb",
+            "layer-32.bin": "f3378c014ded18a5c9c9a309e6e0e597e547fa20fb2ccec16d3cad50d2739d7d",
+            "layer-34.bin": "410de0285796aabb80a7493a9e190b7de9cafe91ee56794a863d6ae463985a75",
+            "layer-36.bin": "095e87ea56b267d0649aaa760cade1091c024798f7d478be5d671f0a82d0cf5c",
+            "layer-38.bin": "f0afd094cc018ad81ee1a01342d305232ac50a3a8599c6861e01db7b87d1a92e",
+            "layer-4.bin": "4f06dc1e1cee9026fe30e9fe1f770faf5993b5685fbe2d68afb63020ecc87f41",
+            "layer-40.bin": "e76fa78e6eb4027a14e8e372e9d04b9018b22adee2ce74049aa9c0d77ad855eb",
+            "layer-42.bin": "c84971511c2611c4e1e9c7d9a6776b8488eab846b4247bf01a54860932416e59",
+            "layer-44.bin": "c6df6b32f142b717fbf748f700cfe26f69bb15b1fd4a529a678153253fed0fc7",
+            "layer-46.bin": "50c70adaf1dcb1b0132f47f2dd524ad2f891e3170dae2fa16699c5c5ac9d371a",
+            "layer-48.bin": "0a75d1903b6fbc1ee7af90f0399b9a8c9a4989e60e5a2dc08718ddf29684e65a",
+            "layer-50.bin": "f6e3b9d69f92b18d45b2d330b45bf3a540cd9a99f5000b02945ed3850e13bcc8",
+            "layer-52.bin": "d36bba949333034ea838987cc444cc57cb9f3dc84be0f76af4f8ae5e406cea63",
+            "layer-54.bin": "199c520ddfa126571a41c55c2c95ea7f98b40bdd649c13b8f9fdf37a0aa2afd0",
+            "layer-55.bin": "661b6cbe9b7c2188b354676cce5e8b5675ed31d9cf25c83c22455bf001708305",
+            "layer-57.bin": "e8023ba9eb60c761f277a6b45509ba8a62045a9dc67ccc1b29626ced54fe4ffb",
+            "layer-6.bin": "8df03b710a020075c4253b34447be79eb00579a543aada829b4b42c21cefe098",
+            "layer-8.bin": "9b4e1a3066f6cf7087173f6c26749fcaecf4c10598767f4b07bafbf62bfee551",
+            "output.bin": "e8023ba9eb60c761f277a6b45509ba8a62045a9dc67ccc1b29626ced54fe4ffb",
+            "payload.bin": "96158b2ea1da6a83f7abbea855279fe6e8b07fc3fc23c2161d84c140372f9d67",
+            "schedule.json": "6a56b1844b0ed12a6563f868a37b4e956a87a011634a35dde592ea64dffba82c"
+          },
+          "final_output": {
+            "bytes": 2,
+            "ext": 36864
+          },
+          "native": [
+            {
+              "dma_cycles": 189448,
+              "elapsed_cycles": 2343297,
+              "engine_cycles": 2151342,
+              "report": "work/phase6/matched-baselines-v1/b3/native/vww-stress-vertical-cache-s0.json",
+              "report_sha256": "6ce6120766525c74b226facd7e3574df3b8cce5a5e2b861f1e4a816caf0046a6",
+              "stall_seed": 0,
+              "status": "passed",
+              "tensor_checks": 30
+            },
+            {
+              "dma_cycles": 259592,
+              "elapsed_cycles": 2412777,
+              "engine_cycles": 2151288,
+              "report": "work/phase6/matched-baselines-v1/b3/native/vww-stress-vertical-cache-s6063.json",
+              "report_sha256": "2e88b36344aa24ae6ee93ee6994ce979437b6a754f1c2e0004e96ca68ad84ab1",
+              "stall_seed": 6063,
+              "status": "passed",
+              "tensor_checks": 30
+            }
+          ],
+          "native_evidence": {
+            "work/phase6/matched-baselines-v1/b3/native/vww-stress-vertical-cache-s0.json": "6ce6120766525c74b226facd7e3574df3b8cce5a5e2b861f1e4a816caf0046a6",
+            "work/phase6/matched-baselines-v1/b3/native/vww-stress-vertical-cache-s6063.json": "2e88b36344aa24ae6ee93ee6994ce979437b6a754f1c2e0004e96ca68ad84ab1"
+          },
+          "replay": {
+            "engine_runs": 150,
+            "report": "work/phase6/matched-baselines-v1/b3/replay/vww-stress-vertical-cache.json",
+            "report_sha256": "9f8eceed0e3a4414ab71adacfd9155988ad6eea0cc0d86f828dc0ce0e2491ce0",
+            "scope": "symbolic full-model command replay with independent integer oracle, strip coordinates, and SRAM COPY provenance; no RTL timing proof",
+            "status": "passed"
+          },
+          "symbolic_evidence": {
+            "report": "work/phase6/matched-baselines-v1/b3/replay/vww-stress-vertical-cache.json",
+            "report_sha256": "9f8eceed0e3a4414ab71adacfd9155988ad6eea0cc0d86f828dc0ce0e2491ce0"
+          }
+        }
+      },
+      "signature_sha256": "1be569efc33b3886486ba827fbf6538d55174d90b82986987bc4a6750b43680a",
+      "source_labels": [
+        "vertical_cache"
+      ],
+      "source_plans": [
+        "b3_cache"
+      ]
+    },
+    "x_tiles": {
+      "fixtures": {
+        "pinned_check": {
+          "command_count": 1483,
+          "directory": "work/phase6/matched-baselines-v1/b3-x-diagnostics-v1/fixtures/pinned_check",
+          "files": {
+            "checks.txt": "cd8f34f37c6bd49f75b50b0445c16154007421ac31e008e180b2a9f49b511258",
+            "commands.bin": "3dd203c4660a44411adb5c64c46a73c0c12acd8c3ed5bf763b0e557c942b8c26",
+            "input.bin": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+            "layer12-y0-x0.bin": "61af9b35ae2f4ddfb512a807bd09061cf245486f0746a1f046098c1b216a1166",
+            "layer12-y0-x16.bin": "4bbdfe37996b773a25553a4e37c36fd8d1fc08ecdcc5f6b1fc18cea7e58dad75",
+            "layer12-y16-x0.bin": "47b79f2d3d83d92de1938aee6d02172a4510c988785e2668b20e05f8e15ca5cf",
+            "layer12-y16-x16.bin": "b1a0a05804b578d226fa118793fb1eccd32d30470b7bd742748957dfae8fba15",
+            "layer12-y8-x0.bin": "597a035c28009ae09b563d5c02219cb1b9dba49c3f4e4b68a132f25f7a411f02",
+            "layer12-y8-x16.bin": "ed88abb4dd1a5140c3395b13084824606fd362445e0824d964bd4e67e8317478",
+            "layer14-full.bin": "b603387040561489782e1a77a666911711ae4cd72b2cea0a21907704a7769a8d",
+            "output.bin": "6a0cfa0be8aa6d3a3137a6926b09aa569b91c44d1b845612779c2d55e019dbc2",
+            "payload.bin": "8570fb1edae9c87d709faeebeccc095a2a5ba31e106f20920462c0e41335d1c2",
+            "schedule.json": "686ec25e61b4c2d56b15a3f9b2530dd5c9c375bb5bb1374572e67e888124ee4c"
+          },
+          "final_output": {
+            "bytes": 2,
+            "ext": 36864
+          },
+          "native": [
+            {
+              "dma_cycles": 228238,
+              "elapsed_cycles": 2589943,
+              "engine_cycles": 2361182,
+              "overlap_cycles": 5344,
+              "physical_board": false,
+              "report": "work/phase6/matched-baselines-v1/b3-x-diagnostics-v1/pinned_check-native-s0.json",
+              "report_sha256": "02622c472bcbc9c9ace6e399313a9c3e966ab6e515ba1c10e8e66bac4a106232",
+              "stall_seed": 0,
+              "status": "passed",
+              "tensor_checks": 8,
+              "total_simulated_cycles": 2651687
+            },
+            {
+              "dma_cycles": 366232,
+              "elapsed_cycles": 2727264,
+              "engine_cycles": 2361122,
+              "overlap_cycles": 5965,
+              "physical_board": false,
+              "report": "work/phase6/matched-baselines-v1/b3-x-diagnostics-v1/pinned_check-native-s6063.json",
+              "report_sha256": "086e4f37efdb6e51c443b294c263fe5941aa77d90bf110796de6a916270de28c",
+              "stall_seed": 6063,
+              "status": "passed",
+              "tensor_checks": 8,
+              "total_simulated_cycles": 2789008
+            }
+          ],
+          "native_evidence": {
+            "work/phase6/matched-baselines-v1/b3-x-diagnostics-v1/pinned_check-native-s0.json": "02622c472bcbc9c9ace6e399313a9c3e966ab6e515ba1c10e8e66bac4a106232",
+            "work/phase6/matched-baselines-v1/b3-x-diagnostics-v1/pinned_check-native-s6063.json": "086e4f37efdb6e51c443b294c263fe5941aa77d90bf110796de6a916270de28c"
+          },
+          "replay": {
+            "segment": {
+              "counts": {
+                "depthwise": 12,
+                "pack": 12,
+                "pointwise": 6,
+                "scatter": 6
+              },
+              "external_temp_bytes": 18432,
+              "output_sha256": "b603387040561489782e1a77a666911711ae4cd72b2cea0a21907704a7769a8d",
+              "prefix_preserved": true,
+              "status": "passed"
+            },
+            "source": {
+              "dma_bytes": {
+                "from_sram": 285065,
+                "to_sram": 206160
+              },
+              "engine_runs": 38,
+              "final_output_bytes": 2,
+              "scope": "symbolic full-model command replay with independent integer oracle, strip coordinates, and SRAM COPY provenance; no RTL timing proof",
+              "status": "passed"
+            },
+            "status": "passed"
+          }
+        },
+        "pinned_timed": {
+          "command_count": 1471,
+          "directory": "work/phase6/matched-baselines-v1/b3-x-tiles-v2/fixture",
+          "files": {
+            "checks.txt": "7fe170b594022a583bc22e129db3badbcbc6a8ff868483c71a95b09793d668f2",
+            "commands.bin": "b8cd07f982326ddc8169e2ac53c1c0f74e9828b3a8c6a6d9657b952f19f29758",
+            "input.bin": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+            "output.bin": "6a0cfa0be8aa6d3a3137a6926b09aa569b91c44d1b845612779c2d55e019dbc2",
+            "payload.bin": "7240815b2f9b64400c33505f229c5c688b44fba59d3f551f06f1913065e3487d",
+            "schedule.json": "43967ec847b853a8e819103eba429e9833399516fb8f03434c224683bbe0a4b1"
+          },
+          "final_output": {
+            "bytes": 2,
+            "ext": 36864
+          },
+          "native": [
+            {
+              "dma_cycles": 221320,
+              "elapsed_cycles": 2582977,
+              "engine_cycles": 2361182,
+              "overlap_cycles": 5344,
+              "physical_board": false,
+              "report": "work/phase6/matched-baselines-v1/b3-x-tiles-v2/native-s0.json",
+              "report_sha256": "9d72ae3a07a0df0031b23ec55abb9b1ef435210f7773327b2e6cab3746e28ef9",
+              "stall_seed": 0,
+              "status": "passed",
+              "tensor_checks": 1,
+              "total_simulated_cycles": 2644223
+            },
+            {
+              "dma_cycles": 358531,
+              "elapsed_cycles": 2719494,
+              "engine_cycles": 2361117,
+              "overlap_cycles": 5981,
+              "physical_board": false,
+              "report": "work/phase6/matched-baselines-v1/b3-x-tiles-v2/native-s6063.json",
+              "report_sha256": "4ac085b87921e9b899e69ae44fa6461b499d317ee19579b1cfbf5be4fcb4b8b8",
+              "stall_seed": 6063,
+              "status": "passed",
+              "tensor_checks": 1,
+              "total_simulated_cycles": 2780740
+            }
+          ],
+          "native_evidence": {
+            "work/phase6/matched-baselines-v1/b3-x-tiles-v2/native-s0.json": "9d72ae3a07a0df0031b23ec55abb9b1ef435210f7773327b2e6cab3746e28ef9",
+            "work/phase6/matched-baselines-v1/b3-x-tiles-v2/native-s6063.json": "4ac085b87921e9b899e69ae44fa6461b499d317ee19579b1cfbf5be4fcb4b8b8"
+          },
+          "replay": {
+            "method": "source full-model replay plus exact segment DMA/COPY replay and byte-identical splice",
+            "status": "passed"
+          }
+        },
+        "stress_check": {
+          "command_count": 1483,
+          "directory": "work/phase6/matched-baselines-v1/b3-x-diagnostics-v1/fixtures/stress_check",
+          "files": {
+            "checks.txt": "cd8f34f37c6bd49f75b50b0445c16154007421ac31e008e180b2a9f49b511258",
+            "commands.bin": "3dd203c4660a44411adb5c64c46a73c0c12acd8c3ed5bf763b0e557c942b8c26",
+            "input.bin": "6bc2750f0f7644d3fdbade499feb315094ee9ca51e868f14c3d897d96fe13988",
+            "layer12-y0-x0.bin": "cf94ace9e57776ae83dcec8ecfa0592c1203805593fc82412f38d418aeeea804",
+            "layer12-y0-x16.bin": "c9e005f7cf2ad9542ccba0e4cda0fd9ef59c4eb2f2d563342d54554a7eb85c87",
+            "layer12-y16-x0.bin": "d81f37fd61f940612eae380ae70692fa12c9f5b136e845e48d8a955f506c8604",
+            "layer12-y16-x16.bin": "b6623dfd9800fc8a10d69aa58919d01f87e6016f06ecb44382e8a85e81aa7b3b",
+            "layer12-y8-x0.bin": "212117100a303a7dc8cf697ec28dd67a9eae607ea7375ddd2901233dc7440593",
+            "layer12-y8-x16.bin": "997b968d67b5ace7ecbb91b29dfe58daae574fb52fdaa5ca93b334d0e842927e",
+            "layer14-full.bin": "cb3063807da5c845c7fe9d8a52bab79126c4b0a1260e7c6e7f1c3fec0d6e5493",
+            "output.bin": "e8023ba9eb60c761f277a6b45509ba8a62045a9dc67ccc1b29626ced54fe4ffb",
+            "payload.bin": "8570fb1edae9c87d709faeebeccc095a2a5ba31e106f20920462c0e41335d1c2",
+            "schedule.json": "686ec25e61b4c2d56b15a3f9b2530dd5c9c375bb5bb1374572e67e888124ee4c"
+          },
+          "final_output": {
+            "bytes": 2,
+            "ext": 36864
+          },
+          "native": [
+            {
+              "dma_cycles": 228238,
+              "elapsed_cycles": 2589943,
+              "engine_cycles": 2361182,
+              "overlap_cycles": 5344,
+              "physical_board": false,
+              "report": "work/phase6/matched-baselines-v1/b3-x-diagnostics-v1/stress_check-native-s0.json",
+              "report_sha256": "02622c472bcbc9c9ace6e399313a9c3e966ab6e515ba1c10e8e66bac4a106232",
+              "stall_seed": 0,
+              "status": "passed",
+              "tensor_checks": 8,
+              "total_simulated_cycles": 2651687
+            },
+            {
+              "dma_cycles": 366232,
+              "elapsed_cycles": 2727264,
+              "engine_cycles": 2361122,
+              "overlap_cycles": 5965,
+              "physical_board": false,
+              "report": "work/phase6/matched-baselines-v1/b3-x-diagnostics-v1/stress_check-native-s6063.json",
+              "report_sha256": "086e4f37efdb6e51c443b294c263fe5941aa77d90bf110796de6a916270de28c",
+              "stall_seed": 6063,
+              "status": "passed",
+              "tensor_checks": 8,
+              "total_simulated_cycles": 2789008
+            }
+          ],
+          "native_evidence": {
+            "work/phase6/matched-baselines-v1/b3-x-diagnostics-v1/stress_check-native-s0.json": "02622c472bcbc9c9ace6e399313a9c3e966ab6e515ba1c10e8e66bac4a106232",
+            "work/phase6/matched-baselines-v1/b3-x-diagnostics-v1/stress_check-native-s6063.json": "086e4f37efdb6e51c443b294c263fe5941aa77d90bf110796de6a916270de28c"
+          },
+          "replay": {
+            "segment": {
+              "counts": {
+                "depthwise": 12,
+                "pack": 12,
+                "pointwise": 6,
+                "scatter": 6
+              },
+              "external_temp_bytes": 18432,
+              "output_sha256": "cb3063807da5c845c7fe9d8a52bab79126c4b0a1260e7c6e7f1c3fec0d6e5493",
+              "prefix_preserved": true,
+              "status": "passed"
+            },
+            "source": {
+              "dma_bytes": {
+                "from_sram": 285065,
+                "to_sram": 206160
+              },
+              "engine_runs": 38,
+              "final_output_bytes": 2,
+              "scope": "symbolic full-model command replay with independent integer oracle, strip coordinates, and SRAM COPY provenance; no RTL timing proof",
+              "status": "passed"
+            },
+            "status": "passed"
+          }
+        }
+      },
+      "signature_sha256": "cc7c1c6eb07fb7be702c3e41581e9ddf9a6c5b9c438df1d3d9a1572eeb0055d7",
+      "source_labels": [
+        "x_tiles"
+      ],
+      "source_plans": [
+        "b3_x_tiles"
+      ]
+    }
+  }
+}
