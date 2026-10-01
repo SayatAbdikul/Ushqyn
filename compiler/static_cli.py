@@ -13,6 +13,20 @@ from static_pipeline import calibrate, compile_static
 from program_image import write_image
 
 
+def load_calibration_samples(model, path):
+    """Load each NPZ member once and yield views into the shared input arrays."""
+    with np.load(path, allow_pickle=False) as data:
+        ids = data['sample_ids'].tolist()
+        input_names = [n.name for n in model.graph.input
+                       if n.name not in {t.name for t in model.graph.initializer}]
+        inputs = {name: data[name] for name in input_names}
+    if any(len(value) != len(ids) for value in inputs.values()):
+        raise ValueError('calibration input count mismatch')
+    samples = ({name: inputs[name][i] for name in input_names}
+               for i in range(len(ids)))
+    return ids, samples
+
+
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('model',type=Path)
@@ -22,10 +36,7 @@ def main():
     parser.add_argument('--capacity',type=int,default=8*1024*1024)
     args=parser.parse_args()
     model=onnx.load(args.model)
-    with np.load(args.calibration_npz,allow_pickle=False) as data:
-        ids=data['sample_ids'].tolist()
-        input_names=[n.name for n in model.graph.input if n.name not in {t.name for t in model.graph.initializer}]
-        samples=[{name:data[name][i] for name in input_names} for i in range(len(ids))]
+    ids,samples=load_calibration_samples(model,args.calibration_npz)
     calibration=calibrate(model,samples,ids)
     program=compile_static(model,calibration,target=args.target)
     write_image(program,args.output,capacity=args.capacity,target=args.target)

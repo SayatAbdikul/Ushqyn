@@ -62,6 +62,7 @@ test-compiler:
 	    test_unified_walker.py \
 	    test_buffer_allocator.py \
 	    test_static_pipeline.py \
+	    test_static_cli.py \
 	    test_hardware_v2.py \
 	    test_phase4_kernels.py \
 	    test_phase4_tiling.py \
