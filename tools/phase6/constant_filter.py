@@ -78,7 +78,7 @@ def _runs(codes):
 
 
 def compile_constant_chain(program, snapshots=False, *, reuse_sibling_inputs=False,
-                           padded_pointwise=False):
+                           padded_pointwise=False, chain_options=None):
     """Compile a normal chain and replace every eligible Conv tile exactly."""
     constants = {i: filter_constants(program, i) for i in range(len(program.layers))
                  if program.layers[i].op == 'Conv' and
@@ -87,7 +87,7 @@ def compile_constant_chain(program, snapshots=False, *, reuse_sibling_inputs=Fal
                        for i,row in constants.items()} if padded_pointwise else None
     original_code, raw_payload, original = compile_chain(program, snapshots,
         reuse_sibling_inputs=reuse_sibling_inputs, padded_pointwise=padded_pointwise,
-        active_pointwise_channels=active_channels)
+        active_pointwise_channels=active_channels, **(chain_options or {}))
     if not any(any(code is not None for code in row) for row in constants.values()):
         return original_code, raw_payload, dict(original, constant_filter=dict(
             enabled=False, skipped_dense_macs=0, zero_channels=0, split_tiles=0,

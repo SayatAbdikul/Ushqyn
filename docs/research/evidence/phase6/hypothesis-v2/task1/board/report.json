@@ -1,0 +1,138 @@
+{
+  "completed": 30,
+  "current": "B1/kws/timed/3",
+  "finished_at": "2026-09-28T10:22:21+05:00",
+  "output_mismatches": 0,
+  "physical_board": true,
+  "plan_sha256": "4c7669d904ffea1a0ae58a3094a7df2c4be602a610ebf5c5524e981a778e1831",
+  "planned": 30,
+  "program_log_sha256": "e6657572ffb745e8ab88ad8979090458e881462d82dce35d7059368912fb9dff",
+  "records_sha256": "0fc62154a86c61d0704039461a501c568a4c7d1d67246dcf4bfaccbf2299f563",
+  "schema": 1,
+  "started_at": "2026-09-28T10:15:07+05:00",
+  "status": "passed-matched-short-screen",
+  "summary": {
+    "comparisons": {
+      "B2_versus_B1": {
+        "geomean_speedup": 1.0890541255984165,
+        "per_model_speedup": {
+          "kws": 1.1214017022048453,
+          "vww": 1.0576396363149798
+        }
+      },
+      "B4_versus_B1": {
+        "duplicate_program_models": [],
+        "geomean_speedup": 1.1158971765081993,
+        "independent_performance_evidence": true,
+        "per_model_speedup": {
+          "kws": 1.1213961038690894,
+          "vww": 1.1104252139298836
+        }
+      },
+      "B4_versus_B2": {
+        "duplicate_program_models": [
+          "kws"
+        ],
+        "geomean_speedup": 1.0246480411568462,
+        "independent_performance_evidence": false,
+        "per_model_speedup": {
+          "kws": 0.9999950077338523,
+          "vww": 1.04990884967097
+        }
+      }
+    },
+    "policies": {
+      "B1": {
+        "kws": {
+          "device_inferences_per_second": 20.033240339526326,
+          "duplicate_commands_of_B4": false,
+          "duplicate_program_and_payload_of_B4": false,
+          "median_cycles": 1347760,
+          "median_device_latency_ms": 49.91703703703704,
+          "median_host_wall_seconds": 0.13204112485982478,
+          "spread_fraction": 0.00020775212203953227,
+          "timed_cycles": [
+            1347603,
+            1347883,
+            1347760
+          ]
+        },
+        "vww": {
+          "device_inferences_per_second": 9.95875599646206,
+          "duplicate_commands_of_B4": false,
+          "duplicate_program_and_payload_of_B4": false,
+          "median_cycles": 2711182,
+          "median_device_latency_ms": 100.41414814814814,
+          "median_host_wall_seconds": 3.365411875071004,
+          "spread_fraction": 0.00010106293122335571,
+          "timed_cycles": [
+            2711182,
+            2711208,
+            2710934
+          ]
+        }
+      },
+      "B2": {
+        "kws": {
+          "device_inferences_per_second": 22.465309817423595,
+          "duplicate_commands_of_B4": true,
+          "duplicate_program_and_payload_of_B4": true,
+          "median_cycles": 1201853,
+          "median_device_latency_ms": 44.513074074074076,
+          "median_host_wall_seconds": 0.12611970794387162,
+          "spread_fraction": 6.656388094051436e-06,
+          "timed_cycles": [
+            1201847,
+            1201855,
+            1201853
+          ]
+        },
+        "vww": {
+          "device_inferences_per_second": 10.532775070247759,
+          "duplicate_commands_of_B4": false,
+          "duplicate_program_and_payload_of_B4": false,
+          "median_cycles": 2563427,
+          "median_device_latency_ms": 94.94174074074074,
+          "median_host_wall_seconds": 3.353646749863401,
+          "spread_fraction": 0.0001029871340202003,
+          "timed_cycles": [
+            2563437,
+            2563427,
+            2563173
+          ]
+        }
+      },
+      "B4": {
+        "kws": {
+          "device_inferences_per_second": 22.465197664617897,
+          "duplicate_commands_of_B4": true,
+          "duplicate_program_and_payload_of_B4": true,
+          "median_cycles": 1201859,
+          "median_device_latency_ms": 44.513296296296296,
+          "median_host_wall_seconds": 0.126653959043324,
+          "spread_fraction": 2.1633153306669085e-05,
+          "timed_cycles": [
+            1201860,
+            1201859,
+            1201834
+          ]
+        },
+        "vww": {
+          "device_inferences_per_second": 11.058453757846895,
+          "duplicate_commands_of_B4": true,
+          "duplicate_program_and_payload_of_B4": true,
+          "median_cycles": 2441571,
+          "median_device_latency_ms": 90.42855555555555,
+          "median_host_wall_seconds": 3.3536724580917507,
+          "spread_fraction": 0.00016178108275368604,
+          "timed_cycles": [
+            2441571,
+            2441806,
+            2441411
+          ]
+        }
+      }
+    }
+  },
+  "updated_at": "2026-09-28T10:22:21+05:00"
+}

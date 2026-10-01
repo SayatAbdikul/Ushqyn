@@ -69,8 +69,16 @@ def _profitable_padded_pointwise(d, active_channels=None):
 
 
 def compile_chain(program, snapshots, *, reuse_sibling_inputs=False, padded_pointwise=False,
-                  active_pointwise_channels=None):
-    _, raw, original = compile_resident(program, prefer_half=False, overlap=False, snapshots=snapshots)
+                  active_pointwise_channels=None, prepared_plans=None, retain_tensors=True):
+    seed_code, raw, original = compile_resident(program, prefer_half=False, overlap=False,
+        snapshots=snapshots, prepared_plans=prepared_plans)
+    if not retain_tensors:
+        if reuse_sibling_inputs or padded_pointwise:
+            raise ValueError('additional retention modes require the liveness allocator')
+        return seed_code, raw, dict(original,
+            catalogue='conventional tiled macro-ops; materialized inter-macro boundaries',
+            removed_transfer_bytes=0, removed_sibling_input_bytes=0,
+            sibling_input_retention=False, padded_pointwise=False, pack_contracts={})
     payload = bytearray(raw)
     stages = copy.deepcopy(original['stages'])
     aliases = {}
@@ -89,7 +97,13 @@ def compile_chain(program, snapshots, *, reuse_sibling_inputs=False, padded_poin
         can_retain = (previous is not None and
             aliases.get(layer.inputs[0], layer.inputs[0]) == aliases.get(program.layers[previous['layer']].output) and
             ((s['inplace'] and previous['first_element'] == s['first_element']) or
-             (previous['first_element'] == 0 and previous['output']['bytes'] == math.prod(program.tensors[layer.inputs[0]].shape))))
+             (previous['first_element'] == 0 and
+              previous['output']['bytes'] == math.prod(program.tensors[layer.inputs[0]].shape) and
+              # Preserve the established default tiler's allocation and bytes.
+              # Caller-supplied plans can split consumers differently, so they
+              # must prove that the next input load covers the whole producer.
+              (prepared_plans is None or (input_load is not None and
+               input_load['bytes'] == previous['output']['bytes'])))))
         # The inplace producer/activation pair is already legal in the seed schedule.
         if s['inplace'] and not can_retain: raise ValueError('broken producer/activation adjacency')
         candidate = shared_input if not s['inplace'] else None

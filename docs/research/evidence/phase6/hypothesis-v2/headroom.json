@@ -1,0 +1,420 @@
+{
+  "bitstream_sha256": "3e943639382e4efea62d4d2072c016fa40eacc7a97ef6bad7f5bfdc69d8dafce",
+  "evidence": {
+    "docs/research/evidence/phase6/hypothesis-v2/task1/board/plan.json": "4c7669d904ffea1a0ae58a3094a7df2c4be602a610ebf5c5524e981a778e1831",
+    "docs/research/evidence/phase6/hypothesis-v2/task1/board/program.log": "e6657572ffb745e8ab88ad8979090458e881462d82dce35d7059368912fb9dff",
+    "docs/research/evidence/phase6/hypothesis-v2/task1/board/records.jsonl": "0fc62154a86c61d0704039461a501c568a4c7d1d67246dcf4bfaccbf2299f563",
+    "docs/research/evidence/phase6/hypothesis-v2/task1/board/report.json": "92de8a0283b109adba34e39d7bcb1c1361fc233935c3e083865b30887599f7e7",
+    "docs/research/evidence/phase6/hypothesis-v2/task1/board/seal.json": "121d5af8555a2326f55e4390bd73a27b1ccd53710c830213e225f361a797fab2",
+    "docs/research/evidence/phase6/hypothesis-v2/task1/combined-finalists-board-x-after-reconnect/plan.json": "a9928313ce4ecc7b2e575143a5edd88b1e3bbf92abc01c0482f01ebe78df511f",
+    "docs/research/evidence/phase6/hypothesis-v2/task1/combined-finalists-board-x-after-reconnect/program.log": "e6657572ffb745e8ab88ad8979090458e881462d82dce35d7059368912fb9dff",
+    "docs/research/evidence/phase6/hypothesis-v2/task1/combined-finalists-board-x-after-reconnect/records.jsonl": "3642029bd6e85aeafd0195be5cb4db2ee0d61f87eb5d6be8e4af36a0fd95aba2",
+    "docs/research/evidence/phase6/hypothesis-v2/task1/combined-finalists-board-x-after-reconnect/report.json": "6298475db567da0316962840b878ea1451545afc7ed0487df07fffe9c5bf07f2",
+    "docs/research/evidence/phase6/hypothesis-v2/task1/combined-finalists-board-x-after-reconnect/seal.json": "0cf15c3a6cc7af6b9432466f87f1c34450a08d4a2e0edf122934e1f7547fd809"
+  },
+  "gate": {
+    "equivalent_geomean_speedup_at_least": 1.1764705882352942,
+    "geomean_latency_ratio_at_most": 0.85,
+    "neither_workload_latency_ratio_above": 1.05,
+    "statement": "This 15% project go/no-go criterion is not a publication acceptance rule.",
+    "vww_reduction_required_if_kws_unchanged": 0.2775000000000001
+  },
+  "limitations": [
+    "Imported Task 1 baseline exploration is bounded, not an exhaustive DeFiNES reproduction.",
+    "Local generic B3 results are native RTL only; their graph transforms and programs differ from imported Task 1. Do not directly compare native cycles with board cycles.",
+    "Imported run hashes validate records; full original fixture/source/bitstream closure remains in Task 1 archive."
+  ],
+  "local_B3_report": {
+    "path": "work/phase6/matched-baselines-v1/b3-final/report.json",
+    "sha256": "a3bf30483ba46ded344a2bb0875d56f6535b63064b216f61c079b665d1b8b405"
+  },
+  "native_executable_sha256": "b97fbf944827a5345670f3603e7f10368a897e6bcb19d16cc56905d8e06d16ec",
+  "native_fixed_engine_geomean_latency_reduction": {
+    "0": 0.024197357384456608,
+    "6063": 0.037683414271444615
+  },
+  "native_generic_B3": {
+    "kws": {
+      "directory": "work/phase6/matched-baselines-v1/current-v4/fixtures/kws-pinned",
+      "files": {
+        "checks.txt": "0258c1889f1aa327b0b54f378d72d77fb1ca4c7d56dd168ad464a3ec0d7df35c",
+        "commands.bin": "6f4499cd0b5f87cc49230c0afe4ffec07806741978660762cd7a5e5ffda3fe31",
+        "input.bin": "5f4ad0b2d11bf1cccab552fb5a4d95d082b70f2d1fe2459127673d270cb1cdf4",
+        "output.bin": "ce178213db2ef2aa27d0b532e4a17851cfef1772ad74b2fc7a95311b4a6714a7",
+        "payload.bin": "04cd8f5e9023b178962b74e18e27aeb85ce91a8b8fce9b05f0f2085ef9d120be",
+        "schedule.json": "ad07b5876083b88d09bb20bfb2a5a695c2bb1c33c371b280c870b59c4560deca"
+      },
+      "graph_sha256": "5aeab73bd48dd2c62458b5619975827010fa8b51e15a0163a856d77533a61f9b",
+      "seeds": {
+        "0": {
+          "median": {
+            "counterfactual_latency_reduction": 0.00985143731311211,
+            "dma_without_engine_cycles": 11294,
+            "elapsed_cycles": 1181858,
+            "engine_busy_cycles": 1170215,
+            "neither_busy_cycles": 349
+          },
+          "records": [
+            {
+              "counterfactual_latency_reduction": 0.00985143731311211,
+              "dma_without_engine_cycles": 11294,
+              "elapsed_cycles": 1181858,
+              "engine_busy_cycles": 1170215,
+              "neither_busy_cycles": 349
+            }
+          ]
+        },
+        "6063": {
+          "median": {
+            "counterfactual_latency_reduction": 0.0169158625695377,
+            "dma_without_engine_cycles": 19787,
+            "elapsed_cycles": 1190362,
+            "engine_busy_cycles": 1170226,
+            "neither_busy_cycles": 349
+          },
+          "records": [
+            {
+              "counterfactual_latency_reduction": 0.0169158625695377,
+              "dma_without_engine_cycles": 19787,
+              "elapsed_cycles": 1190362,
+              "engine_busy_cycles": 1170226,
+              "neither_busy_cycles": 349
+            }
+          ]
+        }
+      }
+    },
+    "vww": {
+      "directory": "work/phase6/matched-baselines-v1/b3-weights-vww/vww/pair-005/resident",
+      "files": {
+        "checks.txt": "c91d3e53abe149b8e2c5a0cd46e59a07f922c7fdbec06740c67b828eddbfc0a7",
+        "commands.bin": "62f8a4ed24b212dd69377539820712685b515b2bcd0f3a8a5b85f82d561a2e96",
+        "input.bin": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+        "output.bin": "6a0cfa0be8aa6d3a3137a6926b09aa569b91c44d1b845612779c2d55e019dbc2",
+        "payload.bin": "ec7aa697527c5aa8bf14612cc4cde7f309a1df86c84e00970368960367f50afc",
+        "schedule.json": "f1aff34c939d0aa6f65c6ce8c9149fe5a3af0cb44a92ba06420b43b72ae45721"
+      },
+      "graph_sha256": "a2ccf5b17041edb5a4acfe8530db52ad02d52d8fb74ab43b66cdd51b2279c7d4",
+      "seeds": {
+        "0": {
+          "median": {
+            "counterfactual_latency_reduction": 0.038335424381576555,
+            "dma_without_engine_cycles": 79455,
+            "elapsed_cycles": 2173551,
+            "engine_busy_cycles": 2090227,
+            "neither_busy_cycles": 3869
+          },
+          "records": [
+            {
+              "counterfactual_latency_reduction": 0.038335424381576555,
+              "dma_without_engine_cycles": 79455,
+              "elapsed_cycles": 2173551,
+              "engine_busy_cycles": 2090227,
+              "neither_busy_cycles": 3869
+            }
+          ]
+        },
+        "6063": {
+          "median": {
+            "counterfactual_latency_reduction": 0.05801225357095374,
+            "dma_without_engine_cycles": 124857,
+            "elapsed_cycles": 2218945,
+            "engine_busy_cycles": 2090219,
+            "neither_busy_cycles": 3869
+          },
+          "records": [
+            {
+              "counterfactual_latency_reduction": 0.05801225357095374,
+              "dma_without_engine_cycles": 124857,
+              "elapsed_cycles": 2218945,
+              "engine_busy_cycles": 2090219,
+              "neither_busy_cycles": 3869
+            }
+          ]
+        }
+      }
+    }
+  },
+  "new_board_runs": 0,
+  "physical_contract": {
+    "counter_source": "rtl/v2/tile_sequencer.sv",
+    "counter_source_sha256": "defa57da3cd7748d28a628e8e09eb8a843d7a02aa29d9386b3e5d99dcb8e8f0e",
+    "limitation": "Engine busy includes stalls, dispatch, copy and quantization. New kernels, tiling, layout or contention changes can change this count. These are not general accelerator lower bounds or predicted attainable speedups.",
+    "scope": "Conditional occupancy counterfactual: erase all cycles outside engine busy, holding the observed engine-busy count fixed.",
+    "timing_boundary": "sequencer launch to HALT, including scheduled DMA, excluding host UART load/readback"
+  },
+  "physical_current": {
+    "kws": {
+      "median": {
+        "counterfactual_latency_reduction": 0.026283449223244992,
+        "dma_without_engine_cycles": 31240,
+        "elapsed_cycles": 1201859,
+        "engine_busy_cycles": 1170262,
+        "neither_busy_cycles": 349
+      },
+      "records": [
+        {
+          "counterfactual_latency_reduction": 0.026290915747258392,
+          "dma_without_engine_cycles": 31249,
+          "elapsed_cycles": 1201860,
+          "engine_busy_cycles": 1170262,
+          "neither_busy_cycles": 349
+        },
+        {
+          "counterfactual_latency_reduction": 0.026283449223244992,
+          "dma_without_engine_cycles": 31240,
+          "elapsed_cycles": 1201859,
+          "engine_busy_cycles": 1170270,
+          "neither_busy_cycles": 349
+        },
+        {
+          "counterfactual_latency_reduction": 0.026276507404516813,
+          "dma_without_engine_cycles": 31231,
+          "elapsed_cycles": 1201834,
+          "engine_busy_cycles": 1170254,
+          "neither_busy_cycles": 349
+        }
+      ]
+    },
+    "vww": {
+      "median": {
+        "counterfactual_latency_reduction": 0.12621381888955918,
+        "dma_without_engine_cycles": 304477,
+        "elapsed_cycles": 2441571,
+        "engine_busy_cycles": 2133411,
+        "neither_busy_cycles": 3683
+      },
+      "records": [
+        {
+          "counterfactual_latency_reduction": 0.12621381888955918,
+          "dma_without_engine_cycles": 304477,
+          "elapsed_cycles": 2441571,
+          "engine_busy_cycles": 2133411,
+          "neither_busy_cycles": 3683
+        },
+        {
+          "counterfactual_latency_reduction": 0.1263020076123984,
+          "dma_without_engine_cycles": 304722,
+          "elapsed_cycles": 2441806,
+          "engine_busy_cycles": 2133401,
+          "neither_busy_cycles": 3683
+        },
+        {
+          "counterfactual_latency_reduction": 0.12615655454980745,
+          "dma_without_engine_cycles": 304317,
+          "elapsed_cycles": 2441411,
+          "engine_busy_cycles": 2133411,
+          "neither_busy_cycles": 3683
+        }
+      ]
+    }
+  },
+  "physical_fixed_engine_geomean_latency_reduction": 0.07760407082622323,
+  "schema": 1,
+  "source_sha256": "ba218c9c5f128d2fc4c3ced0b38b538e8b8e43ecec059d428d911244ebd05f26",
+  "status": "passed-analysis",
+  "task1_finalist_summary": {
+    "aliases": {
+      "B1_full_prefetch": "B1_full_prefetch",
+      "B1_selected": "B1_selected",
+      "B2_half_prefetch": "B2_half_prefetch",
+      "B2_selected": "B2_selected",
+      "B4": "B4",
+      "full_width": "B4",
+      "h12": "h12",
+      "h8": "h8",
+      "recompute": "B4",
+      "vertical_cache": "vertical_cache",
+      "x_tiles": "x_tiles"
+    },
+    "fastest": "B4",
+    "fastest_by_family": {
+      "B1": "B1_selected",
+      "B2": "B2_selected",
+      "pair11_height": "B4",
+      "source_halo_cache": "B4",
+      "spatial_x": "B4"
+    },
+    "ranking": [
+      "B4",
+      "h12",
+      "h8",
+      "vertical_cache",
+      "B2_selected",
+      "B2_half_prefetch",
+      "B1_selected",
+      "B1_full_prefetch",
+      "x_tiles"
+    ],
+    "speedup_vs_B4": {
+      "B1_full_prefetch": 0.879078221412798,
+      "B1_selected": 0.9004923212200479,
+      "B2_half_prefetch": 0.9316327897327839,
+      "B2_selected": 0.9525609657605411,
+      "B4": 1.0,
+      "h12": 0.9995046381832258,
+      "h8": 0.9960609586537331,
+      "vertical_cache": 0.984955662957793,
+      "x_tiles": 0.8209837955295717
+    },
+    "variants": {
+      "B1_full_prefetch": {
+        "frames_per_second": 9.721731634838797,
+        "median_cycles": 2777283,
+        "median_device_latency_ms": 102.86233333333334,
+        "source_labels": [
+          "B1_full_prefetch"
+        ],
+        "spread_fraction": 6.08508387513984e-05,
+        "timed_cycles": [
+          2777192,
+          2777361,
+          2777283
+        ]
+      },
+      "B1_selected": {
+        "frames_per_second": 9.958550300637569,
+        "median_cycles": 2711238,
+        "median_device_latency_ms": 100.41622222222223,
+        "source_labels": [
+          "B1_selected"
+        ],
+        "spread_fraction": 0.0001294611539082884,
+        "timed_cycles": [
+          2711009,
+          2711360,
+          2711238
+        ]
+      },
+      "B2_half_prefetch": {
+        "frames_per_second": 10.302932939735856,
+        "median_cycles": 2620613,
+        "median_device_latency_ms": 97.05974074074074,
+        "source_labels": [
+          "B2_half_prefetch"
+        ],
+        "spread_fraction": 0.00014118834028526914,
+        "timed_cycles": [
+          2620713,
+          2620613,
+          2620343
+        ]
+      },
+      "B2_selected": {
+        "frames_per_second": 10.534377771370448,
+        "median_cycles": 2563037,
+        "median_device_latency_ms": 94.9272962962963,
+        "source_labels": [
+          "B2_selected"
+        ],
+        "spread_fraction": 0.00022707436529398523,
+        "timed_cycles": [
+          2563511,
+          2562929,
+          2563037
+        ]
+      },
+      "B4": {
+        "frames_per_second": 11.059006352375167,
+        "median_cycles": 2441449,
+        "median_device_latency_ms": 90.42403703703704,
+        "source_labels": [
+          "B4",
+          "recompute",
+          "full_width"
+        ],
+        "spread_fraction": 8.02801942616864e-05,
+        "timed_cycles": [
+          2441449,
+          2441640,
+          2441444
+        ]
+      },
+      "h12": {
+        "frames_per_second": 11.053528142896736,
+        "median_cycles": 2442659,
+        "median_device_latency_ms": 90.46885185185185,
+        "source_labels": [
+          "h12"
+        ],
+        "spread_fraction": 8.064981645002433e-05,
+        "timed_cycles": [
+          2442629,
+          2442826,
+          2442659
+        ]
+      },
+      "h8": {
+        "frames_per_second": 11.015444469104533,
+        "median_cycles": 2451104,
+        "median_device_latency_ms": 90.78162962962963,
+        "source_labels": [
+          "h8"
+        ],
+        "spread_fraction": 0.00015666409911615337,
+        "timed_cycles": [
+          2451104,
+          2451009,
+          2451393
+        ]
+      },
+      "vertical_cache": {
+        "frames_per_second": 10.892630933458127,
+        "median_cycles": 2478740,
+        "median_device_latency_ms": 91.80518518518518,
+        "source_labels": [
+          "vertical_cache"
+        ],
+        "spread_fraction": 9.440280142330377e-05,
+        "timed_cycles": [
+          2478935,
+          2478740,
+          2478701
+        ]
+      },
+      "x_tiles": {
+        "frames_per_second": 9.07926500995861,
+        "median_cycles": 2973809,
+        "median_device_latency_ms": 110.14107407407407,
+        "source_labels": [
+          "x_tiles"
+        ],
+        "spread_fraction": 0.00011029625641727495,
+        "timed_cycles": [
+          2973809,
+          2974060,
+          2973732
+        ]
+      }
+    }
+  },
+  "task1_primary_comparisons": {
+    "B2_versus_B1": {
+      "geomean_speedup": 1.0890541255984165,
+      "per_model_speedup": {
+        "kws": 1.1214017022048453,
+        "vww": 1.0576396363149798
+      }
+    },
+    "B4_versus_B1": {
+      "duplicate_program_models": [],
+      "geomean_speedup": 1.1158971765081993,
+      "independent_performance_evidence": true,
+      "per_model_speedup": {
+        "kws": 1.1213961038690894,
+        "vww": 1.1104252139298836
+      }
+    },
+    "B4_versus_B2": {
+      "duplicate_program_models": [
+        "kws"
+      ],
+      "geomean_speedup": 1.0246480411568462,
+      "independent_performance_evidence": false,
+      "per_model_speedup": {
+        "kws": 0.9999950077338523,
+        "vww": 1.04990884967097
+      }
+    }
+  }
+}

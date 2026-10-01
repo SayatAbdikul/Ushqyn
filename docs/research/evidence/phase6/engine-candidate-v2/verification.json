@@ -1,0 +1,55 @@
+{
+  "archived_files": 3503,
+  "checks": [],
+  "hash_pinned_files": 20,
+  "historical_source_snapshots": 0,
+  "limitations": [
+    {
+      "detail": "absolute reference has no declared checkout relocation",
+      "kind": "unresolved_path",
+      "origin": "work/phase6/engine-candidate-rtl-v2/physical/matched-v1/plan.json@27ebc45c8de35ba198f632a9e01dd3c9d8dd71cee5c1f852e8e49d559cb87ebb",
+      "reference": "/Applications/GowinIDE.app/Contents/Resources/Gowin_EDA/IDE/bin/gw_sh"
+    },
+    {
+      "detail": "absolute reference has no declared checkout relocation",
+      "kind": "unresolved_path",
+      "origin": "work/phase6/engine-candidate-rtl-v2/physical/screen-v1/plan.json@d4829f2c7320f047e8b96c10b593089189d338cc662f240e5925e037a0dfac15",
+      "reference": "/Applications/GowinIDE.app/Contents/Resources/Gowin_EDA/IDE/bin/gw_sh"
+    },
+    {
+      "detail": "absolute reference has no declared checkout relocation",
+      "kind": "unresolved_path",
+      "origin": "work/phase6/engine-candidate-rtl-v2/route27/inputs.json@64d9132bed8d427996d1dcf2ab0cf0201e964e57be0998b4a1ea78ec1610a98e",
+      "reference": "/Applications/GowinIDE.app/Contents/Resources/Gowin_EDA/IDE/bin/gw_sh"
+    },
+    {
+      "detail": "absolute reference has no declared checkout relocation",
+      "kind": "unresolved_path",
+      "origin": "work/phase6/engine-candidate-rtl-v2/route27/report.json@cdcf93698a34dbea7f9f7c31ba549e8232a88f669fb490ff6e882f9d0fe6317e",
+      "reference": "/Applications/GowinIDE.app/Contents/Resources/Gowin_EDA/IDE/bin/gw_sh"
+    }
+  ],
+  "manifest_sha256": "19c65be33317e26a5023da00847f046d3441d0b39d7705e3b1114c375a6a2792",
+  "portable_archives": {
+    "matched-v1": {
+      "compressed_bytes": 1373922,
+      "directory": "portable/matched-v1",
+      "files": 111,
+      "limitations": "Portable evidence archive, not an EDA/compiler toolchain distribution or full reproducible environment image.",
+      "manifest_sha256": "3919dbd0c4d6cb984e45dd1aa67ad08c57570e7c8552aaa9c40b01c80f05ddee",
+      "status": "passed",
+      "uncompressed_bytes": 11467198
+    },
+    "screen-v1": {
+      "compressed_bytes": 1366742,
+      "directory": "portable/screen-v1",
+      "files": 110,
+      "limitations": "Portable evidence archive, not an EDA/compiler toolchain distribution or full reproducible environment image.",
+      "manifest_sha256": "7a68708d2d536361bd4c244780778d125748a7ff4d81f07abb8781bb6b83e7b2",
+      "status": "passed",
+      "uncompressed_bytes": 11426908
+    }
+  },
+  "status": "verified",
+  "workspace_checked": true
+}

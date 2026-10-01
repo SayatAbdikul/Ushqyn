@@ -1,0 +1,7 @@
+{
+  "archive_bytes": 6528488,
+  "archive_sha256": "9667eb455257ee107eba7e812475376c075926ba60d2cb5accdaeaf93be5c321",
+  "files_checked": 421,
+  "manifest_sha256": "19c4136932370824b0f04084a790342e761da1425706c9abfafa9a66c1566040",
+  "status": "passed-streaming-archive-verification"
+}
