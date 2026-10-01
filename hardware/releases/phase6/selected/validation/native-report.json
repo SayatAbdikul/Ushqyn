@@ -1,0 +1,423 @@
+{
+  "build_jobs": 2,
+  "build_log_sha256": "f2e27a807707dc34de642d7f78f290c1213835d76b392bf9f6494d589402edd4",
+  "build_seconds": 0.12823966699943412,
+  "completed": 8,
+  "executable_sha256": "f025d789f017c651d06efa1c857065b302c43e011d6c10ac2b56108fd1b3ae1d",
+  "physical_board": false,
+  "release_verification": {
+    "bitstream_sha256": "eaf74e99519d3dfac876bf21e9087dd005071bb8b8682d3f8ae6fb23bb76644d",
+    "fixture_checks": {
+      "kws-pinned": [
+        {
+          "address": 8000,
+          "bytes": 12,
+          "file": "output.bin"
+        }
+      ],
+      "kws-stress": [
+        {
+          "address": 8000,
+          "bytes": 12,
+          "file": "output.bin"
+        },
+        {
+          "address": 60080,
+          "bytes": 8000,
+          "file": "layer-2.bin"
+        },
+        {
+          "address": 76080,
+          "bytes": 8000,
+          "file": "layer-4.bin"
+        },
+        {
+          "address": 92080,
+          "bytes": 8000,
+          "file": "layer-6.bin"
+        },
+        {
+          "address": 108080,
+          "bytes": 8000,
+          "file": "layer-8.bin"
+        },
+        {
+          "address": 124080,
+          "bytes": 8000,
+          "file": "layer-10.bin"
+        },
+        {
+          "address": 140080,
+          "bytes": 8000,
+          "file": "layer-12.bin"
+        },
+        {
+          "address": 156080,
+          "bytes": 8000,
+          "file": "layer-14.bin"
+        },
+        {
+          "address": 172080,
+          "bytes": 8000,
+          "file": "layer-16.bin"
+        },
+        {
+          "address": 188080,
+          "bytes": 8000,
+          "file": "layer-18.bin"
+        },
+        {
+          "address": 196080,
+          "bytes": 64,
+          "file": "layer-19.bin"
+        },
+        {
+          "address": 196144,
+          "bytes": 12,
+          "file": "layer-21.bin"
+        }
+      ],
+      "vww-pinned": [
+        {
+          "address": 0,
+          "bytes": 2,
+          "file": "output.bin"
+        }
+      ],
+      "vww-stress": [
+        {
+          "address": 0,
+          "bytes": 2,
+          "file": "output.bin"
+        }
+      ]
+    },
+    "manifest_sha256": "ebedf480e69efb8c0cd12a8de77bc18b2400fd83a6202b1920dfab97f600b8f0",
+    "physical_board_accessed": false,
+    "physical_records": 14,
+    "physical_sources": 18,
+    "status": "passed-selected-release-verification"
+  },
+  "release_verification_after": {
+    "bitstream_sha256": "eaf74e99519d3dfac876bf21e9087dd005071bb8b8682d3f8ae6fb23bb76644d",
+    "fixture_checks": {
+      "kws-pinned": [
+        {
+          "address": 8000,
+          "bytes": 12,
+          "file": "output.bin"
+        }
+      ],
+      "kws-stress": [
+        {
+          "address": 8000,
+          "bytes": 12,
+          "file": "output.bin"
+        },
+        {
+          "address": 60080,
+          "bytes": 8000,
+          "file": "layer-2.bin"
+        },
+        {
+          "address": 76080,
+          "bytes": 8000,
+          "file": "layer-4.bin"
+        },
+        {
+          "address": 92080,
+          "bytes": 8000,
+          "file": "layer-6.bin"
+        },
+        {
+          "address": 108080,
+          "bytes": 8000,
+          "file": "layer-8.bin"
+        },
+        {
+          "address": 124080,
+          "bytes": 8000,
+          "file": "layer-10.bin"
+        },
+        {
+          "address": 140080,
+          "bytes": 8000,
+          "file": "layer-12.bin"
+        },
+        {
+          "address": 156080,
+          "bytes": 8000,
+          "file": "layer-14.bin"
+        },
+        {
+          "address": 172080,
+          "bytes": 8000,
+          "file": "layer-16.bin"
+        },
+        {
+          "address": 188080,
+          "bytes": 8000,
+          "file": "layer-18.bin"
+        },
+        {
+          "address": 196080,
+          "bytes": 64,
+          "file": "layer-19.bin"
+        },
+        {
+          "address": 196144,
+          "bytes": 12,
+          "file": "layer-21.bin"
+        }
+      ],
+      "vww-pinned": [
+        {
+          "address": 0,
+          "bytes": 2,
+          "file": "output.bin"
+        }
+      ],
+      "vww-stress": [
+        {
+          "address": 0,
+          "bytes": 2,
+          "file": "output.bin"
+        }
+      ]
+    },
+    "manifest_sha256": "ebedf480e69efb8c0cd12a8de77bc18b2400fd83a6202b1920dfab97f600b8f0",
+    "physical_board_accessed": false,
+    "physical_records": 14,
+    "physical_sources": 18,
+    "status": "passed-selected-release-verification"
+  },
+  "results": [
+    {
+      "dma_cycles": 14243,
+      "elapsed_cycles": 1099170,
+      "engine_cycles": 1087527,
+      "fixture": "kws-pinned",
+      "fixture_files": {
+        "checks.txt": "0258c1889f1aa327b0b54f378d72d77fb1ca4c7d56dd168ad464a3ec0d7df35c",
+        "commands.bin": "6f4499cd0b5f87cc49230c0afe4ffec07806741978660762cd7a5e5ffda3fe31",
+        "input.bin": "5f4ad0b2d11bf1cccab552fb5a4d95d082b70f2d1fe2459127673d270cb1cdf4",
+        "output.bin": "ce178213db2ef2aa27d0b532e4a17851cfef1772ad74b2fc7a95311b4a6714a7",
+        "payload.bin": "04cd8f5e9023b178962b74e18e27aeb85ce91a8b8fce9b05f0f2085ef9d120be",
+        "schedule.json": "ad07b5876083b88d09bb20bfb2a5a695c2bb1c33c371b280c870b59c4560deca"
+      },
+      "overlap_cycles": 2949,
+      "physical_board": false,
+      "report": "hardware/releases/phase6/selected/validation/kws-pinned-s0.json",
+      "report_sha256": "162e4d8c5717677d609c189a6cbfc4709781cdd63ed4e3088e05ebeafeccf849",
+      "stall_seed": 0,
+      "status": "passed",
+      "tensor_checks": 1,
+      "total_simulated_cycles": 1103912
+    },
+    {
+      "dma_cycles": 24631,
+      "elapsed_cycles": 1107562,
+      "engine_cycles": 1087548,
+      "fixture": "kws-pinned",
+      "fixture_files": {
+        "checks.txt": "0258c1889f1aa327b0b54f378d72d77fb1ca4c7d56dd168ad464a3ec0d7df35c",
+        "commands.bin": "6f4499cd0b5f87cc49230c0afe4ffec07806741978660762cd7a5e5ffda3fe31",
+        "input.bin": "5f4ad0b2d11bf1cccab552fb5a4d95d082b70f2d1fe2459127673d270cb1cdf4",
+        "output.bin": "ce178213db2ef2aa27d0b532e4a17851cfef1772ad74b2fc7a95311b4a6714a7",
+        "payload.bin": "04cd8f5e9023b178962b74e18e27aeb85ce91a8b8fce9b05f0f2085ef9d120be",
+        "schedule.json": "ad07b5876083b88d09bb20bfb2a5a695c2bb1c33c371b280c870b59c4560deca"
+      },
+      "overlap_cycles": 4966,
+      "physical_board": false,
+      "report": "hardware/releases/phase6/selected/validation/kws-pinned-s6063.json",
+      "report_sha256": "f2acf0400578c7cf5e47baf27f0cc21402a88301d2523e36b64e791bf9e6a8c0",
+      "stall_seed": 6063,
+      "status": "passed",
+      "tensor_checks": 1,
+      "total_simulated_cycles": 1112304
+    },
+    {
+      "dma_cycles": 41284,
+      "elapsed_cycles": 1126299,
+      "engine_cycles": 1087527,
+      "fixture": "kws-stress",
+      "fixture_files": {
+        "checks.txt": "2d18470a57e89a802f01f54f1b0d4b3a631de84b21924811bee2f7061c9e3731",
+        "commands.bin": "bc063586dfac0d09b4646efe921a584b05ccb7acf14dcf220ea9f2350e82cfcf",
+        "input.bin": "f5a39d28d31a28fb07370194433bdc062491431bc7f44f6506f61c80d754d14b",
+        "layer-10.bin": "4981413095f737e799b712b7f0fead325e82ffa833300227f70f678418d6e839",
+        "layer-12.bin": "2a625897110d333c304063a2ff9abf911307fe4361579f8336d28bb9e50f2560",
+        "layer-14.bin": "4b13174d73756c5db379b393a41170eadfdf5ffbe73639460879c0166257fcaa",
+        "layer-16.bin": "f86a2ebd9c8f52b07794b86d5c2faf467f3f559673cff9e53324d7ba5c1f33c7",
+        "layer-18.bin": "9cfa22658feb32e676bdd08b95769b9a2638adf74f5bea32f9453f5d2343dc03",
+        "layer-19.bin": "123cfb6e6cbdfe561a5f5373fc5613c65d3d320c8556921cb19a652e19655c26",
+        "layer-2.bin": "c5b0bf2801da4d630c2758b7fb4a9308b2f78705679e686afe23b3fa8829a1fb",
+        "layer-21.bin": "a2a31ffdb59a4e5f17533f482eaee838b12c814427ec4671a7f10cb89c09114d",
+        "layer-4.bin": "61f0781511619ccd1982bd2a32895fc8ab8dda71325e88790d8d413dfd6e566e",
+        "layer-6.bin": "83335e5e14abb75203c23e48266a9dfa06c81a0efdcb29239ab6e1f899d8ae0c",
+        "layer-8.bin": "e0bb120602114506a6e9767f578baf0380e0a008063bc63e53fd6d16ff1c03a8",
+        "output.bin": "a2a31ffdb59a4e5f17533f482eaee838b12c814427ec4671a7f10cb89c09114d",
+        "payload.bin": "f6209271176798d3ba44ddd8df1c2fc029329c0b497c19c1e4a3a12473f53bbd",
+        "schedule.json": "525ca9f98984792ff11d63ed957b98e7e8d7a5f58a5668958ee6d324fa36eb03"
+      },
+      "overlap_cycles": 2949,
+      "physical_board": false,
+      "report": "hardware/releases/phase6/selected/validation/kws-stress-s0.json",
+      "report_sha256": "75e06d468c0c54aa39b689720deab300c58b9cc7326815836db75d22af21bc68",
+      "stall_seed": 0,
+      "status": "passed",
+      "tensor_checks": 12,
+      "total_simulated_cycles": 1131935
+    },
+    {
+      "dma_cycles": 54135,
+      "elapsed_cycles": 1137193,
+      "engine_cycles": 1087550,
+      "fixture": "kws-stress",
+      "fixture_files": {
+        "checks.txt": "2d18470a57e89a802f01f54f1b0d4b3a631de84b21924811bee2f7061c9e3731",
+        "commands.bin": "bc063586dfac0d09b4646efe921a584b05ccb7acf14dcf220ea9f2350e82cfcf",
+        "input.bin": "f5a39d28d31a28fb07370194433bdc062491431bc7f44f6506f61c80d754d14b",
+        "layer-10.bin": "4981413095f737e799b712b7f0fead325e82ffa833300227f70f678418d6e839",
+        "layer-12.bin": "2a625897110d333c304063a2ff9abf911307fe4361579f8336d28bb9e50f2560",
+        "layer-14.bin": "4b13174d73756c5db379b393a41170eadfdf5ffbe73639460879c0166257fcaa",
+        "layer-16.bin": "f86a2ebd9c8f52b07794b86d5c2faf467f3f559673cff9e53324d7ba5c1f33c7",
+        "layer-18.bin": "9cfa22658feb32e676bdd08b95769b9a2638adf74f5bea32f9453f5d2343dc03",
+        "layer-19.bin": "123cfb6e6cbdfe561a5f5373fc5613c65d3d320c8556921cb19a652e19655c26",
+        "layer-2.bin": "c5b0bf2801da4d630c2758b7fb4a9308b2f78705679e686afe23b3fa8829a1fb",
+        "layer-21.bin": "a2a31ffdb59a4e5f17533f482eaee838b12c814427ec4671a7f10cb89c09114d",
+        "layer-4.bin": "61f0781511619ccd1982bd2a32895fc8ab8dda71325e88790d8d413dfd6e566e",
+        "layer-6.bin": "83335e5e14abb75203c23e48266a9dfa06c81a0efdcb29239ab6e1f899d8ae0c",
+        "layer-8.bin": "e0bb120602114506a6e9767f578baf0380e0a008063bc63e53fd6d16ff1c03a8",
+        "output.bin": "a2a31ffdb59a4e5f17533f482eaee838b12c814427ec4671a7f10cb89c09114d",
+        "payload.bin": "f6209271176798d3ba44ddd8df1c2fc029329c0b497c19c1e4a3a12473f53bbd",
+        "schedule.json": "525ca9f98984792ff11d63ed957b98e7e8d7a5f58a5668958ee6d324fa36eb03"
+      },
+      "overlap_cycles": 4929,
+      "physical_board": false,
+      "report": "hardware/releases/phase6/selected/validation/kws-stress-s6063.json",
+      "report_sha256": "93042ded113ae956128384b644162823245324a637c7c2ba789c71eacf41ac9f",
+      "stall_seed": 6063,
+      "status": "passed",
+      "tensor_checks": 12,
+      "total_simulated_cycles": 1142829
+    },
+    {
+      "dma_cycles": 80214,
+      "elapsed_cycles": 2014205,
+      "engine_cycles": 1930881,
+      "fixture": "vww-pinned",
+      "fixture_files": {
+        "checks.txt": "c91d3e53abe149b8e2c5a0cd46e59a07f922c7fdbec06740c67b828eddbfc0a7",
+        "commands.bin": "62f8a4ed24b212dd69377539820712685b515b2bcd0f3a8a5b85f82d561a2e96",
+        "input.bin": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+        "output.bin": "6a0cfa0be8aa6d3a3137a6926b09aa569b91c44d1b845612779c2d55e019dbc2",
+        "payload.bin": "ec7aa697527c5aa8bf14612cc4cde7f309a1df86c84e00970368960367f50afc",
+        "schedule.json": "ee96547186d4d4f749f87995df1e697bababeb51fc0a777d6d62ed752ea968e0"
+      },
+      "overlap_cycles": 759,
+      "physical_board": false,
+      "report": "hardware/releases/phase6/selected/validation/vww-pinned-s0.json",
+      "report_sha256": "7d454ce06a787268b0eed730194810a63391c2903c59a4c03e3aed598d57f17a",
+      "stall_seed": 0,
+      "status": "passed",
+      "tensor_checks": 1,
+      "total_simulated_cycles": 2054803
+    },
+    {
+      "dma_cycles": 125896,
+      "elapsed_cycles": 2059395,
+      "engine_cycles": 1930879,
+      "fixture": "vww-pinned",
+      "fixture_files": {
+        "checks.txt": "c91d3e53abe149b8e2c5a0cd46e59a07f922c7fdbec06740c67b828eddbfc0a7",
+        "commands.bin": "62f8a4ed24b212dd69377539820712685b515b2bcd0f3a8a5b85f82d561a2e96",
+        "input.bin": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+        "output.bin": "6a0cfa0be8aa6d3a3137a6926b09aa569b91c44d1b845612779c2d55e019dbc2",
+        "payload.bin": "ec7aa697527c5aa8bf14612cc4cde7f309a1df86c84e00970368960367f50afc",
+        "schedule.json": "ee96547186d4d4f749f87995df1e697bababeb51fc0a777d6d62ed752ea968e0"
+      },
+      "overlap_cycles": 1249,
+      "physical_board": false,
+      "report": "hardware/releases/phase6/selected/validation/vww-pinned-s6063.json",
+      "report_sha256": "76537355124267ab7298ad62710a98fe735662927fc712921bf98f221598d535",
+      "stall_seed": 6063,
+      "status": "passed",
+      "tensor_checks": 1,
+      "total_simulated_cycles": 2099993
+    },
+    {
+      "dma_cycles": 80214,
+      "elapsed_cycles": 2014205,
+      "engine_cycles": 1930881,
+      "fixture": "vww-stress",
+      "fixture_files": {
+        "checks.txt": "c91d3e53abe149b8e2c5a0cd46e59a07f922c7fdbec06740c67b828eddbfc0a7",
+        "commands.bin": "62f8a4ed24b212dd69377539820712685b515b2bcd0f3a8a5b85f82d561a2e96",
+        "input.bin": "6bc2750f0f7644d3fdbade499feb315094ee9ca51e868f14c3d897d96fe13988",
+        "output.bin": "e8023ba9eb60c761f277a6b45509ba8a62045a9dc67ccc1b29626ced54fe4ffb",
+        "payload.bin": "ec7aa697527c5aa8bf14612cc4cde7f309a1df86c84e00970368960367f50afc",
+        "schedule.json": "72beeecb59fca56bcd295d976298085bfdf46ee876ef5016bb06ae8e634373ca"
+      },
+      "overlap_cycles": 759,
+      "physical_board": false,
+      "report": "hardware/releases/phase6/selected/validation/vww-stress-s0.json",
+      "report_sha256": "7d454ce06a787268b0eed730194810a63391c2903c59a4c03e3aed598d57f17a",
+      "stall_seed": 0,
+      "status": "passed",
+      "tensor_checks": 1,
+      "total_simulated_cycles": 2054803
+    },
+    {
+      "dma_cycles": 125896,
+      "elapsed_cycles": 2059395,
+      "engine_cycles": 1930879,
+      "fixture": "vww-stress",
+      "fixture_files": {
+        "checks.txt": "c91d3e53abe149b8e2c5a0cd46e59a07f922c7fdbec06740c67b828eddbfc0a7",
+        "commands.bin": "62f8a4ed24b212dd69377539820712685b515b2bcd0f3a8a5b85f82d561a2e96",
+        "input.bin": "6bc2750f0f7644d3fdbade499feb315094ee9ca51e868f14c3d897d96fe13988",
+        "output.bin": "e8023ba9eb60c761f277a6b45509ba8a62045a9dc67ccc1b29626ced54fe4ffb",
+        "payload.bin": "ec7aa697527c5aa8bf14612cc4cde7f309a1df86c84e00970368960367f50afc",
+        "schedule.json": "72beeecb59fca56bcd295d976298085bfdf46ee876ef5016bb06ae8e634373ca"
+      },
+      "overlap_cycles": 1249,
+      "physical_board": false,
+      "report": "hardware/releases/phase6/selected/validation/vww-stress-s6063.json",
+      "report_sha256": "76537355124267ab7298ad62710a98fe735662927fc712921bf98f221598d535",
+      "stall_seed": 6063,
+      "status": "passed",
+      "tensor_checks": 1,
+      "total_simulated_cycles": 2099993
+    }
+  ],
+  "scope": "Exact sequencer/engine/SRAM/DMA with abstract fixed/stalled external RAM; not physical SDRAM latency",
+  "source_sha256": {
+    "hardware/phase4_sdram/bist.sdc": "6d8bbb0169f52a717de400a89fb3046edcd07ee3c16a0e2997a2aec7a1e56f6b",
+    "hardware/phase4_sdram/tiled_host.cst": "c643c6e072d3ce570a8bb87637845b250594ce095b33ae27a273e6afb748445d",
+    "hardware/phase6/build_selected27.tcl": "955195a717634a76ce03894d60d72b88fed2138cc53191923ed77889bac328de",
+    "hardware/phase6/selected_host27.sv": "ea71d3e96a519d97727a5c96c5542e5e4cf56ce0e0ac29cbc7f632e5bdea30ac",
+    "hardware/phase6/selected_pll27.v": "eb0ed32f570e9665f25ce9903cad408058d1ab9824b840ca20cb8a715c9339b3",
+    "hardware/releases/phase6/selected/manifest.json": "ebedf480e69efb8c0cd12a8de77bc18b2400fd83a6202b1920dfab97f600b8f0",
+    "rtl/phase6/selected_engine.sv": "9f934dcc27ae891e4c7b8b84bcc4b65e82d903492c1867572784fbe1cd9484ee",
+    "rtl/phase6/uart_burst_bridge.sv": "a3abca85ee95c86c2a83916f9ce2508c79def04a3588b1525e8b29a63826d6af",
+    "rtl/phase6/uart_burst_command.sv": "17bcccbd0139c8c5f0472e20e345d9df79a20aed236b979e0cc1c3193261dd05",
+    "rtl/v2/command.sv": "e574d1eec72d747931707a37ca79a45718dffb1ddae8cca88301a496c9ab67b7",
+    "rtl/v2/hs_sdram_burst_port.sv": "3eb45a79185c09d822e2cb8398ce4cc2413478daa232a3178baa8c7e05859dc0",
+    "rtl/v2/requantizer.sv": "e40913b484ad629d2445cdfb3edf16d6508f273ce0d4a5855d114780fe0a9e4b",
+    "rtl/v2/scratchpad.sv": "bfdab92e5f5f039e102b76fad82fe6a8df2d7f64d1b2cffd23cc677626654cd2",
+    "rtl/v2/sdram_refresh.sv": "9b9bfb8c05011ce2d84e9838697ab65ec587dfb3310684d4c37b853e8dcb21ec",
+    "rtl/v2/target_pkg.sv": "52e649f8911e92452cfef5cce9b1ad4e5dd75d20f4a725c67ee391fe75daae6e",
+    "rtl/v2/tile_dma.sv": "94e94a4a8c474fd2f0824dff3cc64bca921262cd9e0bf53064713376c1a09ab9",
+    "rtl/v2/tile_sequencer.sv": "defa57da3cd7748d28a628e8e09eb8a843d7a02aa29d9386b3e5d99dcb8e8f0e",
+    "rtl/v2/tiled_core.sv": "30b7ec281a044e10e50209204dbd4a99e56768edb422fe8e1fc22fde6e661068",
+    "rtl/v2/tiled_host_bridge.sv": "6ce7c9a03b5ec547fe509b296ea11631c1dafef06664e7bec37f72c60a1a9a9d",
+    "rtl/v2/uart_rx.sv": "4c5499b744202962204c4179b977e2e7fc6e4cc236250e12095d4c9d7681d337",
+    "rtl/v2/uart_tx.sv": "a3ace5523e30af83438478ad82f54a12fcd5aca07e38dbc4e3b46cc46f3af1f1",
+    "test/phase6/native.cpp": "dd95ac7b71aa6679d23ff22542c6f54af88b7c2275a6a04936550c8f43529c46",
+    "tools/phase6/selected_release.py": "bf589317e86e418fcd721dd20902719b8ea425872976cfc7aa789cb93c2943bb",
+    "work/phase4/ip-generated/sdram_controller_hs.v": "3166bcfd473e7af6cbf80110ad952279c0209821dbbde4ee26d8a2d558dcee3d"
+  },
+  "status": "passed-selected-release-native",
+  "tool_version": "Verilator 5.044 2026-01-01 rev vUNKNOWN-built20260101"
+}

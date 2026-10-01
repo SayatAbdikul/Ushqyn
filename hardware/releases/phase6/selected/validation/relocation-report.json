@@ -1,0 +1,196 @@
+{
+  "copied_files": 62,
+  "driver_sha256": "bf589317e86e418fcd721dd20902719b8ea425872976cfc7aa789cb93c2943bb",
+  "manifest_sha256": "ebedf480e69efb8c0cd12a8de77bc18b2400fd83a6202b1920dfab97f600b8f0",
+  "physical_board_accessed": false,
+  "results": {
+    "materialize": {
+      "bitstream_sha256": "eaf74e99519d3dfac876bf21e9087dd005071bb8b8682d3f8ae6fb23bb76644d",
+      "fixture_checks": {
+        "kws-pinned": [
+          {
+            "address": 8000,
+            "bytes": 12,
+            "file": "output.bin"
+          }
+        ],
+        "kws-stress": [
+          {
+            "address": 8000,
+            "bytes": 12,
+            "file": "output.bin"
+          },
+          {
+            "address": 60080,
+            "bytes": 8000,
+            "file": "layer-2.bin"
+          },
+          {
+            "address": 76080,
+            "bytes": 8000,
+            "file": "layer-4.bin"
+          },
+          {
+            "address": 92080,
+            "bytes": 8000,
+            "file": "layer-6.bin"
+          },
+          {
+            "address": 108080,
+            "bytes": 8000,
+            "file": "layer-8.bin"
+          },
+          {
+            "address": 124080,
+            "bytes": 8000,
+            "file": "layer-10.bin"
+          },
+          {
+            "address": 140080,
+            "bytes": 8000,
+            "file": "layer-12.bin"
+          },
+          {
+            "address": 156080,
+            "bytes": 8000,
+            "file": "layer-14.bin"
+          },
+          {
+            "address": 172080,
+            "bytes": 8000,
+            "file": "layer-16.bin"
+          },
+          {
+            "address": 188080,
+            "bytes": 8000,
+            "file": "layer-18.bin"
+          },
+          {
+            "address": 196080,
+            "bytes": 64,
+            "file": "layer-19.bin"
+          },
+          {
+            "address": 196144,
+            "bytes": 12,
+            "file": "layer-21.bin"
+          }
+        ],
+        "vww-pinned": [
+          {
+            "address": 0,
+            "bytes": 2,
+            "file": "output.bin"
+          }
+        ],
+        "vww-stress": [
+          {
+            "address": 0,
+            "bytes": 2,
+            "file": "output.bin"
+          }
+        ]
+      },
+      "manifest_sha256": "ebedf480e69efb8c0cd12a8de77bc18b2400fd83a6202b1920dfab97f600b8f0",
+      "physical_board_accessed": false,
+      "physical_records": 14,
+      "physical_sources": 18,
+      "status": "passed-selected-release-verification"
+    },
+    "verify": {
+      "bitstream_sha256": "eaf74e99519d3dfac876bf21e9087dd005071bb8b8682d3f8ae6fb23bb76644d",
+      "fixture_checks": {
+        "kws-pinned": [
+          {
+            "address": 8000,
+            "bytes": 12,
+            "file": "output.bin"
+          }
+        ],
+        "kws-stress": [
+          {
+            "address": 8000,
+            "bytes": 12,
+            "file": "output.bin"
+          },
+          {
+            "address": 60080,
+            "bytes": 8000,
+            "file": "layer-2.bin"
+          },
+          {
+            "address": 76080,
+            "bytes": 8000,
+            "file": "layer-4.bin"
+          },
+          {
+            "address": 92080,
+            "bytes": 8000,
+            "file": "layer-6.bin"
+          },
+          {
+            "address": 108080,
+            "bytes": 8000,
+            "file": "layer-8.bin"
+          },
+          {
+            "address": 124080,
+            "bytes": 8000,
+            "file": "layer-10.bin"
+          },
+          {
+            "address": 140080,
+            "bytes": 8000,
+            "file": "layer-12.bin"
+          },
+          {
+            "address": 156080,
+            "bytes": 8000,
+            "file": "layer-14.bin"
+          },
+          {
+            "address": 172080,
+            "bytes": 8000,
+            "file": "layer-16.bin"
+          },
+          {
+            "address": 188080,
+            "bytes": 8000,
+            "file": "layer-18.bin"
+          },
+          {
+            "address": 196080,
+            "bytes": 64,
+            "file": "layer-19.bin"
+          },
+          {
+            "address": 196144,
+            "bytes": 12,
+            "file": "layer-21.bin"
+          }
+        ],
+        "vww-pinned": [
+          {
+            "address": 0,
+            "bytes": 2,
+            "file": "output.bin"
+          }
+        ],
+        "vww-stress": [
+          {
+            "address": 0,
+            "bytes": 2,
+            "file": "output.bin"
+          }
+        ]
+      },
+      "manifest_sha256": "ebedf480e69efb8c0cd12a8de77bc18b2400fd83a6202b1920dfab97f600b8f0",
+      "physical_board_accessed": false,
+      "physical_records": 14,
+      "physical_sources": 18,
+      "status": "passed-selected-release-verification"
+    }
+  },
+  "scope": "Materialize and verify copied release in an independent checkout path without original worktree or original work products",
+  "status": "passed-selected-release-relocation"
+}

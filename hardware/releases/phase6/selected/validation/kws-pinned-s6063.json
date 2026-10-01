@@ -1,0 +1,1 @@
+{"status":"passed","physical_board":false,"stall_seed":6063,"tensor_checks":1,"elapsed_cycles":1107562,"engine_cycles":1087548,"dma_cycles":24631,"overlap_cycles":4966,"total_simulated_cycles":1112304}

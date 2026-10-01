@@ -1,0 +1,160 @@
+{
+  "activation_slot_bytes": 36864,
+  "command_count": 973,
+  "components": [
+    {
+      "configuration": {
+        "h": 6,
+        "kind": "rectangle",
+        "mode": 1,
+        "prefetch": true,
+        "resident_weights": true,
+        "retain": true,
+        "start": 1,
+        "stop": 3,
+        "w": 48
+      },
+      "first_command": 0,
+      "immutable_external_base": 73728,
+      "input_slot": 0,
+      "kind": "rectangle",
+      "last_command": 214,
+      "output_slot": 1,
+      "standalone_code_sha256": "c576c94b1fa96d5df2f65d14ab0d35183c66fd6dbc1f0dc062f28abd47659cfd",
+      "standalone_immutable_base": 46080,
+      "standalone_payload_sha256": "d21f13052d63d9764efafaf5904e82a7e0e90f091f6c1869e2dda733fad96efc",
+      "standalone_replay": {
+        "output_sha256": "2c636d036840a776b5d80fd40488846e9495f704a51cf7dd8ba53bb6ab4329c4",
+        "runs": 8,
+        "status": "passed"
+      },
+      "start": 1,
+      "stop": 3
+    },
+    {
+      "configuration": {
+        "h": 12,
+        "kind": "strip",
+        "mode": 1,
+        "prefetch": false,
+        "retain": false,
+        "start": 3,
+        "stop": 11,
+        "w": 24
+      },
+      "first_command": 214,
+      "immutable_external_base": 75392,
+      "input_slot": 1,
+      "kind": "strip",
+      "last_command": 454,
+      "output_slot": 0,
+      "standalone_code_sha256": "5ba51c92dc10c231bd9614000071a3ef7ec121d1cb9a2f7a1d9672ed63cf38bd",
+      "standalone_immutable_base": 36864,
+      "standalone_payload_sha256": "36482e932553a4f18517eb07379682452be7b6a3f3891f7a869c36d2fc4ccb88",
+      "standalone_replay": {
+        "engine_runs": 8,
+        "output_sha256": "bf9e0fb99ef2ae15eec295a4cdf49df7cb176ebcb5c922bfc13568e2c9ee9497",
+        "status": "passed",
+        "stripes": 2
+      },
+      "start": 3,
+      "stop": 11
+    },
+    {
+      "configuration": {
+        "h": 12,
+        "kind": "rectangle",
+        "mode": 1,
+        "prefetch": true,
+        "retain": true,
+        "start": 11,
+        "stop": 15,
+        "w": 24
+      },
+      "first_command": 454,
+      "immutable_external_base": 79616,
+      "input_slot": 0,
+      "kind": "rectangle",
+      "last_command": 750,
+      "output_slot": 1,
+      "standalone_code_sha256": "169e22156704f6a6c77f886f75e1b8310811bcc7c8e58b790f7a91673a1a4a85",
+      "standalone_immutable_base": 36864,
+      "standalone_payload_sha256": "97c7fdbd6bd0a2274afc18c1e53f725d8f5273ce86a71420dfffb7f6c725a8a1",
+      "standalone_replay": {
+        "output_sha256": "cb3063807da5c845c7fe9d8a52bab79126c4b0a1260e7c6e7f1c3fec0d6e5493",
+        "runs": 4,
+        "status": "passed"
+      },
+      "start": 11,
+      "stop": 15
+    },
+    {
+      "configuration": {
+        "h": 3,
+        "kind": "rectangle",
+        "mode": 1,
+        "prefetch": true,
+        "retain": true,
+        "start": 15,
+        "stop": 55,
+        "w": 3
+      },
+      "first_command": 750,
+      "immutable_external_base": 83200,
+      "input_slot": 1,
+      "kind": "rectangle",
+      "last_command": 954,
+      "output_slot": 0,
+      "standalone_code_sha256": "a0e117d1688484edc5777bee70cf7eab44cb5643dde5ccea7c6d20db6a53dc3e",
+      "standalone_immutable_base": 18632,
+      "standalone_payload_sha256": "0125366566109866bba659e0ea32218b5eff0e236e87405609ef9d1339c6d7e9",
+      "standalone_replay": {
+        "output_sha256": "6cb4426dad62786f80e7afcba54688de60b5a841bf1743bfa8d046c2e17f9337",
+        "runs": 20,
+        "status": "passed"
+      },
+      "start": 15,
+      "stop": 55
+    },
+    {
+      "configuration": {
+        "kind": "fallback",
+        "start": 55,
+        "stop": 58
+      },
+      "first_command": 954,
+      "immutable_external_base": 136320,
+      "input_slot": 0,
+      "kind": "fallback",
+      "last_command": 972,
+      "output_slot": 0,
+      "standalone_code_sha256": "89652a1ddab097570a4a862df5f22bd748c59ac2980f2e808243d939744f1fb8",
+      "standalone_immutable_base": 400,
+      "standalone_payload_sha256": "6929676a8d44b8f9d28c039844daa0e0132b303b9ddffe4907f424233808ab95",
+      "standalone_replay": {
+        "dma_bytes": {
+          "from_sram": 2,
+          "to_sram": 550
+        },
+        "engine_runs": 2,
+        "final_output_bytes": 2,
+        "scope": "symbolic command replay with independent integer oracle; no RTL timing proof",
+        "status": "passed"
+      },
+      "start": 55,
+      "stop": 58
+    }
+  ],
+  "final_output": {
+    "bytes": 2,
+    "ext": 0
+  },
+  "image_sha256": "ec7aa697527c5aa8bf14612cc4cde7f309a1df86c84e00970368960367f50afc",
+  "program_sha256": "62f8a4ed24b212dd69377539820712685b515b2bcd0f3a8a5b85f82d561a2e96",
+  "replay": {
+    "scope": "each segment independently replayed; relocation preserves two disjoint activation slots and immutable data; full composed RTL checked separately",
+    "status": "passed"
+  },
+  "schema": 1,
+  "snapshot_regions": {}
+}

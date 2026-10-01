@@ -1,5 +1,23 @@
 # Tang Nano 20K physical validation
 
+## Selected Phase 6 KWS/VWW release
+
+The current fastest board-tested KWS/VWW image is the
+[selected 27 MHz release](releases/phase6/selected/README.md), SHA256
+`eaf74e99519d3dfac876bf21e9087dd005071bb8b8682d3f8ae6fb23bb76644d`.
+It passes a 14-execution matched board screen with 41.450 ms KWS and 79.898 ms
+VWW median device time. The release pins the cached-weight co-issue engine,
+27 MHz host/PLL, 256-byte UART bridge at 750,000 baud and exact dense programs.
+
+Run `make p6-selected-check PYTHON="$PWD/.venv/bin/python3"` to verify sources,
+fixtures and signed records and extract `work/phase6/selected-release/selected_27mhz.fs`.
+The relocation-safe fresh-build recipe is `hardware/phase6/build_selected27.tcl`.
+No board is accessed by that verification or `make p6-selected-native`.
+For future physical reproduction, supply the exact selected `.fs` and the
+release's `fixtures/` directories to the Phase 6 board runner. A newly routed
+image needs its own validation and must not inherit the archived measurements.
+The phase-specific instructions below preserve the earlier release workflows.
+
 ## Phase 3 on-chip release
 
 Use active target ID **8196** and the Phase 3 closure image at

@@ -1,0 +1,320 @@
+{
+  "bitstream": {
+    "bytes": 7262008,
+    "gzip_sha256": "65dc2794e572e52dc81edab907aa13b73cfdf8205e2c8e1283f08580f1c6594b",
+    "path": "hardware/releases/phase6/selected/selected_27mhz.fs.gz",
+    "sha256": "eaf74e99519d3dfac876bf21e9087dd005071bb8b8682d3f8ae6fb23bb76644d"
+  },
+  "board_medians": {
+    "kws": {
+      "cycles": 1119142,
+      "device_latency_ms": 41.449703703703705
+    },
+    "vww": {
+      "cycles": 2157255,
+      "device_latency_ms": 79.89833333333333
+    }
+  },
+  "build_recipe": {
+    "changes": "Relocate root and three exact promoted source paths; arithmetic/interface/IP/constraints unchanged",
+    "path": "hardware/phase6/build_selected27.tcl",
+    "sha256": "955195a717634a76ce03894d60d72b88fed2138cc53191923ed77889bac328de"
+  },
+  "clock_hz": 27000000,
+  "device": "GW2AR-LV18QN88C8/I7",
+  "device_revision": "C",
+  "engine": "rtl/phase6/selected_engine.sv",
+  "external_address_bytes": 8388608,
+  "fixtures": {
+    "kws-pinned": {
+      "files": {
+        "checks.txt": "0258c1889f1aa327b0b54f378d72d77fb1ca4c7d56dd168ad464a3ec0d7df35c",
+        "commands.bin": "6f4499cd0b5f87cc49230c0afe4ffec07806741978660762cd7a5e5ffda3fe31",
+        "input.bin": "5f4ad0b2d11bf1cccab552fb5a4d95d082b70f2d1fe2459127673d270cb1cdf4",
+        "output.bin": "ce178213db2ef2aa27d0b532e4a17851cfef1772ad74b2fc7a95311b4a6714a7",
+        "payload.bin": "04cd8f5e9023b178962b74e18e27aeb85ce91a8b8fce9b05f0f2085ef9d120be",
+        "schedule.json": "ad07b5876083b88d09bb20bfb2a5a695c2bb1c33c371b280c870b59c4560deca"
+      },
+      "historical_path": "work/phase6/matched-baselines-v1/current-v4/fixtures/kws-pinned",
+      "native_expected": {
+        "0": {
+          "dma_cycles": 14243,
+          "elapsed_cycles": 1099170,
+          "engine_cycles": 1087527,
+          "overlap_cycles": 2949,
+          "tensor_checks": 1
+        },
+        "6063": {
+          "dma_cycles": 24631,
+          "elapsed_cycles": 1107562,
+          "engine_cycles": 1087548,
+          "overlap_cycles": 4966,
+          "tensor_checks": 1
+        }
+      },
+      "path": "hardware/releases/phase6/selected/fixtures/kws-pinned",
+      "tensor_checks": 1
+    },
+    "kws-stress": {
+      "files": {
+        "checks.txt": "2d18470a57e89a802f01f54f1b0d4b3a631de84b21924811bee2f7061c9e3731",
+        "commands.bin": "bc063586dfac0d09b4646efe921a584b05ccb7acf14dcf220ea9f2350e82cfcf",
+        "input.bin": "f5a39d28d31a28fb07370194433bdc062491431bc7f44f6506f61c80d754d14b",
+        "layer-10.bin": "4981413095f737e799b712b7f0fead325e82ffa833300227f70f678418d6e839",
+        "layer-12.bin": "2a625897110d333c304063a2ff9abf911307fe4361579f8336d28bb9e50f2560",
+        "layer-14.bin": "4b13174d73756c5db379b393a41170eadfdf5ffbe73639460879c0166257fcaa",
+        "layer-16.bin": "f86a2ebd9c8f52b07794b86d5c2faf467f3f559673cff9e53324d7ba5c1f33c7",
+        "layer-18.bin": "9cfa22658feb32e676bdd08b95769b9a2638adf74f5bea32f9453f5d2343dc03",
+        "layer-19.bin": "123cfb6e6cbdfe561a5f5373fc5613c65d3d320c8556921cb19a652e19655c26",
+        "layer-2.bin": "c5b0bf2801da4d630c2758b7fb4a9308b2f78705679e686afe23b3fa8829a1fb",
+        "layer-21.bin": "a2a31ffdb59a4e5f17533f482eaee838b12c814427ec4671a7f10cb89c09114d",
+        "layer-4.bin": "61f0781511619ccd1982bd2a32895fc8ab8dda71325e88790d8d413dfd6e566e",
+        "layer-6.bin": "83335e5e14abb75203c23e48266a9dfa06c81a0efdcb29239ab6e1f899d8ae0c",
+        "layer-8.bin": "e0bb120602114506a6e9767f578baf0380e0a008063bc63e53fd6d16ff1c03a8",
+        "output.bin": "a2a31ffdb59a4e5f17533f482eaee838b12c814427ec4671a7f10cb89c09114d",
+        "payload.bin": "f6209271176798d3ba44ddd8df1c2fc029329c0b497c19c1e4a3a12473f53bbd",
+        "schedule.json": "525ca9f98984792ff11d63ed957b98e7e8d7a5f58a5668958ee6d324fa36eb03"
+      },
+      "historical_path": "work/phase6/matched-baselines-v1/current-v4/fixtures/kws-stress",
+      "native_expected": {
+        "0": {
+          "dma_cycles": 41284,
+          "elapsed_cycles": 1126299,
+          "engine_cycles": 1087527,
+          "overlap_cycles": 2949,
+          "tensor_checks": 12
+        },
+        "6063": {
+          "dma_cycles": 54135,
+          "elapsed_cycles": 1137193,
+          "engine_cycles": 1087550,
+          "overlap_cycles": 4929,
+          "tensor_checks": 12
+        }
+      },
+      "path": "hardware/releases/phase6/selected/fixtures/kws-stress",
+      "tensor_checks": 12
+    },
+    "vww-pinned": {
+      "files": {
+        "checks.txt": "c91d3e53abe149b8e2c5a0cd46e59a07f922c7fdbec06740c67b828eddbfc0a7",
+        "commands.bin": "62f8a4ed24b212dd69377539820712685b515b2bcd0f3a8a5b85f82d561a2e96",
+        "input.bin": "36f713b17ba312fbde4ce14e16d3db83dd7057f37ba059c76eda21b4181ba52f",
+        "output.bin": "6a0cfa0be8aa6d3a3137a6926b09aa569b91c44d1b845612779c2d55e019dbc2",
+        "payload.bin": "ec7aa697527c5aa8bf14612cc4cde7f309a1df86c84e00970368960367f50afc",
+        "schedule.json": "ee96547186d4d4f749f87995df1e697bababeb51fc0a777d6d62ed752ea968e0"
+      },
+      "historical_path": "work/phase6/generic-b3-board-v2/fixtures/vww-pinned",
+      "native_expected": {
+        "0": {
+          "dma_cycles": 80214,
+          "elapsed_cycles": 2014205,
+          "engine_cycles": 1930881,
+          "overlap_cycles": 759,
+          "tensor_checks": 1
+        },
+        "6063": {
+          "dma_cycles": 125896,
+          "elapsed_cycles": 2059395,
+          "engine_cycles": 1930879,
+          "overlap_cycles": 1249,
+          "tensor_checks": 1
+        }
+      },
+      "path": "hardware/releases/phase6/selected/fixtures/vww-pinned",
+      "tensor_checks": 1
+    },
+    "vww-stress": {
+      "files": {
+        "checks.txt": "c91d3e53abe149b8e2c5a0cd46e59a07f922c7fdbec06740c67b828eddbfc0a7",
+        "commands.bin": "62f8a4ed24b212dd69377539820712685b515b2bcd0f3a8a5b85f82d561a2e96",
+        "input.bin": "6bc2750f0f7644d3fdbade499feb315094ee9ca51e868f14c3d897d96fe13988",
+        "output.bin": "e8023ba9eb60c761f277a6b45509ba8a62045a9dc67ccc1b29626ced54fe4ffb",
+        "payload.bin": "ec7aa697527c5aa8bf14612cc4cde7f309a1df86c84e00970368960367f50afc",
+        "schedule.json": "72beeecb59fca56bcd295d976298085bfdf46ee876ef5016bb06ae8e634373ca"
+      },
+      "historical_path": "work/phase6/generic-b3-board-v2/fixtures/vww-stress",
+      "native_expected": {
+        "0": {
+          "dma_cycles": 80214,
+          "elapsed_cycles": 2014205,
+          "engine_cycles": 1930881,
+          "overlap_cycles": 759,
+          "tensor_checks": 1
+        },
+        "6063": {
+          "dma_cycles": 125896,
+          "elapsed_cycles": 2059395,
+          "engine_cycles": 1930879,
+          "overlap_cycles": 1249,
+          "tensor_checks": 1
+        }
+      },
+      "path": "hardware/releases/phase6/selected/fixtures/vww-stress",
+      "tensor_checks": 1
+    }
+  },
+  "generated_ip": {
+    "archive_path": "docs/research/evidence/phase6/engine-candidate-v2/portable/matched-v1/artifacts/work/phase4/ip-generated/sdram_controller_hs.v.gz",
+    "bytes": 104499,
+    "classification": "Local encrypted Gowin build artifact; not project source",
+    "gzip_sha256": "62d5d5700c4916a205ad53a4a581ff28318da41c1d52c08bf5101567a48b9f93",
+    "path": "work/phase4/ip-generated/sdram_controller_hs.v",
+    "sha256": "3166bcfd473e7af6cbf80110ad952279c0209821dbbde4ee26d8a2d558dcee3d"
+  },
+  "hold_violated_endpoints": 0,
+  "limitations": [
+    "Pinned/stress exactness and short separate-session board screens, not full-dataset accuracy/endurance/energy.",
+    "Native external memory is an abstract stalled RAM; native cycles are not physical SDRAM latency.",
+    "The chosen frozen factorization and failed resident checkpoint controller remain experimental."
+  ],
+  "name": "Tang Nano 20K selected cached-weight co-issue accelerator",
+  "native_harness_sha256": "dd95ac7b71aa6679d23ff22542c6f54af88b7c2275a6a04936550c8f43529c46",
+  "physical_evidence": {
+    "archive_manifest": "docs/research/evidence/phase6/engine-candidate-v2/portable/matched-v1/manifest.json",
+    "files": {
+      "plan": {
+        "gzip_sha256": "9082b89808f7213a85bc1e5c28ac9b6d668d3ed40e8a11e4de4ad6326ef95d01",
+        "path": "docs/research/evidence/phase6/engine-candidate-v2/portable/matched-v1/artifacts/work/phase6/engine-candidate-rtl-v2/physical/matched-v1/plan.json.gz",
+        "sha256": "27ebc45c8de35ba198f632a9e01dd3c9d8dd71cee5c1f852e8e49d559cb87ebb"
+      },
+      "records": {
+        "gzip_sha256": "f2c2d090f024f5b7253db4c5fdaa1d69082db37045440b9bb5c2fd6922a8618f",
+        "path": "docs/research/evidence/phase6/engine-candidate-v2/portable/matched-v1/artifacts/work/phase6/engine-candidate-rtl-v2/physical/matched-v1/records.jsonl.gz",
+        "sha256": "e589eab3d2d85ae048a6c6e3c818833955b8feadea639f9b982afa908ac9f5b8"
+      },
+      "report": {
+        "gzip_sha256": "b081a56dd802ef2005bb1e1f54fa878836d8246e9c8ce14c8e53b5b0c018660c",
+        "path": "docs/research/evidence/phase6/engine-candidate-v2/portable/matched-v1/artifacts/work/phase6/engine-candidate-rtl-v2/physical/matched-v1/report.json.gz",
+        "sha256": "92d33e29721e9565c38f4b6b9c0671b0924cab9eb83892bd54168bcb14551e3d"
+      },
+      "seal": {
+        "gzip_sha256": "4c69e021e33e4ee9448a923f3774675f4a6b64a6f272a8003026fb8a9e5f56b1",
+        "path": "docs/research/evidence/phase6/engine-candidate-v2/portable/matched-v1/artifacts/work/phase6/engine-candidate-rtl-v2/physical/matched-v1/seal.json.gz",
+        "sha256": "7696c234848cc11a269b84db5f8d1962b34c1be1b3277fc52f94604f8ff7f206"
+      }
+    }
+  },
+  "physical_sources": {
+    "hardware/phase4_sdram/bist.sdc": {
+      "bytes": 215,
+      "original_path": "hardware/phase4_sdram/bist.sdc",
+      "sha256": "6d8bbb0169f52a717de400a89fb3046edcd07ee3c16a0e2997a2aec7a1e56f6b"
+    },
+    "hardware/phase4_sdram/tiled_host.cst": {
+      "bytes": 667,
+      "original_path": "hardware/phase4_sdram/tiled_host.cst",
+      "sha256": "c643c6e072d3ce570a8bb87637845b250594ce095b33ae27a273e6afb748445d"
+    },
+    "hardware/phase6/selected_host27.sv": {
+      "bytes": 2962,
+      "original_path": "work/phase6/pool-timing-v1/host27.sv",
+      "sha256": "ea71d3e96a519d97727a5c96c5542e5e4cf56ce0e0ac29cbc7f632e5bdea30ac"
+    },
+    "hardware/phase6/selected_pll27.v": {
+      "bytes": 645,
+      "original_path": "work/phase6/pool-timing-v1/pll27.v",
+      "sha256": "eb0ed32f570e9665f25ce9903cad408058d1ab9824b840ca20cb8a715c9339b3"
+    },
+    "rtl/phase6/selected_engine.sv": {
+      "bytes": 56851,
+      "original_path": "work/phase6/engine-candidate-rtl-v2/engine.sv",
+      "sha256": "9f934dcc27ae891e4c7b8b84bcc4b65e82d903492c1867572784fbe1cd9484ee"
+    },
+    "rtl/phase6/uart_burst_bridge.sv": {
+      "bytes": 14178,
+      "original_path": "rtl/phase6/uart_burst_bridge.sv",
+      "sha256": "a3abca85ee95c86c2a83916f9ce2508c79def04a3588b1525e8b29a63826d6af"
+    },
+    "rtl/phase6/uart_burst_command.sv": {
+      "bytes": 11398,
+      "original_path": "rtl/phase6/uart_burst_command.sv",
+      "sha256": "17bcccbd0139c8c5f0472e20e345d9df79a20aed236b979e0cc1c3193261dd05"
+    },
+    "rtl/v2/hs_sdram_burst_port.sv": {
+      "bytes": 7664,
+      "original_path": "rtl/v2/hs_sdram_burst_port.sv",
+      "sha256": "3eb45a79185c09d822e2cb8398ce4cc2413478daa232a3178baa8c7e05859dc0"
+    },
+    "rtl/v2/requantizer.sv": {
+      "bytes": 1384,
+      "original_path": "rtl/v2/requantizer.sv",
+      "sha256": "e40913b484ad629d2445cdfb3edf16d6508f273ce0d4a5855d114780fe0a9e4b"
+    },
+    "rtl/v2/scratchpad.sv": {
+      "bytes": 1368,
+      "original_path": "rtl/v2/scratchpad.sv",
+      "sha256": "bfdab92e5f5f039e102b76fad82fe6a8df2d7f64d1b2cffd23cc677626654cd2"
+    },
+    "rtl/v2/sdram_refresh.sv": {
+      "bytes": 2169,
+      "original_path": "rtl/v2/sdram_refresh.sv",
+      "sha256": "9b9bfb8c05011ce2d84e9838697ab65ec587dfb3310684d4c37b853e8dcb21ec"
+    },
+    "rtl/v2/target_pkg.sv": {
+      "bytes": 1047,
+      "original_path": "rtl/v2/target_pkg.sv",
+      "sha256": "52e649f8911e92452cfef5cce9b1ad4e5dd75d20f4a725c67ee391fe75daae6e"
+    },
+    "rtl/v2/tile_dma.sv": {
+      "bytes": 4360,
+      "original_path": "rtl/v2/tile_dma.sv",
+      "sha256": "94e94a4a8c474fd2f0824dff3cc64bca921262cd9e0bf53064713376c1a09ab9"
+    },
+    "rtl/v2/tile_sequencer.sv": {
+      "bytes": 6510,
+      "original_path": "rtl/v2/tile_sequencer.sv",
+      "sha256": "defa57da3cd7748d28a628e8e09eb8a843d7a02aa29d9386b3e5d99dcb8e8f0e"
+    },
+    "rtl/v2/tiled_core.sv": {
+      "bytes": 4878,
+      "original_path": "rtl/v2/tiled_core.sv",
+      "sha256": "30b7ec281a044e10e50209204dbd4a99e56768edb422fe8e1fc22fde6e661068"
+    },
+    "rtl/v2/uart_rx.sv": {
+      "bytes": 3013,
+      "original_path": "rtl/v2/uart_rx.sv",
+      "sha256": "4c5499b744202962204c4179b977e2e7fc6e4cc236250e12095d4c9d7681d337"
+    },
+    "rtl/v2/uart_tx.sv": {
+      "bytes": 3449,
+      "original_path": "rtl/v2/uart_tx.sv",
+      "sha256": "a3ace5523e30af83438478ad82f54a12fcd5aca07e38dbc4e3b46cc46f3af1f1"
+    },
+    "work/phase4/ip-generated/sdram_controller_hs.v": {
+      "bytes": 104499,
+      "original_path": "work/phase4/ip-generated/sdram_controller_hs.v",
+      "sha256": "3166bcfd473e7af6cbf80110ad952279c0209821dbbde4ee26d8a2d558dcee3d"
+    }
+  },
+  "program_bytes": 32768,
+  "resources": {
+    "BSRAM": {
+      "available": 46.0,
+      "used": 38.0
+    },
+    "CLS": {
+      "available": 10368.0,
+      "used": 10090.0
+    },
+    "DSP": {
+      "available": 24.0,
+      "used": 9.5
+    },
+    "Logic": {
+      "available": 20736.0,
+      "used": 18901.0
+    },
+    "Register": {
+      "available": 15915.0,
+      "used": 5230.0
+    }
+  },
+  "routed_core_fmax_mhz": 28.826,
+  "schema": 1,
+  "scratchpad_bytes": 32768,
+  "selection": "Fastest available board-tested KWS/VWW engine and exact compiled schedules; short-screen qualification",
+  "setup_violated_endpoints": 0,
+  "uart_baud": 750000,
+  "uart_burst_bytes": 256
+}

@@ -1,8 +1,11 @@
-**Current physical implementation:** [Phase 4](../docs/research/PHASE_4_STATUS.md)
-passes complete KWS/VWW schedules using on-board SDRAM and DMA at a declared
-20.25-MHz core clock. [Phase 5](../docs/research/PHASE_5_STATUS.md) adds a
-750-kbaud dual-resident release; full campaigns and fair baselines have their own
-gate. Use the current phase-specific release instructions, not historical images.
+**Current selected KWS/VWW implementation:** the
+[Phase 6 release](releases/phase6/selected/README.md) uses the cached-weight
+co-issue engine at 27 MHz with on-board SDRAM/DMA and 750,000-baud UART. Its
+14-execution matched screen is exact, with median device time of 41.450 ms KWS
+and 79.898 ms VWW. Sources, tested image and four fixtures are hash-pinned;
+`make p6-selected-check` and `make p6-selected-native` verify the release without
+board access. Earlier [Phase 4](../docs/research/PHASE_4_STATUS.md) and
+[Phase 5](../docs/research/PHASE_5_STATUS.md) releases remain historical baselines.
 [Phase 0 is closed](../docs/research/PHASE_0_CLOSURE.md) for claim/data/lab planning;
 physical power is still unmeasured.
 

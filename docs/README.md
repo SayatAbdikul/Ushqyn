@@ -4,12 +4,15 @@ Comprehensive documentation for the Ushqyn hardware accelerator.
 
 ## Overview
 
-Ushqyn (Ұшқын — Kazakh for *spark*) is an INT8 TinyML accelerator project. MLP and SmallCNN pass exact physical board execution. One deterministic input of each real KWS/VWW model passes every node on the physical board with autonomous scheduling and measured full-model DMA overlap. Phase 4 passes its engineering gate; energy remains unmeasured. See the [Phase 4 status](research/PHASE_4_STATUS.md) for current evidence. Older architecture and workflow sections below document the historical v1 implementation.
+Ushqyn (Ұшқын — Kazakh for *spark*) is an INT8 TinyML accelerator project. The [selected 27 MHz KWS/VWW release](../hardware/releases/phase6/selected/README.md) passes 14 matched exact board executions, with median device times of 41.450 ms KWS and 79.898 ms VWW. It includes source/image/fixture identities and eight fresh native runs. Earlier MLP/SmallCNN and autonomous Phase 4 layer checks remain archived separately. Energy, full endurance and a new architecture contribution remain open; see [Phase 6 status](research/PHASE_6_STATUS.md). Older architecture and workflow sections below document the historical v1 implementation.
 
 ## What's where
 
 ### Research planning
 
+- **[Selected accelerator](../hardware/releases/phase6/selected/README.md)** — current fastest board-tested KWS/VWW image, source/fixture manifest, build and validation commands.
+- **[Phase 6 status](research/PHASE_6_STATUS.md)** — matched accelerator results, integrated compiler baselines and current research limits.
+- **[Implementation decision round](research/PHASE_6_IMPLEMENTATION_DECISION_ROUND_2026_10_01.md)** — frozen factor, deadline-policy and resident-controller experiments.
 - **[Phase 4 status](research/PHASE_4_STATUS.md)** — autonomous physical audio/vision execution, burst DMA, validated static timing prediction and G4 closure.
 - **[Phase 3 status](research/PHASE_3_STATUS.md)** — G3-closed SmallCNN with source-matched RTL, route and 13,000 exact board jobs; see the [physical closure record](research/PHASE_3_CLOSURE.md).
 - **[Phase 2 status](research/PHASE_2_STATUS.md)** — historical routed MLP candidate and pending physical-board checks.

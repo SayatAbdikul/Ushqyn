@@ -1,5 +1,34 @@
 # Phase 6 — search and matched-baseline status
 
+**Selected release and integration (2026-10-01):** the
+[selected 27 MHz accelerator](../../hardware/releases/phase6/selected/README.md)
+publishes the byte-identical cached-weight co-issue RTL, tested image, four
+KWS/VWW pinned/stress fixtures and a relocation-safe build. The
+[matched engine experiment](PHASE_6_ENGINE_PROFILE_AND_PROTOTYPE_V1.md) passed
+14/14 exact physical executions, with median device latency **41.450 ms KWS**
+and **79.898 ms VWW**. Core Fmax is 28.826 MHz, with no setup/hold violations.
+Eight fresh native runs on the promoted source/fixtures reproduce all archived
+cycle counters. The current release remains short-screen qualified; **G6 and
+architectural novelty remain open**.
+
+**Implementation decision round (2026-10-01):** the
+[completed factor/policy/controller experiments](PHASE_6_IMPLEMENTATION_DECISION_ROUND_2026_10_01.md)
+find only 0.21% factor latency reduction against the optimized dense control,
+no overall selective-policy advantage over both uniform controls across the
+calibrated frozen trace grid, and a resident controller that passes 64 native
+checks but fails FPGA placement. These prototypes remain research evidence;
+the selected release uses the validated dense accelerator. Source and raw
+evidence archives are retained separately from new release validation.
+
+**Parallel compiler/hypothesis integration:** the
+[generic matched comparison](PHASE_6_GENERIC_MATCHED_BASELINES_V1.md) and
+[hypothesis decision](PHASE_6_HYPOTHESIS_DECISION_V2.md) retain the broader
+rectangle/strip/residency compiler and cost/search evidence from the parallel
+worktree. The generic driver is `matched_b1b2_generic.py`; the earlier
+`matched_b1b2.py` API and its completed physical workflow are preserved.
+These bounded adaptations and compiler improvements do not establish a new
+architecture contribution.
+
 **Matched baseline update (2026-09-28):** the
 [B1/B2/B4 campaign](PHASE_6_MATCHED_BASELINES_V1.md) passes 30/30 exact
 executions on one 27 MHz image. Native-tuned B1 and B2 receive the common graph,

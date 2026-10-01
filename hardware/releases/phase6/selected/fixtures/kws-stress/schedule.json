@@ -1,0 +1,693 @@
+{
+  "catalogue": "exact grouped producers with tagged INT8 activation epilogue",
+  "command_count": 131,
+  "constant_contracts": {},
+  "constant_filter": {
+    "enabled": false,
+    "reason": "no all-zero Conv output filters",
+    "skipped_dense_macs": 0,
+    "split_tiles": 0,
+    "zero_channels": 0
+  },
+  "final_output": {
+    "bytes": 12,
+    "ext": 8000
+  },
+  "fused": [
+    1,
+    3,
+    5,
+    7,
+    9,
+    11,
+    13,
+    15,
+    17
+  ],
+  "fusion": {
+    "fallback_pairs": 0,
+    "hidden_pre_activation_layers": [
+      1,
+      3,
+      5,
+      7,
+      9,
+      11,
+      13,
+      15,
+      17
+    ],
+    "pairs": 9,
+    "table_loads": 9,
+    "table_reloaded_every_descriptor": true
+  },
+  "image_sha256": "f6209271176798d3ba44ddd8df1c2fc029329c0b497c19c1e4a3a12473f53bbd",
+  "overlap_enabled": false,
+  "pack_contracts": {},
+  "padded_pointwise": false,
+  "prefer_half": false,
+  "prefetch_payload_bytes": 0,
+  "program_bytes": 2096,
+  "program_sha256": "bc063586dfac0d09b4646efe921a584b05ccb7acf14dcf220ea9f2350e82cfcf",
+  "redundant_loads_removed_bytes": 0,
+  "redundant_loads_removed_commands": 0,
+  "removed_sibling_input_bytes": 0,
+  "removed_transfer_bytes": 144128,
+  "run_contracts": {
+    "10": {
+      "first_element": 0,
+      "fused_activation_layer": 2,
+      "fused_table_sha256": "0575944dbc9f38900c5b77db832c31c98203dcbe407ebf282c631e6b2d19ef9b",
+      "layer": 1
+    },
+    "106": {
+      "first_element": 0,
+      "fused_activation_layer": 18,
+      "fused_table_sha256": "d9b82cb4322bd4ef221b8ba2c501cb32096cdb37034b0f4da7f8cee0ca27771f",
+      "layer": 17
+    },
+    "114": {
+      "first_element": 0,
+      "layer": 19
+    },
+    "124": {
+      "first_element": 0,
+      "layer": 21
+    },
+    "22": {
+      "first_element": 0,
+      "fused_activation_layer": 4,
+      "fused_table_sha256": "12e8da1be2542a62eb7732bddda9297be622dacf19db7f0953e862e8590a956b",
+      "layer": 3
+    },
+    "34": {
+      "first_element": 0,
+      "fused_activation_layer": 6,
+      "fused_table_sha256": "763c4de52148ac8da8e42c8875ec7c940da183e9fd8a6fd41caa8aa732fa7497",
+      "layer": 5
+    },
+    "46": {
+      "first_element": 0,
+      "fused_activation_layer": 8,
+      "fused_table_sha256": "aa953a38c6d19eb139629b09c0478110efdbc413030c682c028de22e49d6cdda",
+      "layer": 7
+    },
+    "58": {
+      "first_element": 0,
+      "fused_activation_layer": 10,
+      "fused_table_sha256": "325686cac0c801eb8891215c053c3170c7f8dda17709f9df5ca3b490bc7f1f9c",
+      "layer": 9
+    },
+    "70": {
+      "first_element": 0,
+      "fused_activation_layer": 12,
+      "fused_table_sha256": "9356a6e387a64124ddce7e4f91624df94b48a2d6d276111a33c561dedeee13ab",
+      "layer": 11
+    },
+    "82": {
+      "first_element": 0,
+      "fused_activation_layer": 14,
+      "fused_table_sha256": "7ea7b7ec0ba8eb73ebc41f04e8ee4b45b800297423b1d56c16a6dc7f009157fb",
+      "layer": 13
+    },
+    "94": {
+      "first_element": 0,
+      "fused_activation_layer": 16,
+      "fused_table_sha256": "49970a5ae2f8e452c22c4d6d5155ce50a1ac405a3e14920b2e03ae0e73ffd0ea",
+      "layer": 15
+    }
+  },
+  "schema": 1,
+  "sibling_input_retention": true,
+  "snapshot_regions": {
+    "10": {
+      "bytes": 8000,
+      "ext": 124080
+    },
+    "12": {
+      "bytes": 8000,
+      "ext": 140080
+    },
+    "14": {
+      "bytes": 8000,
+      "ext": 156080
+    },
+    "16": {
+      "bytes": 8000,
+      "ext": 172080
+    },
+    "18": {
+      "bytes": 8000,
+      "ext": 188080
+    },
+    "19": {
+      "bytes": 64,
+      "ext": 196080
+    },
+    "2": {
+      "bytes": 8000,
+      "ext": 60080
+    },
+    "21": {
+      "bytes": 12,
+      "ext": 196144
+    },
+    "4": {
+      "bytes": 8000,
+      "ext": 76080
+    },
+    "6": {
+      "bytes": 8000,
+      "ext": 92080
+    },
+    "8": {
+      "bytes": 8000,
+      "ext": 108080
+    }
+  },
+  "snapshots_enabled": true,
+  "stages": [
+    {
+      "descriptor_hex": "55534432020400008000000070020000b0210000b02b000028000000401f000028000000400000000a00040002000200040005000100010031000a0001004000",
+      "first_element": 0,
+      "fused_activation_layer": 2,
+      "group": 1,
+      "inplace": false,
+      "layer": 1,
+      "live": [
+        0,
+        12464
+      ],
+      "loads": [
+        {
+          "bytes": 128,
+          "direction": "to_sram",
+          "ext": 201024,
+          "role": "descriptor",
+          "sram": 0
+        },
+        {
+          "bytes": 490,
+          "direction": "to_sram",
+          "ext": 0,
+          "role": "input",
+          "sram": 128
+        },
+        {
+          "bytes": 2560,
+          "direction": "to_sram",
+          "ext": 16000,
+          "role": "parameter",
+          "sram": 8624
+        },
+        {
+          "bytes": 1024,
+          "direction": "to_sram",
+          "ext": 18560,
+          "role": "parameter",
+          "sram": 11184
+        },
+        {
+          "bytes": 256,
+          "direction": "to_sram",
+          "ext": 198720,
+          "role": "parameter",
+          "sram": 12208
+        }
+      ],
+      "output": {
+        "bytes": 8000,
+        "sram": 624
+      },
+      "pc": 0,
+      "store": null
+    },
+    {
+      "descriptor_hex": "555344320206000070020000b0210000f0400000f044000009000000401f00001000000040000000030003000100010001000100010001001900050040004000",
+      "first_element": 0,
+      "fused_activation_layer": 4,
+      "group": 3,
+      "inplace": false,
+      "layer": 3,
+      "live": [
+        0,
+        18928
+      ],
+      "loads": [
+        {
+          "bytes": 128,
+          "direction": "to_sram",
+          "ext": 201152,
+          "role": "descriptor",
+          "sram": 0
+        },
+        {
+          "bytes": 1024,
+          "direction": "to_sram",
+          "ext": 19600,
+          "role": "parameter",
+          "sram": 16624
+        },
+        {
+          "bytes": 1024,
+          "direction": "to_sram",
+          "ext": 20624,
+          "role": "parameter",
+          "sram": 17648
+        },
+        {
+          "bytes": 256,
+          "direction": "to_sram",
+          "ext": 198976,
+          "role": "parameter",
+          "sram": 18672
+        }
+      ],
+      "output": {
+        "bytes": 8000,
+        "sram": 8624
+      },
+      "pc": 0,
+      "store": null
+    },
+    {
+      "descriptor_hex": "5553443202040000b021000080000000f0400000f050000040000000401f00004000000040000000010001000100010000000000000000001900050040004000",
+      "first_element": 0,
+      "fused_activation_layer": 6,
+      "group": 5,
+      "inplace": false,
+      "layer": 5,
+      "live": [
+        0,
+        22000
+      ],
+      "loads": [
+        {
+          "bytes": 128,
+          "direction": "to_sram",
+          "ext": 201280,
+          "role": "descriptor",
+          "sram": 0
+        },
+        {
+          "bytes": 4096,
+          "direction": "to_sram",
+          "ext": 21664,
+          "role": "parameter",
+          "sram": 16624
+        },
+        {
+          "bytes": 1024,
+          "direction": "to_sram",
+          "ext": 25760,
+          "role": "parameter",
+          "sram": 20720
+        },
+        {
+          "bytes": 256,
+          "direction": "to_sram",
+          "ext": 199232,
+          "role": "parameter",
+          "sram": 21744
+        }
+      ],
+      "output": {
+        "bytes": 8000,
+        "sram": 128
+      },
+      "pc": 0,
+      "store": null
+    },
+    {
+      "descriptor_hex": "555344320206000080000000c01f0000003f00000043000009000000401f00001000000040000000030003000100010001000100010001001900050040004000",
+      "first_element": 0,
+      "fused_activation_layer": 8,
+      "group": 7,
+      "inplace": false,
+      "layer": 7,
+      "live": [
+        0,
+        18432
+      ],
+      "loads": [
+        {
+          "bytes": 128,
+          "direction": "to_sram",
+          "ext": 201408,
+          "role": "descriptor",
+          "sram": 0
+        },
+        {
+          "bytes": 1024,
+          "direction": "to_sram",
+          "ext": 26800,
+          "role": "parameter",
+          "sram": 16128
+        },
+        {
+          "bytes": 1024,
+          "direction": "to_sram",
+          "ext": 27824,
+          "role": "parameter",
+          "sram": 17152
+        },
+        {
+          "bytes": 256,
+          "direction": "to_sram",
+          "ext": 199488,
+          "role": "parameter",
+          "sram": 18176
+        }
+      ],
+      "output": {
+        "bytes": 8000,
+        "sram": 8128
+      },
+      "pc": 0,
+      "store": null
+    },
+    {
+      "descriptor_hex": "5553443202040000c01f000080000000003f0000004f000040000000401f00004000000040000000010001000100010000000000000000001900050040004000",
+      "first_element": 0,
+      "fused_activation_layer": 10,
+      "group": 9,
+      "inplace": false,
+      "layer": 9,
+      "live": [
+        0,
+        21504
+      ],
+      "loads": [
+        {
+          "bytes": 128,
+          "direction": "to_sram",
+          "ext": 201536,
+          "role": "descriptor",
+          "sram": 0
+        },
+        {
+          "bytes": 4096,
+          "direction": "to_sram",
+          "ext": 28864,
+          "role": "parameter",
+          "sram": 16128
+        },
+        {
+          "bytes": 1024,
+          "direction": "to_sram",
+          "ext": 32960,
+          "role": "parameter",
+          "sram": 20224
+        },
+        {
+          "bytes": 256,
+          "direction": "to_sram",
+          "ext": 199744,
+          "role": "parameter",
+          "sram": 21248
+        }
+      ],
+      "output": {
+        "bytes": 8000,
+        "sram": 128
+      },
+      "pc": 0,
+      "store": null
+    },
+    {
+      "descriptor_hex": "555344320206000080000000c01f0000003f00000043000009000000401f00001000000040000000030003000100010001000100010001001900050040004000",
+      "first_element": 0,
+      "fused_activation_layer": 12,
+      "group": 11,
+      "inplace": false,
+      "layer": 11,
+      "live": [
+        0,
+        18432
+      ],
+      "loads": [
+        {
+          "bytes": 128,
+          "direction": "to_sram",
+          "ext": 201664,
+          "role": "descriptor",
+          "sram": 0
+        },
+        {
+          "bytes": 1024,
+          "direction": "to_sram",
+          "ext": 34000,
+          "role": "parameter",
+          "sram": 16128
+        },
+        {
+          "bytes": 1024,
+          "direction": "to_sram",
+          "ext": 35024,
+          "role": "parameter",
+          "sram": 17152
+        },
+        {
+          "bytes": 256,
+          "direction": "to_sram",
+          "ext": 200000,
+          "role": "parameter",
+          "sram": 18176
+        }
+      ],
+      "output": {
+        "bytes": 8000,
+        "sram": 8128
+      },
+      "pc": 0,
+      "store": null
+    },
+    {
+      "descriptor_hex": "5553443202040000c01f000080000000003f0000004f000040000000401f00004000000040000000010001000100010000000000000000001900050040004000",
+      "first_element": 0,
+      "fused_activation_layer": 14,
+      "group": 13,
+      "inplace": false,
+      "layer": 13,
+      "live": [
+        0,
+        21504
+      ],
+      "loads": [
+        {
+          "bytes": 128,
+          "direction": "to_sram",
+          "ext": 201792,
+          "role": "descriptor",
+          "sram": 0
+        },
+        {
+          "bytes": 4096,
+          "direction": "to_sram",
+          "ext": 36064,
+          "role": "parameter",
+          "sram": 16128
+        },
+        {
+          "bytes": 1024,
+          "direction": "to_sram",
+          "ext": 40160,
+          "role": "parameter",
+          "sram": 20224
+        },
+        {
+          "bytes": 256,
+          "direction": "to_sram",
+          "ext": 200256,
+          "role": "parameter",
+          "sram": 21248
+        }
+      ],
+      "output": {
+        "bytes": 8000,
+        "sram": 128
+      },
+      "pc": 0,
+      "store": null
+    },
+    {
+      "descriptor_hex": "555344320206000080000000c01f0000003f00000043000009000000401f00001000000040000000030003000100010001000100010001001900050040004000",
+      "first_element": 0,
+      "fused_activation_layer": 16,
+      "group": 15,
+      "inplace": false,
+      "layer": 15,
+      "live": [
+        0,
+        18432
+      ],
+      "loads": [
+        {
+          "bytes": 128,
+          "direction": "to_sram",
+          "ext": 201920,
+          "role": "descriptor",
+          "sram": 0
+        },
+        {
+          "bytes": 1024,
+          "direction": "to_sram",
+          "ext": 41200,
+          "role": "parameter",
+          "sram": 16128
+        },
+        {
+          "bytes": 1024,
+          "direction": "to_sram",
+          "ext": 42224,
+          "role": "parameter",
+          "sram": 17152
+        },
+        {
+          "bytes": 256,
+          "direction": "to_sram",
+          "ext": 200512,
+          "role": "parameter",
+          "sram": 18176
+        }
+      ],
+      "output": {
+        "bytes": 8000,
+        "sram": 8128
+      },
+      "pc": 0,
+      "store": null
+    },
+    {
+      "descriptor_hex": "5553443202040000c01f000080000000003f0000004f000040000000401f00004000000040000000010001000100010000000000000000001900050040004000",
+      "first_element": 0,
+      "fused_activation_layer": 18,
+      "group": 17,
+      "inplace": false,
+      "layer": 17,
+      "live": [
+        0,
+        21504
+      ],
+      "loads": [
+        {
+          "bytes": 128,
+          "direction": "to_sram",
+          "ext": 202048,
+          "role": "descriptor",
+          "sram": 0
+        },
+        {
+          "bytes": 4096,
+          "direction": "to_sram",
+          "ext": 43264,
+          "role": "parameter",
+          "sram": 16128
+        },
+        {
+          "bytes": 1024,
+          "direction": "to_sram",
+          "ext": 47360,
+          "role": "parameter",
+          "sram": 20224
+        },
+        {
+          "bytes": 256,
+          "direction": "to_sram",
+          "ext": 200768,
+          "role": "parameter",
+          "sram": 21248
+        }
+      ],
+      "output": {
+        "bytes": 8000,
+        "sram": 128
+      },
+      "pc": 0,
+      "store": null
+    },
+    {
+      "descriptor_hex": "555344320207000080000000c01f00000000000000200000401f0000400000000000000040000000190005001900050000000000000000001900050040004000",
+      "first_element": 0,
+      "group": 19,
+      "inplace": false,
+      "layer": 19,
+      "live": [
+        0,
+        8208
+      ],
+      "loads": [
+        {
+          "bytes": 128,
+          "direction": "to_sram",
+          "ext": 198464,
+          "role": "descriptor",
+          "sram": 0
+        },
+        {
+          "bytes": 16,
+          "direction": "to_sram",
+          "ext": 48400,
+          "role": "parameter",
+          "sram": 8192
+        }
+      ],
+      "output": {
+        "bytes": 64,
+        "sram": 8128
+      },
+      "pc": 0,
+      "store": null
+    },
+    {
+      "descriptor_hex": "5553443202010000c01f0000800000009000000090030000400000000c0000004000000040000000010001000100010000000000000000000100010001000100",
+      "first_element": 0,
+      "group": 21,
+      "inplace": false,
+      "layer": 21,
+      "live": [
+        0,
+        8192
+      ],
+      "loads": [
+        {
+          "bytes": 128,
+          "direction": "to_sram",
+          "ext": 198592,
+          "role": "descriptor",
+          "sram": 0
+        },
+        {
+          "bytes": 768,
+          "direction": "to_sram",
+          "ext": 48416,
+          "role": "parameter",
+          "sram": 144
+        },
+        {
+          "bytes": 192,
+          "direction": "to_sram",
+          "ext": 49184,
+          "role": "parameter",
+          "sram": 912
+        }
+      ],
+      "output": {
+        "bytes": 12,
+        "sram": 128
+      },
+      "pc": 0,
+      "store": {
+        "bytes": 12,
+        "direction": "from_sram",
+        "ext": 8000,
+        "sram": 128
+      }
+    }
+  ],
+  "tail_prefetch": {
+    "bytes": 7424,
+    "transfers": 11
+  },
+  "tile_choices": {}
+}

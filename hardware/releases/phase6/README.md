@@ -1,8 +1,19 @@
-# Phase 6 boardless candidates
+# Phase 6 releases
+
+The current fastest board-tested KWS/VWW implementation is the
+[selected 27 MHz release](selected/README.md): cached-weight co-issue engine,
+256-byte UART bridge at 750,000 baud, exact dense KWS and optimized B3 VWW
+programs. Its matched screen passes 14/14 executions and measures 41.450 ms KWS
+and 79.898 ms VWW device time. The release includes the tested compressed image,
+four pinned/stress fixtures, source/fixture manifest, signed physical evidence
+and new native validation. Use `make p6-selected-check` and
+`make p6-selected-native` from the repository root with the configured Python.
+
+## Earlier boardless candidates
 
 These gzip-compressed Gowin images pass synthesis, placement, routing and the
-existing 20.25 MHz timing constraints. Neither has been tested on the physical
-board. Do not replace an image while a Phase 5 campaign is running.
+existing 20.25 MHz timing constraints. Neither of these two original images was
+board-tested in this milestone.
 
 | File | Uncompressed SHA256 | Core Fmax |
 |---|---|---:|

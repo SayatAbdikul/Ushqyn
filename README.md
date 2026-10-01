@@ -2,17 +2,24 @@
 
 > *Ushqyn* — Kazakh for **spark**: tiny, energetic, the genesis of fire.
 
-An INT8 TinyML accelerator targeting the Tang Nano 20K. The reset-corrected
-G3 on-chip release passed MLP → SmallCNN → MLP with 1,000 exact jobs per stage
-and a separate 10,000-image SmallCNN run with every INT8 output matched.
-Phase 4's autonomous SDRAM-connected release passes G4: all 22 KWS and 58 VWW
-nodes match the independent oracle on one bitstream, with compiler-managed
-ping-pong and 64-byte bursts. Median on-device execution is 280.94 ms for KWS
-and 903.75 ms for VWW, including DMA and scheduling. Complete-set primary-model
-accuracy, matched research baselines and measured board energy remain open. See the
+An INT8 TinyML accelerator targeting the Tang Nano 20K. The selected KWS/VWW
+release uses a 27 MHz cached-weight co-issue engine, compiler-managed retention,
+SDRAM DMA and a 256-byte UART bridge at 750,000 baud. Its matched board screen
+passes **14/14 exact executions**, with median device execution of **41.450 ms
+KWS** and **79.898 ms VWW**. The
+[selected release](hardware/releases/phase6/selected/README.md) includes the tested
+image, source and fixture hashes, build recipe and fresh native validation.
+These measurements exclude host loading/readback and remain short-screen results.
+Full endurance, board energy and a new architectural contribution remain open.
+
+The earlier reset-corrected G3 on-chip release separately passed MLP → SmallCNN →
+MLP with 1,000 exact jobs per stage and a 10,000-image SmallCNN run. The Phase 4
+release established exact autonomous SDRAM execution of all 22 KWS and 58 VWW
+nodes. See the
 [Phase 3 board closure](docs/research/PHASE_3_CLOSURE.md),
 [Phase 4 status](docs/research/PHASE_4_STATUS.md),
 [Phase 5 status](docs/research/PHASE_5_STATUS.md),
+[Phase 6 status](docs/research/PHASE_6_STATUS.md),
 [Phase 3 SmallCNN record](docs/research/PHASE_3_STATUS.md) and
 [research roadmap](docs/RESEARCH_ROADMAP.md).
 
@@ -22,12 +29,34 @@ accuracy, matched research baselines and measured board energy remain open. See 
 |---|---|---|---|
 | **MLP** (784→12→32→10 MNIST) | 94.84% static INT8 on 10K | 1,000 exact jobs in Phase 2; retained in current RTL | Two 1,000-job stages exact; 7,316 core cycles |
 | **SmallCNN** (Conv→Pool→Conv→Pool→FC) | 96.40% static INT8 on 10K | 10,000 exact jobs, eight layer boundaries checked | Full 10K set + 1K repeated jobs exact; 96.40% accuracy; 118,267 core cycles |
-| **KWS / VWW** | Full-set software INT8 quality recorded | One deterministic input per real model, all 22/58 node outputs exact through tiled RTL with abstract external memory | One input/model, all 22/58 nodes exact on the same autonomous image; full-model DMA overlap measured; G4 passed |
+| **KWS / VWW** | Full-set software INT8 quality recorded | Selected engine runs pinned/stress fixtures with fixed and sampled stalled RAM; original layer-oracle evidence retained | Selected 27 MHz image: 14/14 matched exact executions, 41.450 ms KWS / 79.898 ms VWW; short-screen qualification |
 
 The current SmallCNN result uses an independent centered-integer oracle,
 source-hashed RTL and a separately calibrated 10,000-image quality evaluation.
 The [physical workflow](hardware/PHYSICAL.md) separates device counters,
 host latency and remaining measurement/architecture work.
+
+## Selected accelerator
+
+From the repository root:
+
+```bash
+make p6-selected-check PYTHON="$PWD/.venv/bin/python3"
+make p6-selected-native PYTHON="$PWD/.venv/bin/python3"
+```
+
+The first command extracts the pinned bitstream and local generated SDRAM IP,
+then verifies all 18 physical source identities, four fixtures and the signed
+board records. The second builds the selected RTL and runs KWS/VWW pinned/stress
+inputs with fixed RAM and stalled seed 6063. Neither command accesses the board.
+The extracted image is `work/phase6/selected-release/selected_27mhz.fs`; a fresh
+Gowin build uses `hardware/phase6/build_selected27.tcl`. Follow the
+[release instructions](hardware/releases/phase6/selected/README.md) for identity
+checks and the distinction between the tested image and a newly routed build.
+
+The latest [implementation decision round](docs/research/PHASE_6_IMPLEMENTATION_DECISION_ROUND_2026_10_01.md)
+keeps factorization and resident-preemption experiments as research evidence.
+The selected release uses the original validated dense programs.
 
 ## Historical v1 architecture
 
@@ -48,7 +77,7 @@ the active accelerator.
 
 ### Run the CI tier (no simulator required)
 ```bash
-make ci PYTHON=/absolute/path/to/.venv/bin/python3  # 121 compiler tests + generated-file checks
+make ci PYTHON=/absolute/path/to/.venv/bin/python3  # compiler, generated-file and selected-release checks
 make help       # full target list
 ```
 

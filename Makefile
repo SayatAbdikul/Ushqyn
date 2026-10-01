@@ -44,15 +44,18 @@ help:
 	@echo "  p6-check       Boardless scheduler, semantics and command checks"
 	@echo "  p6-boardless   Pinned KWS/VWW candidate and spatial experiments"
 	@echo "  p6-rtl         Isolated candidate sequencer/engine/DMA simulation"
+	@echo "  p6-selected-check   Verify selected 27 MHz sources, fixtures and image"
+	@echo "  p6-selected-native  Eight exact selected-release RTL runs (no board)"
+	@echo "  p6-selected-extract Extract the pinned image and local SDRAM IP"
 	@echo "  heavy-test     Full MLP MNIST cocotb test (requires Verilator)"
 	@echo "                 Pass NUM_IMAGES=N to test N images (default: 2 here)."
 	@echo "  clean          Remove generated artifacts and caches"
 
 # ── CI tier (no simulator) ───────────────────────────────────────────────────
 
-ci: test-compiler check-isa check-v2-target
+ci: test-compiler check-isa check-v2-target p6-selected-check
 	@echo ""
-	@echo "✓ CI tier passed (compiler pytest + ISA/target --check)"
+	@echo "✓ CI tier passed (compiler pytest + ISA/target + selected-release checks)"
 
 test-compiler:
 	cd compiler && $(PYTHON) -m pytest \
@@ -87,6 +90,17 @@ p6-boardless:
 
 p6-rtl:
 	$(PYTHON) tools/phase6/run_rtl.py
+
+# Current board-tested KWS/VWW release. These targets never access the board.
+.PHONY: p6-selected-check p6-selected-native p6-selected-extract
+p6-selected-extract:
+	$(PYTHON) tools/phase6/selected_release.py materialize
+
+p6-selected-check: p6-selected-extract
+	$(PYTHON) tools/phase6/selected_release.py verify
+
+p6-selected-native: p6-selected-extract
+	$(PYTHON) tools/phase6/selected_release.py native
 
 .PHONY: p6-opt-fixtures p6-opt-native p6-opt-search p6-opt-audit
 p6-opt-fixtures:
